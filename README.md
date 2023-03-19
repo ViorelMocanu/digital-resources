@@ -1,5 +1,5 @@
 # Resurse digitale
-Proiectul de resurse digitale, prin care transformăm link-urile din Google Doc-ul ăsta https://bit.ly/vio-digital într-un website funcțional care să ajute oamenii să parcurgă resursele mai eficient.
+Proiectul de resurse digitale, prin care transformăm link-urile din Google Doc-ul ăsta https://bit.ly/vio-digital într-un website funcțional care să ajute oamenii să parcurgă resursele mai eficient. Găsiți toată seria de video-uri 🔴LIVE de pe YouTube în care am generat codul pentru acest proiect aici: https://youtube.com/playlist?list=PLfTqvIG4roBphVLnYuDTkfweQ2GmmcHOq
 
 ## Link-uri utile
 1. Lista de resurse generale https://bit.ly/vio-digital
