@@ -1,0 +1,112 @@
+/* CSS Variables */
+:root {
+	--dark-100: #030303;
+	--dark-200: #222222;
+	--dark-300: #333333;
+	--light-800: #FDFDFD;
+	--light-900: #ffffff;
+	--accent-400: #2f8ded;
+}
+
+@font-face {
+	font-family: 'Atkinson Hyperlegible';
+	font-style: normal;
+	font-weight: normal;
+	font-display: swap;
+	src: url('atkinson-hyperlegible-regular.woff2') format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+	font-family: 'Atkinson Hyperlegible';
+	font-style: normal;
+	font-weight: bold;
+	font-display: swap;
+	src: url('atkinson-hyperlegible-bold.woff2') format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Custom CSS reset */
+html { font-family: 'Atkinson Hyperlegible', 'Inter', 'Roboto', 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif; font-size: 16px; line-height: 1.25; -webkit-text-size-adjust: 100%; }
+body { background: var(--dark-100); color: var(--light-800); margin: 0; }
+img { max-width: 100%; border-style: none; } // max-inline-size: 100%; block-size: auto;
+table { border-collapse: collapse; }
+textarea { white-space: revert; }
+abbr[title] { border-bottom: none;  text-decoration: underline;  text-decoration: underline dotted; }
+button, input, optgroup, select, textarea { font-family: inherit; font-size: 1rem; line-height: 1.25; margin: 0; }
+button, input { overflow: visible; }
+[hidden], .Hidden { display: none; }
+a { color: var(--light-800); text-decoration: underline; }
+a:hover { color: var(--accent-400); }
+a:active { color: var(--light-800); text-decoration: none; }
+
+/* Utility classes */
+.SROnly { clip: rect(1px, 1px, 1px, 1px); clip-path: inset(50%); height: 1px; width: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; }
+a#skip { clip: rect(1px, 1px, 1px, 1px); clip-path: inset(50%); height: 1px; width: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; }
+a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; height: auto; }
+.Icon {  }
+
+/* Structural classes */
+.Framework {
+	@media (min-width: 1100px) { margin: 1rem; border: 1px solid var(--light-900); }
+}
+	.Header {
+		@media (min-width: 1100px) { position: sticky; top: 0; background: var(--dark-100); }
+	}
+		.HeaderMain { display: flex; flex-direction: row; border-bottom: 1px solid var(--light-900); flex-wrap: wrap;
+			@media (min-width: 1100px) { flex-direction: row; gap: 1rem; }
+		}
+			.LanguagePicker { width: 100%; padding: 0.5rem 0.5rem 0; background: var(--dark-200); font-size: 1rem; line-height: 1.5em;
+				@media (min-width: 1100px) { order: 2; width: auto; padding: 0; margin-left: auto; background: transparent; }
+			}
+				.LanguagePickerList { display: flex; flex-direction: row; gap: 1rem; margin: 0; padding: 0; list-style-type: none; }
+					.LanguagePickerItem { display: block; }
+						.LanguagePickerLink { display: flex; flex-direction: row; gap: 0.25rem; padding: 0.5rem; text-decoration: none; background: var(--dark-300); opacity: 0.5;
+							@media (min-width: 1100px) { padding: 1.125rem 1rem; background: transparent; }
+						}
+						.LanguagePickerLink:hover { background: var(--accent-400); color: var(--dark-100); }
+						.Active .LanguagePickerLink { background: var(--dark-100); opacity: 1; }
+						.Active .LanguagePickerLink:hover { background: var(--dark-100); color: var(--accent-400); }
+							.LinkText { display: block; }
+			.MenuTrigger { display: block; padding: 0.75rem; background: transparent; border: none; text-align: center;
+				@media (min-width: 1100px) { display: none; }
+			}
+				.MenuTrigger .Icon { display: block; width: 1.5rem; height: 1.5rem; }
+			.Logo { display: block; padding: 0.75rem 0; font-size: 1.5rem; line-height: 1em; font-weight: bold; text-decoration: none;
+				@media (min-width: 1100px) { order: 1; padding: 0.75rem 1rem; font-size: 2.25rem; line-height: 1em; }
+			}
+				.Logo .LinkText {  }
+			.HeaderLink { display: flex; flex-direction: row; align-items: center; gap: 0.25rem; padding: 0.75rem; margin-left: auto; background: transparent; border: none; text-decoration: none;
+				@media (min-width: 1100px) { order: 3; padding: 1.125rem 1rem; margin-left: unset; }
+			}
+				.HeaderLink .Icon { display: block; width: 1.5rem; height: 1.5rem; }
+				.HeaderLink .LinkText { font-size: 1rem; line-height: 1.5em; }
+			.Login {  }
+		.Breadcrumbs { padding: 0 0.5rem; border-bottom: 1px solid var(--light-900);
+			@media (min-width: 1100px) { padding: 0 1rem; }
+		}
+			.BreadcrumbList { display: flex; flex-direction: row; gap: 0.5rem; margin: 0; padding: 0; list-style-type: none; overflow-x: auto; }
+				.BreadcrumbItem { display: flex; flex-direction: row; }
+				.BreadcrumbItem:after { display: block; content: '\21E8'; margin: 0 0 0 0.5rem; padding: 0.5rem 0;
+					@media (min-width: 1100px) { padding: 1rem 0; }
+				}
+				.BreadcrumbItem:last-of-type:after { display: none; }
+					.BreadcrumbLink { display: block; text-decoration: none; }
+						.BreadcrumbItem span { display: block; padding: 0.5rem 0; white-space: nowrap;
+							@media (min-width: 1100px) { padding: 1rem 0; }
+						}
+	.Hero { min-height: 20rem; background: magenta; }
+	/* pe h1 să punem un font-size: clamp(1.00rem, calc(0.49rem + 2.56vw), 2.25rem); */
+	.Main { min-height: 200rem; background: yellow; }
+	.Footer { min-height: 2rem; background: blue; }
+	.BottomNav {  }
+
+    // ! Light&Dark theme btn
+
+    i{font-size: 150px; cursor: pointer; position: absolute; top: 50%;left: 50%; transform: translate(-50%, -50%); }
+        
+        
+       
+       
+        
+       
+ 
