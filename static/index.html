@@ -41,7 +41,7 @@
 		<meta name="apple-touch-fullscreen" content="yes" />
 		<meta name="theme-color" content="#fde24f" />
 		<link rel="preload" href="@TODO" as="font" type="font/woff2" crossorigin />
-		<link rel="stylesheet" href="style.css" media="all" />
+		<link rel="stylesheet" href="style/style.css" media="all" />
 	</head>
 	<body>
 		<a id="skip" href="#hero" title="Mergi direct la conținutul acestei pagini">Mergi la conținut</a>
@@ -64,8 +64,12 @@
 							</li>
 						</ul>
 					</nav>
-					<button class="MenuTrigger" type="button">
-						<icon class="Icon Hamburger">🍔</icon>
+					<button class="MenuTrigger" type="button" id="menuTrigger">
+						<icon class="Icon Hamburger">
+							<span class="HamburgerBar HamburgerBar1">&nbsp;</span>
+							<span class="HamburgerBar HamburgerBar2">&nbsp;</span>
+							<span class="HamburgerBar HamburgerBar3">&nbsp;</span>
+						</icon>
 						<span class="SROnly">Deschide meniul principal</span>
 					</button>
 					<a class="Logo" href="#" title="Mergi la prima pagină a proiectului Resurse.dev">
@@ -75,6 +79,48 @@
 						<icon class="Icon User">👤</icon>
 						<span class="LinkText">Login</span>
 					</a>
+					<nav class="MainMenu">
+						<ul class="MainMenuList">
+							<li class="MainMenuItem Active">
+								<a class="MainMenuLink" href="#" title="Vezi exclusiv lista de resurse de Front End Development">
+									<span class="LinkText">Front End</span>
+								</a>
+							</li>
+							<li class="MainMenuItem">
+								<a class="MainMenuLink" href="#" title="Vezi exclusiv lista de resurse de Back End Development">
+									<span class="LinkText">Back End</span>
+								</a>
+							</li>
+							<li class="MainMenuItem">
+								<a class="MainMenuLink" href="#" title="Vezi exclusiv lista de resurse de Design">
+									<span class="LinkText">Design</span>
+								</a>
+							</li>
+							<li class="MainMenuItem">
+								<a class="MainMenuLink" href="#" title="Vezi exclusiv lista de resurse de Marketing">
+									<span class="LinkText">Marketing</span>
+								</a>
+							</li>
+							<li class="MainMenuItem">
+								<a class="MainMenuLink" href="#" title="Vezi exclusiv lista de resurse de Network &amp; Security">
+									<span class="LinkText">NetSec</span>
+								</a>
+							</li>
+							<li class="MainMenuItem">
+								<a class="MainMenuLink" href="#" title="Vezi exclusiv lista de resurse pe alte domenii">
+									<span class="LinkText">Altele</span>
+								</a>
+							</li>
+						</ul>
+						<form class="SearchForm Form" action="#" method="get">
+							<fieldset class="Fieldset">
+								<legend class="SROnly">Caută în Resurse.dev</legend>
+								<label class="Label" for="s">Introdu cuvintele căutate:</label>
+								<input type="search" class="Input InputSearch" id="s" name="s" maxlength="200" value="" placeholder="🔍 Caută resurse de orice fel..." spellcheck="false" autocorrect="off" results="10" />
+								<button type="submit" class="SROnly">Caută acum &raquo;</button>
+							</fieldset>
+						</form>
+					</nav>
 				</div>
 				<nav class="Breadcrumbs">
 					<ol class="BreadcrumbList" itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -92,11 +138,28 @@
 				</nav>
 			</header>
 			<div class="Hero" id="hero">
-				
+				<div class="HeroVisual">
+					<img class="HeroImage" src="img/hero-image.svg" width="287" height="120" alt="Tehnologiile de bază ale Internetului: HTML, CSS și JavaScript" />
+				</div>
+				<div class="HeroText">
+					<h1 class="HeroTitle">Resurse de Front End Development</h1>
+					<details class="HeroDetails">
+						<summary class="HeroPreview">
+							<p class="HeroP">Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+							<p class="HeroP"><span class="HeroExpand Link" title="Afișează întreg textul descriptiv pentru resursele de Front End Development">Citește mai mult &raquo;</span></p>
+						</summary>
+						<div class="HeroContent">
+							<p class="HeroP">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+							<p class="HeroP">The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+							<p class="HeroP">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+						</div>
+					</details>
+				</div>
 			</div>
 			<main class="Main"></main>
 			<footer class="Footer"></footer>
 			<nav class="BottomNav"></nav>
 		</div>
+		<script type="text/javascript" src="js/script.js"></script>
 	</body>
 </html>
