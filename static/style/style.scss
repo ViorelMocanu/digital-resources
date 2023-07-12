@@ -4,6 +4,7 @@
 	--dark-200: #222222;
 	--dark-300: #333333;
 	--dark-400: #4f4f4f;
+	--light-600: #bdbdbd;
 	--light-800: #FDFDFD;
 	--light-900: #ffffff;
 	--accent-400: #2f8ded;
@@ -70,9 +71,8 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 	@media (min-width: $desktop) { margin: 1rem; border: 1px solid var(--light-900); }
 }
 	.Header { position: sticky; top: 0; z-index: 10; background: var(--dark-100); transition: top 0.25s ease-in; }
-	.ScrollDown .Header { top: -9rem; }
-		/* @TODO: trebuie sa facem exclusiv HeaderMain sticky, nu tot parintele Header */
-		/* @TODO: trebuie ca headerul să devină vizibil doar când se scrollează în sus */
+	.ScrollDown .Header { top: -11rem; }
+		/* @TODO: NICE trebuie sa facem exclusiv HeaderMain sticky, nu tot parintele Header */
 		.HeaderMain { display: flex; flex-direction: row; border-bottom: 1px solid var(--light-900); flex-wrap: wrap;
 			@media (min-width: $desktop) { display: grid; grid-template-columns: auto 1fr; row-gap: 0; column-gap: 1rem; }
 		}
@@ -150,7 +150,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 		@media (min-width: 600px) { max-width: 37.5rem; margin: 0 auto; gap: 1rem; padding: 2rem 1rem 1rem; }
 		@media (min-width: $desktop) { max-width: unset; margin: unset; flex-direction: row; gap: 0; padding: 0; }
 	}
-	/* @TODO: pe h1 să punem un font-size: clamp(1.00rem, calc(0.49rem + 2.56vw), 2.25rem); */
+	/* @TODO: NICE pe h1 să punem un font-size: clamp(1.00rem, calc(0.49rem + 2.56vw), 2.25rem); */
 		.HeroVisual {
 			@media (min-width: $desktop) { flex-grow: 1; flex-shrink: 0; width: 37.5%; padding: 2rem; box-sizing: border-box; border-right: 1px solid var(--light-900); }
 		}
@@ -174,12 +174,16 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 					.HeroPreview:active .HeroExpand { color: var(--light-800); text-decoration: none; }
 				.HeroContent {  }
 					.HeroContent .HeroP {  }
-	.Main { display: block; margin: 1rem; border: 1px solid var(--light-900); }
-		.SortAndFilter { display: flex; flex-direction: column; position: sticky; top: 8.3125rem; transition: top 0.25s ease-in; }
+	.Main { display: block; margin: 1rem; border: 1px solid var(--light-900);
+		@media (min-width: $desktop) { display: grid; grid-template-columns: 3fr 1fr; }
+	}
+		.SortAndFilter { display: flex; flex-direction: column; position: sticky; z-index: 10; top: 8.3125rem; transition: top 0.25s ease-in;
+			@media (min-width: $desktop) { display: grid; grid-template-columns: 2fr 1fr; grid-row: 1 / span 1; grid-column: 1 / span 1; top: 10.67rem; border-right: 1px solid var(--light-900); }
+		}
 		.ScrollDown .SortAndFilter { top: 0; }
 			.SortAndFilter .Fieldset { display: flex; flex-direction: row; min-inline-size: unset; position: relative; border-bottom: 1px solid var(--dark-100); }
 				.SortAndFilter .Label {  }
-				.SortAndFilter .InputSearch { width: 100%; margin: 0; padding: 0.5rem; }
+				.SortAndFilter .InputSearch { width: 100%; margin: 0; padding: 0.5rem; max-width: unset; text-align: left; }
 				.FilterOptions { flex-grow: 1; background: var(--dark-100); border-bottom: 1px solid var(--light-900); cursor: pointer; }
 				.FilterOptions:first-of-type { border-right: 1px solid var(--light-900); }
 					.FilterTrigger { display: flex; flex-direction: row; justify-content: center; gap: 0.25rem; padding: 0.5rem; font-size: 1rem; line-height: 1.5em; user-select: none; }
@@ -195,72 +199,167 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 								.FilterOptionRadio {  }
 								.FilterOptionLabel .Icon { width: 1.5rem; height: 1.5rem; text-align: center; line-height: 1.5rem; }
 								.FilterOptionText {  }
-		.ResourceContainer {  }
+		.ResourceContainer { display: block; }
 			.ResourceCategory { display: block; margin: 0; padding: 0.5rem; border-bottom: 1px solid var(--light-900); font-size: 1.5rem; line-height: 1em; font-weight: bold;
-				@media (min-width: $desktop) { font-size: 3rem; line-height: 1em; }
+				@media (min-width: $desktop) { padding: 1rem; font-size: 3rem; line-height: 1em; border-right: 1px solid var(--light-900); }
 			}
 			.ResourceSubcategory { display: block; margin: 0; padding: 0.5rem; border-bottom: 1px solid var(--light-900); font-size: 1rem; line-height: 1em; font-weight: normal; color: var(--accent-400);
-				@media (min-width: $desktop) { font-size: 2rem; line-height: 2.5rem; }
+				@media (min-width: $desktop) { padding: 1rem; font-size: 2rem; line-height: 2.5rem; border-right: 1px solid var(--light-900); }
 			}
-			.ResourceList { display: block; list-style-type: none; margin: 0; padding: 0; }
-				.ResourceItem { display: block; border-bottom: 1px solid var(--light-900); }
-					.ResourceName { display: flex; flex-direction: row; gap: 0.25rem; padding: 0.5rem; }
-						.ResourceStatus { display: block; margin: 0; padding: 0; appearance: none; background: transparent; border: none; }
-						.ResourceTitle { display: block; margin: 0;  }
-							.ResourceLink { display: block; font-size: 1.25rem; line-height: 1.5rem; font-weight: bold; }
-					.ResourceAside { display: block; }
-					.ResourceInfo { display: block; border-top: 1px solid var(--dark-300); border-bottom: 1px solid var(--dark-300); }
-					.ResourceActions { display: none; }
-					.ResourceMain[open] + .ResourceActions { display: block; }
-						.WidgetTitle { display: none; margin: 0; padding: 0; font-size: 1rem; line-height: 1.5rem; color: var(--dark-400);
-							@media (min-width: $desktop) { display: block; }
+		.ResourceList { display: block; list-style-type: none; margin: 0; padding: 0;
+			@media (min-width: $desktop) { grid-column: 1 / span 1; }
+		}
+			.ResourceItem { display: block; border-bottom: 1px solid var(--light-900);
+				@media (min-width: 600px) { display: flex; flex-direction: row; position: relative; flex-wrap: wrap; }
+				@media (min-width: $desktop) { display: grid; grid-template-columns: 4fr 1fr 1fr; }
+			}
+				.ResourceName { display: flex; flex-direction: row; gap: 0.25rem; flex-grow: 1; align-items: flex-start; padding: 0.5rem;
+					@media (min-width: 600px) { padding-left: 1rem; max-width: calc(100vw - 13rem); }
+					@media (min-width: $desktop) { grid-column: 1 / span 1; grid-row: 1 / span 1; padding: 0; border-right: 1px solid var(--light-900); }
+				}
+					.ResourceStatus { display: block; margin: 0; padding: 0.25rem 0 0; appearance: none; background: transparent; border: none;
+						@media (min-width: $desktop) { padding: 1rem 0.25rem 0 1rem; }
+					}
+					.ResourceTitle { display: flex; flex-grow: 1; margin: 0; align-items: center; }
+						.ResourceLink { display: block; flex-grow: 1; font-size: 1.25rem; line-height: 1.5rem; font-weight: bold;
+							@media (min-width: $desktop) { padding: 1rem 1rem 0 0; font-size: 1.5rem; line-height: 1em; }
 						}
-						.InfoList { display: flex; flex-direction: row; justify-content: stretch; list-style-type: none; margin: 0; padding: 0; }
-							.InfoItem { display: block; flex-grow: 1; padding: 0.25rem 0.5rem; }
-								.InfoItemLabel {  }
-									.InfoItemLabel .Icon {  }
-									.InfoItemText { display: none;
-										@media (min-width: $desktop) { display: block; }
-									}
-								.InfoItemValue { font-weight: normal; }
-								.InfoLink { display: block; margin: 0; padding: 0; border: none; background: transparent; color: var(--light-800); text-decoration: underline; cursor: pointer; }
-								.InfoLink:hover { color: var(--accent-400); text-decoration: none; }
-								.InfoLink:active { color: var(--dark-400); text-decoration: none; }
-									.InfoLink .Icon {  }
-									.InfoLink .ButtonText {  }
-					.ResourceMain { display: block; }
-					.ResourceMain[open], .ResourceMain[open]+.ResourceActions { background: var(--dark-300); }
-						.ResourceMainTrigger { display: flex; flex-direction: row; gap: 0.25rem; padding: 0.5rem; border-bottom: 1px solid var(--dark-200); cursor: pointer; }
-						.ResourceMainTrigger:hover { background: var(--accent-400); color: var(--light-900); }
-						.ResourceMainTrigger:active { background: var(--light-900); color: var(--dark-200); }
-							.ResourceMainTrigger .ButtonText {  }
-							.ResourceMainTrigger .Icon {  }
-						.ResourceMainContent { display: block; }
-							.ResourceP { display: block; margin: 0; padding: 0.5rem; }
-							.ResourceTags { display: flex; flex-direction: row; flex-wrap: wrap; gap: 0.5rem; list-style-type: none; margin: 0; padding: 0 0.5rem; }
-								.ResourceTag { display: block; }
-									.ResourceTagLink { display: flex; flex-direction: row; gap: 0.25rem; padding: 0.25rem; background: var(--dark-200); color: var(--light-900); border: 1px solid var(--light-900); font-size: 1rem; line-height: 1.25rem; text-decoration: none; }
-									.ResourceTagLink:hover { background: var(--dark-100); color: var(--accent-400); border: 1px solid var(--accent-400); }
-									.ResourceTagLink:active { background: var(--accent-400); color: var(--light-900); border: 1px solid var(--light-900); }
-										.ResourceTag .Icon { display: block; width: 0.75rem; height: 0.75rem; margin: 0.25rem 0; border-radius: 50%; background: var(--dark-400); text-indent: 100%; overflow: hidden; white-space: nowrap; }
-											.Type-Book .Icon { background: #F2C94C; }
-											.Type-Text .Icon { background: #e2b93C; }
-											.Type-Course .Icon {  }
-											.Type-Video .Icon {  }
-											.Price-Free .Icon { background: #219653; }
-											.Price-Paid .Icon {  }
-											.Level-Beginner .Icon { background: #6FCF97; }
-											.Level-Mid .Icon { background: #2D9CDB; }
-											.Level-Advanced .Icon { background: #BB6BD9; }
-											.Level-Pro .Icon { background: #EB5757; }
-											.Mandatory .Icon { background: #F2994A; }
-										.TagName {  }
+				.ResourceAside { display: block;
+					@media (min-width: $desktop) { grid-row: 1 / span 2; border-right: 1px solid var(--light-900); }
+				}
+				.ResourceInfo { display: block; border-top: 1px solid var(--dark-300); border-bottom: 1px solid var(--dark-300);
+					@media (min-width: 600px) { border-bottom: none; padding: 0 0.5rem; }
+					@media (min-width: 750px) { padding: 0.25rem 0.5rem; }
+					@media (min-width: $desktop) { padding: 1rem; }
+				}
+				.ResourceActions { display: none;
+					@media (min-width: 600px) { position: absolute; right: 0; top: 6rem; z-index: 2; }
+					@media (min-width: 750px) { top: 4rem; }
+					@media (min-width: $desktop) { position: static; right: unset; top: unset; z-index: 0; }
+				}
+				.ResourceMain[open] + .ResourceActions { display: block; }
+					.WidgetTitle { display: none; margin: 0; padding: 0; font-size: 1rem; line-height: 1.5rem; color: var(--dark-400);
+						@media (min-width: $desktop) { display: block; padding-bottom: 1rem; }
+					}
+					.ResourceActions .WidgetTitle {
+						@media (min-width: $desktop) { padding: 1rem 1rem 0.5rem; }
+					}
+					.InfoList { display: flex; flex-direction: row; justify-content: stretch; list-style-type: none; margin: 0; padding: 0;
+						@media (min-width: $desktop) { flex-direction: column; gap: 1rem; }
+					}
+					.ResourceActions .InfoList {
+						@media (min-width: 600px) { flex-direction: column; }
+						@media (min-width: $desktop) { gap: 0; }
+					}
+						.InfoItem { display: block; flex: 1; padding: 0.25rem 0.5rem; }
+						.InfoItem:nth-child(3n+1) { text-align: left; }
+						.InfoItem:nth-child(3n+2) { text-align: center; }
+						.InfoItem:nth-child(3n)   { text-align: right; }
+						.ResourceActions .InfoItem { padding: 0; text-align: center; }
+						.InfoList .InfoItem {
+							@media (min-width: 600px) { text-align: center; }
+							@media (min-width: 750px) { display: flex; }
+							@media (min-width: $desktop) { flex-direction: column; gap: 0.25rem; padding: 0; text-align: left; }
+						}
+							.InfoItemLabel {
+								@media (min-width: $desktop) { font-size: 1rem; line-height: 1em; }
+							}
+								.InfoItemLabel .Icon {  }
+								.InfoItemText { display: none;
+									@media (min-width: $desktop) { display: inline; color: var(--light-600); }
+								}
+							.InfoItemValue { display: block; font-weight: normal;
+								@media (min-width: 600px) { font-size: 0.75rem; line-height: 1em; white-space: nowrap; }
+								@media (min-width: 750px) { font-size: 1rem; line-height: 1.5rem; }
+								@media (min-width: $desktop) { font-size: 2rem; line-height: 1em; }
+							}
+							.InfoLink { display: block; margin: 0 auto; padding: 0.25rem 0.5rem; border: none; background: transparent; color: var(--light-800); text-decoration: underline; cursor: pointer;
+								@media (min-width: 600px) { width: 2.5rem; height: 2.5rem; text-decoration: none; padding: 0.5rem; }
+								@media (min-width: 750px) { width: 100%; height: auto; }
+								@media (min-width: $desktop) { padding: 0.5rem 1rem; text-align: left; }
+							}
+							.InfoLink:hover { color: var(--accent-400); text-decoration: none;
+								@media (min-width: 600px) { background: var(--dark-100); }
+							}
+							.InfoLink:active { color: var(--dark-400); text-decoration: none; }
+								.InfoLink .Icon { display: block;
+									@media (min-width: $desktop) { display: inline; }
+								}
+								.InfoLink .ButtonText {
+									@media (min-width: 600px) { display: none; font-size: 0.75rem; line-height: 1em; }
+									@media (min-width: 750px) { display: block; }
+									@media (min-width: $desktop) { display: inline; font-size: 1rem; line-height: 1em; }
+								}
+				.ResourceMain { display: block; position: relative;
+					@media (min-width: 600px) { width: 100%; border-top: 1px solid var(--dark-300); }
+					@media (min-width: $desktop) { width: unset; grid-column: 1 / span 1; grid-row: 2 / span 1; padding: 0; border-top: none; border-right: 1px solid var(--light-900); }
+				}
+				.ResourceMain[open], .ResourceMain[open]+.ResourceActions { background: var(--dark-300);
+					@media (min-width: 750px) { background: transparent; }
+				}
+				.ResourceMain::part(*), .ResourceMain * { content-visibility: visible !important; display: block; visibility: visible; }
+					.ResourceMainTrigger { display: flex; flex-direction: row; justify-content: space-between; gap: 0.25rem; padding: 0.5rem; border-bottom: 1px solid var(--dark-200); cursor: pointer;
+						@media (min-width: 600px) { padding: 0.5rem 1rem; }
+						@media (min-width: 750px) { display: none; }
+					}
+					.ResourceMainTrigger:hover { background: var(--accent-400); color: var(--light-900); }
+					.ResourceMainTrigger:active { background: var(--light-900); color: var(--dark-200); }
+						.ResourceMainTrigger .ButtonText { text-transform: capitalize; }
+							.ResourceMainTrigger .HideMidRes { display: inline;
+								@media (min-width: 600px) { display: none; }
+								@media (min-width: $desktop) { display: inline; }
+							}
+						.ResourceMainTrigger .Icon {  }
+					.ResourceMainContent { display: block;
+						@media (min-width: 600px) { padding: 0 2rem 0 0; background: var(--dark-300); }
+						@media (min-width: 750px) { padding: 0 4rem 0 0; background: transparent; content-visibility: visible; }
+						@media (min-width: $desktop) { padding: 0; }
+					}
+						.ResourceP { display: block; margin: 0; padding: 0.5rem;
+							@media (min-width: 600px) { padding: 1rem; }
+						}
+						.ResourceTags { display: flex; flex-direction: row; flex-wrap: wrap; gap: 0.5rem; list-style-type: none; margin: 0; padding: 0 0.5rem 0.5rem;
+							@media (min-width: 600px) { padding: 0 1rem 1rem; }
+						}
+							.ResourceTag { display: block; }
+								.ResourceTagLink { display: flex; flex-direction: row; gap: 0.25rem; padding: 0.25rem; background: var(--dark-200); color: var(--light-900); border: 1px solid var(--light-900); font-size: 1rem; line-height: 1.25rem; text-decoration: none; }
+								.ResourceTagLink:hover { background: var(--dark-100); color: var(--accent-400); border: 1px solid var(--accent-400); }
+								.ResourceTagLink:active { background: var(--accent-400); color: var(--light-900); border: 1px solid var(--light-900); }
+									.ResourceTag .Icon { display: block; width: 0.75rem; height: 0.75rem; margin: 0.25rem 0; border-radius: 50%; background: var(--dark-400); text-indent: 100%; overflow: hidden; white-space: nowrap; }
+										.Type-Book .Icon { background: #F2C94C; }
+										.Type-Text .Icon { background: #e2b93C; }
+										.Type-Course .Icon {  }
+										.Type-Video .Icon {  }
+										.Price-Free .Icon { background: #219653; }
+										.Price-Paid .Icon {  }
+										.Level-Beginner .Icon { background: #6FCF97; }
+										.Level-Mid .Icon { background: #2D9CDB; }
+										.Level-Advanced .Icon { background: #BB6BD9; }
+										.Level-Pro .Icon { background: #EB5757; }
+										.Mandatory .Icon { background: #F2994A; }
+									.TagName {  }
 
 
+		.ListNavigation {
+			@media (min-width: $desktop) { grid-column: 2 / span 1; grid-row: 1 / span 2; position: sticky; top: 0; overflow-y: auto; }
+		}
+			.ListNavTitle { display: block;
+				@media (min-width: $desktop) { padding: 2rem 2rem 1rem 2rem; margin: 0; font-size: 1.5rem; line-height: 2rem; font-weight: normal; }
+			}
+			.ListNav { display: block; list-style-type: decimal; margin: 0; padding: 0 2rem; }
+				.ListNavItem { display: list-item; }
+					.ListNavLink, .ListSubNavLink { display: block; }
+					.ListSubNav { display: block; list-style-type: none; margin: 0; padding: 0; }
+						.ListSubNavItem { display: block; }
+							.ListSubNavLink {  }
+		.Pagination {
+			@media (min-width: $desktop) { grid-column: 1 / span 2; }
+		}
 	.Footer { min-height: 2rem; }
 	.BottomNav {  }
 
 /*
-@TODO: SVG icons
-@TODO: Editează meta header-ul din index.html
+@TODO: MUST SVG icons
+@TODO: NICE Editează meta header-ul din index.html
+@TODO: MUST REsponsive design pentru navigare, paginație și footer
 */

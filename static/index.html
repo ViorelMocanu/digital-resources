@@ -44,6 +44,7 @@
 		<link rel="stylesheet" href="style/style.css" media="all" />
 	</head>
 	<body>
+		<!-- @TODO: MUST SVG Icons -->
 		<a id="skip" href="#hero" title="Mergi direct la conținutul acestei pagini">Mergi la conținut</a>
 		<div class="Framework">
 			<header class="Header">
@@ -171,7 +172,15 @@
 								<span class="ButtonText">Filtrează</span>
 							</summary>
 							<ul class="FilterOptionList">
-								<li class="FilterOptionItem">???? <!-- @TODO: gândește-te la ce opțiuni de filrare sunt viabile în context --></li>
+								<li class="FilterOptionItem">????
+									<!--
+										@TODO: MUST gândește-te la ce opțiuni de filtrare sunt viabile în context:
+										- tip (video, curs, text),
+										- nivel (incepători, mid, avansați, pro),
+										- disciplină (autoselect front end, back end, design, marketing, etc)
+										- cost (free, premium)
+									-->
+								</li>
 							</ul>
 						</details>
 						<details class="FilterOptions">
@@ -259,7 +268,135 @@
 							</div>
 							<details class="ResourceMain">
 								<summary class="ResourceMainTrigger">
-									<span class="ButtonText">Vezi detalii despre link</span>
+									<span class="ButtonText"><span class="HideMidRes">Vezi </span>detalii<span class="HideMidRes"> despre link</span></span>
+									<icon class="Icon IconExpand">⬇️</icon>
+								</summary>
+								<div class="ResourceMainContent">
+									<p class="ResourceP">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker.</p>
+									<ul class="ResourceTags">
+										<li class="ResourceTag Type-Book">
+											<a class="ResourceTagLink" href="#" title="Vezi toate resursele care sunt clasificate astfel: carte">
+												<span class="Icon IconTag">Tag:</span>
+												<span class="TagName">carte</span>
+											</a>
+										</li>
+										<li class="ResourceTag Type-Text">
+											<a class="ResourceTagLink" href="#" title="Vezi toate resursele care sunt clasificate astfel: carte">
+												<span class="Icon IconTag">Tag:</span>
+												<span class="TagName">text</span>
+											</a>
+										</li>
+										<li class="ResourceTag Price-Free">
+											<a class="ResourceTagLink" href="#" title="Vezi toate resursele care sunt clasificate astfel: carte">
+												<span class="Icon IconTag">Tag:</span>
+												<span class="TagName">free</span>
+											</a>
+										</li>
+										<li class="ResourceTag Level-Beginner">
+											<a class="ResourceTagLink" href="#" title="Vezi toate resursele care sunt clasificate astfel: carte">
+												<span class="Icon IconTag">Tag:</span>
+												<span class="TagName">începători</span>
+											</a>
+										</li>
+										<li class="ResourceTag Level-Mid">
+											<a class="ResourceTagLink" href="#" title="Vezi toate resursele care sunt clasificate astfel: carte">
+												<span class="Icon IconTag">Tag:</span>
+												<span class="TagName">mid</span>
+											</a>
+										</li>
+										<li class="ResourceTag Level-Advanced">
+											<a class="ResourceTagLink" href="#" title="Vezi toate resursele care sunt clasificate astfel: carte">
+												<span class="Icon IconTag">Tag:</span>
+												<span class="TagName">avansați</span>
+											</a>
+										</li>
+										<li class="ResourceTag Level-Pro">
+											<a class="ResourceTagLink" href="#" title="Vezi toate resursele care sunt clasificate astfel: carte">
+												<span class="Icon IconTag">Tag:</span>
+												<span class="TagName">pro</span>
+											</a>
+										</li>
+										<li class="ResourceTag Mandatory">
+											<a class="ResourceTagLink" href="#" title="Vezi toate resursele care sunt clasificate astfel: carte">
+												<span class="Icon IconTag">Tag:</span>
+												<span class="TagName">obligatoriu</span>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</details>
+							<aside class="ResourceAside ResourceActions">
+								<h5 class="WidgetTitle">Acțiuni disponibile:</h5>
+								<ul class="InfoList">
+									<li class="InfoItem">
+										<button class="InfoLink" type="button" title="Share-uiește resursa: Resilient Web Design cu prietenii tăi">
+											<icon class="Icon IconShare">🚀</icon>
+											<span class="ButtonText">Trimite<span class="DesktopOnlyInline"> link-ul</span></span>
+										</button>
+									</li>
+									<li class="InfoItem">
+										<button class="InfoLink" type="button" title="Adaugă în lista ta de resurse favorite resursa: Resilient Web Design">
+											<icon class="Icon IconLike">❤️</icon>
+											<span class="ButtonText">Adaugă<span class="DesktopOnlyInline"> în listă</span></span>
+										</button>
+									</li>
+									<li class="InfoItem">
+										<button class="InfoLink" type="button" title="Semnalează o problemă cu resursa: Resilient Web Design - link greșit, site hack-uit, proprietăți greșite">
+											<icon class="Icon IconReport">⚠️</icon>
+											<span class="ButtonText">Raportează<span class="DesktopOnlyInline"> link</span></span>
+										</button>
+									</li>
+								</ul>
+							</aside>
+						</li>
+						<li class="ResourceItem">
+							<div class="ResourceName">
+								<button class="ResourceStatus" type="button">✅</button>
+								<h4 class="ResourceTitle">
+									<a class="ResourceLink" href="#" title="Vizitează resursa intitulată: Resilient Web Design">Resilient Web Design</a>
+								</h4>
+							</div>
+							<div class="ResourceAside ResourceInfo">
+								<h5 class="WidgetTitle">Informații utile:</h5>
+								<ul class="InfoList">
+									<li class="InfoItem">
+										<div class="InfoItemLabel">
+											<icon class="Icon IconRating">⭐</icon>
+											<span class="InfoItemText">Rating-ul link-ului</span>
+											<!--
+												@TODO: NICE structured data de rating, collection, etc.
+												https://developers.google.com/search/docs/appearance/structured-data/search-gallery
+												- Article ?
+												- Breadcrumb
+												- Course ?
+												- Learning video ?
+												- Logo
+												- Q&A - pagină dedicată
+												- How to - pagină dedicată
+												- Video ?
+											-->
+										</div>
+										<strong class="InfoItemValue">4.5 (10)</strong>
+									</li>
+									<li class="InfoItem">
+										<div class="InfoItemLabel">
+											<icon class="Icon IconViews">👁️</icon>
+											<span class="InfoItemText">Vizualizări</span>
+										</div>
+										<strong class="InfoItemValue">7895</strong>
+									</li>
+									<li class="InfoItem">
+										<div class="InfoItemLabel">
+											<icon class="Icon IconTime">⏰</icon>
+											<span class="InfoItemText">Timp necesar</span>
+										</div>
+										<strong class="InfoItemValue">80h</strong>
+									</li>
+								</ul>
+							</div>
+							<details class="ResourceMain">
+								<summary class="ResourceMainTrigger">
+									<span class="ButtonText"><span class="HideMidRes">Vezi </span>detalii<span class="HideMidRes"> despre link</span></span>
 									<icon class="Icon IconExpand">⬇️</icon>
 								</summary>
 								<div class="ResourceMainContent">
@@ -375,7 +512,7 @@
 							</div>
 							<details class="ResourceMain">
 								<summary class="ResourceMainTrigger">
-									<span class="ButtonText">Vezi detalii despre link</span>
+									<span class="ButtonText"><span class="HideMidRes">Vezi </span>detalii<span class="HideMidRes"> despre link</span></span>
 									<icon class="Icon IconExpand">⬇️</icon>
 								</summary>
 								<div class="ResourceMainContent">
@@ -491,7 +628,239 @@
 							</div>
 							<details class="ResourceMain">
 								<summary class="ResourceMainTrigger">
-									<span class="ButtonText">Vezi detalii despre link</span>
+									<span class="ButtonText"><span class="HideMidRes">Vezi </span>detalii<span class="HideMidRes"> despre link</span></span>
+									<icon class="Icon IconExpand">⬇️</icon>
+								</summary>
+								<div class="ResourceMainContent">
+									<p class="ResourceP">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker.</p>
+									<ul class="ResourceTags">
+										<li class="ResourceTag Type-Book">
+											<a class="ResourceTagLink" href="#" title="Vezi toate resursele care sunt clasificate astfel: carte">
+												<span class="Icon IconTag">Tag:</span>
+												<span class="TagName">carte</span>
+											</a>
+										</li>
+										<li class="ResourceTag Type-Text">
+											<a class="ResourceTagLink" href="#" title="Vezi toate resursele care sunt clasificate astfel: carte">
+												<span class="Icon IconTag">Tag:</span>
+												<span class="TagName">text</span>
+											</a>
+										</li>
+										<li class="ResourceTag Price-Free">
+											<a class="ResourceTagLink" href="#" title="Vezi toate resursele care sunt clasificate astfel: carte">
+												<span class="Icon IconTag">Tag:</span>
+												<span class="TagName">free</span>
+											</a>
+										</li>
+										<li class="ResourceTag Level-Beginner">
+											<a class="ResourceTagLink" href="#" title="Vezi toate resursele care sunt clasificate astfel: carte">
+												<span class="Icon IconTag">Tag:</span>
+												<span class="TagName">începători</span>
+											</a>
+										</li>
+										<li class="ResourceTag Level-Mid">
+											<a class="ResourceTagLink" href="#" title="Vezi toate resursele care sunt clasificate astfel: carte">
+												<span class="Icon IconTag">Tag:</span>
+												<span class="TagName">mid</span>
+											</a>
+										</li>
+										<li class="ResourceTag Level-Advanced">
+											<a class="ResourceTagLink" href="#" title="Vezi toate resursele care sunt clasificate astfel: carte">
+												<span class="Icon IconTag">Tag:</span>
+												<span class="TagName">avansați</span>
+											</a>
+										</li>
+										<li class="ResourceTag Level-Pro">
+											<a class="ResourceTagLink" href="#" title="Vezi toate resursele care sunt clasificate astfel: carte">
+												<span class="Icon IconTag">Tag:</span>
+												<span class="TagName">pro</span>
+											</a>
+										</li>
+										<li class="ResourceTag Mandatory">
+											<a class="ResourceTagLink" href="#" title="Vezi toate resursele care sunt clasificate astfel: carte">
+												<span class="Icon IconTag">Tag:</span>
+												<span class="TagName">obligatoriu</span>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</details>
+							<aside class="ResourceAside ResourceActions">
+								<h5 class="WidgetTitle">Acțiuni disponibile:</h5>
+								<ul class="InfoList">
+									<li class="InfoItem">
+										<button class="InfoLink" type="button" title="Share-uiește resursa: Resilient Web Design cu prietenii tăi">
+											<icon class="Icon IconShare">🚀</icon>
+											<span class="ButtonText">Trimite<span class="DesktopOnlyInline"> link-ul</span></span>
+										</button>
+									</li>
+									<li class="InfoItem">
+										<button class="InfoLink" type="button" title="Adaugă în lista ta de resurse favorite resursa: Resilient Web Design">
+											<icon class="Icon IconLike">❤️</icon>
+											<span class="ButtonText">Adaugă<span class="DesktopOnlyInline"> în listă</span></span>
+										</button>
+									</li>
+									<li class="InfoItem">
+										<button class="InfoLink" type="button" title="Semnalează o problemă cu resursa: Resilient Web Design - link greșit, site hack-uit, proprietăți greșite">
+											<icon class="Icon IconReport">⚠️</icon>
+											<span class="ButtonText">Raportează<span class="DesktopOnlyInline"> link</span></span>
+										</button>
+									</li>
+								</ul>
+							</aside>
+						</li>
+						<li class="ResourceItem">
+							<div class="ResourceName">
+								<button class="ResourceStatus" type="button">✅</button>
+								<h4 class="ResourceTitle">
+									<a class="ResourceLink" href="#" title="Vizitează resursa intitulată: Resilient Web Design">Resilient Web Design</a>
+								</h4>
+							</div>
+							<div class="ResourceAside ResourceInfo">
+								<h5 class="WidgetTitle">Informații utile:</h5>
+								<ul class="InfoList">
+									<li class="InfoItem">
+										<div class="InfoItemLabel">
+											<icon class="Icon IconRating">⭐</icon>
+											<span class="InfoItemText">Rating-ul link-ului</span>
+										</div>
+										<strong class="InfoItemValue">4.5 (10)</strong>
+									</li>
+									<li class="InfoItem">
+										<div class="InfoItemLabel">
+											<icon class="Icon IconViews">👁️</icon>
+											<span class="InfoItemText">Vizualizări</span>
+										</div>
+										<strong class="InfoItemValue">7895</strong>
+									</li>
+									<li class="InfoItem">
+										<div class="InfoItemLabel">
+											<icon class="Icon IconTime">⏰</icon>
+											<span class="InfoItemText">Timp necesar</span>
+										</div>
+										<strong class="InfoItemValue">80h</strong>
+									</li>
+								</ul>
+							</div>
+							<details class="ResourceMain">
+								<summary class="ResourceMainTrigger">
+									<span class="ButtonText"><span class="HideMidRes">Vezi </span>detalii<span class="HideMidRes"> despre link</span></span>
+									<icon class="Icon IconExpand">⬇️</icon>
+								</summary>
+								<div class="ResourceMainContent">
+									<p class="ResourceP">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker.</p>
+									<ul class="ResourceTags">
+										<li class="ResourceTag Type-Book">
+											<a class="ResourceTagLink" href="#" title="Vezi toate resursele care sunt clasificate astfel: carte">
+												<span class="Icon IconTag">Tag:</span>
+												<span class="TagName">carte</span>
+											</a>
+										</li>
+										<li class="ResourceTag Type-Text">
+											<a class="ResourceTagLink" href="#" title="Vezi toate resursele care sunt clasificate astfel: carte">
+												<span class="Icon IconTag">Tag:</span>
+												<span class="TagName">text</span>
+											</a>
+										</li>
+										<li class="ResourceTag Price-Free">
+											<a class="ResourceTagLink" href="#" title="Vezi toate resursele care sunt clasificate astfel: carte">
+												<span class="Icon IconTag">Tag:</span>
+												<span class="TagName">free</span>
+											</a>
+										</li>
+										<li class="ResourceTag Level-Beginner">
+											<a class="ResourceTagLink" href="#" title="Vezi toate resursele care sunt clasificate astfel: carte">
+												<span class="Icon IconTag">Tag:</span>
+												<span class="TagName">începători</span>
+											</a>
+										</li>
+										<li class="ResourceTag Level-Mid">
+											<a class="ResourceTagLink" href="#" title="Vezi toate resursele care sunt clasificate astfel: carte">
+												<span class="Icon IconTag">Tag:</span>
+												<span class="TagName">mid</span>
+											</a>
+										</li>
+										<li class="ResourceTag Level-Advanced">
+											<a class="ResourceTagLink" href="#" title="Vezi toate resursele care sunt clasificate astfel: carte">
+												<span class="Icon IconTag">Tag:</span>
+												<span class="TagName">avansați</span>
+											</a>
+										</li>
+										<li class="ResourceTag Level-Pro">
+											<a class="ResourceTagLink" href="#" title="Vezi toate resursele care sunt clasificate astfel: carte">
+												<span class="Icon IconTag">Tag:</span>
+												<span class="TagName">pro</span>
+											</a>
+										</li>
+										<li class="ResourceTag Mandatory">
+											<a class="ResourceTagLink" href="#" title="Vezi toate resursele care sunt clasificate astfel: carte">
+												<span class="Icon IconTag">Tag:</span>
+												<span class="TagName">obligatoriu</span>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</details>
+							<aside class="ResourceAside ResourceActions">
+								<h5 class="WidgetTitle">Acțiuni disponibile:</h5>
+								<ul class="InfoList">
+									<li class="InfoItem">
+										<button class="InfoLink" type="button" title="Share-uiește resursa: Resilient Web Design cu prietenii tăi">
+											<icon class="Icon IconShare">🚀</icon>
+											<span class="ButtonText">Trimite<span class="DesktopOnlyInline"> link-ul</span></span>
+										</button>
+									</li>
+									<li class="InfoItem">
+										<button class="InfoLink" type="button" title="Adaugă în lista ta de resurse favorite resursa: Resilient Web Design">
+											<icon class="Icon IconLike">❤️</icon>
+											<span class="ButtonText">Adaugă<span class="DesktopOnlyInline"> în listă</span></span>
+										</button>
+									</li>
+									<li class="InfoItem">
+										<button class="InfoLink" type="button" title="Semnalează o problemă cu resursa: Resilient Web Design - link greșit, site hack-uit, proprietăți greșite">
+											<icon class="Icon IconReport">⚠️</icon>
+											<span class="ButtonText">Raportează<span class="DesktopOnlyInline"> link</span></span>
+										</button>
+									</li>
+								</ul>
+							</aside>
+						</li>
+						<li class="ResourceItem">
+							<div class="ResourceName">
+								<button class="ResourceStatus" type="button">✅</button>
+								<h4 class="ResourceTitle">
+									<a class="ResourceLink" href="#" title="Vizitează resursa intitulată: Resilient Web Design">Resilient Web Design</a>
+								</h4>
+							</div>
+							<div class="ResourceAside ResourceInfo">
+								<h5 class="WidgetTitle">Informații utile:</h5>
+								<ul class="InfoList">
+									<li class="InfoItem">
+										<div class="InfoItemLabel">
+											<icon class="Icon IconRating">⭐</icon>
+											<span class="InfoItemText">Rating-ul link-ului</span>
+										</div>
+										<strong class="InfoItemValue">4.5 (10)</strong>
+									</li>
+									<li class="InfoItem">
+										<div class="InfoItemLabel">
+											<icon class="Icon IconViews">👁️</icon>
+											<span class="InfoItemText">Vizualizări</span>
+										</div>
+										<strong class="InfoItemValue">7895</strong>
+									</li>
+									<li class="InfoItem">
+										<div class="InfoItemLabel">
+											<icon class="Icon IconTime">⏰</icon>
+											<span class="InfoItemText">Timp necesar</span>
+										</div>
+										<strong class="InfoItemValue">80h</strong>
+									</li>
+								</ul>
+							</div>
+							<details class="ResourceMain">
+								<summary class="ResourceMainTrigger">
+									<span class="ButtonText"><span class="HideMidRes">Vezi </span>detalii<span class="HideMidRes"> despre link</span></span>
 									<icon class="Icon IconExpand">⬇️</icon>
 								</summary>
 								<div class="ResourceMainContent">
@@ -573,8 +942,122 @@
 							</aside>
 						</li>
 					</ol>
+					<nav class="Pagination">
+						<h3 class="PaginationTitle">Navighează către altă pagină din lista de resurse selectată:</h3>
+						<ol class="PaginationList">
+							<li class="PaginationItem PaginationPrevious">
+								<a class="PaginationLink" href="#" title="@TODO">&laquo; Pagina anterioară</a>
+							</li>
+							<li class="PaginationItem">
+								<a class="PaginationLink" href="#" title="@TODO">1</a>
+							</li>
+							<li class="PaginationItem">
+								<a class="PaginationLink" href="#" title="@TODO">2</a>
+							</li>
+							<li class="PaginationItem">
+								<a class="PaginationLink" href="#" title="@TODO">3</a>
+							</li>
+							<li class="PaginationItem PaginationSpacer">
+								<span class="SpacerSymbol">&hellip;</span>
+							</li>
+							<li class="PaginationItem">
+								<a class="PaginationLink" href="#" title="@TODO">9</a>
+							</li>
+							<li class="PaginationItem PaginationCurrent">
+								<a class="PaginationLink" href="#" title="@TODO">10</a>
+							</li>
+							<li class="PaginationItem">
+								<a class="PaginationLink" href="#" title="@TODO">11</a>
+							</li>
+							<li class="PaginationItem PaginationSpacer">
+								<span class="SpacerSymbol">&hellip;</span>
+							</li>
+							<li class="PaginationItem">
+								<a class="PaginationLink" href="#" title="@TODO">18</a>
+							</li>
+							<li class="PaginationItem">
+								<a class="PaginationLink" href="#" title="@TODO">19</a>
+							</li>
+							<li class="PaginationItem">
+								<a class="PaginationLink" href="#" title="@TODO">20</a>
+							</li>
+							<li class="PaginationItem PaginationNext">
+								<a class="PaginationLink" href="#" title="@TODO">Pagina următoare &raquo;</a>
+							</li>
+						</ol>
+					</nav>
 				</div>
-				<!-- @TODO: adaugă comentariile și paginația -->
+				<nav class="ListNavigation">
+					<h2 class="ListNavTitle">Navighează printre resursele de Front End Development:</h2>
+					<ol class="ListNav">
+						<li class="ListNavItem">
+							<a class="ListNavLink" href="#" title="@TODO">Introducere</a>
+						</li>
+						<li class="ListNavItem">
+							<a class="ListNavLink" href="#" title="@TODO">Unelte utile (GIT, IDE, etc)</a>
+						</li>
+						<li class="ListNavItem ActiveListNav">
+							<a class="ListNavLink" href="#" title="@TODO">HTML (HyperText Markup Language)</a>
+							<ol class="ListSubNav">
+								<li class="ListSubNavItem ActiveListNav">
+									<a class="ListSubNavLink" href="#" title="@TODO">Elemente de bază</a>
+								</li>
+								<li class="ListSubNavItem">
+									<a class="ListSubNavLink" href="#" title="@TODO">Structuri informaționale</a>
+								</li>
+								<li class="ListSubNavItem">
+									<a class="ListSubNavLink" href="#" title="@TODO">Secțiuni de conținut</a>
+								</li>
+								<li class="ListSubNavItem">
+									<a class="ListSubNavLink" href="#" title="@TODO">Formulare</a>
+								</li>
+								<li class="ListSubNavItem">
+									<a class="ListSubNavLink" href="#" title="@TODO">Meta informații</a>
+								</li>
+								<li class="ListSubNavItem">
+									<a class="ListSubNavLink" href="#" title="@TODO">Semantică</a>
+								</li>
+								<li class="ListSubNavItem">
+									<a class="ListSubNavLink" href="#" title="@TODO">Multimedia și elemente nonstandard</a>
+								</li>
+								<li class="ListSubNavItem">
+									<a class="ListSubNavLink" href="#" title="@TODO">Embed-uri și componente</a>
+								</li>
+								<li class="ListSubNavItem">
+									<a class="ListSubNavLink" href="#" title="@TODO">Convenții și bune practici</a>
+								</li>
+								<li class="ListSubNavItem">
+									<a class="ListSubNavLink" href="#" title="@TODO">Accesibilitate</a>
+								</li>
+								<li class="ListSubNavItem">
+									<a class="ListSubNavLink" href="#" title="@TODO">SEO tehnic</a>
+								</li>
+								<li class="ListSubNavItem">
+									<a class="ListSubNavLink" href="#" title="@TODO">Emmet</a>
+								</li>
+							</ol>
+						</li>
+						<li class="ListNavItem">
+							<a class="ListNavLink" href="#" title="@TODO">HTML (HyperText Markup Language)</a>
+						</li>
+						<li class="ListNavItem">
+							<a class="ListNavLink" href="#" title="@TODO">CSS (Cascading Style Sheets)</a>
+						</li>
+						<li class="ListNavItem">
+							<a class="ListNavLink" href="#" title="@TODO">Semantică</a>
+						</li>
+						<li class="ListNavItem">
+							<a class="ListNavLink" href="#" title="@TODO">Mobile-first responsive design</a>
+						</li>
+						<li class="ListNavItem">
+							<a class="ListNavLink" href="#" title="@TODO">Accesibilitate</a>
+						</li>
+						<li class="ListNavItem">
+							<a class="ListNavLink" href="#" title="@TODO">Experiența utilizatorului</a>
+						</li>
+					</ol>
+				</nav>
+				<!-- @TODO: MUST adaugă paginația, navigarea, comentariile, footer-ul -->
 			</main>
 			<footer class="Footer"></footer>
 			<nav class="BottomNav"></nav>

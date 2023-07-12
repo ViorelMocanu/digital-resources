@@ -7,6 +7,7 @@ menuTrigger.addEventListener('click', function (event) {
 	return false;
 });
 
+
 const filterOptions = document.getElementsByClassName('FilterOptions');
 // Parcurgem fiecare buton cu clasa FilterOptions și adăugăm pe el un eveniment de click.
 for (let i = 0; i < filterOptions.length; i++) {
@@ -20,7 +21,32 @@ for (let i = 0; i < filterOptions.length; i++) {
 	});
 }
 
+// definim media query-ul care delimitează rezoluția deasupra căreia vrem să afișăm detaliile fără collapse/expand
+const mql = window.matchMedia("(min-width: 750px)");
+showFullProducts(mql.matches);
+// la fiecare modificare a window-ului...
+mql.addEventListener("change", (event) => {
+	// rulăm funcția care schimbă atributele de open când se schimbă valoarea de adevăr a match-ului de media query
+	showFullProducts(event.matches);
+});
+function showFullProducts(isDesktop) {
+	const resources = document.getElementsByClassName('ResourceMain');
+	// dacă booleanul e truthish
+	if (isDesktop) {
+		// păstrăm atributul open peste tot
+		for (let i = 0; i < resources.length; i++) {
+			resources[i].setAttribute('open', '');
+		}
+	} else {
+		// altfel, îl scoatem
+		for (let i = 0; i < resources.length; i++) {
+			resources[i].removeAttribute('open');
+		}
+	}
+}
+
 let lastScrollTop = 0;
+// @TODO NICE: tradu comentariile de mai jos
 // element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
 window.addEventListener("scroll", function () { // or window.addEventListener("scroll"....
 	let st = window.scrollY || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
