@@ -33,7 +33,7 @@ $fonts: 'Atkinson Hyperlegible', 'Inter', 'Roboto', 'Helvetica Neue', 'Arial Nov
 /* Custom CSS reset */
 html { font-family: $fonts; font-size: 16px; line-height: 1.25; -webkit-text-size-adjust: 100%; }
 body { background: var(--dark-100); color: var(--light-800); margin: 0; }
-.ActiveMenu { overflow: hidden;
+.ActiveMenu, .ActiveSubnav { overflow: hidden;
 	@media (min-width: $desktop) { overflow: unset; }
 }
 img { max-width: 100%; border-style: none; } // max-inline-size: 100%; block-size: auto;
@@ -41,6 +41,7 @@ table { border-collapse: collapse; }
 textarea { white-space: revert; }
 abbr[title] { border-bottom: none;  text-decoration: underline;  text-decoration: underline dotted; }
 button, input, optgroup, select, textarea { font-family: inherit; font-size: 1rem; line-height: 1.25; margin: 0; }
+button { cursor: pointer; }
 button, input { overflow: visible; }
 h1 { margin: 0; font-size: 2.25rem; line-height: 1em;
 	@media (min-width: $desktop) { font-size: 3.5rem; line-height: 1em; letter-spacing: -0.01em; }
@@ -61,20 +62,29 @@ a:active { color: var(--light-800); text-decoration: none; }
 .DesktopOnlyInline { display: none;
 	@media (min-width: $desktop) { display: inline; }
 }
+.DesktopOnlyBlock { display: none;
+	@media (min-width: $desktop) { display: block; }
+}
 .SROnly { clip: rect(1px, 1px, 1px, 1px); clip-path: inset(50%); height: 1px; width: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; }
 a#skip { @extend .SROnly; }
 a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; height: auto; }
-.Icon {  }
+.Icon { display: inline-block; width: 1.5rem; height: 1.5rem; overflow: hidden; }
 
 /* Structural classes */
 .Framework {
 	@media (min-width: $desktop) { margin: 1rem; border: 1px solid var(--light-900); }
 }
-	.Header { position: sticky; top: 0; z-index: 10; background: var(--dark-100); transition: top 0.25s ease-in; }
-	.ScrollDown .Header { top: -11rem; }
-		/* @TODO: NICE trebuie sa facem exclusiv HeaderMain sticky, nu tot parintele Header */
-		.HeaderMain { display: flex; flex-direction: row; border-bottom: 1px solid var(--light-900); flex-wrap: wrap;
-			@media (min-width: $desktop) { display: grid; grid-template-columns: auto 1fr; row-gap: 0; column-gap: 1rem; }
+	.Header { background: var(--dark-100);
+		@media (min-width: $desktop) { position: sticky; top: 0; z-index: 10; transition: top 0.25s ease-in; }
+	}
+	.ScrollDown .Header {
+		@media (min-width: $desktop) { top: -11rem; }
+	}
+		.HeaderMain { display: flex; flex-direction: row; flex-wrap: wrap; width: 100%; position: fixed; top: 0; z-index: 11; background: var(--dark-100); border-bottom: 1px solid var(--light-900); transition: top 0.25s ease-in;
+			@media (min-width: $desktop) { display: grid; grid-template-columns: auto 1fr; row-gap: 0; column-gap: 1rem; width: auto; position: static; top: unset; z-index: unset; }
+		}
+		.ScrollDown .HeaderMain { top: -6rem;
+			@media (min-width: $desktop) { top: unset; }
 		}
 			.LanguagePicker { width: 100%; padding: 0.5rem 0.5rem 0; background: var(--dark-200); font-size: 1rem; line-height: 1.5em;
 				@media (min-width: $desktop) { order: 2; width: auto; padding: 0; margin-left: auto; background: transparent; }
@@ -85,6 +95,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 							@media (min-width: $desktop) { padding: 1.125rem 1rem; background: transparent; }
 						}
 						.LanguagePickerLink:hover { background: var(--accent-400); color: var(--dark-100); }
+						.LanguagePickerLink:hover .Icon { opacity: 0.75; }
 						.Active .LanguagePickerLink { background: var(--dark-100); opacity: 1; }
 						.Active .LanguagePickerLink:hover { background: var(--dark-100); color: var(--accent-400); }
 							.LinkText { display: block; }
@@ -133,8 +144,8 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 						.InputSearch { margin: 0.5rem 1rem 1rem; width: calc(100% - 2rem);
 							@media (min-width: $desktop) { width: 100%; max-width: 22rem; margin: 0; padding: 1rem; text-align: right; }
 						}
-		.Breadcrumbs { padding: 0 1rem; border-bottom: 1px solid var(--light-900);
-			@media (min-width: $desktop) { padding: 0 1rem; }
+		.Breadcrumbs { padding: 0 0.5rem; margin-top: 6rem; border-bottom: 1px solid var(--light-900);
+			@media (min-width: $desktop) { padding: 0 1rem; margin-top: 0; }
 		}
 			.BreadcrumbList { display: flex; flex-direction: row; gap: 0.5rem; margin: 0; padding: 0; list-style-type: none; overflow-x: auto; }
 				.BreadcrumbItem { display: flex; flex-direction: row; }
@@ -143,14 +154,16 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 				}
 				.BreadcrumbItem:last-of-type:after { display: none; }
 					.BreadcrumbLink { display: block; text-decoration: none; }
-						.BreadcrumbItem span { display: block; padding: 0.5rem 0; white-space: nowrap;
+						.BreadcrumbItem span, .BreadcrumbItem .Icon { padding: 0.5rem 0; white-space: nowrap;
 							@media (min-width: $desktop) { padding: 1rem 0; }
+						}
+						.BreadcrumbItem .Icon { display: block; padding: 0.375rem 0;
+							@media (min-width: $desktop) { display: none; }
 						}
 	.Hero { display: flex; flex-direction: column; gap: 0.5rem; padding: 1rem 1rem 0.5rem; border-bottom: 1px solid var(--light-900);
 		@media (min-width: 600px) { max-width: 37.5rem; margin: 0 auto; gap: 1rem; padding: 2rem 1rem 1rem; }
 		@media (min-width: $desktop) { max-width: unset; margin: unset; flex-direction: row; gap: 0; padding: 0; }
 	}
-	/* @TODO: NICE pe h1 să punem un font-size: clamp(1.00rem, calc(0.49rem + 2.56vw), 2.25rem); */
 		.HeroVisual {
 			@media (min-width: $desktop) { flex-grow: 1; flex-shrink: 0; width: 37.5%; padding: 2rem; box-sizing: border-box; border-right: 1px solid var(--light-900); }
 		}
@@ -161,6 +174,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 			.HeroTitle { display: block; padding: 0 0 0.5rem; margin: 0 -1rem 0.5rem 0; border-bottom: 0.25rem solid var(--light-900);
 				@media (min-width: 600px) { padding: 0 0 1rem; margin: 0 -1rem 1rem 0; }
 				@media (min-width: $desktop) { padding: 0 0 0.5rem; margin: 0 0 1rem; border-bottom: 0.5rem solid var(--light-900); }
+				@media (min-width: 1800px) { font-size: clamp(3.5rem, calc(1rem + 2.56vw), 5rem); }
 			}
 			.HeroDetails { }
 				.HeroPreview { display: block; }
@@ -177,26 +191,30 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 	.Main { display: block; margin: 1rem; border: 1px solid var(--light-900);
 		@media (min-width: $desktop) { display: grid; grid-template-columns: 3fr 1fr; }
 	}
-		.SortAndFilter { display: flex; flex-direction: column; position: sticky; z-index: 10; top: 8.3125rem; transition: top 0.25s ease-in;
-			@media (min-width: $desktop) { display: grid; grid-template-columns: 2fr 1fr; grid-row: 1 / span 1; grid-column: 1 / span 1; top: 10.67rem; border-right: 1px solid var(--light-900); }
+		.SortAndFilter { display: flex; flex-direction: column; position: sticky; z-index: 4; top: 6rem; transition: top 0.25s ease-in;
+			@media (min-width: $desktop) { display: grid; grid-template-columns: 2fr 1fr; grid-row: 1 / span 1; grid-column: 1 / span 1; top: 10.6875rem; border-right: 1px solid var(--light-900); }
 		}
 		.ScrollDown .SortAndFilter { top: 0; }
 			.SortAndFilter .Fieldset { display: flex; flex-direction: row; min-inline-size: unset; position: relative; border-bottom: 1px solid var(--dark-100); }
 				.SortAndFilter .Label {  }
 				.SortAndFilter .InputSearch { width: 100%; margin: 0; padding: 0.5rem; max-width: unset; text-align: left; }
-				.FilterOptions { flex-grow: 1; background: var(--dark-100); border-bottom: 1px solid var(--light-900); cursor: pointer; }
+				.FilterOptions { flex-grow: 1; background: var(--dark-100); border-bottom: 1px solid var(--light-900); }
 				.FilterOptions:first-of-type { border-right: 1px solid var(--light-900); }
-					.FilterTrigger { display: flex; flex-direction: row; justify-content: center; gap: 0.25rem; padding: 0.5rem; font-size: 1rem; line-height: 1.5em; user-select: none; }
+					.FilterTrigger { display: flex; flex-direction: row; justify-content: center; gap: 0.25rem; padding: 0.5rem; font-size: 0.75rem; line-height: 2em; user-select: none; cursor: pointer;
+						@media (min-width: 450px) { font-size: 1rem; line-height: 1.5rem; }
+					}
 					.FilterTrigger:hover { background: var(--accent-400); color: var(--light-900); }
 					.FilterTrigger:active, .FilterOptions[open] .FilterTrigger { background: var(--light-900); color: var(--dark-200); }
 						.FilterTrigger .Icon { display: block; width: 1.5rem; height: 1.5rem; text-align: center; line-height: 1.5rem; }
 						.FilterTrigger .ButtonText {  }
 					.FilterOptionList { display: block; list-style-type: none; margin: 0; padding: 0.25rem 0; position: absolute; left: 0; top: 2.5rem; right: 0; background: var(--light-900); color: var(--dark-300); }
 						.FilterOptionItem { display: block; }
-							.FilterOptionLabel { display: flex; flex-direction: row; gap: 0.5rem; padding: 0.5rem; cursor: pointer; user-select: none; font-size: 1rem; line-height: 1.5em; }
+							.FilterOptionTitle { display: block; text-transform: uppercase; padding: 0 0 0 1.8125rem; color: var(--light-600); font-weight: normal; }
+							.FilterOptionLabel { display: flex; flex-direction: row; gap: 0.5rem; padding: 0.5rem; cursor: pointer; user-select: none; font-size: 1rem; line-height: 1.5em; cursor: pointer; }
 							.FilterOptionLabel:hover { background: var(--accent-400); color: var(--light-900); }
 							.FilterOptionLabel:active { background: var(--light-900); color: var(--dark-100); }
 								.FilterOptionRadio {  }
+								.FilterOptionCheckbox {  }
 								.FilterOptionLabel .Icon { width: 1.5rem; height: 1.5rem; text-align: center; line-height: 1.5rem; }
 								.FilterOptionText {  }
 		.ResourceContainer { display: block; }
@@ -209,9 +227,12 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 		.ResourceList { display: block; list-style-type: none; margin: 0; padding: 0;
 			@media (min-width: $desktop) { grid-column: 1 / span 1; }
 		}
-			.ResourceItem { display: block; border-bottom: 1px solid var(--light-900);
+			.ResourceItem { display: block; border-bottom: 1px solid var(--light-900); transition: filter 0.5s ease-in;
 				@media (min-width: 600px) { display: flex; flex-direction: row; position: relative; flex-wrap: wrap; }
-				@media (min-width: $desktop) { display: grid; grid-template-columns: 4fr 1fr 1fr; }
+				@media (min-width: $desktop) { display: grid; grid-template-columns: 4fr 1fr 1fr; transition: unset; }
+			}
+			.ActiveSubnav .ResourceItem { filter: blur(3px);
+				@media (min-width: $desktop) { filter: unset; }
 			}
 				.ResourceName { display: flex; flex-direction: row; gap: 0.25rem; flex-grow: 1; align-items: flex-start; padding: 0.5rem;
 					@media (min-width: 600px) { padding-left: 1rem; max-width: calc(100vw - 13rem); }
@@ -264,7 +285,9 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 							.InfoItemLabel {
 								@media (min-width: $desktop) { font-size: 1rem; line-height: 1em; }
 							}
-								.InfoItemLabel .Icon {  }
+								.InfoItemLabel .Icon {
+									@media (min-width: $desktop) { margin: 0 0 -0.25rem; }
+								}
 								.InfoItemText { display: none;
 									@media (min-width: $desktop) { display: inline; color: var(--light-600); }
 								}
@@ -282,8 +305,8 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 								@media (min-width: 600px) { background: var(--dark-100); }
 							}
 							.InfoLink:active { color: var(--dark-400); text-decoration: none; }
-								.InfoLink .Icon { display: block;
-									@media (min-width: $desktop) { display: inline; }
+								.InfoLink .Icon { display: block; margin: 0 auto;
+									@media (min-width: $desktop) { display: inline-block; margin: 0 0 -0.25rem; }
 								}
 								.InfoLink .ButtonText {
 									@media (min-width: 600px) { display: none; font-size: 0.75rem; line-height: 1em; }
@@ -340,26 +363,124 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 									.TagName {  }
 
 
-		.ListNavigation {
-			@media (min-width: $desktop) { grid-column: 2 / span 1; grid-row: 1 / span 2; position: sticky; top: 0; overflow-y: auto; }
+		.ListNavigation { position: relative; z-index: 3;
+			@media (min-width: $desktop) { grid-column: 2 / span 1; grid-row: 1 / span 2; height: fit-content; position: sticky; top: 10.625rem; overflow-y: auto; transition: top 0.25s ease-in; }
 		}
-			.ListNavTitle { display: block;
-				@media (min-width: $desktop) { padding: 2rem 2rem 1rem 2rem; margin: 0; font-size: 1.5rem; line-height: 2rem; font-weight: normal; }
+		.ScrollDown .ListNavigation {
+			@media (min-width: $desktop) { height: calc(100vh - 2rem); top: 0; bottom: 0; }
+		}
+			.ListNavTitle { display: block; margin: 0; padding: 1rem 0.5rem 0;
+				@media (min-width: $desktop) { display: block; padding: 2rem 2rem 0 2rem; font-size: 1.5rem; line-height: 1em; font-weight: normal; }
 			}
-			.ListNav { display: block; list-style-type: decimal; margin: 0; padding: 0 2rem; }
+			.SubnavTrigger { display: flex; flex-direction: row; align-items: center; justify-content: center; flex-grow: 1; gap: 0.25rem; padding: 0.5rem; right: 0; bottom: 0; z-index: 1; background: var(--dark-100); color: var(--light-900); border: none; border-left: 1px solid var(--light-900); border-bottom: 1px solid var(--light-900); text-align: center; font-size: 0.75rem; line-height: 1.5rem; cursor: pointer;
+				@media (min-width: 450px) { font-size: 1rem; line-height: 1.5rem; }
+				@media (min-width: $desktop) { display: none; }
+			}
+			.SubnavTrigger:hover { background: var(--accent-400); color: var(--light-900); }
+			.SubnavTrigger:active { background: var(--light-900); color: var(--accent-400); }
+			.ListNav { display: block; list-style-type: decimal; margin: 0; padding: 0.5rem 2rem 1rem;
+				@media (min-width: $desktop) { padding: 1rem 2rem; }
+			}
 				.ListNavItem { display: list-item; }
 					.ListNavLink, .ListSubNavLink { display: block; }
-					.ListSubNav { display: block; list-style-type: none; margin: 0; padding: 0; }
+					.ActiveListNav > .ListNavLink { font-weight: bold; color: var(--accent-400); text-decoration: none; }
+					.ListSubNav { display: block; list-style-type: none; margin: 0; padding: 0; position: fixed; bottom: 0; left: 0; right: 0; background: var(--dark-100); overflow-y: auto; border: 1px solid var(--light-900); transform: translate3d(-100%, 0, 0); transition: transform 0.5s ease-in-out;
+						@media (min-width: $desktop) { margin: 0; position: static; bottom: unset; left: unset; right: unset; border: none; transform: none; transition: unset; }
+					}
+					.ActiveSubnav .ListSubNav { transform: translate3d(0, 0, 0);
+						@media (min-width: $desktop) { transform: none; }
+					}
 						.ListSubNavItem { display: block; }
-							.ListSubNavLink {  }
+							.ListSubNavLink { display: block; padding: 0.5rem; text-decoration: none; border-bottom: 1px solid var(--light-900);
+								@media (min-width: $desktop) { padding: 0; text-decoration: underline; border-bottom: none; }
+							}
+							.ActiveListNav > .ListSubNavLink { font-weight: bold; color: var(--accent-400); text-decoration: none; }
+							.ListSubNavCloseButton { display: block; width: 100%; padding: 0.5rem; background: var(--dark-100); color: var(--light-900); text-decoration: none; text-align: left;
+								@media (min-width: $desktop) { display: none; }
+							}
+							.ListSubNavCloseButton:hover { background: var(--accent-400); color: var(--light-900); }
+							.ListSubNavCloseButton:active { background: var(--light-900); color: var(--accent-400); }
 		.Pagination {
-			@media (min-width: $desktop) { grid-column: 1 / span 2; }
+			@media (min-width: $desktop) { grid-column: 1 / span 2; border-right: 1px solid var(--light-900); }
 		}
-	.Footer { min-height: 2rem; }
-	.BottomNav {  }
+			.PaginationTitle { display: block; padding: 0.5rem; margin: 0;
+				@media (min-width: $desktop) { padding: 1rem; }
+			}
+			.PaginationList { display: flex; flex-direction: row; margin: 0; padding: 0; list-style-type: none; }
+				.PaginationItem { display: none; border-left: 1px solid var(--light-900);
+					@media (min-width: 800px) { display: block; }
+				}
+				.PaginationPrevious, .PaginationNext { display: block; flex-grow: 1; }
+				.PaginationPrevious { border-left: none; }
+				.PaginationNext { text-align: right; }
+					.PaginationLink, .SpacerSymbol { display: block; padding: 0.5rem; text-transform: capitalize; border-top: 1px solid var(--light-900); border-bottom: 1px solid var(--light-900); text-decoration: none;
+						@media (min-width: 800px) { padding: 0.5rem 1rem; }
+					}
+					.PaginationCurrent .PaginationLink { background: var(--accent-400); color: var(--light-900); }
+					.PaginationLink:hover { background: var(--accent-400); color: var(--light-900); }
+					.PaginationLink:active { background: var(--light-900); color: var(--accent-400); }
+		.Comments { border-top: 1px solid var(--light-900);
+			@media (min-width: 750px) { margin: 0 1rem 1rem; border: 1px solid var(--light-900); }
+			@media (min-width: $desktop) { margin: 0; border: none; border-right: 1px solid var(--light-900); }
+		}
+			.CommentTitle { @extend .ResourceCategory; padding: 1rem 0.5rem 0.5rem;
+				@media (min-width: $desktop) { padding: 2rem 1rem 0; border: none; }
+			}
+			.CommentList { display: block; margin: 0; padding: 0; list-style-type: none;
+				@media (min-width: $desktop) { margin: 1rem; border: 1px solid var(--light-900); }
+			}
+				.CommentItem { display: block; border-bottom: 1px solid var(--light-900); }
+				.CommentChild { border-left: 1rem solid var(--light-900); }
+					.CommentArticle {  }
+						.CommentHeader { display: flex; flex-direction: column;
+							@media (min-width: 450px) { flex-direction: row; justify-content: space-between; }
+						}
+							.CommentAuthor { display: flex; flex-direction: row; align-items: center; gap: 0.25rem; padding: 0.5rem; border-bottom: 1px solid var(--dark-400);
+								@media (min-width: 450px) { border-bottom: none; }
+								@media (min-width: $desktop) { padding: 0.5rem 1rem; }
+							}
+								.CommentAuthorAvatar { display: block; width: 2rem; height: 2rem; overflow: hidden; background: var(--light-900); border-radius: 50%; }
+								.CommentAuthorName {  }
+							.CommentActions { display: flex; flex-direction: row; align-items: center; gap: 0.5rem; }
+								.CommentAction { display: block; width: 3rem; height: 3rem; padding: 0; margin: 0; background: transparent; color: var(--light-900); border: none; }
+								.CommentAction:hover { background: var(--accent-400); color: var(--light-900); }
+								.CommentAction:active { background: var(--light-900); color: var(--accent-400); }
+								.CommentUpvote {  }
+								.CommentDownvote {  }
+								.VoteCount {  }
+						.CommentBody { display: block; padding: 1rem 0.5rem; border-top: 1px solid var(--dark-400); border-bottom: 1px solid var(--dark-400);
+							@media (min-width: $desktop) { padding: 1rem; }
+						}
+						.CommentFooter { display: flex; flex-direction: column;
+							@media (min-width: 450px) { flex-direction: row; justify-content: space-between; }
+						}
+							.CommentTime { border-bottom: 1px solid var(--dark-400);
+								@media (min-width: 450px) { border-bottom: none; }
+							}
+								.CommentLink { display: block; padding: 0.5rem; color: var(--light-600); font-size: 0.75rem; line-height: 1.5rem; text-decoration: none;
+									@media (min-width: $desktop) { padding: 0.5rem 1rem; }
+								}
+							.CommentFooter .CommentActions {  }
+								.CommentFooter .CommentAction { display: flex; flex-direction: row; gap: 0.25rem; width: auto; height: auto; padding: 0.5rem;
+									@media (min-width: $desktop) { padding: 0.5rem 1rem; }
+								}
+								.CommentEdit {  }
+								.CommentReply {  }
 
-/*
-@TODO: MUST SVG icons
-@TODO: NICE Editează meta header-ul din index.html
-@TODO: MUST REsponsive design pentru navigare, paginație și footer
-*/
+	.Footer { display: flex; flex-direction: column; padding: 0 0 1rem; background: var(--dark-200); border-top: 1rem solid var(--light-900);
+		@media (min-width: 500px) { flex-direction: row; flex-wrap: wrap; }
+	}
+		.FooterMeta { display: block;
+			@media (min-width: 500px) { width: 100%; }
+			@media (min-width: 800px) { width: 38.2%; }
+		}
+			.FooterHomepageLink { display: block; padding: 1rem 1.5rem; font-size: 1.5rem; line-height: 1em; font-weight: bold; text-decoration: none;
+				@media (min-width: $desktop) {  }
+			}
+			.Copyright { display: block; margin: 0; padding: 0 1.5rem; }
+		.FooterList { display: block; margin: 1rem 0 0; padding: 0 0 0 1.5rem;
+			@media (min-width: 500px) { width: calc(50% - 1.5rem); }
+			@media (min-width: 800px) { width: calc(30.9% - 1.5rem); }
+		}
+			.FooterItem {  }
+				.FooterLink { display: block; }

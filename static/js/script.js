@@ -7,6 +7,20 @@ menuTrigger.addEventListener('click', function (event) {
 	return false;
 });
 
+const subnavTrigger = document.getElementById('subnavTrigger');
+// la fiecare click pe butonul cu hamburger icon, adăugăm sau scoatem (deci facem toggle pe) clasa ActiveMenu în body, clasă care are niște CSS care afișează sau ascunde meniul mobil
+subnavTrigger.addEventListener('click', function (event) {
+	event.preventDefault();
+	body.classList.toggle('ActiveSubnav');
+	return false;
+});
+const closeSubnav = document.getElementById('closeSubnav');
+closeSubnav.addEventListener('click', function (event) {
+	event.preventDefault();
+	body.classList.remove('ActiveSubnav');
+	return false;
+});
+
 
 const filterOptions = document.getElementsByClassName('FilterOptions');
 // Parcurgem fiecare buton cu clasa FilterOptions și adăugăm pe el un eveniment de click.
@@ -46,18 +60,17 @@ function showFullProducts(isDesktop) {
 }
 
 let lastScrollTop = 0;
-// @TODO NICE: tradu comentariile de mai jos
-// element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
+// elementul ar trebui înlocuit cu adevăratul element țintă sau cu window dacă nu există element țintă
 window.addEventListener("scroll", function () { // or window.addEventListener("scroll"....
-	let st = window.scrollY || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
+	let st = window.scrollY || document.documentElement.scrollTop;
 	if (st > lastScrollTop) {
 		body.classList.add('ScrollDown');
 	} else if (st < lastScrollTop) {
-		// upscroll code
+		// dacă se dă scroll în sus
 		body.classList.remove('ScrollDown');
 	} else {
-		 // else was horizontal scroll
+		 // aici pare c-a fost alt fel de scroll (orizontal?)
 		body.classList.remove('ScrollDown');
 	}
-	lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+	lastScrollTop = st <= 0 ? 0 : st; // pentru scrolling mobil sau negativ
 }, false);
