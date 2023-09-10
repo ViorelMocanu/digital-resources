@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getEntry, getCollection } from 'astro:content';
+export async function getStaticPaths() {
+	const resources = await getCollection('resources');
+	console.log(resources);
+	return resources.flatMap(entryList => entryList.data.map( entry => ({
+		params: { slug: entry.slug },
+		props: { entry },
+	})));
+}
+const { entry } = Astro.props;
+---
+
+<Layout title={entry.title}>
+	<h1>{entry.title}</h1>
+	{JSON.stringify(entry)}
+</Layout>

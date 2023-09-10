@@ -1,0 +1,50 @@
+---
+const activePage = Astro.request.url;
+---
+
+<footer class="Footer">
+	<div class="FooterMeta">
+		<a class="FooterHomepageLink" href="/" title="Mergi înapoi pe prima pagină a site-ului Resurse.dev">resurse.dev</a>
+		<p class="Copyright">Copyright &copy; 2023 <a href="https://www.viorelmocanu.ro/" title="Vezi site-ul personal al lui Viorel Mocanu">Viorel Mocanu</a> și <a href="https://discord.com/invite/UpnAutz" title="Vizitează comunitatea de Discord: Carieră în IT">comunitatea</a>.</p>
+	</div>
+	<ul class="FooterList">
+		<li class={activePage.startsWith('/front-end') ? 'FooterItem Active' : 'FooterItem'}>
+			<a class="FooterLink" href="/front-end" title="Vezi exclusiv lista de resurse de Front End Development">Resurse de Front End</a>
+		</li>
+		<li class={activePage.startsWith('/back-end') ? 'FooterItem Active' : 'FooterItem'}>
+			<a class="FooterLink" href="/back-end" title="Vezi exclusiv lista de resurse de Back End Development">Resurse de Back End</a>
+		</li>
+		<li class={activePage.startsWith('/design') ? 'FooterItem Active' : 'FooterItem'}>
+			<a class="FooterLink" href="/design" title="Vezi exclusiv lista de resurse de Design">Resurse de Design</a>
+		</li>
+		<li class={activePage.startsWith('/marketing') ? 'FooterItem Active' : 'FooterItem'}>
+			<a class="FooterLink" href="/marketing" title="Vezi exclusiv lista de resurse de Marketing">Resurse de Marketing</a>
+		</li>
+		<li class={activePage.startsWith('/security') ? 'FooterItem Active' : 'FooterItem'}>
+			<a class="FooterLink" href="/security" title="Vezi exclusiv lista de resurse de Network &amp; Security">Resurse de NetSec</a>
+		</li>
+		<li class={activePage.startsWith('/altele') ? 'FooterItem Active' : 'FooterItem'}>
+			<a class="FooterLink" href="/altele" title="Vezi exclusiv lista de resurse pe alte domenii">Alte resurse</a>
+		</li>
+	</ul>
+	<ul class="FooterList">
+		<li class="FooterItem">
+			<a class="FooterLink" href="https://github.com/ViorelMocanu/digital-resources" title="Vizitează proiectul de GitHub pe care se găsesc sursele acestui website">Proiectul de GitHub</a>
+		</li>
+		<li class={activePage === '/termeni-si-conditii' ? 'FooterItem Active' : 'FooterItem'}>
+			<a class="FooterLink" href="/termeni-si-conditii" title="@TODO">Termeni și condiții</a>
+		</li>
+		<li class={activePage === '/confidentialitate' ? 'FooterItem Active' : 'FooterItem'}>
+			<a class="FooterLink" href="/confidentialitate" title="@TODO">Politică de confidențialitate</a>
+		</li>
+		<li class={activePage === '/cookies' ? 'FooterItem Active' : 'FooterItem'}>
+			<a class="FooterLink" href="/cookies" title="@TODO">Politică de cookies</a>
+		</li>
+		<li class={activePage === '/faq' ? 'FooterItem Active' : 'FooterItem'}>
+			<a class="FooterLink" href="/faq" title="@TODO">Întrebări frecvente</a>
+		</li>
+		<li class={activePage === '/contact' ? 'FooterItem Active' : 'FooterItem'}>
+			<a class="FooterLink" href="/contact" title="@TODO">Contact</a>
+		</li>
+	</ul>
+</footer>

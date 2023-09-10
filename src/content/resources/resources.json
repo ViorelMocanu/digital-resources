@@ -1,0 +1,65 @@
+[
+	{
+		"title": "Resilient Web Design",
+		"slug": "resilient-web-design",
+		"url": "https://resilientwebdesign.com/",
+		"language": "en",
+		"pubDate": "05 October 2011 14:48 UTC",
+		"addDate": "05 October 2011 14:48 UTC",
+		"description": "Una din cele mai bune cărți care descrie evoluția și progresul web development-ului de-a lungul anilor, și în care sunt explicate concepte de bază de la...",
+		"author": "Jeremy Keith",
+		"authorUrl": "https://adactio.com/",
+		"section": "Front End",
+		"category": "Introducere",
+		"rating": 100,
+		"price": 0,
+		"requiredTime": 20,
+		"type": "carte",
+		"mandatory": true,
+		"image": {
+			"imageUrl": "https://docs.astro.build/assets/full-logo-light.png",
+			"alt": "Prima pagină din Resilient Web Design"
+		},
+		"tags": [
+			"carte",
+			"text",
+			"free",
+			"începători",
+			"mid",
+			"avansați",
+			"pro",
+			"obligatoriu"
+		]
+	},
+	{
+		"title": "How does the Web work?",
+		"slug": "how-does-the-web-work",
+		"url": "https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/how-does-the-web-work",
+		"language": "en",
+		"pubDate": "05 October 2011 14:48 UTC",
+		"addDate": "05 October 2011 14:48 UTC",
+		"description": "asdasdsadasdadsa asdasd asdasdasdasd",
+		"author": "The Odin Project",
+		"authorUrl": "https://www.theodinproject.com/",
+		"section": "Front End",
+		"category": "Introducere",
+		"rating": 100,
+		"price": 0,
+		"requiredTime": 20,
+		"type": "curs",
+		"mandatory": true,
+		"image": {
+			"imageUrl": "https://docs.astro.build/assets/full-logo-light.png",
+			"alt": "asdasdasdasdas"
+		},
+		"tags": [
+			"curs",
+			"free",
+			"începători",
+			"mid",
+			"avansați",
+			"pro",
+			"obligatoriu"
+		]
+	}
+]
