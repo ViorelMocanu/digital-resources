@@ -35,6 +35,8 @@ jobs:
         uses: actions/configure-pages@v3
       - name: Install PNPM
         uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - name: Install dependencies
         run: pnpm install
       - name: Build
