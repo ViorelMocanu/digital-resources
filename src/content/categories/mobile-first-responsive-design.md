@@ -2,8 +2,8 @@
 title: "Mobile-first Responsive Web Design"
 sortOrder: 4
 image:
-	imageUrl: "test.jpg"
-	imageAlt: "test"
+  imageUrl: "test.jpg"
+  imageAlt: "test"
 shortDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
 subcategories:
 publishDate: 2023-09-24

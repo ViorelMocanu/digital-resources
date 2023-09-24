@@ -2,8 +2,8 @@
 title: "HTML (Hyper Text Markup Language)"
 sortOrder: 2
 image:
-	imageUrl: "test.jpg"
-	imageAlt: "test"
+  imageUrl: "test.jpg"
+  imageAlt: "test"
 shortDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
 subcategories:
 - elemente-de-baza

@@ -24,8 +24,8 @@ const resourceCollection = defineCollection({
 			type: z.string(),
 			mandatory: z.boolean(),
 			image: z.object({
-				imageUrl: z.string().url({ message: "URL invalid" }),
-				imageAlt: z.string().optional(),
+			  imageUrl: z.string().url({ message: "URL invalid" }),
+			  imageAlt: z.string().optional(),
 			}).nullable().optional(),
 			tags: z.array(reference('tags')),
 		})
@@ -37,8 +37,8 @@ const tagCollection = defineCollection({
 	schema: z.object({
 		title: z.string(),
 		image: z.object({
-			imageUrl: z.string().url({ message: "URL invalid" }),
-			imageAlt: z.string().optional(),
+		  imageUrl: z.string().url({ message: "URL invalid" }),
+		  imageAlt: z.string().optional(),
 		}).nullable().optional(),
 		shortDescription: z.string().max(165, { message: "Descrierea scurtă trebuie să fie de maxim 165 caractere" }),
 		publishDate: z.date().optional(),
@@ -51,8 +51,8 @@ const sectionCollection = defineCollection({
 		title: z.string(),
 		sortOrder: z.number(),
 		image: z.object({
-			imageUrl: z.string().optional(),
-			imageAlt: z.string().optional(),
+		  imageUrl: z.string().optional(),
+		  imageAlt: z.string().optional(),
 		}).nullable().optional(),
 		shortDescription: z.string().max(165, { message: "Descrierea scurtă trebuie să fie de maxim 165 caractere" }),
 		categories: z.array(reference('categories')),
@@ -66,8 +66,8 @@ const categoryCollection = defineCollection({
 		title: z.string(),
 		sortOrder: z.number(),
 		image: z.object({
-			imageUrl: z.string().optional(),
-			imageAlt: z.string().optional(),
+		  imageUrl: z.string().optional(),
+		  imageAlt: z.string().optional(),
 		}).nullable().optional(),
 		shortDescription: z.string().max(165, { message: "Descrierea scurtă trebuie să fie de maxim 165 caractere" }),
 		subcategories: z.array(reference('subcategories')).nullable().optional(),
