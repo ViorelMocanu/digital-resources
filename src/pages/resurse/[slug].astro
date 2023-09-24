@@ -1,9 +1,9 @@
 ---
+import { Image, imageConfig } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import { getEntry, getCollection } from 'astro:content';
 export async function getStaticPaths() {
 	const resources = await getCollection('resources');
-	console.log(resources);
 	return resources.flatMap(entryList => entryList.data.map( entry => ({
 		params: { slug: entry.slug },
 		props: { entry },
@@ -12,7 +12,213 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 ---
 
-<Layout title={entry.title}>
-	<h1>{entry.title}</h1>
-	{JSON.stringify(entry)}
+<Layout title={entry.title} template="ResourcePage">
+	<p class="TemporaryMessage">Template: <strong>Resource Page</strong></p>
+	<div class="Hero" id="hero">
+		<div class="HeroVisual">
+			<img class="HeroImage" src={entry.image.imageUrl} width="287" height="120" alt={entry.image.alt} />
+		</div>
+		<div class="HeroText">
+			<h1 class="HeroTitle">{entry.title}</h1>
+			<p>Url: {entry.url}</p>
+			<p>language: {entry.language}</p>
+			<p>pubDate: {entry.pubDate}</p>
+			<p>addDate: {entry.addDate}</p>
+			<p>section: {entry.section}</p>
+			<p>category: {entry.category}</p>
+			<p>Autor: <a href={entry.authorUrl} title="Vizitează site-ul autorului">{entry.authorName}</a></p>
+			<p>rating: {entry.rating}</p>
+			<p>price: {entry.price}</p>
+			<p>requiredTime: {entry.requiredTime}</p>
+			<p>type: {entry.type}</p>
+			<p>mandatory: {entry.mandatory}</p>
+			{entry.tags && 
+				<ul class="ResourceTags">
+					{entry.tags.map(tag => (
+						<li class="ResourceTag">
+							<a class="ResourceTagLink" href="#" title=`Vezi toate resursele care sunt clasificate astfel: ${tag}`>
+								<span class="Icon IconTag">Tag:</span>
+								<span class="TagName">{tag}</span>
+							</a>
+						</li>
+					))}
+				</ul>
+			}
+		</div>
+	</div>
+	<main class="Main">
+		<section>
+			<p>{entry.description}</p>
+		</section>
+		<section class="Comments">
+			<h2 class="CommentTitle">Discută cu comunitatea:</h2>
+			<ol class="CommentList">
+				<li class="CommentItem" itemscope itemtype="https://schema.org/Comment" itemid="#246827">
+					<article class="CommentArticle">
+						<header class="CommentHeader">
+							<div class="CommentAuthor" itemprop="https://schema.org/author" itemscope itemtype="https://schema.org/Person">
+								<img class="CommentAuthorAvatar" itemprop="image" alt="Avatarul lui Gelu" src="avatar.jpg" height="64" width="64" data-source="gravatar" />
+								<span class="CommentAuthorName" itemprop="name">Gelu Crocochiftelu</span>
+							</div>
+							<div class="CommentActions">
+								<button class="CommentAction CommentUpvote" title="Adaugă un vot pozitiv acestui comentariu">
+									<icon class="Icon IconUpvote">
+										<span class="SROnly">👍</span>
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+											<path stroke-linecap="round" stroke-linejoin="round" d="M6.633 10.5c.806 0 1.533-.446 2.031-1.08a9.041 9.041 0 012.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 00.322-1.672V3a.75.75 0 01.75-.75A2.25 2.25 0 0116.5 4.5c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 01-2.649 7.521c-.388.482-.987.729-1.605.729H13.48c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 00-1.423-.23H5.904M14.25 9h2.25M5.904 18.75c.083.205.173.405.27.602.197.4-.078.898-.523.898h-.908c-.889 0-1.713-.518-1.972-1.368a12 12 0 01-.521-3.507c0-1.553.295-3.036.831-4.398C3.387 10.203 4.167 9.75 5 9.75h1.053c.472 0 .745.556.5.96a8.958 8.958 0 00-1.302 4.665c0 1.194.232 2.333.654 3.375z" />
+										</svg>
+									</icon>
+								</button>
+								<span class="VoteCount" title="Acest comentariu are diferența dintre comentariile pozitive și cele negative în valoare de 123">123</span>
+								<button class="CommentAction CommentDownvote" title="Adaugă un vot negativ acestui comentariu">
+									<icon class="Icon IconDownvote">
+										<span class="SROnly">👎</span>
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+											<path stroke-linecap="round" stroke-linejoin="round" d="M7.5 15h2.25m8.024-9.75c.011.05.028.1.052.148.591 1.2.924 2.55.924 3.977a8.96 8.96 0 01-.999 4.125m.023-8.25c-.076-.365.183-.75.575-.75h.908c.889 0 1.713.518 1.972 1.368.339 1.11.521 2.287.521 3.507 0 1.553-.295 3.036-.831 4.398C20.613 14.547 19.833 15 19 15h-1.053c-.472 0-.745-.556-.5-.96a8.95 8.95 0 00.303-.54m.023-8.25H16.48a4.5 4.5 0 01-1.423-.23l-3.114-1.04a4.5 4.5 0 00-1.423-.23H6.504c-.618 0-1.217.247-1.605.729A11.95 11.95 0 002.25 12c0 .434.023.863.068 1.285C2.427 14.306 3.346 15 4.372 15h3.126c.618 0 .991.724.725 1.282A7.471 7.471 0 007.5 19.5a2.25 2.25 0 002.25 2.25.75.75 0 00.75-.75v-.633c0-.573.11-1.14.322-1.672.304-.76.93-1.33 1.653-1.715a9.04 9.04 0 002.86-2.4c.498-.634 1.226-1.08 2.032-1.08h.384" />
+										</svg>
+									</icon>
+								</button>
+							</div>
+						</header>
+						<main class="CommentBody" itemprop="text">This is the text of my comment</main>
+						<footer class="CommentFooter">
+							<time class="CommentTime" datetime="2022-04-12T10:22:32+01:00" itemprop="dateCreated">
+								<a class="CommentLink" href="#comment-246827" itemprop="url">22-04-12 10:22</a>
+							</time>
+							<div class="CommentActions">
+								<button class="CommentAction CommentEdit" title="Editează-ți comentariul">
+									<span class="ButtonText">Editează</span>
+									<icon class="Icon IconEdit">
+										<span class="SROnly">✏️</span>
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+											<path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+										</svg>
+									</icon>
+								</button>
+								<button class="CommentAction CommentReply" title="Răspunde-i lui Gelu acum">
+									<span class="ButtonText">Răspunde</span>
+									<icon class="Icon IconReply">
+										<span class="SROnly">↩️</span>
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+											<path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
+										</svg>
+									</icon>
+								</button>
+							</div>
+						</footer>
+					</article>
+				</li>
+				<li class="CommentItem CommentChild" itemscope itemtype="https://schema.org/Comment" itemid="#246827">
+					<article class="CommentArticle">
+						<header class="CommentHeader">
+							<div class="CommentAuthor" itemprop="https://schema.org/author" itemscope itemtype="https://schema.org/Person">
+								<img class="CommentAuthorAvatar" itemprop="image" alt="Avatarul lui Gelu" src="avatar.jpg" height="64" width="64" data-source="gravatar" />
+								<span class="CommentAuthorName" itemprop="name">Gelu Crocochiftelu</span>
+							</div>
+							<div class="CommentActions">
+								<button class="CommentAction CommentUpvote" title="Adaugă un vot pozitiv acestui comentariu">
+									<icon class="Icon IconUpvote">
+										<span class="SROnly">👍</span>
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+											<path stroke-linecap="round" stroke-linejoin="round" d="M6.633 10.5c.806 0 1.533-.446 2.031-1.08a9.041 9.041 0 012.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 00.322-1.672V3a.75.75 0 01.75-.75A2.25 2.25 0 0116.5 4.5c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 01-2.649 7.521c-.388.482-.987.729-1.605.729H13.48c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 00-1.423-.23H5.904M14.25 9h2.25M5.904 18.75c.083.205.173.405.27.602.197.4-.078.898-.523.898h-.908c-.889 0-1.713-.518-1.972-1.368a12 12 0 01-.521-3.507c0-1.553.295-3.036.831-4.398C3.387 10.203 4.167 9.75 5 9.75h1.053c.472 0 .745.556.5.96a8.958 8.958 0 00-1.302 4.665c0 1.194.232 2.333.654 3.375z" />
+										</svg>
+									</icon>
+								</button>
+								<span class="VoteCount" title="Acest comentariu are diferența dintre comentariile pozitive și cele negative în valoare de 123">123</span>
+								<button class="CommentAction CommentDownvote" title="Adaugă un vot negativ acestui comentariu">
+									<icon class="Icon IconDownvote">
+										<span class="SROnly">👎</span>
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+											<path stroke-linecap="round" stroke-linejoin="round" d="M7.5 15h2.25m8.024-9.75c.011.05.028.1.052.148.591 1.2.924 2.55.924 3.977a8.96 8.96 0 01-.999 4.125m.023-8.25c-.076-.365.183-.75.575-.75h.908c.889 0 1.713.518 1.972 1.368.339 1.11.521 2.287.521 3.507 0 1.553-.295 3.036-.831 4.398C20.613 14.547 19.833 15 19 15h-1.053c-.472 0-.745-.556-.5-.96a8.95 8.95 0 00.303-.54m.023-8.25H16.48a4.5 4.5 0 01-1.423-.23l-3.114-1.04a4.5 4.5 0 00-1.423-.23H6.504c-.618 0-1.217.247-1.605.729A11.95 11.95 0 002.25 12c0 .434.023.863.068 1.285C2.427 14.306 3.346 15 4.372 15h3.126c.618 0 .991.724.725 1.282A7.471 7.471 0 007.5 19.5a2.25 2.25 0 002.25 2.25.75.75 0 00.75-.75v-.633c0-.573.11-1.14.322-1.672.304-.76.93-1.33 1.653-1.715a9.04 9.04 0 002.86-2.4c.498-.634 1.226-1.08 2.032-1.08h.384" />
+										</svg>
+									</icon>
+								</button>
+							</div>
+						</header>
+						<main class="CommentBody" itemprop="text">This is the text of my comment</main>
+						<footer class="CommentFooter">
+							<time class="CommentTime" datetime="2022-04-12T10:22:32+01:00" itemprop="dateCreated">
+								<a class="CommentLink" href="#comment-246827" itemprop="url">22-04-12 10:22</a>
+							</time>
+							<div class="CommentActions">
+								<button class="CommentAction CommentEdit" title="Editează-ți comentariul">
+									<span class="ButtonText">Editează</span>
+									<icon class="Icon IconEdit">
+										<span class="SROnly">✏️</span>
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+											<path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+										</svg>
+									</icon>
+								</button>
+								<button class="CommentAction CommentReply" title="Răspunde-i lui Gelu acum">
+									<span class="ButtonText">Răspunde</span>
+									<icon class="Icon IconReply">
+										<span class="SROnly">↩️</span>
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+											<path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
+										</svg>
+									</icon>
+								</button>
+							</div>
+						</footer>
+					</article>
+				</li>
+				<li class="CommentItem" itemscope itemtype="https://schema.org/Comment" itemid="#246827">
+					<article class="CommentArticle">
+						<header class="CommentHeader">
+							<div class="CommentAuthor" itemprop="https://schema.org/author" itemscope itemtype="https://schema.org/Person">
+								<img class="CommentAuthorAvatar" itemprop="image" alt="Avatarul lui Gelu" src="avatar.jpg" height="64" width="64" data-source="gravatar" />
+								<span class="CommentAuthorName" itemprop="name">Gelu Crocochiftelu</span>
+							</div>
+							<div class="CommentActions">
+								<button class="CommentAction CommentUpvote" title="Adaugă un vot pozitiv acestui comentariu">
+									<icon class="Icon IconUpvote">
+										<span class="SROnly">👍</span>
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+											<path stroke-linecap="round" stroke-linejoin="round" d="M6.633 10.5c.806 0 1.533-.446 2.031-1.08a9.041 9.041 0 012.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 00.322-1.672V3a.75.75 0 01.75-.75A2.25 2.25 0 0116.5 4.5c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 01-2.649 7.521c-.388.482-.987.729-1.605.729H13.48c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 00-1.423-.23H5.904M14.25 9h2.25M5.904 18.75c.083.205.173.405.27.602.197.4-.078.898-.523.898h-.908c-.889 0-1.713-.518-1.972-1.368a12 12 0 01-.521-3.507c0-1.553.295-3.036.831-4.398C3.387 10.203 4.167 9.75 5 9.75h1.053c.472 0 .745.556.5.96a8.958 8.958 0 00-1.302 4.665c0 1.194.232 2.333.654 3.375z" />
+										</svg>
+									</icon>
+								</button>
+								<span class="VoteCount" title="Acest comentariu are diferența dintre comentariile pozitive și cele negative în valoare de 123">123</span>
+								<button class="CommentAction CommentDownvote" title="Adaugă un vot negativ acestui comentariu">
+									<icon class="Icon IconDownvote">
+										<span class="SROnly">👎</span>
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+											<path stroke-linecap="round" stroke-linejoin="round" d="M7.5 15h2.25m8.024-9.75c.011.05.028.1.052.148.591 1.2.924 2.55.924 3.977a8.96 8.96 0 01-.999 4.125m.023-8.25c-.076-.365.183-.75.575-.75h.908c.889 0 1.713.518 1.972 1.368.339 1.11.521 2.287.521 3.507 0 1.553-.295 3.036-.831 4.398C20.613 14.547 19.833 15 19 15h-1.053c-.472 0-.745-.556-.5-.96a8.95 8.95 0 00.303-.54m.023-8.25H16.48a4.5 4.5 0 01-1.423-.23l-3.114-1.04a4.5 4.5 0 00-1.423-.23H6.504c-.618 0-1.217.247-1.605.729A11.95 11.95 0 002.25 12c0 .434.023.863.068 1.285C2.427 14.306 3.346 15 4.372 15h3.126c.618 0 .991.724.725 1.282A7.471 7.471 0 007.5 19.5a2.25 2.25 0 002.25 2.25.75.75 0 00.75-.75v-.633c0-.573.11-1.14.322-1.672.304-.76.93-1.33 1.653-1.715a9.04 9.04 0 002.86-2.4c.498-.634 1.226-1.08 2.032-1.08h.384" />
+										</svg>
+									</icon>
+								</button>
+							</div>
+						</header>
+						<main class="CommentBody" itemprop="text">This is the text of my comment</main>
+						<footer class="CommentFooter">
+							<time class="CommentTime" datetime="2022-04-12T10:22:32+01:00" itemprop="dateCreated">
+								<a class="CommentLink" href="#comment-246827" itemprop="url">22-04-12 10:22</a>
+							</time>
+							<div class="CommentActions">
+								<button class="CommentAction CommentEdit" title="Editează-ți comentariul">
+									<span class="ButtonText">Editează</span>
+									<icon class="Icon IconEdit">
+										<span class="SROnly">✏️</span>
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+											<path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+										</svg>
+									</icon>
+								</button>
+								<button class="CommentAction CommentReply" title="Răspunde-i lui Gelu acum">
+									<span class="ButtonText">Răspunde</span>
+									<icon class="Icon IconReply">
+										<span class="SROnly">↩️</span>
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+											<path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
+										</svg>
+									</icon>
+								</button>
+							</div>
+						</footer>
+					</article>
+				</li>
+			</ol>
+		</section>
+	</main>
 </Layout>

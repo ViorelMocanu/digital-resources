@@ -6,9 +6,10 @@ import {ViewTransitions} from 'astro:transitions';
 
 interface Props {
 	title: string;
+	template: string;
 }
 
-const { title } = Astro.props;
+const { title, template } = Astro.props;
 const siteName = "resurse.dev";
 const contactEmail = "contact@resurse.dev";
 const language = "ro"; // 🛑 @TODO: multi-language support with i18n
@@ -68,7 +69,7 @@ const ogImageAlt = ""; // 🛑 @TODO: OG Image ALT
 		<meta name="generator" content={Astro.generator} />
 		<ViewTransitions />
 	</head>
-	<body>
+	<body class={template}>
 		<a id="skip" href="#hero" title="Mergi direct la conținutul acestei pagini">Mergi la conținut</a>
 		<div class="Framework">
 			<Header />

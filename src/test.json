@@ -1,0 +1,6603 @@
+[
+	{
+		"url": "https://www.youtube.com/@ViorelMocanu",
+		"title": "V"
+	},
+	{
+		"url": "https://resilientwebdesign.com/chapter1/",
+		"title": "Resilient web design book"
+	},
+	{
+		"url": "https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/how-does-the-web-work",
+		"title": "How does the Web work"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3Doj7A2YDgIWE",
+		"title": "How does the Internet work? - Naked Science Scrapbook"
+	},
+	{
+		"url": "https://www.theodinproject.com/courses/web-development-101",
+		"title": "The Odin Project - Web Development 101"
+	},
+	{
+		"url": "https://tutorialehtml.com/ro/introducere-in-html/",
+		"title": "HTML Tutorial"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DewrBalT_eBM",
+		"title": "A Packet's Tale. How Does the Internet Work?"
+	},
+	{
+		"url": "https://howdns.works/",
+		"title": "How DNS Works"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3D3eqEl6scOvw",
+		"title": "How DNS Works"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DPUPDGbnpSjw",
+		"title": "CS50 2017 - Lecture 6 - HTTP"
+	},
+	{
+		"url": "https://www.edx.org/cs50",
+		"title": "https://www.edx.org/cs50"
+	},
+	{
+		"url": "https://howhttps.works/why-do-we-need-https/",
+		"title": "How HTTPS works"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3De4S8zfLdLgQ",
+		"title": "How the Internet Works for Developers - Pt 1 - Overview & Frontend"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DFTAPjr7vgxE",
+		"title": "How the Internet Works for Developers - Pt 2 - Servers & Scaling"
+	},
+	{
+		"url": "https://prezi.com/aafmvya6bk7t/understanding-information-architecture/",
+		"title": "Understanding Information Architecture"
+	},
+	{
+		"url": "https://www.uxbooth.com/articles/complete-beginners-guide-to-information-architecture/",
+		"title": "this article"
+	},
+	{
+		"url": "https://www.usability.gov/what-and-why/information-architecture.html",
+		"title": "this primer"
+	},
+	{
+		"url": "https://alistapart.com/article/a-brief-history-of-markup",
+		"title": "A brief history of markup on A List Apart"
+	},
+	{
+		"url": "https://diveinto.html5doctor.com/",
+		"title": "Dive into HTML5"
+	},
+	{
+		"url": "https://developer.mozilla.org/en-US/docs/Learn/Front-end_web_developer",
+		"title": "Mozilla Front End tutorial"
+	},
+	{
+		"url": "https://learn.shayhowe.com/html-css/",
+		"title": "Learn HTML/CSS: Shay Howe"
+	},
+	{
+		"url": "https://www.codeschool.com/paths/html-css",
+		"title": "CodeSchool Web Path"
+	},
+	{
+		"url": "https://www.linkedin.com/learning/html-essential-training-4/what-is-html",
+		"title": "Jen Simmons teaching HTML"
+	},
+	{
+		"url": "https://webdesign.tutsplus.com/articles/html-css-for-beginners-mega-free-course--cms-93199",
+		"title": "Adi Purdilă"
+	},
+	{
+		"url": "https://www.washington.edu/accesscomputing/webd2/student/unit2/index.html",
+		"title": "Washington.edu course on HTML"
+	},
+	{
+		"url": "https://www.khanacademy.org/computing/computer-programming/html-css",
+		"title": "Khan Academy Web Programming"
+	},
+	{
+		"url": "https://htmldog.com/",
+		"title": "HTMLDog"
+	},
+	{
+		"url": "https://marksheet.io/",
+		"title": "MarkSheet"
+	},
+	{
+		"url": "https://developer.mozilla.org/en/docs/Web/HTML/Element",
+		"title": "Mozilla Developer Network: HTML reference"
+	},
+	{
+		"url": "https://web.dev/learn/css/",
+		"title": "Learn CSS from Web.DEV"
+	},
+	{
+		"url": "https://www.theodinproject.com/lessons/foundations-introduction-to-html-and-css",
+		"title": "The Odin Project: HTML and CSS"
+	},
+	{
+		"url": "https://almanac.httparchive.org/en/2020/css",
+		"title": "Web Almanac on CSS"
+	},
+	{
+		"url": "https://web.dev/learn/design/",
+		"title": "Learn Responsive Design"
+	},
+	{
+		"url": "https://scrimba.com/learn/introhtmlcss",
+		"title": "Kevin Powell’s tutorial on Scrimba"
+	},
+	{
+		"url": "https://scrimba.com/learn/htmlandcss",
+		"title": "Per Harald Borgen’s"
+	},
+	{
+		"url": "https://www.freecodecamp.org/learn/2022/responsive-web-design/",
+		"title": "FreeCodeCamp Responsive Web Design"
+	},
+	{
+		"url": "https://www.youtube.com/playlist?list%3DPLgGbWId6zgaWZkPFI4Sc9QXDmmOWa1v5F",
+		"title": "30 days to HTML/CSS"
+	},
+	{
+		"url": "https://github.com/AllThingsSmitty/css-protips",
+		"title": "CSS Protips"
+	},
+	{
+		"url": "https://www.washington.edu/accesscomputing/webd2/student/unit3/index.html",
+		"title": "Washington.edu course on CSS"
+	},
+	{
+		"url": "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
+		"title": "Flexbox tutorial"
+	},
+	{
+		"url": "https://www.joshwcomeau.com/css/interactive-guide-to-flexbox/",
+		"title": "An interactive guide to Flexbox"
+	},
+	{
+		"url": "https://learnlayout.com/",
+		"title": "Learn Layout"
+	},
+	{
+		"url": "https://www.joshwcomeau.com/css/understanding-layout-algorithms/",
+		"title": "Understand CSS Layout algorithms"
+	},
+	{
+		"url": "https://ishadeed.com/article/grid-layout-flexbox-components/",
+		"title": "Grid for layout, Flexbox for components"
+	},
+	{
+		"url": "https://css-tricks.com/snippets/css/complete-guide-grid/",
+		"title": "Guide to Grid"
+	},
+	{
+		"url": "https://every-layout.dev/",
+		"title": "Relearn CSS layout"
+	},
+	{
+		"url": "https://smolcss.dev/",
+		"title": "Smol CSS layouts"
+	},
+	{
+		"url": "https://cssgrid.io/",
+		"title": "CSS Grids by Wes Bos"
+	},
+	{
+		"url": "https://flexboxzombies.com/p/flexbox-zombies",
+		"title": "FlexboxZombie"
+	},
+	{
+		"url": "https://www.htmldog.com/guides/css/beginner/",
+		"title": "Beginner CSS tutorial"
+	},
+	{
+		"url": "https://www.htmldog.com/guides/css/intermediate/",
+		"title": "Intermediate CSS tutorial"
+	},
+	{
+		"url": "https://www.htmldog.com/guides/css/advanced/",
+		"title": "Advanced CSS tutorial"
+	},
+	{
+		"url": "https://cssgridgarden.com/",
+		"title": "Grid Garden"
+	},
+	{
+		"url": "https://labs.jensimmons.com/",
+		"title": "Jen Simmons Labs"
+	},
+	{
+		"url": "https://gridbyexample.com/",
+		"title": "Grid by Example"
+	},
+	{
+		"url": "https://defensivecss.dev/",
+		"title": "Defensive CSS"
+	},
+	{
+		"url": "https://defensivecss.dev/articles/intro-defensive-css/",
+		"title": "intro"
+	},
+	{
+		"url": "https://css-tricks.com/specifics-on-css-specificity/",
+		"title": "Calculating CSS Specificity"
+	},
+	{
+		"url": "https://specificity.keegan.st/",
+		"title": "Specificity calculator"
+	},
+	{
+		"url": "https://www.w3.org/Style/CSS/",
+		"title": "The CSS “homepage”"
+	},
+	{
+		"url": "https://www.w3.org/Style/LieBos2e/enter/",
+		"title": "CSS: Designing for the Web"
+	},
+	{
+		"url": "https://github.com/KittyGiraudel/selectors-explained",
+		"title": "Explain CSS selectors in plain English"
+	},
+	{
+		"url": "https://www.csszengarden.com/",
+		"title": "CSS Zen Garden"
+	},
+	{
+		"url": "https://css-tricks.com/almanac/",
+		"title": "CSSTricks Almanac"
+	},
+	{
+		"url": "https://apps.workflower.fi/vocabs/css/en",
+		"title": "CSS Vocabulary"
+	},
+	{
+		"url": "https://developer.mozilla.org/en-US/docs/Web/CSS",
+		"title": "Mozilla Developer Network CSS Info"
+	},
+	{
+		"url": "https://code.tutsplus.com/tutorials/9-most-common-ie-bugs-and-how-to-fix-them--net-7764",
+		"title": "Solve most of IE’s bugs"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3Dn1cKlKM3jYI",
+		"title": "An Introduction to Browser Rendering"
+	},
+	{
+		"url": "https://www.google.com/chrome/browser/canary.html",
+		"title": "Chrome Canary"
+	},
+	{
+		"url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference",
+		"title": "Mozilla Developer Network: CSS reference"
+	},
+	{
+		"url": "https://css-tricks.com/complete-guide-to-css-functions/",
+		"title": "A complete guide to CSS functions"
+	},
+	{
+		"url": "https://moderncss.dev/",
+		"title": "Modern CSS solutions for old CSS problems"
+	},
+	{
+		"url": "https://css-tricks.com/guides/",
+		"title": "CSS Tricks Guides"
+	},
+	{
+		"url": "https://www.ibm.com/design/practices/design-for-sustainability/",
+		"title": "Design for Sustainability"
+	},
+	{
+		"url": "https://sustainablewebdesign.org/",
+		"title": "Sustainable Web"
+	},
+	{
+		"url": "https://tympanus.net/codrops/",
+		"title": "Codrops"
+	},
+	{
+		"url": "https://css-tricks.com/snippets/css/",
+		"title": "CSS-Tricks CSS Snippets"
+	},
+	{
+		"url": "https://www.joshwcomeau.com/animation/css-transitions/",
+		"title": "A complete guide to CSS transitions"
+	},
+	{
+		"url": "https://www.minimamente.com/example/magic_animations/",
+		"title": "Magic animations"
+	},
+	{
+		"url": "https://codepen.io/honglio/pen/FKyxG",
+		"title": "Hover effects"
+	},
+	{
+		"url": "https://ianlunn.github.io/Hover/",
+		"title": "Hovers"
+	},
+	{
+		"url": "https://h5bp.github.io/Effeckt.css/",
+		"title": "Effekts"
+	},
+	{
+		"url": "https://desandro.github.io/3dtransforms/examples/box-02-show-sides.html",
+		"title": "Box"
+	},
+	{
+		"url": "https://codersblock.com/blog/the-surprising-things-that-css-can-animate/",
+		"title": "Advanced animations"
+	},
+	{
+		"url": "https://caniuse.com/",
+		"title": "CanIUse"
+	},
+	{
+		"url": "https://caniuse.com/%23feat%3Dcss-grid",
+		"title": "CSS Grid"
+	},
+	{
+		"url": "https://www.caniemail.com/",
+		"title": "CanIEmail"
+	},
+	{
+		"url": "https://designmodo.com/html-css-emails/",
+		"title": "HTML + CSS in Emails: What Works in 2022?"
+	},
+	{
+		"url": "https://www.smashingmagazine.com/2021/10/guide-debugging-css/",
+		"title": "Debugging CSS"
+	},
+	{
+		"url": "https://www.colorzilla.com/gradient-editor/",
+		"title": "CSS3 gradient generator"
+	},
+	{
+		"url": "https://simpleicons.org/",
+		"title": "SimpleIcons"
+	},
+	{
+		"url": "https://heroicons.com/",
+		"title": "HeroIcons"
+	},
+	{
+		"url": "https://icones.js.org/",
+		"title": "Icones"
+	},
+	{
+		"url": "https://react-icons.github.io/react-icons/",
+		"title": "ReactIcons"
+	},
+	{
+		"url": "https://devicon.dev/",
+		"title": "DevIcon"
+	},
+	{
+		"url": "https://www.untitledui.com/blog/free-icon-sets",
+		"title": "others"
+	},
+	{
+		"url": "https://css-tricks.com/examples/IconFont/",
+		"title": "Why IconFonts are great"
+	},
+	{
+		"url": "https://icomoon.io/",
+		"title": "IcoMoon"
+	},
+	{
+		"url": "https://fontawesome.com/",
+		"title": "FontAwesome"
+	},
+	{
+		"url": "https://www.svgator.com/",
+		"title": "How to animate SVGs, the simple way"
+	},
+	{
+		"url": "https://css-tricks.com/guide-svg-animations-smil/",
+		"title": "SVG Animations"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DZys7mWgz85k",
+		"title": "GIT tutorial Română"
+	},
+	{
+		"url": "",
+		"title": ""
+	},
+	{
+		"url": "https://github.com/",
+		"title": "GitHub"
+	},
+	{
+		"url": "https://www.sourcetreeapp.com/",
+		"title": "SourceTree"
+	},
+	{
+		"url": "https://tortoisesvn.net/downloads.html",
+		"title": "Tortoise SVN"
+	},
+	{
+		"url": "https://lab.github.com/githubtraining/introduction-to-github",
+		"title": "GIT"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3D1lBdlh3AGSc%26safe%3Dactive",
+		"title": "GIT 101"
+	},
+	{
+		"url": "https://github.com/zero-to-mastery/start-here-guidelines/blob/855a00243db60c71905f6e3afd95ebf2cf7459a0/gitstartedguideoptimized.pdf",
+		"title": "PDF guide"
+	},
+	{
+		"url": "https://makeapullrequest.com/",
+		"title": "PR guide"
+	},
+	{
+		"url": "https://opensource.com/article/20/4/git-merge-conflict",
+		"title": "Conflicts"
+	},
+	{
+		"url": "https://github.com/GSoft-SharePoint/Dynamite/wiki/Getting-started-with-SourceTree,-Git-and-git-flow",
+		"title": "GitHub + SourceTree tutorial"
+	},
+	{
+		"url": "https://cbea.ms/git-commit/",
+		"title": "Commits"
+	},
+	{
+		"url": "https://www.jetbrains.com/webstorm/help/using-git-integration.html",
+		"title": "GIT with WebStorm"
+	},
+	{
+		"url": "https://github.com/elsewhencode/project-guidelines",
+		"title": "Project rules"
+	},
+	{
+		"url": "https://gitimmersion.com/",
+		"title": "Immersion"
+	},
+	{
+		"url": "https://www.linode.com/docs/guides/using-the-terminal/",
+		"title": "Using the terminal"
+	},
+	{
+		"url": "https://www.atlassian.com/git/tutorials/comparing-workflows",
+		"title": "Workflows"
+	},
+	{
+		"url": "https://docs.github.com/en/get-started/using-git/about-git",
+		"title": "101"
+	},
+	{
+		"url": "https://docs.github.com/en/get-started/quickstart/set-up-git",
+		"title": "Setup"
+	},
+	{
+		"url": "https://ohshitgit.com/",
+		"title": "Oh shit, GIT?"
+	},
+	{
+		"url": "https://code.visualstudio.com/",
+		"title": "Visual Studio Code"
+	},
+	{
+		"url": "https://www.jetbrains.com/webstorm/download/",
+		"title": "WebStorm"
+	},
+	{
+		"url": "https://www.sublimetext.com/3",
+		"title": "Sublime"
+	},
+	{
+		"url": "https://brackets.io/",
+		"title": "Brackets"
+	},
+	{
+		"url": "https://www.awwwards.com/10-html-css-online-code-editors-for-web-developers.html",
+		"title": "Online editors (for testing only)"
+	},
+	{
+		"url": "https://filezilla-project.org/download.php?type%3Dclient",
+		"title": "FileZilla"
+	},
+	{
+		"url": "https://www.ghisler.com/download.htm",
+		"title": "Total Commander"
+	},
+	{
+		"url": "https://www.coreftp.com/download.html",
+		"title": "CoreFTP"
+	},
+	{
+		"url": "https://www.washington.edu/accesscomputing/webd2/student/unit1/module3/lesson1.html",
+		"title": "Washington Edu lesson in Standards"
+	},
+	{
+		"url": "https://www.webstandards.org/learn/faq/",
+		"title": "What are web standards and why should I use them?"
+	},
+	{
+		"url": "https://validator.w3.org/",
+		"title": "W3C HTML Validator"
+	},
+	{
+		"url": "https://jigsaw.w3.org/css-validator/",
+		"title": "W3C CSS Validator"
+	},
+	{
+		"url": "https://www.washington.edu/accesscomputing/webd2/student/unit1/module3/index.html",
+		"title": "Web Standards and Accessible Design"
+	},
+	{
+		"url": "https://www.washington.edu/accesscomputing/webd2/student/unit6/index.html",
+		"title": "Quality Control"
+	},
+	{
+		"url": "https://html5doctor.com/lets-talk-about-semantics/",
+		"title": "Let’s talk about semantics"
+	},
+	{
+		"url": "https://adactio.com/journal/4999/",
+		"title": "Pursuing semantic value"
+	},
+	{
+		"url": "https://www.cambridgesemantics.com/blog/semantic-university/intro-semantic-web/",
+		"title": "Introduction to the semantic web"
+	},
+	{
+		"url": "https://boagworld.com/dev/semantic-code-what-why-how/",
+		"title": "Semantic code: What? Why? How?"
+	},
+	{
+		"url": "https://www.smashingmagazine.com/2011/11/18/html5-semantics/",
+		"title": "HTML5 semantics from Smashing Magazine"
+	},
+	{
+		"url": "https://diveintohtml5.info/table-of-contents.html",
+		"title": "Diving into HTML5"
+	},
+	{
+		"url": "https://www.sitepoint.com/microformats-meaning-markup/",
+		"title": "Microformats primer - Sitepoint"
+	},
+	{
+		"url": "https://developers.google.com/search/docs/guides/intro-structured-data",
+		"title": "Google Structured Data Intro"
+	},
+	{
+		"url": "https://developers.google.com/search/reference/overview",
+		"title": "Google Structured Data Examples"
+	},
+	{
+		"url": "https://microformats.org/wiki/get-started",
+		"title": "Get started with Microformats"
+	},
+	{
+		"url": "https://microformats.org/2014/03/05/getting-started-with-microformats2",
+		"title": "Microformats v2"
+	},
+	{
+		"url": "https://ahrefs.com/blog/semantic-search/",
+		"title": "Why Semantic Search is important"
+	},
+	{
+		"url": "https://alistapart.com/author/emarcotte",
+		"title": "Ethan Marcotte’s articles on A List Apart"
+	},
+	{
+		"url": "https://alistapart.com/article/responsive-web-design",
+		"title": "this one"
+	},
+	{
+		"url": "https://www.lukew.com/presos/",
+		"title": "Luke Wroblewski’s interesting presentations"
+	},
+	{
+		"url": "https://www.nngroup.com/articles/scaling-user-interfaces/",
+		"title": "Scaling User Interfaces"
+	},
+	{
+		"url": "https://www.html5rocks.com/en/mobile/responsivedesign/",
+		"title": "Creating a mobile-first responsive web design"
+	},
+	{
+		"url": "https://responsivedesign.is/",
+		"title": "Responsive Design"
+	},
+	{
+		"url": "https://www.creativebloq.com/rwd/responsive-web-design-tutorials-71410085",
+		"title": "RWD Tutorials"
+	},
+	{
+		"url": "https://www.smashingmagazine.com/2013/03/05/building-a-better-responsive-website/",
+		"title": "Building a better responsive website"
+	},
+	{
+		"url": "https://thegymnasium.com/courses/course-v1:GYM%2B109%2B0/about",
+		"title": "RWD fundamentals"
+	},
+	{
+		"url": "https://screensiz.es/about",
+		"title": "full list of devices and their resolutions"
+	},
+	{
+		"url": "https://www.smashingmagazine.com/2012/03/22/device-agnostic-approach-to-responsive-web-design/",
+		"title": "Device agnostic breakpoints"
+	},
+	{
+		"url": "https://www.zeldman.com/2011/12/29/state-of-the-web-of-apps-devices-and-breakpoints/",
+		"title": "State of the Web"
+	},
+	{
+		"url": "https://marcdrummond.com/responsive-web-design/2011/12/29/default-breakpoints-are-dead",
+		"title": "Natural responsive web design breakpoints"
+	},
+	{
+		"url": "https://www.palantir.net/blog/re-thinking-breakpoints-responsive-design",
+		"title": "Re-thinking breakpoints in responsive design"
+	},
+	{
+		"url": "https://bradfrost.com/blog/post/i-have-no-idea-what-the-hell-i-am-doing/",
+		"title": "I have no idea what the hell I am doing"
+	},
+	{
+		"url": "https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images",
+		"title": "Responsive Images tutorial on MDN"
+	},
+	{
+		"url": "https://flexboxfroggy.com/",
+		"title": "FlexboxFroggy"
+	},
+	{
+		"url": "https://polypane.app/blog/the-complete-guide-to-css-media-queries/",
+		"title": "Complete guide to Media Queries"
+	},
+	{
+		"url": "https://web.dev/learn/images/",
+		"title": "https://web.dev/learn/images/"
+	},
+	{
+		"url": "https://viewports.fyi/",
+		"title": "https://viewports.fyi/"
+	},
+	{
+		"url": "https://www.dropbox.com/s/1oawqmhjf1ohrdf/acadEMy%2520front%2520end%2520Midterm%2520exam.pdf?dl%3D0",
+		"title": "midterm exam"
+	},
+	{
+		"url": "https://www.a11yproject.com/",
+		"title": "https://www.a11yproject.com/"
+	},
+	{
+		"url": "https://www.webstandards.org/learn/external/wai/",
+		"title": "Accessibility link list from WASP"
+	},
+	{
+		"url": "https://www.w3.org/standards/webdesign/accessibility",
+		"title": "W3C Accessibility Standards"
+	},
+	{
+		"url": "https://www.webstandards.org/learn/tutorials/accessible-forms/",
+		"title": "Accessible forms"
+	},
+	{
+		"url": "https://web.dev/sign-in-form-best-practices/",
+		"title": "Sign-in form best practices"
+	},
+	{
+		"url": "https://www.w3.org/WAI/eval/preliminary.html",
+		"title": "Easy checks: a fast review of web accessibility"
+	},
+	{
+		"url": "https://webaim.org/techniques/aria/",
+		"title": "Introduction to ARIA"
+	},
+	{
+		"url": "https://ixdchecklist.com/",
+		"title": "https://ixdchecklist.com/"
+	},
+	{
+		"url": "https://not-checklist.intopia.digital/",
+		"title": "https://not-checklist.intopia.digital/"
+	},
+	{
+		"url": "https://www.a11yproject.com/checklist/",
+		"title": "https://www.a11yproject.com/checklist/"
+	},
+	{
+		"url": "https://www.w3.org/WAI/eval/report-tool/%23/",
+		"title": "Website accessibility report generator"
+	},
+	{
+		"url": "https://uxrecipe.github.io/",
+		"title": "UX Recipe"
+	},
+	{
+		"url": "https://uiaccess.com/JustAsk/index.html",
+		"title": "Just Ask: Integrating Accessibility Throughout Design"
+	},
+	{
+		"url": "https://www.w3.org/WAI/ER/tools/index.html",
+		"title": "Other accessibility tools"
+	},
+	{
+		"url": "https://www.smashingmagazine.com/2021/03/complete-guide-accessible-front-end-components/",
+		"title": "Complete guide to accessible web components"
+	},
+	{
+		"url": "https://www.ebaytechblog.com/2015/11/04/how-our-css-framework-helps-enforce-accessibility/",
+		"title": "How a CSS framework can enforce accessibility"
+	},
+	{
+		"url": "https://www.linkedin.com/learning/accessibility-for-web-design/welcome?autoplay%3Dtrue",
+		"title": "Derek Featherstone Web Accessibility primer"
+	},
+	{
+		"url": "https://web.dev/learn/accessibility/",
+		"title": "https://web.dev/learn/accessibility/"
+	},
+	{
+		"url": "https://seesparkbox.com/foundry/13_wcag_2.1_web_accessibility_guidelines",
+		"title": "13 days of Accessibility by Sparkbox"
+	},
+	{
+		"url": "https://blog.pope.tech/2023/03/01/a-beginners-guide-to-manual-accessibility-testing/",
+		"title": "A beginner's guide to manual accessibility testing - Pope Tech Blog"
+	},
+	{
+		"url": "https://adrianroselli.com/2023/02/aria-vs-html.html",
+		"title": "ARIA vs HTML — Adrian Roselli"
+	},
+	{
+		"url": "https://www.w3.org/TR/WCAG21/",
+		"title": "Official Web Content Accessibility Guidelines documentation"
+	},
+	{
+		"url": "https://designsystem.digital.gov/design-principles/",
+		"title": "US Government Digital Design System"
+	},
+	{
+		"url": "https://www.sarasoueidan.com/blog/keyboard-friendlier-article-listings/",
+		"title": "A very nifty tabindex enhancing primer for navigation"
+	},
+	{
+		"url": "https://www.nngroup.com/articles/usability-101-introduction-to-usability/",
+		"title": "Jacob Nielsen’s Usability 101"
+	},
+	{
+		"url": "https://www.nngroup.com/articles/ten-usability-heuristics/",
+		"title": "Jacob Nielsen’s 10 Rules of Thumb for Usability"
+	},
+	{
+		"url": "https://www.nngroup.com/topic/web-usability/",
+		"title": "NNGroup’s excellent articles"
+	},
+	{
+		"url": "https://www.usability.gov/what-and-why/index.html?view%3Dlist",
+		"title": "Usability basics from Usability.org"
+	},
+	{
+		"url": "https://maze.co/guides/ux-research/",
+		"title": "The Ultimate Guide to UX Research"
+	},
+	{
+		"url": "https://www.uxpin.com/studio/ebooks/",
+		"title": "Free UX books"
+	},
+	{
+		"url": "https://usability.com.au/",
+		"title": "Making the web more inclusive and usable from Usability.com.ua"
+	},
+	{
+		"url": "https://careerfoundry.com/en/short-courses/become-a-ux-designer/",
+		"title": "UX Course"
+	},
+	{
+		"url": "https://www.interaction-design.org/literature/book/the-encyclopedia-of-human-computer-interaction-2nd-ed",
+		"title": "HCI"
+	},
+	{
+		"url": "https://www.uxbeginner.com/",
+		"title": "UXBeginner"
+	},
+	{
+		"url": "https://uxtools.co/challenges/",
+		"title": "UX Challenges"
+	},
+	{
+		"url": "https://pencilandpaper.io/articles/microinteractions-ux-interaction-patterns/",
+		"title": "High Quality Microinteractions"
+	},
+	{
+		"url": "https://www.nngroup.com/articles/guide-ux-research-methods/",
+		"title": "UX research methods"
+	},
+	{
+		"url": "https://miro.com/app/board/o9J_ktZHnRA%3D/",
+		"title": "UX methodology"
+	},
+	{
+		"url": "https://99designs.com/blog/web-digital/website-usability-principles/",
+		"title": "Principles of website usability"
+	},
+	{
+		"url": "https://drpete.co/blog/25-point-website-usability-checklist",
+		"title": "25 point usability checklist"
+	},
+	{
+		"url": "https://uxchecklist.github.io/",
+		"title": "Yet another checklist"
+	},
+	{
+		"url": "https://stephaniewalter.design/blog/a-cheatsheet-for-user-interview-and-follow-ups-questions/",
+		"title": "Interview sheet"
+	},
+	{
+		"url": "https://www.coursera.org/professional-certificates/google-ux-design",
+		"title": "UX Design course at Google"
+	},
+	{
+		"url": "https://thegymnasium.com/courses/GYM/103/0/about",
+		"title": "UX Fundamentals"
+	},
+	{
+		"url": "https://whydoweinterface.com/",
+		"title": "Why Do We Interface?"
+	},
+	{
+		"url": "https://lawsofux.com/",
+		"title": "Laws of UX"
+	},
+	{
+		"url": "https://uxknowledgebase.com/table-of-contents-4d24ed5114ac",
+		"title": "UX Knowledge Base"
+	},
+	{
+		"url": "https://www.howtomakesenseofanymess.com/",
+		"title": "How to make sense of any mess"
+	},
+	{
+		"url": "https://blog.prototypr.io/my-collection-of-best-resources-for-junior-designers-c3b755c2b9c4",
+		"title": "List"
+	},
+	{
+		"url": "https://www.gov.uk/service-manual/user-centred-design",
+		"title": "gov.co.uk"
+	},
+	{
+		"url": "https://www.gov.uk/design-principles",
+		"title": "Design Principles"
+	},
+	{
+		"url": "https://principles.adactio.com/",
+		"title": "collects principles"
+	},
+	{
+		"url": "https://1stwebdesigner.com/psd-to-html/",
+		"title": "PSD to HTML tutorial"
+	},
+	{
+		"url": "https://github.com/WorthyD/WorthyD-Cutout-Demo",
+		"title": "HTML"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DTJg1qrkR5mI",
+		"title": "part 0"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3Dx9xnwEOYHS0",
+		"title": "part 1"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DYCJdESNKHl8",
+		"title": "part 2"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DyjkrdYddT0s",
+		"title": "part 3"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3Dj1VchPUv-54",
+		"title": "part 4"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3Dpt8H4GHMY6w",
+		"title": "part 5"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DaYzUOzaDjQE",
+		"title": "part 6"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3D_b0hYKuZ88A",
+		"title": "part 7"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DOQGbOI0DZLg",
+		"title": "PSD to HTML"
+	},
+	{
+		"url": "https://code.tutsplus.com/tutorials/from-psd-to-html-building-a-set-of-website-designs-step-by-step--net-37",
+		"title": "PSD to HTML"
+	},
+	{
+		"url": "https://sixrevisions.com/tutorials/web-development-tutorials/psdhtml-conversion-code-a-clean-business-website-design/",
+		"title": "Code a clean business website design"
+	},
+	{
+		"url": "https://code.tutsplus.com/tutorials/build-a-sleek-portfolio-site-from-scratch--net-16",
+		"title": "Build a sleek portfolio site from scratch"
+	},
+	{
+		"url": "https://www.dropbox.com/s/r7xbtr2v2ychcpp/acadEMy%2520Photoshop%2520Cheat%2520Sheet%2520v0.1.pdf?dl%3D0",
+		"title": "Photoshop Shortcuts Cheat sheet"
+	},
+	{
+		"url": "https://www.figma.com/resources/learn-design/",
+		"title": "Figma, which you can learn right here"
+	},
+	{
+		"url": "https://www.figma.com/community/file/769694576496801916",
+		"title": "here"
+	},
+	{
+		"url": "https://www.dropbox.com/s/vpd4jsq3bhuplgv/acadEMy%2520front%2520end%2520Final%2520Exam.pdf?dl%3D0",
+		"title": "final exam"
+	},
+	{
+		"url": "https://sass-lang.com/guide",
+		"title": "Official SASS guide"
+	},
+	{
+		"url": "https://torquemag.io/developers-guide-learning-sass-twenty-minutes-less/",
+		"title": "Learn SASS in 20 min"
+	},
+	{
+		"url": "https://scotch.io/tutorials/getting-started-with-sass",
+		"title": "Getting started with SASS"
+	},
+	{
+		"url": "https://alistapart.com/article/getting-started-with-sass",
+		"title": "A List Apart: Getting started with SASS"
+	},
+	{
+		"url": "https://www.webdesignerdepot.com/2013/11/the-beginners-guide-to-sass/",
+		"title": "The beginner’s guide to SASS"
+	},
+	{
+		"url": "https://www.codeschool.com/courses/assembling-sass",
+		"title": "SASS CodeSchool tutorial"
+	},
+	{
+		"url": "https://www.viorelmocanu.ro/everymatrix-sass-standards.pdf",
+		"title": "SASS Standards"
+	},
+	{
+		"url": "https://handlebarsjs.com/",
+		"title": "Handlebars"
+	},
+	{
+		"url": "https://github.com/janl/mustache.js/",
+		"title": "Mustache"
+	},
+	{
+		"url": "https://docs.angularjs.org/guide/templates",
+		"title": "Angular Templating"
+	},
+	{
+		"url": "https://docs.angularjs.org/tutorial/step_02",
+		"title": "Tutorial"
+	},
+	{
+		"url": "https://www.digitalocean.com/community/tutorials/single-page-apps-with-angularjs-routing-and-templating",
+		"title": "Another tutorial"
+	},
+	{
+		"url": "https://www.smarty.net/",
+		"title": "Smarty"
+	},
+	{
+		"url": "https://developer.wordpress.org/themes/getting-started/",
+		"title": "Getting started in Wordpress templating"
+	},
+	{
+		"url": "https://www.hongkiat.com/blog/angularjs-tutorials-screencast/",
+		"title": "https://www.hongkiat.com/blog/angularjs-tutorials-screencast/"
+	},
+	{
+		"url": "https://en.wikipedia.org/wiki/Comparison_of_web_template_engines",
+		"title": "A comprehensive list of most web templating engines"
+	},
+	{
+		"url": "https://web.dev/learn/forms/",
+		"title": "https://web.dev/learn/forms/"
+	},
+	{
+		"url": "https://web.dev/learn/pwa/",
+		"title": "https://web.dev/learn/pwa/"
+	},
+	{
+		"url": "https://www.youtube.com/playlist?list%3DPLlrxD0HtieHjqO1pNqScMngrV7oFro-TY%23fef",
+		"title": "PWA for beginners"
+	},
+	{
+		"url": "https://web.dev/pwas-in-app-stores/",
+		"title": "https://web.dev/pwas-in-app-stores/"
+	},
+	{
+		"url": "https://guides.github.com/introduction/flow/index.html",
+		"title": "GIT Guidelines"
+	},
+	{
+		"url": "https://github.com/xfiveco/html-coding-standards",
+		"title": "HTML Guidelines"
+	},
+	{
+		"url": "https://github.com/airbnb/javascript",
+		"title": "JavaScript / ES6 Style Guides"
+	},
+	{
+		"url": "https://github.com/airbnb/javascript/tree/master/react",
+		"title": "React / JSX Style Guides"
+	},
+	{
+		"url": "https://dev.to/simonholdorf/9-awesome-projects-you-can-build-with-vanilla-javascript-2o1b",
+		"title": "these ideas"
+	},
+	{
+		"url": "https://github.com/practical-tutorials/project-based-learning",
+		"title": "Project Based Learning"
+	},
+	{
+		"url": "https://scrimba.com/learn/spacetravel",
+		"title": "Scrimba FTW"
+	},
+	{
+		"url": "https://scrimba.com/learn/frontend",
+		"title": "Scrimba"
+	},
+	{
+		"url": "https://i.redd.it/ky0ooxpzinda1.png",
+		"title": "project ideas"
+	},
+	{
+		"url": "https://www.frontendmentor.io/",
+		"title": "https://www.frontendmentor.io/"
+	},
+	{
+		"url": "https://css-tricks.com/making-calendars-with-accessibility-and-internationalization-in-mind/",
+		"title": "calendar"
+	},
+	{
+		"url": "https://50projects50days.com/",
+		"title": "50Projects in 50Days"
+	},
+	{
+		"url": "https://icodethis.com/",
+		"title": "iCodeThis"
+	},
+	{
+		"url": "https://www.youtube.com/channel/UCeU-1X402kT-JlLdAitxSMA",
+		"title": "Florin Ion"
+	},
+	{
+		"url": "https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA",
+		"title": "Brad Traversy"
+	},
+	{
+		"url": "https://www.ideasgrab.com/",
+		"title": "IdeasGrab"
+	},
+	{
+		"url": "https://github.com/gothinkster/realworld",
+		"title": "RealWorldExampleApps"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DJkeyKeK3V24",
+		"title": "5 HTML/CSS/JS free projects"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DXm4BObh4MhI",
+		"title": "12HR+ YouTube Coding Bootcamp 2021! by Ania Kubów"
+	},
+	{
+		"url": "https://www.dropbox.com/s/6fgd0m8884p65hz/2021%2520Frontend%2520Roadmap%2520-%2520Dark.pdf?dl%3D0",
+		"title": "WebDevSimplified Front End"
+	},
+	{
+		"url": "https://www.dropbox.com/s/n93ozoj5js6lag7/2021%2520Backend%2520Roadmap%2520-%2520Dark.pdf?dl%3D0",
+		"title": "WDS Backend"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DSBB1YtwODT0",
+		"title": "LearnCode Academy"
+	},
+	{
+		"url": "https://roadmap.sh/",
+		"title": "Roadmap.sh"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3D0pThnRneDjw",
+		"title": "Traversy Media"
+	},
+	{
+		"url": "https://frontendmasters.com/guides/learning-roadmap/",
+		"title": "this one from Front End Masters"
+	},
+	{
+		"url": "https://github.com/microsoft/Web-Dev-For-Beginners",
+		"title": "Web Dev for Beginners"
+	},
+	{
+		"url": "https://dev.to/frontendmentor/16-front-end-projects-with-designs-to-help-improve-your-coding-skills-5ajl",
+		"title": "here"
+	},
+	{
+		"url": "https://powercoders.org/program/",
+		"title": "Power.Coders bootcamp"
+	},
+	{
+		"url": "https://www.ycombinator.com/rfs/",
+		"title": "Y Combinator"
+	},
+	{
+		"url": "https://github.com/Divide-By-0/ideas-for-projects-people-would-use",
+		"title": "https://github.com/Divide-By-0/ideas-for-projects-people-would-use"
+	},
+	{
+		"url": "https://www.sololearn.com/home",
+		"title": "https://www.sololearn.com/home"
+	},
+	{
+		"url": "https://dev.to/yuridevat/how-i-come-up-with-project-ideas-and-never-faced-tutorial-hell-3287",
+		"title": "Project ideas"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3D3_hVG5H4sYA",
+		"title": "The Complete 2023 Web Development Bootcamp By Angela Yu (Full Course Download Link In Description)"
+	},
+	{
+		"url": "https://www.dareboost.com/",
+		"title": "Dareboost"
+	},
+	{
+		"url": "https://yellowlab.tools/",
+		"title": "Yellow Lab Tools"
+	},
+	{
+		"url": "https://validator.w3.org/i18n-checker/",
+		"title": "i18n Validator"
+	},
+	{
+		"url": "https://validator.w3.org/feed/",
+		"title": "RSS Validator"
+	},
+	{
+		"url": "https://mir.aculo.us/dom-monster/",
+		"title": "DOM Monster"
+	},
+	{
+		"url": "https://chrome.google.com/webstore/detail/dom-monster/hlimphkgopfdlelabkioalhfjfblnclk%23:~:text%3DDOM%2520Monster%2520is%2520a%2520bookmarklet,you%2520its%2520bill%2520of%2520health.%26text%3DDOM%2520Monster%2520is%2520a%2520cross,you%2520its%2520bill%2520of%2520health.",
+		"title": "Chrome ext"
+	},
+	{
+		"url": "https://cssstats.com/stats/",
+		"title": "CSS Stats"
+	},
+	{
+		"url": "https://www.htaccesscheck.com/",
+		"title": ".htaccess check"
+	},
+	{
+		"url": "https://www.xml-sitemaps.com/validate-xml-sitemap.html",
+		"title": "Sitemap Validator"
+	},
+	{
+		"url": "https://unused-css.com/detect-unused-css",
+		"title": "Unused CSS check"
+	},
+	{
+		"url": "https://www.webpagetest.org/",
+		"title": "WebPageTest"
+	},
+	{
+		"url": "https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl%3Den",
+		"title": "Chrome ext"
+	},
+	{
+		"url": "https://crux-compare.netlify.app/",
+		"title": "Crux"
+	},
+	{
+		"url": "https://developers.google.com/speed/pagespeed/insights/",
+		"title": "Google PageSpeed Insights"
+	},
+	{
+		"url": "https://webspeedtest.cloudinary.com/",
+		"title": "Website Speed Test"
+	},
+	{
+		"url": "https://kraken.io/web-interface",
+		"title": "Image Optimizer"
+	},
+	{
+		"url": "https://tinypng.com/",
+		"title": "Image Optimizer"
+	},
+	{
+		"url": "https://gtmetrix.com/",
+		"title": "GTMetrix"
+	},
+	{
+		"url": "https://www.accessify.com/",
+		"title": "Accessify"
+	},
+	{
+		"url": "https://website.grader.com/",
+		"title": "Website Grader"
+	},
+	{
+		"url": "https://tools.pingdom.com/",
+		"title": "Pingdom"
+	},
+	{
+		"url": "https://tools.keycdn.com/speed",
+		"title": "Website Speed Test"
+	},
+	{
+		"url": "https://www.internetmarketingninjas.com/tools/free-tools/pagespeed",
+		"title": "Page Speed"
+	},
+	{
+		"url": "https://www.dotcom-tools.com/website-speed-test",
+		"title": "Website Speed"
+	},
+	{
+		"url": "https://performance.sucuri.net/",
+		"title": "LoadTime Tester"
+	},
+	{
+		"url": "https://observatory.mozilla.org/",
+		"title": "Observatory"
+	},
+	{
+		"url": "https://webbkoll.dataskydd.net/en",
+		"title": "Webbkoll Scanner"
+	},
+	{
+		"url": "https://pentest-tools.com/website-vulnerability-scanning/website-scanner",
+		"title": "Free Website Scanner"
+	},
+	{
+		"url": "https://csp-evaluator.withgoogle.com/",
+		"title": "CSP Evaluator"
+	},
+	{
+		"url": "https://cspvalidator.org/",
+		"title": "CSP Validator"
+	},
+	{
+		"url": "https://securityheaders.com/",
+		"title": "Security Headers"
+	},
+	{
+		"url": "https://sitecheck.sucuri.net/",
+		"title": "SiteCheck"
+	},
+	{
+		"url": "https://mxtoolbox.com/SuperTool.aspx",
+		"title": "Email Server Checker"
+	},
+	{
+		"url": "https://tools.keycdn.com/http2-test",
+		"title": "HTTP/2 Test"
+	},
+	{
+		"url": "https://builtwith.com/",
+		"title": "BuiltWith"
+	},
+	{
+		"url": "https://www.spf-record.com/spf-lookup/www.viorelmocanu.ro",
+		"title": "SPF Record Checker"
+	},
+	{
+		"url": "https://www.sslshopper.com/ssl-checker.html",
+		"title": "SSL Checker"
+	},
+	{
+		"url": "https://transparencyreport.google.com/safe-browsing/search",
+		"title": "Safe Browsing Check"
+	},
+	{
+		"url": "https://search.google.com/search-console",
+		"title": "Search Console"
+	},
+	{
+		"url": "https://pagelocity.com/",
+		"title": "Pagelocity"
+	},
+	{
+		"url": "https://developers.google.com/search/docs/guides/search-gallery",
+		"title": "Structured Data Search Gallery"
+	},
+	{
+		"url": "https://search.google.com/test/rich-results",
+		"title": "Structured Data Tester"
+	},
+	{
+		"url": "https://search.google.com/structured-data/testing-tool/u/0/",
+		"title": "old"
+	},
+	{
+		"url": "https://ahrefs.com/free-seo-tools",
+		"title": "Free SEO Tools"
+	},
+	{
+		"url": "https://www.checkbot.io/",
+		"title": "Checkbot.io"
+	},
+	{
+		"url": "https://chrome.google.com/webstore/detail/checkbot-seo-web-speed-se/dagohlmlhagincbfilmkadjgmdnkjinl/related",
+		"title": "Chrome ext"
+	},
+	{
+		"url": "https://ads.google.com/home/tools/keyword-planner/",
+		"title": "Keywords Planner"
+	},
+	{
+		"url": "https://neilpatel.com/ubersuggest/",
+		"title": "UberSuggest"
+	},
+	{
+		"url": "https://www.spyfu.com/",
+		"title": "SpyFu"
+	},
+	{
+		"url": "https://majestic.com/reports/site-explorer",
+		"title": "MajesticSEO"
+	},
+	{
+		"url": "https://spotibo.com/seo-analyzer",
+		"title": "Spotibo SEO Analyzer"
+	},
+	{
+		"url": "https://technicalseo.com/tools/",
+		"title": "Technical SEO Tools"
+	},
+	{
+		"url": "https://en.ryte.com/",
+		"title": "Ryte free"
+	},
+	{
+		"url": "https://en.ryte.com/free-tools/",
+		"title": "Ryte Free Tools"
+	},
+	{
+		"url": "https://github.com/kevinSuttle/html-meta-tags",
+		"title": "Meta Tags"
+	},
+	{
+		"url": "https://www.openadmintools.com/",
+		"title": "OpenAdminTools"
+	},
+	{
+		"url": "https://wave.webaim.org/",
+		"title": "WebAIM Wave"
+	},
+	{
+		"url": "https://webhint.io/scanner/",
+		"title": "Scanner"
+	},
+	{
+		"url": "https://chrome.google.com/webstore/detail/tota11y-for-chrome/nkghaekndgmonifcpfgjmpfjlhnmflhp",
+		"title": "Chrome ext"
+	},
+	{
+		"url": "https://khan.github.io/tota11y/",
+		"title": "bookmarklet"
+	},
+	{
+		"url": "https://www.powermapper.com/products/sortsite/checks/accessibility-checks/",
+		"title": "Accessibility Scanner"
+	},
+	{
+		"url": "https://www.ibm.com/able/requirements/requirements/",
+		"title": "Requirements List"
+	},
+	{
+		"url": "https://www.textise.net/",
+		"title": "Textise your site"
+	},
+	{
+		"url": "https://search.google.com/test/mobile-friendly",
+		"title": "Mobile Friendly Test"
+	},
+	{
+		"url": "https://unbounce.com/landing-page-analyzer/",
+		"title": "Landing Page Analyzer"
+	},
+	{
+		"url": "https://www.webfx.com/tools/read-able/",
+		"title": "Readability Test"
+	},
+	{
+		"url": "https://app.buzzsumo.com/content/web",
+		"title": "BuzzSumo"
+	},
+	{
+		"url": "https://developers.facebook.com/tools/debug/",
+		"title": "Sharing Debugger"
+	},
+	{
+		"url": "https://cards-dev.twitter.com/validator",
+		"title": "Card Validator"
+	},
+	{
+		"url": "https://www.linkedin.com/post-inspector/",
+		"title": "Post Inspector"
+	},
+	{
+		"url": "https://realfavicongenerator.net/favicon_checker",
+		"title": "Favicon Checker"
+	},
+	{
+		"url": "https://www.dropbox.com/s/3ipssvi685flnlc/frontend-books.rar?dl%3D0",
+		"title": ":"
+	},
+	{
+		"url": "https://www.youtube.com/playlist?list%3DPLfTqvIG4roBrMc7SWJQ4NSpVA93jCHfOF",
+		"title": "The EveryMatrix Site Building Workshops"
+	},
+	{
+		"url": "https://www.youtube.com/c/ViorelMocanu?sub_confirmation%3D1",
+		"title": "canalul meu"
+	},
+	{
+		"url": "https://alistapart.com/",
+		"title": "https://alistapart.com/"
+	},
+	{
+		"url": "https://alistapart.com/article/alaprimer/",
+		"title": "with this article"
+	},
+	{
+		"url": "https://alistapart.com/article/alaprimer2/",
+		"title": "this"
+	},
+	{
+		"url": "https://alistapart.com/topics",
+		"title": "list of topics"
+	},
+	{
+		"url": "https://www.nngroup.com/",
+		"title": "https://www.nngroup.com/"
+	},
+	{
+		"url": "https://developer.mozilla.org/",
+		"title": "https://developer.mozilla.org/"
+	},
+	{
+		"url": "https://www.smashingmagazine.com/",
+		"title": "https://www.smashingmagazine.com/"
+	},
+	{
+		"url": "https://github.com/tuvtran/project-based-learning",
+		"title": "https://github.com/tuvtran/project-based-learning"
+	},
+	{
+		"url": "https://css-weekly.com/",
+		"title": "https://css-weekly.com/"
+	},
+	{
+		"url": "https://webdesignledger.com/",
+		"title": "https://webdesignledger.com/"
+	},
+	{
+		"url": "https://offlinefirst.org/",
+		"title": "https://offlinefirst.org/"
+	},
+	{
+		"url": "https://www.uie.com/",
+		"title": "https://www.uie.com/"
+	},
+	{
+		"url": "https://responsivewebdesign.com/podcast/",
+		"title": "https://responsivewebdesign.com/podcast/"
+	},
+	{
+		"url": "https://moz.com/beginners-guide-to-seo",
+		"title": "https://moz.com/beginners-guide-to-seo"
+	},
+	{
+		"url": "https://ahrefs.com/seo",
+		"title": "The Ahrefs Guide"
+	},
+	{
+		"url": "https://research.hackerrank.com/developer-skills/2020/",
+		"title": "https://research.hackerrank.com/developer-skills/2020/"
+	},
+	{
+		"url": "https://practicaltypography.com/typography-in-ten-minutes.html",
+		"title": "https://practicaltypography.com/typography-in-ten-minutes.html"
+	},
+	{
+		"url": "https://frontendfoc.us/",
+		"title": "https://frontendfoc.us/"
+	},
+	{
+		"url": "https://frontendmasters.com/courses/web-development-v2/",
+		"title": "https://frontendmasters.com/courses/web-development-v2/"
+	},
+	{
+		"url": "https://thehistoryoftheweb.com/timeline/",
+		"title": "full history of the Web"
+	},
+	{
+		"url": "https://free-for.dev/",
+		"title": "resources that are free for devs"
+	},
+	{
+		"url": "https://thegymnasium.com/courses",
+		"title": "https://thegymnasium.com/courses"
+	},
+	{
+		"url": "https://hawkticehurst.com/mega-full-stack-resource-guide/",
+		"title": "https://hawkticehurst.com/mega-full-stack-resource-guide/"
+	},
+	{
+		"url": "https://github.com/thedaviddias/Front-End-Checklist",
+		"title": "Front End checklist"
+	},
+	{
+		"url": "file:///S:/Dropbox/YouTube%20Channel%20-%20Viorel/Proiecte/Resurse.dev/ViorelsTutorialFrontEndWebDevelopmentDigitalE.html#cmnt1",
+		"title": "[a]"
+	},
+	{
+		"url": "https://excessive-preface-69c.notion.site/HTML-CSS-28bc6ac713eb41af94e4324bb24db450",
+		"title": "https://excessive-preface-69c.notion.site/HTML-CSS-28bc6ac713eb41af94e4324bb24db450"
+	},
+	{
+		"url": "https://excessive-preface-69c.notion.site/JavaScript-e3921343cb3944a4b4fa8235f3ca1375",
+		"title": "https://excessive-preface-69c.notion.site/JavaScript-e3921343cb3944a4b4fa8235f3ca1375"
+	},
+	{
+		"url": "file:///S:/Dropbox/YouTube%20Channel%20-%20Viorel/Proiecte/Resurse.dev/ViorelsTutorialFrontEndWebDevelopmentDigitalE.html#cmnt2",
+		"title": "[b]"
+	},
+	{
+		"url": "https://andreasbm.github.io/web-skills/",
+		"title": "https://andreasbm.github.io/web-skills/"
+	},
+	{
+		"url": "https://roadmap.sh/frontend",
+		"title": "https://roadmap.sh/frontend"
+	},
+	{
+		"url": "https://github.com/ossu/computer-science",
+		"title": "https://github.com/ossu/computer-science"
+	},
+	{
+		"url": "https://www.youtube.com/playlist?list%3DPLz8Iz-Fnk_eTpvd49Sa77NiF8Uqq5Iykx",
+		"title": "https://www.youtube.com/playlist?list=PLz8Iz-Fnk_eTpvd49Sa77NiF8Uqq5Iykx"
+	},
+	{
+		"url": "https://pauljerimy.com/it-career-roadmap/",
+		"title": "https://pauljerimy.com/it-career-roadmap/"
+	},
+	{
+		"url": "https://amzn.to/2O14vdd",
+		"title": "Algorithmics"
+	},
+	{
+		"url": "https://amzn.to/3gtvCK6",
+		"title": "Best Practices"
+	},
+	{
+		"url": "https://infoarena.ro/",
+		"title": "InfoArena"
+	},
+	{
+		"url": "https://www.pbinfo.ro/",
+		"title": "PBInfo"
+	},
+	{
+		"url": "https://leetcode.com/discuss/general-discussion/460599/blind-75-leetcode-questions",
+		"title": "Blind75"
+	},
+	{
+		"url": "https://leetcode.com/",
+		"title": "LeetCode"
+	},
+	{
+		"url": "https://www.hackerrank.com/",
+		"title": "HackerRank"
+	},
+	{
+		"url": "https://learnprogramming.online/",
+		"title": "LearnProgramming"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DPkZNo7MFNFg",
+		"title": "Learn JavaScript - Full Course for Beginners"
+	},
+	{
+		"url": "https://javascript30.com/",
+		"title": "JavaScript 30: build 30 things in 30 days with 30 JS tutorials"
+	},
+	{
+		"url": "https://www.learn-js.org/",
+		"title": "https://www.learn-js.org/"
+	},
+	{
+		"url": "https://javascript.info/",
+		"title": "The modern JavaScript Tutorial at JavaScript.info"
+	},
+	{
+		"url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript%23tutorials",
+		"title": "MDN tutorials"
+	},
+	{
+		"url": "https://www.theodinproject.com/courses/javascript",
+		"title": "The Odin Project: JavaScript"
+	},
+	{
+		"url": "https://jstherightway.org/",
+		"title": "JS the right way"
+	},
+	{
+		"url": "https://www.learnjavascript.online",
+		"title": "www.learnjavascript.online"
+	},
+	{
+		"url": "https://www.digitalocean.com/community/tutorial_series/how-to-code-in-javascript",
+		"title": "How to code in Javascript at DigitalOcean"
+	},
+	{
+		"url": "https://medium.com/@samanthaming/my-top-3-favorite-free-javascript-courses-for-beginners-ef8cd20d7c0d",
+		"title": "this Medium article"
+	},
+	{
+		"url": "https://docs.google.com/document/d/19QmYipgc6WxRrdzobVvItHTnJpG9mx7_K1GTBhIbiEY/edit?usp%3Dsharing",
+		"title": "Another dedicated document"
+	},
+	{
+		"url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+		"title": "MDN docs"
+	},
+	{
+		"url": "https://www.dropbox.com/s/lx6irjbo0i7vnez/The%2520Road%2520Map%2520to%2520JavaScript%2520Attainment.pdf?dl%3D0",
+		"title": "acadEMy on JavaScript has the full curriculum here"
+	},
+	{
+		"url": "https://gist.github.com/amysimmons/1d3c6fa84800b50d6b515662b55d0cb9",
+		"title": "this fantastic GitHub list"
+	},
+	{
+		"url": "https://github.com/getify/You-Dont-Know-JS",
+		"title": "You Don't Know JS"
+	},
+	{
+		"url": "https://github.com/sindresorhus/awesome",
+		"title": "WTF JS?!"
+	},
+	{
+		"url": "https://es6-features.org/",
+		"title": "ES6 Feats"
+	},
+	{
+		"url": "https://frontendmasters.com/kyle-simpson/",
+		"title": "Frontend Masters courses by Kyle Simpson"
+	},
+	{
+		"url": "https://twitter.com/mpjme",
+		"title": "@mpjme"
+	},
+	{
+		"url": "https://addyosmani.com/resources/essentialjsdesignpatterns/book/",
+		"title": "Learning JavaScript Design Patterns"
+	},
+	{
+		"url": "https://www.amazon.co.uk/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742",
+		"title": "JavaScript The Good Parts"
+	},
+	{
+		"url": "https://eloquentjavascript.net/",
+		"title": "Eloquent JavaScript by Marijn Haverbeke"
+	},
+	{
+		"url": "https://www.amazon.com/Effective-JavaScript-Specific-Software-Development/dp/0321812182",
+		"title": "Effective JavaScript by David Herman"
+	},
+	{
+		"url": "https://johnresig.com/apps/learn/",
+		"title": "Learning Advanced JavaScript"
+	},
+	{
+		"url": "https://leanpub.com/javascriptallongesix/read",
+		"title": "JavaScript Allonge, the \"Six\" Edition"
+	},
+	{
+		"url": "https://exploringjs.com/",
+		"title": "Exploring JS"
+	},
+	{
+		"url": "https://github.com/trekhleb/javascript-algorithms",
+		"title": "JS Algorithms"
+	},
+	{
+		"url": "https://www.pluralsight.com/courses/javascript-objects-prototypes",
+		"title": "JavaScript Objects and Prototypes"
+	},
+	{
+		"url": "https://egghead.io/courses/professor-frisby-introduces-composable-functional-javascript",
+		"title": "Composable Functional JavaScript"
+	},
+	{
+		"url": "https://reactivex.io/learnrx/",
+		"title": "Functional programming in JavaScript"
+	},
+	{
+		"url": "https://www.manning.com/books/secrets-of-the-javascript-ninja-second-edition",
+		"title": "Secrets of the JavaScript Ninja by John Resig, Bear Bibeault, and Josip Maras"
+	},
+	{
+		"url": "https://www.amazon.com/Principles-Object-Oriented-JavaScript-Nicholas-Zakas/dp/1593275404/ref%3Dpd_lpo_sbs_14_t_1?_encoding%3DUTF8%26psc%3D1%26refRID%3DK3M950JGW61XESSZQ0QH",
+		"title": "The Principles of OOP JavaScript"
+	},
+	{
+		"url": "https://astexplorer.net/",
+		"title": "AST Explorer"
+	},
+	{
+		"url": "https://www.codewars.com/",
+		"title": "CodeWars"
+	},
+	{
+		"url": "https://www.udemy.com/understand-javascript/",
+		"title": "JavaScript: Understanding the Weird Parts"
+	},
+	{
+		"url": "https://github.com/ryanmcdermott/clean-code-javascript",
+		"title": "Clean Code JS"
+	},
+	{
+		"url": "https://www.udemy.com/javascript-advanced/",
+		"title": "Advanced JavaScript"
+	},
+	{
+		"url": "https://auth0.com/blog/glossary-of-modern-javascript-concepts/",
+		"title": "Concept Glossary"
+	},
+	{
+		"url": "https://egghead.io/browse/languages",
+		"title": "JS and derived languages"
+	},
+	{
+		"url": "https://egghead.io/browse/frameworks",
+		"title": "frameworks"
+	},
+	{
+		"url": "https://egghead.io/browse/libraries",
+		"title": "libraries"
+	},
+	{
+		"url": "https://github.com/mbeaudru/modern-js-cheatsheet",
+		"title": "Modern JS Cheatsheet"
+	},
+	{
+		"url": "https://github.com/facebook/react",
+		"title": "GitHub for React"
+	},
+	{
+		"url": "https://vuejs.org/v2/guide/",
+		"title": "startup guide"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3D0mrl1ASOr_M",
+		"title": "TS tutorial"
+	},
+	{
+		"url": "https://www.theodinproject.com/paths/full-stack-javascript/courses/react-new",
+		"title": "React (new)"
+	},
+	{
+		"url": "https://serviceworkies.com/",
+		"title": "Service Workies"
+	},
+	{
+		"url": "https://htmldom.dev/",
+		"title": "Vanilla JS DOM Manipulation"
+	},
+	{
+		"url": "https://www.javascript.com/",
+		"title": "JS.com"
+	},
+	{
+		"url": "https://github.com/kosson/javascript-invat-eu-inveti-si-tu",
+		"title": "Învăț eu, înveți și tu"
+	},
+	{
+		"url": "https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/",
+		"title": "FreeCodeCamp - JS algorithms + data str"
+	},
+	{
+		"url": "https://www.freecodecamp.org/learn/front-end-libraries/",
+		"title": "FreeCodeCamp - React, Redux, etc"
+	},
+	{
+		"url": "https://www.jsv9000.app/",
+		"title": "https://www.jsv9000.app/"
+	},
+	{
+		"url": "https://www.javascripttutorial.net/",
+		"title": "https://www.javascripttutorial.net/"
+	},
+	{
+		"url": "https://www.learn-js.org/en/",
+		"title": "https://www.learn-js.org/en/"
+	},
+	{
+		"url": "https://thegymnasium.com/courses/GYM/104/0/about",
+		"title": "JavaScript Foundations @ Gymnasium"
+	},
+	{
+		"url": "https://www.edx.org/course/javascript-introduction",
+		"title": "EdX JavaScript Introduction"
+	},
+	{
+		"url": "https://javascriptissexy.com/how-to-learn-javascript-properly/",
+		"title": "JS is sexy - how to learn JS properly"
+	},
+	{
+		"url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction",
+		"title": "MDN introduction to JS"
+	},
+	{
+		"url": "https://javascriptbook.com/",
+		"title": "Superhero JS"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DHnXmI2UVZlU",
+		"title": "0"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3D3PHXvlpOkf4",
+		"title": "2"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DlhNdUVh3qCc",
+		"title": "3"
+	},
+	{
+		"url": "https://www.youtube.com/c/Frankslaboratory/videos",
+		"title": "channel"
+	},
+	{
+		"url": "https://www.seancdavis.com/blog/right-way-to-learn-javascript-2020/",
+		"title": "The right way to learn JavaScript"
+	},
+	{
+		"url": "https://domevents.dev/",
+		"title": "Explore DOM events"
+	},
+	{
+		"url": "https://www.theodinproject.com/courses/nodejs",
+		"title": "The Odin Project: Node.JS"
+	},
+	{
+		"url": "https://www.programiz.com/",
+		"title": "https://www.programiz.com/"
+	},
+	{
+		"url": "https://marplo.net/javascript",
+		"title": "https://marplo.net/javascript"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DgCa0z4B-CRo",
+		"title": "JS games crash course"
+	},
+	{
+		"url": "https://lab.reaal.me/jsrobot/",
+		"title": "https://lab.reaal.me/jsrobot/"
+	},
+	{
+		"url": "https://play.elevatorsaga.com/",
+		"title": "https://play.elevatorsaga.com/"
+	},
+	{
+		"url": "https://screeps.com/",
+		"title": "https://screeps.com/"
+	},
+	{
+		"url": "https://nodeschool.io/",
+		"title": "NodeSchool"
+	},
+	{
+		"url": "https://www.frontendcheatsheets.com/javascript",
+		"title": "JS Cheat Sheets"
+	},
+	{
+		"url": "https://exploringjs.com/deep-js/toc.html",
+		"title": "Deep JavaScript"
+	},
+	{
+		"url": "https://blog.webdevsimplified.com/2021-09/javascript-promises/",
+		"title": "JS Promise Guide"
+	},
+	{
+		"url": "https://wesbos.com/javascript",
+		"title": "Wes Bos"
+	},
+	{
+		"url": "https://scrimba.com/learn/typescript",
+		"title": "Learn TypeScript for Free (Scrimba)"
+	},
+	{
+		"url": "https://github.com/amejiarosario/dsa.js-data-structures-algorithms-javascript",
+		"title": "1"
+	},
+	{
+		"url": "https://github.com/loiane/javascript-datastructures-algorithms",
+		"title": "2"
+	},
+	{
+		"url": "https://github.com/Crizstian/data-structure-and-algorithms-with-ES6",
+		"title": "3"
+	},
+	{
+		"url": "https://github.com/felipernb/algorithms.js",
+		"title": "4"
+	},
+	{
+		"url": "https://www.linkedin.com/in/stefan-galescu/",
+		"title": "Ștefan"
+	},
+	{
+		"url": "https://leanweb.dev/ebook/intro/",
+		"title": "The lean web"
+	},
+	{
+		"url": "https://leanweb.dev/talk/",
+		"title": "this video"
+	},
+	{
+		"url": "https://resilientwebdesign.com/",
+		"title": "Resilient web design"
+	},
+	{
+		"url": "https://briefs.video/videos/is-progressive-enhancement-dead-yet/",
+		"title": "This video"
+	},
+	{
+		"url": "https://v3.vuejs.org/guide/introduction.html",
+		"title": "Guide"
+	},
+	{
+		"url": "https://v3.vuejs.org/style-guide/",
+		"title": "Style Guide"
+	},
+	{
+		"url": "https://v3.vuejs.org/cookbook/",
+		"title": "Cookbook"
+	},
+	{
+		"url": "https://nuxtjs.org/guide",
+		"title": "Guide"
+	},
+	{
+		"url": "https://nuxtjs.org/guides/get-started/installation",
+		"title": "Guide v2 (Beta)"
+	},
+	{
+		"url": "https://nuxtjs.org/api",
+		"title": "API"
+	},
+	{
+		"url": "https://nuxtjs.org/examples",
+		"title": "Examples"
+	},
+	{
+		"url": "https://nuxtjs.org/faq",
+		"title": "FAQ - Common development, configuration and deployment questions"
+	},
+	{
+		"url": "https://www.vuemastery.com/courses/intro-to-vue-3/intro-to-vue3",
+		"title": "VueMastery Intro to Vue 3"
+	},
+	{
+		"url": "https://www.vuemastery.com/courses-path/vue3",
+		"title": "others@V3"
+	},
+	{
+		"url": "https://courses.learnvue.co/p/build-along-vue3-time-blocking-app/",
+		"title": "Vue3 Time Blocking App"
+	},
+	{
+		"url": "https://laracasts.com/series/learn-vue-2-step-by-step",
+		"title": "Laracasts: Learn Vue 2: Step By Step"
+	},
+	{
+		"url": "https://vueschool.io/courses/vuejs-fundamentals",
+		"title": "Vue.js Fundamentals - VueSchool.io"
+	},
+	{
+		"url": "https://vueschool.io/courses/vuejs-components-fundamentals",
+		"title": "Vue.js Components Fundamentals - VueSchool.io"
+	},
+	{
+		"url": "https://vueschool.io/courses/nuxtjs-fundamentals",
+		"title": "Nuxt.js Fundamentals - VueSchool.io"
+	},
+	{
+		"url": "https://www.dropbox.com/sh/qvqdbr6pfd0j76o/AADtit_bYB0FqtRctH8_EaYWa?dl%3D0",
+		"title": "ALL courses from VueMastery.com"
+	},
+	{
+		"url": "https://github.com/goldbergyoni/nodebestpractices",
+		"title": "Node.js Best Practices"
+	},
+	{
+		"url": "https://tailwindcss.com/",
+		"title": "Docs"
+	},
+	{
+		"url": "https://tailwindcss.com/components",
+		"title": "Component Examples"
+	},
+	{
+		"url": "https://tailwindcss.com/course",
+		"title": "Screencasts: Designing with Tailwind CSS"
+	},
+	{
+		"url": "https://egghead.io/playlists/design-with-tailwind-css-masterclass-f0db",
+		"title": "Collection - Design with Tailwind CSS Masterclass on @eggheadio"
+	},
+	{
+		"url": "https://tailwindcss-custom-forms.netlify.app/",
+		"title": "Tailwind CSS Custom Forms"
+	},
+	{
+		"url": "https://hymhub.github.io/css-to-tailwind/",
+		"title": "CSS to Tailwind"
+	},
+	{
+		"url": "https://insights.stackoverflow.com/trends?tags%3Dreactjs%252Cangular%252Cvue.js%252Csvelte",
+		"title": "comparison of frameworks"
+	},
+	{
+		"url": "https://create.t3.gg/en/other-recs/",
+		"title": "recommendations of technologies"
+	},
+	{
+		"url": "https://www.theodinproject.com/courses/getting-hired",
+		"title": "The Odin Project: Getting Hired"
+	},
+	{
+		"url": "https://www.youtube.com/playlist?list%3DPLfTqvIG4roBriVPmIV_42alacUcK1xt23",
+		"title": "36 types of jobs in IT (in Romanian) from my YouTube channel"
+	},
+	{
+		"url": "https://www.rezi.ai/",
+		"title": "https://www.rezi.ai/"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3Dmyi5i2zIUAk",
+		"title": "Everything you need to know about making your CV (in Romanian) from my YouTube"
+	},
+	{
+		"url": "https://www.pramp.com/%23/",
+		"title": "Prepare for your technical interview by practicing on Pramp"
+	},
+	{
+		"url": "https://www.freecodecamp.org/learn/coding-interview-prep/",
+		"title": "Coding interview preparation"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DTzdajQHS7xA",
+		"title": "How to Prepare for Technical Interviews"
+	},
+	{
+		"url": "https://github.com/jwasham/coding-interview-university",
+		"title": "https://github.com/jwasham/coding-interview-university"
+	},
+	{
+		"url": "https://github.com/yangshun/tech-interview-handbook",
+		"title": "https://github.com/yangshun/tech-interview-handbook"
+	},
+	{
+		"url": "https://github.com/lydiahallie/javascript-questions",
+		"title": "https://github.com/lydiahallie/javascript-questions"
+	},
+	{
+		"url": "https://techinterviewhandbook.org/",
+		"title": "Tech Interview Handbook"
+	},
+	{
+		"url": "https://www.thebalancecareers.com/job-interview-questions-and-answers-2061204",
+		"title": "Job Interview Questions, Answers, and Tips to Prepare"
+	},
+	{
+		"url": "https://frontendmasters.com/guides/front-end-handbook/2018/practice/interview-q.html",
+		"title": "Front-End interview questions"
+	},
+	{
+		"url": "https://github.com/h5bp/Front-end-Developer-Interview-Questions",
+		"title": "https://github.com/h5bp/Front-end-Developer-Interview-Questions"
+	},
+	{
+		"url": "https://technicalinterviews.dev/",
+		"title": "Technical Interviews"
+	},
+	{
+		"url": "https://www.freecodecamp.org/news/ten-rules-for-negotiating-a-job-offer-ee17cccbdab6/",
+		"title": "Ten Rules for Negotiating a Job Offer"
+	},
+	{
+		"url": "https://www.freecodecamp.org/news/how-not-to-bomb-your-offer-negotiation-c46bb9bc7dea/",
+		"title": "How not to bomb your offer negotiation"
+	},
+	{
+		"url": "https://yourbrainoncomputers.com/using-github-to-build-a-portfolio-ultimate-guide/",
+		"title": "Using GitHub to Build a Portfolio (2020 Ultimate Guide)"
+	},
+	{
+		"url": "https://www.freecodecamp.org/news/coding-interviews-for-dummies-5e048933b82b/",
+		"title": "How to Rock the Coding Interview – Tips That Helped Me Land Job Offers from Google, Airbnb, and Dropbox"
+	},
+	{
+		"url": "https://grow.google/certificates/interview-warmup/",
+		"title": "https://grow.google/certificates/interview-warmup/"
+	},
+	{
+		"url": "https://www.frontendinterviewhandbook.com/",
+		"title": "https://www.frontendinterviewhandbook.com/"
+	},
+	{
+		"url": "https://addyosmani.com/blog/software-engineering-soft-parts/",
+		"title": "https://addyosmani.com/blog/software-engineering-soft-parts/"
+	},
+	{
+		"url": "https://posthog.com/blog/what-to-ask-in-interviews",
+		"title": "https://posthog.com/blog/what-to-ask-in-interviews"
+	},
+	{
+		"url": "https://fearlesssalarynegotiation.com/articles/",
+		"title": "https://fearlesssalarynegotiation.com/articles/"
+	},
+	{
+		"url": "https://www.techinterviewhandbook.org/",
+		"title": "https://www.techinterviewhandbook.org/"
+	},
+	{
+		"url": "https://layoffs.fyi/",
+		"title": "https://layoffs.fyi/"
+	},
+	{
+		"url": "https://www.realworkfromanywhere.com/",
+		"title": "https://www.realworkfromanywhere.com/"
+	},
+	{
+		"url": "https://www.bardeen.ai/jobhub",
+		"title": "https://www.bardeen.ai/jobhub"
+	},
+	{
+		"url": "https://refocus.me/ph/",
+		"title": "https://refocus.me/ph/"
+	},
+	{
+		"url": "https://www.youtube.com/playlist?list%3DPLfTqvIG4roBpruaYAsLJvQMnKuVqA4Glg",
+		"title": "https://www.youtube.com/playlist?list=PLfTqvIG4roBpruaYAsLJvQMnKuVqA4Glg"
+	},
+	{
+		"url": "https://www.viorelmocanu.ro/greselile-recrutorilor/",
+		"title": "https://www.viorelmocanu.ro/greselile-recrutorilor/"
+	},
+	{
+		"url": "https://www.wearehr.ro/",
+		"title": "https://www.wearehr.ro/"
+	},
+	{
+		"url": "https://devskiller.com/become-recruiter-tech/",
+		"title": "https://devskiller.com/become-recruiter-tech/"
+	},
+	{
+		"url": "https://stackify.com/what-is-sdlc/",
+		"title": "https://stackify.com/what-is-sdlc/"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DqIMvacpagfw",
+		"title": "https://www.youtube.com/watch?v=qIMvacpagfw"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DAOQHe3Si-VA",
+		"title": "https://www.youtube.com/watch?v=AOQHe3Si-VA"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3D-YepJsv0ing",
+		"title": "https://www.youtube.com/watch?v=-YepJsv0ing"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3Dhxxw9VhRyik",
+		"title": "https://www.youtube.com/watch?v=hxxw9VhRyik"
+	},
+	{
+		"url": "https://www.freecodecamp.org/news/what-programming-language-should-i-learn-first-19a33b0a467d/",
+		"title": "What Programming Language Should I Learn First in 2022? [Solved]"
+	},
+	{
+		"url": "https://norvig.com/21-days.html",
+		"title": "https://norvig.com/21-days.html"
+	},
+	{
+		"url": "https://teachyourselfcs.com/",
+		"title": "https://teachyourselfcs.com/"
+	},
+	{
+		"url": "https://ebooks.infobits.ro/",
+		"title": "https://ebooks.infobits.ro/"
+	},
+	{
+		"url": "https://astro.build/blog/2023-web-framework-performance-report/",
+		"title": "https://astro.build/blog/2023-web-framework-performance-report/"
+	},
+	{
+		"url": "https://cs50.harvard.edu/web/2020/",
+		"title": "https://cs50.harvard.edu/web/2020/"
+	},
+	{
+		"url": "https://missing.csail.mit.edu/",
+		"title": "https://missing.csail.mit.edu/"
+	},
+	{
+		"url": "https://css-tricks.com/technical-writing-for-developers/",
+		"title": "https://css-tricks.com/technical-writing-for-developers/"
+	},
+	{
+		"url": "https://realtoughcandy.com/learn-to-code-for-free/",
+		"title": "https://realtoughcandy.com/learn-to-code-for-free/"
+	},
+	{
+		"url": "https://code.org/",
+		"title": "https://code.org/"
+	},
+	{
+		"url": "https://www.codecademy.com/",
+		"title": "https://www.codecademy.com/"
+	},
+	{
+		"url": "https://coderbyte.com/",
+		"title": "https://coderbyte.com/"
+	},
+	{
+		"url": "https://edabit.com/",
+		"title": "https://edabit.com/"
+	},
+	{
+		"url": "https://www.educative.io/explore",
+		"title": "https://www.educative.io/explore"
+	},
+	{
+		"url": "https://www.edx.org/",
+		"title": "https://www.edx.org/"
+	},
+	{
+		"url": "https://egghead.io/learn",
+		"title": "https://egghead.io/learn"
+	},
+	{
+		"url": "https://dash.generalassemb.ly/",
+		"title": "https://dash.generalassemb.ly/"
+	},
+	{
+		"url": "https://goalkicker.com/",
+		"title": "https://goalkicker.com/"
+	},
+	{
+		"url": "https://hackr.io/",
+		"title": "https://hackr.io/"
+	},
+	{
+		"url": "https://www.khanacademy.org/",
+		"title": "https://www.khanacademy.org/"
+	},
+	{
+		"url": "https://launchschool.com/books",
+		"title": "https://launchschool.com/books"
+	},
+	{
+		"url": "https://docs.microsoft.com/en-us/training/",
+		"title": "https://docs.microsoft.com/en-us/training/"
+	},
+	{
+		"url": "https://ocw.mit.edu/",
+		"title": "https://ocw.mit.edu/"
+	},
+	{
+		"url": "https://github.com/ossu",
+		"title": "https://github.com/ossu"
+	},
+	{
+		"url": "https://phptherightway.com/",
+		"title": "https://phptherightway.com/"
+	},
+	{
+		"url": "https://www.digitalocean.com/community",
+		"title": "https://www.digitalocean.com/community"
+	},
+	{
+		"url": "https://scratch.mit.edu/",
+		"title": "https://scratch.mit.edu/"
+	},
+	{
+		"url": "https://www.theodinproject.com/",
+		"title": "https://www.theodinproject.com/"
+	},
+	{
+		"url": "https://juniormind.com/ro/",
+		"title": "https://juniormind.com/ro/"
+	},
+	{
+		"url": "https://exercism.org/",
+		"title": "https://exercism.org/"
+	},
+	{
+		"url": "https://www.youtube.com/playlist?list%3DPLhQjrBD2T382_R182iC2gNZI9HzWFMC_8",
+		"title": "CS50 Lectures 2020 - YouTube"
+	},
+	{
+		"url": "https://refactoring.guru/",
+		"title": "https://refactoring.guru/"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3Dtv-_1er1mWI",
+		"title": "10 Design Patterns Explained in 10 Minutes"
+	},
+	{
+		"url": "https://cs50.harvard.edu/x/2020/",
+		"title": "CS50 by Harvard"
+	},
+	{
+		"url": "https://www.youtube.com/c/cs50/featured",
+		"title": "YouTube"
+	},
+	{
+		"url": "https://codecombat.com/",
+		"title": "https://codecombat.com/"
+	},
+	{
+		"url": "https://checkio.org/",
+		"title": "CheckIO"
+	},
+	{
+		"url": "https://alexnisnevich.github.io/untrusted/",
+		"title": "Untrusted"
+	},
+	{
+		"url": "https://www.topcoder.com/",
+		"title": "TopCoder"
+	},
+	{
+		"url": "https://www.codingame.com/start",
+		"title": "CodinGame"
+	},
+	{
+		"url": "https://cssbattle.dev/",
+		"title": "https://cssbattle.dev/"
+	},
+	{
+		"url": "https://www.udemy.com/course/object-oriented-programming-oops-for-java-certification/",
+		"title": "JAVA"
+	},
+	{
+		"url": "https://www.coursera.org/learn/object-oriented-java",
+		"title": "more JAVA"
+	},
+	{
+		"url": "https://www.udemy.com/course/python-oop/",
+		"title": "Python"
+	},
+	{
+		"url": "https://www.udemy.com/course/basics-of-object-oriented-programming-with-csharp/",
+		"title": "C#"
+	},
+	{
+		"url": "https://www.udemy.com/course/advanced-and-object-oriented-javascript/",
+		"title": "JavaScript"
+	},
+	{
+		"url": "https://www.udemy.com/course/master-object-oriented-programming-concepts/",
+		"title": "OOP knowledge"
+	},
+	{
+		"url": "https://www.edx.org/learn/object-oriented-programming",
+		"title": "a bunch more courses"
+	},
+	{
+		"url": "https://www.pluralsight.com/courses/principles-oo-design",
+		"title": "Solid principles of OOP"
+	},
+	{
+		"url": "https://cursuri-it.ejobs.ro/",
+		"title": "Cursuri IT by eJobs"
+	},
+	{
+		"url": "https://www.algoexpert.io/product",
+		"title": "AlgoExpert"
+	},
+	{
+		"url": "https://app.codility.com/programmers/lessons/1-iterations/",
+		"title": "https://app.codility.com/programmers/lessons/1-iterations/"
+	},
+	{
+		"url": "https://www.geeksforgeeks.org/",
+		"title": "https://www.geeksforgeeks.org/"
+	},
+	{
+		"url": "https://codeforces.com/",
+		"title": "https://codeforces.com/"
+	},
+	{
+		"url": "https://open.kattis.com/",
+		"title": "https://open.kattis.com/"
+	},
+	{
+		"url": "https://projecteuler.net/",
+		"title": "https://projecteuler.net/"
+	},
+	{
+		"url": "https://www.pramp.com/",
+		"title": "Pramp"
+	},
+	{
+		"url": "https://www.mathpages.com/",
+		"title": "Math Pages"
+	},
+	{
+		"url": "https://www.dropbox.com/s/xij72qwp72okem0/fxtbook.pdf?dl%3D1",
+		"title": "https://www.dropbox.com/s/xij72qwp72okem0/fxtbook.pdf?dl=1"
+	},
+	{
+		"url": "https://www.geeksforgeeks.org/sleep-sort-king-laziness-sorting-sleeping/",
+		"title": "https://www.geeksforgeeks.org/sleep-sort-king-laziness-sorting-sleeping/"
+	},
+	{
+		"url": "https://swtch.com/~rsc/regexp/regexp1.html",
+		"title": "Regular Expressions matching can be simple and fast"
+	},
+	{
+		"url": "https://youtube.com/playlist?list%3DPLylTVsqZiRXPU09ULWGfXYsEtw-Qtq0Yn",
+		"title": "Theory of computation"
+	},
+	{
+		"url": "https://www.cs.unm.edu/~crowley/papers/sds.pdf",
+		"title": "Data structures for text sequences"
+	},
+	{
+		"url": "https://db-engines.com/en/ranking",
+		"title": "https://db-engines.com/en/ranking"
+	},
+	{
+		"url": "https://thegymnasium.com/courses/course-v1:GYM%2B011%2B0/about",
+		"title": "Build better websites with Google Dev Tools"
+	},
+	{
+		"url": "https://www.youtube.com/playlist?list%3DPLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU",
+		"title": "Machine Learning course"
+	},
+	{
+		"url": "https://ai.google/education/",
+		"title": "https://ai.google/education/"
+	},
+	{
+		"url": "https://machinelearningmastery.com/",
+		"title": "https://machinelearningmastery.com/"
+	},
+	{
+		"url": "https://introtodeeplearning.com/",
+		"title": "https://introtodeeplearning.com/"
+	},
+	{
+		"url": "https://mml-book.github.io/",
+		"title": "https://mml-book.github.io/"
+	},
+	{
+		"url": "https://www.youtube.com/playlist?list%3DPL9D558D49CA734A02",
+		"title": "Programming Paradigms"
+	},
+	{
+		"url": "https://devdocs.io/",
+		"title": "DevDocs"
+	},
+	{
+		"url": "https://developers.google.com/learn/pathways",
+		"title": "Learn with Google"
+	},
+	{
+		"url": "https://www.codecademy.com/resources/cheatsheets/all",
+		"title": "https://www.codecademy.com/resources/cheatsheets/all"
+	},
+	{
+		"url": "https://cloudresumechallenge.dev/instructions/",
+		"title": "The Cloud Resume Challenge"
+	},
+	{
+		"url": "https://dev.to/daniels1996/plumber-s-guide-to-cloud-88",
+		"title": "related article"
+	},
+	{
+		"url": "https://cloudirregular.substack.com/p/the-greatest-resume-ive-ever-seen",
+		"title": "presentation article"
+	},
+	{
+		"url": "https://www.cybrary.it/info/freeittraining/",
+		"title": "https://www.cybrary.it/info/freeittraining/"
+	},
+	{
+		"url": "https://developer.android.com/courses%23for-new-programmers",
+		"title": "https://developer.android.com/courses#for-new-programmers"
+	},
+	{
+		"url": "https://www.appypie.com/learn-ios-development-how-to",
+		"title": "https://www.appypie.com/learn-ios-development-how-to"
+	},
+	{
+		"url": "https://developer.apple.com/tutorials/SwiftUI",
+		"title": "https://developer.apple.com/tutorials/SwiftUI"
+	},
+	{
+		"url": "https://www.bitdegree.org/course/coding-for-beginners-space-doggos",
+		"title": "https://www.bitdegree.org/course/coding-for-beginners-space-doggos"
+	},
+	{
+		"url": "https://learn.coderfoundry.com/course-catalog",
+		"title": "https://learn.coderfoundry.com/course-catalog"
+	},
+	{
+		"url": "https://iq.opengenus.org/100-interview-problems/",
+		"title": "https://iq.opengenus.org/100-interview-problems/"
+	},
+	{
+		"url": "https://commandlinepoweruser.com/",
+		"title": "https://commandlinepoweruser.com/"
+	},
+	{
+		"url": "https://conqueringthecommandline.com/book",
+		"title": "https://conqueringthecommandline.com/book"
+	},
+	{
+		"url": "https://www.learnenough.com/command-line-tutorial",
+		"title": "https://www.learnenough.com/command-line-tutorial"
+	},
+	{
+		"url": "https://www.thinkful.com/",
+		"title": "https://www.thinkful.com/"
+	},
+	{
+		"url": "https://www.htmldog.com/guides/",
+		"title": "https://www.htmldog.com/guides/"
+	},
+	{
+		"url": "https://craftinginterpreters.com/",
+		"title": "https://craftinginterpreters.com/"
+	},
+	{
+		"url": "https://www.interdb.jp/pg/",
+		"title": "https://www.interdb.jp/pg/"
+	},
+	{
+		"url": "https://jeffe.cs.illinois.edu/teaching/algorithms/",
+		"title": "https://jeffe.cs.illinois.edu/teaching/algorithms/"
+	},
+	{
+		"url": "https://www.coursera.org/specializations/algorithms",
+		"title": "https://www.coursera.org/specializations/algorithms"
+	},
+	{
+		"url": "https://littleosbook.github.io/",
+		"title": "https://littleosbook.github.io/"
+	},
+	{
+		"url": "https://www.youtube.com/@ChromeDevs",
+		"title": "https://www.youtube.com/@ChromeDevs"
+	},
+	{
+		"url": "https://neetcode.io/",
+		"title": "https://neetcode.io/"
+	},
+	{
+		"url": "https://github.com/EbookFoundation/free-programming-books",
+		"title": "https://github.com/EbookFoundation/free-programming-books"
+	},
+	{
+		"url": "https://github.com/kamranahmedse/developer-roadmap",
+		"title": "https://github.com/kamranahmedse/developer-roadmap"
+	},
+	{
+		"url": "https://github.com/30-seconds/30-seconds-of-code",
+		"title": "https://github.com/30-seconds/30-seconds-of-code"
+	},
+	{
+		"url": "https://github.com/ripienaar/free-for-dev",
+		"title": "https://github.com/ripienaar/free-for-dev"
+	},
+	{
+		"url": "https://github.com/bradtraversy/design-resources-for-developers",
+		"title": "https://github.com/bradtraversy/design-resources-for-developers"
+	},
+	{
+		"url": "https://github.com/florinpop17/app-ideas",
+		"title": "https://github.com/florinpop17/app-ideas"
+	},
+	{
+		"url": "https://github.com/codecrafters-io/build-your-own-x",
+		"title": "https://github.com/codecrafters-io/build-your-own-x"
+	},
+	{
+		"url": "https://github.com/public-apis/public-apis",
+		"title": "https://github.com/public-apis/public-apis"
+	},
+	{
+		"url": "https://github.com/donnemartin/system-design-primer",
+		"title": "https://github.com/donnemartin/system-design-primer"
+	},
+	{
+		"url": "https://github.com/jlevy/the-art-of-command-line",
+		"title": "https://github.com/jlevy/the-art-of-command-line"
+	},
+	{
+		"url": "https://github.com/tensorflow/tensorflow",
+		"title": "https://github.com/tensorflow/tensorflow"
+	},
+	{
+		"url": "https://github.com/trimstray/the-book-of-secret-knowledge",
+		"title": "https://github.com/trimstray/the-book-of-secret-knowledge"
+	},
+	{
+		"url": "https://www.coderkids.com/blog/top-10-free-coding-programs-for-kids",
+		"title": "https://www.coderkids.com/blog/top-10-free-coding-programs-for-kids"
+	},
+	{
+		"url": "https://coderkids.teachable.com/p/welcome-to-scratch",
+		"title": "https://coderkids.teachable.com/p/welcome-to-scratch"
+	},
+	{
+		"url": "https://www.coderkids.com/blog/scratchjr-projects-for-kids",
+		"title": "https://www.coderkids.com/blog/scratchjr-projects-for-kids"
+	},
+	{
+		"url": "https://www.crunchzilla.com/",
+		"title": "https://www.crunchzilla.com/"
+	},
+	{
+		"url": "https://www.codemonkey.com/",
+		"title": "https://www.codemonkey.com/"
+	},
+	{
+		"url": "https://lightbot.com/",
+		"title": "https://lightbot.com/"
+	},
+	{
+		"url": "https://blockly.games/",
+		"title": "https://blockly.games/"
+	},
+	{
+		"url": "https://www.stencyl.com/",
+		"title": "https://www.stencyl.com/"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3D_j4Lj-BT00g",
+		"title": "https://www.youtube.com/watch?v=_j4Lj-BT00g"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3Dg1J4181W8ss",
+		"title": "https://www.youtube.com/watch?v=g1J4181W8ss"
+	},
+	{
+		"url": "https://bit.ly/ace-coding",
+		"title": "https://bit.ly/ace-coding"
+	},
+	{
+		"url": "https://www.tynker.com/",
+		"title": "https://www.tynker.com/"
+	},
+	{
+		"url": "https://www.kodable.com/",
+		"title": "https://www.kodable.com/"
+	},
+	{
+		"url": "https://www.codecamp.com.au/blog/8-best-programming-games-for-kids",
+		"title": "https://www.codecamp.com.au/blog/8-best-programming-games-for-kids"
+	},
+	{
+		"url": "https://www.codewizardshq.com/coding-websites-for-kids/",
+		"title": "https://www.codewizardshq.com/coding-websites-for-kids/"
+	},
+	{
+		"url": "https://www.computerscience.org/resources/kids-introduction-to-coding/",
+		"title": "https://www.computerscience.org/resources/kids-introduction-to-coding/"
+	},
+	{
+		"url": "https://www.youtube.com/playlist?list%3DPLaJiOUIMDSh5TtO1kedWRScDHn7r0cR7x",
+		"title": "https://www.youtube.com/playlist?list=PLaJiOUIMDSh5TtO1kedWRScDHn7r0cR7x"
+	},
+	{
+		"url": "https://www.miciideveloperi.ro/curs-gratuit-programare-pentru-copii-bucuresti",
+		"title": "https://www.miciideveloperi.ro/curs-gratuit-programare-pentru-copii-bucuresti"
+	},
+	{
+		"url": "https://www.librariaonline.ro/it_calculatoare/software/limbaje_de_programare/programarea_in_limbajul_c_c_pentru_liceu_volumul_1_editia_a_ii_a_revazuta_si_adaugita-cerchez_emanuela-polirom-p10187667",
+		"title": "number 1"
+	},
+	{
+		"url": "https://www.librariaonline.ro/it_calculatoare/diverse/it/programarea_in_limbajul_c_c_pentru_liceu_volumul_al_ii_lea_metode_si_tehnici_de_programare-cerchez_emanuela-polirom-p10133772",
+		"title": "number 2"
+	},
+	{
+		"url": "https://www.librariaonline.ro/culegeri_si_auxiliare_scolare/informatica/altele/programarea_in_limbajul_c_c_pentru_liceu_volumul_al_iii_lea-cerchez_emanuela-polirom-p10081338",
+		"title": "number 3"
+	},
+	{
+		"url": "https://www.librariaonline.ro/it_calculatoare/software/limbaje_de_programare/programarea_in_limbajul_c_c_pentru_liceu_volumul_al_iv_lea_programare_orientata_pe_obiecte_si_programare_generica_cu_stl-cerchez_emanuela-polirom-p10068032",
+		"title": "number 4"
+	},
+	{
+		"url": "https://www.pbinfo.ro/articole/5547/informatica-clasa-a-ix-a",
+		"title": "https://www.pbinfo.ro/articole/5547/informatica-clasa-a-ix-a"
+	},
+	{
+		"url": "https://www.pbinfo.ro/probleme-categorii/9",
+		"title": "https://www.pbinfo.ro/probleme-categorii/9"
+	},
+	{
+		"url": "https://www.infoarena.ro/arhiva-educationala",
+		"title": "https://www.infoarena.ro/arhiva-educationala"
+	},
+	{
+		"url": "https://www.infoarena.ro/links",
+		"title": "https://www.infoarena.ro/links"
+	},
+	{
+		"url": "https://web.dev/learn/privacy/",
+		"title": "https://web.dev/learn/privacy/"
+	},
+	{
+		"url": "https://leonnoel.com/100devs/",
+		"title": "https://leonnoel.com/100devs/"
+	},
+	{
+		"url": "https://www.twitch.tv/learnwithleon/videos",
+		"title": "https://www.twitch.tv/learnwithleon/videos"
+	},
+	{
+		"url": "https://www.olympiad.org.uk/problems.html",
+		"title": "https://www.olympiad.org.uk/problems.html"
+	},
+	{
+		"url": "https://ioinformatics.org/page/contests/10",
+		"title": "https://ioinformatics.org/page/contests/10"
+	},
+	{
+		"url": "https://cp-algorithms.com/",
+		"title": "https://cp-algorithms.com/"
+	},
+	{
+		"url": "https://codeforces.com/blog/entry/55219",
+		"title": "https://codeforces.com/blog/entry/55219"
+	},
+	{
+		"url": "https://codeforces.com/blog/entry/43256",
+		"title": "https://codeforces.com/blog/entry/43256"
+	},
+	{
+		"url": "https://codeforces.com/blog/entry/68138",
+		"title": "https://codeforces.com/blog/entry/68138"
+	},
+	{
+		"url": "https://codeforces.com/blog/entry/62690",
+		"title": "https://codeforces.com/blog/entry/62690"
+	},
+	{
+		"url": "https://infoarena.ro/downloads",
+		"title": "https://infoarena.ro/downloads"
+	},
+	{
+		"url": "https://solinfo.ro/",
+		"title": "https://solinfo.ro/"
+	},
+	{
+		"url": "https://infoarena.ro/arhiva-educationala",
+		"title": "https://infoarena.ro/arhiva-educationala"
+	},
+	{
+		"url": "https://go101.org/",
+		"title": "https://go101.org/"
+	},
+	{
+		"url": "https://www.udemy.com/course/backend-master-class-golang-postgresql-kubernetes/",
+		"title": "https://www.udemy.com/course/backend-master-class-golang-postgresql-kubernetes/"
+	},
+	{
+		"url": "https://www.mooc.fi/en/",
+		"title": "https://www.mooc.fi/en/"
+	},
+	{
+		"url": "https://www.tiobe.com/tiobe-index/",
+		"title": "https://www.tiobe.com/tiobe-index/"
+	},
+	{
+		"url": "https://www.infoq.com/presentations/little-usl-scalability-performance/",
+		"title": "https://www.infoq.com/presentations/little-usl-scalability-performance/"
+	},
+	{
+		"url": "https://speakerdeck.com/kavya719/applied-performance-theory?slide%3D11",
+		"title": "https://speakerdeck.com/kavya719/applied-performance-theory?slide=11"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3D28_x6BQVd6I",
+		"title": "T-minus 3, 2, 1: Future-proofing production systems - Kavya Joshi (Samsara)"
+	},
+	{
+		"url": "https://ossu.firebaseapp.com/%23/curriculum",
+		"title": "https://ossu.firebaseapp.com/#/curriculum"
+	},
+	{
+		"url": "https://www.youtube.com/playlist?list%3DPL0eyrZgxdwhwNC5ppZo_dYGVjerQY3xYU",
+		"title": "HTML and CSS Tutorials - YouTube"
+	},
+	{
+		"url": "https://www.youtube.com/playlist?list%3DPLQB56B9Yjxu9zwF8jZ5AnPiJPKDyZnR9g",
+		"title": "Programare pentru Incepatori: Tutoriale in Romana | Programare pentru Incepatori | Limbaje de Programare - YouTube"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DOUzaUJ3gEug",
+		"title": "Full Stack Web Development in the Cloud Course - Svelte, Postgres, Vercel, Gitpod"
+	},
+	{
+		"url": "https://www.coursera.org/courses?query%3Dfull%2520stack%2520web%2520development",
+		"title": "https://www.coursera.org/courses?query=full%20stack%20web%20development"
+	},
+	{
+		"url": "https://fsharpforfunandprofit.com/fppatterns/",
+		"title": "https://fsharpforfunandprofit.com/fppatterns/"
+	},
+	{
+		"url": "https://github.com/ziishaned/learn-regex",
+		"title": "https://github.com/ziishaned/learn-regex"
+	},
+	{
+		"url": "https://qmo.io/blog/ultimate-guide-to-api-design",
+		"title": "https://qmo.io/blog/ultimate-guide-to-api-design"
+	},
+	{
+		"url": "https://hpbn.co/",
+		"title": "https://hpbn.co/"
+	},
+	{
+		"url": "https://programming-idioms.org/about%23about-block-all-idioms",
+		"title": "https://programming-idioms.org/about#about-block-all-idioms"
+	},
+	{
+		"url": "https://github.com/sdmg15/Best-websites-a-programmer-should-visit",
+		"title": "https://github.com/sdmg15/Best-websites-a-programmer-should-visit"
+	},
+	{
+		"url": "https://github.com/minimaxir/big-list-of-naughty-strings",
+		"title": "https://github.com/minimaxir/big-list-of-naughty-strings"
+	},
+	{
+		"url": "https://github.com/JanVanRyswyck/awesome-talks",
+		"title": "https://github.com/JanVanRyswyck/awesome-talks"
+	},
+	{
+		"url": "https://github.com/lauragift21/awesome-learning-resources",
+		"title": "https://github.com/lauragift21/awesome-learning-resources"
+	},
+	{
+		"url": "https://open.appacademy.io/",
+		"title": "https://open.appacademy.io/"
+	},
+	{
+		"url": "https://rhc14.grey-panther.net/",
+		"title": "Spectrum programming circa 1980"
+	},
+	{
+		"url": "https://github.com/DoctorWkt/acwj",
+		"title": "A Compiler Writing Journey"
+	},
+	{
+		"url": "https://www.ppl-lang.dev/blog/introduction-to-monads-with-java/index.html",
+		"title": "Introduction to monads with Java code examples"
+	},
+	{
+		"url": "https://boris-marinov.github.io/category-theory-illustrated/",
+		"title": "Category Theory Illustrated"
+	},
+	{
+		"url": "https://eev.ee/blog/2015/09/12/dark-corners-of-unicode/",
+		"title": "https://eev.ee/blog/2015/09/12/dark-corners-of-unicode/"
+	},
+	{
+		"url": "https://manishearth.github.io/blog/2017/01/14/stop-ascribing-meaning-to-unicode-code-points/",
+		"title": "https://manishearth.github.io/blog/2017/01/14/stop-ascribing-meaning-to-unicode-code-points/"
+	},
+	{
+		"url": "https://software.imdea.org/Conferences/CICLOPS2017/files/tarau_ciclops17.pdf",
+		"title": "A Hitchhiker’s Guide to Reinventing a Prolog Machine"
+	},
+	{
+		"url": "https://www.jsoftware.com/papers/50/",
+		"title": "A History of APL in 50 Functions"
+	},
+	{
+		"url": "https://www.cs.ioc.ee/ewscs/2010/mycroft/linear-2up.pdf",
+		"title": "Linear types can change the world!"
+	},
+	{
+		"url": "https://www.ieee-security.org/TC/SPW2014/papers/5103a198.PDF",
+		"title": "The pitfalls of protocol design - Attempting to write a formally verified PDF parser"
+	},
+	{
+		"url": "https://www.youtube.com/playlist?list%3DPLe7Ei6viL6jGp1Rfu0dil1JH1SHk9bgDV",
+		"title": "Haskell for Imperative Programmers"
+	},
+	{
+		"url": "https://llvm.org/docs/tutorial/index.html",
+		"title": "LLVM compiler infrastructure"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3Dj9tlJAqMV7U",
+		"title": "Nano-coroutines to the Rescue! (Using Coroutines TS, of Course)"
+	},
+	{
+		"url": "https://browser.engineering/",
+		"title": "Web Browser Engineering"
+	},
+	{
+		"url": "https://developer.mozilla.org/en-US/docs/Learn",
+		"title": "The MDN Front End Development Learning Index"
+	},
+	{
+		"url": "https://rust-unofficial.github.io/too-many-lists/",
+		"title": "Learn Rust With Entirely Too Many Linked Lists"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3Db4mS5UPHh20",
+		"title": "Crust of Rust: Channels"
+	},
+	{
+		"url": "https://doc.rust-lang.org/book/",
+		"title": "The Rust Programming Language"
+	},
+	{
+		"url": "https://github.com/usagi/rust-memory-container-cs",
+		"title": "Rust Memory Container Cheat-sheet"
+	},
+	{
+		"url": "https://doc.rust-lang.org/nomicon/",
+		"title": "The Rustonomicon"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DIPmRDS0OSxM",
+		"title": "A Firehose of Rust, for busy people who know some C++"
+	},
+	{
+		"url": "https://static1.squarespace.com/static/54bf3241e4b0f0d81bf7ff36/t/55e9494fe4b011aed10e48e5/1441352015658/probability_cheatsheet.pdf",
+		"title": "Probability Cheat Sheet"
+	},
+	{
+		"url": "https://ocw.mit.edu/courses/mathematics/18-404j-theory-of-computation-fall-2020/",
+		"title": "MIT Course: Theory of computation"
+	},
+	{
+		"url": "https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/",
+		"title": "MIT Course: Electrical Engineering and Computer Science"
+	},
+	{
+		"url": "https://en.m.wikipedia.org/wiki/List_of_data_structures",
+		"title": "List of data structures"
+	},
+	{
+		"url": "https://ciechanow.ski/exposing-floating-point/",
+		"title": "Exposing Float Point"
+	},
+	{
+		"url": "https://floating-point-gui.de/",
+		"title": "What Every Programmer Should Know About Floating-Point Arithmetic"
+	},
+	{
+		"url": "https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html",
+		"title": "What Every Computer Scientist Should Know About Floating-Point Arithmetic"
+	},
+	{
+		"url": "https://en.m.wikipedia.org/wiki/List_of_algorithms",
+		"title": "List of algorithms"
+	},
+	{
+		"url": "https://www-igm.univ-mlv.fr/~lecroq/string/node19.html",
+		"title": "Quick Search Algorithm"
+	},
+	{
+		"url": "https://loup-vaillant.fr/articles/crypto-is-not-magic",
+		"title": "Cryptography is not magic"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DTdqQqyc7pfU",
+		"title": "Web Development Full Course (Front End) |  HTML,CSS,JavaScript"
+	},
+	{
+		"url": "https://fullstackopen.com/en/",
+		"title": "https://fullstackopen.com/en/"
+	},
+	{
+		"url": "https://www.youtube.com/playlist?list%3DPLYdpEVB86eG6IDpm0siSVxY7He6gnJs_E",
+		"title": "https://www.youtube.com/playlist?list=PLYdpEVB86eG6IDpm0siSVxY7He6gnJs_E"
+	},
+	{
+		"url": "https://css-tricks.com/a-complete-beginners-guide-to-npm/",
+		"title": "https://css-tricks.com/a-complete-beginners-guide-to-npm/"
+	},
+	{
+		"url": "https://transform.tools/json-to-typescript",
+		"title": "https://transform.tools/json-to-typescript"
+	},
+	{
+		"url": "https://app.quicktype.io/?l%3Dts",
+		"title": "https://app.quicktype.io/?l=ts"
+	},
+	{
+		"url": "https://egghead.io/q/react",
+		"title": "https://egghead.io/q/react"
+	},
+	{
+		"url": "https://codewithmosh.com/p/mastering-react",
+		"title": "https://codewithmosh.com/p/mastering-react"
+	},
+	{
+		"url": "https://inst.eecs.berkeley.edu/~cs61a/sp20/",
+		"title": "CS61A - Structure and Interpretation of Computer Programs"
+	},
+	{
+		"url": "https://sp21.datastructur.es/",
+		"title": "CS61B - Data Structures"
+	},
+	{
+		"url": "https://paperswelove.org/",
+		"title": "https://paperswelove.org/"
+	},
+	{
+		"url": "https://github.com/papers-we-love/papers-we-love",
+		"title": "https://github.com/papers-we-love/papers-we-love"
+	},
+	{
+		"url": "https://www.reddit.com/r/programare/wiki/index/",
+		"title": "https://www.reddit.com/r/programare/wiki/index/"
+	},
+	{
+		"url": "https://csgordon.github.io/books.html",
+		"title": "Listă cu Cărți Gratis din Computer Science"
+	},
+	{
+		"url": "https://book.mixu.net/distsys/single-page.html",
+		"title": "Distributed Systems for Fun and Profit"
+	},
+	{
+		"url": "https://learnxinyminutes.com/",
+		"title": "Learn X in Y Minutes"
+	},
+	{
+		"url": "https://github.com/danistefanovic/build-your-own-x",
+		"title": "build-your-own-x"
+	},
+	{
+		"url": "https://ocw.cs.pub.ro/courses/",
+		"title": "Cursuri și laboratoare de la UPB"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3Dk6U-i4gXkLM%26list%3DPL4C4720A6F225E074",
+		"title": "Cursuri MIT"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DYoXxevp1WRQ%26list%3DPLhQjrBD2T382_R182iC2gNZI9HzWFMC_8",
+		"title": "CS50"
+	},
+	{
+		"url": "https://github.com/microsoft/IoT-For-Beginners",
+		"title": "IoT For Beginners"
+	},
+	{
+		"url": "https://catalog.mit.edu/schools/engineering/electrical-engineering-computer-science/%23subjectstext",
+		"title": "Cursurile de la MIT de Computer Science & Electrical Engineering"
+	},
+	{
+		"url": "https://www.cs.utexas.edu/~ear/cs341/automatabook/",
+		"title": "Automata, Computability, Complexity Theory and Applications"
+	},
+	{
+		"url": "https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book.html",
+		"title": "Structure And Interpretation Of Computer Programs"
+	},
+	{
+		"url": "https://canonical.org/~kragen/memory-models/",
+		"title": "The Memory Models That Underline Programming Languages"
+	},
+	{
+		"url": "https://www.goodreads.com/book/show/112252.Types_and_Programming_Languages",
+		"title": "Types and Programming Languages"
+	},
+	{
+		"url": "https://www.amazon.com/Compilers-Principles-Techniques-Tools-2nd/dp/0321486811",
+		"title": "Compilers: Principles, Techniques and Tools"
+	},
+	{
+		"url": "https://www.amazon.com/Engineering-Compiler-Keith-Cooper/dp/012088478X",
+		"title": "Engineering a Compiler"
+	},
+	{
+		"url": "https://www.buildyourownlisp.com/",
+		"title": "Build You Own Lisp"
+	},
+	{
+		"url": "https://www.baeldung.com/",
+		"title": "Baeldung"
+	},
+	{
+		"url": "https://www.baeldung.com/java-tutorial",
+		"title": "Back to basics"
+	},
+	{
+		"url": "https://www.baeldung.com/java-collections",
+		"title": "Java Collections"
+	},
+	{
+		"url": "https://www.baeldung.com/java-streams",
+		"title": "Java Streams"
+	},
+	{
+		"url": "https://java-programming.mooc.fi/",
+		"title": "MOOC.fi"
+	},
+	{
+		"url": "https://advancedweb.hu/a-categorized-list-of-all-java-and-jvm-features-since-jdk-8-to-16/",
+		"title": "A categorized list of all Java and JVM features since JDK 8 to 16"
+	},
+	{
+		"url": "https://docs.python.org/3/tutorial/",
+		"title": "The Python Tutorial"
+	},
+	{
+		"url": "https://github.com/dabeaz-course/practical-python/blob/master/Notes/Contents.md",
+		"title": "Practical Python Programming"
+	},
+	{
+		"url": "https://www.amazon.com/Programming-Language-2nd-Brian-Kernighan/dp/0131103628",
+		"title": "The C Programming Language"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DQpAhX-gsHMs%26t%3D1112s",
+		"title": "Modern C and What We Can Learn From It"
+	},
+	{
+		"url": "https://modernc.gforge.inria.fr/",
+		"title": "Modern C"
+	},
+	{
+		"url": "https://www.amazon.com/Standard-C-Library-P-J-Plauger/dp/0131315099",
+		"title": "The Standard C Library"
+	},
+	{
+		"url": "https://www.iso-9899.info/wiki/Main_Page",
+		"title": "Resurse din #C de pe Freenode"
+	},
+	{
+		"url": "https://www.learncpp.com/",
+		"title": "learncpp"
+	},
+	{
+		"url": "https://www.icce.rug.nl/documents/cplusplus/",
+		"title": "C++ Annotations"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DYnWhqhNdYyk",
+		"title": "Stop Teaching C"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3D2olsGf6JIkU",
+		"title": "105 STL Algorithms in Less Than an Hour"
+	},
+	{
+		"url": "https://www.youtube.com/channel/UCMlGfpWw-RUdWX_JbLCukXg",
+		"title": "cppcon"
+	},
+	{
+		"url": "https://www.oreilly.com/library/view/effective-modern-c/9781491908419/",
+		"title": "Effective Modern C++"
+	},
+	{
+		"url": "https://www.amazon.com/Primer-5th-Stanley-B-Lippman/dp/0321714113",
+		"title": "C++ Primer"
+	},
+	{
+		"url": "https://en.cppreference.com/w/",
+		"title": "cppreference"
+	},
+	{
+		"url": "https://leanpub.com/cppbestpractices",
+		"title": "C++ Best Practices"
+	},
+	{
+		"url": "https://www.youtube.com/channel/UCxHAlbZQNFU2LgEtiqd2Maw",
+		"title": "C++ Weekly"
+	},
+	{
+		"url": "https://github.com/lefticus/cpp_starter_project",
+		"title": "cpp_starter_project"
+	},
+	{
+		"url": "https://eel.is/c%2B%2Bdraft/",
+		"title": "C++ Standard Draft"
+	},
+	{
+		"url": "https://fasterthanli.me/articles/a-half-hour-to-learn-rust",
+		"title": "A Half Hour to Learn Rust"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DrAl-9HwD858%26list%3DPLqbS7AVVErFiWDOAVrPt7aYmnuuOLYvOa",
+		"title": "Crust of Rust"
+	},
+	{
+		"url": "https://doc.rust-lang.org/rust-by-example/",
+		"title": "Rust by Example"
+	},
+	{
+		"url": "https://manishearth.github.io/blog/2015/05/27/wrapper-types-in-rust-choosing-your-guarantees/",
+		"title": "Wrapper Types in Rust: Choose Your Guarantees"
+	},
+	{
+		"url": "https://golang.org/doc/tutorial/",
+		"title": "Go Tutorials"
+	},
+	{
+		"url": "https://gobyexample.com/",
+		"title": "Go by Example"
+	},
+	{
+		"url": "https://www.practical-go-lessons.com/",
+		"title": "Practical Go Lessons"
+	},
+	{
+		"url": "https://golang.org/doc/effective_go",
+		"title": "Efective Go"
+	},
+	{
+		"url": "https://learnyouahaskell.com/chapters",
+		"title": "Learn You A Haskell For Great Good"
+	},
+	{
+		"url": "https://wiki.haskell.org/H-99:_Ninety-Nine_Haskell_Problems",
+		"title": "99 Haskell Problems"
+	},
+	{
+		"url": "https://lhbg-book.link/",
+		"title": "Learn Haskell By Building a Blog Generator"
+	},
+	{
+		"url": "https://ocaml.org/learn/tutorials/",
+		"title": "OCaml Tutorials"
+	},
+	{
+		"url": "https://ocaml.org/learn/books.html",
+		"title": "OCaml Books"
+	},
+	{
+		"url": "https://en.wikipedia.org/wiki/First-order_logic",
+		"title": "logica de ordin I"
+	},
+	{
+		"url": "https://www.metalevel.at/prolog",
+		"title": "The Power of Prolog"
+	},
+	{
+		"url": "https://www.let.rug.nl/bos/lpn//lpnpage.php?pageid%3Donline",
+		"title": "Learn Prolog Now!"
+	},
+	{
+		"url": "https://www.let.rug.nl/bos/lpn//lpnpage.php?pageid%3Dhandheld",
+		"title": "aici"
+	},
+	{
+		"url": "https://www.ic.unicamp.br/~meidanis/courses/mc336/2009s2/prolog/problemas/",
+		"title": "99 Prolog Problems"
+	},
+	{
+		"url": "https://kti.ms.mff.cuni.cz/~bartak/prolog/contents.html",
+		"title": "Guide to Prolog Programming"
+	},
+	{
+		"url": "https://www.forth.com/starting-forth/",
+		"title": "Starting FORTH"
+	},
+	{
+		"url": "https://thinking-forth.sourceforge.net/",
+		"title": "Thinking Forth"
+	},
+	{
+		"url": "https://learnyousomeerlang.com/content",
+		"title": "Learn You Some Erlang For Great Good"
+	},
+	{
+		"url": "https://adv-r.hadley.nz/",
+		"title": "Advanced R"
+	},
+	{
+		"url": "https://github.com/bradtraversy/vanillawebprojects",
+		"title": "Vanilla Web Projects"
+	},
+	{
+		"url": "https://people.freebsd.org/~lstewart/articles/cpumemory.pdf",
+		"title": "What Every Programmer Should Know About Memory"
+	},
+	{
+		"url": "https://www.allaboutcircuits.com/textbook/",
+		"title": "All About Circuits"
+	},
+	{
+		"url": "https://wiki.osdev.org/Expanded_Main_Page",
+		"title": "OsDev"
+	},
+	{
+		"url": "https://tc.gts3.org/cs3210/2020/spring/lab.html",
+		"title": "Implementing an OS in Rust"
+	},
+	{
+		"url": "https://docs.rust-embedded.org/book/",
+		"title": "The Embedded Rust Book"
+	},
+	{
+		"url": "https://book.rvemu.app/",
+		"title": "Writing a RISC-V Emulator in Rust"
+	},
+	{
+		"url": "https://osblog.stephenmarz.com/",
+		"title": "Making a RISC-V Operating System using Rust"
+	},
+	{
+		"url": "https://blog.stephenmarz.com/2021/02/22/writing-pong-in-rust/",
+		"title": "joc"
+	},
+	{
+		"url": "https://www.brokenthorn.com/Resources/OSDevIndex.html",
+		"title": "Operating Systems Development Series"
+	},
+	{
+		"url": "https://github.com/tuhdo/os01",
+		"title": "Operating Systems: From 0 to 1"
+	},
+	{
+		"url": "https://www.fpgatutorial.com/",
+		"title": "FPGA Tutorial"
+	},
+	{
+		"url": "https://mcla.ug/blog/risc-v-cpu-part-1.html",
+		"title": "Designing a RISC-V CPU - Learning Hardware Design as a Software Engineer"
+	},
+	{
+		"url": "https://www.nand2tetris.org/",
+		"title": "From Nand to Tetris"
+	},
+	{
+		"url": "https://eater.net/",
+		"title": "Ben Eater"
+	},
+	{
+		"url": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+		"title": "Operating Systems: Three Easy Pieces"
+	},
+	{
+		"url": "https://ceramichacker.com/blog/1-1x-hardcaml-mips-intro-what-and-why",
+		"title": "Building a MIPS CPU in Hardcaml"
+	},
+	{
+		"url": "https://www.amazon.com/Computer-Architecture-Quantitative-John-Hennessy/dp/012383872X",
+		"title": "Computer Architecture: A Quantitative Approach"
+	},
+	{
+		"url": "https://mirrors.edge.kernel.org/pub/linux/kernel/people/paulmck/perfbook/perfbook.html",
+		"title": "Is Parallel Programming Hard, And, If So, What Can You Do About it?"
+	},
+	{
+		"url": "https://winand.at/sql-slides-for-developers",
+		"title": "Modern SQL"
+	},
+	{
+		"url": "https://web.cecs.pdx.edu/~maier/TheoryBook/TRD.html",
+		"title": "The Theory Of Relational Databases"
+	},
+	{
+		"url": "https://webdam.inria.fr/Alice/",
+		"title": "Foundations Of Databases"
+	},
+	{
+		"url": "https://coding-geek.com/how-databases-work/",
+		"title": "How Does a Relational Database Work"
+	},
+	{
+		"url": "https://beej.us/guide/bgnet/",
+		"title": "Beej's Guide to Network Programming"
+	},
+	{
+		"url": "https://iximiuz.com/en/posts/computer-networking-101/",
+		"title": "Computer Networking Introduction: Ethernet and IP"
+	},
+	{
+		"url": "https://www.computer-networking.info/2nd/html/index.html",
+		"title": "Computer Networking: Principles, Protocols and Practice"
+	},
+	{
+		"url": "https://www.saminiir.com/lets-code-tcp-ip-stack-1-ethernet-arp/",
+		"title": "Let's Code a TCP/IP Stack"
+	},
+	{
+		"url": "https://arxiv.org/abs/2004.05074",
+		"title": "Paxos vs. Raft: Have We Reached Distributed Consensus on Distributed Consensus?"
+	},
+	{
+		"url": "https://thesecretlivesofdata.com/raft/",
+		"title": "Vizualizarea algoritmului raft"
+	},
+	{
+		"url": "https://benjamincongdon.me/blog/2021/05/16/Building-a-Raft/",
+		"title": "Building a Raft"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DvBU70EjwGfw",
+		"title": "CRDT for Non-Academics"
+	},
+	{
+		"url": "https://cs-www.cs.yale.edu/homes/aspnes/classes/465/notes.pdf",
+		"title": "Notes On Theory Of Distributed Systems"
+	},
+	{
+		"url": "https://www.youtube.com/playlist?list%3DPLUl4u3cNGP63gFHB6xb-kVBiQHYe_4hSi",
+		"title": "Cursul MIT despre AI"
+	},
+	{
+		"url": "https://aegeorge42.github.io/",
+		"title": "Neural Networks from Scratch: An Interactive Guide"
+	},
+	{
+		"url": "https://www.chess.com/forum/view/general/a-step-by-step-video-guide-to-writing-a-chess-engine",
+		"title": "Creating a Chess Engine From Scratch"
+	},
+	{
+		"url": "https://git-scm.com/book/en/v2",
+		"title": "git"
+	},
+	{
+		"url": "https://onlywei.github.io/explain-git-with-d3/",
+		"title": "Visualizing Git Concepts With D3"
+	},
+	{
+		"url": "https://rogerdudler.github.io/git-guide/",
+		"title": "git - the simple guide"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DGNO_CYUjMK8",
+		"title": "Making WebGL Dance"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DP6UKhR0T6cs%26t%3D65s",
+		"title": "The Physics of Light and Rendering"
+	},
+	{
+		"url": "https://learnopengl.com/",
+		"title": "Learn OpenGL"
+	},
+	{
+		"url": "https://magcius.github.io/xplain/article/rast1.html",
+		"title": "Basic 2D Rasterization"
+	},
+	{
+		"url": "https://w3.impa.br/~diego/teaching/vg/",
+		"title": "Curs despre Vector Graphics"
+	},
+	{
+		"url": "https://github.com/lettier/3d-game-shaders-for-beginners",
+		"title": "3D Game Shaders For Beginners"
+	},
+	{
+		"url": "https://webglfundamentals.org/",
+		"title": "WebGL Fundamentals"
+	},
+	{
+		"url": "https://webgl2fundamentals.org/",
+		"title": "WebGL2 Fundamentals"
+	},
+	{
+		"url": "https://developer.ibm.com/tutorials/wa-build2dphysicsengine/",
+		"title": "Bulid a simple 2D physics engine for JavaScript games"
+	},
+	{
+		"url": "https://sotrh.github.io/learn-wgpu/%23what-is-wgpu",
+		"title": "Learn wgpu"
+	},
+	{
+		"url": "https://www.pbr-book.org/",
+		"title": "PBR Book"
+	},
+	{
+		"url": "https://raytracing.github.io/",
+		"title": "Ray Tracing in One Weekend Series"
+	},
+	{
+		"url": "https://github.com/ssloy/tinyrenderer",
+		"title": "Tiny Software Renderer"
+	},
+	{
+		"url": "https://www.scratchapixel.com/",
+		"title": "Scratchapixel"
+	},
+	{
+		"url": "https://ciechanow.ski/curves-and-surfaces/",
+		"title": "Curves and Surfaces"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3D6oMZb3yP_H8",
+		"title": "Marching Squares Visualized"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3Dajv46BSqcK4",
+		"title": "GJK Algorithm Visualized"
+	},
+	{
+		"url": "https://www2.mathematik.tu-darmstadt.de/~ehartmann/cdgen0104.pdf",
+		"title": "Geometry and Algorithms for CAD"
+	},
+	{
+		"url": "https://link.springer.com/book/10.1007/978-3-540-77974-2",
+		"title": "Computational Geometry: Algorithms and Applications"
+	},
+	{
+		"url": "https://courses.csail.mit.edu/6.042/spring17/mcs.pdf",
+		"title": "Mathematics For Computer Science"
+	},
+	{
+		"url": "https://ourway.keybase.pub/mathematics_cheat_sheet.pdf",
+		"title": "All in One Math Cheatsheet"
+	},
+	{
+		"url": "https://kam.mff.cuni.cz/~matousek/stml-53-matousek-1.pdf",
+		"title": "Thirty-three Miniatures: Mathematical and Algorithmic Applications of Linear Algebra"
+	},
+	{
+		"url": "https://www.analog.com/en/education/education-library/scientist_engineers_guide.html",
+		"title": "The Scientist & Engineer's Guide to Digital Signal Processing"
+	},
+	{
+		"url": "https://plato.stanford.edu/entries/logic-classical/",
+		"title": "Classical Logic"
+	},
+	{
+		"url": "https://www.fecundity.com/logic/",
+		"title": "Forall X"
+	},
+	{
+		"url": "https://euclid.trentu.ca/math/sb/pcml/pcml-16.pdf",
+		"title": "A Problem Course in Mathematical Logic"
+	},
+	{
+		"url": "https://www.researchgate.net/publication/349104699_Introduction_to_Mathematical_Logic_Edition_2021",
+		"title": "An Introduction To Mathematical Logic"
+	},
+	{
+		"url": "https://softwarefoundations.cis.upenn.edu/",
+		"title": "Software Foundations"
+	},
+	{
+		"url": "https://adam.chlipala.net/cpdt/",
+		"title": "Certified Programming With Dependent Types"
+	},
+	{
+		"url": "https://joyofcryptography.com/",
+		"title": "The Joy Of Cryptography"
+	},
+	{
+		"url": "https://textbooks.math.gatech.edu/ila/",
+		"title": "Interactive Linear Algebra"
+	},
+	{
+		"url": "https://www.probabilitycourse.com/",
+		"title": "Probability Course"
+	},
+	{
+		"url": "https://stattrek.com/",
+		"title": "Stat Trek"
+	},
+	{
+		"url": "https://devforum.ro/t/ce-vrei-sa-stii-despre-freelancing/15520",
+		"title": "Ce vrei să știi despre freelancing?"
+	},
+	{
+		"url": "https://twitter.com/mirocupak",
+		"title": "https://twitter.com/mirocupak"
+	},
+	{
+		"url": "https://www.youtube.com/user/vrentea",
+		"title": "https://www.youtube.com/user/vrentea"
+	},
+	{
+		"url": "https://twitter.com/vlad_mihalcea",
+		"title": "https://twitter.com/vlad_mihalcea"
+	},
+	{
+		"url": "https://www.youtube.com/channel/UC0z3MpVGrpSZzClXrYcZBfw",
+		"title": "https://www.youtube.com/channel/UC0z3MpVGrpSZzClXrYcZBfw"
+	},
+	{
+		"url": "https://twitter.com/ammbra1508",
+		"title": "https://twitter.com/ammbra1508"
+	},
+	{
+		"url": "https://www.youtube.com/channel/UC7yfnfvEUlXUIfm8rGLwZdA",
+		"title": "https://www.youtube.com/channel/UC7yfnfvEUlXUIfm8rGLwZdA"
+	},
+	{
+		"url": "https://twitter.com/venkat_s",
+		"title": "https://twitter.com/venkat_s"
+	},
+	{
+		"url": "https://www.youtube.com/user/bienadam",
+		"title": "https://www.youtube.com/user/bienadam"
+	},
+	{
+		"url": "https://www.youtube.com/channel/UCG21GE2Go3vkj7mrs675ysA",
+		"title": "https://www.youtube.com/channel/UCG21GE2Go3vkj7mrs675ysA"
+	},
+	{
+		"url": "https://www.youtube.com/channel/UCufT4mqkeAss6qmI0OF5Bzw",
+		"title": "https://www.youtube.com/channel/UCufT4mqkeAss6qmI0OF5Bzw"
+	},
+	{
+		"url": "https://www.youtube.com/channel/UCslYinLbZnzzUdG0BMaiDKw",
+		"title": "https://www.youtube.com/channel/UCslYinLbZnzzUdG0BMaiDKw"
+	},
+	{
+		"url": "https://www.selikoff.net/",
+		"title": "https://www.selikoff.net/"
+	},
+	{
+		"url": "https://www.youtube.com/@amigoscode",
+		"title": "https://www.youtube.com/@amigoscode"
+	},
+	{
+		"url": "https://www.youtube.com/@laurspilca",
+		"title": "https://www.youtube.com/@laurspilca"
+	},
+	{
+		"url": "https://twitter.com/FMuntenescu",
+		"title": "https://twitter.com/FMuntenescu"
+	},
+	{
+		"url": "https://twitter.com/MagdaMiu",
+		"title": "https://twitter.com/MagdaMiu"
+	},
+	{
+		"url": "https://jakewharton.com/blog/",
+		"title": "https://jakewharton.com/blog/"
+	},
+	{
+		"url": "https://youtube.com/@RefactoringDuncan",
+		"title": "https://youtube.com/@RefactoringDuncan"
+	},
+	{
+		"url": "https://www.youtube.com/channel/UC46xhU1EH7aywEgvA9syS3w",
+		"title": "https://www.youtube.com/channel/UC46xhU1EH7aywEgvA9syS3w"
+	},
+	{
+		"url": "https://www.twitch.tv/anthonywritescode",
+		"title": "https://www.twitch.tv/anthonywritescode"
+	},
+	{
+		"url": "https://www.youtube.com/@ArjanCodes",
+		"title": "https://www.youtube.com/@ArjanCodes"
+	},
+	{
+		"url": "https://www.youtube.com/@TechWithTim/featured",
+		"title": "https://www.youtube.com/@TechWithTim/featured"
+	},
+	{
+		"url": "https://www.youtube.com/@coreyms",
+		"title": "https://www.youtube.com/@coreyms"
+	},
+	{
+		"url": "https://www.youtube.com/@MariusCiurea1",
+		"title": "https://www.youtube.com/@MariusCiurea1"
+	},
+	{
+		"url": "https://www.youtube.com/channel/UCdngmbVKX1Tgre699-XLlUA",
+		"title": "https://www.youtube.com/channel/UCdngmbVKX1Tgre699-XLlUA"
+	},
+	{
+		"url": "https://www.youtube.com/c/MarcelDempers",
+		"title": "https://www.youtube.com/c/MarcelDempers"
+	},
+	{
+		"url": "https://www.youtube.com/channel/UC0NErq0RhP51iXx64ZmyVfg",
+		"title": "https://www.youtube.com/channel/UC0NErq0RhP51iXx64ZmyVfg"
+	},
+	{
+		"url": "https://www.twitch.tv/rwxrob",
+		"title": "https://www.twitch.tv/rwxrob"
+	},
+	{
+		"url": "https://www.youtube.com/c/rwxrob",
+		"title": "https://www.youtube.com/c/rwxrob"
+	},
+	{
+		"url": "https://www.youtube.com/c/tutoriaLinux",
+		"title": "https://www.youtube.com/c/tutoriaLinux"
+	},
+	{
+		"url": "https://www.youtube.com/user/Nephaste20",
+		"title": "https://www.youtube.com/user/Nephaste20"
+	},
+	{
+		"url": "https://www.youtube.com/channel/UCZGGwqjk5jfO4vN1SOCJ2ew",
+		"title": "https://www.youtube.com/channel/UCZGGwqjk5jfO4vN1SOCJ2ew"
+	},
+	{
+		"url": "https://www.youtube.com/c/CloudAdvocate",
+		"title": "https://www.youtube.com/c/CloudAdvocate"
+	},
+	{
+		"url": "https://www.youtube.com/c/Azure4Everyone",
+		"title": "https://www.youtube.com/c/Azure4Everyone"
+	},
+	{
+		"url": "https://www.youtube.com/c/MadeByGPS",
+		"title": "https://www.youtube.com/c/MadeByGPS"
+	},
+	{
+		"url": "https://www.youtube.com/c/LiveOverflowCTF",
+		"title": "https://www.youtube.com/c/LiveOverflowCTF"
+	},
+	{
+		"url": "https://www.youtube.com/user/RootOfTheNull",
+		"title": "https://www.youtube.com/user/RootOfTheNull"
+	},
+	{
+		"url": "https://www.youtube.com/user/lefticus1",
+		"title": "https://www.youtube.com/user/lefticus1"
+	},
+	{
+		"url": "https://www.youtube.com/c/javidx9",
+		"title": "https://www.youtube.com/c/javidx9"
+	},
+	{
+		"url": "https://www.youtube.com/c/TheChernoProject",
+		"title": "https://www.youtube.com/c/TheChernoProject"
+	},
+	{
+		"url": "https://www.youtube.com/@dotnet",
+		"title": "https://www.youtube.com/@dotnet"
+	},
+	{
+		"url": "https://www.youtube.com/@visualstudio",
+		"title": "https://www.youtube.com/@visualstudio"
+	},
+	{
+		"url": "https://www.youtube.com/@nickchapsas",
+		"title": "https://www.youtube.com/@nickchapsas"
+	},
+	{
+		"url": "https://www.youtube.com/@MilanJovanovicTech",
+		"title": "https://www.youtube.com/@MilanJovanovicTech"
+	},
+	{
+		"url": "https://www.youtube.com/@CodeAesthetic",
+		"title": "https://www.youtube.com/@CodeAesthetic"
+	},
+	{
+		"url": "https://www.youtube.com/@Codewrinkles",
+		"title": "https://www.youtube.com/@Codewrinkles"
+	},
+	{
+		"url": "https://www.youtube.com/@RawCoding",
+		"title": "https://www.youtube.com/@RawCoding"
+	},
+	{
+		"url": "https://www.youtube.com/@zoran-horvat",
+		"title": "https://www.youtube.com/@zoran-horvat"
+	},
+	{
+		"url": "https://www.youtube.com/@NDC",
+		"title": "https://www.youtube.com/@NDC"
+	},
+	{
+		"url": "https://www.youtube.com/@DotNextConf",
+		"title": "https://www.youtube.com/@DotNextConf"
+	},
+	{
+		"url": "https://twitter.com/timacdonald87",
+		"title": "https://twitter.com/timacdonald87"
+	},
+	{
+		"url": "https://twitter.com/christophrumpel",
+		"title": "https://twitter.com/christophrumpel"
+	},
+	{
+		"url": "https://twitter.com/freekmurze",
+		"title": "https://twitter.com/freekmurze"
+	},
+	{
+		"url": "https://twitter.com/jackmcdade",
+		"title": "https://twitter.com/jackmcdade"
+	},
+	{
+		"url": "https://twitter.com/ericlbarnes",
+		"title": "https://twitter.com/ericlbarnes"
+	},
+	{
+		"url": "https://twitter.com/aarondfrancis",
+		"title": "https://twitter.com/aarondfrancis"
+	},
+	{
+		"url": "https://twitter.com/Philo01",
+		"title": "https://twitter.com/Philo01"
+	},
+	{
+		"url": "https://twitter.com/marcelpociot",
+		"title": "https://twitter.com/marcelpociot"
+	},
+	{
+		"url": "https://twitter.com/taylorotwell",
+		"title": "https://twitter.com/taylorotwell"
+	},
+	{
+		"url": "https://twitter.com/fireship_dev",
+		"title": "https://twitter.com/fireship_dev"
+	},
+	{
+		"url": "https://twitter.com/DThompsonDev",
+		"title": "https://twitter.com/DThompsonDev"
+	},
+	{
+		"url": "https://laraveldaily.com/people-to-follow",
+		"title": "https://laraveldaily.com/people-to-follow"
+	},
+	{
+		"url": "https://www.youtube.com/@Dani_Krossing",
+		"title": "https://www.youtube.com/@Dani_Krossing"
+	},
+	{
+		"url": "https://www.youtube.com/@JustForFunc",
+		"title": "https://www.youtube.com/@JustForFunc"
+	},
+	{
+		"url": "https://www.youtube.com/@jonhoo",
+		"title": "https://www.youtube.com/@jonhoo"
+	},
+	{
+		"url": "https://www.youtube.com/@Webcrunch",
+		"title": "https://www.youtube.com/@Webcrunch"
+	},
+	{
+		"url": "https://twitter.com/getify",
+		"title": "https://twitter.com/getify"
+	},
+	{
+		"url": "https://github.com/getify",
+		"title": "https://github.com/getify"
+	},
+	{
+		"url": "https://www.youtube.com/c/AngularFirebase",
+		"title": "https://www.youtube.com/c/AngularFirebase"
+	},
+	{
+		"url": "https://twitter.com/AnjanaVakil",
+		"title": "https://twitter.com/AnjanaVakil"
+	},
+	{
+		"url": "https://www.youtube.com/user/TechGuyWeb",
+		"title": "https://www.youtube.com/user/TechGuyWeb"
+	},
+	{
+		"url": "https://www.youtube.com/c/Academind",
+		"title": "https://www.youtube.com/c/Academind"
+	},
+	{
+		"url": "https://youtube.com/@developedbyed",
+		"title": "developedbyed - YouTube"
+	},
+	{
+		"url": "https://www.youtube.com/@Frankslaboratory",
+		"title": "https://www.youtube.com/@Frankslaboratory"
+	},
+	{
+		"url": "https://www.youtube.com/@bawad",
+		"title": "https://www.youtube.com/@bawad"
+	},
+	{
+		"url": "https://www.youtube.com/@JamesQQuick",
+		"title": "https://www.youtube.com/@JamesQQuick"
+	},
+	{
+		"url": "https://www.youtube.com/@Radu",
+		"title": "https://www.youtube.com/@Radu"
+	},
+	{
+		"url": "https://www.youtube.com/@t3dotgg",
+		"title": "https://www.youtube.com/@t3dotgg"
+	},
+	{
+		"url": "https://www.youtube.com/@KevinPowell",
+		"title": "https://www.youtube.com/@KevinPowell"
+	},
+	{
+		"url": "https://www.youtube.com/@TraversyMedia",
+		"title": "https://www.youtube.com/@TraversyMedia"
+	},
+	{
+		"url": "https://www.youtube.com/@FrontendMasters",
+		"title": "https://www.youtube.com/@FrontendMasters"
+	},
+	{
+		"url": "https://www.youtube.com/@WesBos",
+		"title": "https://www.youtube.com/@WesBos"
+	},
+	{
+		"url": "https://www.youtube.com/@CodingGarden",
+		"title": "https://www.youtube.com/@CodingGarden"
+	},
+	{
+		"url": "https://www.youtube.com/@WebDevCody",
+		"title": "https://www.youtube.com/@WebDevCody"
+	},
+	{
+		"url": "https://www.youtube.com/@DecodedFrontend",
+		"title": "https://www.youtube.com/@DecodedFrontend"
+	},
+	{
+		"url": "https://www.youtube.com/@mattpocockuk",
+		"title": "https://www.youtube.com/@mattpocockuk"
+	},
+	{
+		"url": "https://www.youtube.com/@leerob",
+		"title": "https://www.youtube.com/@leerob"
+	},
+	{
+		"url": "https://www.youtube.com/@javascriptmastery",
+		"title": "https://www.youtube.com/@javascriptmastery"
+	},
+	{
+		"url": "https://www.youtube.com/@jonasschmedtmann",
+		"title": "https://www.youtube.com/@jonasschmedtmann"
+	},
+	{
+		"url": "https://www.youtube.com/@AniaKubow",
+		"title": "https://www.youtube.com/@AniaKubow"
+	},
+	{
+		"url": "https://www.youtube.com/@UnaKravets",
+		"title": "https://www.youtube.com/@UnaKravets"
+	},
+	{
+		"url": "https://www.youtube.com/@FlorinPop",
+		"title": "https://www.youtube.com/@FlorinPop"
+	},
+	{
+		"url": "https://www.youtube.com/@anatudor",
+		"title": "https://www.youtube.com/@anatudor"
+	},
+	{
+		"url": "https://www.youtube.com/@WebDevSimplified",
+		"title": "https://www.youtube.com/@WebDevSimplified"
+	},
+	{
+		"url": "https://www.youtube.com/@jsconf_",
+		"title": "https://www.youtube.com/@jsconf_"
+	},
+	{
+		"url": "https://www.youtube.com/@StrangeLoopConf",
+		"title": "https://www.youtube.com/@StrangeLoopConf"
+	},
+	{
+		"url": "https://www.youtube.com/@LaravelDaily",
+		"title": "https://www.youtube.com/@LaravelDaily"
+	},
+	{
+		"url": "https://www.youtube.com/@DavesGarage",
+		"title": "https://www.youtube.com/@DavesGarage"
+	},
+	{
+		"url": "https://www.youtube.com/@CodingTech",
+		"title": "https://www.youtube.com/@CodingTech"
+	},
+	{
+		"url": "https://www.youtube.com/@programmingwithmosh",
+		"title": "https://www.youtube.com/@programmingwithmosh"
+	},
+	{
+		"url": "https://www.youtube.com/@KeepOnCoding",
+		"title": "https://www.youtube.com/@KeepOnCoding"
+	},
+	{
+		"url": "https://www.youtube.com/@derekbanas",
+		"title": "https://www.youtube.com/@derekbanas"
+	},
+	{
+		"url": "https://minidump.net/",
+		"title": "https://minidump.net/"
+	},
+	{
+		"url": "https://www.youtube.com/@MilanJovanovicTech/community",
+		"title": "https://www.youtube.com/@MilanJovanovicTech/community"
+	},
+	{
+		"url": "https://www.youtube.com/@thefutur",
+		"title": "https://www.youtube.com/@thefutur"
+	},
+	{
+		"url": "https://www.youtube.com/@librariadedesign",
+		"title": "https://www.youtube.com/@librariadedesign"
+	},
+	{
+		"url": "https://www.youtube.com/@DesignCourse",
+		"title": "https://www.youtube.com/@DesignCourse"
+	},
+	{
+		"url": "https://www.youtube.com/@Figma",
+		"title": "https://www.youtube.com/@Figma"
+	},
+	{
+		"url": "https://www.youtube.com/@SatoriGraphics",
+		"title": "https://www.youtube.com/@SatoriGraphics"
+	},
+	{
+		"url": "https://www.youtube.com/@GarethDavidStudio",
+		"title": "https://www.youtube.com/@GarethDavidStudio"
+	},
+	{
+		"url": "https://www.youtube.com/@ForeverDansky",
+		"title": "https://www.youtube.com/@ForeverDansky"
+	},
+	{
+		"url": "https://www.youtube.com/@JesseShowalter",
+		"title": "https://www.youtube.com/@JesseShowalter"
+	},
+	{
+		"url": "https://www.youtube.com/@JohnMaedaverse",
+		"title": "https://www.youtube.com/@JohnMaedaverse"
+	},
+	{
+		"url": "https://www.youtube.com/@TCMSecurityAcademy",
+		"title": "https://www.youtube.com/@TCMSecurityAcademy"
+	},
+	{
+		"url": "https://www.youtube.com/@JackRhysider",
+		"title": "https://www.youtube.com/@JackRhysider"
+	},
+	{
+		"url": "https://www.youtube.com/@_JohnHammond",
+		"title": "https://www.youtube.com/@_JohnHammond"
+	},
+	{
+		"url": "https://www.youtube.com/@LironSegev",
+		"title": "https://www.youtube.com/@LironSegev"
+	},
+	{
+		"url": "https://www.youtube.com/@LiveOverflow",
+		"title": "https://www.youtube.com/@LiveOverflow"
+	},
+	{
+		"url": "https://www.youtube.com/@DEFCONConference",
+		"title": "https://www.youtube.com/@DEFCONConference"
+	},
+	{
+		"url": "https://www.youtube.com/@davidbombal",
+		"title": "https://www.youtube.com/@davidbombal"
+	},
+	{
+		"url": "https://www.youtube.com/@HackerSploit",
+		"title": "https://www.youtube.com/@HackerSploit"
+	},
+	{
+		"url": "https://www.youtube.com/@DavidMahler",
+		"title": "https://www.youtube.com/@DavidMahler"
+	},
+	{
+		"url": "https://www.youtube.com/@NetworkChuck",
+		"title": "https://www.youtube.com/@NetworkChuck"
+	},
+	{
+		"url": "https://www.youtube.com/@AhrefsCom",
+		"title": "https://www.youtube.com/@AhrefsCom"
+	},
+	{
+		"url": "https://www.youtube.com/@flow-seo",
+		"title": "https://www.youtube.com/@flow-seo"
+	},
+	{
+		"url": "https://www.youtube.com/@AnalyticsMania",
+		"title": "https://www.youtube.com/@AnalyticsMania"
+	},
+	{
+		"url": "https://www.youtube.com/@Wynterio",
+		"title": "https://www.youtube.com/@Wynterio"
+	},
+	{
+		"url": "https://www.youtube.com/@CrawlingMondaysbyAleyda",
+		"title": "https://www.youtube.com/@CrawlingMondaysbyAleyda"
+	},
+	{
+		"url": "https://www.youtube.com/@smarters.romania",
+		"title": "https://www.youtube.com/@smarters.romania"
+	},
+	{
+		"url": "https://www.youtube.com/@EveryoneHatesMarketers",
+		"title": "https://www.youtube.com/@EveryoneHatesMarketers"
+	},
+	{
+		"url": "https://www.youtube.com/@robykatai",
+		"title": "https://www.youtube.com/@robykatai"
+	},
+	{
+		"url": "https://www.youtube.com/@BrianDean",
+		"title": "https://www.youtube.com/@BrianDean"
+	},
+	{
+		"url": "https://www.youtube.com/@neilpatel",
+		"title": "https://www.youtube.com/@neilpatel"
+	},
+	{
+		"url": "https://www.youtube.com/@SebastianLague",
+		"title": "https://www.youtube.com/@SebastianLague"
+	},
+	{
+		"url": "https://www.youtube.com/@DavidWehleGames",
+		"title": "https://www.youtube.com/@DavidWehleGames"
+	},
+	{
+		"url": "https://www.youtube.com/@Gdconf",
+		"title": "https://www.youtube.com/@Gdconf"
+	},
+	{
+		"url": "https://www.youtube.com/@GMTK",
+		"title": "https://www.youtube.com/@GMTK"
+	},
+	{
+		"url": "https://www.youtube.com/@grabbitt",
+		"title": "https://www.youtube.com/@grabbitt"
+	},
+	{
+		"url": "https://www.youtube.com/@blenderguru",
+		"title": "https://www.youtube.com/@blenderguru"
+	},
+	{
+		"url": "https://www.youtube.com/@TimBeaudet",
+		"title": "https://www.youtube.com/@TimBeaudet"
+	},
+	{
+		"url": "https://www.youtube.com/@Brackeys",
+		"title": "https://www.youtube.com/@Brackeys"
+	},
+	{
+		"url": "https://www.youtube.com/@GameDevChats",
+		"title": "https://www.youtube.com/@GameDevChats"
+	},
+	{
+		"url": "https://www.youtube.com/@Pontypants",
+		"title": "https://www.youtube.com/@Pontypants"
+	},
+	{
+		"url": "https://www.youtube.com/@LostRelicGames",
+		"title": "https://www.youtube.com/@LostRelicGames"
+	},
+	{
+		"url": "https://www.youtube.com/@thomasbrush",
+		"title": "https://www.youtube.com/@thomasbrush"
+	},
+	{
+		"url": "https://www.youtube.com/@tim-ruswick",
+		"title": "https://www.youtube.com/@tim-ruswick"
+	},
+	{
+		"url": "https://www.youtube.com/@LetsGameItOut",
+		"title": "https://www.youtube.com/@LetsGameItOut"
+	},
+	{
+		"url": "https://www.youtube.com/@GameTheory",
+		"title": "https://www.youtube.com/@GameTheory"
+	},
+	{
+		"url": "https://www.youtube.com/@Machinationsio",
+		"title": "https://www.youtube.com/@Machinationsio"
+	},
+	{
+		"url": "https://www.youtube.com/@unity",
+		"title": "https://www.youtube.com/@unity"
+	},
+	{
+		"url": "https://www.youtube.com/@ycombinator",
+		"title": "https://www.youtube.com/@ycombinator"
+	},
+	{
+		"url": "https://www.youtube.com/@LennysPodcast",
+		"title": "https://www.youtube.com/@LennysPodcast"
+	},
+	{
+		"url": "https://www.youtube.com/@indiehackers9840",
+		"title": "https://www.youtube.com/@indiehackers9840"
+	},
+	{
+		"url": "https://www.youtube.com/@ProductLed",
+		"title": "https://www.youtube.com/@ProductLed"
+	},
+	{
+		"url": "https://www.youtube.com/@JoshuaFluke1",
+		"title": "https://www.youtube.com/@JoshuaFluke1"
+	},
+	{
+		"url": "https://www.youtube.com/@mrgergelyorosz",
+		"title": "https://www.youtube.com/@mrgergelyorosz"
+	},
+	{
+		"url": "https://www.youtube.com/@Hacking-Work",
+		"title": "https://www.youtube.com/@Hacking-Work"
+	},
+	{
+		"url": "https://www.youtube.com/@basecamp",
+		"title": "https://www.youtube.com/@basecamp"
+	},
+	{
+		"url": "https://www.youtube.com/@MarkRober",
+		"title": "https://www.youtube.com/@MarkRober"
+	},
+	{
+		"url": "https://www.youtube.com/@IAmMarkManson",
+		"title": "https://www.youtube.com/@IAmMarkManson"
+	},
+	{
+		"url": "https://www.youtube.com/@hubermanlab",
+		"title": "https://www.youtube.com/@hubermanlab"
+	},
+	{
+		"url": "https://www.youtube.com/@aliabdaal",
+		"title": "https://www.youtube.com/@aliabdaal"
+	},
+	{
+		"url": "https://www.youtube.com/@kurzgesagt",
+		"title": "https://www.youtube.com/@kurzgesagt"
+	},
+	{
+		"url": "https://www.youtube.com/@MindArchitect",
+		"title": "https://www.youtube.com/@MindArchitect"
+	},
+	{
+		"url": "https://www.youtube.com/@JordanBPeterson",
+		"title": "https://www.youtube.com/@JordanBPeterson"
+	},
+	{
+		"url": "https://www.datasciencecourse.org/",
+		"title": "15-388 A - Practical Data Science"
+	},
+	{
+		"url": "https://www.kaggle.com/",
+		"title": "https://www.kaggle.com/"
+	},
+	{
+		"url": "https://cs193p.sites.stanford.edu/",
+		"title": "CS193p - Developing Applications for iOS using SwiftUI"
+	},
+	{
+		"url": "https://www.amazon.com/Basic-Mathematics-Serge-Lang/dp/0387967877",
+		"title": "Basic Mathematics - Serge Lang"
+	},
+	{
+		"url": "https://www.amazon.com/Discrete-Mathematics-Applications-Susanna-Epp/dp/1337694193/ref%3Dsr_1_1?dchild%3D1%26keywords%3Ddiscrete%2Bepp%26qid%3D1627280503%26s%3Dbooks%26sr%3D1-1",
+		"title": "Discrete Mathematics with Applications"
+	},
+	{
+		"url": "https://www.npmjs.com/package/@chec/commerce.js",
+		"title": "An ecommerce API library"
+	},
+	{
+		"url": "https://formsubmit.co/",
+		"title": "https://formsubmit.co/"
+	},
+	{
+		"url": "https://jsonplaceholder.typicode.com/",
+		"title": "https://jsonplaceholder.typicode.com/"
+	},
+	{
+		"url": "https://opentdb.com/",
+		"title": "https://opentdb.com/"
+	},
+	{
+		"url": "https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/Searching.html",
+		"title": "https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/Searching.html"
+	},
+	{
+		"url": "https://apple.co/3uTzTzn",
+		"title": "https://apple.co/3uTzTzn"
+	},
+	{
+		"url": "https://www.postman.com/",
+		"title": "https://www.postman.com/"
+	},
+	{
+		"url": "https://www.agileuprising.com/2016/09/29/agile-uprising-agile-manifesto-review/",
+		"title": "Agile manifesto review"
+	},
+	{
+		"url": "https://www.extremeprogramming.org/",
+		"title": "Extreme programming"
+	},
+	{
+		"url": "https://lucasfcosta.com/2022/10/02/scrum-versus-kanban.html",
+		"title": "https://lucasfcosta.com/2022/10/02/scrum-versus-kanban.html"
+	},
+	{
+		"url": "https://www.betterup.com/blog/servant-leadership-what-makes-it-different",
+		"title": "https://www.betterup.com/blog/servant-leadership-what-makes-it-different"
+	},
+	{
+		"url": "https://www.guru99.com/software-testing.html",
+		"title": "A primer on Software Testing / QA"
+	},
+	{
+		"url": "https://www.softwaretestinghelp.com/",
+		"title": "SoftwareTestingHelp"
+	},
+	{
+		"url": "https://kaner.com/",
+		"title": "paid"
+	},
+	{
+		"url": "https://www.utest.com/academy",
+		"title": "alternatives"
+	},
+	{
+		"url": "https://www.istqb.org/",
+		"title": "tests"
+	},
+	{
+		"url": "https://www.istqb.org/certification-path-root/foundation-level-2018.html",
+		"title": "free courses"
+	},
+	{
+		"url": "https://tryqa.com/istqb-dumps-download-mock-tests-and-sample-question-papers/",
+		"title": "tests"
+	},
+	{
+		"url": "https://www.dropbox.com/sh/x5y1mrfc8n6msbp/AACuxhEdzcH2lcrmEnmBvYqBa?dl%3D0",
+		"title": "Functional Testing, Test Management, Automated, Performance and Security Testing"
+	},
+	{
+		"url": "https://github.com/bnorrish/qe-learning-roadmap",
+		"title": "roadmap for Quality Engineers"
+	},
+	{
+		"url": "https://www.dropbox.com/s/jjj9pzesrkv8c99/Quality%2520Engineer%2520Roadmap.pdf?dl%3D0",
+		"title": "PDF"
+	},
+	{
+		"url": "https://roadmap.sh/qa",
+		"title": "QA roadmap from Roadmap.sh"
+	},
+	{
+		"url": "https://techbeacon.com/app-dev-testing/10-portfolio-projects-aspiring-automation-engineers",
+		"title": "10 portfolio projects for aspiring automation engineers"
+	},
+	{
+		"url": "https://www.tremend.com/qa-course-beginners",
+		"title": "https://www.tremend.com/qa-course-beginners"
+	},
+	{
+		"url": "https://testautomationu.applitools.com/learningpaths.html",
+		"title": "https://testautomationu.applitools.com/learningpaths.html"
+	},
+	{
+		"url": "https://cursuri-it.ejobs.ro/cursuri/tester/tester-qa/",
+		"title": "https://cursuri-it.ejobs.ro/cursuri/tester/tester-qa/"
+	},
+	{
+		"url": "https://www.udemy.com/course/testare-manuala-si-automata-curs-qa/",
+		"title": "Testare manuala si automata t(Curs QA) | Udemy"
+	},
+	{
+		"url": "https://www.academiatestarii.ro/",
+		"title": "https://www.academiatestarii.ro/"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DxsVTqzratPs",
+		"title": "Complete SEO Course for Beginners: Learn to Rank #1 in Google"
+	},
+	{
+		"url": "https://developers.google.com/search/docs/beginner/seo-starter-guide",
+		"title": "https://developers.google.com/search/docs/beginner/seo-starter-guide"
+	},
+	{
+		"url": "https://learndigital.withgoogle.com/digitalgarage/course/seo-fundamentals",
+		"title": "https://learndigital.withgoogle.com/digitalgarage/course/seo-fundamentals"
+	},
+	{
+		"url": "https://ahrefs.com/academy/seo-training-course",
+		"title": "https://ahrefs.com/academy/seo-training-course"
+	},
+	{
+		"url": "https://backlinko.com/seo-this-year",
+		"title": "https://backlinko.com/seo-this-year"
+	},
+	{
+		"url": "https://developers.google.com/search/docs/essentials",
+		"title": "https://developers.google.com/search/docs/essentials"
+	},
+	{
+		"url": "https://backlinko.com/seo-checklist",
+		"title": "https://backlinko.com/seo-checklist"
+	},
+	{
+		"url": "https://moz.com/professionals-guide-to-seo",
+		"title": "https://moz.com/professionals-guide-to-seo"
+	},
+	{
+		"url": "https://learningseo.io/",
+		"title": "https://learningseo.io/"
+	},
+	{
+		"url": "https://moz.com/learn/seo",
+		"title": "moz.com/learn/seo"
+	},
+	{
+		"url": "https://ahrefs.com/blog/learn-seo/",
+		"title": "ahrefs.com/blog/learn-seo/"
+	},
+	{
+		"url": "https://www.searchenginejournal.com/seo-101/best-seo-resources/",
+		"title": "SearchEngineJournal Best SEO Resources"
+	},
+	{
+		"url": "https://www.searchenginejournal.com/how-to-become-seo-expert/234841/",
+		"title": "SearchEngineJournal Become an SEO Expert"
+	},
+	{
+		"url": "https://backlinko.com/content-study",
+		"title": "backlinko.com/content-study"
+	},
+	{
+		"url": "https://www.seobythesea.com/2018/06/google-ranking-signals/",
+		"title": "SEOByTheSea Google Ranking Signals"
+	},
+	{
+		"url": "https://moz.com/google-algorithm-change",
+		"title": "moz.com/google-algorithm-change"
+	},
+	{
+		"url": "https://www.vieodesign.com/blog/what-are-lsi-keywords-and-do-they-matter",
+		"title": "VieoDesign What are LSI keywords"
+	},
+	{
+		"url": "https://moz.com/blog/google-e-a-t",
+		"title": "moz.com/blog/google-e-a-t"
+	},
+	{
+		"url": "https://yoast.com/wordpress-seo/",
+		"title": "yoast.com/wordpress-seo/"
+	},
+	{
+		"url": "https://uitest.com/analysis/",
+		"title": "uitest.com/analysis/"
+	},
+	{
+		"url": "https://20years.withgoogle.com/",
+		"title": "20years.withgoogle.com/"
+	},
+	{
+		"url": "https://www.robbierichards.com/seo/seo-for-startups/",
+		"title": "Content strategy for startups"
+	},
+	{
+		"url": "https://neilpatel.com/wp-content/uploads/2018/10/Neil-Patels-Advanced-Cheatsheet-to-SEO.pdf",
+		"title": "Neil Patel’s SEO Cheat Sheet"
+	},
+	{
+		"url": "https://ahrefs.com/blog/",
+		"title": "The Ahrefs Blog"
+	},
+	{
+		"url": "https://www.youtube.com/playlist?list%3DPLEiEAq2VkUUJpY2dHm-X7VB1acIH8d0Ze",
+		"title": "Simplilearn YouTube SEO course"
+	},
+	{
+		"url": "https://ahrefs.com/blog/seo-for-startups/",
+		"title": "https://ahrefs.com/blog/seo-for-startups/"
+	},
+	{
+		"url": "https://www.semrush.com/academy/courses/content-led-seo-course-with-brian-dean/start-here",
+		"title": "https://www.semrush.com/academy/courses/content-led-seo-course-with-brian-dean/start-here"
+	},
+	{
+		"url": "https://www.bluearrayacademy.com/courses/technical-seo-certification",
+		"title": "https://www.bluearrayacademy.com/courses/technical-seo-certification"
+	},
+	{
+		"url": "https://www.wordstream.com/blog/ws/2015/04/30/seo-basics",
+		"title": "https://www.wordstream.com/blog/ws/2015/04/30/seo-basics"
+	},
+	{
+		"url": "https://fili.com/%23learn-seo",
+		"title": "https://fili.com/#learn-seo"
+	},
+	{
+		"url": "https://backlinko.com/hub/content",
+		"title": "https://backlinko.com/hub/content"
+	},
+	{
+		"url": "https://skillshop.exceedlms.com/student/path/17374-learn-the-fundamentals-of-google-ads-search",
+		"title": "Google’s own tutorial"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DPOxtIWLNlmI",
+		"title": "this guy’s tutorial"
+	},
+	{
+		"url": "https://www.rezistenta-online.ro/p/instrumente-marketing-online.html",
+		"title": "https://www.rezistenta-online.ro/p/instrumente-marketing-online.html"
+	},
+	{
+		"url": "https://ahrefs.com/academy/blogging-for-business/lesson-1-1",
+		"title": "Blogging for business"
+	},
+	{
+		"url": "https://www.youtube.com/channel/UCDidoS6DWZVYk-PdNtcY9PQ",
+		"title": "SAAS marketing vlog"
+	},
+	{
+		"url": "https://ahrefs.com/blog/content-marketing/",
+		"title": "Content Marketing"
+	},
+	{
+		"url": "https://marketingexamples.com/",
+		"title": "Marketing examples"
+	},
+	{
+		"url": "https://toolsalad.com/",
+		"title": "ToolSalad"
+	},
+	{
+		"url": "https://www.youtube.com/playlist?list%3DPLVz1bbeMX6hy6Xb6exLUuEq845VIiJU_n",
+		"title": "Google Tag Manager for Beginners 2021"
+	},
+	{
+		"url": "https://www.dataquest.io/",
+		"title": "https://www.dataquest.io/"
+	},
+	{
+		"url": "https://elitedatascience.com/",
+		"title": "https://elitedatascience.com/"
+	},
+	{
+		"url": "https://www.springboard.com/resources/learning-paths/data-analysis/",
+		"title": "https://www.springboard.com/resources/learning-paths/data-analysis/"
+	},
+	{
+		"url": "https://cxl.com/playbooks/",
+		"title": "https://cxl.com/playbooks/"
+	},
+	{
+		"url": "https://learndigital.withgoogle.com/digitalgarage/course/digital-marketing",
+		"title": "https://learndigital.withgoogle.com/digitalgarage/course/digital-marketing"
+	},
+	{
+		"url": "https://learndigital.withgoogle.com/digitalunlocked",
+		"title": "https://learndigital.withgoogle.com/digitalunlocked"
+	},
+	{
+		"url": "https://www.wordstream.com/learn",
+		"title": "https://www.wordstream.com/learn"
+	},
+	{
+		"url": "https://academy.hubspot.com/courses/inbound-marketing?library%3Dtrue",
+		"title": "https://academy.hubspot.com/courses/inbound-marketing?library=true"
+	},
+	{
+		"url": "https://www.quicksprout.com/the-beginners-guide-to-online-marketing/",
+		"title": "https://www.quicksprout.com/the-beginners-guide-to-online-marketing/"
+	},
+	{
+		"url": "https://copyblogger.com/imfsp/",
+		"title": "https://copyblogger.com/imfsp/"
+	},
+	{
+		"url": "https://www.coursera.org/learn/marketing-plan",
+		"title": "https://www.coursera.org/learn/marketing-plan"
+	},
+	{
+		"url": "https://www.edx.org/course/digital-marketing-strategy",
+		"title": "https://www.edx.org/course/digital-marketing-strategy"
+	},
+	{
+		"url": "https://www.edx.org/course/digital-strategy-and-action",
+		"title": "https://www.edx.org/course/digital-strategy-and-action"
+	},
+	{
+		"url": "https://www.linkedin.com/learning/paths/become-an-online-marketing-manager",
+		"title": "https://www.linkedin.com/learning/paths/become-an-online-marketing-manager"
+	},
+	{
+		"url": "https://ocw.mit.edu/courses/entrepreneurship/",
+		"title": "https://ocw.mit.edu/courses/entrepreneurship/"
+	},
+	{
+		"url": "https://www.futurelearn.com/subjects/business-and-management-courses/marketing/digital-marketing",
+		"title": "https://www.futurelearn.com/subjects/business-and-management-courses/marketing/digital-marketing"
+	},
+	{
+		"url": "https://blog.hubspot.com/marketing/free-online-marketing-classes",
+		"title": "https://blog.hubspot.com/marketing/free-online-marketing-classes"
+	},
+	{
+		"url": "https://blog.google/products/marketingplatform/analytics/prepare-for-future-with-google-analytics-4/",
+		"title": "https://blog.google/products/marketingplatform/analytics/prepare-for-future-with-google-analytics-4/"
+	},
+	{
+		"url": "https://www.rezistenta-online.ro/p/make-it-academy.html",
+		"title": "https://www.rezistenta-online.ro/p/make-it-academy.html"
+	},
+	{
+		"url": "https://github.com/thedaviddias/Front-End-Performance-Checklist",
+		"title": "https://github.com/thedaviddias/Front-End-Performance-Checklist"
+	},
+	{
+		"url": "https://www.smashingmagazine.com/2019/07/web-on-50mb-budget/",
+		"title": "https://www.smashingmagazine.com/2019/07/web-on-50mb-budget/"
+	},
+	{
+		"url": "https://developers.google.com/learn/pathways/web-vitals?hl%3Den",
+		"title": "https://developers.google.com/learn/pathways/web-vitals?hl=en"
+	},
+	{
+		"url": "https://type.method.ac/",
+		"title": "https://type.method.ac/"
+	},
+	{
+		"url": "https://css-tricks.com/front-end-challenges/",
+		"title": "https://css-tricks.com/front-end-challenges/"
+	},
+	{
+		"url": "https://www.youtube.com/playlist?list%3DPLKAyGpypHE7dHpGjm_sW9htRkCogBW97i",
+		"title": "https://www.youtube.com/playlist?list=PLKAyGpypHE7dHpGjm_sW9htRkCogBW97i"
+	},
+	{
+		"url": "https://bitcoin.org/en/bitcoin-paper",
+		"title": "https://bitcoin.org/en/bitcoin-paper"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DbBC-nXj3Ng4",
+		"title": "https://www.youtube.com/watch?v=bBC-nXj3Ng4"
+	},
+	{
+		"url": "https://books.google.ro/books/about/Mastering_Bitcoin.html?id%3DtponDwAAQBAJ%26printsec%3Dfrontcover%26source%3Dkp_read_button%26hl%3Den%26redir_esc%3Dy%23v%3Donepage%26q%26f%3Dfalse",
+		"title": "https://books.google.ro/books/about/Mastering_Bitcoin.html?id=tponDwAAQBAJ&printsec=frontcover&hl=en&redir_esc=y#v=onepage&q&f=false"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3D_160oMzblY8",
+		"title": "Blockchain 101 - A Visual Demo"
+	},
+	{
+		"url": "https://dev.to/javinpaul/5-free-courses-to-learn-linux-for-beginners-367f",
+		"title": "https://dev.to/javinpaul/5-free-courses-to-learn-linux-for-beginners-367f"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3Dn_2jPbQornY",
+		"title": "Linux Essentials - Beginner Crash Course (Ubuntu)"
+	},
+	{
+		"url": "https://www.edx.org/course/introduction-to-linux",
+		"title": "https://www.edx.org/course/introduction-to-linux"
+	},
+	{
+		"url": "https://lwn.net/Kernel/LDD3/",
+		"title": "https://lwn.net/Kernel/LDD3/"
+	},
+	{
+		"url": "https://linux-kernel-labs.github.io/refs/heads/master/index.html",
+		"title": "https://linux-kernel-labs.github.io/refs/heads/master/index.html"
+	},
+	{
+		"url": "https://opensource.com/article/19/4/devops-pipeline",
+		"title": "https://opensource.com/article/19/4/devops-pipeline"
+	},
+	{
+		"url": "https://codewithmosh.com/p/the-ultimate-docker-course",
+		"title": "https://codewithmosh.com/p/the-ultimate-docker-course"
+	},
+	{
+		"url": "https://linuxjourney.com/",
+		"title": "https://linuxjourney.com/"
+	},
+	{
+		"url": "https://www.dropbox.com/s/oif8f5foarnulj5/humbleBundle-Devops.zip?dl%3D1",
+		"title": "https://www.dropbox.com/s/oif8f5foarnulj5/humbleBundle-Devops.zip?dl=1"
+	},
+	{
+		"url": "https://github.com/johandry/CKAD",
+		"title": "https://github.com/johandry/CKAD"
+	},
+	{
+		"url": "https://www.linkedin.com/posts/rocky-bhatia-a4801010_cloud-devops-kubernetes-activity-7074233926705119232-FIPo/",
+		"title": "https://www.linkedin.com/posts/rocky-bhatia-a4801010_cloud-devops-kubernetes-activity-7074233926705119232-FIPo/"
+	},
+	{
+		"url": "https://kodekloud.com/pages/free-week",
+		"title": "https://kodekloud.com/pages/free-week"
+	},
+	{
+		"url": "https://docs.python.org/3/library/functions.html",
+		"title": "https://docs.python.org/3/library/functions.html"
+	},
+	{
+		"url": "https://www.youtube.com/playlist?list%3DPL-osiE80TeTskrapNbzXhwoFUiLCjGgY7",
+		"title": "Python Programming Beginner Tutorials - YouTube"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DXKHEtdqhLK8",
+		"title": "Python Full Course for free 🐍"
+	},
+	{
+		"url": "https://lwn.net/Articles/842964/",
+		"title": "An introduction to SciPy"
+	},
+	{
+		"url": "https://github.com/satwikkansal/wtfpython",
+		"title": "What the fuck, Python!"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3D_uQrJ0TkZlc",
+		"title": "Python Tutorial - Python for Beginners [Full Course]"
+	},
+	{
+		"url": "https://www.youtube.com/playlist?list%3DPLUVWXwPeA4CxcA2o1lCBGb2elaglSVRQ2",
+		"title": "Curs de Python gratis pentru incepatori - YouTube"
+	},
+	{
+		"url": "https://www.udemy.com/course/master-python-programming-complete-python-bootcamp/",
+		"title": "https://www.udemy.com/course/master-python-programming-complete-python-bootcamp/"
+	},
+	{
+		"url": "https://github.com/mariusciurea/python_challenge",
+		"title": "https://github.com/mariusciurea/python_challenge"
+	},
+	{
+		"url": "https://www.w3schools.com/python",
+		"title": "https://www.w3schools.com/python"
+	},
+	{
+		"url": "https://drive.google.com/drive/folders/1E5fGWnZ-tjpjSX8vOf584o6HnHqTiS9n",
+		"title": "https://drive.google.com/drive/folders/1E5fGWnZ-tjpjSX8vOf584o6HnHqTiS9n"
+	},
+	{
+		"url": "https://automatetheboringstuff.com/",
+		"title": "Automate the boring stuff with Python"
+	},
+	{
+		"url": "https://www.pythonisti.ro/",
+		"title": "Curs de programare în Python 3 pentru începători - Online interactiv gratuit"
+	},
+	{
+		"url": "https://realpython.com/best-python-books/",
+		"title": "The Best Python Books – Real Python"
+	},
+	{
+		"url": "https://stepik.org/course/102668/promo",
+		"title": "Programming using Python · Stepik"
+	},
+	{
+		"url": "https://www.coursera.org/specializations/python-3-programming",
+		"title": "https://www.coursera.org/specializations/python-3-programming"
+	},
+	{
+		"url": "https://www.freecoursesonline.me/code-with-mosh-the-complete-python-programming-course-for-beginners-2431658790/",
+		"title": "https://www.freecoursesonline.me/code-with-mosh-the-complete-python-programming-course-for-beginners-2431658790/"
+	},
+	{
+		"url": "https://codewithmosh.com/p/python-programming-course-beginners",
+		"title": "https://codewithmosh.com/p/python-programming-course-beginners"
+	},
+	{
+		"url": "https://www.w3resource.com/python-exercises/",
+		"title": "https://www.w3resource.com/python-exercises/"
+	},
+	{
+		"url": "https://replit.com/",
+		"title": "https://replit.com/"
+	},
+	{
+		"url": "https://python.swaroopch.com/",
+		"title": "https://python.swaroopch.com/"
+	},
+	{
+		"url": "https://py.checkio.org/",
+		"title": "https://py.checkio.org/"
+	},
+	{
+		"url": "https://developers.google.com/edu/python/",
+		"title": "https://developers.google.com/edu/python/"
+	},
+	{
+		"url": "https://www.learnpython.org/",
+		"title": "https://www.learnpython.org/"
+	},
+	{
+		"url": "https://docs.microsoft.com/en-us/training/modules/intro-to-python/",
+		"title": "https://docs.microsoft.com/en-us/training/modules/intro-to-python/"
+	},
+	{
+		"url": "https://scrimba.com/learn/python",
+		"title": "https://scrimba.com/learn/python"
+	},
+	{
+		"url": "https://www.theodinproject.com/paths/full-stack-ruby-on-rails/courses/ruby-on-rails",
+		"title": "https://www.theodinproject.com/paths/full-stack-ruby-on-rails/courses/ruby-on-rails"
+	},
+	{
+		"url": "https://www.ruby-lang.org/en/documentation/quickstart/",
+		"title": "https://www.ruby-lang.org/en/documentation/quickstart/"
+	},
+	{
+		"url": "https://rubymonk.com/",
+		"title": "https://rubymonk.com/"
+	},
+	{
+		"url": "https://guides.rubyonrails.org/getting_started.html",
+		"title": "https://guides.rubyonrails.org/getting_started.html"
+	},
+	{
+		"url": "https://www.codecademy.com/learn/learn-ruby",
+		"title": "https://www.codecademy.com/learn/learn-ruby"
+	},
+	{
+		"url": "https://www.codecademy.com/learn/learn-rails",
+		"title": "https://www.codecademy.com/learn/learn-rails"
+	},
+	{
+		"url": "https://gorails.com/",
+		"title": "https://gorails.com/"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DfmyvWz5TUWg",
+		"title": "https://www.youtube.com/watch?v=fmyvWz5TUWg"
+	},
+	{
+		"url": "https://try.ruby-lang.org/playground/",
+		"title": "https://try.ruby-lang.org/playground/"
+	},
+	{
+		"url": "https://www.pluralsight.com/courses/code-school-rails-for-zombies",
+		"title": "https://www.pluralsight.com/courses/code-school-rails-for-zombies"
+	},
+	{
+		"url": "https://rubyflow.com/",
+		"title": "https://rubyflow.com/"
+	},
+	{
+		"url": "https://railscasts.com/",
+		"title": "https://railscasts.com/"
+	},
+	{
+		"url": "https://www.tutorialspoint.com/ruby-on-rails/",
+		"title": "https://www.tutorialspoint.com/ruby-on-rails/"
+	},
+	{
+		"url": "https://www.rubytapas.com/",
+		"title": "https://www.rubytapas.com/"
+	},
+	{
+		"url": "https://www.railstutorial.org/",
+		"title": "https://www.railstutorial.org/"
+	},
+	{
+		"url": "https://www.railstutorial.org/book",
+		"title": "https://www.railstutorial.org/book"
+	},
+	{
+		"url": "https://github.com/Alikhll/golang-developer-roadmap",
+		"title": "https://github.com/Alikhll/golang-developer-roadmap"
+	},
+	{
+		"url": "https://go.dev/ref/spec",
+		"title": "https://go.dev/ref/spec"
+	},
+	{
+		"url": "https://go.dev/tour/welcome/1",
+		"title": "https://go.dev/tour/welcome/1"
+	},
+	{
+		"url": "https://pkg.go.dev/std",
+		"title": "https://pkg.go.dev/std"
+	},
+	{
+		"url": "https://golangbot.com/",
+		"title": "https://golangbot.com/"
+	},
+	{
+		"url": "https://salmer.github.io/CppDeveloperRoadmap/",
+		"title": "https://salmer.github.io/CppDeveloperRoadmap/"
+	},
+	{
+		"url": "https://gustedt.gitlabpages.inria.fr/modern-c/",
+		"title": "https://gustedt.gitlabpages.inria.fr/modern-c/"
+	},
+	{
+		"url": "https://en.cppreference.com/w/c",
+		"title": "https://en.cppreference.com/w/c"
+	},
+	{
+		"url": "https://www.learn-c.org/",
+		"title": "https://www.learn-c.org/"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DQpAhX-gsHMs",
+		"title": "https://www.youtube.com/watch?v=QpAhX-gsHMs"
+	},
+	{
+		"url": "https://codingnest.com/generating-random-numbers-using-c-standard-library-the-problems/",
+		"title": "Generating random numbers using C++ standard library: the problems"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DZQFzMfHIxng",
+		"title": "C++ atomics, from basic to advanced. What do they really do?"
+	},
+	{
+		"url": "https://wolchok.org/posts/parameter-passing/",
+		"title": "Parameter Passing in C and C++"
+	},
+	{
+		"url": "https://preshing.com/20210315/how-cpp-resolves-a-function-call/",
+		"title": "How C++ Resolves a Function Call"
+	},
+	{
+		"url": "https://www.vishalchovatiya.com/cpp20-coroutine-under-the-hood/",
+		"title": "C++20 Coroutine: Under The Hood"
+	},
+	{
+		"url": "https://stepik.org/course/52108/promo",
+		"title": "Programming II (C/C++) · Stepik"
+	},
+	{
+		"url": "https://www.codecademy.com/learn/learn-c-plus-plus",
+		"title": "Learn C++ | Codecademy"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DwN0x9eZLix4",
+		"title": "Object Oriented Programming (OOP) in C++ Course"
+	},
+	{
+		"url": "https://ix.cs.uoregon.edu/~norris/cis330books/ThinkingInC/Index.html",
+		"title": "https://ix.cs.uoregon.edu/~norris/cis330books/ThinkingInC/Index.html"
+	},
+	{
+		"url": "https://www.codecademy.com/learn/learn-c",
+		"title": "https://www.codecademy.com/learn/learn-c"
+	},
+	{
+		"url": "https://www.freecodecamp.org/news/the-c-beginners-handbook/",
+		"title": "https://www.freecodecamp.org/news/the-c-beginners-handbook/"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DKJgsSFOSQv0",
+		"title": "C Programming Tutorial for Beginners"
+	},
+	{
+		"url": "https://github.com/MoienTajik/AspNetCore-Developer-Roadmap",
+		"title": "https://github.com/MoienTajik/AspNetCore-Developer-Roadmap"
+	},
+	{
+		"url": "https://www.pluralsight.com/courses/csharp-fundamentals-dev",
+		"title": "https://www.pluralsight.com/courses/csharp-fundamentals-dev"
+	},
+	{
+		"url": "https://www.pluralsight.com/paths/aspnet-core-6-web-api",
+		"title": "https://www.pluralsight.com/paths/aspnet-core-6-web-api"
+	},
+	{
+		"url": "https://www.udemy.com/course/complete-csharp-masterclass/",
+		"title": "https://www.udemy.com/course/complete-csharp-masterclass/"
+	},
+	{
+		"url": "https://www.udemy.com/course/complete-aspnet-core-21-course/",
+		"title": "https://www.udemy.com/course/complete-aspnet-core-21-course/"
+	},
+	{
+		"url": "https://www.learnjavaonline.org/",
+		"title": "Learn Java - Free Interactive Java Tutorial"
+	},
+	{
+		"url": "https://www.wiley.com/en-bb/Job%2BReady%2BJava-p-9781119775645",
+		"title": "Job Ready Java"
+	},
+	{
+		"url": "https://spring.io/quickstart",
+		"title": "Spring Quickstart Guide"
+	},
+	{
+		"url": "https://codingbat.com/java",
+		"title": "CodingBat Java"
+	},
+	{
+		"url": "https://www.udemy.com/course/java-enterprise-edition-8/",
+		"title": "Java EE"
+	},
+	{
+		"url": "https://www.udemy.com/course/spring-tutorial-for-beginners/",
+		"title": "Spring"
+	},
+	{
+		"url": "https://www.udemy.com/course/spring-framework-5-beginner-to-guru/",
+		"title": "Spring 5"
+	},
+	{
+		"url": "https://www.udemy.com/course/full-stack-application-development-with-spring-boot-and-angular/",
+		"title": "FullStack with Boot and Angular"
+	},
+	{
+		"url": "https://www.udemy.com/course/full-stack-application-with-spring-boot-and-react/",
+		"title": "FullStack with Boot and React"
+	},
+	{
+		"url": "https://www.udemy.com/course/java-tutorial/",
+		"title": "https://www.udemy.com/course/java-tutorial/"
+	},
+	{
+		"url": "https://github.com/salem53/OCP-JAVA-11/blob/master/OCP%2520Oracle%2520Certified%2520Professional%2520Java%2520SE%252011%2520Developer%2520Complete%2520Study%2520Guide%2520Exam%25201Z0-815%252C%2520Exam%25201Z0-816%2520and%2520Exam%25201Z0-817%2520by%2520Jeanne%2520Boyarsky%252C%2520Scott%2520Selikoff%2520(z-lib.org).epub.pdf",
+		"title": "OCP Java 11 book"
+	},
+	{
+		"url": "https://youtu.be/xk4_1vDrzzo",
+		"title": "Java Full Course ☕【𝙁𝙧𝙚𝙚】"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DcGwSm8xDSwI",
+		"title": "PHP & MySQL Tutorial | Learn PHP From Scratch | Full Tutorial"
+	},
+	{
+		"url": "https://www.w3schools.com/php/default.asp",
+		"title": "https://www.w3schools.com/php/default.asp"
+	},
+	{
+		"url": "https://www.w3schools.com/php/php_mysql_intro.asp",
+		"title": "https://www.w3schools.com/php/php_mysql_intro.asp"
+	},
+	{
+		"url": "https://www.udemy.com/course/php-mysql-tutorial/",
+		"title": "https://www.udemy.com/course/php-mysql-tutorial/"
+	},
+	{
+		"url": "https://www.coursera.org/learn/web-applications-php",
+		"title": "https://www.coursera.org/learn/web-applications-php"
+	},
+	{
+		"url": "https://www.udemy.com/course/creating-a-simple-newsletter-signup-using-php-and-mysql/",
+		"title": "https://www.udemy.com/course/creating-a-simple-newsletter-signup-using-php-and-mysql/"
+	},
+	{
+		"url": "https://www.udemy.com/course/real-time-chat-system-using-php-mysql-pdo-and-ajax/",
+		"title": "https://www.udemy.com/course/real-time-chat-system-using-php-mysql-pdo-and-ajax/"
+	},
+	{
+		"url": "https://www.udemy.com/course/build-crud-application-php-mysql/",
+		"title": "https://www.udemy.com/course/build-crud-application-php-mysql/"
+	},
+	{
+		"url": "https://www.educative.io/courses/learn-php-from-scratch",
+		"title": "https://www.educative.io/courses/learn-php-from-scratch"
+	},
+	{
+		"url": "https://www.codecademy.com/learn/learn-php",
+		"title": "https://www.codecademy.com/learn/learn-php"
+	},
+	{
+		"url": "https://www.tutorialspoint.com/php/php_and_mysql.htm",
+		"title": "https://www.tutorialspoint.com/php/php_and_mysql.htm"
+	},
+	{
+		"url": "https://www.wikihow.com/Learn-PHP-and-MySQL",
+		"title": "https://www.wikihow.com/Learn-PHP-and-MySQL"
+	},
+	{
+		"url": "https://www.learn-php.org/",
+		"title": "https://www.learn-php.org/"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DOK_JCtrrv-c",
+		"title": "PHP Programming Language Tutorial - Full Course"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3D2eebptXfEvw",
+		"title": "PHP For Absolute Beginners | 6.5 Hour Course"
+	},
+	{
+		"url": "https://www.tutorialspoint.com/php/index.htm",
+		"title": "https://www.tutorialspoint.com/php/index.htm"
+	},
+	{
+		"url": "https://www.php.net/manual/en/book.pdo.php",
+		"title": "https://www.php.net/manual/en/book.pdo.php"
+	},
+	{
+		"url": "https://phpdelusions.net/pdo",
+		"title": "https://phpdelusions.net/pdo"
+	},
+	{
+		"url": "https://www.phptutorial.net/php-pdo/",
+		"title": "https://www.phptutorial.net/php-pdo/"
+	},
+	{
+		"url": "https://www.javatpoint.com/php-pdo",
+		"title": "https://www.javatpoint.com/php-pdo"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DkEW6f7Pilc4",
+		"title": "PDO Crash Course (PHP)"
+	},
+	{
+		"url": "https://bulletproofphp.dev/yes-php-is-worth-using",
+		"title": "https://bulletproofphp.dev/yes-php-is-worth-using"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DImtZ5yENzgE",
+		"title": "Laravel PHP Framework Tutorial - Full Course for Beginners (2019)"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DEcYXsp78Xy8",
+		"title": "Laravel PHP Framework Tutorial - Full Course for Beginners | Build a Blog with Laravel"
+	},
+	{
+		"url": "https://laravel.com/docs/5.1/quickstart",
+		"title": "https://laravel.com/docs/5.1/quickstart"
+	},
+	{
+		"url": "https://www.tutorialspoint.com/laravel/index.htm",
+		"title": "https://www.tutorialspoint.com/laravel/index.htm"
+	},
+	{
+		"url": "https://laracasts.com/",
+		"title": "https://laracasts.com/"
+	},
+	{
+		"url": "https://softwareengineering.stackexchange.com/questions/194340/why-are-nosql-databases-more-scalable-than-sql/194408%23194408",
+		"title": "Why are NoSQL databases more scalable than SQL?"
+	},
+	{
+		"url": "https://sqlbolt.com/",
+		"title": "https://sqlbolt.com/"
+	},
+	{
+		"url": "https://www.masterywithsql.com/",
+		"title": "https://www.masterywithsql.com/"
+	},
+	{
+		"url": "https://www.codecademy.com/learn/learn-sql",
+		"title": "https://www.codecademy.com/learn/learn-sql"
+	},
+	{
+		"url": "https://www.datacamp.com/learn/sql",
+		"title": "https://www.datacamp.com/learn/sql"
+	},
+	{
+		"url": "https://www.datacamp.com/",
+		"title": "https://www.datacamp.com/"
+	},
+	{
+		"url": "https://academy.zerotomastery.io/p/complete-sql-database-bootcamp-zero-to-mastery",
+		"title": "https://academy.zerotomastery.io/p/complete-sql-database-bootcamp-zero-to-mastery"
+	},
+	{
+		"url": "https://towardsdatascience.com/designing-a-relational-database-and-creating-an-entity-relationship-diagram-89c1c19320b2",
+		"title": "https://towardsdatascience.com/designing-a-relational-database-and-creating-an-entity-relationship-diagram-89c1c19320b2"
+	},
+	{
+		"url": "https://www.mongodb.com/nosql-explained",
+		"title": "https://www.mongodb.com/nosql-explained"
+	},
+	{
+		"url": "https://www.mongodb.com/developer/quickstart/node-crud-tutorial/",
+		"title": "https://www.mongodb.com/developer/quickstart/node-crud-tutorial/"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3D-56x56UppqQ",
+		"title": "MongoDB Crash Course"
+	},
+	{
+		"url": "https://www.youtube.com/playlist?list%3DPLLAZ4kZ9dFpOFJ9JcVW9u4PlSWO-VFoao",
+		"title": "https://www.youtube.com/playlist?list=PLLAZ4kZ9dFpOFJ9JcVW9u4PlSWO-VFoao"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DlBBtq3Oawqw",
+		"title": "MongoDB Full Course | MongoDB Tutorial | MongoDB Tutorial For Beginners | MongoDB  | Simplilearn"
+	},
+	{
+		"url": "https://www.edx.org/course/nosql-basics",
+		"title": "https://www.edx.org/course/nosql-basics"
+	},
+	{
+		"url": "https://www.coursera.org/learn/introduction-to-nosql-databases",
+		"title": "https://www.coursera.org/learn/introduction-to-nosql-databases"
+	},
+	{
+		"url": "https://madwomb.com/tutorials/GameDesign_Tufts.html",
+		"title": "Super cool introductory course"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3Duoc0U-WsPa0",
+		"title": "How to Teach 5 Semesters of Game Design in 1 Class"
+	},
+	{
+		"url": "https://bit.ly/reality-broken",
+		"title": "Reality is Broken by Jane McGonigal"
+	},
+	{
+		"url": "https://github.com/UnterrainerInformatik/GameDevelopmentLinks",
+		"title": "https://github.com/UnterrainerInformatik/GameDevelopmentLinks"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DgB1F9G0JXOo",
+		"title": "Learn Unity - Beginner's Game Development Tutorial"
+	},
+	{
+		"url": "https://unity.com/learn",
+		"title": "https://unity.com/learn"
+	},
+	{
+		"url": "https://www.coursera.org/specializations/game-design-and-development",
+		"title": "https://www.coursera.org/specializations/game-design-and-development"
+	},
+	{
+		"url": "https://www.udemy.com/user/bentristem/",
+		"title": "https://www.udemy.com/user/bentristem/"
+	},
+	{
+		"url": "https://www.udemy.com/course/introduction-to-game-development-with-unity/",
+		"title": "https://www.udemy.com/course/introduction-to-game-development-with-unity/"
+	},
+	{
+		"url": "https://www.udemy.com/course/unity-game-developer/",
+		"title": "https://www.udemy.com/course/unity-game-developer/"
+	},
+	{
+		"url": "https://www.pluralsight.com/courses/introduction-game-development-unity",
+		"title": "https://www.pluralsight.com/courses/introduction-game-development-unity"
+	},
+	{
+		"url": "https://www.freecodecamp.org/news/game-development-for-beginners-unity-course/",
+		"title": "https://www.freecodecamp.org/news/game-development-for-beginners-unity-course/"
+	},
+	{
+		"url": "https://learn.unity.com/",
+		"title": "https://learn.unity.com/"
+	},
+	{
+		"url": "https://itch.io/game-assets/free",
+		"title": "https://itch.io/game-assets/free"
+	},
+	{
+		"url": "https://assetstore.unity.com/top-assets/top-free",
+		"title": "https://assetstore.unity.com/top-assets/top-free"
+	},
+	{
+		"url": "https://www.youtube.com/playlist?list%3DPLB0Tybl0UNfb3hTHPfEIg1SPw_-Ca9iIw",
+		"title": "Visual Web Development (2021)"
+	},
+	{
+		"url": "https://www.youtube.com/playlist?list%3DPLYElE_rzEw_v8TXJ_ITSSBP_ypUKfQ7K-",
+		"title": "Front End Web Development Projects for Beginners"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DgCa0z4B-CRo%26list%3DWL",
+		"title": "JavaScript Game Development Crash Course"
+	},
+	{
+		"url": "https://www.udemy.com/course/free-prep-for-html5-game-development/",
+		"title": "https://www.udemy.com/course/free-prep-for-html5-game-development/"
+	},
+	{
+		"url": "https://www.udemy.com/course/code-your-first-game/",
+		"title": "https://www.udemy.com/course/code-your-first-game/"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3D3EMxBkqC4z0",
+		"title": "Intro to Game Development with JavaScript - Full Tutorial"
+	},
+	{
+		"url": "https://www.udemy.com/course/how-to-program-games/",
+		"title": "https://www.udemy.com/course/how-to-program-games/"
+	},
+	{
+		"url": "https://www.udemy.com/course/create-quick-professional-2d-game-backgrounds-in-photoshop/",
+		"title": "https://www.udemy.com/course/create-quick-professional-2d-game-backgrounds-in-photoshop/"
+	},
+	{
+		"url": "https://www.udemy.com/course/the-ultimate-2d-game-character-design-animation-course/",
+		"title": "https://www.udemy.com/course/the-ultimate-2d-game-character-design-animation-course/"
+	},
+	{
+		"url": "https://www.udemy.com/course/learn-professional-pixel-art-animation-for-games/",
+		"title": "https://www.udemy.com/course/learn-professional-pixel-art-animation-for-games/"
+	},
+	{
+		"url": "https://jamie-wong.com/2016/07/15/ray-marching-signed-distance-functions/",
+		"title": "https://jamie-wong.com/2016/07/15/ray-marching-signed-distance-functions/"
+	},
+	{
+		"url": "https://interfaceingame.com/games/",
+		"title": "https://interfaceingame.com/games/"
+	},
+	{
+		"url": "https://www.gameuidatabase.com/",
+		"title": "https://www.gameuidatabase.com/"
+	},
+	{
+		"url": "https://www.blender.org/support/tutorials/",
+		"title": "Tutorials — blender.org"
+	},
+	{
+		"url": "https://www.youtube.com/user/AndrewPPrice/playlists",
+		"title": "Blender Guru"
+	},
+	{
+		"url": "https://www.youtube.com/c/CGFastTrack/playlists",
+		"title": "CG Fast Track"
+	},
+	{
+		"url": "https://www.youtube.com/playlist?list%3DPLa1F2ddGya_-UvuAqHAksYnB0qL9yWDO6",
+		"title": "Blender Fundamentals 2.8"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3Dkes2qmijy7w",
+		"title": "https://www.youtube.com/watch?v=kes2qmijy7w"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DhvoniP3uso8",
+		"title": "https://www.youtube.com/watch?v=hvoniP3uso8"
+	},
+	{
+		"url": "https://www.blenderguru.com/articles/how-i-learned-blender-and-5-tips-for-you",
+		"title": "https://www.blenderguru.com/articles/how-i-learned-blender-and-5-tips-for-you"
+	},
+	{
+		"url": "https://cgcookie.com/course/character-animation-toolkit/",
+		"title": "https://cgcookie.com/course/character-animation-toolkit/"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DXGnDu_NsTss",
+		"title": "Lighting and Baking Workflow: Blender Tutorial"
+	},
+	{
+		"url": "https://www.youtube.com/c/CGGeek/playlists",
+		"title": "CG Geek"
+	},
+	{
+		"url": "https://vimeo.com/30073532",
+		"title": "https://vimeo.com/30073532"
+	},
+	{
+		"url": "https://www.creativebloq.com/features/blender-shortcuts",
+		"title": "https://www.creativebloq.com/features/blender-shortcuts"
+	},
+	{
+		"url": "https://pauljerimy.com/security-certification-roadmap/",
+		"title": "Security Certification Roadmap"
+	},
+	{
+		"url": "https://academy.tcm-sec.com/p/practical-ethical-hacking-the-complete-course",
+		"title": "https://academy.tcm-sec.com/p/practical-ethical-hacking-the-complete-course"
+	},
+	{
+		"url": "https://www.youtube.com/playlist?list%3DPL590L5WQmH8dsxxz7ooJAgmijwOz0lh2H",
+		"title": "HACKING GOOGLE - YouTube"
+	},
+	{
+		"url": "https://beej.us/guide/bgnet/html/",
+		"title": "https://beej.us/guide/bgnet/html/"
+	},
+	{
+		"url": "https://www.isi.edu/~hussain/TEACH/Spring2014/notes/Steven00a.pdf",
+		"title": "https://www.isi.edu/~hussain/TEACH/Spring2014/notes/Steven00a.pdf"
+	},
+	{
+		"url": "https://github.com/JeckyOH/e-books-oh/blob/master/%255BAddison-Wesley%2520Professional%255D%2520TCP%2520IP%2520Illustrated%2520Volume%25202%2520The%2520Implementation.pdf",
+		"title": "https://github.com/JeckyOH/e-books-oh/blob/master/%5BAddison-Wesley%20Professional%5D%20TCP%20IP%20Illustrated%20Volume%202%20The%20Implementation.pdf"
+	},
+	{
+		"url": "https://github.com/akib1162100/mac/blob/master/The%2520TCP-IP%2520Guide%2520-%2520A%2520Comprehensive%2520Illustrated%2520Internet%2520Protocols%2520Reference.pdf",
+		"title": "https://github.com/akib1162100/mac/blob/master/The%20TCP-IP%20Guide%20-%20A%20Comprehensive%20Illustrated%20Internet%20Protocols%20Reference.pdf"
+	},
+	{
+		"url": "https://www.tcpipguide.com/free/t_toc.htm",
+		"title": "https://www.tcpipguide.com/free/t_toc.htm"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DAs6g6IXcVa4%26list%3DPLG49S3nxzAnlCJiCrOYuRYb6cne864a7G",
+		"title": "How to Pass Your N10-008 Network+ Exam"
+	},
+	{
+		"url": "https://ossinsight.io/collections/security-tool/",
+		"title": "https://ossinsight.io/collections/security-tool/"
+	},
+	{
+		"url": "https://www.hackthebox.com/blog/aws-pentesting-guide",
+		"title": "https://www.hackthebox.com/blog/aws-pentesting-guide"
+	},
+	{
+		"url": "https://github.com/jivoi/awesome-osint",
+		"title": "https://github.com/jivoi/awesome-osint"
+	},
+	{
+		"url": "https://ppn.snovvcrash.rocks/",
+		"title": "https://ppn.snovvcrash.rocks/"
+	},
+	{
+		"url": "https://vulnmachines.com/",
+		"title": "https://vulnmachines.com/"
+	},
+	{
+		"url": "https://edoardottt.github.io/awesome-hacker-search-engines/",
+		"title": "https://edoardottt.github.io/awesome-hacker-search-engines/"
+	},
+	{
+		"url": "https://github.com/nccgroup",
+		"title": "https://github.com/nccgroup"
+	},
+	{
+		"url": "https://tcm-sec.com/so-you-want-to-be-a-hacker-2022-edition/",
+		"title": "https://tcm-sec.com/so-you-want-to-be-a-hacker-2022-edition/"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3Du4VWQZ8KLmI",
+		"title": "Become an Ethical Hacker for $0"
+	},
+	{
+		"url": "https://corneacristian.medium.com/from-zero-to-your-first-penetration-test-7479bce3a5",
+		"title": "https://corneacristian.medium.com/from-zero-to-your-first-penetration-test-7479bce3a5"
+	},
+	{
+		"url": "https://academy.tcm-sec.com/p/linux-101",
+		"title": "https://academy.tcm-sec.com/p/linux-101"
+	},
+	{
+		"url": "https://teamtreehouse.com/",
+		"title": "https://teamtreehouse.com/"
+	},
+	{
+		"url": "https://www.professormesser.com/",
+		"title": "https://www.professormesser.com/"
+	},
+	{
+		"url": "https://www.professormesser.com/free-a-plus-training/220-1001/220-1000-training-course/",
+		"title": "CompTIA 220-1001 and 220-1002 A+ Training Course - Professor Messer IT Certification Training Courses"
+	},
+	{
+		"url": "https://skillsforall.com/topics/cisco-packet-tracer",
+		"title": "https://skillsforall.com/topics/cisco-packet-tracer"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DfNzpcB7ODxQ",
+		"title": "Ethical Hacking in 12 Hours - Full Course - Learn to Hack!"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DIhX0fOUYd8Q",
+		"title": "How to Build a PC! Step-by-step"
+	},
+	{
+		"url": "https://www.professormesser.com/network-plus/n10-007/n10-007-training-course/",
+		"title": "Professor Messer's CompTIA N10-007 Network+ Course"
+	},
+	{
+		"url": "https://www.netacad.com/courses/packet-tracer",
+		"title": "https://www.netacad.com/courses/packet-tracer"
+	},
+	{
+		"url": "https://www.udemy.com/course/comptia-network-cert-n10-007-the-total-course/",
+		"title": "TOTAL: CompTIA Network+ Certification (N10-007)"
+	},
+	{
+		"url": "https://overthewire.org/wargames/bandit/",
+		"title": "https://overthewire.org/wargames/bandit/"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DWnN6dbos5u8",
+		"title": "Full Ethical Hacking Course - Beginner Network Penetration Testing (2019)"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DrZsJieGi8os",
+		"title": "The Complete Linux for Ethical Hackers Course for 2019"
+	},
+	{
+		"url": "https://www.youtube.com/playlist?list%3DPLQB56B9Yjxu-xAYGg9z_s271UvDSgcA7h",
+		"title": "Retelistica pentru Incepatori | Cisco CCNA Modulul 1, 2, 3, 4 | Retele de Calculatoare - YouTube"
+	},
+	{
+		"url": "https://www.youtube.com/playlist?list%3DPLQB56B9Yjxu9a8rjrrRSov7DSSbwPQ8So",
+		"title": "Linux: Tutoriale pentru Incepatori | Invata Linux & Ubuntu - YouTube"
+	},
+	{
+		"url": "https://www.youtube.com/playlist?list%3DPLQB56B9Yjxu9_265koJhWmL02PhhuBW0G",
+		"title": "Securitate Cibernetica si Ethical Hacking: Tutoriale pentru incepatori | CEH | CCNA Security | Invata Securitate - YouTube"
+	},
+	{
+		"url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+		"title": "Known Exploited Vulnerabilities Catalog | CISA"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DUFO1u7NL21I",
+		"title": "IDORs/BOLA - Jr. Penetration Tester [Learning Path]"
+	},
+	{
+		"url": "https://www.vulnhub.com/",
+		"title": "https://www.vulnhub.com/"
+	},
+	{
+		"url": "https://www.pentesteracademy.com/",
+		"title": "https://www.pentesteracademy.com/"
+	},
+	{
+		"url": "https://courses.zeropointsecurity.co.uk/courses/red-team-ops",
+		"title": "https://courses.zeropointsecurity.co.uk/courses/red-team-ops"
+	},
+	{
+		"url": "https://www.hacker101.com/",
+		"title": "https://www.hacker101.com/"
+	},
+	{
+		"url": "https://portswigger.net/web-security",
+		"title": "https://portswigger.net/web-security"
+	},
+	{
+		"url": "https://bugcrowd.com/programs",
+		"title": "https://bugcrowd.com/programs"
+	},
+	{
+		"url": "https://www.bugcrowd.com/hackers/bugcrowd-university/",
+		"title": "https://www.bugcrowd.com/hackers/bugcrowd-university/"
+	},
+	{
+		"url": "https://pentesterlab.com/",
+		"title": "https://pentesterlab.com/"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3D24fHLWXGS-M",
+		"title": "Beginner Web Application Hacking (Full Course)"
+	},
+	{
+		"url": "https://owasp.org/www-project-top-ten/",
+		"title": "https://owasp.org/www-project-top-ten/"
+	},
+	{
+		"url": "https://owasp.org/www-project-web-security-testing-guide/",
+		"title": "https://owasp.org/www-project-web-security-testing-guide/"
+	},
+	{
+		"url": "https://hackerone.com/hacktivity",
+		"title": "https://hackerone.com/hacktivity"
+	},
+	{
+		"url": "https://www.aircrack-ng.org/",
+		"title": "https://www.aircrack-ng.org/"
+	},
+	{
+		"url": "https://solstice.sh/",
+		"title": "https://solstice.sh/"
+	},
+	{
+		"url": "https://www.youtube.com/playlist?list%3DPLLKT__MCUeix3O0DPbmuaRuR_4Hxo4m3G",
+		"title": "Buffer Overflows Made Easy - YouTube"
+	},
+	{
+		"url": "https://book.hacktricks.xyz/",
+		"title": "https://book.hacktricks.xyz/"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DqwA6MmbeGNo",
+		"title": "https://www.youtube.com/watch?v="
+	},
+	{
+		"url": "https://media.defense.gov/2021/Aug/03/2002820425/-1/-1/0/CTR_Kubernetes_Hardening_Guidance_1.1_20220315.PDF",
+		"title": "Kubernetes Hardening Guide"
+	},
+	{
+		"url": "https://cyberempathy.org/",
+		"title": "https://cyberempathy.org/"
+	},
+	{
+		"url": "https://github.com/madhuakula/kubernetes-goat",
+		"title": "https://github.com/madhuakula/kubernetes-goat"
+	},
+	{
+		"url": "https://tryhackme.com/",
+		"title": "TryHackMe"
+	},
+	{
+		"url": "https://tryhackme.com/path/outline/beginner",
+		"title": "https://tryhackme.com/path/outline/beginner"
+	},
+	{
+		"url": "https://www.hackthebox.eu/",
+		"title": "HackTheBox"
+	},
+	{
+		"url": "https://ctftime.org/",
+		"title": "CTF Time"
+	},
+	{
+		"url": "https://picoctf.org/",
+		"title": "Pico CTF"
+	},
+	{
+		"url": "https://overthewire.org/wargames/",
+		"title": "Over the Wire"
+	},
+	{
+		"url": "https://www.offensive-security.com/courses-and-certifications/",
+		"title": "Offensive Security Certifications"
+	},
+	{
+		"url": "https://www.sans.org/cyber-security-courses/",
+		"title": "SANS Security Certifications"
+	},
+	{
+		"url": "https://networkchuck.com/",
+		"title": "NetworkChuck"
+	},
+	{
+		"url": "https://www.youtube.com/channel/UC9x0AN7BWHpCDHSm9NiJFJQ",
+		"title": "free tutorials"
+	},
+	{
+		"url": "https://www.youtube.com/channel/UCa6eh7gCkpPo5XXUDfygQQA",
+		"title": "IppSec"
+	},
+	{
+		"url": "https://www.youtube.com/channel/UClcE-kVhqyiHCcjYwcpfj9w",
+		"title": "LiveOverflow"
+	},
+	{
+		"url": "https://www.youtube.com/user/DEFCONConference",
+		"title": "DEFCON"
+	},
+	{
+		"url": "https://www.youtube.com/user/BlackHatOfficialYT",
+		"title": "BlackHat"
+	},
+	{
+		"url": "https://www.youtube.com/channel/UCP7WmQ_U4GB3K51Od9QvM0w/videos",
+		"title": "David Bombal"
+	},
+	{
+		"url": "https://netsec.expert/posts/xss-in-2021/",
+		"title": "XSS cheat sheet"
+	},
+	{
+		"url": "https://www.udemy.com/course/practical-ethical-hacking/",
+		"title": "Practical ethical hacking"
+	},
+	{
+		"url": "https://sites.google.com/site/mattgsccie/Home",
+		"title": "Road to CCIE"
+	},
+	{
+		"url": "https://academy.tcm-sec.com/courses",
+		"title": "all courses"
+	},
+	{
+		"url": "https://www.securitydawg.com/how-bots-spam-contact-forms/",
+		"title": "make your forms really spambot-proof"
+	},
+	{
+		"url": "https://github.com/veeral-patel/how-to-secure-anything",
+		"title": "how to secure anything"
+	},
+	{
+		"url": "https://0xboku.com/2021/09/14/0dayappsecBeginnerGuide.html",
+		"title": "zero day guide"
+	},
+	{
+		"url": "https://github.com/juliocesarfort/public-pentesting-reports",
+		"title": "reports"
+	},
+	{
+		"url": "https://www.sans.org/cyber-security-courses",
+		"title": "SANS Cyber Security Courses"
+	},
+	{
+		"url": "https://www.lpi.org/our-certifications/lpic-1-overview",
+		"title": "Linux Certification"
+	},
+	{
+		"url": "https://www.cisco.com/c/en/us/training-events/training-certifications/certifications/associate/ccna.html",
+		"title": "CISCO CCNA"
+	},
+	{
+		"url": "https://comptia.org/certifications/security",
+		"title": "CompTIA Security+"
+	},
+	{
+		"url": "https://eccouncil.org/programs/certified-ethical-hacker-ceh",
+		"title": "Certified Ethical Hacker"
+	},
+	{
+		"url": "https://darknetdiaries.com/",
+		"title": "Darknet Diaries"
+	},
+	{
+		"url": "https://portswigger.net/burp/communitydownload",
+		"title": "BurpSuite proxy"
+	},
+	{
+		"url": "https://www.kali.org/",
+		"title": "Kali Linux"
+	},
+	{
+		"url": "https://pentest-tools.com/",
+		"title": "Pentest-Tools.com"
+	},
+	{
+		"url": "https://ecsc.eu/",
+		"title": "European Cyber Security Challenge"
+	},
+	{
+		"url": "https://www.synack.com/",
+		"title": "Synack"
+	},
+	{
+		"url": "https://cve.org",
+		"title": "CVE.org"
+	},
+	{
+		"url": "https://hak5.org/",
+		"title": "Hak5"
+	},
+	{
+		"url": "https://mitre-attack.github.io/attack-navigator/",
+		"title": "https://mitre-attack.github.io/attack-navigator/"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DM1_v5HBVHWo",
+		"title": "CISSP Certification Course – PASS the Certified Information Security Professional Exam!"
+	},
+	{
+		"url": "https://d3fend.mitre.org/",
+		"title": "https://d3fend.mitre.org/"
+	},
+	{
+		"url": "https://pentestbook.six2dez.com/others/web-checklist",
+		"title": "Pentesting Web checklist"
+	},
+	{
+		"url": "https://masterofproject.com/p/ethical-hacking-overview",
+		"title": "https://masterofproject.com/p/ethical-hacking-overview"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DbMHd4qS2o2w",
+		"title": "Cyber Security Paths | The LAST Roadmap You'll Ever Need"
+	},
+	{
+		"url": "https://github.com/smicallef/spiderfoot",
+		"title": "https://github.com/smicallef/spiderfoot"
+	},
+	{
+		"url": "https://github.com/trufflesecurity/trufflehog",
+		"title": "https://github.com/trufflesecurity/trufflehog"
+	},
+	{
+		"url": "https://crackstation.net/",
+		"title": "https://crackstation.net/"
+	},
+	{
+		"url": "https://github.com/lc/gau",
+		"title": "https://github.com/lc/gau"
+	},
+	{
+		"url": "https://gist.github.com/",
+		"title": "https://gist.github.com/"
+	},
+	{
+		"url": "https://leakix.net/",
+		"title": "https://leakix.net/"
+	},
+	{
+		"url": "https://haveibeenpwned.com/",
+		"title": "https://haveibeenpwned.com/"
+	},
+	{
+		"url": "https://intelx.io/",
+		"title": "https://intelx.io/"
+	},
+	{
+		"url": "https://www.shodan.io/",
+		"title": "https://www.shodan.io/"
+	},
+	{
+		"url": "https://archive.org/web/",
+		"title": "https://archive.org/web/"
+	},
+	{
+		"url": "https://pentest-tools.com/information-gathering/google-hacking",
+		"title": "https://pentest-tools.com/information-gathering/google-hacking"
+	},
+	{
+		"url": "https://www.exploit-db.com/google-hacking-database",
+		"title": "https://www.exploit-db.com/google-hacking-database"
+	},
+	{
+		"url": "https://hackxpert.com/",
+		"title": "HackXpert"
+	},
+	{
+		"url": "https://www.cyberseclabs.co.uk/",
+		"title": "CyberSecLabs"
+	},
+	{
+		"url": "https://letsdefend.io/",
+		"title": "LetsDefend"
+	},
+	{
+		"url": "https://www.root-me.org/",
+		"title": "Root Me"
+	},
+	{
+		"url": "https://www.rangeforce.com/",
+		"title": "RangeForce"
+	},
+	{
+		"url": "https://www.certifiedsecure.com/",
+		"title": "Certified Secure"
+	},
+	{
+		"url": "https://www.vulnmachines.com/",
+		"title": "Vuln Machines"
+	},
+	{
+		"url": "https://try2hack.me/",
+		"title": "Try2Hack"
+	},
+	{
+		"url": "https://tcm-sec.com/",
+		"title": "TCM Security"
+	},
+	{
+		"url": "https://echoctf.red/",
+		"title": "EchoCTF"
+	},
+	{
+		"url": "https://www.hackthebox.com/",
+		"title": "Hack The Box"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3Df-9LEoYYvE4",
+		"title": "100 second introduction into WebGL"
+	},
+	{
+		"url": "https://mattdesl.svbtle.com/drawing-lines-is-hard",
+		"title": "Drawing lines is hard"
+	},
+	{
+		"url": "https://www.pbr-book.org/3ed-2018/contents.html",
+		"title": "Physically based rendering"
+	},
+	{
+		"url": "https://thegymnasium.com/courses/course-v1:GYM%2B013%2B0/about",
+		"title": "3D modeling for Virtual Reality"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DVT5oZndzj68",
+		"title": "video 1"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DTPrnSACiTJ4",
+		"title": "video 2"
+	},
+	{
+		"url": "https://64.github.io/tonemapping/",
+		"title": "https://64.github.io/tonemapping/"
+	},
+	{
+		"url": "https://bit.ly/vio-freehosting",
+		"title": "SiteGround"
+	},
+	{
+		"url": "https://www.thegreenwebfoundation.org/directory/",
+		"title": "green"
+	},
+	{
+		"url": "https://www.infinityfree.net/",
+		"title": "InfinityFree"
+	},
+	{
+		"url": "https://www.netlify.com/",
+		"title": "Netlify"
+	},
+	{
+		"url": "https://vercel.com/",
+		"title": "Vercel"
+	},
+	{
+		"url": "https://pages.github.com/",
+		"title": "GitHub Pages"
+	},
+	{
+		"url": "https://uxdesign.cc/interaction-design-is-more-than-just-user-flows-and-clicks-4cc37011418c",
+		"title": "What is interaction design?"
+	},
+	{
+		"url": "https://thegymnasium.com/courses/course-v1:GYM%2B017%2B0/about",
+		"title": "everyone"
+	},
+	{
+		"url": "https://thegymnasium.com/courses/course-v1:GYM%2B019%2B0/about",
+		"title": "developers"
+	},
+	{
+		"url": "https://thegymnasium.com/courses/course-v1:GYM%2B018%2B0/about",
+		"title": "designers"
+	},
+	{
+		"url": "https://thegymnasium.com/courses/course-v1:GYM%2B020%2B0/about",
+		"title": "product managers"
+	},
+	{
+		"url": "https://thegymnasium.com/courses/GYM/106/0/about",
+		"title": "Information Design & Visualization fundamentals"
+	},
+	{
+		"url": "https://thegymnasium.com/courses/GYM/107/0/about",
+		"title": "Modern web design"
+	},
+	{
+		"url": "https://thegymnasium.com/courses/GYM/008/0/about",
+		"title": "Advanced prototyping with Axure"
+	},
+	{
+		"url": "https://thegymnasium.com/courses/course-v1:GYM%2B015%2B0/about",
+		"title": "Prototyping digital products & websites"
+	},
+	{
+		"url": "https://www.webdesigndev.com/14-questions-to-ask-a-graphic-design-client/",
+		"title": "Questions to ask before starting a design project"
+	},
+	{
+		"url": "https://uxdesign.cc/baseline-grids-design-systems-ae23b5af8cec",
+		"title": "https://uxdesign.cc/baseline-grids-design-systems-ae23b5af8cec"
+	},
+	{
+		"url": "https://principles.design/",
+		"title": "https://principles.design/"
+	},
+	{
+		"url": "https://www.designprinciplesftw.com/",
+		"title": "https://www.designprinciplesftw.com/"
+	},
+	{
+		"url": "https://dashboarddesignpatterns.github.io/patterns.html",
+		"title": "https://dashboarddesignpatterns.github.io/patterns.html"
+	},
+	{
+		"url": "https://colorandcontrast.com/",
+		"title": "https://colorandcontrast.com/"
+	},
+	{
+		"url": "https://roadmap.sh/design-system",
+		"title": "https://roadmap.sh/design-system"
+	},
+	{
+		"url": "https://spencermortensen.com/articles/typographic-scale/",
+		"title": "https://spencermortensen.com/articles/typographic-scale/"
+	},
+	{
+		"url": "https://alistapart.com/article/more-meaningful-typography/",
+		"title": "https://alistapart.com/article/more-meaningful-typography/"
+	},
+	{
+		"url": "https://pimpmytype.com/font-size/",
+		"title": "https://pimpmytype.com/font-size/"
+	},
+	{
+		"url": "https://www.deviantart.com/martinsilvertant/art/Typography-Series-01-Anatomy-of-typography-329617642",
+		"title": "https://www.deviantart.com/martinsilvertant/art/Typography-Series-01-Anatomy-of-typography-329617642"
+	},
+	{
+		"url": "https://blog.typekit.com/2016/04/29/combining-typefaces-free-guide-to-great-typography/",
+		"title": "https://blog.typekit.com/2016/04/29/combining-typefaces-free-guide-to-great-typography/"
+	},
+	{
+		"url": "https://practicaltypography.com/",
+		"title": "https://practicaltypography.com/"
+	},
+	{
+		"url": "https://www.process-masterclass.com/free-resources%23column_jpo670268",
+		"title": "https://www.process-masterclass.com/free-resources#column_jpo670268"
+	},
+	{
+		"url": "https://www.learnui.design/blog/guide-pairing-fonts.html",
+		"title": "https://www.learnui.design/blog/guide-pairing-fonts.html"
+	},
+	{
+		"url": "https://connary.com/pairing.html",
+		"title": "https://connary.com/pairing.html"
+	},
+	{
+		"url": "https://www.figma.com/community/file/1114720838108123725",
+		"title": "https://www.figma.com/community/file/1114720838108123725"
+	},
+	{
+		"url": "https://blog.datawrapper.de/fonts-for-data-visualization/",
+		"title": "https://blog.datawrapper.de/fonts-for-data-visualization/"
+	},
+	{
+		"url": "https://fonts.google.com/knowledge",
+		"title": "https://fonts.google.com/knowledge"
+	},
+	{
+		"url": "https://fonts.google.com/knowledge/glossary",
+		"title": "https://fonts.google.com/knowledge/glossary"
+	},
+	{
+		"url": "https://fontsinuse.com/",
+		"title": "https://fontsinuse.com/"
+	},
+	{
+		"url": "https://typehunting.com/",
+		"title": "https://typehunting.com/"
+	},
+	{
+		"url": "https://shadycharacters.co.uk/",
+		"title": "https://shadycharacters.co.uk/"
+	},
+	{
+		"url": "https://ia.net/topics/the-web-is-all-about-typography-period",
+		"title": "https://ia.net/topics/the-web-is-all-about-typography-period"
+	},
+	{
+		"url": "https://modernfontstacks.com/",
+		"title": "https://modernfontstacks.com/"
+	},
+	{
+		"url": "https://www.freefaces.gallery/",
+		"title": "https://www.freefaces.gallery/"
+	},
+	{
+		"url": "https://legible-typography.com/en/",
+		"title": "https://legible-typography.com/en/"
+	},
+	{
+		"url": "https://static.googleusercontent.com/media/fonts.google.com/en//knowledge/stop_stealing_sheep.pdf",
+		"title": "https://static.googleusercontent.com/media/fonts.google.com/en//knowledge/stop_stealing_sheep.pdf"
+	},
+	{
+		"url": "https://modern-fluid-typography.vercel.app/",
+		"title": "https://modern-fluid-typography.vercel.app/"
+	},
+	{
+		"url": "https://www.myfonts.com/pages/whatthefont",
+		"title": "https://www.myfonts.com/pages/whatthefont"
+	},
+	{
+		"url": "https://screenspan.net/fallback",
+		"title": "https://screenspan.net/fallback"
+	},
+	{
+		"url": "https://github.com/zachleat/glyphhanger",
+		"title": "https://github.com/zachleat/glyphhanger"
+	},
+	{
+		"url": "https://www.zachleat.com/web/glyphhanger/",
+		"title": "https://www.zachleat.com/web/glyphhanger/"
+	},
+	{
+		"url": "https://www.stefanjudis.com/notes/glyphhanger-a-tool-subset-and-optimize-fonts/",
+		"title": "https://www.stefanjudis.com/notes/glyphhanger-a-tool-subset-and-optimize-fonts/"
+	},
+	{
+		"url": "https://csswizardry.com/2020/05/the-fastest-google-fonts/",
+		"title": "https://csswizardry.com/2020/05/the-fastest-google-fonts/"
+	},
+	{
+		"url": "https://typedesignresources.com/",
+		"title": "https://typedesignresources.com/"
+	},
+	{
+		"url": "https://www.uxlibrary.org/",
+		"title": "https://www.uxlibrary.org/"
+	},
+	{
+		"url": "https://uxarchive.com/",
+		"title": "https://uxarchive.com/"
+	},
+	{
+		"url": "https://mobbin.design/browse/ios/apps",
+		"title": "https://mobbin.design/browse/ios/apps"
+	},
+	{
+		"url": "https://www.reallygoodux.io/",
+		"title": "https://www.reallygoodux.io/"
+	},
+	{
+		"url": "https://www.checklist.design/",
+		"title": "https://www.checklist.design/"
+	},
+	{
+		"url": "https://www.darkpatterns.org/",
+		"title": "https://www.darkpatterns.org/"
+	},
+	{
+		"url": "https://www.linkedin.com/learning/universal-principles-of-design/welcome-2",
+		"title": "Welcome - Universal Principles of Design Video Tutorial"
+	},
+	{
+		"url": "https://theschoolof.design/",
+		"title": "The School Of Design: Design"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3D47e8b5XmHfQ",
+		"title": "How You Can Learn Design Without School"
+	},
+	{
+		"url": "https://www.theleagueofmoveabletype.com/",
+		"title": "https://www.theleagueofmoveabletype.com/"
+	},
+	{
+		"url": "https://type-scale.com/",
+		"title": "https://type-scale.com/"
+	},
+	{
+		"url": "https://utopia.fyi/blog/css-modular-scales/",
+		"title": "https://utopia.fyi/blog/css-modular-scales/"
+	},
+	{
+		"url": "https://www.smashingmagazine.com/2010/11/best-practices-of-combining-typefaces/",
+		"title": "https://www.smashingmagazine.com/2010/11/best-practices-of-combining-typefaces/"
+	},
+	{
+		"url": "https://www.typewolf.com/",
+		"title": "https://www.typewolf.com/"
+	},
+	{
+		"url": "https://www.typewolf.com/resources",
+		"title": "https://www.typewolf.com/resources"
+	},
+	{
+		"url": "https://www.fontpair.co/",
+		"title": "https://www.fontpair.co/"
+	},
+	{
+		"url": "https://open-foundry.com/",
+		"title": "https://open-foundry.com/"
+	},
+	{
+		"url": "https://usemodify.com/",
+		"title": "https://usemodify.com/"
+	},
+	{
+		"url": "https://uxdesign.cc/uniwidth-typefaces-for-interface-design-b6e8078dc0f7",
+		"title": "https://uxdesign.cc/uniwidth-typefaces-for-interface-design-b6e8078dc0f7"
+	},
+	{
+		"url": "https://seek-oss.github.io/capsize/",
+		"title": "https://seek-oss.github.io/capsize/"
+	},
+	{
+		"url": "https://www.modularscale.com/",
+		"title": "https://www.modularscale.com/"
+	},
+	{
+		"url": "https://www.layoutgridcalculator.com/typographic-scale/",
+		"title": "https://www.layoutgridcalculator.com/typographic-scale/"
+	},
+	{
+		"url": "https://meowni.ca/font-style-matcher/",
+		"title": "https://meowni.ca/font-style-matcher/"
+	},
+	{
+		"url": "https://stylestage.dev/",
+		"title": "https://stylestage.dev/"
+	},
+	{
+		"url": "https://www.frontendpractice.com/",
+		"title": "https://www.frontendpractice.com/"
+	},
+	{
+		"url": "https://www.firsttimersonly.com/",
+		"title": "https://www.firsttimersonly.com/"
+	},
+	{
+		"url": "https://www.designhistory.org/index.html",
+		"title": "https://www.designhistory.org/index.html"
+	},
+	{
+		"url": "https://www.designishistory.com/",
+		"title": "https://www.designishistory.com/"
+	},
+	{
+		"url": "https://www.ucreative.com/design/",
+		"title": "https://www.ucreative.com/design/"
+	},
+	{
+		"url": "https://www.smashingmagazine.com/category/design/",
+		"title": "https://www.smashingmagazine.com/category/design/"
+	},
+	{
+		"url": "https://learnui.design/",
+		"title": "https://learnui.design/"
+	},
+	{
+		"url": "https://www.youtube.com/c/GarethDavidStudio/videos",
+		"title": "Gareth David Studio"
+	},
+	{
+		"url": "https://creativemarket.com/blog/10-design-ted-talks-you-should-watch",
+		"title": "https://creativemarket.com/blog/10-design-ted-talks-you-should-watch"
+	},
+	{
+		"url": "https://www.designsystemchecklist.com/",
+		"title": "https://www.designsystemchecklist.com/"
+	},
+	{
+		"url": "https://ozanoz.notion.site/Product-Design-Resources-48d76e4b4252443eb2ae77ff0ab8cfca",
+		"title": "https://ozanoz.notion.site/Product-Design-Resources-48d76e4b4252443eb2ae77ff0ab8cfca"
+	},
+	{
+		"url": "https://uxdesign.cc/usability-heuristic-frameworks-which-one-is-right-for-you-1962387b7cc",
+		"title": "https://uxdesign.cc/usability-heuristic-frameworks-which-one-is-right-for-you-1962387b7cc"
+	},
+	{
+		"url": "https://www.userinterviews.com/launch-kit",
+		"title": "https://www.userinterviews.com/launch-kit"
+	},
+	{
+		"url": "https://uxtools.co/blog/best-ux-research-methods-in-a-pinch/",
+		"title": "https://uxtools.co/blog/best-ux-research-methods-in-a-pinch/"
+	},
+	{
+		"url": "https://askplaybook.com/",
+		"title": "https://askplaybook.com/"
+	},
+	{
+		"url": "https://d.mba/guides/",
+		"title": "https://d.mba/guides/"
+	},
+	{
+		"url": "https://twitter.com/i/events/994601867987619840",
+		"title": "https://twitter.com/i/events/994601867987619840"
+	},
+	{
+		"url": "https://www.learnui.design/blog/spice-up-designs.html",
+		"title": "https://www.learnui.design/blog/spice-up-designs.html"
+	},
+	{
+		"url": "https://twitter.com/robhope/status/1265278107088347136",
+		"title": "https://twitter.com/robhope/status/1265278107088347136"
+	},
+	{
+		"url": "https://onepagelove.com/100-tips",
+		"title": "https://onepagelove.com/100-tips"
+	},
+	{
+		"url": "https://www.adhamdannaway.com/blog/ui-design/16-ui-design-rules",
+		"title": "https://www.adhamdannaway.com/blog/ui-design/16-ui-design-rules"
+	},
+	{
+		"url": "https://twitter.com/vponamariov/status/1368851471660421120",
+		"title": "https://twitter.com/vponamariov/status/1368851471660421120"
+	},
+	{
+		"url": "https://fifty.user-interface.io/",
+		"title": "https://fifty.user-interface.io/"
+	},
+	{
+		"url": "https://fifty.user-interface.io/50_ui_tips.pdf",
+		"title": "https://fifty.user-interface.io/50_ui_tips.pdf"
+	},
+	{
+		"url": "https://medium.muz.li/gestalt-principles-in-ui-design-6b75a41e9965",
+		"title": "https://medium.muz.li/gestalt-principles-in-ui-design-6b75a41e9965"
+	},
+	{
+		"url": "https://uxdesign.cc/dieter-rams-and-ten-principles-for-good-design-61cc32bcd6e6",
+		"title": "https://uxdesign.cc/dieter-rams-and-ten-principles-for-good-design-61cc32bcd6e6"
+	},
+	{
+		"url": "https://anthonyhobday.com/sideprojects/saferules/",
+		"title": "https://anthonyhobday.com/sideprojects/saferules/"
+	},
+	{
+		"url": "https://www.refactoringui.com/",
+		"title": "https://www.refactoringui.com/"
+	},
+	{
+		"url": "https://www.practical-ui.com/",
+		"title": "https://www.practical-ui.com/"
+	},
+	{
+		"url": "https://ahrefs.com/academy/blogging-for-business",
+		"title": "Ahrefs Academy: Blogging for business"
+	},
+	{
+		"url": "https://uxdesign.cc/how-to-write-inclusive-accessible-digital-products-2f4b35ec59a2",
+		"title": "How to write inclusive, accessible digital products | by Nick DiLallo"
+	},
+	{
+		"url": "https://www.speakhuman.today/",
+		"title": "Speak Human"
+	},
+	{
+		"url": "https://www.goodemailcopy.com/",
+		"title": "Good Copy • Email copy from great companies"
+	},
+	{
+		"url": "https://www.uxwritinglibrary.com/",
+		"title": "UX Writing Resource Library - Home"
+	},
+	{
+		"url": "https://reallygoodemails.com/",
+		"title": "Really Good Emails"
+	},
+	{
+		"url": "https://learndigital.withgoogle.com/atelieruldigital",
+		"title": "https://learndigital.withgoogle.com/atelieruldigital"
+	},
+	{
+		"url": "https://event.2performant.com/events/click?ad_type%3Dquicklink%26aff_code%3D304c4ab32%26unique%3D7b88fe442%26redirect_to%3Dhttps%25253A//www.books-express.ro/ogilvy-d-ogilvy-on-advertising/p/kjsa%25252C9781853756153",
+		"title": "Ogilvy on Advertising in the Digital Age"
+	},
+	{
+		"url": "https://event.2performant.com/events/click?ad_type%3Dquicklink%26aff_code%3D304c4ab32%26unique%3D7b88fe442%26redirect_to%3Dhttps%25253A//www.books-express.ro/influence-new-and-expanded/p/vsc%25252C9780062937650",
+		"title": "Cialdini - Influence, the psychology of persuasion (new and expanded)"
+	},
+	{
+		"url": "https://copyblogger.com/",
+		"title": "https://copyblogger.com/"
+	},
+	{
+		"url": "https://contentmarketinginstitute.com/",
+		"title": "https://contentmarketinginstitute.com/"
+	},
+	{
+		"url": "https://www.startupschool.org/",
+		"title": "https://www.startupschool.org/"
+	},
+	{
+		"url": "https://news.ycombinator.com/news",
+		"title": "News"
+	},
+	{
+		"url": "https://www.youtube.com/c/ycombinator",
+		"title": "YouTube"
+	},
+	{
+		"url": "https://www.ycombinator.com/",
+		"title": "Website"
+	},
+	{
+		"url": "https://learn.saylor.org/",
+		"title": "https://learn.saylor.org/"
+	},
+	{
+		"url": "https://basecamp.com/learn",
+		"title": "the Basecamp way"
+	},
+	{
+		"url": "https://www.dropbox.com/referrals/AABmF73hhZ5dhy8kP3C2Thz5VPYJTVJmnis?src%3Dglobal9",
+		"title": "Dropbox"
+	},
+	{
+		"url": "https://convertkit.com/?lmref%3DkKIXuQ",
+		"title": "ConvertKit"
+	},
+	{
+		"url": "https://streamlabs.com/goprime?promo%3Dviorelmocanu-e332-10",
+		"title": "StreamLabs"
+	},
+	{
+		"url": "https://www.tubebuddy.com/viorelmocanu",
+		"title": "TubeBuddy"
+	},
+	{
+		"url": "https://www.productlessons.xyz/library",
+		"title": "Product Lessons you need to learn now"
+	},
+	{
+		"url": "https://www.britishcouncil.ro/engleza/invata-online/gratis",
+		"title": "https://www.britishcouncil.ro/engleza/invata-online/gratis"
+	},
+	{
+		"url": "https://www.duolingo.com/",
+		"title": "https://www.duolingo.com/"
+	},
+	{
+		"url": "https://ro.duolingo.com/course/en/ro/%25C3%258Enva%25C8%259B%25C4%2583-englez%25C4%2583",
+		"title": "https://ro.duolingo.com/course/en/ro/%C3%8Enva%C8%9B%C4%83-englez%C4%83"
+	},
+	{
+		"url": "https://www.lingohut.com/ro/l1/%25C3%25AEnva%25C8%259B%25C4%2583-limba-englez%25C4%2583",
+		"title": "https://www.lingohut.com/ro/l1/%C3%AEnva%C8%9B%C4%83-limba-englez%C4%83"
+	},
+	{
+		"url": "https://www.youtube.com/channel/UCrRiVfHqBIIvSgKmgnSY66g",
+		"title": "mmmEnglish"
+	},
+	{
+		"url": "https://education.github.com/",
+		"title": "https://education.github.com/"
+	},
+	{
+		"url": "https://htmlrev.com/",
+		"title": "https://htmlrev.com/"
+	},
+	{
+		"url": "https://cloud.google.com/free",
+		"title": "https://cloud.google.com/free"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DUnzc731iCUY",
+		"title": "an MIT lecture"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DIlU-zDU6aQ0",
+		"title": "study less, study smart"
+	},
+	{
+		"url": "https://www.coursera.org/learn/learning-how-to-learn",
+		"title": "learning how to learn"
+	},
+	{
+		"url": "https://hubermanlab.com/teach-and-learn-better-with-a-neuroplasticity-super-protocol/",
+		"title": "Huberman"
+	},
+	{
+		"url": "https://hubermanlab.com/toolkit-for-sleep/",
+		"title": "Toolkit for Sleep - Huberman Lab"
+	},
+	{
+		"url": "https://www.youtube.com/channel/UCbfYPyITQ-7l4upoX8nvctg/videos",
+		"title": "Two minute papers"
+	},
+	{
+		"url": "https://www.selfauthoring.com/",
+		"title": "Draw a map of your past, evaluate your present and plan your future"
+	},
+	{
+		"url": "https://catb.org/~esr/faqs/smart-questions.html",
+		"title": "How to ask questions the smart way"
+	},
+	{
+		"url": "https://dontasktoask.com/",
+		"title": "Don’t ask to ask, just ask!"
+	},
+	{
+		"url": "https://thegymnasium.com/courses/GYM/001/0/about",
+		"title": "Defeating busy"
+	},
+	{
+		"url": "https://www.youtube.com/playlist?list%3DPL30C13C91CFFEFEA6",
+		"title": "Justice - Moral Philosophy course"
+	},
+	{
+		"url": "https://www.youtube.com/playlist?list%3DPLyQSN7X0ro203puVhQsmCj9qhlFQ-As8e",
+		"title": "Physics course"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3DZcpwnozMh2U",
+		"title": "Quantum Mechanical view of Reality"
+	},
+	{
+		"url": "https://www.youtube.com/playlist?list%3DPLBDA2E52FB1EF80C9",
+		"title": "Crash Course in World History"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v%3Dg9uUIUqhrSQ",
+		"title": "Introduction to Economics"
+	},
+	{
+		"url": "https://www.youtube.com/playlist?list%3DPLbN57C5Zdl6j_qJA-pARJnKsmROzPnO9V",
+		"title": "Nonlinear Dynamics and Chaos"
+	},
+	{
+		"url": "https://www.imdb.com/title/tt3322570/",
+		"title": "https://www.imdb.com/title/tt3322570/"
+	},
+	{
+		"url": "https://atelierul.digital/",
+		"title": "https://atelierul.digital/"
+	},
+	{
+		"url": "https://www.youtube.com/ViorelMocanu?sub_confirmation%3D1",
+		"title": "My YouTube"
+	},
+	{
+		"url": "https://codeburst.io/the-2018-web-developer-roadmap-826b1b806e8d",
+		"title": "here"
+	},
+	{
+		"url": "https://levelup.gitconnected.com/the-2020-web-developer-roadmap-76503ddfb327",
+		"title": "here"
+	},
+	{
+		"url": "https://www.dungeonsanddevelopers.com/",
+		"title": "RPG variant"
+	},
+	{
+		"url": "https://pentest-tools.com/blog/offensive-security-books",
+		"title": "https://pentest-tools.com/blog/offensive-security-books"
+	},
+	{
+		"url": "https://www.youtube.com/watch?v=jgQjes7MgTM",
+		"title": "The BEST Coding Interview Roadmap in 2023 (free)"
+	},
+	{
+		"title": "Resilient Web Design",
+		"slug": "resilient-web-design",
+		"url": "https://resilientwebdesign.com/",
+		"language": "en",
+		"pubDate": "05 October 2011 14:48 UTC",
+		"addDate": "05 October 2011 14:48 UTC",
+		"description": "Una din cele mai bune cărți care descrie evoluția și progresul web development-ului de-a lungul anilor, și în care sunt explicate concepte de bază de la...",
+		"author": "Jeremy Keith",
+		"authorUrl": "https://adactio.com/",
+		"section": "Front End",
+		"category": "Introducere",
+		"rating": 100,
+		"price": 0,
+		"requiredTime": 20,
+		"type": "carte",
+		"mandatory": true,
+		"image": {
+			"imageUrl": "https://docs.astro.build/assets/full-logo-light.png",
+			"alt": "Prima pagină din Resilient Web Design"
+		},
+		"tags": [
+			"carte",
+			"title",
+			"free",
+			"începători",
+			"mid",
+			"avansați",
+			"pro",
+			"obligatoriu"
+		]
+	}
+]
+/*
+
+Pasul 1:
+--------
+const children = [...document.getElementsByTagName('a')
+];
+var result = [];
+children.forEach((child) => {
+    var text = child.innerText || child.textContent;
+    result.push({
+        href: child.href,
+        text: text
+	});
+});
+console.log(result);
+
+Pasul 2:
+--------
+REGEX = &usg(=[^&]*)?|^usg(=[^&]*)?&?
+unde usg = parametrul care vreau să fie scos
+
+Pasul 3:
+--------
+var cleaner = maibine.filter((arr, index, self) =>
+    index === self.findIndex((t) => (t.href === arr.href)))
+
+console.log(cleaner);
+
+*/
