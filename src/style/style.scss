@@ -70,6 +70,8 @@ a#skip { @extend .SROnly; }
 a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; height: auto; }
 .Icon { display: inline-block; width: 1.5rem; height: 1.5rem; overflow: hidden; }
 
+.TemporaryMessage { background: magenta; color: black; }
+
 /* Structural classes */
 .Framework {
 	@media (min-width: $desktop) { margin: 1rem; border: 1px solid var(--light-900); }
@@ -422,6 +424,9 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 		.Comments { border-top: 1px solid var(--light-900);
 			@media (min-width: 750px) { margin: 0 1rem 1rem; border: 1px solid var(--light-900); }
 			@media (min-width: $desktop) { margin: 0; border: none; border-right: 1px solid var(--light-900); }
+		}
+		.ResourcePage .Comments {
+			@media (min-width: $desktop) { border-left: 1px solid var(--light-900); border-right: 0; }
 		}
 			.CommentTitle { @extend .ResourceCategory; padding: 1rem 0.5rem 0.5rem;
 				@media (min-width: $desktop) { padding: 2rem 1rem 0; border: none; }

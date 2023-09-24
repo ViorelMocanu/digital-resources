@@ -7,10 +7,12 @@
 		"pubDate": "05 October 2011 14:48 UTC",
 		"addDate": "05 October 2011 14:48 UTC",
 		"description": "Una din cele mai bune cărți care descrie evoluția și progresul web development-ului de-a lungul anilor, și în care sunt explicate concepte de bază de la...",
-		"author": "Jeremy Keith",
+		"authorName": "Jeremy Keith",
 		"authorUrl": "https://adactio.com/",
 		"section": "Front End",
-		"category": "Introducere",
+		"categories": [
+			"introducere"
+		],
 		"rating": 100,
 		"price": 0,
 		"requiredTime": 20,
@@ -18,15 +20,15 @@
 		"mandatory": true,
 		"image": {
 			"imageUrl": "https://docs.astro.build/assets/full-logo-light.png",
-			"alt": "Prima pagină din Resilient Web Design"
+			"imageAlt": "Prima pagină din Resilient Web Design"
 		},
 		"tags": [
 			"carte",
 			"text",
 			"free",
-			"începători",
+			"incepatori",
 			"mid",
-			"avansați",
+			"avansati",
 			"pro",
 			"obligatoriu"
 		]
@@ -39,10 +41,12 @@
 		"pubDate": "05 October 2011 14:48 UTC",
 		"addDate": "05 October 2011 14:48 UTC",
 		"description": "asdasdsadasdadsa asdasd asdasdasdasd",
-		"author": "The Odin Project",
+		"authorName": "The Odin Project",
 		"authorUrl": "https://www.theodinproject.com/",
 		"section": "Front End",
-		"category": "Introducere",
+		"categories": [
+			"introducere"
+		],
 		"rating": 100,
 		"price": 0,
 		"requiredTime": 20,
@@ -50,14 +54,14 @@
 		"mandatory": true,
 		"image": {
 			"imageUrl": "https://docs.astro.build/assets/full-logo-light.png",
-			"alt": "asdasdasdasdas"
+			"imageAlt": "asdasdasdasdas"
 		},
 		"tags": [
 			"curs",
 			"free",
-			"începători",
+			"incepatori",
 			"mid",
-			"avansați",
+			"avansati",
 			"pro",
 			"obligatoriu"
 		]
