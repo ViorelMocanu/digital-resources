@@ -24,9 +24,10 @@ const resourceCollection = defineCollection({
 			type: z.string(),
 			mandatory: z.boolean(),
 			image: z.object({
-				imageUrl: image().refine((img) => img.width >= 1200, {
+				imageLocalUrl: image().refine((img) => img.width >= 1200, {
 					message: "Imaginea trebuie să aibă minim 1200px lățime!",
 				}).optional(),
+				imageUrl: z.string().url("Imagine cu URL invalid.").optional(),
 				imageAlt: z.string().optional(),
 			}).nullable().optional(),
 			tags: z.array(reference('tags')),
@@ -51,6 +52,7 @@ const sectionCollection = defineCollection({
 	type: 'content',
 	schema: z.object({
 		title: z.string(),
+		menu: z.string(),
 		sortOrder: z.number(),
 		image: z.object({
 		  imageUrl: z.string().optional(),

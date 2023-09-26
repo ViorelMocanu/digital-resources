@@ -1,9 +1,10 @@
 ---
 title: "Resurse de Front End Development"
+menu: "Front End"
 slug: front-end
 sortOrder: 0
 image:
-  imageUrl: "img/hero-image.svg"
+  imageUrl: "/src/img/hero-image.svg"
   imageAlt: "Tehnologiile de bază ale Internetului: HTML, CSS și JavaScript"
 shortDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
 categories:

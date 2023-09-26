@@ -21,11 +21,9 @@ const { Content } = await entry.render();
 const resources = await getCollection('resources');
 ---
 
-{JSON.stringify(section)}
 <Layout title="Resurse de Front End Development - Resurse.dev" description="@TODO" template="SectionPage">
 	<div class="Hero" id="hero">
 		<div class="HeroVisual">
-			{section.data.image}
 			<img class="HeroImage" src={section.data.image?.imageUrl} width="287" height="120" alt={section.data.image?.imageAlt} />
 		</div>
 		<div class="HeroText">
@@ -671,3 +669,4 @@ const resources = await getCollection('resources');
 		</section>
 	</main>
 </Layout>
+{JSON.stringify(section)}

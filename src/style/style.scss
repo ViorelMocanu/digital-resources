@@ -36,7 +36,7 @@ body { background: var(--dark-100); color: var(--light-800); margin: 0; }
 .ActiveMenu, .ActiveSubnav { overflow: hidden;
 	@media (min-width: $desktop) { overflow: unset; }
 }
-img { max-width: 100%; border-style: none; } // max-inline-size: 100%; block-size: auto;
+img { max-width: 100%; height: auto; border-style: none; } // max-inline-size: 100%; block-size: auto;
 table { border-collapse: collapse; }
 textarea { white-space: revert; }
 abbr[title] { border-bottom: none;  text-decoration: underline;  text-decoration: underline dotted; }
@@ -120,6 +120,9 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 			.HeaderLink { display: flex; flex-direction: row; align-items: center; gap: 0.25rem; padding: 0.75rem; margin-left: auto; background: transparent; border: none; text-decoration: none;
 				@media (min-width: $desktop) { order: 3; padding: 1.125rem 1rem; margin-left: unset; }
 			}
+			.HeaderLink.Login {
+				@media (min-width: $desktop) { margin-left: auto; }
+			}
 				.HeaderLink .Icon { display: block; width: 1.5rem; height: 1.5rem; }
 				.HeaderLink .LinkText { font-size: 1rem; line-height: 1.5em; }
 			.Login {  }
@@ -134,6 +137,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 						.MainMenuLink { display: block; padding: 1rem; border-bottom: 1px solid var(--accent-400); font-weight: bold; text-decoration: none; font-size: 1.5rem; line-height: 1em;
 							@media (min-width: $desktop) { border: none; }
 						}
+						.Active > .MainMenuLink { background: var(--accent-400); color: var(--light-900); }
 				.SearchForm {
 					@media (min-width: $desktop) { flex-grow: 1; }
 				}
@@ -190,7 +194,8 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 					.HeroPreview:active .HeroExpand { color: var(--light-800); text-decoration: none; }
 				.HeroContent {  }
 					.HeroContent .HeroP {  }
-	.Main { display: block; margin: 1rem; border: 1px solid var(--light-900);
+	.Main { display: block; margin: 1rem; border: 1px solid var(--light-900); }
+	.SectionPageIndex .Main, .SectionPage .Main {
 		@media (min-width: $desktop) { display: grid; grid-template-columns: 3fr 1fr; }
 	}
 		.SortAndFilter { display: flex; flex-direction: column; position: sticky; z-index: 4; top: 6rem; transition: top 0.25s ease-in;

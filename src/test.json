@@ -6558,7 +6558,7 @@
 		"mandatory": true,
 		"image": {
 			"imageUrl": "https://docs.astro.build/assets/full-logo-light.png",
-			"alt": "Prima pagină din Resilient Web Design"
+			"imageAlt": "Prima pagină din Resilient Web Design"
 		},
 		"tags": [
 			"carte",

@@ -1,7 +1,10 @@
 ---
+import { getCollection } from 'astro:content';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 
-const activePage = Astro.request.url;
+const allSections = await getCollection('sections');
+const { template } = Astro.props;
+const activePage = Astro.url.pathname;
 ---
 
 <header class="Header">
@@ -66,36 +69,15 @@ const activePage = Astro.request.url;
 		</a>
 		<nav class="MainMenu">
 			<ul class="MainMenuList">
-				<li class={activePage.startsWith('/front-end') ? 'MainMenuItem Active' : 'MainMenuItem'}>
-					<a class="MainMenuLink" href="/front-end" title="Vezi exclusiv lista de resurse de Front End Development">
-						<span class="LinkText">Front End</span>
-					</a>
-				</li>
-				<li class={activePage.startsWith('/back-end') ? 'MainMenuItem Active' : 'MainMenuItem'}>
-					<a class="MainMenuLink" href="/back-end" title="Vezi exclusiv lista de resurse de Back End Development">
-						<span class="LinkText">Back End</span>
-					</a>
-				</li>
-				<li class={activePage.startsWith('/design') ? 'MainMenuItem Active' : 'MainMenuItem'}>
-					<a class="MainMenuLink" href="/design" title="Vezi exclusiv lista de resurse de Design">
-						<span class="LinkText">Design</span>
-					</a>
-				</li>
-				<li class={activePage.startsWith('/marketing') ? 'MainMenuItem Active' : 'MainMenuItem'}>
-					<a class="MainMenuLink" href="/marketing" title="Vezi exclusiv lista de resurse de Marketing">
-						<span class="LinkText">Marketing</span>
-					</a>
-				</li>
-				<li class={activePage.startsWith('/security') ? 'MainMenuItem Active' : 'MainMenuItem'}>
-					<a class="MainMenuLink" href="/security" title="Vezi exclusiv lista de resurse de Network &amp; Security">
-						<span class="LinkText">NetSec</span>
-					</a>
-				</li>
-				<li class={activePage.startsWith('/altele') ? 'MainMenuItem Active' : 'MainMenuItem'}>
-					<a class="MainMenuLink" href="/altele" title="Vezi exclusiv lista de resurse pe alte domenii">
-						<span class="LinkText">Altele</span>
-					</a>
-				</li>
+				{
+					allSections.map((section) => (
+						<li class={activePage.startsWith('/front-end') ? 'MainMenuItem Active' : 'MainMenuItem'}>
+							<a class="MainMenuLink" href=`/${section.slug}` title=`Vezi exclusiv lista de ${section.data.title}`>
+								<span class="LinkText">{section.data.menu}</span>
+							</a>
+						</li>
+					))
+				}
 			</ul>
 			<form class="SearchForm Form" action="/cauta" method="get">
 				<fieldset class="Fieldset">
@@ -107,7 +89,7 @@ const activePage = Astro.request.url;
 			</form>
 		</nav>
 	</div>
-	<Breadcrumbs />
+	<Breadcrumbs template={template} />
 </header>
 
 <script>

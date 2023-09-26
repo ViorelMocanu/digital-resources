@@ -1,10 +1,47 @@
 ---
+const { template } = Astro.props;
+import { getEntry } from 'astro:content';
+let { slug } = Astro.params;
+if (slug === undefined) {
+  slug = Astro.url.pathname;
+}
+
+let level,
+	section = {title: '', slug: ''},
+	category = {title: '', slug: ''},
+	resource = {title: '', slug: ''};
+switch ( template ) {
+	case 'ResourcePage':
+		level = 3;
+		section.title = "";
+		section.slug = "/";
+		category.title = "";
+		category.slug = "/";
+		resource.title = "";
+		resource.slug = "/";
+		break;
+	case 'CategoryPage':
+		level = 2;
+		section.title = "";
+		section.slug = "/";
+		category.title = "";
+		category.slug = "/";
+		break;
+	case 'SectionPage':
+		level = 1;
+		const currentSection = await getEntry('sections', slug);
+		section.title = currentSection?.data.menu;
+		section.slug = currentSection?.slug;
+		break;
+	default:
+		level = 0;
+}
 ---
 
 <nav class="Breadcrumbs">
 	<ol class="BreadcrumbList" itemscope itemtype="https://schema.org/BreadcrumbList">
 		<li class="BreadcrumbItem" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-			<a class="BreadcrumbLink" itemprop="item" href="https://example.com/books">
+			<a class="BreadcrumbLink" itemprop="item" href="/" title="Întoarce-te pe prima pagină a site-ului Resurse.dev">
 				<span class="DesktopOnlyBlock" itemprop="name">Prima pagină</span>
 				<icon class="Icon IconHome">
 					<span class="SROnly">🏠</span>
@@ -15,9 +52,23 @@
 			</a>
 			<meta itemprop="position" content="1" />
 		</li>
-		<li class="BreadcrumbItem" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-			<span class="LinkText" itemprop="name">Front End Development</span>
-			<meta itemprop="position" content="2" />
-		</li>
+		{level >= 1 && <li class="BreadcrumbItem" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+			<a class="BreadcrumbLink" itemprop="item" href=`/${section.slug}` title=`Mergi înapoi la pagina ${section.title}`>
+				<span class="LinkText" itemprop="name">{section.title}</span>
+				<meta itemprop="position" content="2" />
+			</a>
+		</li> }
+		{level >= 2 && <li class="BreadcrumbItem" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+			<a class="BreadcrumbLink" itemprop="item" href=`/${category.slug}` title=`Mergi înapoi la pagina ${category.title}`>
+				<span class="LinkText" itemprop="name">{category.title}</span>
+				<meta itemprop="position" content="3" />
+			</a>
+		</li> }
+		{level >= 3 && <li class="BreadcrumbItem" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+			<a class="BreadcrumbLink" itemprop="item" href=`/${resource.slug}` title=`Mergi înapoi la pagina ${resource.title}`>
+				<span class="LinkText" itemprop="name">{resource.title}</span>
+				<meta itemprop="position" content="4" />
+			</a>
+		</li> }
 	</ol>
 </nav>
