@@ -4,7 +4,7 @@ import { z, reference, defineCollection } from "astro:content";
 
 const resourceCollection = defineCollection({
 	type: 'data',
-	schema: z.array(
+	schema: ({ image }) => z.array(
 		z.object({
 			title: z.string(),
 			slug: z.string(),
@@ -24,8 +24,10 @@ const resourceCollection = defineCollection({
 			type: z.string(),
 			mandatory: z.boolean(),
 			image: z.object({
-			  imageUrl: z.string().url({ message: "URL invalid" }),
-			  imageAlt: z.string().optional(),
+				imageUrl: image().refine((img) => img.width >= 1200, {
+					message: "Imaginea trebuie să aibă minim 1200px lățime!",
+				}).optional(),
+				imageAlt: z.string().optional(),
 			}).nullable().optional(),
 			tags: z.array(reference('tags')),
 		})

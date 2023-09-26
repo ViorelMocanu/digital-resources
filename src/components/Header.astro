@@ -6,7 +6,7 @@ const activePage = Astro.request.url;
 
 <header class="Header">
 	<div class="HeaderMain">
-		<nav class="LanguagePicker">
+		<!--nav class="LanguagePicker">
 			<ul class="LanguagePickerList">
 				<li class="LanguagePickerItem Active" lang="ro">
 					<a class="LanguagePickerLink" href="#" title="Vezi acest website în limba Română">
@@ -43,7 +43,7 @@ const activePage = Astro.request.url;
 					</a>
 				</li>
 			</ul>
-		</nav>
+		</nav-->
 		<button class="MenuTrigger" type="button" id="menuTrigger">
 			<icon class="Icon IconHamburger">
 				<span class="HamburgerBar HamburgerBar1">&nbsp;</span>
@@ -114,7 +114,7 @@ const activePage = Astro.request.url;
 	const menuTrigger = document.getElementById('menuTrigger');
 	const body = document.body;
 	// la fiecare click pe butonul cu hamburger icon, adăugăm sau scoatem (deci facem toggle pe) clasa ActiveMenu în body, clasă care are niște CSS care afișează sau ascunde meniul mobil
-	menuTrigger.addEventListener('click', function (event) {
+	menuTrigger?.addEventListener('click', function (event) {
 		event.preventDefault();
 		body.classList.toggle('ActiveMenu');
 		return false;
@@ -122,13 +122,13 @@ const activePage = Astro.request.url;
 
 	const subnavTrigger = document.getElementById('subnavTrigger');
 	// la fiecare click pe butonul cu hamburger icon, adăugăm sau scoatem (deci facem toggle pe) clasa ActiveMenu în body, clasă care are niște CSS care afișează sau ascunde meniul mobil
-	subnavTrigger.addEventListener('click', function (event) {
+	subnavTrigger?.addEventListener('click', function (event) {
 		event.preventDefault();
 		body.classList.toggle('ActiveSubnav');
 		return false;
 	});
 	const closeSubnav = document.getElementById('closeSubnav');
-	closeSubnav.addEventListener('click', function (event) {
+	closeSubnav?.addEventListener('click', function (event) {
 		event.preventDefault();
 		body.classList.remove('ActiveSubnav');
 		return false;

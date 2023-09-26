@@ -12,8 +12,7 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 ---
 
-<Layout title={entry.title} template="ResourcePage">
-	<p class="TemporaryMessage">Template: <strong>Resource Page</strong></p>
+<Layout title={entry.title} description={entry.description} pubDate={entry.pubDate} addDate={entry.addDate} template="ResourcePage">
 	<div class="Hero" id="hero">
 		<div class="HeroVisual">
 			<img class="HeroImage" src={entry.image.imageUrl} width="287" height="120" alt={entry.image.alt} />
