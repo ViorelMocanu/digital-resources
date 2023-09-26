@@ -234,12 +234,12 @@ const resources = await getCollection('resources');
 			<h2 class="ResourceCategory">HTML (HyperText Markup Language)</h2>
 			<h3 class="ResourceSubcategory">Elemente de bază</h3>
 			<ol class="ResourceList">
-				{resources.map(resourceList => resourceList.data.map( resource => (
+				{resources.map(resource => (
 					<li class="ResourceItem">
 						<div class="ResourceName">
 							<button class="ResourceStatus" type="button">✅</button>
 							<h4 class="ResourceTitle">
-								{resource.slug && <a class="ResourceLink" href={`/resurse/${resource.slug}`} title={`Vizitează resursa intitulată: ${resource.title}`}>{resource.title}</a>}
+								{resource.slug && <a class="ResourceLink" href={`/resurse/${resource.slug}`} title={`Vizitează resursa intitulată: ${resource.data.title}`}>{resource.data.title}</a>}
 							</h4>
 						</div>
 						<div class="ResourceAside ResourceInfo">
@@ -255,7 +255,7 @@ const resources = await getCollection('resources');
 										</icon>
 										<span class="InfoItemText">Rating-ul link-ului</span>
 									</div>
-									<strong class="InfoItemValue">{resource.rating || "n/a"} (10)</strong>
+									<strong class="InfoItemValue">{resource.data.rating || "n/a"} (10)</strong>
 								</li>
 								<li class="InfoItem">
 									<div class="InfoItemLabel">
@@ -270,7 +270,7 @@ const resources = await getCollection('resources');
 									</div>
 									<strong class="InfoItemValue">7895</strong>
 								</li>
-								{resource.requiredTime &&
+								{resource.data.requiredTime &&
 									<li class="InfoItem">
 										<div class="InfoItemLabel">
 											<icon class="Icon IconTime">
@@ -281,7 +281,7 @@ const resources = await getCollection('resources');
 											</icon>
 											<span class="InfoItemText">Timp necesar</span>
 										</div>
-										<strong class="InfoItemValue">{resource.requiredTime}h</strong>
+										<strong class="InfoItemValue">{resource.data.requiredTime}h</strong>
 									</li>
 								}
 							</ul>
@@ -297,10 +297,10 @@ const resources = await getCollection('resources');
 								</icon>
 							</summary>
 							<div class="ResourceMainContent">
-								{resource.description && <p class="ResourceP">{resource.description}</p>}
-								{resource.tags && 
+								{resource.data.description && <p class="ResourceP">{resource.data.description}</p>}
+								{resource.data.tags && 
 									<ul class="ResourceTags">
-										{resource.tags.map(tag => (
+										{resource.data.tags.map(tag => (
 											<li class="ResourceTag">
 												<a class="ResourceTagLink" href="#" title=`Vezi toate resursele care sunt clasificate astfel: ${tag}`>
 													<span class="Icon IconTag">Tag:</span>
@@ -351,7 +351,7 @@ const resources = await getCollection('resources');
 							</ul>
 						</aside>
 					</li>
-				)))}
+				))}
 			</ol>
 			<nav class="Pagination">
 				<h3 class="PaginationTitle">Ești pe pagina <strong>5</strong> din <strong>25</strong>. Navighează către altă pagină:</h3>

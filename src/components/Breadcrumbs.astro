@@ -1,10 +1,8 @@
 ---
-const { template } = Astro.props;
 import { getEntry } from 'astro:content';
-let { slug } = Astro.params;
-if (slug === undefined) {
-  slug = Astro.url.pathname;
-}
+const { template } = Astro.props;
+const path = Astro.url.pathname;
+const slug = Astro.params.slug;
 
 let level,
 	section = {title: '', slug: ''},
@@ -17,8 +15,9 @@ switch ( template ) {
 		section.slug = "/";
 		category.title = "";
 		category.slug = "/";
-		resource.title = "";
-		resource.slug = "/";
+		const currentResource = await getEntry('resources', slug);
+		resource.title = currentResource?.data.title;
+		resource.slug = path;
 		break;
 	case 'CategoryPage':
 		level = 2;
@@ -29,7 +28,7 @@ switch ( template ) {
 		break;
 	case 'SectionPage':
 		level = 1;
-		const currentSection = await getEntry('sections', slug);
+		const currentSection = await getEntry('sections', path);
 		section.title = currentSection?.data.menu;
 		section.slug = currentSection?.slug;
 		break;
@@ -65,7 +64,7 @@ switch ( template ) {
 			</a>
 		</li> }
 		{level >= 3 && <li class="BreadcrumbItem" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-			<a class="BreadcrumbLink" itemprop="item" href=`/${resource.slug}` title=`Mergi înapoi la pagina ${resource.title}`>
+			<a class="BreadcrumbLink" itemprop="item" href={resource.slug} title=`Mergi înapoi la pagina ${resource.title}`>
 				<span class="LinkText" itemprop="name">{resource.title}</span>
 				<meta itemprop="position" content="4" />
 			</a>

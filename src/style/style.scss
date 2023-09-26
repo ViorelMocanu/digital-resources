@@ -356,17 +356,17 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 								.ResourceTagLink:hover { background: var(--dark-100); color: var(--accent-400); border: 1px solid var(--accent-400); }
 								.ResourceTagLink:active { background: var(--accent-400); color: var(--light-900); border: 1px solid var(--light-900); }
 									.ResourceTag .Icon { display: block; width: 0.75rem; height: 0.75rem; margin: 0.25rem 0; border-radius: 50%; background: var(--dark-400); text-indent: 100%; overflow: hidden; white-space: nowrap; }
-										.Type-Book .Icon { background: #F2C94C; }
-										.Type-Text .Icon { background: #e2b93C; }
-										.Type-Course .Icon {  }
-										.Type-Video .Icon {  }
-										.Price-Free .Icon { background: #219653; }
-										.Price-Paid .Icon {  }
-										.Level-Beginner .Icon { background: #6FCF97; }
-										.Level-Mid .Icon { background: #2D9CDB; }
-										.Level-Advanced .Icon { background: #BB6BD9; }
-										.Level-Pro .Icon { background: #EB5757; }
-										.Mandatory .Icon { background: #F2994A; }
+										.Tip-carte .Icon { background: #F2C94C; }
+										.Tip-text .Icon { background: #e2b93C; }
+										.Tip-course .Icon {  }
+										.Tip-video .Icon {  }
+										.Pret-free .Icon { background: #219653; }
+										.Pret-paid .Icon {  }
+										.Nivel-incepatori .Icon { background: #6FCF97; }
+										.Nivel-mid .Icon { background: #2D9CDB; }
+										.Nivel-avansati .Icon { background: #BB6BD9; }
+										.Nivel-pro .Icon { background: #EB5757; }
+										.Obligatoriu-obligatoriu .Icon { background: #F2994A; }
 									.TagName {  }
 
 

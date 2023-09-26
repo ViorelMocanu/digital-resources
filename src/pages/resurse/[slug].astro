@@ -1,43 +1,52 @@
 ---
-import { Image, imageConfig } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
-import { getEntry, getCollection } from 'astro:content';
+import { getCollection } from 'astro:content';
+// 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
-	const resources = await getCollection('resources');
-	return resources.flatMap(entryList => entryList.data.map( entry => ({
-		params: { slug: entry.slug },
-		props: { entry },
-	})));
+	const blogEntries = await getCollection('resources');
+	return blogEntries.map(entry => ({
+		params: { slug: entry.slug }, props: { entry },
+	}));
 }
+// 2. For your template, you can get the entry directly from the prop
 const { entry } = Astro.props;
----
+const { Content, headings } = await entry.render();
 
+let tags = [];
+const allTags = await getCollection('tags');
+entry.data.tags.map(tag => {
+	const currentTag = allTags.find((t) => t.slug == tag.slug);
+	tags.push({title: currentTag?.data.title, slug: tag.slug, type: currentTag?.data.type});
+})
+---
+{JSON.stringify(entry)}
 <Layout title={entry.title} description={entry.description} pubDate={entry.pubDate} addDate={entry.addDate} template="ResourcePage">
 	<div class="Hero" id="hero">
 		<div class="HeroVisual">
-			<img class="HeroImage" src={entry.image.imageUrl} width="287" height="120" alt={entry.image.alt} />
+			<img class="HeroImage" src={entry.data.image.imageUrl} width="287" height="120" alt={entry.data.image.alt} />
 		</div>
 		<div class="HeroText">
-			<h1 class="HeroTitle">{entry.title}</h1>
-			<p>Url: {entry.url}</p>
-			<p>language: {entry.language}</p>
-			<p>pubDate: {entry.pubDate}</p>
-			<p>addDate: {entry.addDate}</p>
-			<p>section: {entry.section}</p>
-			<p>category: {entry.category}</p>
-			<p>Autor: <a href={entry.authorUrl} title="Vizitează site-ul autorului">{entry.authorName}</a></p>
-			<p>rating: {entry.rating}</p>
-			<p>price: {entry.price}</p>
-			<p>requiredTime: {entry.requiredTime}</p>
-			<p>type: {entry.type}</p>
-			<p>mandatory: {entry.mandatory}</p>
-			{entry.tags && 
+			<h1 class="HeroTitle">{entry.data.title}</h1>
+			<p>Url: {entry.data.url}</p>
+			<p>language: {entry.data.language}</p>
+			<p>pubDate: {entry.data.pubDate}</p>
+			<p>addDate: {entry.data.addDate}</p>
+			<p>section: {entry.data.section}</p>
+			<p>category: {entry.data.category}</p>
+			<p>Autor: <a href={entry.data.authorUrl} title="Vizitează site-ul autorului">{entry.authorName}</a></p>
+			<p>rating: {entry.data.rating}</p>
+			<p>price: {entry.data.price}</p>
+			<p>requiredTime: {entry.data.requiredTime}</p>
+			<p>type: {entry.data.type}</p>
+			<p>mandatory: {entry.data.mandatory}</p>
+			<p>description: {entry.data.description}</p>
+			{entry.data.tags && 
 				<ul class="ResourceTags">
-					{entry.tags.map(tag => (
+					{tags.map(tag => (
 						<li class="ResourceTag">
-							<a class="ResourceTagLink" href="#" title=`Vezi toate resursele care sunt clasificate astfel: ${tag}`>
+							<a class=`ResourceTagLink ${tag.type}-${tag.slug}` href=`/tags/${tag.slug}` title=`Vezi toate resursele care sunt clasificate astfel: ${tag.title}`>
 								<span class="Icon IconTag">Tag:</span>
-								<span class="TagName">{tag}</span>
+								<span class="TagName">{tag.title}</span>
 							</a>
 						</li>
 					))}
@@ -47,7 +56,8 @@ const { entry } = Astro.props;
 	</div>
 	<main class="Main">
 		<section>
-			<p>{entry.description}</p>
+			<Content />
+			{JSON.stringify(headings)}
 		</section>
 		<section class="Comments">
 			<h2 class="CommentTitle">Discută cu comunitatea:</h2>
