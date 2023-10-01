@@ -36,6 +36,7 @@ List of interesting integrations to consider:
 - `astro-seo-schema`
 - `@astrojs/vercel` or `@astrojs/netlify` or `@astrojs/cloudflare` or `@astrojs/deno` for deployment
 - `astro-icon` test out
+- `@sendgrid` for emailing?
 - <del>`@astrojs/image` but may not work on Netlify/Vercel/Deno</del> <ins>Astro 3.0 uses `astro:assets`</ins> <https://www.youtube.com/watch?v=vekQmqRXeDg>
 - `accessible-astro-components` just to steal code from
 - `@astrojs/tailwind` + `tailwindcss` (optional)

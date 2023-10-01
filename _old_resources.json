@@ -1,5 +1,6 @@
 [
 	{
+		"id": "resilient-web-design",
 		"title": "Resilient Web Design",
 		"slug": "resilient-web-design",
 		"url": "https://resilientwebdesign.com/",
@@ -34,6 +35,7 @@
 		]
 	},
 	{
+		"id": "how-does-the-web-work",
 		"title": "How does the Web work?",
 		"slug": "how-does-the-web-work",
 		"url": "https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/how-does-the-web-work",

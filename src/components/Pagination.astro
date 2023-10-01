@@ -1,0 +1,68 @@
+---
+export interface Props {
+	currentPage: number;
+	lastPage: number;
+	next: string | undefined;
+	prev: string | undefined;
+}
+
+const { currentPage, lastPage, next, prev } = Astro.props;
+---
+
+<nav class="Pagination">
+	<h3 class="PaginationTitle">Ești pe pagina <strong>{currentPage}</strong> din <strong>{lastPage}</strong>.
+		{lastPage > 1 && <span>Navighează către altă pagină:</span>}
+	</h3>
+	{lastPage > 1 && (
+		<ol class="PaginationList">
+			{currentPage > 1 && (
+				<li class="PaginationItem PaginationPrevious">
+					<a class="PaginationLink" href={prev} title="@TODO">&laquo; Pagina Precedentă</a>
+				</li>
+			)}
+			{
+				/*
+				@TODO: full pagination display
+				<li class="PaginationItem">
+					<a class="PaginationLink" href="#" title="@TODO">1</a>
+				</li>
+				<li class="PaginationItem">
+					<a class="PaginationLink" href="#" title="@TODO">2</a>
+				</li>
+				<li class="PaginationItem">
+					<a class="PaginationLink" href="#" title="@TODO">3</a>
+				</li>
+				<li class="PaginationItem PaginationSpacer">
+					<span class="SpacerSymbol">&hellip;</span>
+				</li>
+				<li class="PaginationItem">
+					<a class="PaginationLink" href="#" title="@TODO">9</a>
+				</li>
+				<li class="PaginationItem PaginationCurrent">
+					<a class="PaginationLink" href="#" title="@TODO">10</a>
+				</li>
+				<li class="PaginationItem">
+					<a class="PaginationLink" href="#" title="@TODO">11</a>
+				</li>
+				<li class="PaginationItem PaginationSpacer">
+					<span class="SpacerSymbol">&hellip;</span>
+				</li>
+				<li class="PaginationItem">
+					<a class="PaginationLink" href="#" title="@TODO">18</a>
+				</li>
+				<li class="PaginationItem">
+					<a class="PaginationLink" href="#" title="@TODO">19</a>
+				</li>
+				<li class="PaginationItem">
+					<a class="PaginationLink" href="#" title="@TODO">20</a>
+				</li>
+				*/
+			}
+			{currentPage < lastPage && (
+				<li class="PaginationItem PaginationNext">
+					<a class="PaginationLink" href={next} title="@TODO">Pagina Următoare &raquo;</a>
+				</li>
+		)}
+	</ol>
+	)}
+</nav>

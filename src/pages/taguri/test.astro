@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro'
+const allTags = await getCollection('tags');
+---
+
+<Layout title="Tag-uri" description="@TODO: scrie descrierea" template="TagIndex">
+	<div class="Hero" id="hero">
+		<div class="HeroText">
+			<h1 class="HeroTitle">Tag-urile resurselor</h1>
+		</div>
+	</div>
+	<main class="Main">
+		@TODO: desenează layout în Figma pentru pagina asta
+		@TODO: Completează conținutul paginii curente
+		<ul>
+			{allTags.map((tag:any) => (
+				<li>
+					<a href=`/taguri/${tag.slug}`>{tag.data.title}</a>
+				</li>
+			))}
+		</ul>
+	</main>
+</Layout>

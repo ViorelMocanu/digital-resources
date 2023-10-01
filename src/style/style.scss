@@ -36,7 +36,7 @@ body { background: var(--dark-100); color: var(--light-800); margin: 0; }
 .ActiveMenu, .ActiveSubnav { overflow: hidden;
 	@media (min-width: $desktop) { overflow: unset; }
 }
-img { max-width: 100%; border-style: none; } // max-inline-size: 100%; block-size: auto;
+img { max-width: 100%; height: auto; border-style: none; } // max-inline-size: 100%; block-size: auto;
 table { border-collapse: collapse; }
 textarea { white-space: revert; }
 abbr[title] { border-bottom: none;  text-decoration: underline;  text-decoration: underline dotted; }
@@ -70,7 +70,7 @@ a#skip { @extend .SROnly; }
 a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; height: auto; }
 .Icon { display: inline-block; width: 1.5rem; height: 1.5rem; overflow: hidden; }
 
-.TemporaryMessage { background: magenta; color: black; }
+.TemporaryMessage { display: block; margin: 0; position: fixed; bottom: 0; left: 0; right: 0; background: magenta; color: black; z-index: 9999; }
 
 /* Structural classes */
 .Framework {
@@ -120,22 +120,33 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 			.HeaderLink { display: flex; flex-direction: row; align-items: center; gap: 0.25rem; padding: 0.75rem; margin-left: auto; background: transparent; border: none; text-decoration: none;
 				@media (min-width: $desktop) { order: 3; padding: 1.125rem 1rem; margin-left: unset; }
 			}
+			.HeaderLink.Login {
+				@media (min-width: $desktop) { margin-left: auto; }
+			}
 				.HeaderLink .Icon { display: block; width: 1.5rem; height: 1.5rem; }
 				.HeaderLink .LinkText { font-size: 1rem; line-height: 1.5em; }
 			.Login {  }
-			.MainMenu { width: 100%; height: calc(100vh - 5.75rem); overflow-y: auto; transform: translate3d(-100%, 0, 0); transition: transform 0.5s ease-in-out; background: var(--dark-100); border-top: 0.25rem solid var(--accent-400); font-size: 1rem; line-height: 1.5em; position: absolute; top: 5.75rem; box-sizing: border-box;
+			.MainMenu { width: 100%; height: calc(100vh - 2.75rem); overflow-y: auto; transform: translate3d(-100%, 0, 0); transition: transform 0.5s ease-in-out; background: var(--dark-100); border-top: 0.25rem solid var(--accent-400); font-size: 1rem; line-height: 1.5em; position: absolute; top: 2.75rem; box-sizing: border-box;
 				@media (min-width: $desktop) { display: flex; flex-direction: row; order: 4; grid-column: 1 / span 3; width: 100%; height: unset; padding: 0; margin-left: auto; overflow: visible; position: static; top: unset; left: unset; transform: none; transition: none; background: transparent; border-top: 1px solid var(--light-900); }
 			}
 			.ActiveMenu .MainMenu { transform: translate3d(0, 0, 0); }
 				.MainMenuList { display: flex; flex-direction: column; list-style-type: none; margin: 0; padding: 0;
 					@media (min-width: $desktop) { flex-direction: row; }
+					@media (min-width: 1400px) { flex-grow: 1; }
 				}
-					.MainMenuItem { display: block; }
+					.MainMenuItem { display: block;
+						@media (min-width: 1400px) { width: 16.6666%; }
+						@media (min-width: 2200px) { width: 14.2857%; }
+					}
 						.MainMenuLink { display: block; padding: 1rem; border-bottom: 1px solid var(--accent-400); font-weight: bold; text-decoration: none; font-size: 1.5rem; line-height: 1em;
 							@media (min-width: $desktop) { border: none; }
+							@media (min-width: 1400px) { text-align: center; }
 						}
+						.Active > .MainMenuLink { background: var(--accent-400); color: var(--light-900); }
 				.SearchForm {
 					@media (min-width: $desktop) { flex-grow: 1; }
+					@media (min-width: 1400px) { flex-grow: 0; width: 25%; }
+					@media (min-width: 2200px) { width: 12.5%; }
 				}
 					.SearchForm .Fieldset {
 						@media (min-width: $desktop) { display: flex; flex-direction: row; justify-content: flex-end; }
@@ -145,8 +156,9 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 						}
 						.InputSearch { margin: 0.5rem 1rem 1rem; width: calc(100% - 2rem);
 							@media (min-width: $desktop) { width: 100%; max-width: 22rem; margin: 0; padding: 1rem; text-align: right; }
+							@media (min-width: 1400px) { max-width: unset; }
 						}
-		.Breadcrumbs { padding: 0 0.5rem; margin-top: 6rem; border-bottom: 1px solid var(--light-900);
+		.Breadcrumbs { padding: 0 0.5rem; margin-top: 3rem; border-bottom: 1px solid var(--light-900);
 			@media (min-width: $desktop) { padding: 0 1rem; margin-top: 0; }
 		}
 			.BreadcrumbList { display: flex; flex-direction: row; gap: 0.5rem; margin: 0; padding: 0; list-style-type: none; overflow-x: auto; }
@@ -167,7 +179,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 		@media (min-width: $desktop) { max-width: unset; margin: unset; flex-direction: row; gap: 0; padding: 0; }
 	}
 		.HeroVisual {
-			@media (min-width: $desktop) { flex-grow: 1; flex-shrink: 0; width: 37.5%; padding: 2rem; box-sizing: border-box; border-right: 1px solid var(--light-900); }
+			@media (min-width: $desktop) { flex-grow: 0; flex-shrink: 0; width: 37.5%; padding: 2rem; box-sizing: border-box; border-right: 1px solid var(--light-900); }
 		}
 			.HeroImage { display: block; width: 100%; height: auto; }
 		.HeroText {
@@ -190,11 +202,12 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 					.HeroPreview:active .HeroExpand { color: var(--light-800); text-decoration: none; }
 				.HeroContent {  }
 					.HeroContent .HeroP {  }
-	.Main { display: block; margin: 1rem; border: 1px solid var(--light-900);
+	.Main { display: block; margin: 1rem; border: 1px solid var(--light-900); }
+	.SectionPage .Main {
 		@media (min-width: $desktop) { display: grid; grid-template-columns: 3fr 1fr; }
 	}
 		.SortAndFilter { display: flex; flex-direction: column; position: sticky; z-index: 4; top: 6rem; transition: top 0.25s ease-in;
-			@media (min-width: $desktop) { display: grid; grid-template-columns: 2fr 1fr; grid-row: 1 / span 1; grid-column: 1 / span 1; top: 10.6875rem; border-right: 1px solid var(--light-900); }
+			@media (min-width: $desktop) { display: grid; grid-template-columns: 2fr 1fr; grid-row: 1 / span 1; grid-column: 1 / span 1; height: 2.5rem; top: 10.6875rem; border-right: 1px solid var(--light-900); }
 		}
 		.ScrollDown .SortAndFilter { top: 0; }
 			.SortAndFilter .Fieldset { display: flex; flex-direction: row; min-inline-size: unset; position: relative; border-bottom: 1px solid var(--dark-100); }
@@ -351,17 +364,17 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 								.ResourceTagLink:hover { background: var(--dark-100); color: var(--accent-400); border: 1px solid var(--accent-400); }
 								.ResourceTagLink:active { background: var(--accent-400); color: var(--light-900); border: 1px solid var(--light-900); }
 									.ResourceTag .Icon { display: block; width: 0.75rem; height: 0.75rem; margin: 0.25rem 0; border-radius: 50%; background: var(--dark-400); text-indent: 100%; overflow: hidden; white-space: nowrap; }
-										.Type-Book .Icon { background: #F2C94C; }
-										.Type-Text .Icon { background: #e2b93C; }
-										.Type-Course .Icon {  }
-										.Type-Video .Icon {  }
-										.Price-Free .Icon { background: #219653; }
-										.Price-Paid .Icon {  }
-										.Level-Beginner .Icon { background: #6FCF97; }
-										.Level-Mid .Icon { background: #2D9CDB; }
-										.Level-Advanced .Icon { background: #BB6BD9; }
-										.Level-Pro .Icon { background: #EB5757; }
-										.Mandatory .Icon { background: #F2994A; }
+										.Tip-carte .Icon { background: #F2C94C; }
+										.Tip-text .Icon { background: #e2b93C; }
+										.Tip-curs .Icon { background: #ff0; }
+										.Tip-video .Icon {  }
+										.Pret-free .Icon { background: #219653; }
+										.Pret-platit .Icon {  }
+										.Nivel-incepatori .Icon { background: #6FCF97; }
+										.Nivel-mid .Icon { background: #2D9CDB; }
+										.Nivel-avansati .Icon { background: #BB6BD9; }
+										.Nivel-pro .Icon { background: #EB5757; }
+										.Obligatoriu-obligatoriu .Icon { background: #F2994A; }
 									.TagName {  }
 
 
@@ -489,3 +502,4 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 		}
 			.FooterItem {  }
 				.FooterLink { display: block; }
+				.Active > .FooterLink { color: var(--accent-400); }

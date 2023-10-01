@@ -1,16 +1,4 @@
 const body = document.body;
-const filterOptions = document.getElementsByClassName('FilterOptions');
-// Parcurgem fiecare buton cu clasa FilterOptions și adăugăm pe el un eveniment de click.
-for (let i = 0; i < filterOptions.length; i++) {
-	filterOptions[i].addEventListener('click', function (event) {
-		// La fiecare click, vedem dacă există butoane care au deja proprietatea `open`.
-		const alreadyOpen = document.querySelector('.FilterOptions[open]');
-		// Dacă se găsesc astfel de butoane și ele sunt diferite de cel pe care am dat click acum, trebuie scos atributul `open` de pe ele ca să nu se suprapună.
-		if (alreadyOpen !== null && alreadyOpen != filterOptions[i])
-			alreadyOpen.removeAttribute('open');
-		return true;
-	});
-}
 
 // definim media query-ul care delimitează rezoluția deasupra căreia vrem să afișăm detaliile fără collapse/expand
 const mql = window.matchMedia("(min-width: 750px)");
@@ -20,6 +8,12 @@ mql.addEventListener("change", (event) => {
 	// rulăm funcția care schimbă atributele de open când se schimbă valoarea de adevăr a match-ului de media query
 	showFullProducts(event.matches);
 });
+/* @TODO: fix content flicker issues on <details>
+window.addEventListener("pushstate", (event) => {
+	alert('111');
+	showFullProducts(mql.matches);
+});
+*/
 function showFullProducts(isDesktop) {
 	const resources = document.getElementsByClassName('ResourceMain');
 	// dacă booleanul e truthish

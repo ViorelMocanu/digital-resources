@@ -1,0 +1,24 @@
+---
+// based on https://github.com/onwidget/astrolib/blob/main/packages/analytics/src/GoogleAnalytics.astro
+
+export interface Props {
+	id: string;
+	partytown?: boolean;
+}
+
+const { id = "GA_MEASUREMENT_ID", partytown = false } = Astro.props as Props;
+
+const attrs = partytown ? { type: "text/partytown" } : {};
+---
+
+{/* <ShowIf id={id}> */}
+<script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${id}`} {...attrs}></script>
+
+<script is:inline define:vars={{ id }} {...attrs}>
+	window.dataLayer = window.dataLayer || [];
+	function gtag() {
+		window.dataLayer.push(arguments);
+	}
+	gtag("js", new Date());
+	gtag("config", id);
+</script>
