@@ -19,6 +19,10 @@ Please delete options that are not relevant and tick with an `x` the one that is
 - [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
 - [ ] This change requires a documentation update
 
+# Changelog
+- List all (major) changes here if possible
+- 
+
 # Checklist
 
 - [ ] My code follows the style guidelines of this project
