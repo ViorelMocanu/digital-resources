@@ -1,20 +1,14 @@
 ---
-title: "Resurse de Front End Development"
-menu: "Front End"
-slug: front-end
-sortOrder: 0
+title: "Resurse de Networking & Cyber Security"
+menu: "NetSec"
+slug: security
+sortOrder: 4
 image:
-  imageUrl: "/src/img/hero-image.svg"
-  imageAlt: "Tehnologiile de bază ale Internetului: HTML, CSS și JavaScript"
+  imageUrl: "/src/img/security.svg"
+  imageAlt: "Resurse care țin de rețelistică și securitate cibernetică."
 shortDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
 categories:
-- introducere-in-front-end
-- unelte-utile-de-front-end
-- html
-- css
-- mobile-first-responsive-design
-- experienta-utilizatorului
-publishDate: 2023-09-24
+publishDate: 2023-09-30
 ---
 
 @TODO populează cu content

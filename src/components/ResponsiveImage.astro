@@ -17,8 +17,8 @@ let smallerHeight = image.width < width ? image.height : height;
 
 if (width > breakpoint) {
 	renderSmallImage = true;
-	smallerWidth = parseInt(breakpoint / 2).toString();
-	smallerHeight = parseInt((breakpoint * height) / (2 * width)).toString();
+	smallerWidth = parseInt(breakpoint / 2);
+	smallerHeight = parseInt((breakpoint * height) / (2 * width));
 }
 
 const avifImage = await getImage({

@@ -3,31 +3,32 @@ import '../style/style.scss';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import {ViewTransitions} from 'astro:transitions';
+import { ACCENT_COLOR, CONTACT_EMAIL, FACEBOOK_APP_ID, GLOBAL_PUB_DATE, LANGUAGE, LANGUAGE_EXTENDED, OG_IMAGE, OG_IMAGE_ALT, SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, TWITTER_CREATOR, TWITTER_SITE } from "../config";
 
 interface Props {
 	title: string;
 	description: string;
-	template: string;
+	ogImage?: string;
 	pubDate?: string;	// e.g. 2021-09-19T19:35:55+03:00
 	addDate?: string;	// e.g. 2021-09-19T19:35:55+03:00
 	canonical?: string;
+	template: string;
 }
 
-const { title = "Resurse.dev", description = "", pubDate, addDate, canonical = Astro.request.url, template } = Astro.props;
-const siteName = "resurse.dev";
-const contactEmail = "contact@resurse.dev";
-const language = "ro"; // 🛑 @TODO: multi-language support with i18n
-const languageExtended = "ro_RO";
-const facebookAppId = ""; // 🛑 @TODO: facebook app ID
-const twitterSite = ""; // 🛑 @TODO: twitter site
-const twitterCreator = ""; // 🛑 @TODO: twitter creator
-const accentColor = "#2f8ded";
-const ogImageAlt = ""; // 🛑 @TODO: OG Image ALT
+const {
+	title = SITE_TITLE,
+	description = SITE_DESCRIPTION,
+	ogImage = OG_IMAGE,
+	pubDate = GLOBAL_PUB_DATE,
+	addDate,
+	canonical = Astro.url,
+	template
+} = Astro.props;
 
 ---
 
 <!DOCTYPE html>
-<html lang={language}>
+<html lang={LANGUAGE}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -37,20 +38,23 @@ const ogImageAlt = ""; // 🛑 @TODO: OG Image ALT
 		<link rel="canonical" href={canonical} />
 		<meta name="description" content={description}>
 		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-		<meta name="og:site_name" content={siteName} />
-		<meta name="og:type" content="website" />
-		<meta name="og:locale" content={languageExtended} />
-		<meta name="og:image:width" content="1200" />
-		<meta name="og:image:height" content="630" />
-		<meta name="og:image:alt" content={ogImageAlt}>
-		<meta name="og:email" content={contactEmail} />
-		<meta name="article:publisher" content={siteName} />
-		<meta name="fb:app_id" content={facebookAppId} />
-		<meta name="twitter:site" content={twitterSite} />
-		<meta name="twitter:creator" content={twitterCreator} />
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="article:published_time" content={pubDate} />
-		<meta name="article:modified_time" content={addDate} />
+		<meta property="og:site_name" content={SITE_NAME} />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:locale" content={LANGUAGE_EXTENDED} />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content={OG_IMAGE_ALT}>
+		<meta property="og:email" content={CONTACT_EMAIL} />
+		<meta property="article:publisher" content={SITE_NAME} />
+		<meta property="fb:app_id" content={FACEBOOK_APP_ID} />
+		<meta property="twitter:site" content={TWITTER_SITE} />
+		<meta property="twitter:creator" content={TWITTER_CREATOR} />
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="article:published_time" content={pubDate} />
+		<meta property="article:modified_time" content={addDate} />
 		
 		<!-- @TODO: NICE: design-ul favicon-urilor și a identității site-ului -->
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -59,18 +63,19 @@ const ogImageAlt = ""; // 🛑 @TODO: OG Image ALT
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#00214d" />
-		<meta name="msapplication-TileColor" content={accentColor} />
+		<meta name="msapplication-TileColor" content={ACCENT_COLOR} />
 		<link rel="manifest" href="/site.webmanifest" />
-		<meta name="apple-mobile-web-app-title" content={`${siteName} - ${title}`} />
-		<meta name="application-name" content={siteName} />
+		<meta name="apple-mobile-web-app-title" content={`${SITE_NAME} - ${title}`} />
+		<meta name="application-name" content={SITE_NAME} />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="default" />
 		<meta name="mobile-web-app-capable" content="yes" />
 		<meta name="apple-touch-fullscreen" content="yes" />
-		<meta name="theme-color" content={accentColor} />
+		<meta name="theme-color" content={ACCENT_COLOR} />
+		<link rel="sitemap" href="/sitemap-index.xml" />
 		<link rel="preload" href="/font/atkinson-hyperlegible-regular.woff2" as="font" type="font/woff2" crossorigin />
 		<link rel="preload" href="/font/atkinson-hyperlegible-bold.woff2" as="font" type="font/woff2" crossorigin />
-		<meta name="generator" content={Astro.generator} />
+		<!--meta name="generator" content={Astro.generator} /-->
 		<ViewTransitions />
 	</head>
 	<body class={template}>

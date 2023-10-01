@@ -1,20 +1,15 @@
 ---
-title: "Resurse de Front End Development"
-menu: "Front End"
-slug: front-end
-sortOrder: 0
+title: "Resurse de Back End Development"
+menu: "Back End"
+slug: back-end
+sortOrder: 1
 image:
-  imageUrl: "/src/img/hero-image.svg"
-  imageAlt: "Tehnologiile de bază ale Internetului: HTML, CSS și JavaScript"
+  imageUrl: "/src/img/back-end.svg"
+  imageAlt: "Tehnologii de back end și programare: NodeJS, PHP, Python, Java, C, C++, C#, .NET, SQL, Ruby."
 shortDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
 categories:
-- introducere-in-front-end
-- unelte-utile-de-front-end
-- html
-- css
-- mobile-first-responsive-design
-- experienta-utilizatorului
-publishDate: 2023-09-24
+- introducere-in-back-end
+publishDate: 2023-09-30
 ---
 
 @TODO populează cu content

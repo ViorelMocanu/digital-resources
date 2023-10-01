@@ -6,7 +6,7 @@ export interface Props {
 	partytown?: boolean;
 }
 
-const { id = "GA_MEASUREMENT_ID", partytown = false } = Astro.props;
+const { id = "GA_MEASUREMENT_ID", partytown = false } = Astro.props as Props;
 
 const attrs = partytown ? { type: "text/partytown" } : {};
 ---

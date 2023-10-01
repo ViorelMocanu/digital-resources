@@ -2,6 +2,7 @@
 
 # build output
 dist/
+.cache
 
 # generated types
 .astro/
@@ -17,7 +18,11 @@ pnpm-debug.log*
 
 # environment variables
 .env
-.env.production
+.env*
 
 # macOS-specific files
 .DS_Store
+
+# Local Netlify folder
+.netlify
+lambda

@@ -3,8 +3,9 @@
 
 export interface Props {
 	id: string;
+	partytown?: boolean;
 }
-const { id } = Astro.props;
+const { id, partytown = false } = Astro.props as Props;
 
 async function fetchTweet(id: string) {
 	try {
@@ -27,11 +28,13 @@ async function fetchTweet(id: string) {
 }
 
 const tweet = await fetchTweet(id);
+
+const attrs = partytown ? { type: "text/partytown" } : {};
 ---
 
 {tweet && <astro-embed-tweet set:html={tweet.html} />}
 
-<script>
+<script {...attrs}>
 	type ElementList = ReturnType<typeof document.querySelectorAll>;
 
 	// Based on https://github.com/withastro/astro/blob/main/packages/astro/src/runtime/client/visible.ts

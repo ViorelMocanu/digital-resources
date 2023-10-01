@@ -13,7 +13,7 @@ const resourceCollection = defineCollection({
 		description: z.string(),
 		authorName: z.string().optional(),
 		authorUrl: z.string().url({ message: "URL invalid" }).optional(),
-		section: z.enum(["Front End", "Back End", "Design", "Marketing", "NetSec", "Altele"]),
+		section: reference('sections'),
 		categories: z.array(reference('categories')),
 		subcategories: z.array(reference('subcategories')).nullish(),
 		rating: z.number().min(1, "Rating-ul nu poate avea mai puțin de nota 1").max(100, "Rating-ul nu poate avea mai mult de nota 10").optional(),
@@ -57,7 +57,7 @@ const sectionCollection = defineCollection({
 		  imageAlt: z.string().optional(),
 		}).nullable().optional(),
 		shortDescription: z.string().max(165, { message: "Descrierea scurtă trebuie să fie de maxim 165 caractere" }),
-		categories: z.array(reference('categories')),
+		categories: z.array(reference('categories')).nullish(),
 		publishDate: z.date(),
 	}),
 })

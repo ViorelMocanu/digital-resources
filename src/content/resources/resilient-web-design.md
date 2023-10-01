@@ -7,9 +7,9 @@ addDate: "05 October 2011 14:48 UTC"
 description: "Una din cele mai bune cărți care descrie evoluția și progresul web development-ului de-a lungul anilor, și în care sunt explicate concepte de bază de la..."
 authorName: "Jeremy Keith"
 authorUrl: "https://adactio.com/"
-section: "Front End"
+section: "front-end"
 categories:
-- "introducere"
+- "introducere-in-front-end"
 rating: 100
 price: 0
 requiredTime: 20

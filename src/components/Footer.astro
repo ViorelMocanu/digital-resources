@@ -1,31 +1,29 @@
 ---
-const activePage = Astro.request.url;
+import { getCollection } from 'astro:content';
+import NewsletterSection from "../components/NewsletterSection.astro";
+const activePage = Astro.url.pathname;
+const currentYear = new Date().getFullYear();
+const yearPrint = currentYear > 2022 ? ` - ${currentYear} ` : "";
+const allSections = (await getCollection('sections', ({data}) => {
+	return data.sortOrder >= 0; // negative sort orders removes sections altogether
+})).sort((a, b) => a.data.sortOrder - b.data.sortOrder); // ordering by sortOrder asc
 ---
+
+<NewsletterSection />
 
 <footer class="Footer">
 	<div class="FooterMeta">
 		<a class="FooterHomepageLink" href="/" title="Mergi înapoi pe prima pagină a site-ului Resurse.dev">resurse.dev</a>
-		<p class="Copyright">Copyright &copy; 2023 <a href="https://www.viorelmocanu.ro/" title="Vezi site-ul personal al lui Viorel Mocanu">Viorel Mocanu</a> și <a href="https://discord.com/invite/UpnAutz" title="Vizitează comunitatea de Discord: Carieră în IT">comunitatea</a>.</p>
+		<p class="Copyright">Copyright &copy; 2023{yearPrint} <a href="https://www.viorelmocanu.ro/" title="Vezi site-ul personal al lui Viorel Mocanu">Viorel Mocanu</a> și <a href="https://discord.com/invite/UpnAutz" title="Vizitează comunitatea de Discord: Carieră în IT">comunitatea de Discord Carieră în IT</a>.</p>
 	</div>
 	<ul class="FooterList">
-		<li class={activePage.startsWith('/front-end') ? 'FooterItem Active' : 'FooterItem'}>
-			<a class="FooterLink" href="/front-end" title="Vezi exclusiv lista de resurse de Front End Development">Resurse de Front End</a>
-		</li>
-		<li class={activePage.startsWith('/back-end') ? 'FooterItem Active' : 'FooterItem'}>
-			<a class="FooterLink" href="/back-end" title="Vezi exclusiv lista de resurse de Back End Development">Resurse de Back End</a>
-		</li>
-		<li class={activePage.startsWith('/design') ? 'FooterItem Active' : 'FooterItem'}>
-			<a class="FooterLink" href="/design" title="Vezi exclusiv lista de resurse de Design">Resurse de Design</a>
-		</li>
-		<li class={activePage.startsWith('/marketing') ? 'FooterItem Active' : 'FooterItem'}>
-			<a class="FooterLink" href="/marketing" title="Vezi exclusiv lista de resurse de Marketing">Resurse de Marketing</a>
-		</li>
-		<li class={activePage.startsWith('/security') ? 'FooterItem Active' : 'FooterItem'}>
-			<a class="FooterLink" href="/security" title="Vezi exclusiv lista de resurse de Network &amp; Security">Resurse de NetSec</a>
-		</li>
-		<li class={activePage.startsWith('/altele') ? 'FooterItem Active' : 'FooterItem'}>
-			<a class="FooterLink" href="/altele" title="Vezi exclusiv lista de resurse pe alte domenii">Alte resurse</a>
-		</li>
+		{
+			allSections.map((section) => (
+				<li class={activePage.startsWith(`/${section.slug}`) ? 'FooterItem Active' : 'FooterItem'}>
+					<a class="FooterLink" href=`/${section.slug}` title=`Vezi exclusiv lista de ${section.data.title}`>{section.data.menu}</a>
+				</li>
+			))
+		}
 	</ul>
 	<ul class="FooterList">
 		<li class="FooterItem">

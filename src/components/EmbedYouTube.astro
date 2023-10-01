@@ -21,9 +21,10 @@ export interface Props extends astroHTML.JSX.HTMLAttributes {
 	poster?: string;
 	params?: string;
 	playlabel?: string;
+	partytown?: boolean;
 }
 
-const { id, poster, ...attrs } = Astro.props as Props;
+const { id, poster, partytown = false, ...attrs } = Astro.props as Props;
 
 const idRegExp = /^[A-Za-z0-9-_]+$/;
 
@@ -40,6 +41,12 @@ const posterURL = poster || `https://i.ytimg.com/vi/${videoid}/hqdefault.jpg`;
 
 <lite-youtube {videoid} {...attrs} style={`background-image: url('${posterURL}');`}></lite-youtube>
 
-<script>
-	import "lite-youtube-embed";
-</script>
+{partytown ? (
+	<script type="text/partytown">
+		import "lite-youtube-embed";
+	</script>
+) : (
+	<script>
+		import "lite-youtube-embed";
+	</script>
+)}

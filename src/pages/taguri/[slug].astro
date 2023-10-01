@@ -1,0 +1,36 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import ResourceList from '../../components/ResourceList.astro';
+
+export async function getStaticPaths() {
+	const tags = (await getCollection('tags', ({data}) => {
+		return true;
+	})).sort((a, b) => a.data.title - b.data.title); // ordering by sortOrder asc
+	return tags.map(tag => ({
+		params: { slug: tag.slug },
+		props: { tag }
+	}));
+}
+
+const { slug } = Astro.params;
+const { tag } = Astro.props;
+const { Content } = await tag.render();
+
+const resources = (await getCollection('resources', ({data}) => {
+	return data.tags.find((t) => t.slug == tag.slug);
+})).sort((a, b) => new Date(a.data.pubDate).valueOf() - new Date(b.data.pubDate).valueOf()); // ordering by sortOrder asc
+---
+<Layout title=`Tag: ${tag.data.title}` description="@TODO: scrie descrierea" template="TagIndex">
+	<div class="Hero" id="hero">
+		<div class="HeroText">
+			<h1 class="HeroTitle">Tag: {tag.data.title}</h1>
+		</div>
+	</div>
+	<main class="Main">
+		@TODO: desenează layout în Figma pentru pagina asta
+		@TODO: Completează conținutul paginii curente
+		<Content />
+		<ResourceList resources={resources} />
+	</main>
+</Layout>

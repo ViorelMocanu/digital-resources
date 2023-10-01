@@ -10,10 +10,12 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"@astro-community/astro-embed-youtube": "^0.4.1",
+		"@astrojs/partytown": "^2.0.0",
 		"@astrojs/prefetch": "^0.4.0",
+		"@astrojs/sitemap": "^3.0.0",
 		"astro": "^3.0.12",
 		"astro-webmanifest": "^1.0.0",
+		"lite-youtube-embed": "^0.2.0",
 		"sass": "^1.66.1",
 		"sharp": "^0.32.5"
 	},

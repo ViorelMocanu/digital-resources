@@ -1,14 +1,21 @@
 ---
+export interface Props {
+	template: string;
+}
+
 import { getEntry } from 'astro:content';
 const { template } = Astro.props;
 const path = Astro.url.pathname;
 const slug = Astro.params.slug;
+
+// @TODO: în loc să ne chinuim să facem toată logica aici, ar trebui ca fiecare pagină să paseze un array pe Layout cu structura breadcrumbs
 
 let level,
 	section = {title: '', slug: ''},
 	category = {title: '', slug: ''},
 	resource = {title: '', slug: ''};
 switch ( template ) {
+	// @TODO: fix this
 	case 'ResourcePage':
 		level = 3;
 		section.title = "";
