@@ -8,12 +8,10 @@ mql.addEventListener("change", (event) => {
 	// rulăm funcția care schimbă atributele de open când se schimbă valoarea de adevăr a match-ului de media query
 	showFullProducts(event.matches);
 });
-/* @TODO: fix content flicker issues on <details>
-window.addEventListener("pushstate", (event) => {
-	alert('111');
-	showFullProducts(mql.matches);
-});
-*/
+
+/* @TODO: fix content flicker issues on <details> */
+// history.addEventListener("popstate", (event) => { showFullProducts(mql.matches); });
+
 function showFullProducts(isDesktop) {
 	const resources = document.getElementsByClassName('ResourceMain');
 	// dacă booleanul e truthish

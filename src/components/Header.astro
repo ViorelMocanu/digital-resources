@@ -5,7 +5,6 @@ export interface Props {
 
 import { getCollection } from 'astro:content';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
-import LanguagePicker from '../components/LanguagePicker.astro';
 
 const allSections = (await getCollection('sections', ({data}) => {
 	return data.sortOrder >= 0; // negative sort orders removes sections altogether
@@ -17,7 +16,6 @@ const activePage = Astro.url.pathname;
 
 <header class="Header">
 	<div class="HeaderMain">
-		<LanguagePicker />
 		<button class="MenuTrigger" type="button" id="menuTrigger">
 			<icon class="Icon IconHamburger">
 				<span class="HamburgerBar HamburgerBar1">&nbsp;</span>

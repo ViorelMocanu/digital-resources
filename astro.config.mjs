@@ -3,6 +3,7 @@ import prefetch from "@astrojs/prefetch";
 import webmanifest from "astro-webmanifest";
 import partytown from "@astrojs/partytown";
 import sitemap from "@astrojs/sitemap";
+import { LANGUAGE_EXTENDED, SITE_DESCRIPTION, SITE_NAME, ACCENT_COLOR } from './src/config';
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,25 +14,22 @@ export default defineConfig({
 			intentSelector: ["a[href^='/resurse']", "a[href^='/front-end']"]
 		}),
 		webmanifest({
-			name: 'Resurse.dev',
-			short_name: 'Resurse.dev',
-			lang: 'ro-RO',
+			name: SITE_NAME,
+			short_name: SITE_NAME,
+			lang: LANGUAGE_EXTENDED,
 			dir: 'ltr',
 			icon: 'src/img/favicon.svg',
-			description: '@TODO',
+			description: SITE_DESCRIPTION,
 			start_url: '/',
-			theme_color: '#2f8ded',
-			background_color: '#2f8ded',
+			theme_color: ACCENT_COLOR,
+			background_color: ACCENT_COLOR,
 			display: 'standalone',
 			config: {
 				outfile: 'site.webmanifest',
 				createFavicon: true,
-				insertFaviconLinks: false,
-				// default - true
-				insertThemeColorMeta: false,
-				// default - true
-				insertManifestLink: false,
-				// default - true
+				insertFaviconLinks: false, // default - true
+				insertThemeColorMeta: false, // default - true
+				insertManifestLink: false, // default - true
 				crossOrigin: 'anonymus',
 				insertAppleTouchLinks: false,
 				iconPurpose: ['badge', 'maskable', 'monochrome']

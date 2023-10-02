@@ -3,18 +3,18 @@ import Layout from '../../layouts/Layout.astro';
 import ResourceFilter from '../../components/ResourceFilter.astro';
 import ResourceList from '../../components/ResourceList.astro';
 import ResourceTOC from '../../components/ResourceTOC.astro';
-import CommentList from '../../components/CommentList.astro';
 import { getCollection, getEntry } from 'astro:content';
 
 export async function getStaticPaths({ paginate }: any) {
-	const allCategories = (await getCollection('sections')).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
+	const allSections = (await getCollection('sections')).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
 	const resources = (await getCollection('resources', ({data}) => {
 		return data.section.slug == 'front-end'; // negative sort orders removes sections altogether
 	})).sort((a, b) => new Date(a.data.pubDate).valueOf() - new Date(b.data.pubDate).valueOf()); // ordering by sortOrder asc
 	
 	// return paginate(resources, {pageSize: 1});
 
-	return allCategories.flatMap( (category: any) => {
+	return allSections.flatMap( (category: any) => {
+		// @TODO: filter should return a boolean, not an array? - add .some
 		return paginate(resources.filter( (res:any) => (res.data.categories.filter( (cat: any) => cat.slug == category.slug )) ), {
 			params: { category: category.slug },
 			pageSize: 10
@@ -42,6 +42,7 @@ export async function getStaticPaths({ paginate }: any) {
 console.log(Astro.params, Astro.props);
 
 const { page } = Astro.props;
+console.log(page);
 const currentSection = Astro.url.pathname.split('/')[1];
 const section = await getEntry("sections", currentSection);
 const { Content } = await section.render();
@@ -69,6 +70,5 @@ const { Content } = await section.render();
 		<ResourceFilter />
 		<ResourceList resources={page.data} page={page} />
 		<ResourceTOC section={section} />
-		<CommentList />
 	</main>
 </Layout>

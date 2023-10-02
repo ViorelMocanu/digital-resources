@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import NewsletterSection from "../components/NewsletterSection.astro";
 const activePage = Astro.url.pathname;
 const currentYear = new Date().getFullYear();
-const yearPrint = currentYear > 2022 ? ` - ${currentYear} ` : "";
+const yearPrint = currentYear > 2023 ? ` - ${currentYear} ` : " ";
 const allSections = (await getCollection('sections', ({data}) => {
 	return data.sortOrder >= 0; // negative sort orders removes sections altogether
 })).sort((a, b) => a.data.sortOrder - b.data.sortOrder); // ordering by sortOrder asc

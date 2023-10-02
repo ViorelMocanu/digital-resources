@@ -1,5 +1,7 @@
 import { type CollectionEntry, getCollection } from "astro:content";
 
+// @TODO: Vlad Lucaciu - In loc de n getter functions care sorteaza ceva, poate ar fi mai bine o functie generica cu niste parametrii (getSortedStuff(stuff, sortType)). Just my 2 cents code review
+
 export const getSortedSections = async (): Promise<CollectionEntry<"sections">[]> => {
 	return (await getCollection("sections")).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
 };

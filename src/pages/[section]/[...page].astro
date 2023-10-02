@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+export async function getStaticPaths({ paginate }) {
+	const allSections = ["front-end", "back-end", "marketing"];
+	// const allSections = (await getCollection('sections')).sort((a, b) => a.data.sortOrder - b.data.sortOrder).flatMap((section: any) => ( section.data.slug ));
+	
+	const resources = (await getCollection('resources', ({data}) => {
+		//return data.section.slug == 'front-end'; // negative sort orders removes sections altogether
+		return true
+	})).sort((a, b) => new Date(a.data.pubDate).valueOf() - new Date(b.data.pubDate).valueOf()); // ordering by sortOrder asc
+
+	// For every tag, return a paginate() result.
+	// Make sure that you pass `{params: {tag}}` to `paginate()`
+	// so that Astro knows which tag grouping the result is for.
+	return allSections.flatMap((section) => {
+		return paginate(resources, {
+			params: { section },
+			pageSize: 1,
+		});
+	});
+}
+const { page } = Astro.props;
+const params = Astro.params;
+---
+
+<pre>{JSON.stringify(page)}</pre>
+<hr />
+<pre>{JSON.stringify(params)}</pre>

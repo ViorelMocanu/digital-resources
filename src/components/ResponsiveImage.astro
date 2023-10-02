@@ -1,5 +1,9 @@
 ---
 // A responsive image component using a single breakpoint
+/*export interface Props {
+	// @TODO: build interface
+	section: Object;
+}*/
 import { Image, getImage } from 'astro:assets';
 const { image, alt, width, height, lazyLoading = true, className = "Picture", breakpoint = 850, ...attrs } = Astro.props;
 let src;

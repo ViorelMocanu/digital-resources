@@ -72,7 +72,7 @@ const categoryCollection = defineCollection({
 		  imageAlt: z.string().optional(),
 		}).nullable().optional(),
 		shortDescription: z.string().max(165, { message: "Descrierea scurtă trebuie să fie de maxim 165 caractere" }),
-		subcategories: z.array(reference('subcategories')).nullable().optional(),
+		subcategories: z.array(reference('subcategories')).nullable(),
 		publishDate: z.date(),
 	}),
 })
