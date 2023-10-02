@@ -1,6 +1,8 @@
 ---
+import { getEntry } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import { getEntries } from 'astro:content';
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
 	const blogEntries = await getCollection('resources');
@@ -12,15 +14,25 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content, headings } = await entry.render();
 
-let tags = [];
-const allTags = await getCollection('tags');
-entry.data.tags.map(tag => {
-	const currentTag = allTags.find((t) => t.slug == tag.slug);
-	tags.push({title: currentTag?.data.title, slug: tag.slug, type: currentTag?.data.type});
-})
+let resourceTags = new Array();
+if ( entry.data.tags ) {
+	const allTags = await getCollection('tags');
+	entry.data.tags.map((tag:any) => {
+		const currentTag = allTags.find((t) => t.slug == tag.slug);
+		resourceTags.push({title: currentTag?.data.title, slug: tag.slug, type: currentTag?.data.type});
+	});
+}
+
+const sectionSlug = entry.data.section.slug;
+const section = await getEntry('sections', sectionSlug);
+const resourceCategories = await getEntries(entry.data.categories);
+let resourceSubCategories = new Array();
+if ( entry.data.subcategories ) {
+	resourceSubCategories = await getEntries(entry.data.subcategories);
+}
 ---
-{JSON.stringify(entry)}
-<Layout title={entry.title} description={entry.description} pubDate={entry.pubDate} addDate={entry.addDate} template="ResourcePage">
+
+<Layout title={entry.title} description={entry.description} modDate={entry.modDate} addDate={entry.addDate} template="ResourcePage" activeMenu={sectionSlug}>
 	<div class="Hero" id="hero">
 		<div class="HeroVisual">
 			<img class="HeroImage" src={entry.data.image.imageUrl} width="287" height="120" alt={entry.data.image.alt} />
@@ -29,10 +41,22 @@ entry.data.tags.map(tag => {
 			<h1 class="HeroTitle">{entry.data.title}</h1>
 			<p>Url: {entry.data.url}</p>
 			<p>language: {entry.data.language}</p>
-			<p>pubDate: {entry.data.pubDate}</p>
+			<p>modDate: {entry.data.modDate}</p>
 			<p>addDate: {entry.data.addDate}</p>
-			<p>section: {entry.data.section}</p>
-			<p>category: {entry.data.category}</p>
+			<p>section: <a href=`/${section.slug}` title=`Vezi toate resursele din secțiunea ${section.data.title}`>{section.data.menu}</a></p>
+			{resourceCategories && (
+				<p>categories: {resourceCategories.map((category:any) => (
+					<a href=`/${section.slug}/${category.slug}` title=`Vezi toate resursele din categoria ${category.data.title}`>{category.data.title}</a>
+				))}</p>
+			)}
+			{resourceSubCategories.length > 0 && (
+				<p>
+					subcategories: {resourceCategories.map((category:any) => (resourceSubCategories.map((subcategory:any) => (
+					<a href=`/${section.slug}/${category.slug}/${subcategory.slug}` title=`Vezi toate resursele din subcategoria ${subcategory.data.title}`>{subcategory.data.title}</a>
+				))))}
+					<!-- @TODO: this seems wrong -->
+				</p>
+			)}
 			<p>Autor: <a href={entry.data.authorUrl} title="Vizitează site-ul autorului">{entry.authorName}</a></p>
 			<p>rating: {entry.data.rating}</p>
 			<p>price: {entry.data.price}</p>
@@ -42,7 +66,7 @@ entry.data.tags.map(tag => {
 			<p>description: {entry.data.description}</p>
 			{entry.data.tags && 
 				<ul class="ResourceTags">
-					{tags.map(tag => (
+					{resourceTags.map((tag:any) => (
 						<li class="ResourceTag">
 							<a class=`ResourceTagLink ${tag.type}-${tag.slug}` href=`/taguri/${tag.slug}` title=`Vezi toate resursele care sunt clasificate astfel: ${tag.title}`>
 								<span class="Icon IconTag">Tag:</span>
@@ -231,3 +255,5 @@ entry.data.tags.map(tag => {
 		</section>
 	</main>
 </Layout>
+
+{JSON.stringify(entry)}

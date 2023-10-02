@@ -1,28 +1,61 @@
 ---
-import { getCollection } from 'astro:content';
-export async function getStaticPaths({ paginate }) {
-	const allSections = ["front-end", "back-end", "marketing"];
-	// const allSections = (await getCollection('sections')).sort((a, b) => a.data.sortOrder - b.data.sortOrder).flatMap((section: any) => ( section.data.slug ));
-	
-	const resources = (await getCollection('resources', ({data}) => {
-		//return data.section.slug == 'front-end'; // negative sort orders removes sections altogether
-		return true
-	})).sort((a, b) => new Date(a.data.pubDate).valueOf() - new Date(b.data.pubDate).valueOf()); // ordering by sortOrder asc
+import { getCollection, getEntry } from 'astro:content';
 
-	// For every tag, return a paginate() result.
-	// Make sure that you pass `{params: {tag}}` to `paginate()`
-	// so that Astro knows which tag grouping the result is for.
-	return allSections.flatMap((section) => {
-		return paginate(resources, {
-			params: { section },
+import Layout from '../../layouts/Layout.astro';
+import ResourceFilter from '../../components/ResourceFilter.astro';
+import ResourceList from '../../components/ResourceList.astro';
+import ResourceTOC from '../../components/ResourceTOC.astro';
+
+export async function getStaticPaths({ paginate }) {
+
+	const allSections = (await getCollection('sections')).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
+	const allSectionsArray = allSections.flatMap((section: any) => ( section.slug ));
+	const allResources = (await getCollection('resources')).sort((a, b) => new Date(a.data.modDate).valueOf() - new Date(b.data.modDate).valueOf());
+
+	const finalPagination = allSectionsArray.flatMap((section) => {
+		const selectedResources = allResources.filter((res:any) => (res.data.section.slug == section));
+		return paginate(selectedResources, {
+			params: { section, category: undefined, subcategory: undefined },
 			pageSize: 1,
 		});
-	});
+	})
+
+	return finalPagination;
+	
 }
 const { page } = Astro.props;
 const params = Astro.params;
----
 
-<pre>{JSON.stringify(page)}</pre>
+const currentSection = params.section;
+const section = await getEntry("sections", currentSection);
+const { Content } = await section.render();
+
+---
+<Layout title={section.data.title} description={section.data.shortDescription} template="SectionPage" activeMenu={section.slug}>
+	<div class="Hero" id="hero">
+		<div class="HeroVisual">
+			<img class="HeroImage" src={section.data.image?.imageUrl} width="287" height="120" alt={section.data.image?.imageAlt} />
+		</div>
+		<div class="HeroText">
+			<h1 class="HeroTitle">{section.data.title}</h1>
+			<details class="HeroDetails">
+				<summary class="HeroPreview">
+					<p class="HeroP">{section.data.shortDescription}</p>
+					<p class="HeroP"><span class="HeroExpand Link" title=`Afișează întreg textul descriptiv pentru resursele de ${section.data.menu}`>Citește mai mult &raquo;</span></p>
+				</summary>
+				<div class="HeroContent">
+					<Content />
+				</div>
+			</details>
+		</div>
+	</div>
+	<main class="Main">
+		<ResourceFilter />
+		<ResourceList resources={page.data} page={page} />
+		<ResourceTOC section={section} />
+	</main>
+</Layout>
+
+{JSON.stringify(page)}
 <hr />
-<pre>{JSON.stringify(params)}</pre>
+{JSON.stringify(section)}

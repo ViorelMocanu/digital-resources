@@ -1,5 +1,5 @@
 ---
-title: "How does the Web work?"
+title: "front end html emmet"
 url: "https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/how-does-the-web-work"
 language: "en"
 modDate: "05 October 2011 14:48 UTC"
@@ -9,7 +9,9 @@ authorName: "The Odin Project"
 authorUrl: "https://www.theodinproject.com/"
 section: "front-end"
 categories:
-- "introducere-in-front-end"
+- "html"
+subcategories:
+- "emmet"
 rating: 100
 price: 0
 requiredTime: 20
@@ -20,7 +22,7 @@ image:
   imageAlt: "asdasdasdasdas"
 tags:
 - "curs"
-- "free"
+- "platit"
 - "incepatori"
 - "mid"
 - "avansati"

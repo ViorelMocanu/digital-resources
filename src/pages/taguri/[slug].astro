@@ -19,7 +19,7 @@ const { Content } = await tag.render();
 
 const resources = (await getCollection('resources', ({data}) => {
 	return data.tags.find((t) => t.slug == tag.slug);
-})).sort((a, b) => new Date(a.data.pubDate).valueOf() - new Date(b.data.pubDate).valueOf()); // ordering by sortOrder asc
+})).sort((a, b) => new Date(a.data.modDate).valueOf() - new Date(b.data.modDate).valueOf()); // ordering by sortOrder asc
 ---
 <Layout title=`Tag: ${tag.data.title}` description="@TODO: scrie descrierea" template="TagIndex">
 	<div class="Hero" id="hero">

@@ -9,20 +9,22 @@ interface Props {
 	title: string;
 	description: string;
 	ogImage?: string;
-	pubDate?: string;	// e.g. 2021-09-19T19:35:55+03:00
+	modDate?: string;	// e.g. 2021-09-19T19:35:55+03:00
 	addDate?: string;	// e.g. 2021-09-19T19:35:55+03:00
 	canonical?: string;
 	template: string;
+	activeMenu?: string;
 }
 
 const {
 	title = SITE_TITLE,
 	description = SITE_DESCRIPTION,
 	ogImage = OG_IMAGE,
-	pubDate = GLOBAL_PUB_DATE,
+	modDate = GLOBAL_PUB_DATE,
 	addDate,
 	canonical = Astro.url,
-	template
+	template,
+	activeMenu
 } = Astro.props;
 
 ---
@@ -53,8 +55,8 @@ const {
 		<meta property="twitter:site" content={TWITTER_SITE} />
 		<meta property="twitter:creator" content={TWITTER_CREATOR} />
 		<meta property="twitter:card" content="summary_large_image" />
-		<meta property="article:published_time" content={pubDate} />
-		<meta property="article:modified_time" content={addDate} />
+		<meta property="article:published_time" content={addDate} />
+		<meta property="article:modified_time" content={modDate} />
 		
 		<!-- @TODO: NICE: design-ul favicon-urilor și a identității site-ului -->
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -82,9 +84,9 @@ const {
 		<a id="skip" href="#hero" title="Mergi direct la conținutul acestei pagini">Mergi la conținut</a>
 		<div class="Framework">
 			<p class="TemporaryMessage">Template: <strong>{template}</strong></p>
-			<Header template={template} />
+			<Header template={template} activeMenu={activeMenu} />
 			<slot />
-			<Footer />
+			<Footer activeMenu={activeMenu} />
 		</div>
 		<script type="module">
 			import '/js/script.js';

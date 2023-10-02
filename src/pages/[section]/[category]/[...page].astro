@@ -1,0 +1,118 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+
+import Layout from '../../../layouts/Layout.astro';
+import ResourceFilter from '../../../components/ResourceFilter.astro';
+import ResourceList from '../../../components/ResourceList.astro';
+import ResourceTOC from '../../../components/ResourceTOC.astro';
+
+export async function getStaticPaths({ paginate }: any) {
+
+	const allSections = (await getCollection('sections')).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
+	const allSectionsArray = allSections.flatMap((section: any) => ( section.slug ));
+	const allCategories = (await getCollection('categories')).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
+	const allCategoriesArray = allCategories.flatMap((category: any) => ( category.slug ));
+	const allResources = (await getCollection('resources')).sort((a, b) => new Date(a.data.modDate).valueOf() - new Date(b.data.modDate).valueOf());
+
+	let finalPagination = new Array();
+	allSectionsArray.forEach((section) => {
+		const currentSection = allSections.find((sec:any) => (sec.slug == section));
+		if ( currentSection == null || currentSection.data.categories == null ) {
+			// nu se poate sa nu existe o sectiune definita
+			// console.warn('false', 'currentSection', currentSection?.id);
+		} else {
+			// există secțiunea
+			// căutăm categorii atașate secțiunii
+			const sectionCategories = currentSection.data.categories.flatMap((cat:any) => (cat.slug));
+			const selectedCategories = allCategoriesArray.filter((cat:any) => { return sectionCategories.includes(cat); });
+			if ( selectedCategories.length < 1 ) {
+				// secțiunea nu are categorii
+				// caz tratat în `/src/pages/[sections]/[...page].astro`
+				// console.warn('false', 'selectedCategories', selectedCategories);
+			} else {
+				// există cel puțin o categorie pe care o putem adăuga în lista paginilor
+				selectedCategories.forEach((category) => {
+					const selectedResources = allResources.filter((res:any) => {
+						const resourceCategories = res.data.categories.flatMap((cat:any) => cat.slug);
+						return res.data.section.slug == section && resourceCategories.includes(category);
+					});
+					if ( selectedResources.length < 1 ) {
+						// nu avem resurse atașate categoriei în general
+						// console.warn('false', 'selectedResources', selectedResources);
+						finalPagination.push({
+							params: {
+								section: section,
+								category: category,
+								subcategory: undefined,
+								page: undefined
+							},
+							props: { page: {
+								data: [],
+								start: 0,
+								end: -1,
+								size: 1,
+								total: 0,
+								currentPage: 1,
+								lastPage: 1,
+								url: {
+									current: `/${section}/${category}`
+								}
+							}}
+						});
+					} else {
+						// am găsit resurse atașate categoriei și paginăm ca atare
+						const p = paginate(selectedResources, {
+							params: {
+								section: section,
+								category: category,
+								subcategory: undefined,
+							},
+							pageSize: 1,
+						});
+						finalPagination.push(...p);
+					}
+				});
+			}
+		}
+	});
+
+	// For every tag, return a paginate() result.
+	// Make sure that you pass `{params: {tag}}` to `paginate()`
+	// so that Astro knows which tag grouping the result is for.
+	return finalPagination;
+}
+
+const { page } = Astro.props;
+const params = Astro.params;
+
+const currentSection = params.section;
+const section = await getEntry("sections", currentSection);
+const currentCategory = params.category;
+const category = await getEntry("categories", currentCategory);
+const { Content } = await category.render();
+
+---
+<Layout title={category.data.title} description={category.data.shortDescription} template="CategoryPage" activeMenu={section.slug}>
+	<div class="Hero" id="hero">
+		<div class="HeroVisual">
+			<img class="HeroImage" src={category.data.image?.imageUrl} width="287" height="120" alt={category.data.image?.imageAlt} />
+		</div>
+		<div class="HeroText">
+			<h1 class="HeroTitle">{category.data.title}</h1>
+			<details class="HeroDetails">
+				<summary class="HeroPreview">
+					<p class="HeroP">{category.data.shortDescription}</p>
+					<p class="HeroP"><span class="HeroExpand Link" title=`Afișează întreg textul descriptiv pentru resursele de ${category.data.title}`>Citește mai mult &raquo;</span></p>
+				</summary>
+				<div class="HeroContent">
+					<Content />
+				</div>
+			</details>
+		</div>
+	</div>
+	<main class="Main">
+		<ResourceFilter />
+		<ResourceList resources={page.data} page={page} />
+		<ResourceTOC section={section} />
+	</main>
+</Layout>

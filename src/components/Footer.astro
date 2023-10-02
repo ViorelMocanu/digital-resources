@@ -1,7 +1,14 @@
 ---
 import { getCollection } from 'astro:content';
+import { highlightUrl } from '../utils/urlHelpers'
 import NewsletterSection from "../components/NewsletterSection.astro";
-const activePage = Astro.url.pathname;
+
+export interface Props {
+	activeMenu?: string | undefined;
+}
+
+const { activeMenu } = Astro.props;
+const activePage = activeMenu || Astro.url.pathname.substring(1);
 const currentYear = new Date().getFullYear();
 const yearPrint = currentYear > 2023 ? ` - ${currentYear} ` : " ";
 const allSections = (await getCollection('sections', ({data}) => {
@@ -19,7 +26,7 @@ const allSections = (await getCollection('sections', ({data}) => {
 	<ul class="FooterList">
 		{
 			allSections.map((section) => (
-				<li class={activePage.startsWith(`/${section.slug}`) ? 'FooterItem Active' : 'FooterItem'}>
+				<li class={highlightUrl(section.slug, 'FooterItem', 'Active', activePage)}>
 					<a class="FooterLink" href=`/${section.slug}` title=`Vezi exclusiv lista de ${section.data.title}`>{section.data.menu}</a>
 				</li>
 			))

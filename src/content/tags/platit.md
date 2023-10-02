@@ -1,5 +1,5 @@
 ---
-title: "Free"
+title: "Plătit"
 type: "Pret"
 image:
 shortDescription: "@TODO: Descrierea scurtă trebuie să fie de maxim 165 caractere"

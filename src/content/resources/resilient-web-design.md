@@ -2,7 +2,7 @@
 title: "Resilient Web Design"
 url: "https://resilientwebdesign.com/"
 language: "en"
-pubDate: "05 October 2011 14:48 UTC"
+modDate: "05 October 2011 14:48 UTC"
 addDate: "05 October 2011 14:48 UTC"
 description: "Una din cele mai bune cărți care descrie evoluția și progresul web development-ului de-a lungul anilor, și în care sunt explicate concepte de bază de la..."
 authorName: "Jeremy Keith"
