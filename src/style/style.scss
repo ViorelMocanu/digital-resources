@@ -257,7 +257,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 				@media (min-width: $desktop) { filter: unset; }
 			}
 				.ResourceName { display: flex; flex-direction: row; gap: 0.25rem; flex-grow: 1; align-items: flex-start; padding: 0.5rem;
-					@media (min-width: 600px) { padding-left: 1rem; max-width: calc(100vw - 13rem); }
+					@media (min-width: 600px) { padding-left: 1rem; flex-grow: 1; max-width: calc(100vw - 13rem); }
 					@media (min-width: $desktop) { grid-column: 1 / span 1; grid-row: 1 / span 1; padding: 0; border-right: 1px solid var(--light-900); }
 				}
 					.ResourceStatus { display: block; margin: 0; padding: 0.25rem 0 0; appearance: none; background: transparent; border: none;
@@ -268,6 +268,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 							@media (min-width: $desktop) { padding: 1rem 1rem 0 0; font-size: 1.5rem; line-height: 1em; }
 						}
 				.ResourceAside { display: block;
+					@media (min-width: 600px) { flex-grow: 1; }
 					@media (min-width: $desktop) { grid-row: 1 / span 2; }
 				}
 				.ResourceInfo { display: block; border-top: 1px solid var(--dark-300); border-bottom: 1px solid var(--dark-300);
@@ -276,7 +277,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 					@media (min-width: $desktop) { padding: 1rem; border-right: 1px solid var(--light-900); }
 				}
 				.ResourceActions { display: none;
-					@media (min-width: 600px) { position: absolute; right: 0; top: 6rem; z-index: 2; }
+					@media (min-width: 600px) { position: absolute; right: 0; top: 0; z-index: 2; }
 					@media (min-width: 750px) { top: 4rem; }
 					@media (min-width: $desktop) { position: static; right: unset; top: unset; z-index: 0; }
 				}

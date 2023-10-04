@@ -1,7 +1,7 @@
 ---
 title: "Semantica"
 sortOrder: 5
-shortDescription : @TODO de scris descrierea
+shortDescription: TODO de scris descrierea
 ---
 
-Semantica
+@TODO: Semantica

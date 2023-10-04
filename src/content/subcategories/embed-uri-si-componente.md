@@ -1,7 +1,7 @@
 ---
 title: "Embed-uri și componente"
 sortOrder: 7
-shortDescription : @TODO de scris descrierea
+shortDescription : de scris descrierea
 ---
 
-Embed-uri și componente
+@TODO: Embed-uri și componente

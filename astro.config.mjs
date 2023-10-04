@@ -57,13 +57,6 @@ export default defineConfig({
 					en: 'en-US',
 				},
 			},
-		}), compress({
-			CSS: true,
-			HTML: true,
-			Image: false,
-			JavaScript: true,
-			SVG: false,
-			Logger: 2,
 		})
 	]
 });

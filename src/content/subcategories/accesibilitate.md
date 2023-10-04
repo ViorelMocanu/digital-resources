@@ -1,7 +1,7 @@
 ---
 title: "Accesibilitate"
 sortOrder: 9
-shortDescription : @TODO de scris descrierea
+shortDescription : de scris descrierea
 ---
 
-Accesibilitate
+@TODO: Accesibilitate

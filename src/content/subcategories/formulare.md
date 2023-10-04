@@ -1,7 +1,7 @@
 ---
 title: "Formulare"
 sortOrder: 3
-shortDescription : @TODO de scris descrierea
+shortDescription : de scris descrierea
 ---
 
-Formulare
+@TODO: Formulare
