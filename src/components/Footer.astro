@@ -27,7 +27,7 @@ const allSections = (await getCollection('sections', ({data}) => {
 		{
 			allSections.map((section) => (
 				<li class={highlightUrl(section.slug, 'FooterItem', 'Active', activePage)}>
-					<a class="FooterLink" href=`/${section.slug}` title=`Vezi exclusiv lista de ${section.data.title}`>{section.data.menu}</a>
+					<a class="FooterLink" href={`/${section.slug}`} title={`Vezi exclusiv lista de ${section.data.title}`}>{section.data.menu}</a>
 				</li>
 			))
 		}

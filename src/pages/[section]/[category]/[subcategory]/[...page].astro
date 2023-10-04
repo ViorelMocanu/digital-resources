@@ -14,7 +14,7 @@ export async function getStaticPaths({ paginate }: any) {
 	const allCategoriesArray = allCategories.flatMap((category: any) => ( category.slug ));
 	const allSubCategories = (await getCollection('subcategories')).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
 	const allSubCategoriesArray = allSubCategories.flatMap((subcategory: any) => ( subcategory.slug ));
-	const allResources = (await getCollection('resources')).sort((a, b) => new Date(a.data.modDate).valueOf() - new Date(b.data.modDate).valueOf());
+	const allResources = (await getCollection('resources')).sort((a, b) => new Date(a.data.modDate || "").valueOf() - new Date(b.data.modDate || "").valueOf());
 
 	let finalPagination = new Array();
 	allSectionsArray.forEach((section) => {
@@ -36,7 +36,7 @@ export async function getStaticPaths({ paginate }: any) {
 				selectedCategories.forEach((category) => {
 					// căutăm subcategorii atașate categoriei
 					const currentCategory = allCategories.find((cat:any) => (cat.slug == category));
-					if (currentCategory.data.subcategories == null) {
+					if (!currentCategory || currentCategory.data.subcategories == null) {
 						// nu avem subcategorii în categoria curentă
 						// console.warn('false', 'currentCategory', currentCategory?.id);
 					} else {
@@ -87,7 +87,7 @@ export async function getStaticPaths({ paginate }: any) {
 											category: category,
 											subcategory: subcategory
 										},
-										pageSize: 1,
+										pageSize: 2,
 									});
 									finalPagination.push(...p);
 								}
@@ -126,7 +126,7 @@ const { Content } = await category.render();
 			<details class="HeroDetails">
 				<summary class="HeroPreview">
 					<p class="HeroP">{subcategory.data.shortDescription}</p>
-					<p class="HeroP"><span class="HeroExpand Link" title=`Afișează întreg textul descriptiv pentru resursele de ${subcategory.data.title}`>Citește mai mult &raquo;</span></p>
+					<p class="HeroP"><span class="HeroExpand Link" title={`Afișează întreg textul descriptiv pentru resursele de ${subcategory.data.title}`}>Citește mai mult &raquo;</span></p>
 				</summary>
 				<div class="HeroContent">
 					<Content />

@@ -131,19 +131,19 @@ if ( resources ) {
 							</icon>
 						</summary>
 						<div class="ResourceMainContent">
-							<!-- @TODO: get section, category, subcategory data -->
+							<h1>@TODO: get section, category, subcategory data</h1>
 							{resource.data.section && <p class="ResourceP Classification">Secțiune:
-								<a class="ClassificationLink" href=`/${resource.data.section.slug}` title=`Vezi toate resursele din secțiunea ${resource.sectionData.data.title}`>{resource.sectionData.data.menu}</a>
+								<a class="ClassificationLink" href={`/${resource.data.section.slug}`} title={`Vezi toate resursele din secțiunea ${resource.sectionData.data.title}`}>{resource.sectionData.data.menu}</a>
 							</p>}
 							{resource.data.categories && <p class="ResourceP Classification">Categorii: {
 								resource.data.categories.map((cat:any) => (
-									<a class="ClassificationLink" href=`/${resource.data.section.slug}/${cat.slug}` title=`Vezi toate resursele din categoria ${cat.slug}`>{cat.slug}</a>
+									<a class="ClassificationLink" href={`/${resource.data.section.slug}/${cat.slug}`} title={`Vezi toate resursele din categoria ${cat.slug}`}>{cat.slug}</a>
 								))}
 							</p>}
 							{resource.data.subcategories && <p class="ResourceP Classification">Subcategorii: {
 								resource.data.categories.map((cat:any) => {
 									resource.data.subcategories.map((subcat:any) => (
-									<a class="ClassificationLink" href=/${resource.data.section.slug}/${cat.slug}/${subcat.slug}` title=`Vezi toate resursele din subcategoria ${subcat.slug}`>{subcat.slug}</a>
+									<a class="ClassificationLink" href={`/${resource.data.section.slug}/${cat.slug}/${subcat.slug}`} title={`Vezi toate resursele din subcategoria ${subcat.slug}`}>{subcat.slug}</a>
 								))})}
 							</p>}
 							{resource.data.description && <p class="ResourceP">{resource.data.description}</p>}
@@ -151,7 +151,7 @@ if ( resources ) {
 								<ul class="ResourceTags">
 									{resource.tagData.map((tag:any) => (
 										<li class="ResourceTag">
-											<a class=`ResourceTagLink ${tag.data.type}-${tag.slug}` href=`/taguri/${tag.slug}` title=`Vezi toate resursele care sunt clasificate astfel: ${tag.data.title}`>
+											<a class={`ResourceTagLink ${tag.data.type}-${tag.slug}`} href={`/taguri/${tag.slug}`} title={`Vezi toate resursele care sunt clasificate astfel: ${tag.data.title}`}>
 												<span class="Icon IconTag">Tag:</span>
 												<span class="TagName">{tag.data.title}</span>
 											</a>

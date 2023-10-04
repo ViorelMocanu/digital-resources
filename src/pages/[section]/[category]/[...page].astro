@@ -67,7 +67,7 @@ export async function getStaticPaths({ paginate }: any) {
 								category: category,
 								subcategory: undefined,
 							},
-							pageSize: 1,
+							pageSize: 2,
 						});
 						finalPagination.push(...p);
 					}
@@ -102,7 +102,7 @@ const { Content } = await category.render();
 			<details class="HeroDetails">
 				<summary class="HeroPreview">
 					<p class="HeroP">{category.data.shortDescription}</p>
-					<p class="HeroP"><span class="HeroExpand Link" title=`Afișează întreg textul descriptiv pentru resursele de ${category.data.title}`>Citește mai mult &raquo;</span></p>
+					<p class="HeroP"><span class="HeroExpand Link" title={`Afișează întreg textul descriptiv pentru resursele de ${category.data.title}`}>Citește mai mult &raquo;</span></p>
 				</summary>
 				<div class="HeroContent">
 					<Content />

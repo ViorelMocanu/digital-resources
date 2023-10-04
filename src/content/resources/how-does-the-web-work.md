@@ -4,7 +4,7 @@ url: "https://www.theodinproject.com/paths/foundations/courses/foundations/lesso
 language: "en"
 modDate: "05 October 2011 14:48 UTC"
 addDate: "05 October 2011 14:48 UTC"
-description: "asdasdsadasdadsa asdasd asdasdasdasd"
+description: "@TODO: asdasdsadasdadsa asdasd asdasdasdasd"
 authorName: "The Odin Project"
 authorUrl: "https://www.theodinproject.com/"
 section: "front-end"
@@ -17,15 +17,12 @@ type: "carte"
 mandatory: true
 image:
   imageUrl: "https://docs.astro.build/assets/full-logo-light.png"
-  imageAlt: "asdasdasdasdas"
+  imageAlt: "@TODO: asdasdasdasdas"
 tags:
 - "curs"
 - "free"
 - "incepatori"
-- "mid"
-- "avansati"
-- "pro"
 - "obligatoriu"
 ---
 
-Test 456 test content.
+@TODO: Test 456 test content.

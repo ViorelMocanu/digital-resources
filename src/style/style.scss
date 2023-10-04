@@ -251,7 +251,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 		}
 			.ResourceItem { display: block; border-bottom: 1px solid var(--light-900); transition: filter 0.5s ease-in;
 				@media (min-width: 600px) { display: flex; flex-direction: row; position: relative; flex-wrap: wrap; }
-				@media (min-width: $desktop) { display: grid; grid-template-columns: 4fr 1fr 1fr; grid-template-rows: 3rem 1fr; transition: unset; }
+				@media (min-width: $desktop) { display: grid; grid-template-columns: 4fr 1fr 1fr; grid-template-rows: min-content auto; transition: unset; }
 			}
 			.ActiveSubnav .ResourceItem { filter: blur(3px);
 				@media (min-width: $desktop) { filter: unset; }

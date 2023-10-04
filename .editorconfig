@@ -1,0 +1,32 @@
+# EditorConfig is awesome: https://EditorConfig.org
+# Additional properties: https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties
+
+# top-most EditorConfig file
+root = true
+
+[*]
+# Unix-style newlines with a newline ending every file
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+# Tab indentation (no size specified)
+indent_style = tab
+tab_width = 4
+# Disable maximum line length
+max_line_length = off
+quote_type = auto
+continuation_indent_size = 2
+
+[*.md]
+trim_trailing_whitespace = false
+
+# Set default charset
+[*.{ts,js,mjs,astro,scss,css,json,md,svg}] # Matches multiple files with brace expansion notation
+charset = utf-8
+
+# Denotes whether the left part of the curly bracket should be on the next line or not
+[*.{ts,js,mjs,astro,json}]
+curly_bracket_next_line = false
+spaces_around_operators = true
+spaces_around_brackets = inside
+indent_brace_style = K&R

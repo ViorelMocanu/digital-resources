@@ -38,12 +38,12 @@ if ( sectionCategories ) {
 		<ol class="ListNav" role="tree" aria-labelledby="treeTitle">
 			{categoryList.map((category:any) => (
 				<li class={activePage.startsWith(`/${section.slug}/${category.slug}`) ? 'ListNavItem ActiveListNav' : 'ListNavItem'} role="treeitem">
-					<a class="ListNavLink" href=`/${section.slug}/${category.slug}` title=`Vezi resursele din categoria ${category.data.title}`>{category.data.title}</a>
+					<a class="ListNavLink" href={`/${section.slug}/${category.slug}`} title={`Vezi resursele din categoria ${category.data.title}`}>{category.data.title}</a>
 					{category.data.subcategories && (
 						<ol class="ListSubNav" role="group">
 							{category.data.subcategoryData.map((subcategory:any) => (
 								<li class={activePage.startsWith(`/${section.slug}/${category.slug}/${subcategory.slug}`) ? 'ListSubNavItem ActiveListNav' : 'ListSubNavItem'} role="treeitem">
-									<a class="ListSubNavLink" href=`/${section.slug}/${category.slug}/${subcategory.slug}` title=`Vezi resursele din subcategoria ${subcategory.data.title}`>{subcategory.data.title}</a>
+									<a class="ListSubNavLink" href={`/${section.slug}/${category.slug}/${subcategory.slug}`} title={`Vezi resursele din subcategoria ${subcategory.data.title}`}>{subcategory.data.title}</a>
 								</li>
 							))}
 							<li class="ListSubNavItem ListSubNavClose">

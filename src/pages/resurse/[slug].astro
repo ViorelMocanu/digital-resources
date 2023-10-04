@@ -43,18 +43,18 @@ if ( entry.data.subcategories ) {
 			<p>language: {entry.data.language}</p>
 			<p>modDate: {entry.data.modDate}</p>
 			<p>addDate: {entry.data.addDate}</p>
-			<p>section: <a href=`/${section.slug}` title=`Vezi toate resursele din secțiunea ${section.data.title}`>{section.data.menu}</a></p>
+			<p>section: <a href={`/${section.slug}`} title={`Vezi toate resursele din secțiunea ${section.data.title}`}>{section.data.menu}</a></p>
 			{resourceCategories && (
 				<p>categories: {resourceCategories.map((category:any) => (
-					<a href=`/${section.slug}/${category.slug}` title=`Vezi toate resursele din categoria ${category.data.title}`>{category.data.title}</a>
+					<a href={`/${section.slug}/${category.slug}`} title={`Vezi toate resursele din categoria ${category.data.title}`}>{category.data.title}</a>
 				))}</p>
 			)}
 			{resourceSubCategories.length > 0 && (
 				<p>
 					subcategories: {resourceCategories.map((category:any) => (resourceSubCategories.map((subcategory:any) => (
-					<a href=`/${section.slug}/${category.slug}/${subcategory.slug}` title=`Vezi toate resursele din subcategoria ${subcategory.data.title}`>{subcategory.data.title}</a>
+					<a href={`/${section.slug}/${category.slug}/${subcategory.slug}`} title={`Vezi toate resursele din subcategoria ${subcategory.data.title}`}>{subcategory.data.title}</a>
 				))))}
-					<!-- @TODO: this seems wrong -->
+					<h1>@TODO: this seems wrong</h1>
 				</p>
 			)}
 			<p>Autor: <a href={entry.data.authorUrl} title="Vizitează site-ul autorului">{entry.authorName}</a></p>
@@ -68,7 +68,7 @@ if ( entry.data.subcategories ) {
 				<ul class="ResourceTags">
 					{resourceTags.map((tag:any) => (
 						<li class="ResourceTag">
-							<a class=`ResourceTagLink ${tag.type}-${tag.slug}` href=`/taguri/${tag.slug}` title=`Vezi toate resursele care sunt clasificate astfel: ${tag.title}`>
+							<a class={`ResourceTagLink ${tag.type}-${tag.slug}`} href={`/taguri/${tag.slug}`} title={`Vezi toate resursele care sunt clasificate astfel: ${tag.title}`}>
 								<span class="Icon IconTag">Tag:</span>
 								<span class="TagName">{tag.title}</span>
 							</a>

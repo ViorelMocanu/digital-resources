@@ -6,7 +6,7 @@ import ResourceFilter from '../../components/ResourceFilter.astro';
 import ResourceList from '../../components/ResourceList.astro';
 import ResourceTOC from '../../components/ResourceTOC.astro';
 
-export async function getStaticPaths({ paginate }) {
+export async function getStaticPaths({ paginate }: any) {
 
 	const allSections = (await getCollection('sections')).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
 	const allSectionsArray = allSections.flatMap((section: any) => ( section.slug ));
@@ -16,7 +16,7 @@ export async function getStaticPaths({ paginate }) {
 		const selectedResources = allResources.filter((res:any) => (res.data.section.slug == section));
 		return paginate(selectedResources, {
 			params: { section, category: undefined, subcategory: undefined },
-			pageSize: 1,
+			pageSize: 2,
 		});
 	})
 
@@ -41,7 +41,7 @@ const { Content } = await section.render();
 			<details class="HeroDetails">
 				<summary class="HeroPreview">
 					<p class="HeroP">{section.data.shortDescription}</p>
-					<p class="HeroP"><span class="HeroExpand Link" title=`Afișează întreg textul descriptiv pentru resursele de ${section.data.menu}`>Citește mai mult &raquo;</span></p>
+					<p class="HeroP"><span class="HeroExpand Link" title={`Afișează întreg textul descriptiv pentru resursele de ${section.data.menu}`}>Citește mai mult &raquo;</span></p>
 				</summary>
 				<div class="HeroContent">
 					<Content />

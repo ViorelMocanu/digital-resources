@@ -16,7 +16,7 @@ const allTags = await getCollection('tags');
 		<ul>
 			{allTags.map((tag:any) => (
 				<li>
-					<a href=`/taguri/${tag.slug}`>{tag.data.title}</a>
+					<a href={`/taguri/${tag.slug}`}>{tag.data.title}</a>
 				</li>
 			))}
 		</ul>

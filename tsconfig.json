@@ -12,9 +12,8 @@
 		"isolatedModules": true,
 		// Astro will directly run your TypeScript code, no transpilation needed.
 		"noEmit": true,
-		// Replace `astro/client` with `@astrojs/image/client`
 		"types": [
-			"@astrojs/client"
+			"astro/client"
 		],
 		"strictNullChecks": true,
 		"allowJs": true
