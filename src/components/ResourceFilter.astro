@@ -4,8 +4,8 @@
 <form class="SortAndFilter" action="#" method="get" aria-label="Filtrează resursele în contextul curent">
 	<fieldset class="Fieldset" role="search" aria-label="Caută resurse în contextul curent">
 		<legend class="SROnly">Caută prin lista de resurse curentă:</legend>
-		<label class="SROnly" for="inner-s">Introdu cuvintele căutate:</label>
-		<input type="search" class="Input InputSearch" id="inner-s" name="inner-s" maxlength="200" value="" placeholder="🔍 Caută prin Front End..." spellcheck="false" autocorrect="off" />
+		<label class="SROnly" id="innerSLabel" for="inner-s">Introdu cuvintele căutate:</label>
+		<input type="search" class="Input InputSearch" id="inner-s" name="inner-s" maxlength="200" value="" placeholder="🔍 Caută prin Front End..." spellcheck="false" autocorrect="off" aria-labelledby="innerSLabel" />
 	</fieldset>
 	<fieldset class="Fieldset ActionFieldset">
 		<legend class="SROnly">Sortează și filtrează lista de resurse:</legend>

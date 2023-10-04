@@ -36,7 +36,7 @@ const classes = `Button ${classStr || ""} ${colorClasses[type]}`;
 @TODO: use this
 {
 	!isLink && (
-		<button class={classes} onclick={handler} id={id || ""}>
+		<button class:list={classes} onclick={handler} id={id || ""}>
 			{text && text}
 			<slot />
 		</button>
@@ -44,7 +44,7 @@ const classes = `Button ${classStr || ""} ${colorClasses[type]}`;
 }
 {
 	isLink && download && (
-		<a href={href} class={classes} download>
+		<a href={href} class:list={classes} download>
 			{text && text}
 			<slot />
 		</a>
@@ -52,7 +52,7 @@ const classes = `Button ${classStr || ""} ${colorClasses[type]}`;
 }
 {
 	isLink && newTab && (
-		<a href={href} class={classes} rel="noopener noreferrer" target="_blank" id={id || ""}>
+		<a href={href} class:list={classes} rel="noopener noreferrer" target="_blank" id={id || ""}>
 			{text && text}
 			<slot />
 		</a>
@@ -61,7 +61,7 @@ const classes = `Button ${classStr || ""} ${colorClasses[type]}`;
 
 {
 	isLink && !newTab && !download && (
-		<a href={href} class={classes} id={id || ""}>
+		<a href={href} class:list={classes} id={id || ""}>
 			{text && text}
 			<slot />
 		</a>

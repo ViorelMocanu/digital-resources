@@ -1,4 +1,4 @@
-import { z, reference, defineCollection } from "astro:content";
+import { defineCollection, reference, z } from "astro:content";
 
 // documentație: https://zod.dev/
 
@@ -27,7 +27,7 @@ const resourceCollection = defineCollection({
 			}).optional(),
 			imageUrl: z.string().url("Imagine cu URL invalid.").optional(),
 			imageAlt: z.string().optional(),
-		}).nullable().optional(),
+		}).nullish(),
 		tags: z.array(reference('tags')),
 	})
 });
@@ -38,13 +38,13 @@ const tagCollection = defineCollection({
 		title: z.string(),
 		type: z.string(),
 		image: z.object({
-		  imageUrl: z.string().url({ message: "URL invalid" }),
-		  imageAlt: z.string().optional(),
-		}).nullable().optional(),
+			imageUrl: z.string().url({ message: "URL invalid" }),
+			imageAlt: z.string().optional(),
+		}).nullish(),
 		shortDescription: z.string().max(165, { message: "Descrierea scurtă trebuie să fie de maxim 165 caractere" }),
 		publishDate: z.date().optional(),
 	}),
-})
+});
 
 const sectionCollection = defineCollection({
 	type: 'content',
@@ -53,14 +53,14 @@ const sectionCollection = defineCollection({
 		menu: z.string(),
 		sortOrder: z.number(),
 		image: z.object({
-		  imageUrl: z.string().optional(),
-		  imageAlt: z.string().optional(),
-		}).nullable().optional(),
+			imageUrl: z.string().optional(),
+			imageAlt: z.string().optional(),
+		}).nullish(),
 		shortDescription: z.string().max(165, { message: "Descrierea scurtă trebuie să fie de maxim 165 caractere" }),
 		categories: z.array(reference('categories')).nullish(),
 		publishDate: z.date(),
 	}),
-})
+});
 
 const categoryCollection = defineCollection({
 	type: 'content',
@@ -68,22 +68,27 @@ const categoryCollection = defineCollection({
 		title: z.string(),
 		sortOrder: z.number(),
 		image: z.object({
-		  imageUrl: z.string().optional(),
-		  imageAlt: z.string().optional(),
-		}).nullable().optional(),
+			imageUrl: z.string().optional(),
+			imageAlt: z.string().optional(),
+		}).nullish(),
 		shortDescription: z.string().max(165, { message: "Descrierea scurtă trebuie să fie de maxim 165 caractere" }),
-		subcategories: z.array(reference('subcategories')).nullable(),
+		subcategories: z.array(reference('subcategories')).nullish(),
 		publishDate: z.date(),
 	}),
-})
+});
 
 const subcategoriesCollection = defineCollection({
 	type: 'content',
 	schema: z.object({
 		title: z.string(),
 		sortOrder: z.number(),
+		image: z.object({
+			imageUrl: z.string().optional(),
+			imageAlt: z.string().optional(),
+		}).nullish(),
+		shortDescription: z.string().max(165, { message: "Descrierea scurtă trebuie să fie de maxim 165 caractere" }),
 	}),
-})
+});
 
 export const collections = {
 	'resources': resourceCollection,

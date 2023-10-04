@@ -6,8 +6,8 @@
  * @param {string} [currentUrl] The current URL you would like to check against the current link to make active
  * @returns {string} A series of concatenated CSS class names
  */
-export function highlightUrl(urlFragment: string, standardClass: string, activeClass: string, currentUrl?: string): string {
-	if (currentUrl && currentUrl.startsWith(urlFragment)) return `${standardClass} ${activeClass}`
-	if (typeof window !== "undefined" && window.location.href.startsWith(urlFragment)) return `${standardClass} ${activeClass}`
-	return standardClass
+export function highlightUrl (urlFragment: string, standardClass: string, activeClass: string, currentUrl?: string): string {
+	if (currentUrl && currentUrl.startsWith(urlFragment)) return `${standardClass} ${activeClass}`;
+	if (typeof window !== "undefined" && window.location.href.startsWith(urlFragment)) return `${standardClass} ${activeClass}`;
+	return standardClass;
 }

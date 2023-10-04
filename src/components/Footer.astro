@@ -1,7 +1,7 @@
 ---
-import { getCollection } from 'astro:content';
-import { highlightUrl } from '../utils/urlHelpers'
 import NewsletterSection from "../components/NewsletterSection.astro";
+import { getCollection } from 'astro:content';
+import { highlightUrl } from '../utils/urlHelpers';
 
 export interface Props {
 	activeMenu?: string | undefined;
@@ -26,7 +26,7 @@ const allSections = (await getCollection('sections', ({data}) => {
 	<ul class="FooterList">
 		{
 			allSections.map((section) => (
-				<li class={highlightUrl(section.slug, 'FooterItem', 'Active', activePage)}>
+				<li class:list={highlightUrl(section.slug, 'FooterItem', 'Active', activePage)}>
 					<a class="FooterLink" href={`/${section.slug}`} title={`Vezi exclusiv lista de ${section.data.title}`}>{section.data.menu}</a>
 				</li>
 			))
@@ -36,19 +36,19 @@ const allSections = (await getCollection('sections', ({data}) => {
 		<li class="FooterItem">
 			<a class="FooterLink" href="https://github.com/ViorelMocanu/digital-resources" title="Vizitează proiectul de GitHub pe care se găsesc sursele acestui website">Proiectul de GitHub</a>
 		</li>
-		<li class={activePage === '/termeni-si-conditii' ? 'FooterItem Active' : 'FooterItem'}>
+		<li class:list={activePage === '/termeni-si-conditii' ? ['FooterItem','Active'] : ['FooterItem']}>
 			<a class="FooterLink" href="/termeni-si-conditii" title="@TODO">Termeni și condiții</a>
 		</li>
-		<li class={activePage === '/confidentialitate' ? 'FooterItem Active' : 'FooterItem'}>
+		<li class:list={activePage === '/confidentialitate' ? ['FooterItem','Active'] : ['FooterItem']}>
 			<a class="FooterLink" href="/confidentialitate" title="@TODO">Politică de confidențialitate</a>
 		</li>
-		<li class={activePage === '/cookies' ? 'FooterItem Active' : 'FooterItem'}>
+		<li class:list={activePage === '/cookies' ? ['FooterItem','Active'] : ['FooterItem']}>
 			<a class="FooterLink" href="/cookies" title="@TODO">Politică de cookies</a>
 		</li>
-		<li class={activePage === '/faq' ? 'FooterItem Active' : 'FooterItem'}>
+		<li class:list={activePage === '/faq' ? ['FooterItem','Active'] : ['FooterItem']}>
 			<a class="FooterLink" href="/faq" title="@TODO">Întrebări frecvente</a>
 		</li>
-		<li class={activePage === '/contact' ? 'FooterItem Active' : 'FooterItem'}>
+		<li class:list={activePage === '/contact' ? ['FooterItem','Active'] : ['FooterItem']}>
 			<a class="FooterLink" href="/contact" title="@TODO">Contact</a>
 		</li>
 	</ul>

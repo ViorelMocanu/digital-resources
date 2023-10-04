@@ -1,4 +1,8 @@
 ---
+import Message from './Message.astro';
+import Pagination from './Pagination.astro';
+import { getCollection } from 'astro:content';
+
 export interface Props {
 	resources: Array<Object>;
 	page?: {
@@ -11,10 +15,6 @@ export interface Props {
 	};
 }
 
-import { getCollection } from 'astro:content';
-import Pagination from './Pagination.astro';
-import Message from './Message.astro';
-
 const { resources, page } = Astro.props;
 let r = resources;
 const allTags = await getCollection('tags');
@@ -22,9 +22,9 @@ const allSections = await getCollection('sections');
 const allCategories = await getCollection('categories');
 const allSubCategories = await getCollection('subcategories');
 
-if ( resources ) {
+if (resources) {
 	r.forEach((resource:any) => {
-		if ( resource.data.tags !== null ) {
+		if (resource.data.tags !== null) {
 			resource.tagData = new Array();
 			resource.data.tags.forEach((tag:any) => {
 				const currentTag = allTags.find((el) => {
@@ -34,10 +34,10 @@ if ( resources ) {
 			});
 		}
 
-		if ( resource.data.section !== null ) {
+		if (resource.data.section !== null) {
 			const sectionSlug = resource.data.section.slug;
 			allSections.forEach((s:any) => {
-				if ( s.slug == sectionSlug ) resource.sectionData = s;
+				if (s.slug == sectionSlug) resource.sectionData = s;
 			});
 		}
 
@@ -143,8 +143,9 @@ if ( resources ) {
 							{resource.data.subcategories && <p class="ResourceP Classification">Subcategorii: {
 								resource.data.categories.map((cat:any) => {
 									resource.data.subcategories.map((subcat:any) => (
-									<a class="ClassificationLink" href={`/${resource.data.section.slug}/${cat.slug}/${subcat.slug}`} title={`Vezi toate resursele din subcategoria ${subcat.slug}`}>{subcat.slug}</a>
-								))})}
+										<a class="ClassificationLink" href={`/${resource.data.section.slug}/${cat.slug}/${subcat.slug}`} title={`Vezi toate resursele din subcategoria ${subcat.slug}`}>{subcat.slug}</a>
+									))
+								})}
 							</p>}
 							{resource.data.description && <p class="ResourceP">{resource.data.description}</p>}
 							{resource.data.tags && 

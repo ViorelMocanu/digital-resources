@@ -34,12 +34,12 @@ document.getElementById('pushStateExpansion').remove(); // remove the DOM script
 
 // And here content script listens to our DOM script custom events
 window.addEventListener("state-changed", function (e) {
-	console.info("History state changed");
+	console.info("History state changed", e);
 	showFullProducts(mql.matches);
 });
 
 window.appliedOpenAttribute = false;
-function showFullProducts(isDesktop) {
+function showFullProducts (isDesktop) {
 	const resources = document.getElementsByClassName('ResourceMain');
 	// dacă booleanul e truthish
 	if (isDesktop) {

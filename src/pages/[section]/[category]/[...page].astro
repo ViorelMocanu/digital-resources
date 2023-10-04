@@ -12,7 +12,7 @@ export async function getStaticPaths({ paginate }: any) {
 	const allSectionsArray = allSections.flatMap((section: any) => ( section.slug ));
 	const allCategories = (await getCollection('categories')).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
 	const allCategoriesArray = allCategories.flatMap((category: any) => ( category.slug ));
-	const allResources = (await getCollection('resources')).sort((a, b) => new Date(a.data.modDate).valueOf() - new Date(b.data.modDate).valueOf());
+	const allResources = (await getCollection('resources')).sort((a, b) => new Date(a.data.modDate || "").valueOf() - new Date(b.data.modDate || "").valueOf());
 
 	let finalPagination = new Array();
 	allSectionsArray.forEach((section) => {

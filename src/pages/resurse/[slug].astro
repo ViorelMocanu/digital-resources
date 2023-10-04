@@ -1,21 +1,21 @@
 ---
-import { getEntry } from 'astro:content';
+import { getCollection, getEntries, getEntry } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
-import { getEntries } from 'astro:content';
+
 // 1. Generate a new path for every collection entry
-export async function getStaticPaths() {
+export async function getStaticPaths () {
 	const blogEntries = await getCollection('resources');
 	return blogEntries.map(entry => ({
 		params: { slug: entry.slug }, props: { entry },
 	}));
 }
+
 // 2. For your template, you can get the entry directly from the prop
 const { entry } = Astro.props;
 const { Content, headings } = await entry.render();
 
 let resourceTags = new Array();
-if ( entry.data.tags ) {
+if (entry.data.tags) {
 	const allTags = await getCollection('tags');
 	entry.data.tags.map((tag:any) => {
 		const currentTag = allTags.find((t) => t.slug == tag.slug);
@@ -27,7 +27,7 @@ const sectionSlug = entry.data.section.slug;
 const section = await getEntry('sections', sectionSlug);
 const resourceCategories = await getEntries(entry.data.categories);
 let resourceSubCategories = new Array();
-if ( entry.data.subcategories ) {
+if (entry.data.subcategories) {
 	resourceSubCategories = await getEntries(entry.data.subcategories);
 }
 ---
@@ -52,8 +52,8 @@ if ( entry.data.subcategories ) {
 			{resourceSubCategories.length > 0 && (
 				<p>
 					subcategories: {resourceCategories.map((category:any) => (resourceSubCategories.map((subcategory:any) => (
-					<a href={`/${section.slug}/${category.slug}/${subcategory.slug}`} title={`Vezi toate resursele din subcategoria ${subcategory.data.title}`}>{subcategory.data.title}</a>
-				))))}
+						<a href={`/${section.slug}/${category.slug}/${subcategory.slug}`} title={`Vezi toate resursele din subcategoria ${subcategory.data.title}`}>{subcategory.data.title}</a>
+					))))}
 					<h1>@TODO: this seems wrong</h1>
 				</p>
 			)}
@@ -68,7 +68,7 @@ if ( entry.data.subcategories ) {
 				<ul class="ResourceTags">
 					{resourceTags.map((tag:any) => (
 						<li class="ResourceTag">
-							<a class={`ResourceTagLink ${tag.type}-${tag.slug}`} href={`/taguri/${tag.slug}`} title={`Vezi toate resursele care sunt clasificate astfel: ${tag.title}`}>
+							<a class:list={[`ResourceTagLink`,`${tag.type}-${tag.slug}`]} href={`/taguri/${tag.slug}`} title={`Vezi toate resursele care sunt clasificate astfel: ${tag.title}`}>
 								<span class="Icon IconTag">Tag:</span>
 								<span class="TagName">{tag.title}</span>
 							</a>

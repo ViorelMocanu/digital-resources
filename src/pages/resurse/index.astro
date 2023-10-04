@@ -1,8 +1,10 @@
 ---
-import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
-import ResourceList from '../../components/ResourceList.astro';
 import ResourceFilter from '../../components/ResourceFilter.astro';
+import ResourceList from '../../components/ResourceList.astro';
+
+import { getCollection } from 'astro:content';
+
 const resources = await getCollection('resources');
 ---
 

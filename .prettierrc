@@ -9,5 +9,8 @@
 	"insertPragma": true,
 	"proseWrap": "never",
 	"singleQuote": true,
-	"singleAttributePerLine": false
+	"singleAttributePerLine": false,
+	"plugins": [
+		"prettier-plugin-astro"
+	]
 }

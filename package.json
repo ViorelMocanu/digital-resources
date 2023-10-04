@@ -1,7 +1,31 @@
 {
-	"name": "Resurse.dev",
+	"name": "@viorelmocanu/digital-resources",
+	"displayName": "Resurse.dev - Digital resources by Viorel Mocanu",
+	"publisher": "ViorelMocanu",
+	"description": "Discover thousands of useful resources for learning digital skills: Front End Development, Back End Development, UI/UX Design, Digital Marketing, Cyber Security and more.",
 	"type": "module",
 	"version": "0.1.0",
+	"icon": "public/favicon.png",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ViorelMocanu/digital-resources"
+	},
+	"homepage": "https://resurse.dev",
+	"engines": {
+		"vscode": "^1.22.0"
+	},
+	"license": "ISC",
+	"keywords": [
+		"astro",
+		"astro3",
+		"resources",
+		"css",
+		"scss",
+		"html",
+		"learning",
+		"list",
+		"figma"
+	],
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",
@@ -9,7 +33,12 @@
 		"preview": "astro preview",
 		"astro": "astro",
 		"format": "prettier --check ./**/*.{html,css,js,cjs,ts,astro,md,json,yaml} --plugin=prettier-plugin-astro",
-		"format:fix": "prettier --write ./**/*.{html,css,js,cjs,ts,astro,md,json,yaml} --plugin=prettier-plugin-astro"
+		"format:fix": "prettier --write ./**/*.{html,css,js,cjs,ts,astro,md,json,yaml} --plugin=prettier-plugin-astro",
+		"lint:js": "eslint ./**/*.js ./**/*.ts ./**/*.astro",
+		"lint:md": "markdownlint src/content/**/*.md",
+		"lint:fix": "pnpm lint:js --fix . && pnpm lint:md --fix",
+		"lint": "pnpm lint:js . && pnpm lint:md",
+		"typecheck": "pnpm tsc --project tsconfig.json --noEmit"
 	},
 	"dependencies": {
 		"@astrojs/partytown": "^2.0.0",
@@ -24,9 +53,14 @@
 	"devDependencies": {
 		"@commitlint/cli": "^17.6.6",
 		"@commitlint/config-conventional": "^17.6.6",
+		"@typescript-eslint/eslint-plugin": "^6.7.4",
 		"@typescript-eslint/parser": "^6.7.4",
+		"astro": "^3.2.2",
+		"astro-compress": "^2.0.15",
 		"eslint": "^8.50.0",
 		"eslint-plugin-astro": "^0.29.1",
+		"eslint-plugin-jsx-a11y": "^6.7.1",
+		"markdownlint-cli": "^0.37.0",
 		"prettier": "^3.0.3",
 		"prettier-plugin-astro": "^0.12.0",
 		"typescript": "^5.2.2"

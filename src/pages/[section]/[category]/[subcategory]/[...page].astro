@@ -1,33 +1,32 @@
 ---
 import { getCollection, getEntry } from 'astro:content';
-
 import Layout from '../../../../layouts/Layout.astro';
 import ResourceFilter from '../../../../components/ResourceFilter.astro';
 import ResourceList from '../../../../components/ResourceList.astro';
 import ResourceTOC from '../../../../components/ResourceTOC.astro';
 
-export async function getStaticPaths({ paginate }: any) {
+export async function getStaticPaths ({ paginate }: any) {
 
 	const allSections = (await getCollection('sections')).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
-	const allSectionsArray = allSections.flatMap((section: any) => ( section.slug ));
+	const allSectionsArray = allSections.flatMap((section: any) => (section.slug));
 	const allCategories = (await getCollection('categories')).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
-	const allCategoriesArray = allCategories.flatMap((category: any) => ( category.slug ));
+	const allCategoriesArray = allCategories.flatMap((category: any) => (category.slug));
 	const allSubCategories = (await getCollection('subcategories')).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
-	const allSubCategoriesArray = allSubCategories.flatMap((subcategory: any) => ( subcategory.slug ));
+	const allSubCategoriesArray = allSubCategories.flatMap((subcategory: any) => (subcategory.slug));
 	const allResources = (await getCollection('resources')).sort((a, b) => new Date(a.data.modDate || "").valueOf() - new Date(b.data.modDate || "").valueOf());
 
 	let finalPagination = new Array();
 	allSectionsArray.forEach((section) => {
 		const currentSection = allSections.find((sec:any) => (sec.slug == section));
-		if ( currentSection == null || currentSection.data.categories == null ) {
+		if (currentSection == null || currentSection.data.categories == null) {
 			// nu se poate sa nu existe o sectiune definita
 			// console.warn('false', 'currentSection', currentSection?.id);
 		} else {
 			// există secțiunea
 			// căutăm categorii atașate secțiunii
 			const sectionCategories = currentSection.data.categories.flatMap((cat:any) => (cat.slug));
-			const selectedCategories = allCategoriesArray.filter((cat:any) => { return sectionCategories.includes(cat); });
-			if ( selectedCategories.length < 1 ) {
+			const selectedCategories = allCategoriesArray.filter((cat:any) => (sectionCategories.includes(cat)));
+			if (selectedCategories.length < 1) {
 				// secțiunea nu are categorii
 				// caz tratat în `/src/pages/[sections]/[...page].astro`
 				// console.warn('false', 'selectedCategories', selectedCategories);
@@ -42,8 +41,8 @@ export async function getStaticPaths({ paginate }: any) {
 					} else {
 						// există cel puțin o subcategorie pe care o putem adăuga în lista paginilor
 						const sectionSubCategories = currentCategory.data.subcategories.flatMap((subcat:any) => (subcat.slug));
-						const selectedSubCategories = allSubCategoriesArray.filter((subcat:any) => { return sectionSubCategories.includes(subcat); });
-						if ( selectedSubCategories.length < 1 ) {
+						const selectedSubCategories = allSubCategoriesArray.filter((subcat:any) => (sectionSubCategories.includes(subcat)));
+						if (selectedSubCategories.length < 1) {
 							// categoria nu are subcategorii
 							// caz tratat în `/src/pages/[sections]/[categories]/[...page].astro`
 							// console.warn('false', 'selectedSubCategories', selectedSubCategories);
@@ -56,7 +55,7 @@ export async function getStaticPaths({ paginate }: any) {
 									const resourceSubCategories = res.data.subcategories.flatMap((subcat:any) => subcat.slug);
 									return res.data.section.slug == section && resourceCategories.includes(category) && resourceSubCategories.includes(subcategory);
 								});
-								if ( selectedResources.length < 1 ) {
+								if (selectedResources.length < 1) {
 									// nu avem resurse atașate categoriei în general
 									// console.warn('false', 'selectedResources', selectedResources);
 									finalPagination.push({

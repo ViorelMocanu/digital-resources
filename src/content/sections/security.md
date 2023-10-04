@@ -6,7 +6,7 @@ sortOrder: 4
 image:
   imageUrl: "/src/img/security.svg"
   imageAlt: "Resurse care țin de rețelistică și securitate cibernetică."
-shortDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+shortDescription: "@TODO: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
 categories:
 publishDate: 2023-09-30
 ---

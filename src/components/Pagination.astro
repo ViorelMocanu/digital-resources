@@ -15,11 +15,13 @@ const { currentPage, lastPage, next, prev } = Astro.props;
 	</h3>
 	{lastPage > 1 && (
 		<ol class="PaginationList">
-			{currentPage > 1 && (
-				<li class="PaginationItem PaginationPrevious">
-					<a class="PaginationLink" href={prev} title="@TODO">&laquo; Pagina Precedentă</a>
-				</li>
-			)}
+			{
+				currentPage > 1 && (
+					<li class="PaginationItem PaginationPrevious">
+						<a class="PaginationLink" href={prev} title="@TODO">&laquo; Pagina Precedentă</a>
+					</li>
+				)
+			}
 			{
 				/*
 				@TODO: full pagination display
@@ -58,11 +60,13 @@ const { currentPage, lastPage, next, prev } = Astro.props;
 				</li>
 				*/
 			}
-			{currentPage < lastPage && (
-				<li class="PaginationItem PaginationNext">
-					<a class="PaginationLink" href={next} title="@TODO">Pagina Următoare &raquo;</a>
-				</li>
-		)}
-	</ol>
+			{
+				currentPage < lastPage && (
+					<li class="PaginationItem PaginationNext">
+						<a class="PaginationLink" href={next} title="@TODO">Pagina Următoare &raquo;</a>
+					</li>
+				)
+			}
+		</ol>
 	)}
 </nav>

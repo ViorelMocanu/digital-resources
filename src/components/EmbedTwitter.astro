@@ -7,7 +7,7 @@ export interface Props {
 }
 const { id, partytown = false } = Astro.props as Props;
 
-async function fetchTweet(id: string) {
+async function fetchTweet (id: string) {
 	try {
 		const oembedUrl = new URL("https://publish.twitter.com/oembed");
 		oembedUrl.searchParams.set("url", id);
@@ -32,7 +32,11 @@ const tweet = await fetchTweet(id);
 const attrs = partytown ? { type: "text/partytown" } : {};
 ---
 
-{tweet && <astro-embed-tweet set:html={tweet.html} />}
+{tweet && (
+	<astro-embed-tweet>
+		{tweet.html}
+	</astro-embed-tweet>
+)}
 
 <script {...attrs}>
 	type ElementList = ReturnType<typeof document.querySelectorAll>;

@@ -12,12 +12,12 @@ const sectionCategories = section.data.categories;
 const allCategories = await getCollection('categories');
 const allSubcategories = await getCollection('subcategories');
 const categoryList = new Array();
-if ( sectionCategories ) {
+if (sectionCategories) {
 	sectionCategories.forEach((cat:any) => {
 		const category = allCategories.find((el) => {
 			return el.slug == cat.slug;
 		});
-		if ( category?.data.subcategories !== null ) {
+		if (category?.data.subcategories !== null) {
 			category.data.subcategoryData = new Array();
 			category?.data.subcategories.forEach((subcat:any) => {
 				const subcategory = allSubcategories.find((el) => {
@@ -37,12 +37,12 @@ if ( sectionCategories ) {
 		<h2 class="ListNavTitle" id="treeTitle">Categorii de {section.data.title}:</h2>
 		<ol class="ListNav" role="tree" aria-labelledby="treeTitle">
 			{categoryList.map((category:any) => (
-				<li class={activePage.startsWith(`/${section.slug}/${category.slug}`) ? 'ListNavItem ActiveListNav' : 'ListNavItem'} role="treeitem">
+				<li class:list={activePage.startsWith(`/${section.slug}/${category.slug}`) ? 'ListNavItem ActiveListNav' : 'ListNavItem'} role="treeitem" aria-selected={activePage.startsWith(`/${section.slug}/${category.slug}`) ? 'true' : 'false'}>
 					<a class="ListNavLink" href={`/${section.slug}/${category.slug}`} title={`Vezi resursele din categoria ${category.data.title}`}>{category.data.title}</a>
 					{category.data.subcategories && (
-						<ol class="ListSubNav" role="group">
+						<ol class="ListSubNav">
 							{category.data.subcategoryData.map((subcategory:any) => (
-								<li class={activePage.startsWith(`/${section.slug}/${category.slug}/${subcategory.slug}`) ? 'ListSubNavItem ActiveListNav' : 'ListSubNavItem'} role="treeitem">
+								<li class:list={activePage.startsWith(`/${section.slug}/${category.slug}/${subcategory.slug}`) ? 'ListSubNavItem ActiveListNav' : 'ListSubNavItem'} role="treeitem" aria-selected={activePage.startsWith(`/${section.slug}/${category.slug}/${subcategory.slug}`) ? 'true' : 'false'}>
 									<a class="ListSubNavLink" href={`/${section.slug}/${category.slug}/${subcategory.slug}`} title={`Vezi resursele din subcategoria ${subcategory.data.title}`}>{subcategory.data.title}</a>
 								</li>
 							))}

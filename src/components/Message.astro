@@ -5,7 +5,7 @@ export interface Props {
 }
 const { title, type } = Astro.props;
 ---
-<div class={`Message Message-${type}`} role="alert">
+<div class:list={`Message Message-${type}`} role="alert">
 	<h2 class="MessageTitle">{title}</h2>
 	<div class="MessageBody">
 		<slot />
