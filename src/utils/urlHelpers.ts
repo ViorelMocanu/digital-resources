@@ -7,7 +7,14 @@
  * @returns {string} A series of concatenated CSS class names
  */
 export function highlightUrl (urlFragment: string, standardClass: string, activeClass: string, currentUrl?: string): string {
-	if (currentUrl && currentUrl.startsWith(urlFragment)) return `${standardClass} ${activeClass}`;
-	if (typeof window !== "undefined" && window.location.href.startsWith(urlFragment)) return `${standardClass} ${activeClass}`;
-	return standardClass;
+	const c = [ standardClass ];
+	if (currentUrl && currentUrl.startsWith(urlFragment)) {
+		c.push(activeClass);
+		return c;
+	}
+	if (typeof window !== "undefined" && window.location.href.startsWith(urlFragment)) {
+		c.push(activeClass);
+		return c;
+	}
+	return c;
 }

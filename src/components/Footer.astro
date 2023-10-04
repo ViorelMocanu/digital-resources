@@ -36,19 +36,19 @@ const allSections = (await getCollection('sections', ({data}) => {
 		<li class="FooterItem">
 			<a class="FooterLink" href="https://github.com/ViorelMocanu/digital-resources" title="Vizitează proiectul de GitHub pe care se găsesc sursele acestui website">Proiectul de GitHub</a>
 		</li>
-		<li class:list={activePage === '/termeni-si-conditii' ? ['FooterItem','Active'] : ['FooterItem']}>
+		<li class:list={highlightUrl('/termeni-si-conditii', 'FooterItem', 'Active', activePage)}>
 			<a class="FooterLink" href="/termeni-si-conditii" title="@TODO">Termeni și condiții</a>
 		</li>
-		<li class:list={activePage === '/confidentialitate' ? ['FooterItem','Active'] : ['FooterItem']}>
+		<li class:list={highlightUrl('/confidentialitate', 'FooterItem', 'Active', activePage)}>
 			<a class="FooterLink" href="/confidentialitate" title="@TODO">Politică de confidențialitate</a>
 		</li>
-		<li class:list={activePage === '/cookies' ? ['FooterItem','Active'] : ['FooterItem']}>
+		<li class:list={highlightUrl('/cookies', 'FooterItem', 'Active', activePage)}>
 			<a class="FooterLink" href="/cookies" title="@TODO">Politică de cookies</a>
 		</li>
-		<li class:list={activePage === '/faq' ? ['FooterItem','Active'] : ['FooterItem']}>
+		<li class:list={highlightUrl('/faq', 'FooterItem', 'Active', activePage)}>
 			<a class="FooterLink" href="/faq" title="@TODO">Întrebări frecvente</a>
 		</li>
-		<li class:list={activePage === '/contact' ? ['FooterItem','Active'] : ['FooterItem']}>
+		<li class:list={highlightUrl('/contact', 'FooterItem', 'Active', activePage)}>
 			<a class="FooterLink" href="/contact" title="@TODO">Contact</a>
 		</li>
 	</ul>

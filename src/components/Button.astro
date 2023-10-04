@@ -31,7 +31,11 @@ const colorClasses = {
 	primary: "ButtonPrimary",
 	secondary: "ButtonSecondary",
 };
-const classes = `Button ${classStr || ""} ${colorClasses[type]}`;
+const classes = [
+	'Button',
+	classStr || "",
+	colorClasses[type]
+];
 ---
 @TODO: use this
 {

@@ -1,10 +1,12 @@
 ---
+import { getCollection } from "astro:content";
+import { highlightUrl } from '../utils/urlHelpers';
+
 export interface Props {
 	// @TODO: { [key: string]: string }
 	section: Object;
 }
 
-import { getCollection } from "astro:content";
 const { section } = Astro.props;
 const activePage = Astro.url.pathname;
 
@@ -37,12 +39,12 @@ if (sectionCategories) {
 		<h2 class="ListNavTitle" id="treeTitle">Categorii de {section.data.title}:</h2>
 		<ol class="ListNav" role="tree" aria-labelledby="treeTitle">
 			{categoryList.map((category:any) => (
-				<li class:list={activePage.startsWith(`/${section.slug}/${category.slug}`) ? 'ListNavItem ActiveListNav' : 'ListNavItem'} role="treeitem" aria-selected={activePage.startsWith(`/${section.slug}/${category.slug}`) ? 'true' : 'false'}>
+				<li class:list={highlightUrl(`/${section.slug}/${category.slug}`, 'ListNavItem', 'ActiveListNav', activePage)} role="treeitem" aria-selected={activePage.startsWith(`/${section.slug}/${category.slug}`) ? 'true' : 'false'}>
 					<a class="ListNavLink" href={`/${section.slug}/${category.slug}`} title={`Vezi resursele din categoria ${category.data.title}`}>{category.data.title}</a>
 					{category.data.subcategories && (
 						<ol class="ListSubNav">
 							{category.data.subcategoryData.map((subcategory:any) => (
-								<li class:list={activePage.startsWith(`/${section.slug}/${category.slug}/${subcategory.slug}`) ? 'ListSubNavItem ActiveListNav' : 'ListSubNavItem'} role="treeitem" aria-selected={activePage.startsWith(`/${section.slug}/${category.slug}/${subcategory.slug}`) ? 'true' : 'false'}>
+								<li class:list={highlightUrl(`/${section.slug}/${category.slug}/${subcategory.slug}`, 'ListSubNavItem', 'ActiveListNav', activePage)} role="treeitem" aria-selected={activePage.startsWith(`/${section.slug}/${category.slug}/${subcategory.slug}`) ? 'true' : 'false'}>
 									<a class="ListSubNavLink" href={`/${section.slug}/${category.slug}/${subcategory.slug}`} title={`Vezi resursele din subcategoria ${subcategory.data.title}`}>{subcategory.data.title}</a>
 								</li>
 							))}
