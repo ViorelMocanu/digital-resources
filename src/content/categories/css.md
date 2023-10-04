@@ -1,5 +1,6 @@
 ---
 title: "CSS (Cascading Style Sheets)"
+menu: "CSS"
 sortOrder: 3
 image:
   imageUrl: "test.jpg"

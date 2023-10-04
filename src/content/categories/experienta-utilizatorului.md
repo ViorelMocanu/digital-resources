@@ -1,5 +1,6 @@
 ---
 title: "UX (Experiența Utilizatorului)"
+menu: "UX"
 sortOrder: 5
 image:
   imageUrl: "test.jpg"

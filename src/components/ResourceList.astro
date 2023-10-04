@@ -41,26 +41,25 @@ if (resources) {
 			});
 		}
 
-		/*if ( resource.data.categories !== null ) {
+		if (resource.data.categories !== null && resource.data.categories.length > 0) {
 			resource.categoryData = new Array();
 			const currentCategories = resource.data.categories.flatMap((cat:any) => (cat.slug));
-			currentCategories.forEeach((category:any) => {
-				console.log('currentCategories',typeof currentCategories, currentCategories);
+			currentCategories.forEach((category:any) => {
 				allCategories.forEach((c:any) => {
 					if ( c.slug == category ) resource.categoryData.push(c);
 				});
 			});
 		}
 
-		console.log('resource.data.subcategories', typeof resource.data.subcategories.map((subcategory:any) => subcategory.slug), resource.data.subcategories.map((subcategory:any) => subcategory.slug));
-		if ( resource.data.subcategories.length > 0 ) {
-			resource.data.subcategoryData = new Array();
-			resource.data.subcategories.map((subcategory:any) => subcategory.slug).forEeach((subcategory:any) => {
-				allSubCategories.forEach((sc:any) => {
-					if ( sc.slug == subcategory ) resource.data.subcategoryData.push(sc);
+		if (resource.data.subcategories && resource.data.subcategories !== null && resource.data.subcategories.length > 0) {
+			resource.subCategoryData = new Array();
+			const currentSubCategories = resource.data.subcategories.flatMap((subcat:any) => (subcat.slug));
+			currentSubCategories.forEach((subcategory:any) => {
+				allSubCategories.forEach((s:any) => {
+					if ( s.slug == subcategory ) resource.subCategoryData.push(s);
 				});
 			});
-		}*/
+		}
 	});
 }
 ---
@@ -71,9 +70,15 @@ if (resources) {
 			{r.map((resource:any) => (
 				<li class="ResourceItem">
 					<div class="ResourceName">
-						<button class="ResourceStatus" type="button">✅</button>
+						{false && <button class="ResourceStatus" type="button">✅</button> }
 						<h4 class="ResourceTitle">
-							{resource.slug && <a class="ResourceLink" href={`/resurse/${resource.slug}`} title={`Vizitează resursa intitulată: ${resource.data.title}`}>{resource.data.title}</a>}
+							{
+								resource.slug && (
+									<a class="ResourceLink" href={`/resurse/${resource.slug}`} title={`Vizitează resursa intitulată: ${resource.data.title}`}>
+										{resource.data.title}
+									</a>
+								)
+							}
 						</h4>
 					</div>
 					<div class="ResourceAside ResourceInfo">
@@ -104,64 +109,56 @@ if (resources) {
 								</div>
 								<strong class="InfoItemValue">7895</strong>
 							</li>
-							{resource.data.requiredTime &&
-								<li class="InfoItem">
-									<div class="InfoItemLabel">
-										<icon class="Icon IconTime">
-											<span class="SROnly">⏰</span>
-											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-												<path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-											</svg>
-										</icon>
-										<span class="InfoItemText">Timp necesar</span>
-									</div>
-									<strong class="InfoItemValue">{resource.data.requiredTime}h</strong>
-								</li>
+							{
+								resource.data.requiredTime && (
+									<li class="InfoItem">
+										<div class="InfoItemLabel">
+											<icon class="Icon IconTime">
+												<span class="SROnly">⏰</span>
+												<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+													<path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+												</svg>
+											</icon>
+											<span class="InfoItemText">Timp necesar</span>
+										</div>
+										<strong class="InfoItemValue">{resource.data.requiredTime}h</strong>
+									</li>
+								)
 							}
 						</ul>
 					</div>
-					<details class="ResourceMain" open>
-						<summary class="ResourceMainTrigger">
-							<span class="ButtonText"><span class="HideMidRes">Vezi </span>detalii<span class="HideMidRes"> despre link</span></span>
-							<icon class="Icon IconExpand">
-								<span class="SROnly">⬇️</span>
-								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-									<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m5.231 13.481L15 17.25m-4.5-15H5.625c-.621 0-1.125.504-1.125 1.125v16.5c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9zm3.75 11.625a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
-								</svg>
-							</icon>
-						</summary>
-						<div class="ResourceMainContent">
-							<span>@TODO: get section, category, subcategory data</span>
-							{resource.data.section && <p class="ResourceP Classification">Secțiune:
-								<a class="ClassificationLink" href={`/${resource.data.section.slug}`} title={`Vezi toate resursele din secțiunea ${resource.sectionData.data.title}`}>{resource.sectionData.data.menu}</a>
-							</p>}
-							{resource.data.categories && <p class="ResourceP Classification">Categorii: {
-								resource.data.categories.map((cat:any) => (
-									<a class="ClassificationLink" href={`/${resource.data.section.slug}/${cat.slug}`} title={`Vezi toate resursele din categoria ${cat.slug}`}>{cat.slug}</a>
+					<div class="ResourceMainContent">
+						<ul class="ResourceLocationList">
+							{resource.data.section && (
+								<li class="ResourceLocationItem Classification">
+									<a class="ClassificationLink" href={`/${resource.data.section.slug}`} title={`Vezi toate resursele din secțiunea ${resource.sectionData.data.title}`}>{resource.sectionData.data.menu}</a>
+								</li>
+							)}
+							{resource.data.categories && resource.categoryData.map((cat:any) => (
+								<li class="ResourceLocationItem Classification">
+									<a class="ClassificationLink" href={`/${resource.data.section.slug}/${cat.slug}`} title={`Vezi toate resursele din categoria ${cat.data.title}`}>{cat.data.menu}</a>
+								</li>
+							))}
+							{resource.data.subcategories && resource.categoryData.map((cat:any) => resource.subCategoryData.map((subcat:any) => (
+								<li class="ResourceLocationItem Classification">
+									<a class="ClassificationLink" href={`/${resource.data.section.slug}/${cat.slug}/${subcat.slug}`} title={`Vezi toate resursele din subcategoria ${subcat.data.title}`}>{subcat.data.menu}</a>
+								</li>
+							)))}
+						</ul>
+						{resource.data.description && <p class="ResourceP">{resource.data.description}</p>}
+						{resource.data.tags && 
+							<ul class="ResourceTags">
+								{resource.tagData.map((tag:any) => (
+									<li class="ResourceTag">
+										<a class={`ResourceTagLink ${tag.data.type}-${tag.slug}`} href={`/taguri/${tag.slug}`} title={`Vezi toate resursele care sunt clasificate astfel: ${tag.data.title}`}>
+											<span class="Icon IconTag">Tag:</span>
+											<span class="TagName">{tag.data.title}</span>
+										</a>
+									</li>
 								))}
-							</p>}
-							{resource.data.subcategories && <p class="ResourceP Classification">Subcategorii: {
-								resource.data.categories.map((cat:any) => {
-									resource.data.subcategories.map((subcat:any) => (
-										<a class="ClassificationLink" href={`/${resource.data.section.slug}/${cat.slug}/${subcat.slug}`} title={`Vezi toate resursele din subcategoria ${subcat.slug}`}>{subcat.slug}</a>
-									))
-								})}
-							</p>}
-							{resource.data.description && <p class="ResourceP">{resource.data.description}</p>}
-							{resource.data.tags && 
-								<ul class="ResourceTags">
-									{resource.tagData.map((tag:any) => (
-										<li class="ResourceTag">
-											<a class={`ResourceTagLink ${tag.data.type}-${tag.slug}`} href={`/taguri/${tag.slug}`} title={`Vezi toate resursele care sunt clasificate astfel: ${tag.data.title}`}>
-												<span class="Icon IconTag">Tag:</span>
-												<span class="TagName">{tag.data.title}</span>
-											</a>
-										</li>
-									))}
-								</ul>
-							}
-						</div>
-					</details>
+							</ul>
+						}
+					</div>
 					<aside class="ResourceAside ResourceActions">
 						<h5 class="WidgetTitle">Acțiuni disponibile:</h5>
 						<ul class="InfoList">
@@ -204,10 +201,12 @@ if (resources) {
 			))}
 		</ol>
 	)}
+
 	{(!resources || resources.length <= 0) && (
 		<Message title="Nu s-au găsit resurse pentru contextul curent" type="error">
 			<p>Dă-ne un mesaj în <a href="/contact">pagina de contact</a> dacă s-a produs o eroare.</p>
 		</Message>
 	)}
+
 	{page && <Pagination currentPage={page.currentPage} lastPage={page.lastPage} next={page.url.next} prev={page.url.prev} />}
 </div>

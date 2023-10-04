@@ -1,5 +1,6 @@
 ---
 title: "Mobile-first Responsive Web Design"
+menu: "Mobile 1st RWD"
 sortOrder: 4
 image:
   imageUrl: "test.jpg"

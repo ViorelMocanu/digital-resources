@@ -66,6 +66,7 @@ const categoryCollection = defineCollection({
 	type: 'content',
 	schema: z.object({
 		title: z.string(),
+		menu: z.string(),
 		sortOrder: z.number(),
 		image: z.object({
 			imageUrl: z.string().optional(),
@@ -81,6 +82,7 @@ const subcategoriesCollection = defineCollection({
 	type: 'content',
 	schema: z.object({
 		title: z.string(),
+		menu: z.string(),
 		sortOrder: z.number(),
 		image: z.object({
 			imageUrl: z.string().optional(),

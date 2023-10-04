@@ -1,5 +1,6 @@
 ---
 title: "Introducere în Back End"
+menu: "Intro"
 sortOrder: 0
 image:
   imageUrl: "test.jpg"

@@ -1,5 +1,6 @@
 ---
 title: "Unelte Utile de Front End"
+menu: "Unelte"
 sortOrder: 1
 image:
   imageUrl: "test.jpg"

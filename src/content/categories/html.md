@@ -1,5 +1,6 @@
 ---
 title: "HTML (Hyper Text Markup Language)"
+menu: "HTML"
 sortOrder: 2
 image:
   imageUrl: "test.jpg"

@@ -3,7 +3,7 @@ import prefetch from "@astrojs/prefetch";
 import webmanifest from "astro-webmanifest";
 import partytown from "@astrojs/partytown";
 import sitemap from "@astrojs/sitemap";
-import compress from "astro-compress";
+import Compress from "astro-compress";
 import { LANGUAGE_EXTENDED, SITE_DESCRIPTION, SITE_NAME, ACCENT_COLOR, GLOBAL_PUB_DATE } from './src/config';
 
 // https://astro.build/config
@@ -58,5 +58,15 @@ export default defineConfig({
 				},
 			},
 		})
+		/*
+		, Compress({
+			CSS: true,
+			HTML: true,
+			Image: false,
+			JavaScript: true,
+			SVG: false,
+			Logger: 2,
+		})
+		*/
 	]
 });

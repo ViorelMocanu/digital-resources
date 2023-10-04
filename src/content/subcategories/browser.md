@@ -1,5 +1,6 @@
 ---
 title: "Browser"
+menu: "Browser"
 sortOrder: 0
 shortDescription: TODO de scris descrierea
 ---
