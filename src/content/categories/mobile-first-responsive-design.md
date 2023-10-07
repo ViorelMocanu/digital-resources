@@ -5,7 +5,7 @@ sortOrder: 4
 image:
   imageUrl: "test.jpg"
   imageAlt: "test"
-shortDescription: "@TODO: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+description: "@TODO: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
 subcategories:
 publishDate: 2023-09-24
 ---

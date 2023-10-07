@@ -16,6 +16,7 @@ export default [
 			".vercel/**",
 			"build/**",
 			"coverage/**",
+			"dev-dist/**",
 			"dist/**",
 			"node_modules/**",
 		],
@@ -68,6 +69,7 @@ export default [
 			"build/**",
 			"coverage/**",
 			"dist/**",
+			"dev-dist/**",
 			"node_modules/**",
 		],
 		languageOptions: {
@@ -119,6 +121,7 @@ export default [
 			"build/**",
 			"coverage/**",
 			"dist/**",
+			"dev-dist/**",
 			"node_modules/**",
 		],
 		languageOptions: {

@@ -1,10 +1,20 @@
 ---
-import Message from './Message.astro';
-import Pagination from './Pagination.astro';
-import { getCollection } from 'astro:content';
+import Message from "./Message.astro";
+import Pagination from "./Pagination.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+import { highlightUrl } from '../utils/urlHelpers';
+
+type resourceExtension = {
+	tagData: CollectionEntry<"tags">[] | [];
+	sectionData: CollectionEntry<"sections"> | "";
+	categoryData: CollectionEntry<"categories">[] | [];
+	subCategoryData: CollectionEntry<"subcategories">[] | [];
+}
+
+type extendedResource = CollectionEntry<"resources"> & resourceExtension;
 
 export interface Props {
-	resources: Array<Object>;
+	resources: CollectionEntry<"resources">[];
 	page?: {
 		currentPage: number,
 		lastPage: number,
@@ -15,18 +25,21 @@ export interface Props {
 	};
 }
 
-const { resources, page } = Astro.props;
+const { resources, page } = Astro.props as Props;
+
+const activePage = Astro.url.pathname.substring(1);
+
 let r = resources;
-const allTags = await getCollection('tags');
-const allSections = await getCollection('sections');
-const allCategories = await getCollection('categories');
-const allSubCategories = await getCollection('subcategories');
+const allTags = await getCollection("tags") as CollectionEntry<"tags">[];
+const allSections = await getCollection("sections") as CollectionEntry<"sections">[];
+const allCategories = await getCollection("categories") as CollectionEntry<"categories">[];
+const allSubCategories = await getCollection("subcategories") as CollectionEntry<"subcategories">[];
 
 if (resources) {
-	r.forEach((resource:any) => {
+	r.forEach((resource:extendedResource) => {
 		if (resource.data.tags !== null) {
 			resource.tagData = new Array();
-			resource.data.tags.forEach((tag:any) => {
+			resource.data.tags.forEach((tag:{"slug":string,"collection":string}) => {
 				const currentTag = allTags.find((el) => {
 					return el.slug == tag.slug;
 				});
@@ -36,26 +49,26 @@ if (resources) {
 
 		if (resource.data.section !== null) {
 			const sectionSlug = resource.data.section.slug;
-			allSections.forEach((s:any) => {
+			allSections.forEach((s:CollectionEntry<"sections">) => {
 				if (s.slug == sectionSlug) resource.sectionData = s;
 			});
 		}
 
-		if (resource.data.categories !== null && resource.data.categories.length > 0) {
+		if (resource.data.categories !== null && typeof resource.data.categories !== "undefined" && resource.data.categories.length > 0) {
 			resource.categoryData = new Array();
-			const currentCategories = resource.data.categories.flatMap((cat:any) => (cat.slug));
-			currentCategories.forEach((category:any) => {
-				allCategories.forEach((c:any) => {
+			const currentCategories = resource.data.categories.flatMap((cat:{"slug":string,"collection":string}) => (cat.slug));
+			currentCategories.forEach((category:string) => {
+				allCategories.forEach((c:CollectionEntry<"categories">) => {
 					if ( c.slug == category ) resource.categoryData.push(c);
 				});
 			});
 		}
 
-		if (resource.data.subcategories && resource.data.subcategories !== null && resource.data.subcategories.length > 0) {
+		if (resource.data.subcategories !== null && typeof resource.data.subcategories !== "undefined" && resource.data.subcategories.length > 0) {
 			resource.subCategoryData = new Array();
-			const currentSubCategories = resource.data.subcategories.flatMap((subcat:any) => (subcat.slug));
-			currentSubCategories.forEach((subcategory:any) => {
-				allSubCategories.forEach((s:any) => {
+			const currentSubCategories = resource.data.subcategories.flatMap((subcat:{"slug":string,"collection":string}) => (subcat.slug));
+			currentSubCategories.forEach((subcategory:string) => {
+				allSubCategories.forEach((s:CollectionEntry<"subcategories">) => {
 					if ( s.slug == subcategory ) resource.subCategoryData.push(s);
 				});
 			});
@@ -65,9 +78,12 @@ if (resources) {
 ---
 
 <div class="ResourceContainer">
+
+	{page && <Pagination currentPage={page.currentPage} lastPage={page.lastPage} next={page.url.next} prev={page.url.prev} boxHeader={false} />}
+
 	{(resources && resources.length > 0) && (
 		<ol class="ResourceList">
-			{r.map((resource:any) => (
+			{r.map((resource) => (
 				<li class="ResourceItem">
 					<div class="ResourceName">
 						{false && <button class="ResourceStatus" type="button">✅</button> }
@@ -134,12 +150,12 @@ if (resources) {
 									<a class="ClassificationLink" href={`/${resource.data.section.slug}`} title={`Vezi toate resursele din secțiunea ${resource.sectionData.data.title}`}>{resource.sectionData.data.menu}</a>
 								</li>
 							)}
-							{resource.data.categories && resource.categoryData.map((cat:any) => (
+							{resource.data.categories && resource.categoryData.map((cat:CollectionEntry<"categories">) => (
 								<li class="ResourceLocationItem Classification">
 									<a class="ClassificationLink" href={`/${resource.data.section.slug}/${cat.slug}`} title={`Vezi toate resursele din categoria ${cat.data.title}`}>{cat.data.menu}</a>
 								</li>
 							))}
-							{resource.data.subcategories && resource.categoryData.map((cat:any) => resource.subCategoryData.map((subcat:any) => (
+							{resource.data.subcategories && resource.categoryData.map((cat:CollectionEntry<"categories">) => resource.subCategoryData.map((subcat:CollectionEntry<"subcategories">) => (
 								<li class="ResourceLocationItem Classification">
 									<a class="ClassificationLink" href={`/${resource.data.section.slug}/${cat.slug}/${subcat.slug}`} title={`Vezi toate resursele din subcategoria ${subcat.data.title}`}>{subcat.data.menu}</a>
 								</li>
@@ -148,8 +164,8 @@ if (resources) {
 						{resource.data.description && <p class="ResourceP">{resource.data.description}</p>}
 						{resource.data.tags && 
 							<ul class="ResourceTags">
-								{resource.tagData.map((tag:any) => (
-									<li class="ResourceTag">
+								{resource.tagData.map((tag:CollectionEntry<"tags">) => (
+									<li class:list={highlightUrl(`taguri/${tag.slug}`, 'ResourceTag', 'Active', activePage)}>
 										<a class={`ResourceTagLink ${tag.data.type}-${tag.slug}`} href={`/taguri/${tag.slug}`} title={`Vezi toate resursele care sunt clasificate astfel: ${tag.data.title}`}>
 											<span class="Icon IconTag">Tag:</span>
 											<span class="TagName">{tag.data.title}</span>

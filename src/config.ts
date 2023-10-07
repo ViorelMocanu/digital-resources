@@ -14,3 +14,4 @@ export const ACCENT_COLOR = "#2f8ded";
 export const OG_IMAGE = "../public/ogimage.jpg";
 export const OG_IMAGE_ALT = ""; //					🛑 @TODO: OG Image ALT
 export const GLOBAL_PUB_DATE = "2023-09-30T19:35:55+03:00";
+export const PAGE_SIZE = 2;

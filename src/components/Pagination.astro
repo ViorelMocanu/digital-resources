@@ -4,25 +4,35 @@ export interface Props {
 	lastPage: number;
 	next: string | undefined;
 	prev: string | undefined;
+	boxHeader?: boolean;
 }
 
-const { currentPage, lastPage, next, prev } = Astro.props;
+const { currentPage, lastPage, next, prev, boxHeader = true } = Astro.props;
+const paginationList = Array.from({length: `${lastPage}`}, (_, i) => i + 1);
+const pagePrototype = next ? next.replace(`/${currentPage+1}`,"") : prev ? prev.replace(`/${currentPage-1}`,"") : Astro.url;
 ---
 
 <nav class="Pagination">
-	<h3 class="PaginationTitle">Ești pe pagina <strong>{currentPage}</strong> din <strong>{lastPage}</strong>.
-		{lastPage > 1 && <span>Navighează către altă pagină:</span>}
-	</h3>
+	{boxHeader && (
+		<h3 class="PaginationTitle">Ești pe pagina <strong>{currentPage}</strong> din <strong>{lastPage}</strong>.
+			{lastPage > 1 && <span>Navighează către altă pagină:</span>}
+		</h3>
+	)}
 	{lastPage > 1 && (
 		<ol class="PaginationList">
+			<li class="PaginationItem PaginationPrevious">
+				{currentPage > 1 ? (
+					<a class="PaginationLink" href={prev} title="Mergi la pagina precedentă">&laquo; Precedenta<span class="HideLowRes"> Pagină</span></a>
+				) : (
+					<span class="PaginationUnavailable">&laquo; Pagina Precedentă</span>
+				)}
+			</li>
 			{
-				currentPage > 1 && (
-					<li class="PaginationItem PaginationPrevious">
-						<a class="PaginationLink" href={prev} title="@TODO">&laquo; Pagina Precedentă</a>
+				paginationList.map((num) => (
+					<li class:list={num == currentPage ? ["PaginationItem", "PaginationCurrent"] : ["PaginationItem"]}>
+						<a class="PaginationLink" href={`${pagePrototype}/${num == 1 ? "" : num}`} title={`Mergi la pagina ${num} din ${lastPage}`}>{num}</a>
 					</li>
-				)
-			}
-			{
+				))
 				/*
 				@TODO: full pagination display
 				<li class="PaginationItem">
@@ -60,13 +70,13 @@ const { currentPage, lastPage, next, prev } = Astro.props;
 				</li>
 				*/
 			}
-			{
-				currentPage < lastPage && (
-					<li class="PaginationItem PaginationNext">
-						<a class="PaginationLink" href={next} title="@TODO">Pagina Următoare &raquo;</a>
-					</li>
-				)
-			}
+			<li class="PaginationItem PaginationNext">
+				{currentPage < lastPage ? (
+					<a class="PaginationLink" href={next} title="Mergi la pagina următoare">Următoarea<span class="HideLowRes"> Pagină</span> &raquo;</a>
+				) : (
+					<span class="PaginationUnavailable">Pagina Următoare &raquo;</span>
+				)}
+			</li>
 		</ol>
 	)}
 </nav>

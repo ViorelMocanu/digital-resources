@@ -12,7 +12,7 @@
 	"git.inputValidationSubjectLength": 72,
 	"eslint.validate": [
 		"javascript",
-		"astro", // Enable .astro
-		"typescript", // Enable .ts
+		"astro",
+		"typescript",
 	],
 }

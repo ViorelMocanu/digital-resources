@@ -5,64 +5,58 @@
 import { Image, getImage } from 'astro:assets';
 // <ResponsiveImage image={testImage} alt="Test 1234" width={2560} height={1440} lazyLoading="true" classList={["TestClassName"]} breakpoint="1100" someAttr="someValue" />
 export interface Props {
-	image: Object;
+	image: ImageMetadata | string;
 	alt: string;
 	width: number;
 	height: number;
 	lazyLoading: boolean;
 	classList: Array<string>;
 	breakpoint: number;
-	void: any;
 }
 
 const { image, alt, width, height, lazyLoading = true, classList = ["Picture"], breakpoint = 850, ...attrs } = Astro.props;
-let src;
-if (typeof image == 'object') {
-	src = image;
-} else {
-	src = await getImage({src: image, width: width, height: height, alt: alt});
-}
+const properImage = (typeof image == 'object') ? image : await getImage({src: image, width: width, height: height, alt: alt});
 
 // if ( src.type == 'svg' || src.type == 'undefined' ) return false;
 
 let renderSmallImage = false;
-let smallerWidth = image.width < width ? image.width : width;
-let smallerHeight = image.width < width ? image.height : height;
+let smallerWidth = properImage.width < width ? properImage.width : width;
+let smallerHeight = properImage.width < width ? properImage.height : height;
 
 if (width > breakpoint) {
 	renderSmallImage = true;
-	smallerWidth = parseInt(breakpoint / 2);
-	smallerHeight = parseInt((breakpoint * height) / (2 * width));
+	smallerWidth = Math.floor(breakpoint / 2);
+	smallerHeight = Math.floor((breakpoint * height) / (2 * width));
 }
 
 const avifImage = await getImage({
-	src: src,
+	src: properImage,
 	width: width,
 	height: height,
 	format: 'avif'
 })
 const avifSmallImage = await getImage({
-	src: src,
+	src: properImage,
 	width: smallerWidth,
 	height: smallerHeight,
 	format: 'avif'
 })
 
 const webpImage = await getImage({
-	src: src,
+	src: properImage,
 	width: width,
 	height: height,
 	format: 'webp'
 })
 const webpSmallImage = await getImage({
-	src: src,
+	src: properImage,
 	width: smallerWidth,
 	height: smallerHeight,
 	format: 'webp'
 })
 
 const legacyImage = await getImage({
-	src: src,
+	src: properImage,
 	width: width,
 	height: height,
 	format: 'png'
@@ -77,7 +71,7 @@ const legacyImage = await getImage({
 	{renderSmallImage && <source type="image/webp" srcset={webpSmallImage.src} media="(min-width: 1px)" /> }
 	<source type="image/png" srcset={legacyImage.src} />
 	<Image
-		src={src}
+		src={properImage}
 		alt={alt}
 		width={width}
 		height={height}

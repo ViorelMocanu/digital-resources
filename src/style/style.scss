@@ -89,15 +89,15 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 	.Header { background: var(--dark-100);
 		@media (min-width: $desktop) { position: sticky; top: 0; z-index: 10; transition: top 0.25s ease-in; }
 	}
-	.ScrollDown .Header {
+	/*.ScrollDown .Header {
 		@media (min-width: $desktop) { top: -11rem; }
-	}
+	}*/
 		.HeaderMain { display: flex; flex-direction: row; flex-wrap: wrap; width: 100%; position: fixed; top: 0; z-index: 11; background: var(--dark-100); border-bottom: 1px solid var(--light-900); transition: top 0.25s ease-in;
 			@media (min-width: $desktop) { display: grid; grid-template-columns: auto 1fr; row-gap: 0; column-gap: 1rem; width: auto; position: static; top: unset; z-index: unset; }
 		}
-		.ScrollDown .HeaderMain { top: -6rem;
+		/*.ScrollDown .HeaderMain { top: -6rem;
 			@media (min-width: $desktop) { top: unset; }
-		}
+		}*/
 			.LanguagePicker { width: 100%; padding: 0.5rem 0.5rem 0; background: var(--dark-200); font-size: 1rem; line-height: 1.5em;
 				@media (min-width: $desktop) { order: 2; width: auto; padding: 0; margin-left: auto; background: transparent; }
 			}
@@ -216,10 +216,10 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 	.SectionPage .Main, .CategoryPage .Main, .SubcategoryPage .Main {
 		@media (min-width: $desktop) { display: grid; grid-template-columns: 3fr 1fr; grid-template-rows: 2.5rem 1fr; }
 	}
-		.SortAndFilter { display: flex; flex-direction: column; position: sticky; z-index: 4; top: 6rem; transition: top 0.25s ease-in;
+		.SortAndFilter { display: flex; flex-direction: column; position: sticky; z-index: 4; top: 3rem; transition: top 0.25s ease-in;
 			@media (min-width: $desktop) { display: grid; grid-template-columns: 2fr 1fr; grid-row: 1 / span 1; grid-column: 1 / span 1; height: 2.5rem; top: 10.6875rem; border-right: 1px solid var(--light-900); }
 		}
-		.ScrollDown .SortAndFilter { top: 0; }
+		/*.ScrollDown .SortAndFilter { top: 0; }*/
 			.SortAndFilter .Fieldset { display: flex; flex-direction: row; min-inline-size: unset; position: relative; border-bottom: 1px solid var(--dark-100); }
 				.SortAndFilter .Label {  }
 				.SortAndFilter .InputSearch { width: 100%; margin: 0; padding: 0.5rem; max-width: unset; text-align: left; }
@@ -230,7 +230,9 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 					}
 					.FilterTrigger:hover { background: var(--accent-400); color: var(--light-900); }
 					.FilterTrigger:active, .FilterOptions[open] .FilterTrigger { background: var(--light-900); color: var(--dark-200); }
-						.FilterTrigger .Icon { display: block; width: 1.5rem; height: 1.5rem; text-align: center; line-height: 1.5rem; }
+						.FilterTrigger .Icon { display: none; width: 1.5rem; height: 1.5rem; text-align: center; line-height: 1.5rem;
+							@media (min-width: 400px) { display: block; }
+						}
 						.FilterTrigger .ButtonText {  }
 					.FilterOptionList { display: block; list-style-type: none; margin: 0; padding: 0.25rem 0; position: absolute; left: 0; top: 2.5rem; right: 0; background: var(--light-900); color: var(--dark-300); }
 						.FilterOptionItem { display: block; }
@@ -395,7 +397,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 					}
 						.ResourceTag { display: block; }
 							.ResourceTagLink { display: flex; flex-direction: row; gap: 0.25rem; padding: 0.25rem; background: var(--dark-200); color: var(--light-900); border: 1px solid var(--light-900); font-size: 1rem; line-height: 1.25rem; text-decoration: none; }
-							.ResourceTagLink:hover { background: var(--dark-100); color: var(--accent-400); border: 1px solid var(--accent-400); }
+							.ResourceTagLink:hover, .Active > .ResourceTagLink { background: var(--dark-100); color: var(--accent-400); border: 1px solid var(--accent-400); }
 							.ResourceTagLink:active { background: var(--accent-400); color: var(--light-900); border: 1px solid var(--light-900); }
 								.ResourceTag .Icon { display: block; width: 0.75rem; height: 0.75rem; margin: 0.25rem 0; border-radius: 50%; background: var(--dark-400); text-indent: 100%; overflow: hidden; white-space: nowrap; }
 									.Tip-carte .Icon { background: #F2C94C; }
@@ -429,6 +431,9 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 			.ListNav { display: block; list-style-type: decimal; margin: 0; padding: 0.5rem 2rem 1rem;
 				@media (min-width: $desktop) { padding: 1rem 2rem; }
 			}
+				.SubnavTrigger .Icon { display: none;
+					@media (min-width: 400px) { display: block; }
+				}
 				.ListNavItem { display: list-item; }
 					.ListNavLink, .ListSubNavLink { display: block; }
 					.ActiveListNav > .ListNavLink { font-weight: bold; color: var(--accent-400); text-decoration: none; }
@@ -454,19 +459,34 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 			.PaginationTitle { display: block; padding: 0.5rem; margin: 0;
 				@media (min-width: $desktop) { padding: 1rem; }
 			}
-			.PaginationList { display: flex; flex-direction: row; margin: 0; padding: 0; list-style-type: none; }
+			.PaginationList { display: flex; flex-direction: row; margin: 0; padding: 0; list-style-type: none;
+				@media (min-width: 800px) { justify-content: stretch; }
+			}
 				.PaginationItem { display: none; border-left: 1px solid var(--light-900);
-					@media (min-width: 800px) { display: block; }
+					@media (min-width: 800px) { display: block; flex-grow: 1; text-align: center; }
 				}
-				.PaginationPrevious, .PaginationNext { display: block; flex-grow: 1; }
-				.PaginationPrevious { border-left: none; }
-				.PaginationNext { text-align: right; }
-					.PaginationLink, .SpacerSymbol { display: block; padding: 0.5rem; text-transform: capitalize; border-top: 1px solid var(--light-900); border-bottom: 1px solid var(--light-900); text-decoration: none;
+				.PaginationPrevious, .PaginationNext { display: block; flex-grow: 1;
+					@media (min-width: 1100px) { flex-grow: 0; flex-basis: 33.3333%; }
+					@media (min-width: 1400px) { flex-basis: 16.6666%; }
+				}
+				.PaginationPrevious { border-left: none;
+					@media (min-width: 800px) { text-align: left; }
+				}
+				.PaginationNext { text-align: right;
+					@media (min-width: 800px) { text-align: right; }
+				}
+					.PaginationLink, .SpacerSymbol, .PaginationUnavailable { display: block; padding: 0.5rem; text-transform: capitalize; border-top: 1px solid var(--light-900); border-bottom: 1px solid var(--light-900); text-decoration: none;
 						@media (min-width: 800px) { padding: 0.5rem 1rem; }
 					}
 					.PaginationCurrent .PaginationLink { background: var(--accent-400); color: var(--light-900); }
 					.PaginationLink:hover { background: var(--accent-400); color: var(--light-900); }
 					.PaginationLink:active { background: var(--light-900); color: var(--accent-400); }
+					.PaginationUnavailable { color: var(--dark-200); cursor: not-allowed; }
+						.HideLowRes { display: none;
+							@media (min-width: 400px) { display: inline; }
+							@media (min-width: $desktop) { display: none; }
+							@media (min-width: 1600px) { display: inline; }
+						}
 		.Comments { border-top: 1px solid var(--light-900);
 			@media (min-width: 750px) { margin: 0 1rem 1rem; border: 1px solid var(--light-900); }
 			@media (min-width: $desktop) { margin: 0; border: none; border-right: 1px solid var(--light-900); }

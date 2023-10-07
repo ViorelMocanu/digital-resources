@@ -6,7 +6,7 @@ sortOrder: 0
 image:
   imageUrl: "/src/img/hero-image.svg"
   imageAlt: "Tehnologiile de bază ale Internetului: HTML, CSS și JavaScript"
-shortDescription: "Învață despre tehnologiile de bază ale Internetului, descoperă ce este și cum funcționează o pagină web și cum să construiești și tu aplicații online."
+description: "Învață despre tehnologiile de bază ale Internetului, descoperă ce este și cum funcționează o pagină web și cum să construiești și tu aplicații online."
 categories:
 - introducere-in-front-end
 - unelte-utile-de-front-end

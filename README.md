@@ -45,11 +45,11 @@ List of interesting integrations to consider:
 [![Netlify Status](https://api.netlify.com/api/v1/badges/01e40750-bc4b-447c-9cd2-7cadacf27fdc/deploy-status)](https://app.netlify.com/sites/ssg-test-1-astro/deploys)
 
 
--------
+---------------
 
-# Astro Starter Kit: Basics
+## Astro Starter Kit: Basics
 
-```
+```bash
 npm create astro@latest -- --template basics
 ```
 
@@ -65,7 +65,7 @@ npm create astro@latest -- --template basics
 
 Inside of your Astro project, you'll see the following folders and files:
 
-```
+```text
 /
 ├── public/
 │   └── favicon.svg

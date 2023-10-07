@@ -1,5 +1,5 @@
 ---
-import { getCollection, getEntries, getEntry } from 'astro:content';
+import { getCollection, getEntries, getEntry, type CollectionEntry } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 
 // 1. Generate a new path for every collection entry
@@ -12,27 +12,27 @@ export async function getStaticPaths () {
 
 // 2. For your template, you can get the entry directly from the prop
 const { entry } = Astro.props;
-const { Content, headings } = await entry.render();
+const { Content } = await entry.render();
 
 let resourceTags = new Array();
 if (entry.data.tags) {
 	const allTags = await getCollection('tags');
-	entry.data.tags.map((tag:any) => {
+	entry.data.tags.map((tag:CollectionEntry<"tags">) => {
 		const currentTag = allTags.find((t) => t.slug == tag.slug);
 		resourceTags.push({title: currentTag?.data.title, slug: tag.slug, type: currentTag?.data.type});
 	});
 }
 
 const sectionSlug = entry.data.section.slug;
-const section = await getEntry('sections', sectionSlug);
-const resourceCategories = await getEntries(entry.data.categories);
+const section = await getEntry("sections", sectionSlug) as CollectionEntry<"sections">;
+const resourceCategories = await getEntries(entry.data.categories) as CollectionEntry<"categories">[];
 let resourceSubCategories = new Array();
 if (entry.data.subcategories) {
-	resourceSubCategories = await getEntries(entry.data.subcategories);
+	resourceSubCategories = await getEntries(entry.data.subcategories) as CollectionEntry<"resources">[];
 }
 ---
 
-<Layout title={entry.title} description={entry.description} modDate={entry.modDate} addDate={entry.addDate} template="ResourcePage" activeMenu={sectionSlug}>
+<Layout title={entry.title} description={entry.data.description} modDate={entry.modDate} addDate={entry.addDate} template="ResourcePage" activeMenu={sectionSlug}>
 	<div class="Hero" id="hero">
 		<div class="HeroVisual">
 			<img class="HeroImage" src={entry.data.image.imageUrl} width="287" height="120" alt={entry.data.image.alt} />
@@ -45,13 +45,13 @@ if (entry.data.subcategories) {
 			<p>addDate: {entry.data.addDate}</p>
 			<p>section: <a href={`/${section.slug}`} title={`Vezi toate resursele din secțiunea ${section.data.title}`}>{section.data.menu}</a></p>
 			{resourceCategories && (
-				<p>categories: {resourceCategories.map((category:any) => (
+				<p>categories: {resourceCategories.map((category) => (
 					<a href={`/${section.slug}/${category.slug}`} title={`Vezi toate resursele din categoria ${category.data.title}`}>{category.data.title}</a>
 				))}</p>
 			)}
 			{resourceSubCategories.length > 0 && (
 				<p>
-					subcategories: {resourceCategories.map((category:any) => (resourceSubCategories.map((subcategory:any) => (
+					subcategories: {resourceCategories.map((category) => (resourceSubCategories.map((subcategory) => (
 						<a href={`/${section.slug}/${category.slug}/${subcategory.slug}`} title={`Vezi toate resursele din subcategoria ${subcategory.data.title}`}>{subcategory.data.title}</a>
 					))))}
 					<h1>@TODO: this seems wrong</h1>
@@ -66,7 +66,7 @@ if (entry.data.subcategories) {
 			<p>description: {entry.data.description}</p>
 			{entry.data.tags && 
 				<ul class="ResourceTags">
-					{resourceTags.map((tag:any) => (
+					{resourceTags.map((tag) => (
 						<li class="ResourceTag">
 							<a class:list={[`ResourceTagLink`,`${tag.type}-${tag.slug}`]} href={`/taguri/${tag.slug}`} title={`Vezi toate resursele care sunt clasificate astfel: ${tag.title}`}>
 								<span class="Icon IconTag">Tag:</span>

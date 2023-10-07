@@ -1,31 +1,32 @@
 ---
-import { getCollection, getEntry } from 'astro:content';
+import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
 import Layout from '../../../../layouts/Layout.astro';
 import ResourceFilter from '../../../../components/ResourceFilter.astro';
 import ResourceList from '../../../../components/ResourceList.astro';
 import ResourceTOC from '../../../../components/ResourceTOC.astro';
+import { PAGE_SIZE } from '../../../../config';
 
 export async function getStaticPaths ({ paginate }: any) {
 
 	const allSections = (await getCollection('sections')).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
-	const allSectionsArray = allSections.flatMap((section: any) => (section.slug));
+	const allSectionsArray = allSections.flatMap((section:{slug: string, collection: string}) => (section.slug));
 	const allCategories = (await getCollection('categories')).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
-	const allCategoriesArray = allCategories.flatMap((category: any) => (category.slug));
+	const allCategoriesArray = allCategories.flatMap((category:{slug: string, collection: string}) => (category.slug));
 	const allSubCategories = (await getCollection('subcategories')).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
-	const allSubCategoriesArray = allSubCategories.flatMap((subcategory: any) => (subcategory.slug));
-	const allResources = (await getCollection('resources')).sort((a, b) => new Date(a.data.modDate || "").valueOf() - new Date(b.data.modDate || "").valueOf());
+	const allSubCategoriesArray = allSubCategories.flatMap((subcategory:{slug: string, collection: string}) => (subcategory.slug));
+	const allResources = (await getCollection('resources')).sort((a, b) => ((new Date(a.data.modDate).valueOf()) - (new Date(b.data.modDate).valueOf())));
 
 	let finalPagination = new Array();
 	allSectionsArray.forEach((section) => {
-		const currentSection = allSections.find((sec:any) => (sec.slug == section));
+		const currentSection = allSections.find((sec:CollectionEntry<"sections">) => (sec.slug == section));
 		if (currentSection == null || currentSection.data.categories == null) {
 			// nu se poate sa nu existe o sectiune definita
 			// console.warn('false', 'currentSection', currentSection?.id);
 		} else {
 			// există secțiunea
 			// căutăm categorii atașate secțiunii
-			const sectionCategories = currentSection.data.categories.flatMap((cat:any) => (cat.slug));
-			const selectedCategories = allCategoriesArray.filter((cat:any) => (sectionCategories.includes(cat)));
+			const sectionCategories = currentSection.data.categories.flatMap((cat:{slug: string, collection: string}) => (cat.slug));
+			const selectedCategories = allCategoriesArray.filter((cat:string) => (sectionCategories.includes(cat)));
 			if (selectedCategories.length < 1) {
 				// secțiunea nu are categorii
 				// caz tratat în `/src/pages/[sections]/[...page].astro`
@@ -34,14 +35,14 @@ export async function getStaticPaths ({ paginate }: any) {
 				// există cel puțin o categorie pe care o putem adăuga în lista paginilor
 				selectedCategories.forEach((category) => {
 					// căutăm subcategorii atașate categoriei
-					const currentCategory = allCategories.find((cat:any) => (cat.slug == category));
+					const currentCategory = allCategories.find((cat:CollectionEntry<"categories">) => (cat.slug == category));
 					if (!currentCategory || currentCategory.data.subcategories == null) {
 						// nu avem subcategorii în categoria curentă
 						// console.warn('false', 'currentCategory', currentCategory?.id);
 					} else {
 						// există cel puțin o subcategorie pe care o putem adăuga în lista paginilor
-						const sectionSubCategories = currentCategory.data.subcategories.flatMap((subcat:any) => (subcat.slug));
-						const selectedSubCategories = allSubCategoriesArray.filter((subcat:any) => (sectionSubCategories.includes(subcat)));
+						const sectionSubCategories = currentCategory.data.subcategories.flatMap((subcat:{slug: string, collection: string}) => (subcat.slug));
+						const selectedSubCategories = allSubCategoriesArray.filter((subcat:string) => (sectionSubCategories.includes(subcat)));
 						if (selectedSubCategories.length < 1) {
 							// categoria nu are subcategorii
 							// caz tratat în `/src/pages/[sections]/[categories]/[...page].astro`
@@ -49,10 +50,11 @@ export async function getStaticPaths ({ paginate }: any) {
 						} else {
 							// există cel puțin o subcategorie pe care o putem adăuga în lista paginilor
 							selectedSubCategories.forEach((subcategory) => {
-								const selectedResources = allResources.filter((res:any) => {
-									const resourceCategories = res.data.categories.flatMap((cat:any) => cat.slug);
+								const selectedResources = allResources.filter((res:CollectionEntry<"resources">) => {
+									if (!res.data.categories) return false;
+									const resourceCategories = res.data.categories.flatMap((cat:{slug: string, collection: string}) => cat.slug);
 									if (!res.data.subcategories) return false;
-									const resourceSubCategories = res.data.subcategories.flatMap((subcat:any) => subcat.slug);
+									const resourceSubCategories = res.data.subcategories.flatMap((subcat:{slug: string, collection: string}) => subcat.slug);
 									return res.data.section.slug == section && resourceCategories.includes(category) && resourceSubCategories.includes(subcategory);
 								});
 								if (selectedResources.length < 1) {
@@ -86,7 +88,7 @@ export async function getStaticPaths ({ paginate }: any) {
 											category: category,
 											subcategory: subcategory
 										},
-										pageSize: 2,
+										pageSize: PAGE_SIZE,
 									});
 									finalPagination.push(...p);
 								}
@@ -107,15 +109,15 @@ export async function getStaticPaths ({ paginate }: any) {
 const { page } = Astro.props;
 const params = Astro.params;
 
-const currentSection = params.section;
-const section = await getEntry("sections", currentSection);
-const currentCategory = params.category;
-const category = await getEntry("categories", currentCategory);
-const currentSubCategory = params.subcategory;
-const subcategory = await getEntry("subcategories", currentSubCategory);
+const currentSection = params.section as string;
+const section = await getEntry("sections", currentSection) as CollectionEntry<"sections">;
+const currentCategory = params.category as string;
+const category = await getEntry("categories", currentCategory) as CollectionEntry<"categories">;
+const currentSubCategory = params.subcategory as string;
+const subcategory = await getEntry("subcategories", currentSubCategory) as CollectionEntry<"subcategories">;
 const { Content } = await category.render();
 ---
-<Layout title={subcategory.data.title} description={subcategory.data.shortDescription} template="SubcategoryPage" activeMenu={section.slug}>
+<Layout title={subcategory.data.title} description={subcategory.data.description} template="SubcategoryPage" activeMenu={section.slug}>
 	<div class="Hero" id="hero">
 		<div class="HeroVisual">
 			<img class="HeroImage" src={subcategory.data.image?.imageUrl} width="287" height="120" alt={subcategory.data.image?.imageAlt} />
@@ -124,7 +126,7 @@ const { Content } = await category.render();
 			<h1 class="HeroTitle">{subcategory.data.title}</h1>
 			<details class="HeroDetails">
 				<summary class="HeroPreview">
-					<p class="HeroP">{subcategory.data.shortDescription}</p>
+					<p class="HeroP">{subcategory.data.description}</p>
 					<p class="HeroP"><span class="HeroExpand Link" title={`Afișează întreg textul descriptiv pentru resursele de ${subcategory.data.title}`}>Citește mai mult &raquo;</span></p>
 				</summary>
 				<div class="HeroContent">

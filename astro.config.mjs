@@ -1,14 +1,20 @@
 import { defineConfig } from 'astro/config';
+import AstroPWA from "@vite-pwa/astro";
 import prefetch from "@astrojs/prefetch";
 import webmanifest from "astro-webmanifest";
 import partytown from "@astrojs/partytown";
 import sitemap from "@astrojs/sitemap";
-import Compress from "astro-compress";
 import { LANGUAGE_EXTENDED, SITE_DESCRIPTION, SITE_NAME, ACCENT_COLOR, GLOBAL_PUB_DATE } from './src/config';
 
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://resurse.dev',
+	vite: {
+		logLevel: 'info',
+		define: {
+			__DATE__: `'${new Date().toISOString()}'`,
+		},
+	},
 	integrations: [
 		prefetch({
 			// Only prefetch links with an href that begins with `/resurse` or `.front-end`
@@ -29,7 +35,7 @@ export default defineConfig({
 				createFavicon: true,
 				insertFaviconLinks: false, // default - true
 				insertThemeColorMeta: false, // default - true
-				insertManifestLink: false, // default - true
+				insertManifestLink: true, // default - true
 				crossOrigin: 'anonymus',
 				insertAppleTouchLinks: false,
 				iconPurpose: ['badge', 'maskable', 'monochrome']
@@ -57,16 +63,43 @@ export default defineConfig({
 					en: 'en-US',
 				},
 			},
+		}), AstroPWA({
+			mode: 'development',
+			base: '/',
+			scope: '/',
+			includeAssets: ['favicon.svg'],
+			registerType: 'autoUpdate',
+			manifest: {
+				name: SITE_NAME,
+				short_name: SITE_NAME,
+				theme_color: ACCENT_COLOR,
+				icons: [
+				{
+					src: 'pwa-192x192.png',
+					sizes: '192x192',
+					type: 'image/png',
+				},
+				{
+					src: 'pwa-512x512.png',
+					sizes: '512x512',
+					type: 'image/png',
+				},
+				{
+					src: 'pwa-512x512.png',
+					sizes: '512x512',
+					type: 'image/png',
+					purpose: 'any maskable',
+				},
+				],
+			},
+			workbox: {
+				navigateFallback: '/404',
+				globPatterns: ['**/*.{css,js,html,svg,png,ico,woff2}'],
+			},
+			devOptions: {
+				enabled: true,
+				navigateFallbackAllowlist: [/^\/404$/],
+			},
 		})
-		/*
-		, Compress({
-			CSS: true,
-			HTML: true,
-			Image: false,
-			JavaScript: true,
-			SVG: false,
-			Logger: 2,
-		})
-		*/
 	]
 });

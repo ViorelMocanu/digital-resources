@@ -13,7 +13,8 @@
 		// Astro will directly run your TypeScript code, no transpilation needed.
 		"noEmit": true,
 		"types": [
-			"astro/client"
+			"astro/client",
+			"vite-plugin-pwa/info"
 		],
 		"strictNullChecks": true,
 		"allowJs": true

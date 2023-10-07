@@ -41,7 +41,7 @@ const tagCollection = defineCollection({
 			imageUrl: z.string().url({ message: "URL invalid" }),
 			imageAlt: z.string().optional(),
 		}).nullish(),
-		shortDescription: z.string().max(165, { message: "Descrierea scurtă trebuie să fie de maxim 165 caractere" }),
+		description: z.string().max(165, { message: "Descrierea scurtă trebuie să fie de maxim 165 caractere" }),
 		publishDate: z.date().optional(),
 	}),
 });
@@ -56,7 +56,7 @@ const sectionCollection = defineCollection({
 			imageUrl: z.string().optional(),
 			imageAlt: z.string().optional(),
 		}).nullish(),
-		shortDescription: z.string().max(165, { message: "Descrierea scurtă trebuie să fie de maxim 165 caractere" }),
+		description: z.string().max(165, { message: "Descrierea scurtă trebuie să fie de maxim 165 caractere" }),
 		categories: z.array(reference('categories')).nullish(),
 		publishDate: z.date(),
 	}),
@@ -72,7 +72,7 @@ const categoryCollection = defineCollection({
 			imageUrl: z.string().optional(),
 			imageAlt: z.string().optional(),
 		}).nullish(),
-		shortDescription: z.string().max(165, { message: "Descrierea scurtă trebuie să fie de maxim 165 caractere" }),
+		description: z.string().max(165, { message: "Descrierea scurtă trebuie să fie de maxim 165 caractere" }),
 		subcategories: z.array(reference('subcategories')).nullish(),
 		publishDate: z.date(),
 	}),
@@ -88,7 +88,7 @@ const subcategoriesCollection = defineCollection({
 			imageUrl: z.string().optional(),
 			imageAlt: z.string().optional(),
 		}).nullish(),
-		shortDescription: z.string().max(165, { message: "Descrierea scurtă trebuie să fie de maxim 165 caractere" }),
+		description: z.string().max(165, { message: "Descrierea scurtă trebuie să fie de maxim 165 caractere" }),
 	}),
 });
 

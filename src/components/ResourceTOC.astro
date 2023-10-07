@@ -1,31 +1,36 @@
 ---
-import { getCollection } from "astro:content";
-import { highlightUrl } from '../utils/urlHelpers';
+import { getCollection, type CollectionEntry } from "astro:content";
+import { highlightUrl } from "../utils/urlHelpers";
+
+type resourceExtension = {
+	subCategoryData: CollectionEntry<"subcategories">[] | [];
+}
+
+type extendedResource = CollectionEntry<"resources"> & resourceExtension;
 
 export interface Props {
-	// @TODO: { [key: string]: string }
-	section: Object;
+	section: CollectionEntry<"sections">;
 }
 
 const { section } = Astro.props;
 const activePage = Astro.url.pathname;
 
 const sectionCategories = section.data.categories;
-const allCategories = await getCollection('categories');
-const allSubcategories = await getCollection('subcategories');
+const allCategories = await getCollection('categories') as CollectionEntry<"categories">[];
+const allSubcategories = await getCollection('subcategories') as CollectionEntry<"subcategories">[];
 const categoryList = new Array();
 if (sectionCategories) {
-	sectionCategories.forEach((cat:any) => {
+	sectionCategories.forEach((cat:{slug: string, collection: string}) => {
 		const category = allCategories.find((el) => {
 			return el.slug == cat.slug;
 		});
-		if (category?.data.subcategories !== null) {
-			category.data.subcategoryData = new Array();
-			category?.data.subcategories.forEach((subcat:any) => {
+		if (typeof category !== "undefined" && typeof category.data.subcategories !== "undefined" && category.data.subcategories !== null) {
+			category.subCategoryData = new Array();
+			category?.data.subcategories.forEach((subcat:{slug: string, collection: string}) => {
 				const subcategory = allSubcategories.find((el) => {
 					return el.slug == subcat.slug;
 				});
-				category?.data.subcategoryData.push(subcategory);
+				category.subCategoryData.push(subcategory);
 			});
 		}
 		categoryList.push(category);
@@ -34,16 +39,18 @@ if (sectionCategories) {
 
 ---
 
-{sectionCategories && (
-	<nav class="ListNavigation">
+
+<nav class="ListNavigation">
+	{!sectionCategories && <h2 class="ListNavTitle">Această secțiune nu are categorii.</h2>}
+	{sectionCategories && (
 		<h2 class="ListNavTitle" id="treeTitle">Categorii de {section.data.title}:</h2>
 		<ol class="ListNav" role="tree" aria-labelledby="treeTitle">
-			{categoryList.map((category:any) => (
+			{categoryList.map((category:CollectionEntry<"categories">) => (
 				<li class:list={highlightUrl(`/${section.slug}/${category.slug}`, 'ListNavItem', 'ActiveListNav', activePage)} role="treeitem" aria-selected={activePage.startsWith(`/${section.slug}/${category.slug}`) ? 'true' : 'false'}>
 					<a class="ListNavLink" href={`/${section.slug}/${category.slug}`} title={`Vezi resursele din categoria ${category.data.title}`}>{category.data.title}</a>
-					{category.data.subcategories && (
+					{category.data.subcategories && category.subCategoryData && (
 						<ol class="ListSubNav">
-							{category.data.subcategoryData.map((subcategory:any) => (
+							{category.subCategoryData.map((subcategory:CollectionEntry<"subcategories">) => (
 								<li class:list={highlightUrl(`/${section.slug}/${category.slug}/${subcategory.slug}`, 'ListSubNavItem', 'ActiveListNav', activePage)} role="treeitem" aria-selected={activePage.startsWith(`/${section.slug}/${category.slug}/${subcategory.slug}`) ? 'true' : 'false'}>
 									<a class="ListSubNavLink" href={`/${section.slug}/${category.slug}/${subcategory.slug}`} title={`Vezi resursele din subcategoria ${subcategory.data.title}`}>{subcategory.data.title}</a>
 								</li>
@@ -64,5 +71,5 @@ if (sectionCategories) {
 				</li>
 			))}
 		</ol>
-	</nav>
-)}
+	)}
+</nav>

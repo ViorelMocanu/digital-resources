@@ -6,6 +6,7 @@
 
 # build output
 dist/
+dev-dist/
 build/
 
 # Optional eslint cache

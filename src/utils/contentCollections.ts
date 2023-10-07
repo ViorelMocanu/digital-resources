@@ -16,6 +16,6 @@ export const getSortedSubcategories = async (): Promise<CollectionEntry<"subcate
 
 export const getSortedResources = async (): Promise<CollectionEntry<"resources">[]> => {
 	return (await getCollection("resources")).sort(
-		(a, b) => (new Date(b.data.modDate || "").valueOf() - new Date(a.data.modDate || "").valueOf())
+		(a, b) => (new Date(b.data.modDate as string).valueOf() - new Date(a.data.modDate as string).valueOf())
 	);
 };

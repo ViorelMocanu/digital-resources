@@ -6648,32 +6648,3 @@
 		"title": "https://apps.apple.com/ro/app/swiftyprep/id6466783060"
 	}
 ]
-/*
-
-Pasul 1:
---------
-const children = [...document.getElementsByTagName('a')
-];
-var result = [];
-children.forEach((child) => {
-    var text = child.innerText || child.textContent;
-    result.push({
-        href: child.href,
-        text: text
-	});
-});
-console.log(result);
-
-Pasul 2:
---------
-REGEX = &usg(=[^&]*)?|^usg(=[^&]*)?&?
-unde usg = parametrul care vreau să fie scos
-
-Pasul 3:
---------
-var cleaner = maibine.filter((arr, index, self) =>
-    index === self.findIndex((t) => (t.href === arr.href)))
-
-console.log(cleaner);
-
-*/

@@ -2,7 +2,7 @@
 title: "Browser"
 menu: "Browser"
 sortOrder: 0
-shortDescription: TODO de scris descrierea
+description: TODO de scris descrierea
 ---
 
 @TODO: BrowserBrowser
