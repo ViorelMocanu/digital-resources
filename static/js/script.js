@@ -29,9 +29,9 @@ for (let i = 0; i < filterOptions.length; i++) {
 		// La fiecare click, vedem dacă există butoane care au deja proprietatea `open`.
 		const alreadyOpen = document.querySelector('.FilterOptions[open]');
 		// Dacă se găsesc astfel de butoane și ele sunt diferite de cel pe care am dat click acum, trebuie scos atributul `open` de pe ele ca să nu se suprapună.
-		if (alreadyOpen !== null && alreadyOpen != filterOptions[i])
+		if (alreadyOpen !== null && alreadyOpen != filterOptions[i]) {
 			alreadyOpen.removeAttribute('open');
-		console.log(event);
+		}
 		return true;
 	});
 }

@@ -1,7 +1,7 @@
 ---
-import Message from "./Message.astro";
-import Pagination from "./Pagination.astro";
-import { getCollection, type CollectionEntry } from "astro:content";
+import Message from './Message.astro';
+import Pagination from './Pagination.astro';
+import { type CollectionEntry, getCollection } from 'astro:content';
 import { highlightUrl } from '../utils/urlHelpers';
 
 type resourceExtension = {
@@ -59,7 +59,7 @@ if (resources) {
 			const currentCategories = resource.data.categories.flatMap((cat:{"slug":string,"collection":string}) => (cat.slug));
 			currentCategories.forEach((category:string) => {
 				allCategories.forEach((c:CollectionEntry<"categories">) => {
-					if ( c.slug == category ) resource.categoryData.push(c);
+					if (c.slug == category) resource.categoryData.push(c);
 				});
 			});
 		}
@@ -69,7 +69,7 @@ if (resources) {
 			const currentSubCategories = resource.data.subcategories.flatMap((subcat:{"slug":string,"collection":string}) => (subcat.slug));
 			currentSubCategories.forEach((subcategory:string) => {
 				allSubCategories.forEach((s:CollectionEntry<"subcategories">) => {
-					if ( s.slug == subcategory ) resource.subCategoryData.push(s);
+					if (s.slug == subcategory) resource.subCategoryData.push(s);
 				});
 			});
 		}
@@ -166,7 +166,7 @@ if (resources) {
 							<ul class="ResourceTags">
 								{resource.tagData.map((tag:CollectionEntry<"tags">) => (
 									<li class:list={highlightUrl(`taguri/${tag.slug}`, 'ResourceTag', 'Active', activePage)}>
-										<a class={`ResourceTagLink ${tag.data.type}-${tag.slug}`} href={`/taguri/${tag.slug}`} title={`Vezi toate resursele care sunt clasificate astfel: ${tag.data.title}`}>
+										<a class:list={["ResourceTagLink", `${tag.data.type}-${tag.slug}`]} href={`/taguri/${tag.slug}`} title={`Vezi toate resursele care sunt clasificate astfel: ${tag.data.title}`}>
 											<span class="Icon IconTag">Tag:</span>
 											<span class="TagName">{tag.data.title}</span>
 										</a>

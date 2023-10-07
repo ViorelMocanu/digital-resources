@@ -1,11 +1,10 @@
 ---
-import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
-
+import { type CollectionEntry, getCollection, getEntry } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
+import { PAGE_SIZE } from '../../../config';
 import ResourceFilter from '../../../components/ResourceFilter.astro';
 import ResourceList from '../../../components/ResourceList.astro';
 import ResourceTOC from '../../../components/ResourceTOC.astro';
-import { PAGE_SIZE } from '../../../config';
 
 export async function getStaticPaths({ paginate }: any) {
 

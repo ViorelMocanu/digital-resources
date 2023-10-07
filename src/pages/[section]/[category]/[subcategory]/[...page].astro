@@ -1,10 +1,10 @@
 ---
-import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
+import { type CollectionEntry, getCollection, getEntry } from 'astro:content';
 import Layout from '../../../../layouts/Layout.astro';
+import { PAGE_SIZE } from '../../../../config';
 import ResourceFilter from '../../../../components/ResourceFilter.astro';
 import ResourceList from '../../../../components/ResourceList.astro';
 import ResourceTOC from '../../../../components/ResourceTOC.astro';
-import { PAGE_SIZE } from '../../../../config';
 
 export async function getStaticPaths ({ paginate }: any) {
 
@@ -14,7 +14,7 @@ export async function getStaticPaths ({ paginate }: any) {
 	const allCategoriesArray = allCategories.flatMap((category:{slug: string, collection: string}) => (category.slug));
 	const allSubCategories = (await getCollection('subcategories')).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
 	const allSubCategoriesArray = allSubCategories.flatMap((subcategory:{slug: string, collection: string}) => (subcategory.slug));
-	const allResources = (await getCollection('resources')).sort((a, b) => ((new Date(a.data.modDate).valueOf()) - (new Date(b.data.modDate).valueOf())));
+	const allResources = (await getCollection('resources')).sort((a, b) => ((new Date(a.data.modDate as string).valueOf()) - (new Date(b.data.modDate as string).valueOf())));
 
 	let finalPagination = new Array();
 	allSectionsArray.forEach((section) => {

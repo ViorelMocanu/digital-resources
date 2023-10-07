@@ -98,4 +98,4 @@ export const collections = {
 	'sections': sectionCollection,
 	'categories': categoryCollection,
 	'subcategories': subcategoriesCollection,
-}
+};

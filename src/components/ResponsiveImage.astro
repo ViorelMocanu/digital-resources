@@ -14,7 +14,7 @@ export interface Props {
 	breakpoint: number;
 }
 
-const { image, alt, width, height, lazyLoading = true, classList = ["Picture"], breakpoint = 850, ...attrs } = Astro.props;
+const { image, alt, width, height, lazyLoading = true, classList = ['Picture'], breakpoint = 850, ...attrs } = Astro.props;
 const properImage = (typeof image == 'object') ? image : await getImage({src: image, width: width, height: height, alt: alt});
 
 // if ( src.type == 'svg' || src.type == 'undefined' ) return false;
@@ -34,33 +34,33 @@ const avifImage = await getImage({
 	width: width,
 	height: height,
 	format: 'avif'
-})
+});
 const avifSmallImage = await getImage({
 	src: properImage,
 	width: smallerWidth,
 	height: smallerHeight,
 	format: 'avif'
-})
+});
 
 const webpImage = await getImage({
 	src: properImage,
 	width: width,
 	height: height,
 	format: 'webp'
-})
+});
 const webpSmallImage = await getImage({
 	src: properImage,
 	width: smallerWidth,
 	height: smallerHeight,
 	format: 'webp'
-})
+});
 
 const legacyImage = await getImage({
 	src: properImage,
 	width: width,
 	height: height,
 	format: 'png'
-})
+});
 
 ---
 

@@ -1,6 +1,6 @@
 ---
-import { ACCENT_COLOR, CONTACT_EMAIL, FACEBOOK_APP_ID, GLOBAL_PUB_DATE, LANGUAGE, LANGUAGE_EXTENDED, OG_IMAGE, OG_IMAGE_ALT, SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, TWITTER_CREATOR, TWITTER_SITE } from "../config";
 import '../style/style.scss';
+import { ACCENT_COLOR, CONTACT_EMAIL, FACEBOOK_APP_ID, GLOBAL_PUB_DATE, LANGUAGE, LANGUAGE_EXTENDED, OG_IMAGE, OG_IMAGE_ALT, SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, TWITTER_CREATOR, TWITTER_SITE } from '../config';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { ViewTransitions } from 'astro:transitions';
@@ -84,7 +84,7 @@ const buildDate = __DATE__;
 		{ pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> }
 		<ViewTransitions />
 	</head>
-	<body class={template}>
+	<body class:list={[template]}>
 		<a id="skip" href="#hero" title="Mergi direct la conținutul acestei pagini">Mergi la conținut</a>
 		<div class="Framework">
 			<p class="TemporaryMessage">Template: <strong>{template}</strong> built at <em>{buildDate}</em>.</p>
