@@ -35,7 +35,7 @@ export default defineConfig({
 				createFavicon: true,
 				insertFaviconLinks: false, // default - true
 				insertThemeColorMeta: false, // default - true
-				insertManifestLink: true, // default - true
+				insertManifestLink: false, // default - true
 				crossOrigin: 'anonymus',
 				insertAppleTouchLinks: false,
 				iconPurpose: ['badge', 'maskable', 'monochrome']
