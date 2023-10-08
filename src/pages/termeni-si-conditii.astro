@@ -1,8 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
+const breadcrumbArray = [{
+	href: Astro.url,
+	title: "Termeni și condiții legale",
+	label: "Legal"
+}];
+
 ---
 
-<Layout title="Termeni și condiții legale - Resurse.dev" description="@TODO: scrie descrierea" template="LegalPage">
+<Layout title="Termeni și condiții legale - Resurse.dev" description="@TODO: scrie descrierea" template="LegalPage" breadcrumbArray={breadcrumbArray}>
 	<div class="Hero" id="hero">
 		<div class="HeroText">
 			<h1 class="HeroTitle">Termeni și condiții legale</h1>

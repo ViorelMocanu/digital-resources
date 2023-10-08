@@ -19,6 +19,7 @@ export async function getStaticPaths ({ paginate }: any) {
 		const currentSection = allSections.find((sec:CollectionEntry<"sections">) => (sec.slug == section));
 		if (currentSection == null || currentSection.data.categories == null) {
 			// nu se poate sa nu existe o sectiune definita
+			// eslint-disable-next-line no-console
 			// console.warn('false', 'currentSection', currentSection?.id);
 		} else {
 			// există secțiunea
@@ -28,6 +29,7 @@ export async function getStaticPaths ({ paginate }: any) {
 			if (selectedCategories.length < 1) {
 				// secțiunea nu are categorii
 				// caz tratat în `/src/pages/[sections]/[...page].astro`
+				// eslint-disable-next-line no-console
 				// console.warn('false', 'selectedCategories', selectedCategories);
 			} else {
 				// există cel puțin o categorie pe care o putem adăuga în lista paginilor
@@ -42,6 +44,7 @@ export async function getStaticPaths ({ paginate }: any) {
 					});
 					if (selectedResources.length < 1) {
 						// nu avem resurse atașate categoriei în general
+						// eslint-disable-next-line no-console
 						// console.warn('false', 'selectedResources', selectedResources);
 						finalPagination.push({
 							params: {
@@ -95,8 +98,24 @@ const currentCategory = params.category as string;
 const category = await getEntry("categories", currentCategory) as CollectionEntry<"categories">;
 const { Content } = await category.render();
 
+const breadcrumbArray = [{
+	href: `/${section.slug}`,
+	title: section.data.title,
+	label: section.data.menu
+}, {
+	href: `/${section.slug}/${category.slug}`,
+	title: category.data.title,
+	label: category.data.menu
+}];
+
 ---
-<Layout title={category.data.title} description={category.data.description} template="CategoryPage" activeMenu={section.slug}>
+<Layout
+	title={category.data.title}
+	description={category.data.description}
+	template="CategoryPage"
+	activeMenu={section.slug}
+	breadcrumbArray={breadcrumbArray}
+>
 	<div class="Hero" id="hero">
 		<div class="HeroVisual">
 			<img class="HeroImage" src={category.data.image?.imageUrl} width="287" height="120" alt={category.data.image?.imageAlt} />

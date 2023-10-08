@@ -1,50 +1,12 @@
 ---
+import { type BreadcrumbArray } from '../config';
 export interface Props {
-	template: string;
+	breadcrumbArray?: BreadcrumbArray;
 }
 
-import { getEntry } from 'astro:content';
-const { template } = Astro.props;
-const path = Astro.url.pathname;
-const slug = Astro.params.slug;
+const { breadcrumbArray } = Astro.props;
 
-// @TODO: în loc să ne chinuim să facem toată logica aici, ar trebui ca fiecare pagină să paseze un array pe Layout cu structura breadcrumbs
-
-let level,
-	section = {title: '', slug: ''},
-	category = {title: '', slug: ''},
-	resource = {title: '', slug: ''};
-
-// @TODO: fix this
-switch (template) {
-	case 'ResourcePage':
-		level = 3;
-		section.title = "";
-		section.slug = "/";
-		category.title = "";
-		category.slug = "/";
-		const currentResource = await getEntry('resources', slug);
-		resource.title = currentResource?.data.title;
-		resource.slug = path;
-		break;
-	case 'CategoryPage':
-		level = 2;
-		section.title = "";
-		section.slug = "/";
-		category.title = "";
-		category.slug = "/";
-		break;
-	case 'SectionPage':
-		level = 1;
-		const currentSection = await getEntry('sections', path);
-		section.title = currentSection?.data.menu;
-		section.slug = currentSection?.slug;
-		break;
-	default:
-		level = 0;
-}
 ---
-
 <nav class="Breadcrumbs">
 	<ol class="BreadcrumbList" itemscope itemtype="https://schema.org/BreadcrumbList">
 		<li class="BreadcrumbItem" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
@@ -59,23 +21,13 @@ switch (template) {
 			</a>
 			<meta itemprop="position" content="1" />
 		</li>
-		{level >= 1 && <li class="BreadcrumbItem" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-			<a class="BreadcrumbLink" itemprop="item" href={`/${section.slug}`} title={`Mergi înapoi la pagina ${section.title}`}>
-				<span class="LinkText" itemprop="name">{section.title}</span>
-				<meta itemprop="position" content="2" />
-			</a>
-		</li> }
-		{level >= 2 && <li class="BreadcrumbItem" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-			<a class="BreadcrumbLink" itemprop="item" href={`/${category.slug}`} title={`Mergi înapoi la pagina ${category.title}`}>
-				<span class="LinkText" itemprop="name">{category.title}</span>
-				<meta itemprop="position" content="3" />
-			</a>
-		</li> }
-		{level >= 3 && <li class="BreadcrumbItem" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-			<a class="BreadcrumbLink" itemprop="item" href={resource.slug} title={`Mergi înapoi la pagina ${resource.title}`}>
-				<span class="LinkText" itemprop="name">{resource.title}</span>
-				<meta itemprop="position" content="4" />
-			</a>
-		</li> }
+		{breadcrumbArray?.map((breadcrumbItem, i) => (
+			<li class="BreadcrumbItem" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+				<a class="BreadcrumbLink" itemprop="item" href={breadcrumbItem.href} title={`Mergi înapoi la pagina ${breadcrumbItem.title}`}>
+					<span class="LinkText" itemprop="name">{breadcrumbItem.label}</span>
+					<meta itemprop="position" content={(i+2).toString()} />
+				</a>
+			</li>
+		))}
 	</ol>
 </nav>

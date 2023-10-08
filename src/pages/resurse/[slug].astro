@@ -30,9 +30,27 @@ let resourceSubCategories = new Array();
 if (entry.data.subcategories) {
 	resourceSubCategories = await getEntries(entry.data.subcategories) as CollectionEntry<"resources">[];
 }
+
+const breadcrumbArray = [{
+	href: "/resurse",
+	title: "Toate resursele",
+	label: "Resurse"
+},{
+	href: Astro.url,
+	title: entry.data.title,
+	label: entry.data.title
+}];
 ---
 
-<Layout title={entry.title} description={entry.data.description} modDate={entry.modDate} addDate={entry.addDate} template="ResourcePage" activeMenu={sectionSlug}>
+<Layout
+	title={entry.title}
+	description={entry.data.description}
+	modDate={entry.modDate}
+	addDate={entry.addDate}
+	template="ResourcePage"
+	activeMenu={sectionSlug}
+	breadcrumbArray={breadcrumbArray}
+>
 	<div class="Hero" id="hero">
 		<div class="HeroVisual">
 			<img class="HeroImage" src={entry.data.image.imageUrl} width="287" height="120" alt={entry.data.image.alt} />
