@@ -6,10 +6,10 @@ import ResourceFilter from '../../components/ResourceFilter.astro';
 import ResourceList from '../../components/ResourceList.astro';
 import ResourceTOC from '../../components/ResourceTOC.astro';
 
-export async function getStaticPaths({ paginate }: any) {
+export async function getStaticPaths ({ paginate }: any) {
 
 	const allSections = (await getCollection('sections')).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
-	const allSectionsArray = allSections.flatMap((section:CollectionEntry<"sections">) => ( section.slug ));
+	const allSectionsArray = allSections.flatMap((section:CollectionEntry<"sections">) => (section.slug));
 	const allResources = (await getCollection('resources')).sort((a, b) => new Date(a.data.modDate as string).valueOf() - new Date(b.data.modDate as string).valueOf());
 
 	const finalPagination = allSectionsArray.flatMap((section) => {
@@ -26,7 +26,7 @@ export async function getStaticPaths({ paginate }: any) {
 const { page } = Astro.props;
 const params = Astro.params;
 
-const currentSection = params.section;
+const currentSection = params.section as string;
 const section = await getEntry("sections", currentSection) as CollectionEntry<"sections">;
 const { Content } = await section.render();
 

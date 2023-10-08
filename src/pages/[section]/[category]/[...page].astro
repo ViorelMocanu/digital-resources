@@ -6,26 +6,26 @@ import ResourceFilter from '../../../components/ResourceFilter.astro';
 import ResourceList from '../../../components/ResourceList.astro';
 import ResourceTOC from '../../../components/ResourceTOC.astro';
 
-export async function getStaticPaths({ paginate }: any) {
+export async function getStaticPaths ({ paginate }: any) {
 
 	const allSections = (await getCollection('sections')).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
-	const allSectionsArray = allSections.flatMap((section:CollectionEntry<"sections">) => ( section.slug ));
+	const allSectionsArray = allSections.flatMap((section:CollectionEntry<"sections">) => (section.slug));
 	const allCategories = (await getCollection('categories')).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
-	const allCategoriesArray = allCategories.flatMap((category:CollectionEntry<"categories">) => ( category.slug ));
+	const allCategoriesArray = allCategories.flatMap((category:CollectionEntry<"categories">) => (category.slug));
 	const allResources = (await getCollection('resources')).sort((a, b) => new Date(a.data.modDate as string).valueOf() - new Date(b.data.modDate as string).valueOf());
 
 	let finalPagination = new Array();
 	allSectionsArray.forEach((section) => {
 		const currentSection = allSections.find((sec:CollectionEntry<"sections">) => (sec.slug == section));
-		if ( currentSection == null || currentSection.data.categories == null ) {
+		if (currentSection == null || currentSection.data.categories == null) {
 			// nu se poate sa nu existe o sectiune definita
 			// console.warn('false', 'currentSection', currentSection?.id);
 		} else {
 			// există secțiunea
 			// căutăm categorii atașate secțiunii
 			const sectionCategories = currentSection.data.categories.flatMap((cat:{slug: string, collection: string}) => (cat.slug));
-			const selectedCategories = allCategoriesArray.filter((cat:string) => { return sectionCategories.includes(cat); });
-			if ( selectedCategories.length < 1 ) {
+			const selectedCategories = allCategoriesArray.filter((cat:string) => { return sectionCategories.includes(cat) });
+			if (selectedCategories.length < 1) {
 				// secțiunea nu are categorii
 				// caz tratat în `/src/pages/[sections]/[...page].astro`
 				// console.warn('false', 'selectedCategories', selectedCategories);
@@ -40,7 +40,7 @@ export async function getStaticPaths({ paginate }: any) {
 							return false;
 						}
 					});
-					if ( selectedResources.length < 1 ) {
+					if (selectedResources.length < 1) {
 						// nu avem resurse atașate categoriei în general
 						// console.warn('false', 'selectedResources', selectedResources);
 						finalPagination.push({
@@ -89,9 +89,9 @@ export async function getStaticPaths({ paginate }: any) {
 const { page } = Astro.props;
 const params = Astro.params;
 
-const currentSection = params.section;
+const currentSection = params.section as string;
 const section = await getEntry("sections", currentSection) as CollectionEntry<"sections">;
-const currentCategory = params.category;
+const currentCategory = params.category as string;
 const category = await getEntry("categories", currentCategory) as CollectionEntry<"categories">;
 const { Content } = await category.render();
 

@@ -3,7 +3,7 @@ import { type CollectionEntry, getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import ResourceList from '../../components/ResourceList.astro';
 
-export async function getStaticPaths() {
+export async function getStaticPaths () {
 	const tags = (await getCollection('tags')).sort((a, b) => (new Date(a.data.title).valueOf() - new Date(b.data.title).valueOf())); // ordering by sortOrder asc
 	return tags.map(tag => ({
 		params: { slug: tag.slug },
@@ -28,6 +28,7 @@ const resources = (await getCollection("resources", ({data}) => {
 	<main class="Main">
 		@TODO: desenează layout în Figma pentru pagina asta
 		@TODO: Completează conținutul paginii curente
+		{slug}
 		<Content />
 		<ResourceList resources={resources} />
 	</main>
