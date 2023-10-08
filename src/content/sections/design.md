@@ -6,7 +6,7 @@ sortOrder: 2
 image:
   imageUrl: "/src/img/design.svg"
   imageAlt: "Resurse care țin de design de interfață (UI) și experiență (UX)"
-shortDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+description: "@TODO: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
 categories:
 publishDate: 2023-09-30
 ---

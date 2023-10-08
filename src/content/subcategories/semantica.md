@@ -1,6 +1,8 @@
 ---
-title: "Semantica"
+title: "Semantică"
+menu: "Semantică"
 sortOrder: 5
+description: TODO de scris descrierea
 ---
 
-Semantica
+@TODO: Semantica

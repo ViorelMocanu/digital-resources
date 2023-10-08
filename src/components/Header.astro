@@ -1,24 +1,24 @@
 ---
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { getCollection } from 'astro:content';
+import { highlightUrl } from '../utils/urlHelpers';
+
 export interface Props {
 	template: string;
+	activeMenu?: string | undefined;
 }
-
-import { getCollection } from 'astro:content';
-import Breadcrumbs from '../components/Breadcrumbs.astro';
-import LanguagePicker from '../components/LanguagePicker.astro';
 
 const allSections = (await getCollection('sections', ({data}) => {
 	return data.sortOrder >= 0; // negative sort orders removes sections altogether
 })).sort((a, b) => a.data.sortOrder - b.data.sortOrder); // ordering by sortOrder asc
 
-const { template } = Astro.props;
-const activePage = Astro.url.pathname;
+const { template, activeMenu } = Astro.props;
+const activePage = activeMenu || Astro.url.pathname.substring(1);
 ---
 
 <header class="Header">
-	<div class="HeaderMain">
-		<LanguagePicker />
-		<button class="MenuTrigger" type="button" id="menuTrigger">
+	<div class="HeaderMain" role="toolbar">
+		<button class="MenuTrigger" type="button" id="menuTrigger" aria-expanded="false" aria-label="Deschide meniul principal" aria-haspopup="true" aria-controls="menu">
 			<icon class="Icon IconHamburger">
 				<span class="HamburgerBar HamburgerBar1">&nbsp;</span>
 				<span class="HamburgerBar HamburgerBar2">&nbsp;</span>
@@ -29,7 +29,7 @@ const activePage = Astro.url.pathname;
 		<a class="Logo" href="/" title="Mergi la prima pagină a proiectului Resurse.dev">
 			<span class="LinkText">resurse.dev</span>
 		</a>
-		<a class={activePage.startsWith('/login') ? 'HeaderLink Login Active' : 'HeaderLink Login'} href="/login" title="Mergi la prima pagină a proiectului Resurse.dev">
+		<a class:list={highlightUrl('login', 'HeaderLink Login', 'Active')} href="/login" title="Mergi la prima pagină a proiectului Resurse.dev">
 			<icon class="Icon IconUser">
 				<span class="SROnly">👤</span>
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -38,23 +38,23 @@ const activePage = Astro.url.pathname;
 			</icon>
 			<span class="LinkText">Login</span>
 		</a>
-		<nav class="MainMenu">
+		<nav class="MainMenu" id="menu" role="menubar" aria-labelledby="menuTrigger">
 			<ul class="MainMenuList">
 				{
 					allSections.map((section) => (
-						<li class={activePage.startsWith(`/${section.slug}`) ? 'MainMenuItem Active' : 'MainMenuItem'}>
-							<a class="MainMenuLink" href=`/${section.slug}` title=`Vezi exclusiv lista de ${section.data.title}`>
+						<li class:list={highlightUrl(section.slug, 'MainMenuItem', 'Active', activePage)} role="menuitem">
+							<a class="MainMenuLink" href={`/${section.slug}`} title={`Vezi exclusiv lista de ${section.data.title}`}>
 								<span class="LinkText">{section.data.menu}</span>
 							</a>
 						</li>
 					))
 				}
 			</ul>
-			<form class="SearchForm Form" action="/cauta" method="get">
+			<form class="SearchForm Form" action="/cauta" method="get" role="search" aria-label="Caută pe tot site-ul">
 				<fieldset class="Fieldset">
 					<legend class="SROnly">Caută în Resurse.dev</legend>
-					<label class="Label" for="s">Introdu cuvintele căutate:</label>
-					<input type="search" class="Input InputSearch" id="s" name="s" maxlength="200" value="" placeholder="🔍 Caută resurse de orice fel..." spellcheck="false" autocorrect="off" results="10" />
+					<label class="Label" id="searchLabel" for="s">Introdu cuvintele căutate:</label>
+					<input type="search" class="Input InputSearch" id="s" name="s" maxlength="200" value="" placeholder="🔍 Caută resurse de orice fel..." spellcheck="false" autocorrect="off" results="10" aria-labelledby="searchLabel" />
 					<button type="submit" class="SROnly">Caută acum &raquo;</button>
 				</fieldset>
 			</form>
@@ -70,7 +70,17 @@ const activePage = Astro.url.pathname;
 	menuTrigger?.addEventListener('click', function (event) {
 		event.preventDefault();
 		body.classList.toggle('ActiveMenu');
-		body.classList.contains('ActiveMenu') ? document.body.dataset.menuOpen = "true" : delete document.body.dataset.menuOpen;
+		if ( body.classList.contains('ActiveMenu') ) {
+			document.body.dataset.menuOpen = "true";
+			// this are valoarea e.currentTarget adică menuTrigger
+			// https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#the_value_of_this_within_the_handler
+			this.setAttribute('aria-expanded', 'true');
+			this.setAttribute('aria-label', 'Închide meniul principal');
+		} else {
+			delete document.body.dataset.menuOpen;
+			this.setAttribute('aria-expanded', 'false');
+			this.setAttribute('aria-label', 'Deschide meniul principal');
+		}
 		return false;
 	});
 

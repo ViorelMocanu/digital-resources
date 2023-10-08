@@ -1,6 +1,7 @@
 ---
+import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
-import Layout from '../../layouts/Layout.astro'
+
 const allTags = await getCollection('tags');
 ---
 
@@ -16,7 +17,7 @@ const allTags = await getCollection('tags');
 		<ul>
 			{allTags.map((tag:any) => (
 				<li>
-					<a href=`/taguri/${tag.slug}`>{tag.data.title}</a>
+					<a href={`/taguri/${tag.slug}`}>{tag.data.title}</a>
 				</li>
 			))}
 		</ul>

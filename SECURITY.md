@@ -1,8 +1,8 @@
-- [Security Policy](#security-policy)
-  - [Supported Versions](#supported-versions)
-  - [Reporting a Vulnerability](#reporting-a-vulnerability)
-
 # Security Policy
+
+- [Security Policy](#security-policy)
+    - [Supported Versions](#supported-versions)
+    - [Reporting a Vulnerability](#reporting-a-vulnerability)
 
 ## Supported Versions
 

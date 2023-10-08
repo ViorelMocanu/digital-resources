@@ -1,6 +1,8 @@
 ---
 title: "IDE (Integrated Development Environment)"
+menu: "IDE"
 sortOrder: 1
+description: TODO de scris descrierea
 ---
 
-Integrated Development Environment
+@TODO: Integrated Development Environment

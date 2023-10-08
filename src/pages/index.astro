@@ -2,7 +2,7 @@
 
 import Layout from '../layouts/Layout.astro';
 import ResponsiveImage from '../components/ResponsiveImage.astro';
-import testImage from '../img/ViorelMocanu - Splash YouTube v2 1920x1080 109.jpg'
+import testImage from '../img/ViorelMocanu - Splash YouTube v2 1920x1080 109.jpg';
 
 ---
 
@@ -15,6 +15,6 @@ import testImage from '../img/ViorelMocanu - Splash YouTube v2 1920x1080 109.jpg
 	</div>
 	<main class="Main">
 		<a href="/resurse">Resurse</a>
-		<ResponsiveImage image={testImage} alt="Test 1234" width={2560} height={1440} lazyLoading="true" className="TestClassName" breakpoint="1100" someAttr="someValue" />
+		<ResponsiveImage image={testImage} alt="Test 1234" width={2560} height={1440} lazyLoading={true} classList={["TestClassName","test2"]} breakpoint={1100} someAttr="someValue" />
 	</main>
 </Layout>

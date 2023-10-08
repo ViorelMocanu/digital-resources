@@ -1,6 +1,8 @@
 ---
 title: "Browser"
+menu: "Browser"
 sortOrder: 0
+description: TODO de scris descrierea
 ---
 
-BrowserBrowser
+@TODO: BrowserBrowser

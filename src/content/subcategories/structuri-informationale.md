@@ -1,6 +1,8 @@
 ---
 title: "Structuri informaționale"
+menu: "Arhitectură"
 sortOrder: 1
+description: TODO de scris descrierea
 ---
 
-Structuri informaționale
+@TODO: Structuri informaționale

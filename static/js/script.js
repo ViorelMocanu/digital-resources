@@ -29,8 +29,9 @@ for (let i = 0; i < filterOptions.length; i++) {
 		// La fiecare click, vedem dacă există butoane care au deja proprietatea `open`.
 		const alreadyOpen = document.querySelector('.FilterOptions[open]');
 		// Dacă se găsesc astfel de butoane și ele sunt diferite de cel pe care am dat click acum, trebuie scos atributul `open` de pe ele ca să nu se suprapună.
-		if (alreadyOpen !== null && alreadyOpen != filterOptions[i])
+		if (alreadyOpen !== null && alreadyOpen != filterOptions[i]) {
 			alreadyOpen.removeAttribute('open');
+		}
 		return true;
 	});
 }
@@ -43,7 +44,7 @@ mql.addEventListener("change", (event) => {
 	// rulăm funcția care schimbă atributele de open când se schimbă valoarea de adevăr a match-ului de media query
 	showFullProducts(event.matches);
 });
-function showFullProducts(isDesktop) {
+function showFullProducts (isDesktop) {
 	const resources = document.getElementsByClassName('ResourceMain');
 	// dacă booleanul e truthish
 	if (isDesktop) {

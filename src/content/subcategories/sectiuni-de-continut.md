@@ -1,6 +1,8 @@
 ---
 title: "Secțiuni de conținut"
+menu: "Secțiuni"
 sortOrder: 2
+description: TODO de scris descrierea
 ---
 
-Secțiuni de conținut
+@TODO: Secțiuni de conținut

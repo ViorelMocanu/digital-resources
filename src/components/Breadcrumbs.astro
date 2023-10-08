@@ -14,8 +14,9 @@ let level,
 	section = {title: '', slug: ''},
 	category = {title: '', slug: ''},
 	resource = {title: '', slug: ''};
-switch ( template ) {
-	// @TODO: fix this
+
+// @TODO: fix this
+switch (template) {
 	case 'ResourcePage':
 		level = 3;
 		section.title = "";
@@ -59,19 +60,19 @@ switch ( template ) {
 			<meta itemprop="position" content="1" />
 		</li>
 		{level >= 1 && <li class="BreadcrumbItem" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-			<a class="BreadcrumbLink" itemprop="item" href=`/${section.slug}` title=`Mergi înapoi la pagina ${section.title}`>
+			<a class="BreadcrumbLink" itemprop="item" href={`/${section.slug}`} title={`Mergi înapoi la pagina ${section.title}`}>
 				<span class="LinkText" itemprop="name">{section.title}</span>
 				<meta itemprop="position" content="2" />
 			</a>
 		</li> }
 		{level >= 2 && <li class="BreadcrumbItem" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-			<a class="BreadcrumbLink" itemprop="item" href=`/${category.slug}` title=`Mergi înapoi la pagina ${category.title}`>
+			<a class="BreadcrumbLink" itemprop="item" href={`/${category.slug}`} title={`Mergi înapoi la pagina ${category.title}`}>
 				<span class="LinkText" itemprop="name">{category.title}</span>
 				<meta itemprop="position" content="3" />
 			</a>
 		</li> }
 		{level >= 3 && <li class="BreadcrumbItem" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-			<a class="BreadcrumbLink" itemprop="item" href={resource.slug} title=`Mergi înapoi la pagina ${resource.title}`>
+			<a class="BreadcrumbLink" itemprop="item" href={resource.slug} title={`Mergi înapoi la pagina ${resource.title}`}>
 				<span class="LinkText" itemprop="name">{resource.title}</span>
 				<meta itemprop="position" content="4" />
 			</a>

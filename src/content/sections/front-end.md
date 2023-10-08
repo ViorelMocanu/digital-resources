@@ -6,7 +6,7 @@ sortOrder: 0
 image:
   imageUrl: "/src/img/hero-image.svg"
   imageAlt: "Tehnologiile de bază ale Internetului: HTML, CSS și JavaScript"
-shortDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+description: "Învață despre tehnologiile de bază ale Internetului, descoperă ce este și cum funcționează o pagină web și cum să construiești și tu aplicații online."
 categories:
 - introducere-in-front-end
 - unelte-utile-de-front-end
@@ -14,7 +14,7 @@ categories:
 - css
 - mobile-first-responsive-design
 - experienta-utilizatorului
-publishDate: 2023-09-24
+publishDate: 2023-10-04
 ---
 
 @TODO populează cu content

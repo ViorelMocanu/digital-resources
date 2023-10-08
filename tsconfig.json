@@ -12,9 +12,9 @@
 		"isolatedModules": true,
 		// Astro will directly run your TypeScript code, no transpilation needed.
 		"noEmit": true,
-		// Replace `astro/client` with `@astrojs/image/client`
 		"types": [
-			"@astrojs/client"
+			"astro/client",
+			"vite-plugin-pwa/info"
 		],
 		"strictNullChecks": true,
 		"allowJs": true

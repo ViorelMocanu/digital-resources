@@ -1,28 +1,33 @@
 ---
 import '../style/style.scss';
-import Header from '../components/Header.astro';
+import { ACCENT_COLOR, CONTACT_EMAIL, FACEBOOK_APP_ID, LANGUAGE, LANGUAGE_EXTENDED, OG_IMAGE, OG_IMAGE_ALT, SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, TWITTER_CREATOR, TWITTER_SITE } from '../config';
 import Footer from '../components/Footer.astro';
-import {ViewTransitions} from 'astro:transitions';
-import { ACCENT_COLOR, CONTACT_EMAIL, FACEBOOK_APP_ID, GLOBAL_PUB_DATE, LANGUAGE, LANGUAGE_EXTENDED, OG_IMAGE, OG_IMAGE_ALT, SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, TWITTER_CREATOR, TWITTER_SITE } from "../config";
+import Header from '../components/Header.astro';
+import { ViewTransitions } from 'astro:transitions';
+import { pwaInfo } from 'virtual:pwa-info';
 
 interface Props {
 	title: string;
 	description: string;
 	ogImage?: string;
-	pubDate?: string;	// e.g. 2021-09-19T19:35:55+03:00
+	modDate?: string;	// e.g. 2021-09-19T19:35:55+03:00
 	addDate?: string;	// e.g. 2021-09-19T19:35:55+03:00
 	canonical?: string;
 	template: string;
+	activeMenu?: string;
 }
+
+const buildDate = __DATE__;
 
 const {
 	title = SITE_TITLE,
 	description = SITE_DESCRIPTION,
 	ogImage = OG_IMAGE,
-	pubDate = GLOBAL_PUB_DATE,
+	modDate = buildDate,
 	addDate,
 	canonical = Astro.url,
-	template
+	template,
+	activeMenu
 } = Astro.props;
 
 ---
@@ -53,18 +58,18 @@ const {
 		<meta property="twitter:site" content={TWITTER_SITE} />
 		<meta property="twitter:creator" content={TWITTER_CREATOR} />
 		<meta property="twitter:card" content="summary_large_image" />
-		<meta property="article:published_time" content={pubDate} />
-		<meta property="article:modified_time" content={addDate} />
+		<meta property="article:published_time" content={addDate} />
+		<meta property="article:modified_time" content={modDate} />
 		
 		<!-- @TODO: NICE: design-ul favicon-urilor și a identității site-ului -->
-		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png" />
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="apple-touch-icon" href="/icon-512x512.png" />
 		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#00214d" />
 		<meta name="msapplication-TileColor" content={ACCENT_COLOR} />
-		<link rel="manifest" href="/site.webmanifest" />
+		<link rel="manifest" href="/manifest.webmanifest" />
 		<meta name="apple-mobile-web-app-title" content={`${SITE_NAME} - ${title}`} />
 		<meta name="application-name" content={SITE_NAME} />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -75,19 +80,17 @@ const {
 		<link rel="sitemap" href="/sitemap-index.xml" />
 		<link rel="preload" href="/font/atkinson-hyperlegible-regular.woff2" as="font" type="font/woff2" crossorigin />
 		<link rel="preload" href="/font/atkinson-hyperlegible-bold.woff2" as="font" type="font/woff2" crossorigin />
-		<!--meta name="generator" content={Astro.generator} /-->
+		<script src="/src/pwa.ts"></script>
+		{ pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> }
 		<ViewTransitions />
 	</head>
-	<body class={template}>
+	<body class:list={[template]}>
 		<a id="skip" href="#hero" title="Mergi direct la conținutul acestei pagini">Mergi la conținut</a>
 		<div class="Framework">
-			<p class="TemporaryMessage">Template: <strong>{template}</strong></p>
-			<Header template={template} />
+			<p class="TemporaryMessage">Template: <strong>{template}</strong> built at <em>{buildDate}</em>.</p>
+			<Header template={template} activeMenu={activeMenu} />
 			<slot />
-			<Footer />
+			<Footer activeMenu={activeMenu} />
 		</div>
-		<script type="module">
-			import '/js/script.js';
-		</script>
 	</body>
 </html>

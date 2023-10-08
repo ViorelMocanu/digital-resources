@@ -1,0 +1,57 @@
+---
+import { type CollectionEntry, getCollection, getEntry } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { PAGE_SIZE } from '../../config';
+import ResourceFilter from '../../components/ResourceFilter.astro';
+import ResourceList from '../../components/ResourceList.astro';
+import ResourceTOC from '../../components/ResourceTOC.astro';
+
+export async function getStaticPaths ({ paginate }: any) {
+
+	const allSections = (await getCollection('sections')).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
+	const allSectionsArray = allSections.flatMap((section:CollectionEntry<"sections">) => (section.slug));
+	const allResources = (await getCollection('resources')).sort((a, b) => new Date(a.data.modDate as string).valueOf() - new Date(b.data.modDate as string).valueOf());
+
+	const finalPagination = allSectionsArray.flatMap((section) => {
+		const selectedResources = allResources.filter((res:CollectionEntry<"resources">) => (res.data.section.slug == section));
+		return paginate(selectedResources, {
+			params: { section, category: undefined, subcategory: undefined },
+			pageSize: PAGE_SIZE,
+		});
+	});
+
+	return finalPagination;
+	
+}
+const { page } = Astro.props;
+const params = Astro.params;
+
+const currentSection = params.section as string;
+const section = await getEntry("sections", currentSection) as CollectionEntry<"sections">;
+const { Content } = await section.render();
+
+---
+<Layout title={section.data.title} description={section.data.description} template="SectionPage" activeMenu={section.slug}>
+	<div class="Hero" id="hero">
+		<div class="HeroVisual">
+			<img class="HeroImage" src={section.data.image?.imageUrl} width="287" height="120" alt={section.data.image?.imageAlt} />
+		</div>
+		<div class="HeroText">
+			<h1 class="HeroTitle">{section.data.title}</h1>
+			<details class="HeroDetails">
+				<summary class="HeroPreview">
+					<p class="HeroP">{section.data.description}</p>
+					<p class="HeroP"><span class="HeroExpand Link" title={`Afișează întreg textul descriptiv pentru resursele de ${section.data.menu}`}>Citește mai mult &raquo;</span></p>
+				</summary>
+				<div class="HeroContent">
+					<Content />
+				</div>
+			</details>
+		</div>
+	</div>
+	<main class="Main">
+		<ResourceFilter />
+		<ResourceList resources={page.data} page={page} />
+		<ResourceTOC section={section} />
+	</main>
+</Layout>
