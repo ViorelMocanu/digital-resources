@@ -1,6 +1,6 @@
 ---
 import '../style/style.scss';
-import { ACCENT_COLOR, CONTACT_EMAIL, FACEBOOK_APP_ID, GLOBAL_PUB_DATE, LANGUAGE, LANGUAGE_EXTENDED, OG_IMAGE, OG_IMAGE_ALT, SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, TWITTER_CREATOR, TWITTER_SITE } from '../config';
+import { ACCENT_COLOR, CONTACT_EMAIL, FACEBOOK_APP_ID, LANGUAGE, LANGUAGE_EXTENDED, OG_IMAGE, OG_IMAGE_ALT, SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, TWITTER_CREATOR, TWITTER_SITE } from '../config';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { ViewTransitions } from 'astro:transitions';
@@ -17,18 +17,18 @@ interface Props {
 	activeMenu?: string;
 }
 
+const buildDate = __DATE__;
+
 const {
 	title = SITE_TITLE,
 	description = SITE_DESCRIPTION,
 	ogImage = OG_IMAGE,
-	modDate = GLOBAL_PUB_DATE,
+	modDate = buildDate,
 	addDate,
 	canonical = Astro.url,
 	template,
 	activeMenu
 } = Astro.props;
-
-const buildDate = __DATE__;
 
 ---
 

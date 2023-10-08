@@ -4,7 +4,7 @@ import prefetch from "@astrojs/prefetch";
 import webmanifest from "astro-webmanifest";
 import partytown from "@astrojs/partytown";
 import sitemap from "@astrojs/sitemap";
-import { LANGUAGE_EXTENDED, SITE_DESCRIPTION, SITE_NAME, ACCENT_COLOR, GLOBAL_PUB_DATE } from './src/config';
+import { LANGUAGE_EXTENDED, SITE_DESCRIPTION, SITE_NAME, ACCENT_COLOR } from './src/config';
 
 // https://astro.build/config
 export default defineConfig({
@@ -24,7 +24,7 @@ export default defineConfig({
 			short_name: SITE_NAME,
 			lang: LANGUAGE_EXTENDED,
 			dir: 'ltr',
-			icon: 'public/favicon.svg',
+			icon: 'favicon.svg',
 			description: SITE_DESCRIPTION,
 			start_url: '/',
 			theme_color: ACCENT_COLOR,
@@ -35,8 +35,8 @@ export default defineConfig({
 				createFavicon: true,
 				insertFaviconLinks: false, // default - true
 				insertThemeColorMeta: false, // default - true
-				insertManifestLink: false, // default - true
-				crossOrigin: 'anonymus',
+				insertManifestLink: true, // default - true
+				crossOrigin: 'anonymous',
 				insertAppleTouchLinks: false,
 				iconPurpose: ['badge', 'maskable', 'monochrome']
 			}
@@ -55,7 +55,7 @@ export default defineConfig({
 			entryLimit: 10000,
 			changefreq: 'weekly',
 			priority: 0.7,
-			lastmod: new Date(GLOBAL_PUB_DATE),
+			//lastmod: new Date(GLOBAL_PUB_DATE),
 			i18n: {
 				defaultLocale: 'ro',
 				locales: {
