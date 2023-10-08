@@ -2,10 +2,15 @@
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
+const breadcrumbArray = [{
+	href: Astro.url,
+	title: "Tag-uri",
+	label: "Tag-uri"
+}];
 const allTags = await getCollection('tags');
 ---
 
-<Layout title="Tag-uri" description="@TODO: scrie descrierea" template="TagIndex">
+<Layout title="Tag-uri" description="@TODO: scrie descrierea" template="TagIndex" breadcrumbArray={breadcrumbArray}>
 	<div class="Hero" id="hero">
 		<div class="HeroText">
 			<h1 class="HeroTitle">Tag-urile resurselor</h1>

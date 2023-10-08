@@ -30,8 +30,20 @@ const currentSection = params.section as string;
 const section = await getEntry("sections", currentSection) as CollectionEntry<"sections">;
 const { Content } = await section.render();
 
+const breadcrumbArray = [{
+	href: `/${section.slug}`,
+	title: section.data.title,
+	label: section.data.menu
+}];
+
 ---
-<Layout title={section.data.title} description={section.data.description} template="SectionPage" activeMenu={section.slug}>
+<Layout
+	title={section.data.title}
+	description={section.data.description}
+	template="SectionPage"
+	activeMenu={section.slug}
+	breadcrumbArray={breadcrumbArray}
+>
 	<div class="Hero" id="hero">
 		<div class="HeroVisual">
 			<img class="HeroImage" src={section.data.image?.imageUrl} width="287" height="120" alt={section.data.image?.imageAlt} />

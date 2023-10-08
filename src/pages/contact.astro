@@ -1,8 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
+const breadcrumbArray = [{
+	href: Astro.url,
+	title: "Contactează-ne acum",
+	label: "Contact"
+}];
 ---
 
-<Layout title="Contactează-ne acum - Resurse.dev" description="@TODO: scrie descrierea" template="ContactPage">
+<Layout title="Contactează-ne acum - Resurse.dev" description="@TODO: scrie descrierea" template="ContactPage" breadcrumbArray={breadcrumbArray}>
 	<div class="Hero" id="hero">
 		<div class="HeroText">
 			<h1 class="HeroTitle">Contact</h1>

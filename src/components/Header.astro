@@ -1,10 +1,10 @@
 ---
+import { type BreadcrumbArray } from '../config';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { getCollection } from 'astro:content';
 import { highlightUrl } from '../utils/urlHelpers';
-
 export interface Props {
-	template: string;
+	breadcrumbArray?: BreadcrumbArray;
 	activeMenu?: string | undefined;
 }
 
@@ -12,7 +12,7 @@ const allSections = (await getCollection('sections', ({data}) => {
 	return data.sortOrder >= 0; // negative sort orders removes sections altogether
 })).sort((a, b) => a.data.sortOrder - b.data.sortOrder); // ordering by sortOrder asc
 
-const { template, activeMenu } = Astro.props;
+const { breadcrumbArray, activeMenu } = Astro.props;
 const activePage = activeMenu || Astro.url.pathname.substring(1);
 ---
 
@@ -60,7 +60,7 @@ const activePage = activeMenu || Astro.url.pathname.substring(1);
 			</form>
 		</nav>
 	</div>
-	<Breadcrumbs template={template} />
+	<Breadcrumbs breadcrumbArray={breadcrumbArray} />
 </header>
 
 <script>

@@ -1,8 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
+const breadcrumbArray = [{
+	href: Astro.url,
+	title: "Politică de cookies",
+	label: "Cookies"
+}];
 ---
 
-<Layout title="Politică de cookies - Resurse.dev" description="@TODO: scrie descrierea" template="CookiesPage">
+<Layout title="Politică de cookies - Resurse.dev" description="@TODO: scrie descrierea" template="CookiesPage" breadcrumbArray={breadcrumbArray}>
 	<div class="Hero" id="hero">
 		<div class="HeroText">
 			<h1 class="HeroTitle">Politică de cookies</h1>
