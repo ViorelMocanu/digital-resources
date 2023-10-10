@@ -1,8 +1,15 @@
 # Resurse digitale: **Resurse.dev**
 
-![GitHub Pages Deploy Status](https://github.com/ViorelMocanu/resurse-digitale/actions/workflows/static.yml/badge.svg)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/ViorelMocanu/digital-resources/static.yml)](https://github.com/ViorelMocanu/digital-resources/actions)
+[![GitHub Pages Deploy Status](https://github.com/ViorelMocanu/digital-resources/actions/workflows/static.yml/badge.svg)](https://github.com/ViorelMocanu/digital-resources/deployments)
+[![Uptime Robot status](https://img.shields.io/uptimerobot/status/m795450488-8340b637195100fd9eb8309b)](https://resurse.dev)
+[![GitHub contributors](https://img.shields.io/github/contributors/ViorelMocanu/digital-resources.svg)](https://github.com/ViorelMocanu/digital-resources/graphs/contributors)
+[![GitHub Sponsors](https://img.shields.io/github/sponsors/ViorelMocanu)](https://github.com/sponsors/ViorelMocanu/)
+[![ISC license](https://img.shields.io/badge/License-ISC-blue.svg?style=flat)](https://github.com/ViorelMocanu/digital-resources/blob/main/LICENSE)
+[![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fresurse.dev)](https://validator.w3.org/nu/?doc=https%3A%2F%2Fresurse.dev%2F&showsource=yes&showoutline=yes)
+![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/ViorelMocanu/digital-resources)
 
-Salutare, 🧑‍🚀 Astronaut!
+Salutare!
 
 Bine-ai venit în proiectul de *resurse digitale*, prin care transformăm link-urile din [Google Doc-ul făcut de mine acum mai mult timp] într-un website funcțional care să ajute oamenii să parcurgă resursele de învățare mai eficient.
 
@@ -135,9 +142,17 @@ Toate comenzile sunt rulate din root-ul proiectului, dintr-un terminal:
 | `pnpm lint`            | Validează fișierele JavaScript, TypeScript, Astro și Markdown cu `ESLint` / `MarkdownLint` |
 | `pnpm typecheck`       | Validează type-urile de TypeScript folosind TSC și `tsconfig.json`                         |
 
-## 🛑 Semnalează un bug
+## 🛑 Semnalează un bug sau contribuie
 
-Dacă ai observat un bug <https://github.com/ViorelMocanu/digital-resources/labels/bug> și vrei să-l semnalezi, urmează documentația aferentă de aici: [CONTRIBUTING.md].
+![GitHub issues](https://img.shields.io/github/issues/ViorelMocanu/digital-resources)
+![GitHub issues by-label](https://img.shields.io/github/issues/ViorelMocanu/digital-resources/bug)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/ViorelMocanu/digital-resources)
+![GitHub milestone details](https://img.shields.io/github/milestones/progress/ViorelMocanu/digital-resources/2)
+![GitHub milestone details](https://img.shields.io/github/milestones/progress/ViorelMocanu/digital-resources/1)
+![GitHub milestone details](https://img.shields.io/github/milestones/progress/ViorelMocanu/digital-resources/3)
+
+Dacă ai observat un bug [![GitHub label: bug](https://img.shields.io/github/labels/ViorelMocanu/digital-resources/bug)
+](https://github.com/ViorelMocanu/digital-resources/labels/bug) și vrei să-l semnalezi, urmează documentația aferentă de aici: [CONTRIBUTING.md].
 
 ## 🚀 Structura proiectului
 
@@ -166,11 +181,36 @@ Toate resursele statice în afară de imagini ar trebui puse în directorul `pub
 
 ## 👋 Vrei să discuți cu noi?
 
-Te așteptăm pe [server-ul de Discord] cu drag!
+Te așteptăm pe [server-ul de Discord], [canalul de YouTube] sau [grupul de Facebook] cu drag!
+
+Pe serverul de Discord sunt: [![Discord](https://img.shields.io/discord/715653203273842850)](https://discord.com/invite/UpnAutz)
+
+Pe canalul de YouTube am strâns până acum: [![YouTube Channel Views](https://img.shields.io/youtube/channel/views/UCwCxt0pJ4DrKtbSjkcqcgCA) ![YouTube Channel Subscribers](https://img.shields.io/youtube/channel/subscribers/UCwCxt0pJ4DrKtbSjkcqcgCA)](https://www.youtube.com/@ViorelMocanu?sub_confirmation=1)
+
+[![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white)](https://www.youtube.com/@ViorelMocanu)
+[![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/invite/UpnAutz)
+[![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=for-the-badge&logo=Facebook&logoColor=white)](https://www.facebook.com/groups/carierait)
+[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white)](https://www.instagram.com/viorelmocanu.ro/)
+[![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/viorelmocanu/)
+[![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white)](https://twitter.com/ViorelMocanu)
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](https://viorelmocanu.ck.page/newsletter)
+[![WordPress](https://img.shields.io/badge/WordPress-%23117AC9.svg?style=for-the-badge&logo=WordPress&logoColor=white)](https://www.viorelmocanu.ro/blog/)
+
+
+## 💸 Sponsorizează inițiativa
+
+Dacă simți că poți contribui financiar la această inițiativă, inclusiv să susții video-urile lui Viorel și materialele ajutătoare pe care le produce, îl poți sponsoriza aici:
+
+[![Github-sponsors](https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#EA4AAA)](https://github.com/sponsors/ViorelMocanu)
+[![Patreon](https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white)](https://www.patreon.com/ViorelMocanu)
+[![BuyMeACoffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/viorel)
+
+Contribuțiile voastre vor ajuta la crearea de mai mult conținut pentru voi și la finalizarea mai rapidă a proiectului actual. Toți banii din investiții se întorc la comunitate, indirect, prin sprijinul acordat lui [Viorel](https://github.com/ViorelMocanu).
 
 Merci! ❤️
 
 [Viorel Mocanu], [Consultant digital] și [creator de conținut].
+
 
 [Google Doc-ul făcut de mine acum mai mult timp]: https://bit.ly/vio-digital
 [playlist-ul Resurse.dev de aici &rarr;]: https://youtube.com/playlist?list=PLfTqvIG4roBphVLnYuDTkfweQ2GmmcHOq
@@ -193,3 +233,5 @@ Merci! ❤️
 [Consultant digital]: https://www.viorelmocanu.ro/
 [creator de conținut]: https://www.youtube.com/@ViorelMocanu
 [noile componente]: https://docs.astro.build/en/guides/images/
+[canalul de YouTube]: https://www.youtube.com/@ViorelMocanu
+[grupul de Facebook]: https://www.facebook.com/groups/carierait
