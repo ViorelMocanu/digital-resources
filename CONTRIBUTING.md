@@ -75,6 +75,10 @@ $ git commit -m "A brief summary of the commit
 > A paragraph describing what changed and its impact."
 ```
 
+This is not enforced yet, but we plan to add support for enforcing
+[Conventional Commits] as a standard for all commit messages. Let us know if
+that's something you'd like.
+
 ## 6. Make a Pull Request
 
 At this point, you should switch back to your main branch and make sure it's
@@ -160,3 +164,4 @@ Thanks! :heart:
 [Digital consultant]: https://www.viorelmocanu.ro/
 [content creator]: https://www.youtube.com/@ViorelMocanu
 [security policy]: https://resurse.dev/politica-de-securitate
+[Conventional Commits]: https://www.conventionalcommits.org/en/v1.0.0/
