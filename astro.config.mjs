@@ -85,6 +85,11 @@ export default defineConfig({
 					type: 'image/png',
 				},
 				{
+					src: 'favicon.svg',
+					sizes: '512x512',
+					type: 'image/svg+xml',
+				},
+				{
 					src: 'icon-512x512.png',
 					sizes: '512x512',
 					type: 'image/png',
