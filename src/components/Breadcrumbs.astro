@@ -1,7 +1,7 @@
 ---
 import { type BreadcrumbArray } from '../config';
 export interface Props {
-	breadcrumbArray?: BreadcrumbArray;
+	breadcrumbArray?: BreadcrumbArray | undefined;
 }
 
 const { breadcrumbArray } = Astro.props;

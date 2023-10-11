@@ -4,7 +4,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { getCollection } from 'astro:content';
 import { highlightUrl } from '../utils/urlHelpers';
 export interface Props {
-	breadcrumbArray?: BreadcrumbArray;
+	breadcrumbArray?: BreadcrumbArray | undefined;
 	activeMenu?: string | undefined;
 }
 

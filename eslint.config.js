@@ -1,25 +1,48 @@
 import a11y from "eslint-plugin-jsx-a11y";
 import astro from "eslint-plugin-astro";
 import astroParser from "astro-eslint-parser";
+import js from "@eslint/js";
+import jsdoc from "eslint-plugin-jsdoc";
+import markdown from "eslint-plugin-markdown";
 import ts from "@typescript-eslint/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
 
+const ignoreFolders = [
+	".astro/**",
+	".cache/**",
+	".github/**",
+	".idea/**",
+	".netlify/**",
+	".vercel/**",
+	"build/**",
+	"coverage/**",
+	"dist/**",
+	"dev-dist/**",
+	"node_modules/**",
+];
+
 export default [
 	{
+		files: ["**/*.md"],
+		ignores: ignoreFolders,
+		plugins: {
+			markdown
+		},
+		processor: "markdown/markdown",
+		settings: {
+		}
+	},
+	// applies only to code blocks
+	{
+		files: ["**/*.md/*.js"],
+		ignores: ignoreFolders,
+		rules: {
+			strict: "off"
+		}
+	},
+	{
 		files: ["**/*.js"],
-		ignores: [
-			".astro/**",
-			".cache/**",
-			".github/**",
-			".idea/**",
-			".netlify/**",
-			".vercel/**",
-			"build/**",
-			"coverage/**",
-			"dev-dist/**",
-			"dist/**",
-			"node_modules/**",
-		],
+		ignores: ignoreFolders,
 		languageOptions: {
 			parser: tsParser,
 			parserOptions: {
@@ -29,11 +52,12 @@ export default [
 		},
 		plugins: {
 			"@typescript-eslint": ts,
-			ts
+			jsdoc: jsdoc,
+			js,
 		},
 		rules: {
-			...ts.configs["eslint-recommended"].rules,
-			...ts.configs["recommended"].rules,
+			...ts.configs["strict"].rules,
+			"jsdoc/require-description": "warn",
 			"indent": ["error", "tab"],
 			"linebreak-style": ["error", "unix"],
 			"brace-style": ["error", "1tbs", { "allowSingleLine": true }],
@@ -58,19 +82,7 @@ export default [
 	},
 	{
 		files: ["**/*.ts"],
-		ignores: [
-			".astro/**",
-			".cache/**",
-			".github/**",
-			".idea/**",
-			".netlify/**",
-			".vercel/**",
-			"build/**",
-			"coverage/**",
-			"dist/**",
-			"dev-dist/**",
-			"node_modules/**",
-		],
+		ignores: ignoreFolders,
 		languageOptions: {
 			parser: tsParser,
 			parserOptions: {
@@ -83,8 +95,8 @@ export default [
 			ts,
 		},
 		rules: {
-			...ts.configs["eslint-recommended"].rules,
-			...ts.configs["recommended"].rules,
+			...ts.configs["strict"].rules,
+			"@typescript-eslint/triple-slash-reference": "warn",
 			"indent": ["error", "tab"],
 			"linebreak-style": ["error", "unix"],
 			"brace-style": ["error", "1tbs", { "allowSingleLine": true }],
@@ -109,19 +121,7 @@ export default [
 	},
 	{
 		files: ["**/*.astro"],
-		ignores: [
-			".astro/**",
-			".cache/**",
-			".github/**",
-			".idea/**",
-			".netlify/**",
-			".vercel/**",
-			"build/**",
-			"coverage/**",
-			"dist/**",
-			"dev-dist/**",
-			"node_modules/**",
-		],
+		ignores: ignoreFolders,
 		languageOptions: {
 			parser: astroParser,
 			parserOptions: {
@@ -132,7 +132,7 @@ export default [
 		},
 		plugins: {
 			astro,
-			a11y
+			a11y,
 		},
 		rules: {
 			"indent": ["error", "tab"],

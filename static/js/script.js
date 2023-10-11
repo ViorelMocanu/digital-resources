@@ -32,7 +32,7 @@ for (let i = 0; i < filterOptions.length; i++) {
 		if (alreadyOpen !== null && alreadyOpen != filterOptions[i]) {
 			alreadyOpen.removeAttribute('open');
 		}
-		return true;
+		return true || event;
 	});
 }
 
