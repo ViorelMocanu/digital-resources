@@ -277,27 +277,27 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 						@media (min-width: $desktop) { padding: 1rem 0.25rem 0 1rem; }
 					}
 					.ResourceTitle { display: flex; flex-grow: 1; margin: 0; align-items: center; }
-						.ResourceLink { display: block; padding: 0.5rem; flex-grow: 1; font-size: 1.25rem; line-height: 1.5rem; font-weight: bold;
-							@media (min-width: 600px) { padding: 1rem 3.5rem 1rem 1rem; }
-							@media (min-width: 750px) { padding: 1rem 6rem 1rem 1rem; }
+						.ResourceLink { display: block; padding: 0.5rem 0.5rem 0.25rem; flex-grow: 1; font-size: 1.25rem; line-height: 1.5rem; font-weight: bold;
+							@media (min-width: 600px) { padding: 1rem 3.5rem 0.5rem 1rem; }
+							@media (min-width: 750px) { padding: 1rem 6rem 0.5rem 1rem; }
 							@media (min-width: $desktop) { padding: 1rem; font-size: 1.5rem; line-height: 1em; }
 						}
 				.ResourceAside { display: block;
 					@media (min-width: 600px) { flex-grow: 1; }
 					@media (min-width: $desktop) { grid-row: 1 / span 2; }
 				}
-				.ResourceInfo { display: block; border-top: 1px solid var(--dark-300); border-bottom: 1px solid var(--dark-300);
+				.ResourceInfo { display: block; border-bottom: 1px solid var(--dark-300);
 					@media (min-width: 600px) { padding: 0 3rem 0 0.5rem; }
 					@media (min-width: 750px) { padding: 0.25rem 6rem 0.25rem 0.5rem; }
 					@media (min-width: $desktop) { padding: 0; border-top: none; border-right: 1px solid var(--light-900); }
 				}
 				.ResourceActions { display: block; border-top: 1px solid var(--dark-400);
-					@media (min-width: 600px) { position: absolute; right: 0; top: 0; bottom: 0; z-index: 2; height: 100%; background: var(--dark-100); border-top: none; border-left: 1px solid var(--dark-400); }
+					@media (min-width: 600px) { position: absolute; right: 0; top: 0; bottom: 0; z-index: 2; height: 100%; background: var(--dark-100); border-top: none; border-left: 1px solid var(--light-600); }
 					@media (min-width: $desktop) { position: static; right: unset; top: unset; z-index: 0; }
 				}
 				/*.ResourceMain[open] + .ResourceActions { display: block; }*/
-					.WidgetTitle { display: none; margin: 0; padding: 0; font-size: 1rem; line-height: 1.5rem; color: var(--dark-400);
-						@media (min-width: $desktop) { display: block; padding: 1rem; margin: 0 0 0.5rem; text-align: center; border-bottom: 1px solid var(--dark-400); }
+					.WidgetTitle { display: none; margin: 0; padding: 0; font-size: 1rem; line-height: 1em; color: var(--dark-400);
+						@media (min-width: $desktop) { display: block; padding: 1rem; margin: 0.5rem 0; text-align: center; border-bottom: 1px solid var(--dark-400); }
 					}
 					.ResourceActions .WidgetTitle {
 						@media (min-width: $desktop) { text-align: left; }
@@ -309,30 +309,32 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 						@media (min-width: 600px) { flex-direction: column; height: 100%; }
 						@media (min-width: $desktop) { gap: 0; height: auto; }
 					}
-						.InfoItem { display: flex; flex-direction: row; align-items: center; justify-content: center; flex: 1; padding: 0.25rem 0.5rem; }
+						.InfoItem { display: flex; flex-direction: row; align-items: center; justify-content: center; flex: 1; padding: 0.5rem; }
 						.InfoItem:nth-child(3n+1) { text-align: left; justify-content: flex-start; }
 						.InfoItem:nth-child(3n+2) { text-align: center; }
 						.InfoItem:nth-child(3n)   { text-align: right; justify-content: flex-end; }
-						.InfoList .InfoItem {
+						.InfoList .InfoItem { padding-top: 0;
 							@media (min-width: 600px) { display: flex; align-items: stretch; text-align: center; flex-grow: 1; }
-							@media (min-width: 750px) {  }
 							@media (min-width: $desktop) { flex-direction: column; gap: 0.25rem; }
 						}
 						.ResourceActions .InfoItem { padding: 0; text-align: center; }
 						.ResourceInfo .InfoItem {
 							@media (min-width: $desktop) { padding: 0 0.5rem; }
 						}
-							.InfoItemLabel { color: var(--dark-400);
-								@media (min-width: $desktop) { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; font-size: 1rem; line-height: 1em; }
+							.InfoItemLabel { height: 1rem; color: var(--dark-400);
+								@media (min-width: 750px) { height: 1.5rem; }
+								@media (min-width: $desktop) { display: flex; height: auto; align-items: center; justify-content: center; flex-wrap: wrap; font-size: 0.75rem; line-height: 1em; }
+								@media (min-width: 1450px) { font-size: 1rem; line-height: 1em; }
 							}
-								.InfoItemLabel .Icon { margin: 0 0.25rem 0 0;
-									@media (min-width: $desktop) { margin: 0 0.25rem 0 0; }
+								.InfoItemLabel .Icon { width: 1rem; height: 1rem; margin: 0 0.25rem 0 0;
+									@media (min-width: 750px) { width: 1.5rem; height: 1.5rem; }
+									@media (min-width: $desktop) { width: 1.5rem; height: 1.5rem; margin: 0 0.25rem 0 0; }
 								}
 								.InfoItemText { display: none;
 									@media (min-width: $desktop) { display: inline; }
 								}
 							.InfoItemValue { display: flex; align-items: center; font-weight: normal;
-								@media (min-width: 600px) { font-size: 0.75rem; line-height: 1em; white-space: nowrap; }
+								@media (min-width: 600px) { font-size: 0.75rem; line-height: 1rem; white-space: nowrap; }
 								@media (min-width: 750px) { font-size: 1rem; line-height: 1.5rem; }
 								@media (min-width: $desktop) { font-size: 2rem; line-height: 1em; justify-content: center; }
 							}
@@ -341,7 +343,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 								@media (min-width: 750px) { width: 100%; height: auto; }
 								@media (min-width: $desktop) { padding: 0.5rem 1rem; text-align: left; }
 							}
-							.ResourceActions .InfoLink { display: flex; border-right: 1px solid var(--dark-400); align-items: center; justify-content: center; flex-wrap: wrap;
+							.ResourceActions .InfoLink { display: flex; border-right: 1px solid var(--dark-400); align-items: center; justify-content: center; flex-wrap: wrap; font-size: 0.75rem; text-decoration: none;
 								@media (min-width: 600px) { height: 100%; border-bottom: 1px solid var(--dark-400); }
 								@media (min-width: 750px) { flex-direction: column; }
 								@media (min-width: $desktop) { flex-direction: row; justify-content: flex-start; height: auto; border: none; }
@@ -358,7 +360,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 								}
 								.InfoLink .ButtonText {
 									@media (min-width: 600px) { display: none; font-size: 0.75rem; line-height: 1em; }
-									@media (min-width: 750px) { display: block; }
+									@media (min-width: 750px) { display: block; line-height: 1.5rem; }
 									@media (min-width: $desktop) { display: inline; font-size: 1rem; line-height: 1em; }
 								}
 				/*
@@ -385,10 +387,13 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 				*/
 				.ResourceMainContent { display: block;
 					@media (min-width: 600px) { flex-grow: 1; padding: 0 2rem 0 0; }
-					@media (min-width: 750px) { padding: 0 4rem 0 0; }
+					@media (min-width: 750px) { padding: 0 5rem 0 0; }
 					@media (min-width: $desktop) { padding: 0; border-right: 1px solid var(--light-900); }
 				}
-					.ResourceLocationList { display: flex; flex-direction: row; flex-wrap: wrap; margin: 0; padding: 0; list-style-type: none; border-top: 1px solid var(--dark-400); border-bottom: 1px solid var(--dark-400); }
+					.ResourceLocationList { display: flex; flex-direction: row; flex-wrap: wrap; margin: 0; padding: 0; list-style-type: none; border-top: 1px solid var(--dark-400); border-bottom: 1px solid var(--dark-400);
+						@media (min-width: 600px) { padding: 0 0.5rem; }
+						@media (min-width: $desktop) { padding: 0; }
+					}
 						.ResourceLocationItem { display: flex; flex-direction: row; }
 						.ResourceLocationItem:after { content: '\21E8'; display: block; padding: 0.5rem 0;
 							@media (min-width: $desktop) { padding: 1rem 0; }
