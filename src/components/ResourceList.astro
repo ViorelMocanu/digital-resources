@@ -2,16 +2,16 @@
 import { type CollectionEntry, getCollection } from 'astro:content';
 import Message from './Message.astro';
 import Pagination from './Pagination.astro';
+import { resourceTypeIcon } from '../config';
 import { highlightUrl } from '../utils/urlHelpers';
 
-type resourceExtension = {
+type extendedResource = CollectionEntry<"resources"> & {
+	type: string;
 	tagData: CollectionEntry<"tags">[] | [];
 	sectionData: CollectionEntry<"sections"> | "";
 	categoryData: CollectionEntry<"categories">[] | [];
 	subCategoryData: CollectionEntry<"subcategories">[] | [];
 }
-
-type extendedResource = CollectionEntry<"resources"> & resourceExtension;
 
 export interface Props {
 	resources: CollectionEntry<"resources">[];
@@ -44,6 +44,9 @@ if (resources) {
 					return el.slug == tag.slug;
 				});
 				resource.tagData.push(currentTag);
+				if (currentTag?.data.type == "Tip") {
+					resource.type = currentTag?.data.title;
+				}
 			});
 		}
 
@@ -75,6 +78,7 @@ if (resources) {
 		}
 	});
 }
+
 ---
 
 <div class="ResourceContainer">
@@ -92,6 +96,7 @@ if (resources) {
 								resource.slug && (
 									<a class="ResourceLink" href={`/resurse/${resource.slug}`} title={`Vizitează resursa intitulată: ${resource.data.title}`}>
 										{resource.data.title}
+										{resourceTypeIcon[resource.type.toLowerCase()]}
 									</a>
 								)
 							}

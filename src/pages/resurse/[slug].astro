@@ -1,5 +1,6 @@
 ---
 import { type CollectionEntry, getCollection, getEntries, getEntry } from 'astro:content';
+import { resourceTypeIcon } from '../../config';
 import Layout from '../../layouts/Layout.astro';
 
 // 1. Generate a new path for every collection entry
@@ -15,11 +16,13 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 
 let resourceTags = new Array();
+let resourceType = "generic";
 if (entry.data.tags) {
 	const allTags = await getCollection('tags');
 	entry.data.tags.map((tag:CollectionEntry<"tags">) => {
 		const currentTag = allTags.find((t) => t.slug == tag.slug);
 		resourceTags.push({title: currentTag?.data.title, slug: tag.slug, type: currentTag?.data.type});
+		if ( currentTag?.data.type == "Tip" ) resourceType = currentTag.data.title;
 	});
 }
 
@@ -56,7 +59,7 @@ const breadcrumbArray = [{
 			<img class="HeroImage" src={entry.data.image.imageUrl} width="287" height="120" alt={entry.data.image.alt} />
 		</div>
 		<div class="HeroText">
-			<h1 class="HeroTitle">{entry.data.title}</h1>
+			<h1 class="HeroTitle">{entry.data.title}&nbsp;{resourceTypeIcon[resourceType.toLowerCase()]}</h1>
 			<p>Url: {entry.data.url}</p>
 			<p>language: {entry.data.language}</p>
 			<p>modDate: {entry.data.modDate}</p>

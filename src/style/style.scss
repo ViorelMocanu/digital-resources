@@ -387,6 +387,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 						}
 						.ResourceLocationItem:last-of-type:after { content: ''; display: none; }
 							.ClassificationLink { padding: 0.5rem;
+								@media (min-width: 600px) { padding: 0.5rem 1rem; }
 								@media (min-width: $desktop) { padding: 1rem; }
 							}
 					.ResourceP { display: block; margin: 0.5rem; padding: 0;
