@@ -16,8 +16,8 @@ requiredTime: 30
 type: "curs"
 mandatory: true
 image:
-  imageUrl: "https://www.theodinproject.com/assets/og-logo-dc2c719e367496ffaee876882b3f62c9b139279824de6a6e16448398fa513f7a.png"
-  imageAlt: "Web Development 101"
+  imageLocalUrl: "./img/og-the-odin-project.png"
+  imageAlt: "The Odin Project - Web Development 101"
 tags:
 - "curs"
 - "free"

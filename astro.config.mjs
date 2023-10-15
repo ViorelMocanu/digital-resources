@@ -8,6 +8,9 @@ import { LANGUAGE_EXTENDED, SITE_DESCRIPTION, SITE_NAME, ACCENT_COLOR, URL, DEBU
 
 // https://astro.build/config
 export default defineConfig({
+	image: {
+		remotePatterns: [{ protocol: "https" }],
+	},
 	site: URL,
 	vite: {
 		logLevel: DEBUG ? 'info' : 'silent',
