@@ -26,7 +26,6 @@ const {
 	description = SITE_DESCRIPTION,
 	ogImage = OG_IMAGE,
 	modDate = buildDate,
-	addDate,
 	canonical = Astro.url,
 	template,
 	activeMenu,
@@ -90,7 +89,6 @@ const {
 			<Header breadcrumbArray={breadcrumbArray} activeMenu={activeMenu} />
 			<slot />
 			<Footer activeMenu={activeMenu} />
-			<pre>{JSON.stringify(Astro.props, null, 2)}</pre>
 		</div>
 	</body>
 </html>
