@@ -3,6 +3,7 @@
 - [Security Policy](#security-policy)
     - [Supported Versions](#supported-versions)
     - [Reporting a Vulnerability](#reporting-a-vulnerability)
+    - [Other security links](#other-security-links)
 
 ## Supported Versions
 
@@ -20,3 +21,12 @@ Please report (suspected) security vulnerabilities to
 **[security@viorelmocanu.ro](mailto:security@viorelmocanu.ro)**. You will receive a
 response from us within 48 hours. If the issue is confirmed, we will release a patch
 as soon as possible depending on complexity (most likely within a few days).
+
+## Other security links
+
+- <https://resurse.dev/.well-known/security.txt> - details regarding this website's
+  security policies
+- <https://resurse.dev/hall-of-fame> - the hall of fame of security contributors
+- <https://resurse.dev/politica-de-securitate> - a more in-depth security policy
+- <https://github.com/ViorelMocanu/digital-resources/blob/main/CONTRIBUTING.md> -
+  contribution guidelines

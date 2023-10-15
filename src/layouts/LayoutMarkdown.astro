@@ -1,36 +1,50 @@
 ---
 import '../style/style.scss';
 import { ACCENT_COLOR, CONTACT_EMAIL, FACEBOOK_APP_ID, LANGUAGE, LANGUAGE_EXTENDED, OG_IMAGE, OG_IMAGE_ALT, SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, TWITTER_CREATOR, TWITTER_SITE } from '../config';
-import { type BreadcrumbArray } from '../config';
+import { type BreadcrumbArray, type Headings } from '../config';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import MarkdownTOC from '../components/MarkdownTOC.astro';
 import { ViewTransitions } from 'astro:transitions';
 import { pwaInfo } from 'virtual:pwa-info';
 
 interface Props {
-	title: string;
-	description: string;
-	ogImage?: string;
-	modDate?: string;	// e.g. 2021-09-19T19:35:55+03:00
-	addDate?: string;	// e.g. 2021-09-19T19:35:55+03:00
-	canonical?: string;
-	template: string;
-	activeMenu?: string;
-	breadcrumbArray?: BreadcrumbArray | undefined;	
+	file: string;
+	url: string;
+	content: {
+		title?: string;
+		description?: string;
+		ogImage?: string;
+		modDate?: Date;
+		addDate?: Date;
+		canonical?: string;
+		template?: string;
+		activeMenu?: string;
+		breadcrumbArray?: BreadcrumbArray | undefined;
+		file: string;
+		url: string;
+	};
+	headings?: Headings | undefined;
 }
 
 const buildDate = __DATE__;
 
 const {
-	title = SITE_TITLE,
-	description = SITE_DESCRIPTION,
-	ogImage = OG_IMAGE,
-	modDate = buildDate,
-	canonical = Astro.url,
-	template,
-	activeMenu,
-	breadcrumbArray
+	file,
+	url,
+	content,
+	headings
 } = Astro.props;
+
+// Solve the ability to render Markdown as well as Astro files
+const canonical = Astro.url;
+const theTitle = content?.title ? content.title : SITE_TITLE;
+const theDescription = content?.description ? content.description : SITE_DESCRIPTION;
+const theOgImage = content?.ogImage ? content.ogImage : OG_IMAGE;
+const theModDate = content?.modDate ? content.modDate.toString() : buildDate.toString();
+const theTemplate = content?.template ? content.template : "MarkdownPage";
+const theActiveMenu = content?.activeMenu ? content.activeMenu.toString() : canonical.toString();
+const theBreadcrumbArray = content?.breadcrumbArray ? content.breadcrumbArray : [];
 
 ---
 
@@ -39,18 +53,18 @@ const {
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>{title}</title>
+		<title>{theTitle}</title>
 
 		<!-- SEO -->
 		<link rel="canonical" href={canonical} />
-		<meta name="description" content={description}>
+		<meta name="description" content={theDescription}>
 		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 		<meta property="og:site_name" content={SITE_NAME} />
 		<meta property="og:type" content="website" />
-		<meta property="og:title" content={title} />
+		<meta property="og:title" content={theTitle} />
 		<meta property="og:url" content={Astro.url} />
 		<meta property="og:locale" content={LANGUAGE_EXTENDED} />
-		<meta property="og:image" content={ogImage} />
+		<meta property="og:image" content={theOgImage} />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
 		<meta property="og:image:alt" content={OG_IMAGE_ALT}>
@@ -60,36 +74,40 @@ const {
 		<meta property="twitter:site" content={TWITTER_SITE} />
 		<meta property="twitter:creator" content={TWITTER_CREATOR} />
 		<meta property="twitter:card" content="summary_large_image" />
-		<meta property="article:published_time" content={modDate} />
-		<meta property="article:modified_time" content={modDate} />
-		
+		<meta property="article:published_time" content={theModDate} />
+		<meta property="article:modified_time" content={theModDate} />
+
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="apple-touch-icon" href="/icon-512x512.png" />
 		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#00214d" />
 		<meta name="msapplication-TileColor" content={ACCENT_COLOR} />
 		<link rel="manifest" href="/manifest.webmanifest" />
-		<meta name="apple-mobile-web-app-title" content={`${SITE_NAME} - ${title}`} />
+		<meta name="apple-mobile-web-app-title" content={`${SITE_NAME} - ${theTitle}`} />
 		<meta name="application-name" content={SITE_NAME} />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="default" />
 		<meta name="mobile-web-app-capable" content="yes" />
 		<meta name="apple-touch-fullscreen" content="yes" />
 		<meta name="theme-color" content={ACCENT_COLOR} />
-		<link rel="author" href="https://resurse.dev/humans.txt" />
 		<link rel="sitemap" href="/sitemap-index.xml" />
 		<link rel="preload" href="/font/atkinson-hyperlegible-regular.woff2" as="font" type="font/woff2" crossorigin />
 		<link rel="preload" href="/font/atkinson-hyperlegible-bold.woff2" as="font" type="font/woff2" crossorigin />
-		<script type="module" src="/src/pwa.ts"></script>
+		<script src="/src/pwa.ts"></script>
 		{ pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> }
 		<ViewTransitions />
 	</head>
-	<body class:list={[template]}>
+	<body class:list={[theTemplate]}>
 		<a id="skip" href="#hero" title="Mergi direct la conținutul acestei pagini">Mergi la conținut</a>
 		<div class="Framework">
-			<Header breadcrumbArray={breadcrumbArray} activeMenu={activeMenu} />
-			<slot />
-			<Footer activeMenu={activeMenu} />
-			<p class="TemporaryMessage">Template: <strong>{template}</strong> built at <em>{buildDate}</em>.</p>
+			<p class="TemporaryMessage">Template: <strong>{theTemplate}</strong> built at <em>{buildDate}</em>.</p>
+			<Header breadcrumbArray={theBreadcrumbArray} activeMenu={theActiveMenu} />
+			<main class="Main">
+				<div class="MarkdownContent">
+					<slot />
+				</div>
+				<MarkdownTOC headings={headings} />
+			</main>
+			<Footer activeMenu={theActiveMenu} />
 		</div>
 	</body>
 </html>

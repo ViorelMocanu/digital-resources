@@ -1,6 +1,24 @@
 * text=auto
 
 # Source code
+*.astro           eol=lf
+*.css             eol=lf
+*.htm             eol=lf
+*.html            eol=lf
+*.js              eol=lf
+*.jsx             eol=lf
+*.json            eol=lf
+*.map             eol=lf
+*.md              eol=lf
+*.mjs             eol=lf
+*.scss            eol=lf
+*.svg             eol=lf
+*.ts              eol=lf
+*.tsx             eol=lf
+*.webmanifest     eol=lf
+*.yaml            eol=lf
+
+# Executables
 *.bash            text eol=lf
 *.bat             text eol=crlf
 *.cmd             text eol=crlf
@@ -36,6 +54,7 @@
 *.mp3             binary
 *.ogg             binary
 *.ra              binary
+
 # Video
 *.3gpp            binary
 *.3gp             binary
