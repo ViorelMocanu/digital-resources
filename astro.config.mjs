@@ -11,7 +11,7 @@ export default defineConfig({
 	image: {
 		remotePatterns: [{ protocol: "https" }],
 	},
-	site: URL,
+	site: URL || "https://resurse.dev",
 	vite: {
 		logLevel: DEBUG ? 'info' : 'silent',
 		define: {

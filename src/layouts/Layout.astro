@@ -5,7 +5,6 @@ import { type BreadcrumbArray } from '../config';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { ViewTransitions } from 'astro:transitions';
-import { pwaInfo } from 'virtual:pwa-info';
 
 interface Props {
 	title: string;
@@ -79,9 +78,6 @@ const {
 		<link rel="sitemap" href="/sitemap-index.xml" />
 		<link rel="preload" href="/font/atkinson-hyperlegible-regular.woff2" as="font" type="font/woff2" crossorigin />
 		<link rel="preload" href="/font/atkinson-hyperlegible-bold.woff2" as="font" type="font/woff2" crossorigin />
-		<script type="module" src="/src/pwa.ts"></script>
-		{ pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> }
-		<ViewTransitions />
 	</head>
 	<body class:list={[template]}>
 		<a id="skip" href="#hero" title="Mergi direct la conținutul acestei pagini">Mergi la conținut</a>
