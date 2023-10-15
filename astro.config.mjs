@@ -4,13 +4,13 @@ import prefetch from "@astrojs/prefetch";
 import webmanifest from "astro-webmanifest";
 import partytown from "@astrojs/partytown";
 import sitemap from "@astrojs/sitemap";
-import { LANGUAGE_EXTENDED, SITE_DESCRIPTION, SITE_NAME, ACCENT_COLOR } from './src/config';
+import { LANGUAGE_EXTENDED, SITE_DESCRIPTION, SITE_NAME, ACCENT_COLOR, URL, DEBUG } from './src/config';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://resurse.dev',
+	site: URL,
 	vite: {
-		logLevel: 'info',
+		logLevel: DEBUG ? 'info' : 'silent',
 		define: {
 			__DATE__: `'${new Date().toISOString()}'`,
 		},
@@ -18,7 +18,7 @@ export default defineConfig({
 	integrations: [
 		prefetch({
 			// Only prefetch links with an href that begins with `/resurse` or `.front-end`
-			intentSelector: ["a[href^='/resurse']", "a[href^='/front-end']"]
+			// intentSelector: ["a[href^='/resurse']", "a[href^='/front-end']"]
 		}), webmanifest({
 			name: SITE_NAME,
 			short_name: SITE_NAME,
@@ -63,48 +63,44 @@ export default defineConfig({
 					en: 'en-US',
 				},
 			},
-		}), AstroPWA({
-			mode: 'development',
-			base: '/',
-			scope: '/',
-			includeAssets: ['favicon.svg'],
-			registerType: 'autoUpdate',
-			manifest: {
-				name: SITE_NAME,
-				short_name: SITE_NAME,
-				theme_color: ACCENT_COLOR,
-				icons: [
-				{
-					src: 'icon-192x192.png',
-					sizes: '192x192',
-					type: 'image/png',
-				},
-				{
-					src: 'icon-512x512.png',
-					sizes: '512x512',
-					type: 'image/png',
-				},
-				{
-					src: 'favicon.svg',
-					sizes: '512x512',
-					type: 'image/svg+xml',
-				},
-				{
-					src: 'icon-512x512.png',
-					sizes: '512x512',
-					type: 'image/png',
-					purpose: 'any maskable',
-				},
-				],
-			},
-			workbox: {
-				navigateFallback: '/404',
-				globPatterns: ['**/*.{css,js,html,svg,png,ico,woff2}'],
-			},
-			devOptions: {
-				enabled: true,
-				navigateFallbackAllowlist: [/^\/404$/],
-			},
-		})
+		}),
+		// AstroPWA({
+		// 	mode: 'development',
+		// 	base: '/',
+		// 	scope: '/',
+		// 	includeAssets: ['favicon.svg'],
+		// 	registerType: 'autoUpdate',
+		// 	manifest: {
+		// 		name: SITE_NAME,
+		// 		short_name: SITE_NAME,
+		// 		theme_color: ACCENT_COLOR,
+		// 		icons: [
+		// 		{
+		// 			src: 'icon-192x192.png',
+		// 			sizes: '192x192',
+		// 			type: 'image/png',
+		// 		},
+		// 		{
+		// 			src: 'icon-512x512.png',
+		// 			sizes: '512x512',
+		// 			type: 'image/png',
+		// 		},
+		// 		{
+		// 			src: 'icon-512x512.png',
+		// 			sizes: '512x512',
+		// 			type: 'image/png',
+		// 			purpose: 'any maskable',
+		// 		},
+		// 		],
+		// 	},
+		// 	workbox: {
+		// 		navigateFallback: '/404',
+		// 		globPatterns: ['**/*.{css,js,html,svg,png,ico,woff2}'],
+		// 	},
+		// 	devOptions: {
+		// 		enabled: true,
+		// 		navigateFallbackAllowlist: [/^\/404$/],
+		// 	},
+		// })
 	]
 });

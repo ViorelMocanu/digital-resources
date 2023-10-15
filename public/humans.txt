@@ -1,0 +1,22 @@
+/* TEAM */
+
+	Creator: Viorel Mocanu
+	Contact: github [at] viorelmocanu.ro
+	Twitter: @ViorelMocanu
+	LinkedIn: https://www.linkedin.com/in/viorelmocanu/
+	From: Bucharest, Romania
+
+/* THANKS */
+
+	Consultant: Costică Puntaru
+	LinkedIn: https://www.linkedin.com/in/costicapuntaru/
+	From: Bucharest, Romania
+
+/* SITE */
+
+	Last update: 2023/10/09
+	Language: Romanian / English
+	Doctype: HTML5
+	Standards: HTML5, CSS3, SASS, TS5, ES6, Astro3, PWA
+	IDE: VSCode
+	Components: Partytown, Sharp, ESLint, MarkdownLint, Prettier
