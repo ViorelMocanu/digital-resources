@@ -22,8 +22,8 @@ const resourceCollection = defineCollection({
 		type: z.string(),
 		mandatory: z.boolean(),
 		image: z.object({
-			imageLocalUrl: image().refine((img) => img.width >= 1200, {
-				message: "Imaginea trebuie să aibă minim 1200px lățime!",
+			imageLocalUrl: image().refine((img) => img.width >= 1000, {
+				message: "Imaginea trebuie să aibă minim 1000px lățime!",
 			}).optional(),
 			imageUrl: z.string().url("Imagine cu URL invalid.").optional(),
 			imageAlt: z.string().optional(),
