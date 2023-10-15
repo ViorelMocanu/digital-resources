@@ -21,7 +21,7 @@ Documentul curent este momentan în 🇷🇴 Română, însă cel mai probabil l
 
 ## Quick note in 🇬🇧 English
 
-This project began in a 🇷🇴 Romanian community, so please excluse the almost entirely Romanian content in this `README.md` - we will translate this document in 🇬🇧 English by the end of [v1.0].
+This project began in a 🇷🇴 Romanian community, so please excuse the almost entirely Romanian content in this `README.md` - we will translate this document in 🇬🇧 English by the end of [v1.0].
 
 ## ✅ Link-uri utile
 
