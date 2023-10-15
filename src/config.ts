@@ -31,3 +31,9 @@ export type BreadcrumbArray = {
 	title: string;
 	label: string;
 }[];
+
+export type Headings = {
+	depth: number;
+	slug: string;
+	text: string;
+}[];
