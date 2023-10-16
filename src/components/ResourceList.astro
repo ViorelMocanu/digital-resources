@@ -4,7 +4,7 @@ import { type extendedResource } from '../config';
 import Message from './Message.astro';
 import Pagination from './Pagination.astro';
 import ResourceLocationList from '../components/ResourceLocationList.astro';
-import { highlightUrl } from '../utils/urlHelpers';
+import ResourceTagList from '../components/ResourceTagList.astro';
 
 export interface Props {
 	resources: CollectionEntry<"resources">[];
@@ -19,8 +19,6 @@ export interface Props {
 }
 
 const { resources, page } = Astro.props as Props;
-
-const activePage = Astro.url.pathname.substring(1);
 
 let r = resources;
 const allTags = await getCollection("tags") as CollectionEntry<"tags">[];
@@ -139,18 +137,7 @@ if (resources) {
 					<div class="ResourceMainContent">
 						<ResourceLocationList res={resource} />
 						{resource.data.description && <p class="ResourceP">{resource.data.description}</p>}
-						{resource.data.tags && 
-							<ul class="ResourceTags">
-								{resource.tagData.map((tag:CollectionEntry<"tags">) => (
-									<li class:list={highlightUrl(`taguri/${tag.slug}`, 'ResourceTag', 'Active', activePage)}>
-										<a class:list={["ResourceTagLink", `${tag.data.type}-${tag.slug}`]} href={`/taguri/${tag.slug}`} title={`Vezi toate resursele care sunt clasificate astfel: ${tag.data.title}`}>
-											<span class="Icon IconTag">Tag:</span>
-											<span class="TagName">{tag.data.title}</span>
-										</a>
-									</li>
-								))}
-							</ul>
-						}
+						{resource.data.tags && <ResourceTagList taglist={resource.tagData} />}
 					</div>
 					<aside class="ResourceAside ResourceActions">
 						<h5 class="WidgetTitle">Acțiuni disponibile:</h5>

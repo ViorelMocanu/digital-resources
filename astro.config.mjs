@@ -21,7 +21,7 @@ export default defineConfig({
 	integrations: [
 		prefetch({
 			// Only prefetch links with an href that begins with `/resurse` or `.front-end`
-			// intentSelector: ["a[href^='/resurse']", "a[href^='/front-end']"]
+			intentSelector: ["a[href^='/resurse']"]
 		}), webmanifest({
 			name: SITE_NAME,
 			short_name: SITE_NAME,

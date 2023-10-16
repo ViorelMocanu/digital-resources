@@ -4,7 +4,7 @@ url: "https://uxbooth.com/articles/complete-beginners-guide-to-information-archi
 language: "en"
 modDate: "15 October 2023 19:48 UTC"
 addDate: ""
-description: "Information architecture is an often misunderstood job title. Are they designers? developers? managers? All of the above? In this article we'll discuss what information architecture is, why it's related to usability, and what are the common tools/programs used in information architecture."
+description: "@TODO: Information architecture is an often misunderstood job title. Are they designers? developers? managers? All of the above? In this article we'll discuss what information architecture is, why it's related to usability, and what are the common tools/programs used in information architecture."
 authorName: "UX Booth"
 authorUrl: "https://uxbooth.com/"
 section: "front-end"

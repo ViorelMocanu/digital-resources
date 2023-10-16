@@ -1,7 +1,6 @@
 ---
 import { type CollectionEntry } from 'astro:content';
 import { type extendedResource } from '../config';
-// import { highlightUrl } from '../utils/urlHelpers';
 
 export interface Props {
 	res?: extendedResource;
@@ -13,7 +12,6 @@ export interface Props {
 const { res, section, categories, subcategories } = Astro.props as Props;
 
 const resourceSection = res ? res.data.section : section;
-// const activePage = Astro.url.pathname.substring(1);
 ---
 
 <ul class="ResourceLocationList">

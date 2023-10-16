@@ -4,7 +4,7 @@ menu: "Front End"
 slug: front-end
 sortOrder: 0
 image:
-  imageUrl: "/src/img/hero-image.svg"
+  imageUrl: "../../src/img/hero-image.svg"
   imageAlt: "Tehnologiile de bază ale Internetului: HTML, CSS și JavaScript"
 description: "Învață despre tehnologiile de bază ale Internetului, descoperă ce este și cum funcționează o pagină web și cum să construiești și tu aplicații online."
 categories:
