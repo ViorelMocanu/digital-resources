@@ -1,17 +1,10 @@
 ---
 import { type CollectionEntry, getCollection } from 'astro:content';
+import { type extendedResource } from '../config';
 import Message from './Message.astro';
 import Pagination from './Pagination.astro';
+import ResourceLocationList from '../components/ResourceLocationList.astro';
 import { highlightUrl } from '../utils/urlHelpers';
-
-type resourceExtension = {
-	tagData: CollectionEntry<"tags">[] | [];
-	sectionData: CollectionEntry<"sections"> | "";
-	categoryData: CollectionEntry<"categories">[] | [];
-	subCategoryData: CollectionEntry<"subcategories">[] | [];
-}
-
-type extendedResource = CollectionEntry<"resources"> & resourceExtension;
 
 export interface Props {
 	resources: CollectionEntry<"resources">[];
@@ -144,23 +137,7 @@ if (resources) {
 						</ul>
 					</div>
 					<div class="ResourceMainContent">
-						<ul class="ResourceLocationList">
-							{resource.data.section && (
-								<li class="ResourceLocationItem Classification">
-									<a class="ClassificationLink" href={`/${resource.data.section.slug}`} title={`Vezi toate resursele din secțiunea ${resource.sectionData.data.title}`}>{resource.sectionData.data.menu}</a>
-								</li>
-							)}
-							{resource.data.categories && resource.categoryData.map((cat:CollectionEntry<"categories">) => (
-								<li class="ResourceLocationItem Classification">
-									<a class="ClassificationLink" href={`/${resource.data.section.slug}/${cat.slug}`} title={`Vezi toate resursele din categoria ${cat.data.title}`}>{cat.data.menu}</a>
-								</li>
-							))}
-							{resource.data.subcategories && resource.categoryData.map((cat:CollectionEntry<"categories">) => resource.subCategoryData.map((subcat:CollectionEntry<"subcategories">) => (
-								<li class="ResourceLocationItem Classification">
-									<a class="ClassificationLink" href={`/${resource.data.section.slug}/${cat.slug}/${subcat.slug}`} title={`Vezi toate resursele din subcategoria ${subcat.data.title}`}>{subcat.data.menu}</a>
-								</li>
-							)))}
-						</ul>
+						<ResourceLocationList res={resource} />
 						{resource.data.description && <p class="ResourceP">{resource.data.description}</p>}
 						{resource.data.tags && 
 							<ul class="ResourceTags">

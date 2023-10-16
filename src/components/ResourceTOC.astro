@@ -2,12 +2,6 @@
 import { type CollectionEntry, getCollection } from "astro:content";
 import { highlightUrl } from "../utils/urlHelpers";
 
-type resourceExtension = {
-	subCategoryData: CollectionEntry<"subcategories">[] | [];
-}
-
-type extendedResource = CollectionEntry<"resources"> & resourceExtension;
-
 export interface Props {
 	section: CollectionEntry<"sections">;
 }

@@ -8,6 +8,12 @@
 	--light-800: #FDFDFD;
 	--light-900: #ffffff;
 	--accent-400: #2f8ded;
+	--accent-carte: #12a;
+	--accent-curs: #f90;
+	--accent-video: #f30;
+	--accent-text: #939;
+	--accent-obligatoriu: #910;
+	--accent-optional: #9da;
 }
 /* SCSS Variables */
 $desktop: 1100px;
@@ -195,11 +201,19 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 		.HeroText {
 			@media (min-width: $desktop) { padding: 2rem 2rem 1rem; }
 		}
-			.HeroTitle { display: block; padding: 0 0 0.5rem; margin: 0 -1rem 0.5rem 0; border-bottom: 0.25rem solid var(--light-900);
-				@media (min-width: 600px) { padding: 0 0 1rem; margin: 0 -1rem 1rem 0; }
-				@media (min-width: $desktop) { padding: 0 0 0.5rem; margin: 0 0 1rem; border-bottom: 0.5rem solid var(--light-900); }
-				@media (min-width: 1800px) { font-size: clamp(3.5rem, calc(1rem + 2.56vw), 5rem); }
-			}
+			.HeroResourceLink { display: block; text-decoration: none; }
+				.HeroTitle { display: block; padding: 0 0 0.5rem; margin: 0 -1rem 0.5rem 0; border-bottom: 0.25rem solid var(--light-900);
+					@media (min-width: 600px) { padding: 0 0 1rem; margin: 0 -1rem 1rem 0; }
+					@media (min-width: $desktop) { padding: 0 0 0.5rem; margin: 0 0 1rem; border-bottom: 0.5rem solid var(--light-900); }
+					@media (min-width: 1800px) { font-size: clamp(3.5rem, calc(1rem + 2.56vw), 5rem); }
+				}
+				.ResourcePage .HeroTitle { padding-right: 1rem; }
+				.HeroResourceLink:hover .HeroTitle { border-bottom-color: var(--accent-400); }
+				.HeroUrl { display: block; padding: 0.5rem 0 0; font-size: 0.75rem; line-height: 1em; text-wrap: wrap; word-break: break-all; color: var(--dark-400);
+					@media (min-width: 600px) { padding: 0; }
+					@media (min-width: $desktop) { font-size: 1rem; line-height: 1.5em; }
+				}
+				.HeroResourceLink:hover .HeroUrl { color: var(--light-600); }
 			.HeroDetails { }
 				.HeroPreview { display: block; }
 				.HeroPreview:hover { opacity: 0.75; cursor: pointer; }
@@ -216,7 +230,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 	.SectionPage .Main, .CategoryPage .Main, .SubcategoryPage .Main {
 		@media (min-width: $desktop) { display: grid; grid-template-columns: 3fr 1fr; grid-template-rows: 2.5rem 1fr; }
 	}
-	.ResourcePage .Main { padding: 0 0.5rem; margin: 0 0 1rem;
+	.ResourcePage .Main { padding: 0.5rem 1rem; margin: 0 0 1rem;
 		@media (min-width: 600px) { max-width: 37.5rem; margin: 0 auto 1rem; gap: 1rem; padding: 0 1rem; }
 		@media (min-width: $desktop) { max-width: unset; margin: 0 0 2rem; flex-direction: row; gap: 0; padding: 0; }
 	}
@@ -318,6 +332,9 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 						@media (min-width: 600px) { flex-direction: column; height: 100%; }
 						@media (min-width: $desktop) { gap: 0; height: auto; }
 					}
+					.ResourcePage .InfoList { flex-direction: column; padding: 1rem 0 0; margin: 1rem 0 0; border-top: 1px solid var(--light-900);
+						@media (min-width: $desktop) { display: grid; grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); margin: 1rem 0; padding: 1rem 0; }
+					}
 						.InfoItem { display: flex; flex-direction: row; align-items: center; justify-content: center; flex: 1; padding: 0.5rem; }
 						.InfoItem:nth-child(3n+1) { text-align: left; justify-content: flex-start; }
 						.InfoItem:nth-child(3n+2) { text-align: center; }
@@ -330,10 +347,18 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 						.ResourceInfo .InfoItem {
 							@media (min-width: $desktop) { padding: 0 0.5rem; }
 						}
+						.ResourcePage .InfoItem { justify-content: space-between;
+							@media (min-width: $desktop) { align-items: center; justify-content: flex-start; }
+						}
+						.ResourcePage .InfoItem.InfoItemStandalone { flex-direction: column; align-items: flex-start; }
+						.ResourcePage .InfoItem.InfoItemTags { border-top: 1px solid var(--dark-400); }
 							.InfoItemLabel { height: 1rem; color: var(--dark-400);
 								@media (min-width: 750px) { height: 1.5rem; }
 								@media (min-width: $desktop) { display: flex; height: auto; align-items: center; justify-content: center; flex-wrap: wrap; font-size: 0.75rem; line-height: 1em; }
 								@media (min-width: 1450px) { font-size: 1rem; line-height: 1em; }
+							}
+							.ResourcePage .InfoItemLabel { height: auto; display: flex; flex-direction: row; align-items: center; justify-content: flex-start;
+								@media (min-width: $desktop) { font-size: 1rem; }
 							}
 								.InfoItemLabel .Icon { width: 1rem; height: 1rem; margin: 0 0.25rem 0 0;
 									@media (min-width: 750px) { width: 1.5rem; height: 1.5rem; }
@@ -342,11 +367,32 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 								.InfoItemText { display: none;
 									@media (min-width: $desktop) { display: inline; }
 								}
+								.ResourcePage .InfoItemText { display: block; }
 							.InfoItemValue { display: flex; align-items: center; font-weight: normal;
 								@media (min-width: 600px) { font-size: 0.75rem; line-height: 1rem; white-space: nowrap; }
 								@media (min-width: 750px) { font-size: 1rem; line-height: 1.5rem; }
 								@media (min-width: $desktop) { font-size: 2rem; line-height: 1em; justify-content: center; }
 							}
+							p.InfoItemValue { margin-top: 0.5rem; white-space: normal; }
+							.InfoItemAuthor .InfoItemValue {
+								@media (min-width: $desktop) { font-size: 1rem; line-height: 1.5em; }
+							}
+								.InfoItemLanguage { display: flex; flex-direction: row; gap: 0.25rem; align-items: center; justify-content: flex-end;
+									@media (min-width: $desktop) { align-items: baseline; }
+								}
+									.InfoItemLangText {
+										@media (min-width: $desktop) { line-height: 1.25em; }
+									}
+							.TypeTag { display: block; padding: 0 0.5rem; border-radius: 0.25rem; background: var(--accent-400); color: var(--light-900); font-weight: bold; line-height: 1.25rem;
+								@media (min-width: 750px) { line-height: 1.5rem; }
+								@media (min-width: $desktop) { line-height: 1.25em; }
+							}
+								.Type-text { background: var(--accent-text); }
+								.Type-video { background: var(--accent-video); }
+								.Type-curs { background: var(--accent-curs); }
+								.Type-carte { background: var(--accent-carte); }
+								.Type-obligatoriu { background: var(--accent-obligatoriu); }
+								.Type-optional { background: var(--accent-optional); }
 							.InfoLink { display: block; width: 100%; margin: 0 auto; padding: 0.5rem; border: none; background: transparent; color: var(--light-800); text-decoration: underline; cursor: pointer;
 								@media (min-width: 600px) { width: 2.5rem; height: 2.5rem; text-decoration: none; padding: 0.5rem; }
 								@media (min-width: 750px) { width: 100%; height: auto; }
@@ -417,23 +463,23 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 					.ResourceTags { display: flex; flex-direction: row; flex-wrap: wrap; gap: 0.5rem; list-style-type: none; margin: 0; padding: 0 0.5rem 0.5rem;
 						@media (min-width: 600px) { padding: 0 1rem 1rem; }
 					}
-					.HeroText .ResourceTags { padding: 0 0 0.5rem; }
+					.HeroText .ResourceTags { padding: 0.5rem 0; }
 						.ResourceTag { display: block; }
 							.ResourceTagLink { display: flex; flex-direction: row; gap: 0.25rem; padding: 0.25rem; background: var(--dark-200); color: var(--light-900); border: 1px solid var(--light-900); font-size: 1rem; line-height: 1.25rem; text-decoration: none; }
 							.ResourceTagLink:hover, .Active > .ResourceTagLink { background: var(--dark-100); color: var(--accent-400); border: 1px solid var(--accent-400); }
 							.ResourceTagLink:active { background: var(--accent-400); color: var(--light-900); border: 1px solid var(--light-900); }
 								.ResourceTag .Icon { display: block; width: 0.75rem; height: 0.75rem; margin: 0.25rem 0; border-radius: 50%; background: var(--dark-400); text-indent: 100%; overflow: hidden; white-space: nowrap; }
-									.Tip-carte .Icon { background: #F2C94C; }
-									.Tip-text .Icon { background: #e2b93C; }
-									.Tip-curs .Icon { background: #ff0; }
-									.Tip-video .Icon {  }
+									.Tip-carte .Icon { background: var(--accent-carte); }
+									.Tip-text .Icon { background: var(--accent-text); }
+									.Tip-curs .Icon { background: var(--accent-curs); }
+									.Tip-video .Icon { background: var(--accent-video); }
 									.Pret-free .Icon { background: #219653; }
 									.Pret-platit .Icon {  }
 									.Nivel-incepatori .Icon { background: #6FCF97; }
 									.Nivel-mid .Icon { background: #2D9CDB; }
 									.Nivel-avansati .Icon { background: #BB6BD9; }
 									.Nivel-pro .Icon { background: #EB5757; }
-									.Obligatoriu-obligatoriu .Icon { background: #F2994A; }
+									.Obligatoriu-obligatoriu .Icon { background: var(--accent-obligatoriu); }
 								.TagName {  }
 
 		.ListNavigation { position: relative; z-index: 3;

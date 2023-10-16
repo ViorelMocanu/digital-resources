@@ -19,12 +19,14 @@ const resourceCollection = defineCollection({
 		rating: z.number().min(1, "Rating-ul nu poate avea mai puțin de nota 1").max(100, "Rating-ul nu poate avea mai mult de nota 10").optional(),
 		price: z.number().min(0, "Prețul nu poate fi negativ").optional(),
 		requiredTime: z.number().optional(),
-		type: z.string(),
+		type: z.enum(["text", "video", "curs", "carte"]),
 		mandatory: z.boolean(),
 		image: z.object({
+			// @TODO: make either imageLocalUrl or imageUrl be validated for the image object to become valid
 			imageLocalUrl: image().refine((img) => img.width >= 1000, {
 				message: "Imaginea trebuie să aibă minim 1000px lățime!",
 			}).optional(),
+			// @TODO: add file type extension validation for imageUrl
 			imageUrl: z.string().url("Imagine cu URL invalid.").optional(),
 			imageAlt: z.string().optional(),
 		}).nullish(),

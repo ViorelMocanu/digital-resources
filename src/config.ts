@@ -19,6 +19,7 @@ export const SITE_NAME = "resurse.dev";
 export const CONTACT_EMAIL = "contact@resurse.dev";
 export const LANGUAGE = "ro"; //					🛑 @TODO: multi-language support with i18n
 export const LANGUAGE_EXTENDED = "ro_RO";
+export const LANGUAGE_EXTENDED_DASH = "ro-RO";
 export const FACEBOOK_APP_ID = ""; //				🛑 @TODO: facebook app ID
 export const TWITTER_SITE = ""; //					🛑 @TODO: twitter site
 export const TWITTER_CREATOR = ""; //				🛑 @TODO: twitter creator
@@ -40,3 +41,12 @@ export type Headings = {
 	slug: string;
 	text: string;
 }[];
+
+type resourceExtension = {
+	tagData: CollectionEntry<"tags">[] | [];
+	sectionData: CollectionEntry<"sections"> | "";
+	categoryData: CollectionEntry<"categories">[] | [];
+	subCategoryData: CollectionEntry<"subcategories">[] | [];
+}
+
+export type extendedResource = CollectionEntry<"resources"> & resourceExtension;

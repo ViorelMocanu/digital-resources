@@ -2,7 +2,7 @@
 title: "Resilient Web Design"
 url: "https://resilientwebdesign.com/"
 language: "en"
-modDate: "12 October 2023 14:48 EET"
+modDate: "12 October 2023 14:48 UTC"
 addDate: ""
 description: "Una din cele mai bune cărți care descrie evoluția și progresul web development-ului de-a lungul anilor, și în care sunt explicate concepte de bază de care ai nevoie să afli cât mai devreme în viitoarea ta carieră în Front End Development, cum ar fi: backwards compatibility, progressive enhancement și future-friendlyness."
 authorName: "Jeremy Keith"

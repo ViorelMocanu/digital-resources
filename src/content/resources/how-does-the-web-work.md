@@ -2,7 +2,7 @@
 title: "How does the Web work?"
 url: "https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/how-does-the-web-work"
 language: "en"
-modDate: "12 October 2023 20:48 EET"
+modDate: "12 October 2023 20:48 UTC"
 addDate: ""
 description: "Înainte să te apuci să înveți cum creezi lucruri pe Internet, ar fi bine să înțelegi întâi Internetul. Cursul ăsta te trece prin ce este Internetul, cum se transmit datele pe Internet, care sunt componentele tehnologice necesare să trimiți și primești date și ce înseamnă o rețea."
 authorName: "The Odin Project"
