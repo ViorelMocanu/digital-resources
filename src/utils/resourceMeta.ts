@@ -1,4 +1,4 @@
-const getFormattedDate = (date: Date | string): string => {
+export function getFormattedDate (date: Date | string): string {
 	if (!date) return 'Malformed date';
 	let d;
 	if (typeof date === 'string') d = new Date(date);
@@ -14,5 +14,3 @@ const getFormattedDate = (date: Date | string): string => {
 		}
 	).format(new Date(d));
 };
-
-export { getFormattedDate };

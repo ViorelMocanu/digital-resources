@@ -5,16 +5,18 @@ export interface Props {
 	next: string | undefined;
 	prev: string | undefined;
 	boxHeader?: boolean;
+	pageTitle?: string;
 }
 
-const { currentPage, lastPage, next, prev, boxHeader = true } = Astro.props;
+const { currentPage, lastPage, next, prev, boxHeader = true, pageTitle } = Astro.props;
 const paginationList = Array.from({length: `${lastPage}`}, (_, i) => i + 1);
 const pagePrototype = next ? next.replace(`/${currentPage+1}`,"") : prev ? prev.replace(`/${currentPage-1}`,"") : Astro.url;
 ---
 
 <nav class="Pagination">
 	{boxHeader && (
-		<h3 class="PaginationTitle">Ești pe pagina <strong>{currentPage}</strong> din <strong>{lastPage}</strong>.
+		<h3 class="PaginationTitle">Ești pe pagina <strong>{currentPage}</strong> din <strong>{lastPage}</strong>
+			{pageTitle && <span>în zona de {pageTitle}</span>}.
 			{lastPage > 1 && <span>Navighează către altă pagină:</span>}
 		</h3>
 	)}
@@ -33,42 +35,6 @@ const pagePrototype = next ? next.replace(`/${currentPage+1}`,"") : prev ? prev.
 						<a class="PaginationLink" href={`${pagePrototype}/${num == 1 ? "" : num}`} title={`Mergi la pagina ${num} din ${lastPage}`}>{num}</a>
 					</li>
 				))
-				/*
-				@TODO: full pagination display
-				<li class="PaginationItem">
-					<a class="PaginationLink" href="#" title="@TODO">1</a>
-				</li>
-				<li class="PaginationItem">
-					<a class="PaginationLink" href="#" title="@TODO">2</a>
-				</li>
-				<li class="PaginationItem">
-					<a class="PaginationLink" href="#" title="@TODO">3</a>
-				</li>
-				<li class="PaginationItem PaginationSpacer">
-					<span class="SpacerSymbol">&hellip;</span>
-				</li>
-				<li class="PaginationItem">
-					<a class="PaginationLink" href="#" title="@TODO">9</a>
-				</li>
-				<li class="PaginationItem PaginationCurrent">
-					<a class="PaginationLink" href="#" title="@TODO">10</a>
-				</li>
-				<li class="PaginationItem">
-					<a class="PaginationLink" href="#" title="@TODO">11</a>
-				</li>
-				<li class="PaginationItem PaginationSpacer">
-					<span class="SpacerSymbol">&hellip;</span>
-				</li>
-				<li class="PaginationItem">
-					<a class="PaginationLink" href="#" title="@TODO">18</a>
-				</li>
-				<li class="PaginationItem">
-					<a class="PaginationLink" href="#" title="@TODO">19</a>
-				</li>
-				<li class="PaginationItem">
-					<a class="PaginationLink" href="#" title="@TODO">20</a>
-				</li>
-				*/
 			}
 			<li class="PaginationItem PaginationNext">
 				{currentPage < lastPage ? (

@@ -16,9 +16,10 @@ export interface Props {
 			prev?: string,
 		},
 	};
+	pageTitle?: string | undefined;
 }
 
-const { resources, page } = Astro.props as Props;
+const { resources, page, pageTitle } = Astro.props as Props;
 
 let r = resources;
 const allTags = await getCollection("tags") as CollectionEntry<"tags">[];
@@ -77,15 +78,13 @@ if (resources) {
 			{r.map((resource) => (
 				<li class="ResourceItem">
 					<div class="ResourceName">
-						{false && <button class="ResourceStatus" type="button">✅</button> }
 						<h4 class="ResourceTitle">
-							{
-								resource.slug && (
-									<a class="ResourceLink" href={`/resurse/${resource.slug}`} title={`Vizitează resursa intitulată: ${resource.data.title}`}>
-										{resource.data.title}
-									</a>
-								)
-							}
+							{resource.slug && (
+								<a class="ResourceLink" href={`/resurse/${resource.slug}`} title={`Vizitează resursa intitulată: ${resource.data.title}`}>
+									{resource.data.title}
+								</a>
+							)}
+							{false && <button class="ResourceStatus" type="button" title="Marchează resursa ca fiind neparcursă">✅</button> }
 						</h4>
 					</div>
 					<div class="ResourceAside ResourceInfo">
@@ -116,22 +115,20 @@ if (resources) {
 								</div>
 								<strong class="InfoItemValue">7895</strong>
 							</li>
-							{
-								resource.data.requiredTime && (
-									<li class="InfoItem">
-										<div class="InfoItemLabel">
-											<icon class="Icon IconTime">
-												<span class="SROnly">⏰</span>
-												<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-													<path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-												</svg>
-											</icon>
-											<span class="InfoItemText">Timp necesar</span>
-										</div>
-										<strong class="InfoItemValue">{resource.data.requiredTime}h</strong>
-									</li>
-								)
-							}
+							{resource.data.requiredTime && (
+								<li class="InfoItem">
+									<div class="InfoItemLabel">
+										<icon class="Icon IconTime">
+											<span class="SROnly">⏰</span>
+											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+												<path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+											</svg>
+										</icon>
+										<span class="InfoItemText">Timp necesar</span>
+									</div>
+									<strong class="InfoItemValue">{resource.data.requiredTime}h</strong>
+								</li>
+							)}
 						</ul>
 					</div>
 					<div class="ResourceMainContent">
@@ -188,5 +185,5 @@ if (resources) {
 		</Message>
 	)}
 
-	{page && <Pagination currentPage={page.currentPage} lastPage={page.lastPage} next={page.url.next} prev={page.url.prev} />}
+	{page && <Pagination currentPage={page.currentPage} lastPage={page.lastPage} next={page.url.next} prev={page.url.prev} pageTitle={pageTitle} />}
 </div>

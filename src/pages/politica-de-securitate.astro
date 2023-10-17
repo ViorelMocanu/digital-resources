@@ -1,14 +1,22 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const pageTitle = "Politica de securitate";
+const pageDescription = "@TODO: scrie descrierea";
 const breadcrumbArray = [{
 	href: Astro.url,
-	title: "Politica de securitate",
+	title: pageTitle,
 	label: "Securitate"
 }];
 
 ---
 
-<Layout title="Politica de securitate - Resurse.dev" description="@TODO: scrie descrierea" template="SecuritatePage" breadcrumbArray={breadcrumbArray}>
+<Layout
+	title={pageTitle}
+	description={pageDescription}
+	template="SecuritatePage TextPage"
+	breadcrumbArray={breadcrumbArray}
+>
 	<div class="Hero" id="hero">
 		<div class="HeroText">
 			<h1 class="HeroTitle">Politica de securitate</h1>

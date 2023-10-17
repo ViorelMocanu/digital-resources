@@ -27,28 +27,61 @@ if (entry.data.tags) {
 	});
 }
 
+let breadcrumbArray = new Array();
+
 const sectionSlug = entry.data.section.slug;
 const section = await getEntry("sections", sectionSlug) as CollectionEntry<"sections">;
+breadcrumbArray.push({
+	href: `/${section.slug}`,
+	title: section.data.title,
+	label: section.data.menu
+});
+
 const resourceCategories = await getEntries(entry.data.categories) as CollectionEntry<"categories">[];
-let resourceSubCategories = new Array();
-if (entry.data.subcategories) {
-	resourceSubCategories = await getEntries(entry.data.subcategories) as CollectionEntry<"resources">[];
+const firstResourceCategory = resourceCategories[0];
+if (firstResourceCategory) {
+	breadcrumbArray.push({
+		href: `/${section.slug}/${firstResourceCategory.slug}`,
+		title: firstResourceCategory.data.title,
+		label: firstResourceCategory.data.menu
+	});
 }
 
-const breadcrumbArray = [{
-	href: "/resurse",
-	title: "Toate resursele",
-	label: "Resurse"
-},{
+let resourceSubCategories = new Array();
+let firstResourceSubcategory: CollectionEntry<"subcategories">;
+if (entry.data.subcategories) {
+	resourceSubCategories = await getEntries(entry.data.subcategories) as CollectionEntry<"resources">[];
+	firstResourceSubcategory = resourceSubCategories[0];
+	if (firstResourceCategory && firstResourceSubcategory) {
+		breadcrumbArray.push({
+			href: `/${section.slug}/${firstResourceCategory.slug}/${firstResourceSubcategory.slug}`,
+			title: firstResourceSubcategory.data.title,
+			label: firstResourceSubcategory.data.menu
+		});
+	}
+}
+
+const pageTitle = entry.title;
+const pageDescription = entry.data.description;
+if (breadcrumbArray.length <= 1) {
+	breadcrumbArray.push({
+		href: "/resurse",
+		title: "Toate resursele de pe Resurse.dev",
+		label: "Resurse"
+	});
+}
+
+breadcrumbArray.push({
 	href: Astro.url,
 	title: entry.data.title,
 	label: entry.data.title
-}];
+});
+
 ---
 
 <Layout
-	title={entry.title}
-	description={entry.data.description}
+	title={pageTitle}
+	description={pageDescription}
 	modDate={entry.modDate}
 	addDate={entry.addDate}
 	template="ResourcePage"

@@ -19,9 +19,11 @@ const resources = (await getCollection("resources", ({data}) => {
 	return data.tags.find((t) => t.slug == tag.slug);
 })).sort((a, b) => (new Date(a.data.modDate as string).valueOf() - new Date(b.data.modDate as string).valueOf())) as CollectionEntry<"resources">[];
 
+const pageTitle = `Tag: ${tag.data.title}`;
+const pageDescription = tag.data.description;
 const breadcrumbArray = [{
 	href: "/taguri",
-	title: "Tag-uri",
+	title: "Toate etichetele de pe Resurse.dev",
 	label: "Tag-uri"
 },{
 	href: Astro.url,
@@ -30,7 +32,12 @@ const breadcrumbArray = [{
 }];
 
 ---
-<Layout title={`Tag: ${tag.data.title}`} description={tag.data.description} template="TagIndex" breadcrumbArray={breadcrumbArray}>
+<Layout
+	title={pageTitle}
+	description={pageDescription}
+	template="TagIndex"
+	breadcrumbArray={breadcrumbArray}
+>
 	<div class="Hero" id="hero">
 		<div class="HeroText">
 			<h1 class="HeroTitle">Tag: {tag.data.title}</h1>
@@ -41,6 +48,6 @@ const breadcrumbArray = [{
 		@TODO: Completează conținutul paginii curente
 		{slug}
 		<Content />
-		<ResourceList resources={resources} />
+		<ResourceList resources={resources} pageTitle={`Tag: ${tag.data.title}`} />
 	</main>
 </Layout>

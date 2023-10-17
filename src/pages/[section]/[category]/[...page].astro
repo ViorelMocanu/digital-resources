@@ -98,6 +98,8 @@ const currentCategory = params.category as string;
 const category = await getEntry("categories", currentCategory) as CollectionEntry<"categories">;
 const { Content } = await category.render();
 
+const pageTitle = category.data.title;
+const pageDescription = category.data.description;
 const breadcrumbArray = [{
 	href: `/${section.slug}`,
 	title: section.data.title,
@@ -110,8 +112,8 @@ const breadcrumbArray = [{
 
 ---
 <Layout
-	title={category.data.title}
-	description={category.data.description}
+	title={pageTitle}
+	description={pageDescription}
 	template="CategoryPage"
 	activeMenu={section.slug}
 	breadcrumbArray={breadcrumbArray}
@@ -137,7 +139,7 @@ const breadcrumbArray = [{
 	</div>
 	<main class="Main">
 		<ResourceFilter />
-		<ResourceList resources={page.data} page={page} />
+		<ResourceList resources={page.data} page={page} pageTitle={category.data.title} />
 		<ResourceTOC section={section} />
 	</main>
 </Layout>

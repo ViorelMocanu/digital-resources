@@ -3,7 +3,7 @@ import { type Headings } from "../config";
 import { highlightUrl } from "../utils/urlHelpers";
 
 export interface Props {
-	headings: Headings;
+	headings?: Headings | undefined;
 }
 
 const { headings } = Astro.props;
@@ -18,7 +18,7 @@ const activePage = Astro.url.pathname;
 		<h2 class="ListNavTitle">Navighează către:</h2>
 		<ol class="ListNav">
 			{headings.map((heading) => (
-				<li class="ListNavItem" role="treeitem">
+				<li class:list={highlightUrl(`#${heading.slug}`, 'ListNavItem', 'Active', activePage)} role="treeitem">
 					<a class="ListNavLink" href={`#${heading.slug}`} title={`Mergi direct la secțiunea ${heading.text}`}>{heading.text}</a>
 				</li>
 			))}
