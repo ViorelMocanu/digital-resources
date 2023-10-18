@@ -17,9 +17,20 @@ const { Content } = await tag.render();
 
 const resources = (await getCollection("resources", ({data}) => {
 	return data.tags.find((t) => t.slug == tag.slug);
-})).sort((a, b) => (new Date(a.data.modDate as string).valueOf() - new Date(b.data.modDate as string).valueOf())) as CollectionEntry<"resources">[]; // ordering by sortOrder asc
+})).sort((a, b) => (new Date(a.data.modDate as string).valueOf() - new Date(b.data.modDate as string).valueOf())) as CollectionEntry<"resources">[];
+
+const breadcrumbArray = [{
+	href: "/taguri",
+	title: "Tag-uri",
+	label: "Tag-uri"
+},{
+	href: Astro.url,
+	title: tag.data.title,
+	label: tag.data.title
+}];
+
 ---
-<Layout title={`Tag: ${tag.data.title}`} description={tag.data.description} template="TagIndex">
+<Layout title={`Tag: ${tag.data.title}`} description={tag.data.description} template="TagIndex" breadcrumbArray={breadcrumbArray}>
 	<div class="Hero" id="hero">
 		<div class="HeroText">
 			<h1 class="HeroTitle">Tag: {tag.data.title}</h1>

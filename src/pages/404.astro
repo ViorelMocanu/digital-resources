@@ -1,11 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
+const breadcrumbArray = [{
+	href: Astro.url,
+	title: "Pagina nu a fost găsită",
+	label: "Eroare 404"
+}];
 ---
 
 <Layout
 	title="Eroare 404: Pagina nu a fost găsită - Resurse.dev"
 	description="Ne pare rău, dar se pare că ai dat peste o pagină inexistentă pe site-ul Resurse.dev - contactează-ne dacă ai probleme."
 	template="ErrorPage"
+	breadcrumbArray={breadcrumbArray}
 >
 	<div class="Hero" id="hero">
 		<div class="HeroText">

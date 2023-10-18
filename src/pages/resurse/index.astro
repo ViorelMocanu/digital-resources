@@ -6,9 +6,14 @@ import ResourceList from '../../components/ResourceList.astro';
 import { getCollection } from 'astro:content';
 
 const resources = await getCollection('resources');
+const breadcrumbArray = [{
+	href: Astro.url,
+	title: "Toate resursele",
+	label: "Resurse"
+}];
 ---
 
-<Layout title="@TODO SectionPageIndex" description="@TODO: scrie descrierea" template="SectionPageIndex">
+<Layout title="Toate resursele de pe Resurse.dev" description="@TODO: scrie descrierea" template="SectionPageIndex" breadcrumbArray={breadcrumbArray}>
 	<div class="Hero" id="hero">
 		<div class="HeroText">
 			<h1 class="HeroTitle">Toate resursele</h1>

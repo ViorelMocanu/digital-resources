@@ -21,6 +21,7 @@ export async function getStaticPaths ({ paginate }: any) {
 		const currentSection = allSections.find((sec:CollectionEntry<"sections">) => (sec.slug == section));
 		if (currentSection == null || currentSection.data.categories == null) {
 			// nu se poate sa nu existe o sectiune definita
+			// eslint-disable-next-line no-console
 			// console.warn('false', 'currentSection', currentSection?.id);
 		} else {
 			// există secțiunea
@@ -30,6 +31,7 @@ export async function getStaticPaths ({ paginate }: any) {
 			if (selectedCategories.length < 1) {
 				// secțiunea nu are categorii
 				// caz tratat în `/src/pages/[sections]/[...page].astro`
+				// eslint-disable-next-line no-console
 				// console.warn('false', 'selectedCategories', selectedCategories);
 			} else {
 				// există cel puțin o categorie pe care o putem adăuga în lista paginilor
@@ -38,6 +40,7 @@ export async function getStaticPaths ({ paginate }: any) {
 					const currentCategory = allCategories.find((cat:CollectionEntry<"categories">) => (cat.slug == category));
 					if (!currentCategory || currentCategory.data.subcategories == null) {
 						// nu avem subcategorii în categoria curentă
+						// eslint-disable-next-line no-console
 						// console.warn('false', 'currentCategory', currentCategory?.id);
 					} else {
 						// există cel puțin o subcategorie pe care o putem adăuga în lista paginilor
@@ -46,6 +49,7 @@ export async function getStaticPaths ({ paginate }: any) {
 						if (selectedSubCategories.length < 1) {
 							// categoria nu are subcategorii
 							// caz tratat în `/src/pages/[sections]/[categories]/[...page].astro`
+							// eslint-disable-next-line no-console
 							// console.warn('false', 'selectedSubCategories', selectedSubCategories);
 						} else {
 							// există cel puțin o subcategorie pe care o putem adăuga în lista paginilor
@@ -59,6 +63,7 @@ export async function getStaticPaths ({ paginate }: any) {
 								});
 								if (selectedResources.length < 1) {
 									// nu avem resurse atașate categoriei în general
+									// eslint-disable-next-line no-console
 									// console.warn('false', 'selectedResources', selectedResources);
 									finalPagination.push({
 										params: {
@@ -116,12 +121,35 @@ const category = await getEntry("categories", currentCategory) as CollectionEntr
 const currentSubCategory = params.subcategory as string;
 const subcategory = await getEntry("subcategories", currentSubCategory) as CollectionEntry<"subcategories">;
 const { Content } = await category.render();
+
+const breadcrumbArray = [{
+	href: `/${section.slug}`,
+	title: section.data.title,
+	label: section.data.menu
+}, {
+	href: `/${section.slug}/${category.slug}`,
+	title: category.data.title,
+	label: category.data.menu
+}, {
+	href: `/${section.slug}/${category.slug}/${subcategory.slug}`,
+	title: subcategory.data.title,
+	label: subcategory.data.menu
+}];
+
 ---
-<Layout title={subcategory.data.title} description={subcategory.data.description} template="SubcategoryPage" activeMenu={section.slug}>
+<Layout
+	title={subcategory.data.title}
+	description={subcategory.data.description}
+	template="SubcategoryPage"
+	activeMenu={section.slug}
+	breadcrumbArray={breadcrumbArray}
+>
 	<div class="Hero" id="hero">
-		<div class="HeroVisual">
-			<img class="HeroImage" src={subcategory.data.image?.imageUrl} width="287" height="120" alt={subcategory.data.image?.imageAlt} />
-		</div>
+		{subcategory.data.image && (
+			<div class="HeroVisual">
+				<img class="HeroImage" src={subcategory.data.image?.imageUrl} width="287" height="120" alt={subcategory.data.image?.imageAlt} />
+			</div>
+		)}
 		<div class="HeroText">
 			<h1 class="HeroTitle">{subcategory.data.title}</h1>
 			<details class="HeroDetails">
