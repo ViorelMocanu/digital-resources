@@ -1,0 +1,22 @@
+# Template from https://securitytxt.org/
+
+# Our security address
+Contact: mailto:security@viorelmocanu.ro
+
+# Expiration date of the current security.txt
+Expires: 2025-12-31T21:59:00.000Z
+
+# Our security acknowledgments page
+Acknowledgments: https://resurse.dev/hall-of-fame
+
+# Languages we speak
+Preferred-Languages: en, ro
+
+# Canonical URI
+Canonical: https://resurse.dev/.well-known/security.txt
+
+# Our security policy
+Policy: https://resurse.dev/politica-de-securitate
+
+# Contribution guidelines
+Hiring: https://github.com/ViorelMocanu/digital-resources/blob/main/CONTRIBUTING.md

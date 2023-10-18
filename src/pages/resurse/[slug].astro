@@ -2,6 +2,7 @@
 import { type CollectionEntry, getCollection, getEntries, getEntry } from 'astro:content';
 import { resourceTypeIcon } from '../../config';
 import Layout from '../../layouts/Layout.astro';
+import ResponsiveImage from '../../components/ResponsiveImage.astro';
 
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths () {
@@ -55,15 +56,21 @@ const breadcrumbArray = [{
 	breadcrumbArray={breadcrumbArray}
 >
 	<div class="Hero" id="hero">
-		<div class="HeroVisual">
-			<img class="HeroImage" src={entry.data.image.imageUrl} width="287" height="120" alt={entry.data.image.alt} />
-		</div>
+		{entry.data.image && entry.data.image.imageUrl && (
+			<div class="HeroVisual">
+				<img src={entry.data.image.imageUrl} alt={entry.data.image.imageAlt} width={1200} height={600} class:list={["HeroImage", "ExternalImage"]} />
+			</div>
+		)}
+		{entry.data.image && entry.data.image.imageLocalUrl && (
+			<div class="HeroVisual">
+				<ResponsiveImage image={entry.data.image.imageLocalUrl} alt={entry.data.image.imageAlt} width={1200} height={600} lazyLoading={false} classList={["HeroImage", "InternalImage"]} breakpoint={1100} />
+			</div>
+		)}
 		<div class="HeroText">
 			<h1 class="HeroTitle">{entry.data.title}&nbsp;{resourceTypeIcon[resourceType.toLowerCase()]}</h1>
-			<p>Url: {entry.data.url}</p>
+			<p>Url: <a href={entry.data.url} title={`Vizitează resursa: ${entry.data.title}`}>{entry.data.title}</a></p>
 			<p>language: {entry.data.language}</p>
 			<p>modDate: {entry.data.modDate}</p>
-			<p>addDate: {entry.data.addDate}</p>
 			<p>section: <a href={`/${section.slug}`} title={`Vezi toate resursele din secțiunea ${section.data.title}`}>{section.data.menu}</a></p>
 			{resourceCategories && (
 				<p>categories: {resourceCategories.map((category) => (
@@ -78,7 +85,7 @@ const breadcrumbArray = [{
 					<h1>@TODO: this seems wrong</h1>
 				</p>
 			)}
-			<p>Autor: <a href={entry.data.authorUrl} title="Vizitează site-ul autorului">{entry.authorName}</a></p>
+			{entry.data.authorName && <p>Autor: <a href={entry.data.authorUrl} title="Vizitează site-ul autorului">{entry.data.authorName}</a></p>}
 			<p>rating: {entry.data.rating}</p>
 			<p>price: {entry.data.price}</p>
 			<p>requiredTime: {entry.data.requiredTime}</p>
@@ -99,7 +106,7 @@ const breadcrumbArray = [{
 			}
 		</div>
 	</div>
-	<main class="Main">
+	<main class="Main MarkdownMain">
 		<Content />
 	</main>
 </Layout>

@@ -2,9 +2,9 @@
 title: "How does the Web work?"
 url: "https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/how-does-the-web-work"
 language: "en"
-modDate: "05 October 2011 14:48 UTC"
-addDate: "05 October 2011 14:48 UTC"
-description: "@TODO: asdasdsadasdadsa asdasd asdasdasdasd"
+modDate: "12 October 2023 20:48 EET"
+addDate: ""
+description: "Înainte să te apuci să înveți cum creezi lucruri pe Internet, ar fi bine să înțelegi întâi Internetul. Cursul ăsta te trece prin ce este Internetul, cum se transmit datele pe Internet, care sunt componentele tehnologice necesare să trimiți și primești date și ce înseamnă o rețea."
 authorName: "The Odin Project"
 authorUrl: "https://www.theodinproject.com/"
 section: "front-end"
@@ -13,11 +13,11 @@ categories:
 rating: 100
 price: 0
 requiredTime: 20
-type: "carte"
+type: "curs"
 mandatory: true
 image:
-  imageUrl: "https://docs.astro.build/assets/full-logo-light.png"
-  imageAlt: "@TODO: asdasdasdasdas"
+  imageLocalUrl: "./img/og-the-odin-project.png"
+  imageAlt: "The Odin Project logo"
 tags:
 - "curs"
 - "free"
@@ -25,4 +25,6 @@ tags:
 - "obligatoriu"
 ---
 
-@TODO: Test 456 test content.
+Before you can understand how to program the web, you need a more rigorous understanding of the web itself than you likely have now. These concepts provide a more holistic understanding of the ecosystem in which you will be working and will enable you to talk intelligently with other developers about your work.
+
+

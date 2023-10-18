@@ -45,9 +45,11 @@ const breadcrumbArray = [{
 	breadcrumbArray={breadcrumbArray}
 >
 	<div class="Hero" id="hero">
-		<div class="HeroVisual">
-			<img class="HeroImage" src={section.data.image?.imageUrl} width="287" height="120" alt={section.data.image?.imageAlt} />
-		</div>
+		{section.data.image && (
+			<div class="HeroVisual">
+				<img class="HeroImage" src={section.data.image?.imageUrl} width="287" height="120" alt={section.data.image?.imageAlt} />
+			</div>
+		)}
 		<div class="HeroText">
 			<h1 class="HeroTitle">{section.data.title}</h1>
 			<details class="HeroDetails">
