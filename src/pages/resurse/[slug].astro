@@ -2,6 +2,7 @@
 import { type CollectionEntry, getCollection, getEntries, getEntry } from 'astro:content';
 import { getFormattedDate } from '../../utils/resourceMeta';
 import Layout from '../../layouts/Layout.astro';
+import { resourceTypeIcon } from '../../config';
 import ResourceLocationList from '../../components/ResourceLocationList.astro';
 import ResourceTagList from '../../components/ResourceTagList.astro';
 import ResponsiveImage from '../../components/ResponsiveImage.astro';
@@ -19,11 +20,13 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 
 let resourceTags = new Array();
+let resourceType = "generic";
 if (entry.data.tags) {
 	const allTags = await getCollection('tags');
 	entry.data.tags.map((tag:CollectionEntry<"tags">) => {
 		const currentTag = allTags.find((t) => t.slug == tag.slug);
-		resourceTags.push({title: currentTag.data.title, slug: tag.slug, type: currentTag?.data.type});
+		resourceTags.push({title: currentTag?.data.title, slug: tag.slug, type: currentTag?.data.type});
+		if ( currentTag?.data.type == "Tip" ) resourceType = currentTag.data.title;
 	});
 }
 

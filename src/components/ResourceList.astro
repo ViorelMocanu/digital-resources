@@ -5,6 +5,8 @@ import Message from './Message.astro';
 import Pagination from './Pagination.astro';
 import ResourceLocationList from '../components/ResourceLocationList.astro';
 import ResourceTagList from '../components/ResourceTagList.astro';
+import { resourceTypeIcon } from '../config';
+import { highlightUrl } from '../utils/urlHelpers';
 
 export interface Props {
 	resources: CollectionEntry<"resources">[];
@@ -36,6 +38,9 @@ if (resources) {
 					return el.slug == tag.slug;
 				});
 				resource.tagData.push(currentTag);
+				if (currentTag?.data.type == "Tip") {
+					resource.type = currentTag?.data.title;
+				}
 			});
 		}
 
@@ -67,6 +72,7 @@ if (resources) {
 		}
 	});
 }
+
 ---
 
 <div class="ResourceContainer">
@@ -82,6 +88,7 @@ if (resources) {
 							{resource.slug && (
 								<a class="ResourceLink" href={`/resurse/${resource.slug}`} title={`Vizitează resursa intitulată: ${resource.data.title}`}>
 									{resource.data.title}
+									{resourceTypeIcon[resource.type.toLowerCase()]}
 								</a>
 							)}
 							{false && <button class="ResourceStatus" type="button" title="Marchează resursa ca fiind neparcursă">✅</button> }
