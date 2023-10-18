@@ -28,7 +28,16 @@ export const OG_IMAGE_ALT = ""; //					🛑 @TODO: OG Image ALT
 export const GLOBAL_PUB_DATE = "2023-09-30T19:35:55+03:00";
 export const PAGE_SIZE = 10;
 
+export const resourceTypeIcon = {
+	generic: "🔗",
+	carte: "📖",
+	curs: "💡",
+	video: "🎥",
+	text: "📃",
+};
+
 // My introduced types
+
 export type BreadcrumbArray = {
 	href: string | URL;
 	title: string;
