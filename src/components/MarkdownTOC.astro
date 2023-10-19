@@ -18,7 +18,7 @@ const activePage = Astro.url.pathname;
 		<h2 class="ListNavTitle">Navighează către:</h2>
 		<ol class="ListNav">
 			{headings.map((heading) => (
-				<li class:list={highlightUrl(`#${heading.slug}`, 'ListNavItem', 'Active', activePage)} role="treeitem">
+				<li class:list={highlightUrl(`#${heading.slug}`, 'ListNavItem', 'Active', activePage)}>
 					<a class="ListNavLink" href={`#${heading.slug}`} title={`Mergi direct la secțiunea ${heading.text}`}>{heading.text}</a>
 				</li>
 			))}

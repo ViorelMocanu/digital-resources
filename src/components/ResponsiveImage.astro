@@ -27,7 +27,9 @@ if (width > breakpoint) {
 	smallerHeight = Math.floor((breakpoint * height) / (2 * width));
 }
 
-if ( properImage.format == 'svg' ) renderSmallImage = false;
+if (properImage.format == 'svg') {
+	renderSmallImage = false;
+}
 
 const avifImage = await getImage({
 	src: properImage,

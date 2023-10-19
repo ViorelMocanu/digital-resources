@@ -15,8 +15,8 @@ const pagePrototype = next ? next.replace(`/${currentPage+1}`,"") : prev ? prev.
 
 <nav class="Pagination">
 	{boxHeader && (
-		<h3 class="PaginationTitle">Ești pe pagina <strong>{currentPage}</strong> din <strong>{lastPage}</strong>
-			{pageTitle && <span>în zona de {pageTitle}</span>}.
+		<h3 class="PaginationTitle">Ești pe pagina <strong>{currentPage}</strong> din <strong>{lastPage}</strong>&#32;
+			{pageTitle && <span>în zona de {pageTitle}</span>}.&#32;
 			{lastPage > 1 && <span>Navighează către altă pagină:</span>}
 		</h3>
 	)}

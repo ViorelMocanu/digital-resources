@@ -324,9 +324,9 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 						@media (min-width: $desktop) { padding: 1.25rem 1rem 1rem; margin: 0; }
 					}
 					.ResourceTitle { display: flex; flex-grow: 1; margin: 0; align-items: stretch; }
-						.ResourceLink { display: block; padding: 0.5rem 0 0.25rem 0.5rem; flex-grow: 1; font-size: 1.25rem; line-height: 1.5rem; font-weight: bold;
+						.ResourceLink { display: block; padding: 0.5rem 0 0.25rem 0.5rem; flex-grow: 1; font-size: 1.25rem; line-height: 1.5rem; font-weight: bold; text-wrap: balance; text-decoration-thickness: 0.125rem; text-decoration-skip-ink: auto; text-decoration-color: var(--light-600);
 							@media (min-width: 600px) { padding: 1rem 0 0.5rem 1rem; }
-							@media (min-width: 750px) { padding: 1rem 1rem 0.5rem 1rem; }
+							@media (min-width: 750px) { padding: 1rem 0 0.5rem 1rem; }
 							@media (min-width: $desktop) { padding: 1rem; font-size: 1.5rem; line-height: 1em; }
 						}
 						.ResourceLink:hover { text-decoration: none; }
@@ -566,6 +566,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 								@media (min-width: $desktop) { border-left: none; }
 							}
 							.ActiveListNav > .ListSubNavLink { font-weight: bold; color: var(--accent-400); text-decoration: none; }
+				.ListNavClose { list-style-type: none; }
 					.ListNavCloseButton { display: flex; flex-direction: row; align-items: center; gap: 0.5rem; width: 100%; padding: 0.5rem; background: var(--dark-100); color: var(--light-900); text-decoration: none; text-align: left; line-height: 1.5rem;
 						@media (min-width: $desktop) { display: none; }
 					}

@@ -1,6 +1,5 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
-import { highlightUrl } from "../utils/urlHelpers";
+import { type CollectionEntry } from "astro:content";
 
 export interface Props {
 	section: CollectionEntry<"sections">;
@@ -243,7 +242,7 @@ const sectionCategories = section.data.categories;
 		const subnavTrigger = document.getElementById('subnavTrigger');
 		subnavTrigger?.addEventListener('click', function (event) {
 			event.preventDefault();
-			this.scrollIntoView(true);
+			if ( !body.classList.contains('ActiveSubnav') ) this.scrollIntoView(true);
 			body.classList.toggle('ActiveSubnav');
 			const alreadyOpen = document.querySelector('.FilterOptions[open]');
 			alreadyOpen?.removeAttribute('open');
@@ -254,7 +253,6 @@ const sectionCategories = section.data.categories;
 		const closeSubnav = document.getElementById('closeSubnav');
 		closeSubnav?.addEventListener('click', function (event) {
 			event.preventDefault();
-			this.scrollIntoView(true);
 			body.classList.remove('ActiveSubnav');
 			const alreadyOpen = document.querySelector('.FilterOptions[open]');
 			alreadyOpen?.removeAttribute('open');

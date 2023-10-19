@@ -19,6 +19,7 @@ export default [
 			"dev-dist/**",
 			"dist/**",
 			"node_modules/**",
+			"static/**",
 		],
 		languageOptions: {
 			parser: tsParser,

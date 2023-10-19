@@ -1,12 +1,10 @@
 ---
 import { type CollectionEntry, getCollection } from 'astro:content';
-import { type extendedResource } from '../config';
+import { type extendedResource, resourceTypeIcon } from '../config';
 import Message from './Message.astro';
 import Pagination from './Pagination.astro';
 import ResourceLocationList from '../components/ResourceLocationList.astro';
 import ResourceTagList from '../components/ResourceTagList.astro';
-import { resourceTypeIcon } from '../config';
-import { highlightUrl } from '../utils/urlHelpers';
 
 export interface Props {
 	resources: CollectionEntry<"resources">[];
@@ -91,7 +89,7 @@ if (resources) {
 									{resourceTypeIcon[resource.type.toLowerCase()]}
 								</a>
 							)}
-							{false && <button class="ResourceStatus" type="button" title="Marchează resursa ca fiind neparcursă">✅</button> }
+							<button class="ResourceStatus" type="button" title="Marchează resursa ca fiind neparcursă">✅</button>
 						</h4>
 					</div>
 					<div class="ResourceAside ResourceInfo">
@@ -192,5 +190,5 @@ if (resources) {
 		</Message>
 	)}
 
-	{page && <Pagination currentPage={page.currentPage} lastPage={page.lastPage} next={page.url.next} prev={page.url.prev} pageTitle={pageTitle} />}
+	{page && <Pagination currentPage={page.currentPage} lastPage={page.lastPage} next={page.url.next} prev={page.url.prev} boxHeader={true} pageTitle={pageTitle} />}
 </div>
