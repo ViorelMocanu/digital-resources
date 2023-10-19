@@ -108,10 +108,10 @@ breadcrumbArray.push({
 		)}
 		<div class="HeroText">
 			{entry.data.url && (
-				<a class="HeroResourceLink" href={entry.data.url} title={`Vizitează resursa: ${entry.data.title}`}>
+				<a class="HeroResourceLink" href={entry.data.url} title={`Vizitează resursa: ${entry.data.title}`} target="_blank" rel="external noopener noreferrer">
 					<h1 class="HeroTitle">
 						{entry.data.title}
-						{resourceTypeIcon[entry.type.toLowerCase()]}
+						{resourceTypeIcon[entry.data.type.toLowerCase()]}
 					</h1>
 					<em class="HeroUrl"><strong class="HeroUrlLabel">URL:</strong>&nbsp;{entry.data.url}</em>
 				</a>

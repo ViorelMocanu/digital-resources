@@ -1,6 +1,7 @@
 ---
 import { type CollectionEntry, getCollection } from 'astro:content';
 import { type extendedResource, resourceTypeIcon } from '../config';
+import HelpfulLinks from '../components/HelpfulLinks.astro';
 import Message from './Message.astro';
 import Pagination from './Pagination.astro';
 import ResourceLocationList from '../components/ResourceLocationList.astro';
@@ -186,7 +187,7 @@ if (resources) {
 
 	{(!resources || resources.length <= 0) && (
 		<Message title="Nu s-au găsit resurse pentru contextul curent" type="error">
-			<p>Dă-ne un mesaj în <a href="/contact">pagina de contact</a> dacă s-a produs o eroare.</p>
+			<HelpfulLinks />
 		</Message>
 	)}
 

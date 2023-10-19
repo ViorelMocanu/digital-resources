@@ -1,18 +1,18 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import ResourceFilter from '../../components/ResourceFilter.astro';
-import ResourceList from '../../components/ResourceList.astro';
+import Layout from '../layouts/Layout.astro';
+import ResourceFilter from '../components/ResourceFilter.astro';
+import ResourceList from '../components/ResourceList.astro';
 
 import { getCollection } from 'astro:content';
 
 const resources = await getCollection('resources');
 
-const pageTitle = "Toate resursele de pe Resurse.dev";
+const pageTitle = "Caută pe Resurse.dev";
 const pageDescription = "@TODO: scrie descrierea";
 const breadcrumbArray = [{
 	href: Astro.url,
 	title: pageTitle,
-	label: "Resurse"
+	label: "Caută"
 }];
 
 ---
