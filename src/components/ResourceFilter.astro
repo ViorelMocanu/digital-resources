@@ -2,11 +2,11 @@
 import { type CollectionEntry } from "astro:content";
 
 export interface Props {
-	section: CollectionEntry<"sections">;
+	section?: CollectionEntry<"sections">;
 }
 
 const { section } = Astro.props;
-const sectionCategories = section.data.categories;
+const sectionCategories = section ? section.data.categories : false;
 
 ---
 
