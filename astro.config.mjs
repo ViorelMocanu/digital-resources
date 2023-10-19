@@ -1,5 +1,4 @@
 import { defineConfig } from 'astro/config';
-import AstroPWA from "@vite-pwa/astro";
 import prefetch from "@astrojs/prefetch";
 import webmanifest from "astro-webmanifest";
 import partytown from "@astrojs/partytown";
