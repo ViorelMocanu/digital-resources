@@ -12,8 +12,9 @@ const allSections = (await getCollection('sections', ({data}) => {
 	return data.sortOrder >= 0; // negative sort orders removes sections altogether
 })).sort((a, b) => a.data.sortOrder - b.data.sortOrder); // ordering by sortOrder asc
 
-const { breadcrumbArray, activeMenu } = Astro.props;
+const { breadcrumbArray = [], activeMenu } = Astro.props;
 const activePage = activeMenu || Astro.url.pathname.substring(1);
+
 ---
 
 <header class="Header">
@@ -64,37 +65,32 @@ const activePage = activeMenu || Astro.url.pathname.substring(1);
 </header>
 
 <script>
-	const menuTrigger = document.getElementById('menuTrigger');
-	const body = document.body;
-	// la fiecare click pe butonul cu hamburger icon, adăugăm sau scoatem (deci facem toggle pe) clasa ActiveMenu în body, clasă care are niște CSS care afișează sau ascunde meniul mobil
-	menuTrigger?.addEventListener('click', function (event) {
-		event.preventDefault();
-		body.classList.toggle('ActiveMenu');
-		if ( body.classList.contains('ActiveMenu') ) {
-			document.body.dataset.menuOpen = "true";
-			// this are valoarea e.currentTarget adică menuTrigger
-			// https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#the_value_of_this_within_the_handler
-			this.setAttribute('aria-expanded', 'true');
-			this.setAttribute('aria-label', 'Închide meniul principal');
-		} else {
-			delete document.body.dataset.menuOpen;
-			this.setAttribute('aria-expanded', 'false');
-			this.setAttribute('aria-label', 'Deschide meniul principal');
-		}
-		return false;
-	});
+	declare global {
+		interface Window { menuListeners: any; }
+	}
+	window.menuListeners = function () {
+		const menuTrigger = document.getElementById('menuTrigger');
+		const body = document.body;
 
-	const subnavTrigger = document.getElementById('subnavTrigger');
-	// la fiecare click pe butonul cu hamburger icon, adăugăm sau scoatem (deci facem toggle pe) clasa ActiveMenu în body, clasă care are niște CSS care afișează sau ascunde meniul mobil
-	subnavTrigger?.addEventListener('click', function (event) {
-		event.preventDefault();
-		body.classList.toggle('ActiveSubnav');
-		return false;
-	});
-	const closeSubnav = document.getElementById('closeSubnav');
-	closeSubnav?.addEventListener('click', function (event) {
-		event.preventDefault();
-		body.classList.remove('ActiveSubnav');
-		return false;
-	});
+		// la fiecare click pe butonul cu hamburger icon, adăugăm sau scoatem (deci facem toggle pe) clasa ActiveMenu în body, clasă care are niște CSS care afișează sau ascunde meniul mobil
+		menuTrigger?.addEventListener('click', function (event) {
+			event.preventDefault();
+			body.classList.toggle('ActiveMenu');
+			if ( body.classList.contains('ActiveMenu') ) {
+				document.body.dataset.menuOpen = "true";
+				// this are valoarea e.currentTarget adică menuTrigger
+				// https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#the_value_of_this_within_the_handler
+				this.setAttribute('aria-expanded', 'true');
+				this.setAttribute('aria-label', 'Închide meniul principal');
+			} else {
+				delete document.body.dataset.menuOpen;
+				this.setAttribute('aria-expanded', 'false');
+				this.setAttribute('aria-label', 'Deschide meniul principal');
+			}
+			return false;
+		});
+	}
+	window.menuListeners();
+	// Runs on view transitions navigation
+	document.addEventListener('astro:after-swap', function() { window.menuListeners(); });
 </script>

@@ -1,4 +1,14 @@
 ---
+import { type CollectionEntry, getCollection } from "astro:content";
+import { highlightUrl } from "../utils/urlHelpers";
+
+export interface Props {
+	section: CollectionEntry<"sections">;
+}
+
+const { section } = Astro.props;
+const sectionCategories = section.data.categories;
+
 ---
 
 <form class="SortAndFilter" action="#" method="get" aria-label="Filtrează resursele în contextul curent">
@@ -193,31 +203,65 @@
 				</li>
 			</ul>
 		</details>
-		<button class="SubnavTrigger" type="button" id="subnavTrigger">
-			<icon class="Icon IconCategories">
-				<span class="SROnly">🔥</span>
-				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-					<path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z" />
-					<path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6z" />
-				</svg>
-			</icon>
-			<span class="ButtonText">Categorii</span>
-		</button>
+		{sectionCategories && (
+			<button class="SubnavTrigger" type="button" id="subnavTrigger">
+				<icon class="Icon IconCategories">
+					<span class="SROnly">🔥</span>
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z" />
+						<path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6z" />
+					</svg>
+				</icon>
+				<span class="ButtonText">Categorii</span>
+			</button>
+		)}
 		<button type="submit" class="SROnly">Aplică modificările &raquo;</button>
 	</fieldset>
 </form>
 
-<script type="text/javascript">
-	filterOptions = document.getElementsByClassName('FilterOptions');
-	// Parcurgem fiecare buton cu clasa FilterOptions și adăugăm pe el un eveniment de click.
-	for (let i = 0; i < filterOptions.length; i++) {
-		filterOptions[i].addEventListener('click', function (event) {
-			// La fiecare click, vedem dacă există butoane care au deja proprietatea `open`.
+<script>
+	declare global {
+		interface Window { filterListeners: any; }
+	}
+	window.filterListeners = function () {
+		// Parcurgem fiecare buton cu clasa FilterOptions și adăugăm pe el un eveniment de click.
+		const body = document.body;
+		const filterOptions = document.getElementsByClassName('FilterOptions');
+		for (let i = 0; i < filterOptions.length; i++) {
+			filterOptions[i]?.addEventListener('click', function () {
+				body.classList.remove('ActiveSubnav');
+				// La fiecare click, vedem dacă există butoane care au deja proprietatea `open`.
+				const alreadyOpen = document.querySelector('.FilterOptions[open]');
+				// Dacă se găsesc astfel de butoane și ele sunt diferite de cel pe care am dat click acum, trebuie scos atributul `open` de pe ele ca să nu se suprapună.
+				if (alreadyOpen !== null && alreadyOpen != filterOptions[i])
+					alreadyOpen.removeAttribute('open');
+				return true;
+			});
+		}
+
+		// la fiecare click pe butonul cu hamburger icon, adăugăm sau scoatem (deci facem toggle pe) clasa ActiveSubnav în body, clasă care care afișează sau ascunde categoriile pe mobil
+		const subnavTrigger = document.getElementById('subnavTrigger');
+		subnavTrigger?.addEventListener('click', function (event) {
+			event.preventDefault();
+			this.scrollIntoView(true);
+			body.classList.toggle('ActiveSubnav');
 			const alreadyOpen = document.querySelector('.FilterOptions[open]');
-			// Dacă se găsesc astfel de butoane și ele sunt diferite de cel pe care am dat click acum, trebuie scos atributul `open` de pe ele ca să nu se suprapună.
-			if (alreadyOpen !== null && alreadyOpen != filterOptions[i])
-				alreadyOpen.removeAttribute('open');
-			return true;
+			alreadyOpen?.removeAttribute('open');
+			return false;
+		});
+
+		// la fiecare click pe butonul de închidere a navigării, scoatem clasa ActiveSubnav din body, clasă care are niște CSS care afișează sau ascunde categoriile pe mobil
+		const closeSubnav = document.getElementById('closeSubnav');
+		closeSubnav?.addEventListener('click', function (event) {
+			event.preventDefault();
+			this.scrollIntoView(true);
+			body.classList.remove('ActiveSubnav');
+			const alreadyOpen = document.querySelector('.FilterOptions[open]');
+			alreadyOpen?.removeAttribute('open');
+			return false;
 		});
 	}
+	window.filterListeners();
+	// Runs on view transitions navigation
+	document.addEventListener('astro:after-swap', function() { window.filterListeners(); });
 </script>

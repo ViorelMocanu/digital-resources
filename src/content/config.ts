@@ -50,14 +50,14 @@ const tagCollection = defineCollection({
 
 const sectionCollection = defineCollection({
 	type: 'content',
-	schema: z.object({
+	schema: ({ image }) => z.object({
 		title: z.string(),
 		menu: z.string(),
 		sortOrder: z.number(),
-		image: z.object({
-			imageUrl: z.string().optional(),
-			imageAlt: z.string().optional(),
-		}).nullish(),
+		imageUrl: image().refine((img) => img.width >= 100, {
+			message: "Imaginea trebuie să aibă minim 100px lățime!",
+		}).optional(),
+		imageAlt: z.string().optional(),
 		description: z.string().max(165, { message: "Descrierea scurtă trebuie să fie de maxim 165 caractere" }),
 		categories: z.array(reference('categories')).nullish(),
 		publishDate: z.date(),

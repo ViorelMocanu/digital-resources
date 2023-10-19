@@ -1,10 +1,12 @@
 ---
 import { type CollectionEntry, getCollection, getEntry } from 'astro:content';
+import { getImage } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import { PAGE_SIZE } from '../../config';
 import ResourceFilter from '../../components/ResourceFilter.astro';
 import ResourceList from '../../components/ResourceList.astro';
 import ResourceTOC from '../../components/ResourceTOC.astro';
+import ResponsiveImage from '../../components/ResponsiveImage.astro';
 
 export async function getStaticPaths ({ paginate }: any) {
 
@@ -47,9 +49,9 @@ const breadcrumbArray = [{
 	breadcrumbArray={breadcrumbArray}
 >
 	<div class="Hero" id="hero">
-		{section.data.image && (
+		{section.data.imageUrl && (
 			<div class="HeroVisual">
-				<img class="HeroImage" src={section.data.image?.imageUrl} width="287" height="120" alt={section.data.image?.imageAlt} />
+				<ResponsiveImage class="HeroImage" image={section.data.imageUrl} width={287} height={120} alt={section.data.imageAlt} lazyLoading={false} />
 			</div>
 		)}
 		<div class="HeroText">
@@ -66,7 +68,7 @@ const breadcrumbArray = [{
 		</div>
 	</div>
 	<main class="Main">
-		<ResourceFilter />
+		<ResourceFilter section={section} />
 		<ResourceList resources={page.data} page={page} pageTitle={section.data.title} />
 		<ResourceTOC section={section} />
 	</main>

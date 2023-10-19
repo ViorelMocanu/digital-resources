@@ -27,7 +27,7 @@ export default defineConfig({
 			short_name: SITE_NAME,
 			lang: LANGUAGE_EXTENDED,
 			dir: 'ltr',
-			icon: 'favicon.svg',
+			icon: 'public/favicon.svg',
 			description: SITE_DESCRIPTION,
 			start_url: '/',
 			theme_color: ACCENT_COLOR,
@@ -36,11 +36,11 @@ export default defineConfig({
 			config: {
 				outfile: 'site.webmanifest',
 				createFavicon: true,
-				insertFaviconLinks: false, // default - true
+				insertFaviconLinks: true, // default - true
 				insertThemeColorMeta: false, // default - true
 				insertManifestLink: true, // default - true
 				crossOrigin: 'anonymous',
-				insertAppleTouchLinks: false,
+				insertAppleTouchLinks: true,
 				iconPurpose: ['badge', 'maskable', 'monochrome']
 			}
 		}), partytown({

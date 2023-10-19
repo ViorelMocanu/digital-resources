@@ -3,9 +3,8 @@ title: "Alte resurse digitale"
 menu: "Altele"
 slug: altele
 sortOrder: 5
-image:
-  imageUrl: "/src/img/altele.svg"
-  imageAlt: "Alte resurse digitale care te ajută în procesul de învățare"
+imageUrl: "./altele.svg"
+imageAlt: "Alte resurse digitale care te ajută în procesul de învățare"
 description: "@TODO: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
 categories:
 publishDate: 2023-09-30

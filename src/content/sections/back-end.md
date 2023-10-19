@@ -3,9 +3,8 @@ title: "Resurse de Back End Development"
 menu: "Back End"
 slug: back-end
 sortOrder: 1
-image:
-  imageUrl: "/src/img/back-end.svg"
-  imageAlt: "Tehnologii de back end și programare: NodeJS, PHP, Python, Java, C, C++, C#, .NET, SQL, Ruby."
+imageUrl: "./back-end.svg"
+imageAlt: "Tehnologii de back end și programare: NodeJS, PHP, Python, Java, C, C++, C#, .NET, SQL, Ruby."
 description: "@TODO: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
 categories:
 - introducere-in-back-end

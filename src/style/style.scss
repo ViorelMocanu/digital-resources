@@ -79,7 +79,7 @@ a#skip { @extend .SROnly; }
 a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; height: auto; }
 .Icon { display: inline-block; width: 1.5rem; height: 1.5rem; overflow: hidden; }
 
-.TemporaryMessage { display: block; margin: 0; padding: 0.5rem; position: fixed; bottom: 0; left: 0; right: 0; background: magenta; color: white; z-index: 9999; }
+.TemporaryMessage { display: none; margin: 0; padding: 0.5rem; position: fixed; bottom: 0; left: 0; right: 0; background: magenta; color: white; z-index: 9999; }
 
 .Message { display: block; margin: 1rem; background: var(--dark-200); border: 1px solid var(--light-900); }
 .Message.Message-error { background: rgba(255,0,0,0.25); }
@@ -213,7 +213,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 			@media (min-width: $desktop) { padding: 2rem 2rem 1rem; flex-grow: 1; }
 		}
 			.HeroResourceLink { display: block; text-decoration: none; }
-				.HeroTitle { display: block; padding: 0 0 0.5rem; margin: 0 -1rem 0.5rem 0; border-bottom: 0.25rem solid var(--light-900);
+				.HeroTitle { display: block; padding: 0 0 0.5rem; margin: 0 -1rem 0.5rem 0; border-bottom: 0.25rem solid var(--light-900); text-wrap: balance;
 					@media (min-width: 600px) { padding: 0 0 1rem; margin: 0 -1rem 1rem 0; }
 					@media (min-width: $desktop) { padding: 0 0 0.5rem; margin: 0 0 1rem; border-bottom: 0.5rem solid var(--light-900); }
 					@media (min-width: 1800px) { font-size: clamp(3.5rem, calc(1rem + 2.56vw), 5rem); }
@@ -241,7 +241,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 				.HeroContent {  }
 					.HeroContent .HeroP {  }
 	.Main { display: block; margin: 1rem; border: 1px solid var(--light-900); }
-	.SectionPage .Main, .CategoryPage .Main, .SubcategoryPage .Main {
+	.SectionPage .Main, .CategoryPage .Main, .SubcategoryPage .Main { position: relative;
 		@media (min-width: $desktop) { display: grid; grid-template-columns: 3fr 1fr; grid-template-rows: 2.5rem 1fr; }
 	}
 	.ResourcePage .Main { padding: 0; margin: 1rem 0;
@@ -526,13 +526,16 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 									.Obligatoriu-obligatoriu .Icon { background: var(--accent-obligatoriu); }
 								.TagName {  }
 
-		.ListNavigation { position: relative; z-index: 3; border-top: 1px solid var(--light-900);
-			@media (min-width: $desktop) { grid-column: 2 / span 1; grid-row: 1 / span 2; height: fit-content; position: sticky; top: 10.625rem; overflow-y: auto; border-top: none; transition: top 0.25s ease-in; }
+		.ListNavigation { z-index: 3; border-top: 1px solid var(--light-900); position: fixed; top: 8.1rem; bottom: 0; left: 0; right: 0; margin: 0 1rem; background: var(--dark-100); transform: translate3d(-110%, 0, 0); transition: transform 0.5s ease-in-out;
+			@media (min-width: $desktop) { grid-column: 2 / span 1; grid-row: 1 / span 2; height: fit-content; position: sticky; top: 10.625rem; bottom: unset; left: unset; right: unset; margin: 0; overflow-y: auto; border-top: none; transition: top 0.25s ease-in; transform: none; }
 		}
 		.ScrollDown .ListNavigation {
 			@media (min-width: $desktop) { height: calc(100vh - 2rem); top: 0; bottom: 0; }
 		}
-			.ListNavTitle { display: block; margin: 0; padding: 1rem 0.5rem 0;
+		.ActiveSubnav .ListNavigation { transform: translate3d(0, 0, 0); box-shadow: 0 1rem 1rem var(--dark-100);
+			@media (min-width: $desktop) { transform: none; box-shadow: none; }
+		}
+			.ListNavTitle { display: block; margin: 0; padding: 1rem 0.5rem;
 				@media (min-width: $desktop) { display: block; padding: 2rem 2rem 0 2rem; font-size: 1.5rem; line-height: 1em; font-weight: normal; }
 			}
 			.SubnavTrigger { display: flex; flex-direction: row; align-items: center; justify-content: center; flex-grow: 1; gap: 0.25rem; padding: 0.5rem; right: 0; bottom: 0; z-index: 1; background: var(--dark-100); color: var(--light-900); border: none; border-left: 1px solid var(--light-900); border-bottom: 1px solid var(--light-900); text-align: center; font-size: 0.75rem; line-height: 1.5rem; cursor: pointer;
@@ -541,8 +544,8 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 			}
 			.SubnavTrigger:hover { background: var(--accent-400); color: var(--light-900); }
 			.SubnavTrigger:active { background: var(--light-900); color: var(--accent-400); }
-			.ListNav { display: block; list-style-type: decimal; margin: 0; padding: 0.5rem 2rem 1rem;
-				@media (min-width: $desktop) { padding: 1rem 2rem; }
+			.ListNav { display: block; max-height: calc(100vh - 14rem); list-style-type: none; margin: 0; padding: 0; overflow-y: auto; border: 1px solid var(--light-900);
+				@media (min-width: $desktop) { display: block; list-style-type: decimal; margin: 0; border: none; padding: 1rem 2rem; }
 			}
 				.SubnavTrigger .Icon { display: none;
 					@media (min-width: 400px) { display: block; }
@@ -550,25 +553,24 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 				.ListNavItem { display: list-item;
 					@media (min-width: 1300px) { margin: 0 0 1rem; }
 				}
-					.ListNavLink, .ListSubNavLink { display: block; }
+					.ListNavLink, .ListSubNavLink { display: block; padding: 0.5rem; text-decoration: none; border-bottom: 1px solid var(--light-900);
+						@media (min-width: $desktop) { padding: 0; text-decoration: underline; border-bottom: none; }
+					}
 					.ListNavLink:hover, .ListSubNavLink:hover { text-decoration: none; }
 					.ActiveListNav > .ListNavLink { font-weight: bold; color: var(--accent-400); text-decoration: none; }
-					.ListSubNav { display: block; list-style-type: none; margin: 0; padding: 0; position: fixed; bottom: 0; left: 0; right: 0; background: var(--dark-100); overflow-y: auto; border: 1px solid var(--light-900); transform: translate3d(-100%, 0, 0); transition: transform 0.5s ease-in-out;
-						@media (min-width: $desktop) { margin: 0; position: static; bottom: unset; left: unset; right: unset; border: none; transform: none; transition: unset; }
-					}
-					.ActiveSubnav .ListSubNav { transform: translate3d(0, 0, 0);
-						@media (min-width: $desktop) { transform: none; }
+					.ListSubNav { display: block; list-style-type: none; margin: 0; padding: 0; border: 1px solid var(--light-900);
+						@media (min-width: $desktop) { margin: 0; border: none; }
 					}
 						.ListSubNavItem { display: block; }
-							.ListSubNavLink { display: block; padding: 0.5rem; text-decoration: none; border-bottom: 1px solid var(--light-900);
-								@media (min-width: $desktop) { padding: 0; text-decoration: underline; border-bottom: none; }
+							.ListSubNavLink { border-left: 1rem solid var(--light-900);
+								@media (min-width: $desktop) { border-left: none; }
 							}
 							.ActiveListNav > .ListSubNavLink { font-weight: bold; color: var(--accent-400); text-decoration: none; }
-							.ListSubNavCloseButton { display: block; width: 100%; padding: 0.5rem; background: var(--dark-100); color: var(--light-900); text-decoration: none; text-align: left;
-								@media (min-width: $desktop) { display: none; }
-							}
-							.ListSubNavCloseButton:hover { background: var(--accent-400); color: var(--light-900); }
-							.ListSubNavCloseButton:active { background: var(--light-900); color: var(--accent-400); }
+					.ListNavCloseButton { display: flex; flex-direction: row; align-items: center; gap: 0.5rem; width: 100%; padding: 0.5rem; background: var(--dark-100); color: var(--light-900); text-decoration: none; text-align: left; line-height: 1.5rem;
+						@media (min-width: $desktop) { display: none; }
+					}
+					.ListNavCloseButton:hover { background: var(--accent-400); color: var(--light-900); }
+					.ListNavCloseButton:active { background: var(--light-900); color: var(--accent-400); }
 		.Pagination {
 			@media (min-width: $desktop) { grid-column: 1 / span 2; }
 		}
