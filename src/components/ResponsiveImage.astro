@@ -73,19 +73,35 @@ const legacyImage = await getImage({
 		{renderSmallImage && <source type="image/avif" srcset={avifSmallImage.src} media="(min-width: 1px)" /> }
 		{renderSmallImage && <source type="image/webp" srcset={webpSmallImage.src} media="(min-width: 1px)" /> }
 		<source type="image/png" srcset={legacyImage.src} />
-		<Image
-			src={properImage}
-			alt={alt}
-			width={width}
-			height={height}
-			format="png"
-			{...attrs}
-		/>
+		{lazyLoading && (
+			<Image
+				src={properImage}
+				alt={alt}
+				width={width}
+				height={height}
+				format="png"
+				{...attrs}
+				loading="lazy"
+				decoding="async"
+			/>
+		)}
+		{!lazyLoading && (
+			<Image
+				src={properImage}
+				alt={alt}
+				width={width}
+				height={height}
+				format="png"
+				{...attrs}
+				loading="eager"
+				decoding="sync"
+			/>
+		)}
 	</picture>
 )}
 {properImage.format == 'svg' && lazyLoading && (
 	<img src={properImage.src} width={width} height={height} alt={alt} loading="lazy" decoding="async" {...attrs} />
 )}
 {properImage.format == 'svg' && !lazyLoading && (
-	<img src={properImage.src} width={width} height={height} alt={alt} {...attrs} />
+	<img src={properImage.src} width={width} height={height} alt={alt} loading="eager" decoding="sync" {...attrs} />
 )}

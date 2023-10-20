@@ -103,7 +103,15 @@ breadcrumbArray.push({
 		)}
 		{entry.data.image && entry.data.image.imageLocalUrl && entry.data.url && (
 			<a class="HeroVisual" href={entry.data.url} title={`Vizitează resursa: ${entry.data.title}`}>
-				<ResponsiveImage image={entry.data.image.imageLocalUrl} alt={entry.data.image.imageAlt} width={1200} height={600} lazyLoading={false} classList={["HeroImage", "InternalImage"]} breakpoint={1100} />
+				<ResponsiveImage
+					image={entry.data.image.imageLocalUrl}
+					alt={entry.data.image.imageAlt}
+					width={1200}
+					height={600}
+					lazyLoading={false}
+					classList={["HeroImage", "InternalImage"]}
+					breakpoint={1100}
+				/>
 			</a>
 		)}
 		<div class="HeroText">
