@@ -41,9 +41,10 @@
 		"lint:fix": "pnpm lint:js --fix . && pnpm lint:md --fix",
 		"lint": "pnpm lint:js . && pnpm lint:md",
 		"prepare": "husky install",
-		"test": "turbo run test:unit test:e2e",
-		"test:unit": "vitest",
 		"coverage": "pnpm test:unit --coverage",
+		"test:unit": "vitest",
+		"test:e2e": "playwright test",
+		"test": "pnpm test:unit && pnpm test:e2e",
 		"typecheck": "pnpm tsc --project tsconfig.json --noEmit"
 	},
 	"dependencies": {

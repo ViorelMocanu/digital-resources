@@ -1,5 +1,6 @@
 /// <reference types="vitest" />
-import { configDefaults, getViteConfig } from 'astro/config';
+import { configDefaults } from 'vitest/config';
+import { getViteConfig } from 'astro/config';
 
 export default getViteConfig({
 	test: {
