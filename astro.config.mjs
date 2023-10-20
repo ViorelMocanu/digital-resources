@@ -104,5 +104,5 @@ export default defineConfig({
 		// 		navigateFallbackAllowlist: [/^\/404$/],
 		// 	},
 		// })
-	]
+	],
 });

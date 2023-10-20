@@ -14,6 +14,7 @@
 		"noEmit": true,
 		"types": [
 			"astro/client",
+			"vitest/globals",
 			// "vite-plugin-pwa/info"
 		],
 		"strictNullChecks": true,

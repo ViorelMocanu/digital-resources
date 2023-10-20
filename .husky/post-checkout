@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+source "$(dirname $0)/functions.sh"
+notify_about_actions_required $1 $2
+
+exit 0
