@@ -6,14 +6,23 @@ import ResourceList from '../../components/ResourceList.astro';
 import { getCollection } from 'astro:content';
 
 const resources = await getCollection('resources');
+
+const pageTitle = "Toate resursele de pe Resurse.dev";
+const pageDescription = "@TODO: scrie descrierea";
 const breadcrumbArray = [{
 	href: Astro.url,
-	title: "Toate resursele",
+	title: pageTitle,
 	label: "Resurse"
 }];
+
 ---
 
-<Layout title="Toate resursele de pe Resurse.dev" description="@TODO: scrie descrierea" template="SectionPageIndex" breadcrumbArray={breadcrumbArray}>
+<Layout
+	title={pageTitle}
+	description={pageDescription}
+	template="SectionPageIndex"
+	breadcrumbArray={breadcrumbArray}
+>
 	<div class="Hero" id="hero">
 		<div class="HeroText">
 			<h1 class="HeroTitle">Toate resursele</h1>
@@ -32,7 +41,7 @@ const breadcrumbArray = [{
 	</div>
 	<main class="Main">
 		@TODO: index de resurse - listează cu paginație toate resursele?
-		<ResourceFilter />
-		<ResourceList resources={resources} />
+		<ResourceFilter section={} />
+		<ResourceList resources={resources} pageTitle={pageTitle} />
 	</main>
 </Layout>

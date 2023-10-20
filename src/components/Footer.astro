@@ -24,15 +24,6 @@ const allSections = (await getCollection('sections', ({data}) => {
 		<p class="Copyright">Copyright &copy; 2023{yearPrint} <a href="https://www.viorelmocanu.ro/" title="Vezi site-ul personal al lui Viorel Mocanu">Viorel Mocanu</a> și <a href="https://discord.com/invite/UpnAutz" title="Vizitează comunitatea de Discord: Carieră în IT">comunitatea de Discord Carieră în IT</a>.</p>
 	</div>
 	<ul class="FooterList">
-		{
-			allSections.map((section) => (
-				<li class:list={highlightUrl(section.slug, 'FooterItem', 'Active', activePage)}>
-					<a class="FooterLink" href={`/${section.slug}`} title={`Vezi exclusiv lista de ${section.data.title}`}>{section.data.menu}</a>
-				</li>
-			))
-		}
-	</ul>
-	<ul class="FooterList">
 		<li class="FooterItem">
 			<a class="FooterLink" href="https://github.com/ViorelMocanu/digital-resources" title="Vizitează proiectul de GitHub pe care se găsesc sursele acestui website">Proiectul de GitHub</a>
 		</li>
@@ -51,5 +42,14 @@ const allSections = (await getCollection('sections', ({data}) => {
 		<li class:list={highlightUrl('/contact', 'FooterItem', 'Active', activePage)}>
 			<a class="FooterLink" href="/contact" title="@TODO">Contact</a>
 		</li>
+	</ul>
+	<ul class="FooterList">
+		{
+			allSections.map((section) => (
+				<li class:list={highlightUrl(section.slug, 'FooterItem', 'Active', activePage)}>
+					<a class="FooterLink" href={`/${section.slug}`} title={`Vezi exclusiv lista de ${section.data.title}`}>{section.data.menu}</a>
+				</li>
+			))
+		}
 	</ul>
 </footer>

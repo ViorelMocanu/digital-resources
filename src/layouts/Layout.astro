@@ -1,7 +1,20 @@
 ---
 import '../style/style.scss';
-import { ACCENT_COLOR, CONTACT_EMAIL, FACEBOOK_APP_ID, LANGUAGE, LANGUAGE_EXTENDED, OG_IMAGE, OG_IMAGE_ALT, SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, TWITTER_CREATOR, TWITTER_SITE } from '../config';
-import { type BreadcrumbArray } from '../config';
+import {
+	ACCENT_COLOR,
+	type BreadcrumbArray,
+	CONTACT_EMAIL,
+	FACEBOOK_APP_ID,
+	LANGUAGE,
+	LANGUAGE_EXTENDED,
+	OG_IMAGE,
+	OG_IMAGE_ALT,
+	SITE_DESCRIPTION,
+	SITE_NAME,
+	SITE_TITLE,
+	TWITTER_CREATOR,
+	TWITTER_SITE
+} from '../config';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { ViewTransitions } from 'astro:transitions';
@@ -10,12 +23,11 @@ interface Props {
 	title: string;
 	description: string;
 	ogImage?: string;
-	modDate?: string;	// e.g. 2021-09-19T19:35:55+03:00
-	addDate?: string;	// e.g. 2021-09-19T19:35:55+03:00
+	modDate?: string;
 	canonical?: string;
 	template: string;
-	activeMenu?: string;
-	breadcrumbArray?: BreadcrumbArray | undefined;	
+	activeMenu?: string | undefined;
+	breadcrumbArray: BreadcrumbArray;
 }
 
 const buildDate = __DATE__;
@@ -29,7 +41,7 @@ const {
 	template,
 	activeMenu,
 	breadcrumbArray
-} = Astro.props;
+} = Astro.props as Props;
 
 ---
 
@@ -44,6 +56,7 @@ const {
 		<link rel="canonical" href={canonical} />
 		<meta name="description" content={description}>
 		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
 		<meta property="og:site_name" content={SITE_NAME} />
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content={title} />
@@ -61,12 +74,10 @@ const {
 		<meta property="twitter:card" content="summary_large_image" />
 		<meta property="article:published_time" content={modDate} />
 		<meta property="article:modified_time" content={modDate} />
-		
+
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="apple-touch-icon" href="/icon-512x512.png" />
 		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#00214d" />
 		<meta name="msapplication-TileColor" content={ACCENT_COLOR} />
-		<link rel="manifest" href="/manifest.webmanifest" />
 		<meta name="apple-mobile-web-app-title" content={`${SITE_NAME} - ${title}`} />
 		<meta name="application-name" content={SITE_NAME} />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -74,10 +85,13 @@ const {
 		<meta name="mobile-web-app-capable" content="yes" />
 		<meta name="apple-touch-fullscreen" content="yes" />
 		<meta name="theme-color" content={ACCENT_COLOR} />
+
 		<link rel="author" href="https://resurse.dev/humans.txt" />
 		<link rel="sitemap" href="/sitemap-index.xml" />
 		<link rel="preload" href="/font/atkinson-hyperlegible-regular.woff2" as="font" type="font/woff2" crossorigin />
 		<link rel="preload" href="/font/atkinson-hyperlegible-bold.woff2" as="font" type="font/woff2" crossorigin />
+
+		<ViewTransitions />
 	</head>
 	<body class:list={[template]}>
 		<a id="skip" href="#hero" title="Mergi direct la conținutul acestei pagini">Mergi la conținut</a>

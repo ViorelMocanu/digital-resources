@@ -1,15 +1,20 @@
 ---
+import HelpfulLinks from '../components/HelpfulLinks.astro';
 import Layout from '../layouts/Layout.astro';
+
+const pageTitle = "Eroare 404: Pagina nu a fost găsită";
+const pageDescription = "Ne pare rău, dar se pare că ai dat peste o pagină inexistentă pe site-ul Resurse.dev - contactează-ne dacă ai probleme.";
 const breadcrumbArray = [{
 	href: Astro.url,
-	title: "Pagina nu a fost găsită",
+	title: pageTitle,
 	label: "Eroare 404"
 }];
+
 ---
 
 <Layout
-	title="Eroare 404: Pagina nu a fost găsită - Resurse.dev"
-	description="Ne pare rău, dar se pare că ai dat peste o pagină inexistentă pe site-ul Resurse.dev - contactează-ne dacă ai probleme."
+	title={pageTitle}
+	description={pageDescription}
 	template="ErrorPage"
 	breadcrumbArray={breadcrumbArray}
 >
@@ -20,5 +25,6 @@ const breadcrumbArray = [{
 	</div>
 	<main class="Main">
 		@TODO: Completează conținutul paginii curente EROARE 404
+		<HelpfulLinks />
 	</main>
 </Layout>

@@ -12,30 +12,31 @@ const allSections = (await getCollection('sections', ({data}) => {
 	return data.sortOrder >= 0; // negative sort orders removes sections altogether
 })).sort((a, b) => a.data.sortOrder - b.data.sortOrder); // ordering by sortOrder asc
 
-const { breadcrumbArray, activeMenu } = Astro.props;
+const { breadcrumbArray = [], activeMenu } = Astro.props;
 const activePage = activeMenu || Astro.url.pathname.substring(1);
+
 ---
 
 <header class="Header">
 	<div class="HeaderMain" role="toolbar">
 		<button class="MenuTrigger" type="button" id="menuTrigger" aria-expanded="false" aria-label="Deschide meniul principal" aria-haspopup="true" aria-controls="menu">
-			<icon class="Icon IconHamburger">
+			<span class="Icon IconHamburger">
 				<span class="HamburgerBar HamburgerBar1">&nbsp;</span>
 				<span class="HamburgerBar HamburgerBar2">&nbsp;</span>
 				<span class="HamburgerBar HamburgerBar3">&nbsp;</span>
-			</icon>
+			</span>
 			<span class="SROnly">Deschide meniul principal</span>
 		</button>
 		<a class="Logo" href="/" title="Mergi la prima pagină a proiectului Resurse.dev">
 			<span class="LinkText">resurse.dev</span>
 		</a>
 		<a class:list={highlightUrl('login', 'HeaderLink Login', 'Active')} href="/login" title="Mergi la prima pagină a proiectului Resurse.dev">
-			<icon class="Icon IconUser">
+			<span class="Icon IconUser">
 				<span class="SROnly">👤</span>
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
 					<path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
 				</svg>
-			</icon>
+			</span>
 			<span class="LinkText">Login</span>
 		</a>
 		<nav class="MainMenu" id="menu" role="menubar" aria-labelledby="menuTrigger">
@@ -64,37 +65,32 @@ const activePage = activeMenu || Astro.url.pathname.substring(1);
 </header>
 
 <script>
-	const menuTrigger = document.getElementById('menuTrigger');
-	const body = document.body;
-	// la fiecare click pe butonul cu hamburger icon, adăugăm sau scoatem (deci facem toggle pe) clasa ActiveMenu în body, clasă care are niște CSS care afișează sau ascunde meniul mobil
-	menuTrigger?.addEventListener('click', function (event) {
-		event.preventDefault();
-		body.classList.toggle('ActiveMenu');
-		if ( body.classList.contains('ActiveMenu') ) {
-			document.body.dataset.menuOpen = "true";
-			// this are valoarea e.currentTarget adică menuTrigger
-			// https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#the_value_of_this_within_the_handler
-			this.setAttribute('aria-expanded', 'true');
-			this.setAttribute('aria-label', 'Închide meniul principal');
-		} else {
-			delete document.body.dataset.menuOpen;
-			this.setAttribute('aria-expanded', 'false');
-			this.setAttribute('aria-label', 'Deschide meniul principal');
-		}
-		return false;
-	});
+	declare global {
+		interface Window { menuListeners: any; }
+	}
+	window.menuListeners = function () {
+		const menuTrigger = document.getElementById('menuTrigger');
+		const body = document.body;
 
-	const subnavTrigger = document.getElementById('subnavTrigger');
-	// la fiecare click pe butonul cu hamburger icon, adăugăm sau scoatem (deci facem toggle pe) clasa ActiveMenu în body, clasă care are niște CSS care afișează sau ascunde meniul mobil
-	subnavTrigger?.addEventListener('click', function (event) {
-		event.preventDefault();
-		body.classList.toggle('ActiveSubnav');
-		return false;
-	});
-	const closeSubnav = document.getElementById('closeSubnav');
-	closeSubnav?.addEventListener('click', function (event) {
-		event.preventDefault();
-		body.classList.remove('ActiveSubnav');
-		return false;
-	});
+		// la fiecare click pe butonul cu hamburger icon, adăugăm sau scoatem (deci facem toggle pe) clasa ActiveMenu în body, clasă care are niște CSS care afișează sau ascunde meniul mobil
+		menuTrigger?.addEventListener('click', function (event) {
+			event.preventDefault();
+			body.classList.toggle('ActiveMenu');
+			if ( body.classList.contains('ActiveMenu') ) {
+				document.body.dataset.menuOpen = "true";
+				// this are valoarea e.currentTarget adică menuTrigger
+				// https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#the_value_of_this_within_the_handler
+				this.setAttribute('aria-expanded', 'true');
+				this.setAttribute('aria-label', 'Închide meniul principal');
+			} else {
+				delete document.body.dataset.menuOpen;
+				this.setAttribute('aria-expanded', 'false');
+				this.setAttribute('aria-label', 'Deschide meniul principal');
+			}
+			return false;
+		});
+	}
+	window.menuListeners();
+	// Runs on view transitions navigation
+	document.addEventListener('astro:after-swap', function() { window.menuListeners(); });
 </script>

@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ResourceFilter from '../components/ResourceFilter.astro';
+import ResourceList from '../components/ResourceList.astro';
+
+import { getCollection } from 'astro:content';
+
+const resources = await getCollection('resources');
+
+const pageTitle = "Caută pe Resurse.dev";
+const pageDescription = "@TODO: scrie descrierea";
+const breadcrumbArray = [{
+	href: Astro.url,
+	title: pageTitle,
+	label: "Caută"
+}];
+
+---
+
+<Layout
+	title={pageTitle}
+	description={pageDescription}
+	template="SectionPageIndex"
+	breadcrumbArray={breadcrumbArray}
+>
+	<div class="Hero" id="hero">
+		<div class="HeroText">
+			<h1 class="HeroTitle">Caută pe Resurse.dev</h1>
+		</div>
+	</div>
+	<main class="Main">
+		@TODO: index de resurse - listează cu paginație toate resursele?
+		<ResourceFilter section={} />
+		<ResourceList resources={resources} pageTitle={pageTitle} />
+	</main>
+</Layout>

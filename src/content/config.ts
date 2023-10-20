@@ -19,12 +19,14 @@ const resourceCollection = defineCollection({
 		rating: z.number().min(1, "Rating-ul nu poate avea mai puțin de nota 1").max(100, "Rating-ul nu poate avea mai mult de nota 10").optional(),
 		price: z.number().min(0, "Prețul nu poate fi negativ").optional(),
 		requiredTime: z.number().optional(),
-		type: z.string(),
+		type: z.enum(["text", "video", "curs", "carte"]),
 		mandatory: z.boolean(),
 		image: z.object({
+			// @TODO: make either imageLocalUrl or imageUrl be validated for the image object to become valid
 			imageLocalUrl: image().refine((img) => img.width >= 1000, {
 				message: "Imaginea trebuie să aibă minim 1000px lățime!",
 			}).optional(),
+			// @TODO: add file type extension validation for imageUrl
 			imageUrl: z.string().url("Imagine cu URL invalid.").optional(),
 			imageAlt: z.string().optional(),
 		}).nullish(),
@@ -48,14 +50,14 @@ const tagCollection = defineCollection({
 
 const sectionCollection = defineCollection({
 	type: 'content',
-	schema: z.object({
+	schema: ({ image }) => z.object({
 		title: z.string(),
 		menu: z.string(),
 		sortOrder: z.number(),
-		image: z.object({
-			imageUrl: z.string().optional(),
-			imageAlt: z.string().optional(),
-		}).nullish(),
+		imageUrl: image().refine((img) => img.width >= 100, {
+			message: "Imaginea trebuie să aibă minim 100px lățime!",
+		}).optional(),
+		imageAlt: z.string().optional(),
 		description: z.string().max(165, { message: "Descrierea scurtă trebuie să fie de maxim 165 caractere" }),
 		categories: z.array(reference('categories')).nullish(),
 		publishDate: z.date(),

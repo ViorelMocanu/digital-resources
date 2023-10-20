@@ -3,7 +3,7 @@
  * A responsive image component using a single breakpoint
  */
 import { Image, getImage } from 'astro:assets';
-// <ResponsiveImage image={testImage} alt="Test 1234" width={2560} height={1440} lazyLoading="true" classList={["TestClassName"]} breakpoint="1100" someAttr="someValue" />
+
 export interface Props {
 	image: ImageMetadata | string;
 	alt: string;
@@ -17,8 +17,6 @@ export interface Props {
 const { image, alt, width, height, lazyLoading = true, classList = ['Picture'], breakpoint = 850, ...attrs } = Astro.props;
 const properImage = (typeof image == 'object') ? image : await getImage({src: image, width: width, height: height, alt: alt});
 
-// if ( src.type == 'svg' || src.type == 'undefined' ) return false;
-
 let renderSmallImage = false;
 let smallerWidth = properImage.width < width ? properImage.width : width;
 let smallerHeight = properImage.width < width ? properImage.height : height;
@@ -27,6 +25,10 @@ if (width > breakpoint) {
 	renderSmallImage = true;
 	smallerWidth = Math.floor(breakpoint / 2);
 	smallerHeight = Math.floor((breakpoint * height) / (2 * width));
+}
+
+if (properImage.format == 'svg') {
+	renderSmallImage = false;
 }
 
 const avifImage = await getImage({
@@ -64,18 +66,42 @@ const legacyImage = await getImage({
 
 ---
 
-<picture class:list={classList}>
-	<source type="image/avif" srcset={avifImage.src} media={`(min-width: ${breakpoint}px)`} />
-	<source type="image/webp" srcset={webpImage.src} media={`(min-width: ${breakpoint}px)`} />
-	{renderSmallImage && <source type="image/avif" srcset={avifSmallImage.src} media="(min-width: 1px)" /> }
-	{renderSmallImage && <source type="image/webp" srcset={webpSmallImage.src} media="(min-width: 1px)" /> }
-	<source type="image/png" srcset={legacyImage.src} />
-	<Image
-		src={properImage}
-		alt={alt}
-		width={width}
-		height={height}
-		format="png"
-		{...attrs}
-	/>
-</picture>
+{properImage.format != 'svg' && (
+	<picture class:list={classList}>
+		<source type="image/avif" srcset={avifImage.src} media={`(min-width: ${breakpoint}px)`} />
+		<source type="image/webp" srcset={webpImage.src} media={`(min-width: ${breakpoint}px)`} />
+		{renderSmallImage && <source type="image/avif" srcset={avifSmallImage.src} media="(min-width: 1px)" /> }
+		{renderSmallImage && <source type="image/webp" srcset={webpSmallImage.src} media="(min-width: 1px)" /> }
+		<source type="image/png" srcset={legacyImage.src} />
+		{lazyLoading && (
+			<Image
+				src={properImage}
+				alt={alt}
+				width={width}
+				height={height}
+				format="png"
+				{...attrs}
+				loading="lazy"
+				decoding="async"
+			/>
+		)}
+		{!lazyLoading && (
+			<Image
+				src={properImage}
+				alt={alt}
+				width={width}
+				height={height}
+				format="png"
+				{...attrs}
+				loading="eager"
+				decoding="sync"
+			/>
+		)}
+	</picture>
+)}
+{properImage.format == 'svg' && lazyLoading && (
+	<img src={properImage.src} width={width} height={height} alt={alt} loading="lazy" decoding="async" {...attrs} />
+)}
+{properImage.format == 'svg' && !lazyLoading && (
+	<img src={properImage.src} width={width} height={height} alt={alt} loading="eager" decoding="sync" {...attrs} />
+)}

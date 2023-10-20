@@ -3,9 +3,8 @@ title: "Resurse de Front End Development"
 menu: "Front End"
 slug: front-end
 sortOrder: 0
-image:
-  imageUrl: "/src/img/hero-image.svg"
-  imageAlt: "Tehnologiile de bază ale Internetului: HTML, CSS și JavaScript"
+imageUrl: "./front-end.svg"
+imageAlt: "Tehnologiile de bază ale Internetului: HTML, CSS și JavaScript"
 description: "Învață despre tehnologiile de bază ale Internetului, descoperă ce este și cum funcționează o pagină web și cum să construiești și tu aplicații online."
 categories:
 - introducere-in-front-end

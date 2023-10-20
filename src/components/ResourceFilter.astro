@@ -1,4 +1,13 @@
 ---
+import { type CollectionEntry } from "astro:content";
+
+export interface Props {
+	section?: CollectionEntry<"sections">;
+}
+
+const { section } = Astro.props;
+const sectionCategories = section ? section.data.categories : false;
+
 ---
 
 <form class="SortAndFilter" action="#" method="get" aria-label="Filtrează resursele în contextul curent">
@@ -11,12 +20,12 @@
 		<legend class="SROnly">Sortează și filtrează lista de resurse:</legend>
 		<details class="FilterOptions">
 			<summary class="FilterTrigger">
-				<icon class="Icon IconFilter">
+				<span class="Icon IconFilter">
 					<span class="SROnly">🛆</span>
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
 						<path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" />
 					</svg>
-				</icon>
+				</span>
 				<span class="ButtonText">Filtrează</span>
 			</summary>
 			<ul class="FilterOptionList">
@@ -26,36 +35,36 @@
 				<li class="FilterOptionItem">
 					<label class="FilterOptionLabel">
 						<input class="FilterOptionCheckbox" type="checkbox" name="tip" value="video" checked="checked" />
-						<icon class="Icon IconFilterVideo">
+						<span class="Icon IconFilterVideo">
 							<span class="SROnly">📽️</span>
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
 								<path stroke-linecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
 							</svg>
-						</icon>
+						</span>
 						<span class="FilterOptionText">Video</span>
 					</label>
 				</li>
 				<li class="FilterOptionItem">
 					<label class="FilterOptionLabel">
 						<input class="FilterOptionCheckbox" type="checkbox" name="tip" value="curs" checked="checked" />
-						<icon class="Icon IconFilterCourse">
+						<span class="Icon IconFilterCourse">
 							<span class="SROnly">🧑‍🏫</span>
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
 								<path stroke-linecap="round" stroke-linejoin="round" d="M16.712 4.33a9.027 9.027 0 011.652 1.306c.51.51.944 1.064 1.306 1.652M16.712 4.33l-3.448 4.138m3.448-4.138a9.014 9.014 0 00-9.424 0M19.67 7.288l-4.138 3.448m4.138-3.448a9.014 9.014 0 010 9.424m-4.138-5.976a3.736 3.736 0 00-.88-1.388 3.737 3.737 0 00-1.388-.88m2.268 2.268a3.765 3.765 0 010 2.528m-2.268-4.796a3.765 3.765 0 00-2.528 0m4.796 4.796c-.181.506-.475.982-.88 1.388a3.736 3.736 0 01-1.388.88m2.268-2.268l4.138 3.448m0 0a9.027 9.027 0 01-1.306 1.652c-.51.51-1.064.944-1.652 1.306m0 0l-3.448-4.138m3.448 4.138a9.014 9.014 0 01-9.424 0m5.976-4.138a3.765 3.765 0 01-2.528 0m0 0a3.736 3.736 0 01-1.388-.88 3.737 3.737 0 01-.88-1.388m2.268 2.268L7.288 19.67m0 0a9.024 9.024 0 01-1.652-1.306 9.027 9.027 0 01-1.306-1.652m0 0l4.138-3.448M4.33 16.712a9.014 9.014 0 010-9.424m4.138 5.976a3.765 3.765 0 010-2.528m0 0c.181-.506.475-.982.88-1.388a3.736 3.736 0 011.388-.88m-2.268 2.268L4.33 7.288m6.406 1.18L7.288 4.33m0 0a9.024 9.024 0 00-1.652 1.306A9.025 9.025 0 004.33 7.288" />
 							</svg>
-						</icon>
+						</span>
 						<span class="FilterOptionText">Curs</span>
 					</label>
 				</li>
 				<li class="FilterOptionItem">
 					<label class="FilterOptionLabel">
 						<input class="FilterOptionCheckbox" type="checkbox" name="tip" value="articol" checked="checked" />
-						<icon class="Icon IconFilterArticle">
+						<span class="Icon IconFilterArticle">
 							<span class="SROnly">📃</span>
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
 								<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
 							</svg>
-						</icon>
+						</span>
 						<span class="FilterOptionText">Articol</span>
 					</label>
 				</li>
@@ -65,28 +74,28 @@
 				<li class="FilterOptionItem">
 					<label class="FilterOptionLabel">
 						<input class="FilterOptionCheckbox" type="checkbox" name="nivel" value="incepatori" checked="checked" />
-						<icon class="Icon IconFilterBeginner">🟢</icon>
+						<span class="Icon IconFilterBeginner">🟢</span>
 						<span class="FilterOptionText">Începători</span>
 					</label>
 				</li>
 				<li class="FilterOptionItem">
 					<label class="FilterOptionLabel">
 						<input class="FilterOptionCheckbox" type="checkbox" name="nivel" value="mid" checked="checked" />
-						<icon class="Icon IconFilterMid">🔵</icon>
+						<span class="Icon IconFilterMid">🔵</span>
 						<span class="FilterOptionText">Mid</span>
 					</label>
 				</li>
 				<li class="FilterOptionItem">
 					<label class="FilterOptionLabel">
 						<input class="FilterOptionCheckbox" type="checkbox" name="nivel" value="avansati" checked="checked" />
-						<icon class="Icon IconFilterAdvanced">🟣</icon>
+						<span class="Icon IconFilterAdvanced">🟣</span>
 						<span class="FilterOptionText">Avansați</span>
 					</label>
 				</li>
 				<li class="FilterOptionItem">
 					<label class="FilterOptionLabel">
 						<input class="FilterOptionCheckbox" type="checkbox" name="nivel" value="pro" checked="checked" />
-						<icon class="Icon IconFilterPro">🔴</icon>
+						<span class="Icon IconFilterPro">🔴</span>
 						<span class="FilterOptionText">Pro</span>
 					</label>
 				</li>
@@ -96,24 +105,24 @@
 				<li class="FilterOptionItem">
 					<label class="FilterOptionLabel">
 						<input class="FilterOptionCheckbox" type="checkbox" name="costuri" value="gratuit" checked="checked" />
-						<icon class="Icon IconFilterFree">
+						<span class="Icon IconFilterFree">
 							<span class="SROnly">💸</span>
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
 								<path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
 							</svg>
-						</icon>
+						</span>
 						<span class="FilterOptionText">Gratuit</span>
 					</label>
 				</li>
 				<li class="FilterOptionItem">
 					<label class="FilterOptionLabel">
 						<input class="FilterOptionCheckbox" type="checkbox" name="costuri" value="premium" checked="checked" />
-						<icon class="Icon IconFilterPremium">
+						<span class="Icon IconFilterPremium">
 							<span class="SROnly">💰</span>
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
 								<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
 							</svg>
-						</icon>
+						</span>
 						<span class="FilterOptionText">Premium</span>
 					</label>
 				</li>
@@ -121,103 +130,136 @@
 		</details>
 		<details class="FilterOptions">
 			<summary class="FilterTrigger">
-				<icon class="Icon IconSort">
+				<span class="Icon IconSort">
 					<span class="SROnly">⬇️</span>
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
 						<path stroke-linecap="round" stroke-linejoin="round" d="M7.5 7.5h-.75A2.25 2.25 0 004.5 9.75v7.5a2.25 2.25 0 002.25 2.25h7.5a2.25 2.25 0 002.25-2.25v-7.5a2.25 2.25 0 00-2.25-2.25h-.75m-6 3.75l3 3m0 0l3-3m-3 3V1.5m6 9h.75a2.25 2.25 0 012.25 2.25v7.5a2.25 2.25 0 01-2.25 2.25h-7.5a2.25 2.25 0 01-2.25-2.25v-.75" />
 					</svg>
-				</icon>
+				</span>
 				<span class="ButtonText">Sortează</span>
 			</summary>
 			<ul class="FilterOptionList">
 				<li class="FilterOptionItem">
 					<label class="FilterOptionLabel">
 						<input class="FilterOptionRadio" type="radio" name="sort" id="sort-default" value="default" checked="checked" />
-						<icon class="Icon IconSortDefault">
+						<span class="Icon IconSortDefault">
 							<span class="SROnly">🔥</span>
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
 								<path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
 								<path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
 							</svg>
-						</icon>
+						</span>
 						<span class="FilterOptionText">Sugestia noastră</span>
 					</label>
 				</li>
 				<li class="FilterOptionItem">
 					<label class="FilterOptionLabel">
 						<input class="FilterOptionRadio" type="radio" name="sort" id="sort-rating-desc" value="rating-desc" />
-						<icon class="Icon IconSortDesc">
+						<span class="Icon IconSortDesc">
 							<span class="SROnly">⬇️</span>
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
 								<path stroke-linecap="round" stroke-linejoin="round" d="M7.5 7.5h-.75A2.25 2.25 0 004.5 9.75v7.5a2.25 2.25 0 002.25 2.25h7.5a2.25 2.25 0 002.25-2.25v-7.5a2.25 2.25 0 00-2.25-2.25h-.75m-6 3.75l3 3m0 0l3-3m-3 3V1.5m6 9h.75a2.25 2.25 0 012.25 2.25v7.5a2.25 2.25 0 01-2.25 2.25h-7.5a2.25 2.25 0 01-2.25-2.25v-.75" />
 							</svg>
-						</icon>
+						</span>
 						<span class="FilterOptionText">Rating de la mare la mic</span>
 					</label>
 				</li>
 				<li class="FilterOptionItem">
 					<label class="FilterOptionLabel">
 						<input class="FilterOptionRadio" type="radio" name="sort" id="sort-rating-asc" value="rating-asc" />
-						<icon class="Icon IconSortAsc">
+						<span class="Icon IconSortAsc">
 							<span class="SROnly">⬆️</span>
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
 								<path stroke-linecap="round" stroke-linejoin="round" d="M7.5 7.5h-.75A2.25 2.25 0 004.5 9.75v7.5a2.25 2.25 0 002.25 2.25h7.5a2.25 2.25 0 002.25-2.25v-7.5a2.25 2.25 0 00-2.25-2.25h-.75m0-3l-3-3m0 0l-3 3m3-3v11.25m6-2.25h.75a2.25 2.25 0 012.25 2.25v7.5a2.25 2.25 0 01-2.25 2.25h-7.5a2.25 2.25 0 01-2.25-2.25v-.75" />
 							</svg>
-						</icon>
+						</span>
 						<span class="FilterOptionText">Rating de la mic la mare</span>
 					</label>
 				</li>
 				<li class="FilterOptionItem">
 					<label class="FilterOptionLabel">
 						<input class="FilterOptionRadio" type="radio" name="sort" id="sort-time-desc" value="time-desc" />
-						<icon class="Icon IconSortDesc">
+						<span class="Icon IconSortDesc">
 							<span class="SROnly">⬇️</span>
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
 								<path stroke-linecap="round" stroke-linejoin="round" d="M7.5 7.5h-.75A2.25 2.25 0 004.5 9.75v7.5a2.25 2.25 0 002.25 2.25h7.5a2.25 2.25 0 002.25-2.25v-7.5a2.25 2.25 0 00-2.25-2.25h-.75m-6 3.75l3 3m0 0l3-3m-3 3V1.5m6 9h.75a2.25 2.25 0 012.25 2.25v7.5a2.25 2.25 0 01-2.25 2.25h-7.5a2.25 2.25 0 01-2.25-2.25v-.75" />
 							</svg>
-						</icon>
+						</span>
 						<span class="FilterOptionText">Timp necesar de la mare la mic</span>
 					</label>
 				</li>
 				<li class="FilterOptionItem">
 					<label class="FilterOptionLabel">
 						<input class="FilterOptionRadio" type="radio" name="sort" id="sort-time-asc" value="time-asc" />
-						<icon class="Icon IconSortAsc">
+						<span class="Icon IconSortAsc">
 							<span class="SROnly">⬆️</span>
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
 								<path stroke-linecap="round" stroke-linejoin="round" d="M7.5 7.5h-.75A2.25 2.25 0 004.5 9.75v7.5a2.25 2.25 0 002.25 2.25h7.5a2.25 2.25 0 002.25-2.25v-7.5a2.25 2.25 0 00-2.25-2.25h-.75m0-3l-3-3m0 0l-3 3m3-3v11.25m6-2.25h.75a2.25 2.25 0 012.25 2.25v7.5a2.25 2.25 0 01-2.25 2.25h-7.5a2.25 2.25 0 01-2.25-2.25v-.75" />
 							</svg>
-						</icon>
+						</span>
 						<span class="FilterOptionText">Timp necesar de la mic la mare</span>
 					</label>
 				</li>
 			</ul>
 		</details>
-		<button class="SubnavTrigger" type="button" id="subnavTrigger">
-			<icon class="Icon IconCategories">
-				<span class="SROnly">🔥</span>
-				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-					<path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z" />
-					<path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6z" />
-				</svg>
-			</icon>
-			<span class="ButtonText">Categorii</span>
-		</button>
+		{sectionCategories && (
+			<button class="SubnavTrigger" type="button" id="subnavTrigger">
+				<span class="Icon IconCategories">
+					<span class="SROnly">🔥</span>
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z" />
+						<path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6z" />
+					</svg>
+				</span>
+				<span class="ButtonText">Categorii</span>
+			</button>
+		)}
 		<button type="submit" class="SROnly">Aplică modificările &raquo;</button>
 	</fieldset>
 </form>
 
-<script type="text/javascript">
-	filterOptions = document.getElementsByClassName('FilterOptions');
-	// Parcurgem fiecare buton cu clasa FilterOptions și adăugăm pe el un eveniment de click.
-	for (let i = 0; i < filterOptions.length; i++) {
-		filterOptions[i].addEventListener('click', function (event) {
-			// La fiecare click, vedem dacă există butoane care au deja proprietatea `open`.
+<script>
+	declare global {
+		interface Window { filterListeners: any; }
+	}
+	window.filterListeners = function () {
+		// Parcurgem fiecare buton cu clasa FilterOptions și adăugăm pe el un eveniment de click.
+		const body = document.body;
+		const filterOptions = document.getElementsByClassName('FilterOptions');
+		for (let i = 0; i < filterOptions.length; i++) {
+			filterOptions[i]?.addEventListener('click', function () {
+				body.classList.remove('ActiveSubnav');
+				// La fiecare click, vedem dacă există butoane care au deja proprietatea `open`.
+				const alreadyOpen = document.querySelector('.FilterOptions[open]');
+				// Dacă se găsesc astfel de butoane și ele sunt diferite de cel pe care am dat click acum, trebuie scos atributul `open` de pe ele ca să nu se suprapună.
+				if (alreadyOpen !== null && alreadyOpen != filterOptions[i])
+					alreadyOpen.removeAttribute('open');
+				return true;
+			});
+		}
+
+		// la fiecare click pe butonul cu hamburger icon, adăugăm sau scoatem (deci facem toggle pe) clasa ActiveSubnav în body, clasă care care afișează sau ascunde categoriile pe mobil
+		const subnavTrigger = document.getElementById('subnavTrigger');
+		subnavTrigger?.addEventListener('click', function (event) {
+			event.preventDefault();
+			if ( !body.classList.contains('ActiveSubnav') ) this.scrollIntoView(true);
+			body.classList.toggle('ActiveSubnav');
 			const alreadyOpen = document.querySelector('.FilterOptions[open]');
-			// Dacă se găsesc astfel de butoane și ele sunt diferite de cel pe care am dat click acum, trebuie scos atributul `open` de pe ele ca să nu se suprapună.
-			if (alreadyOpen !== null && alreadyOpen != filterOptions[i])
-				alreadyOpen.removeAttribute('open');
-			return true;
+			alreadyOpen?.removeAttribute('open');
+			return false;
+		});
+
+		// la fiecare click pe butonul de închidere a navigării, scoatem clasa ActiveSubnav din body, clasă care are niște CSS care afișează sau ascunde categoriile pe mobil
+		const closeSubnav = document.getElementById('closeSubnav');
+		closeSubnav?.addEventListener('click', function (event) {
+			event.preventDefault();
+			body.classList.remove('ActiveSubnav');
+			const alreadyOpen = document.querySelector('.FilterOptions[open]');
+			alreadyOpen?.removeAttribute('open');
+			return false;
 		});
 	}
+	window.filterListeners();
+	// Runs on view transitions navigation
+	document.addEventListener('astro:after-swap', function() { window.filterListeners(); });
 </script>

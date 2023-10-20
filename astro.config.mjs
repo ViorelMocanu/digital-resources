@@ -1,33 +1,54 @@
 import { defineConfig } from 'astro/config';
-import AstroPWA from "@vite-pwa/astro";
 import prefetch from "@astrojs/prefetch";
 import webmanifest from "astro-webmanifest";
 import partytown from "@astrojs/partytown";
 import sitemap from "@astrojs/sitemap";
-import { LANGUAGE_EXTENDED, SITE_DESCRIPTION, SITE_NAME, ACCENT_COLOR, URL, DEBUG } from './src/config';
+import { ENV, LANGUAGE_EXTENDED, SITE_DESCRIPTION, SITE_NAME, ACCENT_COLOR, URL, DEBUG } from './src/config';
 
 // https://astro.build/config
 export default defineConfig({
+	site: URL || "https://resurse.dev",
+	compressHTML: ENV !== 'local' ? true : false,
+	redirects: {
+		// '/old': '/new',
+	},
 	image: {
 		remotePatterns: [{ protocol: "https" }],
 	},
-	site: URL || "https://resurse.dev",
 	vite: {
 		logLevel: DEBUG ? 'info' : 'silent',
 		define: {
 			__DATE__: `'${new Date().toISOString()}'`,
 		},
 	},
+	markdown: {
+		syntaxHighlight: 'shiki',
+		remarkRehype: {
+			footnoteLabel: "Note de subsol",
+			footnoteBackLabel: "Înapoi la conținut"
+		},
+		shikiConfig: {
+			// Choose from Shiki's built-in themes (or add your own)
+			// https://github.com/shikijs/shiki/blob/main/docs/themes.md
+			theme: 'github-dark',
+			// Add custom languages
+			// Note: Shiki has countless langs built-in, including .astro!
+			// https://github.com/shikijs/shiki/blob/main/docs/languages.md
+			langs: [],
+			// Enable word wrap to prevent horizontal scrolling
+			wrap: true,
+		},
+	},
 	integrations: [
 		prefetch({
 			// Only prefetch links with an href that begins with `/resurse` or `.front-end`
-			// intentSelector: ["a[href^='/resurse']", "a[href^='/front-end']"]
+			intentSelector: ["a[href^='/resurse']"]
 		}), webmanifest({
 			name: SITE_NAME,
 			short_name: SITE_NAME,
 			lang: LANGUAGE_EXTENDED,
 			dir: 'ltr',
-			icon: 'favicon.svg',
+			icon: 'public/favicon.svg',
 			description: SITE_DESCRIPTION,
 			start_url: '/',
 			theme_color: ACCENT_COLOR,
@@ -36,11 +57,11 @@ export default defineConfig({
 			config: {
 				outfile: 'site.webmanifest',
 				createFavicon: true,
-				insertFaviconLinks: false, // default - true
+				insertFaviconLinks: true, // default - true
 				insertThemeColorMeta: false, // default - true
 				insertManifestLink: true, // default - true
 				crossOrigin: 'anonymous',
-				insertAppleTouchLinks: false,
+				insertAppleTouchLinks: true,
 				iconPurpose: ['badge', 'maskable', 'monochrome']
 			}
 		}), partytown({
@@ -105,5 +126,5 @@ export default defineConfig({
 		// 		navigateFallbackAllowlist: [/^\/404$/],
 		// 	},
 		// })
-	]
+	],
 });

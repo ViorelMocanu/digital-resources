@@ -41,7 +41,7 @@ Ne-am mai inspirat de aici ca să facem proiectul curent:
     - [ ] `astro-seo-meta`
     - [ ] `astro-seo-schema`
     - [ ] `astro-robots-txt`
-    - [x] `vite-plugin-pwa` + `astro-webmanifest`
+    - [ ] `vite-plugin-pwa` + `astro-webmanifest`
     - [x] `@astrojs/partytown`
     - [ ] `astro-i18next`
     - [x] `typescript` + `@typescript-eslint/eslint-plugin` + `@typescript-eslint/parser`
