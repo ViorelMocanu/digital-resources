@@ -1,4 +1,17 @@
 ---
+/**
+ * Renders the website footer and highlights the active page in the footer menus, if any.
+ *
+ * @component
+ * @example
+ * ```astro
+ * <Footer activeMenu={myActiveMenu} />
+ * ```
+ * @astroProps
+ * @prop {Array} [activeMenu] - An optional string representing the active menu item.
+ * @returns {astro.AstroNode} The footer component.
+ */
+
 import NewsletterSection from "../components/NewsletterSection.astro";
 import { getCollection } from "astro:content";
 import { highlightUrl } from "../utils/urlHelpers";
@@ -53,3 +66,5 @@ const allSections = (await getCollection('sections', ({data}) => {
 		}
 	</ul>
 </footer>
+
+

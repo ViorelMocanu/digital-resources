@@ -3,13 +3,13 @@ import {
 	type CollectionEntry,
 	getCollection,
 	getEntries,
-	getEntry
+	getEntry,
 } from 'astro:content';
-import { getFormattedDate } from '../../utils/resourceMeta';
 import Layout from '../../layouts/Layout.astro';
 import ResourceLocationList from '../../components/ResourceLocationList.astro';
 import ResourceTagList from '../../components/ResourceTagList.astro';
 import ResponsiveImage from '../../components/ResponsiveImage.astro';
+import { getFormattedDate } from '../../utils/resourceMeta';
 import { resourceTypeIcon } from '../../config';
 
 // 1. Generate a new path for every collection entry
@@ -98,7 +98,13 @@ breadcrumbArray.push({
 	<div class="Hero" id="hero">
 		{entry.data.image && entry.data.image.imageUrl && entry.data.url && (
 			<a class="HeroVisual" href={entry.data.url} title={`Vizitează resursa: ${entry.data.title}`}>
-				<img src={entry.data.image.imageUrl} alt={entry.data.image.imageAlt} width={1200} height={600} class:list={["HeroImage", "ExternalImage"]} />
+				<img
+					src={entry.data.image.imageUrl}
+					alt={entry.data.image.imageAlt}
+					width={1200}
+					height={600}
+					class:list={["HeroImage", "ExternalImage"]}
+				/>
 			</a>
 		)}
 		{entry.data.image && entry.data.image.imageLocalUrl && entry.data.url && (
@@ -116,12 +122,24 @@ breadcrumbArray.push({
 		)}
 		<div class="HeroText">
 			{entry.data.url && (
-				<a class="HeroResourceLink" href={entry.data.url} title={`Vizitează resursa: ${entry.data.title}`} target="_blank" rel="external noopener noreferrer">
+				<a
+					class="HeroResourceLink"
+					href={entry.data.url}
+					title={`Vizitează resursa: ${entry.data.title}`}
+					target="_blank"
+					rel="external noopener noreferrer"
+				>
 					<h1 class="HeroTitle">
 						{entry.data.title}
-						{resourceTypeIcon[entry.data.type.toLowerCase()]}
+						{resourceTypeIcon[
+							resourceType ?
+								resourceType.toLowerCase() :
+								entry.data.type.toLowerCase() as keyof typeof resourceTypeIcon
+						]}
 					</h1>
-					<em class="HeroUrl"><strong class="HeroUrlLabel">URL:</strong>&nbsp;{entry.data.url}</em>
+					<em class="HeroUrl">
+						<strong class="HeroUrlLabel">URL:</strong>&nbsp;{entry.data.url}
+					</em>
 				</a>
 			)}
 			<ul class="InfoList">
@@ -337,3 +355,4 @@ breadcrumbArray.push({
 		<div class="MainActions">@TODO: add main actions</div>
 	</main>
 </Layout>
+

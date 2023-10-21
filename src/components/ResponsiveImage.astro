@@ -1,11 +1,37 @@
 ---
 /**
- * A responsive image component using a single breakpoint
+ * Renders a responsive image based on the provided props.
+ *
+ * @component
+ * @example
+ * ```astro
+ * <ResponsiveImage
+ * 	 image={testImage}
+ * 	 alt="Test 1234"
+ * 	 width={2560}
+ * 	 height={1440}
+ * 	 lazyLoading={true}
+ * 	 classList={["TestClassName","test2"]}
+ * 	 breakpoint={1100}
+ * />
+ * ```
+ *
+ * @astroProps
+ * @prop {ImageMetadata | string} image - The image to be rendered. It can be either an object with image metadata or a string representing the image source.
+ * @prop {string} alt - The alternative text for the image.
+ * @prop {number} width - The desired width of the image.
+ * @prop {number} height - The desired height of the image.
+ * @prop {boolean} lazyLoading - Flag indicating whether lazy loading should be enabled.
+ * @prop {Array.<string>} classList - An array of CSS class names to be applied to the image container.
+ * @prop {number} breakpoint - The breakpoint at which a smaller version of the image should be rendered.
+ *
+ * @returns {astro.AstroNode} The rendered responsive image.
  */
+
 import { Image, getImage } from 'astro:assets';
 
 export interface Props {
-	image: ImageMetadata | string;
+	image: ImageMetadata;
 	alt: string;
 	width: number;
 	height: number;
@@ -15,11 +41,10 @@ export interface Props {
 }
 
 const { image, alt, width, height, lazyLoading = true, classList = ['Picture'], breakpoint = 850, ...attrs } = Astro.props;
-const properImage = (typeof image == 'object') ? image : await getImage({src: image, width: width, height: height, alt: alt});
 
 let renderSmallImage = false;
-let smallerWidth = properImage.width < width ? properImage.width : width;
-let smallerHeight = properImage.width < width ? properImage.height : height;
+let smallerWidth =  image.width < width ? image.width : width;
+let smallerHeight = image.width < width ? image.height : height;
 
 if (width > breakpoint) {
 	renderSmallImage = true;
@@ -27,38 +52,38 @@ if (width > breakpoint) {
 	smallerHeight = Math.floor((breakpoint * height) / (2 * width));
 }
 
-if (properImage.format == 'svg') {
+if (image.format == 'svg') {
 	renderSmallImage = false;
 }
 
 const avifImage = await getImage({
-	src: properImage,
+	src: image,
 	width: width,
 	height: height,
 	format: 'avif'
 });
 const avifSmallImage = await getImage({
-	src: properImage,
+	src: image,
 	width: smallerWidth,
 	height: smallerHeight,
 	format: 'avif'
 });
 
 const webpImage = await getImage({
-	src: properImage,
+	src: image,
 	width: width,
 	height: height,
 	format: 'webp'
 });
 const webpSmallImage = await getImage({
-	src: properImage,
+	src: image,
 	width: smallerWidth,
 	height: smallerHeight,
 	format: 'webp'
 });
 
 const legacyImage = await getImage({
-	src: properImage,
+	src: image,
 	width: width,
 	height: height,
 	format: 'png'
@@ -66,7 +91,7 @@ const legacyImage = await getImage({
 
 ---
 
-{properImage.format != 'svg' && (
+{image.format != 'svg' ? (
 	<picture class:list={classList}>
 		<source type="image/avif" srcset={avifImage.src} media={`(min-width: ${breakpoint}px)`} />
 		<source type="image/webp" srcset={webpImage.src} media={`(min-width: ${breakpoint}px)`} />
@@ -75,7 +100,7 @@ const legacyImage = await getImage({
 		<source type="image/png" srcset={legacyImage.src} />
 		{lazyLoading && (
 			<Image
-				src={properImage}
+				src={image}
 				alt={alt}
 				width={width}
 				height={height}
@@ -87,7 +112,7 @@ const legacyImage = await getImage({
 		)}
 		{!lazyLoading && (
 			<Image
-				src={properImage}
+				src={image}
 				alt={alt}
 				width={width}
 				height={height}
@@ -98,10 +123,10 @@ const legacyImage = await getImage({
 			/>
 		)}
 	</picture>
-)}
-{properImage.format == 'svg' && lazyLoading && (
-	<img src={properImage.src} width={width} height={height} alt={alt} loading="lazy" decoding="async" {...attrs} />
-)}
-{properImage.format == 'svg' && !lazyLoading && (
-	<img src={properImage.src} width={width} height={height} alt={alt} loading="eager" decoding="sync" {...attrs} />
+) : (
+	lazyLoading ? (
+		<img src={image.src} width={width} height={height} alt={alt} loading="lazy" decoding="async" {...attrs} />
+	) : (
+		<img src={image.src} width={width} height={height} alt={alt} loading="eager" decoding="sync" {...attrs} />
+	)
 )}

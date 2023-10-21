@@ -1,12 +1,26 @@
 ---
+/**
+ * Renders a breadcrumb trail based on an array of breadcrumb items.
+ *
+ * @component
+ * @example
+ * ```astro
+ * <Breadcrumbs breadcrumbArray={myBreadcrumbArray} />
+ * ```
+ * @astroProps
+ * @prop {Array} breadcrumbArray - An array of breadcrumb items.
+ * @returns {astro.AstroNode} The breadcrumb trail component.
+ */
+
 import { type BreadcrumbArray } from '../config';
 export interface Props {
-	breadcrumbArray?: BreadcrumbArray;
+	breadcrumbArray: BreadcrumbArray;
 }
 
 const { breadcrumbArray } = Astro.props;
 
 ---
+
 <nav class="Breadcrumbs">
 	<ol class="BreadcrumbList" itemscope itemtype="https://schema.org/BreadcrumbList">
 		<li class="BreadcrumbItem" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
@@ -21,7 +35,7 @@ const { breadcrumbArray } = Astro.props;
 			</a>
 			<meta itemprop="position" content="1" />
 		</li>
-		{breadcrumbArray?.map((breadcrumbItem, i) => (
+		{Array.isArray(breadcrumbArray) && breadcrumbArray.map((breadcrumbItem, i) => (
 			<li class="BreadcrumbItem" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
 				<a class="BreadcrumbLink" itemprop="item" href={breadcrumbItem.href} title={`Mergi înapoi la pagina ${breadcrumbItem.title}`}>
 					<span class="LinkText" itemprop="name">{breadcrumbItem.label}</span>

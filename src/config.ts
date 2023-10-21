@@ -29,7 +29,7 @@ export const OG_IMAGE_ALT = ""; //					🛑 @TODO: OG Image ALT
 export const GLOBAL_PUB_DATE = "2023-09-30T19:35:55+03:00";
 export const PAGE_SIZE = 10;
 
-export const resourceTypeIcon = {
+export const resourceTypeIcon: { [key: string]: string } = {
 	generic: "🔗",
 	carte: "📖",
 	curs: "💡",
@@ -51,10 +51,14 @@ export type Headings = {
 	text: string;
 }[];
 
+export type extendedCategory = CollectionEntry<"categories"> & {
+	subCategoryData: CollectionEntry<"subcategories">[] | [];
+};
+
 export type extendedResource = CollectionEntry<"resources"> & {
 	type: string;
 	tagData: CollectionEntry<"tags">[] | [];
 	sectionData: CollectionEntry<"sections"> | "";
 	categoryData: CollectionEntry<"categories">[] | [];
 	subCategoryData: CollectionEntry<"subcategories">[] | [];
-}
+};
