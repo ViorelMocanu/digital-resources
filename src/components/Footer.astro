@@ -15,6 +15,7 @@
 import NewsletterSection from "../components/NewsletterSection.astro";
 import { getCollection } from "astro:content";
 import { highlightUrl } from "../utils/urlHelpers";
+import getSortedItems from "../utils/getSortedItems";
 
 export interface Props {
 	activeMenu?: string | undefined;
@@ -24,9 +25,7 @@ const { activeMenu } = Astro.props;
 const activePage = activeMenu || Astro.url.pathname.substring(1);
 const currentYear = new Date().getFullYear();
 const yearPrint = currentYear > 2023 ? ` - ${currentYear} ` : " ";
-const allSections = (await getCollection('sections', ({data}) => {
-	return data.sortOrder >= 0; // negative sort orders removes sections altogether
-})).sort((a, b) => a.data.sortOrder - b.data.sortOrder); // ordering by sortOrder asc
+const allSections = await getSortedItems({ collectionKey: 'sections', sortKey: 'sortOrder' })
 ---
 
 <NewsletterSection />
