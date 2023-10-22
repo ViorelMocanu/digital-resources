@@ -1,0 +1,81 @@
+---
+import metaFetcher from 'meta-fetcher';
+import slugify from 'slugify';
+import db from './_old_db.json';
+import fs from 'fs';
+import fsPromises from 'fs/promises';
+import path from 'path';
+import { getCollection } from 'astro:content';
+
+const resources = await getCollection('resources');
+
+const x = async () => {
+
+	async function deleteAllFilesInDir(dirPath) {
+		try {
+			const files = await fsPromises.readdir(dirPath);
+			const deleteFilePromises = files.map(file =>
+				fsPromises.unlink(path.join(dirPath, file)),
+			);
+			await Promise.all(deleteFilePromises);
+		} catch (err) {
+			console.log(err);
+		}
+	}
+	const rootDirectory = 'src/content/resources/test/';
+	deleteAllFilesInDir(rootDirectory).then(() => {
+		console.log('Removed all files from the specified directory');
+	});
+
+	if (db) {
+		db.forEach( (el: {url: string, title: string}) => {
+			//console.log(el.url);
+		});
+	}
+	const result = await metaFetcher('https://www.viorelmocanu.ro/');
+	console.log("XXX", result);
+
+	const fileName = slugify(result.metadata.title, {
+		replacement: '-',
+		lower: true,
+	});
+	const fullPath = `${rootDirectory}${fileName}.md`;
+	var currentFile = fs.createWriteStream(fullPath);
+	currentFile.write(`---\n`);
+	currentFile.write(`title: "${result.metadata.title}"\n`);
+	currentFile.write(`url: "${result.metadata.website}"\n`);
+	currentFile.write(`language: "en"\n`);
+	currentFile.write(`modDate: "15 October 2023 19:48 UTC"\n`);
+	currentFile.write(`addDate: ""\n`);
+	currentFile.write(`description: "@TODO: Information architecture is an often misunderstood job title. Are they designers? developers? managers? All of the above? In this article we'll discuss what information architecture is, why it's related to usability, and what are the common tools/programs used in information architecture."\n`);
+	currentFile.write(`authorName: "UX Booth"\n`);
+	currentFile.write(`authorUrl: "https://uxbooth.com/"\n`);
+	currentFile.write(`section: "front-end"\n`);
+	currentFile.write(`categories:\n`);
+	currentFile.write(`- "introducere-in-front-end"\n`);
+	currentFile.write(`rating: 100\n`);
+	currentFile.write(`price: 0\n`);
+	currentFile.write(`requiredTime: 0.5\n`);
+	currentFile.write(`type: "text"\n`);
+	currentFile.write(`mandatory: false\n`);
+	currentFile.write(`image:\n`);
+	currentFile.write(`  imageLocalUrl: "../img/complete-beginners-guide-to-information-architecture.jpg"\n`);
+	currentFile.write(`  imageAlt: "${result.metadata.title}"\n`);
+	currentFile.write(`tags:\n`);
+	currentFile.write(`- "text"\n`);
+	currentFile.write(`- "free"\n`);
+	currentFile.write(`- "incepatori"\n`);
+	currentFile.write(`- "obligatoriu"\n`);
+	currentFile.write(`---\n\n\n`);
+	currentFile.write(`Information architecture is a task often shared by designers, developers, and content strategists. But regardless of who takes on the task, IA is a field of its own, with influences, tools, and resources that are worth investigation. In this article we’ll discuss what information architecture really is, and why it’s a valuable aspect of the user experience process.\n\n`);
+	currentFile.write(`Along the way we'll share the history, contributors, and tools often used in creating an information architecture. Even if you’re familiar with the discipline already, you can probably pick up something you've missed.\n`);
+	currentFile.end();
+	console.log('am scris fișierul');
+	return { fullPath, result, currentFile, resources };
+}
+
+---
+xxx
+{x}
+{JSON.stringify(await x, null, 2)}
+yyy
