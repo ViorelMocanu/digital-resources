@@ -23,8 +23,8 @@ const resourceCollection = defineCollection({
 		mandatory: z.boolean(),
 		image: z.object({
 			// @TODO: make either imageLocalUrl or imageUrl be validated for the image object to become valid
-			imageLocalUrl: image().refine((img) => img.width >= 1000, {
-				message: "Imaginea trebuie să aibă minim 1000px lățime!",
+			imageLocalUrl: image().refine((img) => img.width >= 100, {
+				message: "Imaginea trebuie să aibă minim 100px lățime!",
 			}).optional(),
 			// @TODO: add file type extension validation for imageUrl
 			imageUrl: z.string().url("Imagine cu URL invalid.").optional(),

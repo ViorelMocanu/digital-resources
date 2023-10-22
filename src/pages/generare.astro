@@ -1,17 +1,21 @@
 ---
-import metaFetcher from 'meta-fetcher';
-import slugify from 'slugify';
 import db from './_old_db.json';
 import fs from 'fs';
 import fsPromises from 'fs/promises';
+import https from 'https';
+import metaFetcher from 'meta-fetcher';
 import path from 'path';
-import { getCollection } from 'astro:content';
+import slugify from 'slugify';
+// import { fileURLToPath } from 'url';
+// import { getCollection } from 'astro:content';
 
-const resources = await getCollection('resources');
+let output = new Array;
+
+// const resources = await getCollection('resources');
 
 const x = async () => {
 
-	async function deleteAllFilesInDir(dirPath) {
+	async function deleteAllFilesInDir (dirPath: string) {
 		try {
 			const files = await fsPromises.readdir(dirPath);
 			const deleteFilePromises = files.map(file =>
@@ -20,62 +24,111 @@ const x = async () => {
 			await Promise.all(deleteFilePromises);
 		} catch (err) {
 			console.log(err);
+			output.push(err);
 		}
 	}
-	const rootDirectory = 'src/content/resources/test/';
-	deleteAllFilesInDir(rootDirectory).then(() => {
-		console.log('Removed all files from the specified directory');
-	});
 
-	if (db) {
-		db.forEach( (el: {url: string, title: string}) => {
-			//console.log(el.url);
-		});
+	function createDirOrEmptyIt (dir: string) {
+		/*const __filename = fileURLToPath(import.meta.url);
+		const __dirname = path.dirname(__filename);
+		const dirPath = path.join(__dirname, dir);*/
+		const dirPath = dir;
+		if (!fs.existsSync(dirPath)) {
+			fs.mkdirSync(dirPath, { recursive: true });
+			console.log('Directory created:', dirPath);
+			output.push('Directory created:', dirPath);
+		} else {
+			deleteAllFilesInDir(dirPath).then(() => {
+				console.log(`Removed all files from the ${dirPath} directory`);
+				output.push(`Removed all files from the ${dirPath} directory`);
+			});
+		}
 	}
-	const result = await metaFetcher('https://www.viorelmocanu.ro/');
-	console.log("XXX", result);
 
-	const fileName = slugify(result.metadata.title, {
-		replacement: '-',
-		lower: true,
-	});
-	const fullPath = `${rootDirectory}${fileName}.md`;
-	var currentFile = fs.createWriteStream(fullPath);
-	currentFile.write(`---\n`);
-	currentFile.write(`title: "${result.metadata.title}"\n`);
-	currentFile.write(`url: "${result.metadata.website}"\n`);
-	currentFile.write(`language: "en"\n`);
-	currentFile.write(`modDate: "15 October 2023 19:48 UTC"\n`);
-	currentFile.write(`addDate: ""\n`);
-	currentFile.write(`description: "@TODO: Information architecture is an often misunderstood job title. Are they designers? developers? managers? All of the above? In this article we'll discuss what information architecture is, why it's related to usability, and what are the common tools/programs used in information architecture."\n`);
-	currentFile.write(`authorName: "UX Booth"\n`);
-	currentFile.write(`authorUrl: "https://uxbooth.com/"\n`);
-	currentFile.write(`section: "front-end"\n`);
-	currentFile.write(`categories:\n`);
-	currentFile.write(`- "introducere-in-front-end"\n`);
-	currentFile.write(`rating: 100\n`);
-	currentFile.write(`price: 0\n`);
-	currentFile.write(`requiredTime: 0.5\n`);
-	currentFile.write(`type: "text"\n`);
-	currentFile.write(`mandatory: false\n`);
-	currentFile.write(`image:\n`);
-	currentFile.write(`  imageLocalUrl: "../img/complete-beginners-guide-to-information-architecture.jpg"\n`);
-	currentFile.write(`  imageAlt: "${result.metadata.title}"\n`);
-	currentFile.write(`tags:\n`);
-	currentFile.write(`- "text"\n`);
-	currentFile.write(`- "free"\n`);
-	currentFile.write(`- "incepatori"\n`);
-	currentFile.write(`- "obligatoriu"\n`);
-	currentFile.write(`---\n\n\n`);
-	currentFile.write(`Information architecture is a task often shared by designers, developers, and content strategists. But regardless of who takes on the task, IA is a field of its own, with influences, tools, and resources that are worth investigation. In this article we’ll discuss what information architecture really is, and why it’s a valuable aspect of the user experience process.\n\n`);
-	currentFile.write(`Along the way we'll share the history, contributors, and tools often used in creating an information architecture. Even if you’re familiar with the discipline already, you can probably pick up something you've missed.\n`);
-	currentFile.end();
-	console.log('am scris fișierul');
-	return { fullPath, result, currentFile, resources };
+	const rootDirectory = 'src/content/resources/test/';
+	createDirOrEmptyIt(rootDirectory);
+
+	const rootImageDirectory = 'src/content/resources/test/img/';
+	createDirOrEmptyIt(rootImageDirectory);
+
+	for (const el of db) {
+
+		const url = new URL(el.url);
+		const result = await metaFetcher(url.toString());
+		if (!result) continue;
+		console.log("Result: ", result);
+		output.push("Result: ", result);
+
+		const fileName = slugify(result.metadata.title.trim(), {
+			replacement: '-',
+			lower: true,
+		});
+		const fullPath = `${rootDirectory}${fileName}.md`;
+
+		const imageUrl = result.metadata.banner
+			? (result.metadata.banner[5] === 'https' ? result.metadata.banner : (
+				result.metadata.banner[1] === '/' ? new URL(result.metadata.banner, el.url).toString() : undefined
+			))
+			: undefined;
+		const imageExtension = imageUrl ? imageUrl.split(/[#?]/)[0].split('.').pop().trim() : 'jpg';
+		const imagePath = `${rootImageDirectory}${fileName}.${imageExtension}`;
+		const imageReference = `./img/${fileName}.${imageExtension}`;
+
+		// @TODO: we need more metadata to be extracted: language, mod/pub date, ?author, first screen content.
+
+		var currentFile = fs.createWriteStream(fullPath);
+		currentFile.write(`---\n`);
+		currentFile.write(`title: "${result.metadata.title.trim()}"\n`);
+		currentFile.write(`url: "${result.metadata.website}"\n`);
+		currentFile.write(`language: "en"\n`);
+		currentFile.write(`modDate: "15 October 2023 19:48 UTC"\n`);
+		currentFile.write(`addDate: ""\n`);
+		currentFile.write(`description: "@TODO: Information architecture is an often misunderstood job title. Are they designers? developers? managers? All of the above? In this article we'll discuss what information architecture is, why it's related to usability, and what are the common tools/programs used in information architecture."\n`);
+		currentFile.write(`authorName: "UX Booth"\n`);
+		currentFile.write(`authorUrl: "https://uxbooth.com/"\n`);
+		currentFile.write(`section: "front-end"\n`);
+		currentFile.write(`categories:\n`);
+		currentFile.write(`- "introducere-in-front-end"\n`);
+		currentFile.write(`rating: 100\n`);
+		currentFile.write(`price: 0\n`);
+		currentFile.write(`requiredTime: 0.5\n`);
+		currentFile.write(`type: "text"\n`);
+		currentFile.write(`mandatory: false\n`);
+		currentFile.write(`image:\n`);
+		currentFile.write(`  imageLocalUrl: "${imageReference}"\n`);
+		currentFile.write(`  imageAlt: "${result.metadata.title.trim()}"\n`);
+		currentFile.write(`tags:\n`);
+		currentFile.write(`- "text"\n`);
+		currentFile.write(`---\n\n\n`);
+		currentFile.write(`Information architecture is a task often shared by designers, developers, and content strategists. But regardless of who takes on the task, IA is a field of its own, with influences, tools, and resources that are worth investigation. In this article we’ll discuss what information architecture really is, and why it’s a valuable aspect of the user experience process.\n\n`);
+		currentFile.write(`Along the way we'll share the history, contributors, and tools often used in creating an information architecture. Even if you’re familiar with the discipline already, you can probably pick up something you've missed.\n`);
+		currentFile.end();
+		console.log('am scris fișierul md');
+		output.push('am scris fișierul md');
+
+		const imageFile = fs.createWriteStream(imagePath);
+
+		if (imageUrl) {
+			https.get(imageUrl, response => {
+				response.pipe(imageFile);
+				imageFile.on('finish', () => {
+					imageFile.close();
+					console.log(`Image downloaded as ${imagePath}`);
+					output.push(`Image downloaded as ${imagePath}`);
+				});
+			}).on('error', err => {
+				fs.unlink(imagePath, function(e) { console.log(e); });
+				console.error(`Error downloading image: ${err.message}`);
+				output.push(`Error downloading image: ${err.message}`);
+			});
+		}
+
+	}
+
+	return;
 }
 
 ---
-xxx
+<h1>Fișierul ăsta generează resurse de test</h1>
 {x}
-{JSON.stringify(await x, null, 2)}
-yyy
+<pre>{JSON.stringify(output, null, 2)}</pre>
