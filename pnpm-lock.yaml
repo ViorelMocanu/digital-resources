@@ -21,8 +21,8 @@ dependencies:
     specifier: ^1.0.0
     version: 1.0.0
   lite-youtube-embed:
-    specifier: ^0.2.0
-    version: 0.2.0
+    specifier: ^0.3.0
+    version: 0.3.0
   sass:
     specifier: ^1.69.4
     version: 1.69.4
@@ -3809,8 +3809,8 @@ packages:
       uc.micro: 1.0.6
     dev: true
 
-  /lite-youtube-embed@0.2.0:
-    resolution: {integrity: sha512-XXXAk5sbvtjjwbie3XG+6HppgTm1HTGL/Uk9z9NkJH53o7puZLur434heHzAjkS60hZB3vT4ls25zl5rMiX4EA==}
+  /lite-youtube-embed@0.3.0:
+    resolution: {integrity: sha512-3DUqE1C4s/+a8PVM4ik8anBsmHOW0zUavPyFQWugBulKyQpbZFE+/268Aq/pDNW7hRQJXkXpk4QjdSCpwf7Cvg==}
     dev: false
 
   /load-yaml-file@0.2.0:
