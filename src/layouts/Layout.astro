@@ -1,4 +1,33 @@
 ---
+/**
+ * Renders an Astro Layout that renders an HTML page with metadata for SEO purposes and slots in the content of each page.
+ *
+ * @component
+ * @example
+ * ```astro
+ * <Layout
+ *   title={title}
+ *   description={description}
+ *   ogImage={ogImage}
+ *   modDate={modDate}
+ *   canonical={canonical}
+ *   template={template}
+ *   activeMenu={activeMenu}
+ *   breadcrumbArray={breadcrumbArray}
+ * />
+ * ```
+ * @astroProps
+ * @prop {string} title - A string representing the title of the page
+ * @prop {string} description - A string representing the description of the page
+ * @prop {string} ogImage - An optional string representing the URL of the Open Graph image
+ * @prop {string} modDate - An optional string representing the modification date of the page
+ * @prop {string} canonical - An optional string representing the canonical URL of the page
+ * @prop {string} template - A string representing the template used for the page
+ * @prop {string} [activeMenu] - An optional string representing the active menu item
+ * @prop {BreadcrumbArray} breadcrumbArray - An array of objects representing the breadcrumb navigation
+ * @returns {astro.AstroNode} The rendered HTML layout with metadata and components.
+ */
+
 import '../style/style.scss';
 import {
 	ACCENT_COLOR,
@@ -41,7 +70,7 @@ const {
 	template,
 	activeMenu,
 	breadcrumbArray
-} = Astro.props as Props;
+} = Astro.props;
 
 ---
 
@@ -60,7 +89,7 @@ const {
 		<meta property="og:site_name" content={SITE_NAME} />
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content={title} />
-		<meta property="og:url" content={Astro.url} />
+		<meta property="og:url" content={canonical} />
 		<meta property="og:locale" content={LANGUAGE_EXTENDED} />
 		<meta property="og:image" content={ogImage} />
 		<meta property="og:image:width" content="1200" />
