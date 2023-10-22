@@ -1,4 +1,33 @@
 ---
+/**
+ * Renders an Astro Layout that renders an HTML page with metadata for SEO purposes and slots in the Markdown content of each page.
+ *
+ * @component
+ * @example
+ * ```astro
+ * <LayoutMarkdown
+ *   content={content}
+ *   headings={headings}
+ * />
+ * ```
+ * @astroProps
+ * @prop {string} file - The file reference
+ * @prop {string} url - The URL of the current Markdown page
+ * @prop {Object} content - The content object coming from Astro Markdown
+ * @prop {string} content.title - A string representing the title of the page
+ * @prop {string} content.description - A string representing the description of the page
+ * @prop {string} content.ogImage - An optional string representing the URL of the Open Graph image
+ * @prop {string} content.modDate - An optional string representing the modification date of the page
+ * @prop {string} content.canonical - An optional string representing the canonical URL of the page
+ * @prop {string} content.template - A string representing the template used for the page
+ * @prop {string} content.[activeMenu] - An optional string representing the active menu item
+ * @prop {string} content.file - The file reference
+ * @prop {string} content.url - The URL of the current Markdown page
+ * @prop {BreadcrumbArray} content.breadcrumbArray - An array of objects representing the breadcrumb navigation
+ * @prop {Headings} headings - The Headings array of objects defining the internal subheadings for TOC generation
+ * @returns {astro.AstroNode} The rendered HTML layout with metadata and components.
+ */
+
 import '../style/style.scss';
 import {
 	ACCENT_COLOR,
@@ -22,14 +51,13 @@ import MarkdownTOC from '../components/MarkdownTOC.astro';
 import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
-	file: string;
-	url: string;
+	file?: string;
+	url?: string;
 	content: {
 		title?: string;
 		description?: string;
 		ogImage?: string;
 		modDate?: Date;
-		addDate?: Date;
 		canonical?: string;
 		template?: string;
 		activeMenu?: string | undefined;
@@ -76,7 +104,7 @@ const theBreadcrumbArray = content?.breadcrumbArray ? content.breadcrumbArray : 
 		<meta property="og:site_name" content={SITE_NAME} />
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content={theTitle} />
-		<meta property="og:url" content={Astro.url} />
+		<meta property="og:url" content={canonical} />
 		<meta property="og:locale" content={LANGUAGE_EXTENDED} />
 		<meta property="og:image" content={theOgImage} />
 		<meta property="og:image:width" content="1200" />

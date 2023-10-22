@@ -1,4 +1,17 @@
 ---
+/**
+ * Renders the resource filter form.
+ *
+ * @component
+ * @example
+ * ```astro
+ * <ResourceFilter section={mySection} />
+ * ```
+ * @astroProps
+ * @prop {CollectionEntry<"sections">} [section] - An optional string representing the section.
+ * @returns {astro.AstroNode} The resource filter component.
+ */
+
 import { type CollectionEntry } from "astro:content";
 
 export interface Props {

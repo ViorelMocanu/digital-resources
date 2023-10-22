@@ -1,4 +1,18 @@
 ---
+/**
+ * Renders a message box with a title and body.
+ *
+ * @component
+ * @example
+ * ```astro
+ * <Message title="Hello" type="info">This is a message body.</Message>
+ * ```
+ * @astroProps
+ * @prop {string} [title] - The title of the message box.
+ * @prop {string} [type] - The type of the message box.
+ * @returns {astro.AstroNode} The rendered message box.
+ */
+
 export interface Props {
 	title?: string;
 	type?: string;

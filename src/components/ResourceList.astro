@@ -1,4 +1,23 @@
 ---
+/**
+ * Renders the resource list. Is used in multiple locations throughout every resource listing page.
+ *
+ * @component
+ * @example
+ * ```astro
+ * <ResourceList resources={theResources} page={thePage} pageTitle="The page title" />
+ * ```
+ * @astroProps
+ * @prop {CollectionEntry<"resources">} resources - The list of resources.
+ * @prop {Object} [page] - The optional page object.
+ * @prop {number} page.currentPage - The current page number.
+ * @prop {number} page.lastPage - The last page number.
+ * @prop {Object} page.url - The URL object.
+ * @prop {string} page.url.[next] - The URL for the next page.
+ * @prop {string} page.url.[prev] - The URL for the previous page.
+ * @returns {astro.AstroNode} The rendered resource list component.
+ */
+
 import { type CollectionEntry, getCollection } from 'astro:content';
 import { type extendedResource, resourceTypeIcon } from '../config';
 import HelpfulLinks from '../components/HelpfulLinks.astro';
@@ -22,7 +41,7 @@ export interface Props {
 
 const { resources, page, pageTitle } = Astro.props as Props;
 
-let r = resources;
+let r = resources as extendedResource[];
 const allTags = await getCollection("tags") as CollectionEntry<"tags">[];
 const allSections = await getCollection("sections") as CollectionEntry<"sections">[];
 const allCategories = await getCollection("categories") as CollectionEntry<"categories">[];
@@ -31,43 +50,48 @@ const allSubCategories = await getCollection("subcategories") as CollectionEntry
 if (resources) {
 	r.forEach((resource:extendedResource) => {
 		if (resource.data.tags !== null) {
-			resource.tagData = new Array();
-			resource.data.tags.forEach((tag:{"slug":string,"collection":string}) => {
+			let tagData: CollectionEntry<"tags">[] = [];
+			resource.data.tags.forEach((tag:{ "slug": string, "collection": string }) => {
 				const currentTag = allTags.find((el) => {
 					return el.slug == tag.slug;
 				});
-				resource.tagData.push(currentTag);
-				if (currentTag?.data.type == "Tip") {
-					resource.type = currentTag?.data.title;
+				if (currentTag && typeof currentTag.data !== "undefined") {
+					tagData.push(currentTag);
+					if (currentTag.data.type === "Tip") {
+						resource.type = currentTag.data.title;
+					}
 				}
 			});
+			resource['tagData'] = tagData;
 		}
 
 		if (resource.data.section !== null) {
 			const sectionSlug = resource.data.section.slug;
-			allSections.forEach((s:CollectionEntry<"sections">) => {
+			allSections.forEach((s: CollectionEntry<"sections">) => {
 				if (s.slug == sectionSlug) resource.sectionData = s;
 			});
 		}
 
 		if (resource.data.categories !== null && typeof resource.data.categories !== "undefined" && resource.data.categories.length > 0) {
-			resource.categoryData = new Array();
-			const currentCategories = resource.data.categories.flatMap((cat:{"slug":string,"collection":string}) => (cat.slug));
-			currentCategories.forEach((category:string) => {
-				allCategories.forEach((c:CollectionEntry<"categories">) => {
-					if (c.slug == category) resource.categoryData.push(c);
+			let categoryData: CollectionEntry<"categories">[] = [];
+			const currentCategories = resource.data.categories.flatMap((cat:{"slug": string, "collection": string}) => (cat.slug));
+			currentCategories.forEach((category: string) => {
+				allCategories.forEach((c: CollectionEntry<"categories">) => {
+					if (c && c.slug == category) categoryData.push(c);
 				});
 			});
+			resource['categoryData'] = categoryData;
 		}
 
 		if (resource.data.subcategories !== null && typeof resource.data.subcategories !== "undefined" && resource.data.subcategories.length > 0) {
-			resource.subCategoryData = new Array();
-			const currentSubCategories = resource.data.subcategories.flatMap((subcat:{"slug":string,"collection":string}) => (subcat.slug));
+			let subCategoryData: CollectionEntry<"subcategories">[] = [];
+			const currentSubCategories = resource.data.subcategories.flatMap((subcat:{"slug": string, "collection": string}) => (subcat.slug));
 			currentSubCategories.forEach((subcategory:string) => {
-				allSubCategories.forEach((s:CollectionEntry<"subcategories">) => {
-					if (s.slug == subcategory) resource.subCategoryData.push(s);
+				allSubCategories.forEach((s: CollectionEntry<"subcategories">) => {
+					if (s && s.slug == subcategory) subCategoryData.push(s);
 				});
 			});
+			resource['subCategoryData'] = subCategoryData;
 		}
 	});
 }
@@ -78,7 +102,7 @@ if (resources) {
 
 	{page && <Pagination currentPage={page.currentPage} lastPage={page.lastPage} next={page.url.next} prev={page.url.prev} boxHeader={false} />}
 
-	{(resources && resources.length > 0) && (
+	{(resources && resources.length > 0) ? (
 		<ol class="ResourceList">
 			{r.map((resource) => (
 				<li class="ResourceItem">
@@ -183,13 +207,20 @@ if (resources) {
 				</li>
 			))}
 		</ol>
-	)}
-
-	{(!resources || resources.length <= 0) && (
+	) : (
 		<Message title="Nu s-au găsit resurse pentru contextul curent" type="error">
 			<HelpfulLinks />
 		</Message>
 	)}
 
-	{page && <Pagination currentPage={page.currentPage} lastPage={page.lastPage} next={page.url.next} prev={page.url.prev} boxHeader={true} pageTitle={pageTitle} />}
+	{page && (
+		<Pagination
+			currentPage={page.currentPage}
+			lastPage={page.lastPage}
+			next={page.url.next}
+			prev={page.url.prev}
+			boxHeader={true}
+			pageTitle={pageTitle}
+		/>
+	)}
 </div>

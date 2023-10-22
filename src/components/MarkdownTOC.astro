@@ -1,4 +1,17 @@
 ---
+/**
+ * Renders a navigation menu based on the provided headings.
+ *
+ * @component
+ * @example
+ * ```astro
+ * <MarkdownTOC headings={myHeadings} />
+ * ```
+ * @astroProps
+ * @prop {Headings} [Headings] props.headings - The list of heading objects.
+ * @returns {astro.AstroNode} - The rendered navigation menu.
+ */
+
 import { type Headings } from "../config";
 import { highlightUrl } from "../utils/urlHelpers";
 
@@ -11,10 +24,8 @@ const activePage = Astro.url.pathname;
 
 ---
 
-
 <nav class="ListNavigation">
-	{!headings && <h2 class="ListNavTitle">Această pagină nu are navigare internă.</h2>}
-	{headings && (
+	{headings ? (
 		<h2 class="ListNavTitle">Navighează către:</h2>
 		<ol class="ListNav">
 			{headings.map((heading) => (
@@ -23,5 +34,7 @@ const activePage = Astro.url.pathname;
 				</li>
 			))}
 		</ol>
+	) : (
+		<h2 class="ListNavTitle">Această pagină nu are navigare internă.</h2>
 	)}
 </nav>
