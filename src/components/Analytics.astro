@@ -26,7 +26,6 @@ import { CLARITY_ID, ENV, PIWIK_ID } from '../config';
 
 		<script is:inline define:vars={{ CLARITY_ID }} async defer type="text/partytown">
 			(function (c, l, a, r, i, t, y) {
-				// prettier-ignore
 				c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
 				t = l.createElement(r);
 				t.async = 1;
@@ -38,7 +37,6 @@ import { CLARITY_ID, ENV, PIWIK_ID } from '../config';
 
 		<script is:inline define:vars={{ PIWIK_ID }} async defer type="text/partytown">
 			(function (window, document, dataLayerName, id) {
-				// prettier-ignore
 				window[dataLayerName] = window[dataLayerName] || [], window[dataLayerName].push({ start: (new Date).getTime(), event: "stg.start" });
 				var scripts = document.getElementsByTagName('script')[0], tags = document.createElement('script');
 				function stgCreateCookie(a, b, c) {
