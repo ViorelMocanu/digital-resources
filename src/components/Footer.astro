@@ -13,9 +13,9 @@
  */
 
 import NewsletterSection from "../components/NewsletterSection.astro";
-import { getCollection } from "astro:content";
 import { highlightUrl } from "../utils/urlHelpers";
 import getSortedItems from "../utils/getSortedItems";
+import type { CollectionEntry } from "astro:content";
 
 export interface Props {
 	activeMenu?: string | undefined;
@@ -25,7 +25,8 @@ const { activeMenu } = Astro.props;
 const activePage = activeMenu || Astro.url.pathname.substring(1);
 const currentYear = new Date().getFullYear();
 const yearPrint = currentYear > 2023 ? ` - ${currentYear} ` : " ";
-const allSections = await getSortedItems({ collectionKey: 'sections', sortKey: 'sortOrder' })
+// Second example of how to use the getSortedItems function
+const allSections = await getSortedItems<CollectionEntry<'sections'>>({ collectionKey: 'sections', sortKey: 'sortOrder', type: 'number' })
 ---
 
 <NewsletterSection />
