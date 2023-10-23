@@ -44,6 +44,7 @@ import {
 	TWITTER_CREATOR,
 	TWITTER_SITE
 } from '../config';
+import Analytics from '../components/Analytics.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { ViewTransitions } from 'astro:transitions';
@@ -130,5 +131,6 @@ const {
 			<Footer activeMenu={activeMenu} />
 			<p class="TemporaryMessage">Template: <strong>{template}</strong> built at <em>{buildDate}</em>.</p>
 		</div>
+		<Analytics />
 	</body>
 </html>

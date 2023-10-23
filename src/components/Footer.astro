@@ -12,8 +12,8 @@
  * @returns {astro.AstroNode} The footer component.
  */
 
+import { type DataCollectionKey } from "astro:content";
 import NewsletterSection from "../components/NewsletterSection.astro";
-import { getCollection } from "astro:content";
 import { highlightUrl } from "../utils/urlHelpers";
 import getSortedItems from "../utils/getSortedItems";
 
@@ -25,7 +25,8 @@ const { activeMenu } = Astro.props;
 const activePage = activeMenu || Astro.url.pathname.substring(1);
 const currentYear = new Date().getFullYear();
 const yearPrint = currentYear > 2023 ? ` - ${currentYear} ` : " ";
-const allSections = await getSortedItems({ collectionKey: 'sections', sortKey: 'sortOrder' })
+const allSections = await getSortedItems({ collectionKey: 'sections', sortKey: 'sortOrder' as DataCollectionKey })
+
 ---
 
 <NewsletterSection />
