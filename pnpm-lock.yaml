@@ -15,8 +15,8 @@ dependencies:
     specifier: ^3.0.2
     version: 3.0.2
   astro:
-    specifier: ^3.3.2
-    version: 3.3.2(@types/node@18.18.6)(sass@1.69.4)(typescript@5.2.2)
+    specifier: ^3.3.3
+    version: 3.3.3(@types/node@18.18.6)(sass@1.69.4)(typescript@5.2.2)
   astro-webmanifest:
     specifier: ^1.0.0
     version: 1.0.0
@@ -99,13 +99,13 @@ packages:
     resolution: {integrity: sha512-06DD2ZnItMwUnH81LBLco3tWjcZ1lGU9rLCCBaeUCGYe9cI0wKyY2W3kDyoW1I6GmcWgt1fu+D1CTvz+FIKf8A==}
     dev: false
 
-  /@astrojs/markdown-remark@3.3.0(astro@3.3.2):
+  /@astrojs/markdown-remark@3.3.0(astro@3.3.3):
     resolution: {integrity: sha512-ezFzEiZygc/ASe2Eul9v1yrTbNGqSbR348UGNXQ4Dtkx8MYRwfiBfmPm6VnEdfIGkW+bi5qIUReKfc7mPVUkIg==}
     peerDependencies:
       astro: ^3.3.0
     dependencies:
       '@astrojs/prism': 3.0.0
-      astro: 3.3.2(@types/node@18.18.6)(sass@1.69.4)(typescript@5.2.2)
+      astro: 3.3.3(@types/node@18.18.6)(sass@1.69.4)(typescript@5.2.2)
       github-slugger: 2.0.0
       import-meta-resolve: 3.0.0
       mdast-util-definitions: 6.0.0
@@ -1684,14 +1684,14 @@ packages:
       zod: 3.22.4
     dev: false
 
-  /astro@3.3.2(@types/node@18.18.6)(sass@1.69.4)(typescript@5.2.2):
-    resolution: {integrity: sha512-uyimGY0p1gYXKAZe3/RCfbqNbuwpEvPkTKF5TE63Glb9ZgeLUBXu+ZlsG4LIMxCQ40p5F0D5+zuNJdH+om2PQQ==}
+  /astro@3.3.3(@types/node@18.18.6)(sass@1.69.4)(typescript@5.2.2):
+    resolution: {integrity: sha512-FZkv5nJfa2KADzwo8m6fytWzzhO3Uw/EOvxmBT2E1OW/dWUgIKbZd59TY3816gZl3le5Ct5amSAkaxcQghbUZA==}
     engines: {node: '>=18.14.1', npm: '>=6.14.0'}
     hasBin: true
     dependencies:
       '@astrojs/compiler': 2.2.1
       '@astrojs/internal-helpers': 0.2.1
-      '@astrojs/markdown-remark': 3.3.0(astro@3.3.2)
+      '@astrojs/markdown-remark': 3.3.0(astro@3.3.3)
       '@astrojs/telemetry': 3.0.3
       '@babel/core': 7.23.2
       '@babel/generator': 7.23.0
@@ -1757,7 +1757,6 @@ packages:
       - supports-color
       - terser
       - typescript
-    dev: false
 
   /astrojs-compiler-sync@0.3.3(@astrojs/compiler@2.2.1):
     resolution: {integrity: sha512-LbhchWgsvjvRBb5n5ez8/Q/f9ZKViuox27VxMDOdTUm8MRv9U7phzOiLue5KluqTmC0z1LId4gY2SekvoDrkuw==}
