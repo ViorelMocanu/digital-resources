@@ -2,33 +2,56 @@
  * 
  * @param {string} collectionKey Name of the collection from which you want to extract data
  * @param {string} sortKey Attribute you want to sort by
- * @param {string} type Sort type {asc, desc}
- * @param {string} isDate If the data returned by the attribute set to sortKey is of type date
- * @returns {Type[]} A sorted list
+ * @param {string} type What is the value of the attribute you want to sort by {text, number, date}
+ * @param {string} order Order type {asc, desc}, default 'asc'
+ * @returns {ReturnType[]} A sorted list
  */
 
-import { getCollection, type CollectionKey, type DataCollectionKey } from "astro:content";
+import { type CollectionKey, getCollection } from "astro:content";
 
 type Props = {
 	collectionKey: CollectionKey;
-	sortKey: DataCollectionKey;
-	type?: 'asc' | 'desc';
-	isDate?: boolean;
+	sortKey: string;
+	type: 'text' | 'number' | 'date';
+	order?: 'asc' | 'desc';
 }
 
-export default async function getSortedItems({ collectionKey, sortKey, type = 'asc', isDate = false }: Props) {
-	return (await getCollection(collectionKey)).sort((a, b) => {
-		const { data: { [sortKey]: sortValueFromA } } = a
-		const { data: { [sortKey]: sortValueFromB } } = b
+function sortText(a: string, b: string, order: 'asc' | 'desc') {
+	switch (order) {
+		case 'asc':
+			return a < b ? -1 : 1;
+		case 'desc':
+			return a > b ? -1 : 1;
+	}
+}
 
-		if (isDate) {
-			if (type === 'asc')
-				return (new Date(sortValueFromA).valueOf() - new Date(sortValueFromB).valueOf())
-			return (new Date(sortValueFromB).valueOf() - new Date(sortValueFromA).valueOf())
-		}
+function sortDate(a: string, b: string, order: 'asc' | 'desc') {
+	switch (order) {
+		case 'asc':
+			return (new Date(a).valueOf() - new Date(b).valueOf());
+		case 'desc':
+			return (new Date(b).valueOf() - new Date(a).valueOf());
+	}
+}
 
-		if (type === 'asc')
-			return sortValueFromA - sortValueFromB
-		return sortValueFromB - sortValueFromA
-	});
+function sortNumber(a: string, b: string, order: 'asc' | 'desc') {
+	switch (order) {
+		case 'asc': return Number(a) - Number(b);
+		case 'desc': return Number(b) - Number(a);
+	}
+}
+
+const sortFunctions = {
+	text: sortText,
+	date: sortDate,
+	number: sortNumber
 };
+
+
+export default async function getSortedItems<ReturnType>({ collectionKey, sortKey, type, order = 'asc' }: Props) {
+	return (await getCollection(collectionKey)).sort((a, b) => {
+		const { data: { [sortKey as keyof typeof a.data]: sortValueFromA } } = a;
+		const { data: { [sortKey as keyof typeof b.data]: sortValueFromB } } = b;
+		return sortFunctions[type](sortValueFromA, sortValueFromB, order);
+	}) as ReturnType[];
+};  
