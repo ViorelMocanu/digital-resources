@@ -124,8 +124,8 @@ const legacyImage = await getImage({
 	</picture>
 ) : (
 	lazyLoading ? (
-		<img src={image.src} width={width} height={height} alt={alt} loading="lazy" decoding="async" {...attrs} />
+		<img src={image.src} width={width} height={height} alt={alt} loading="lazy" decoding="async" class:list={classList} {...attrs} />
 	) : (
-		<img src={image.src} width={width} height={height} alt={alt} loading="eager" decoding="sync" {...attrs} />
+		<img src={image.src} width={width} height={height} alt={alt} loading="eager" decoding="sync" class:list={classList} {...attrs} />
 	)
 )}

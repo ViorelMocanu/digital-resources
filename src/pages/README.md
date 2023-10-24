@@ -11,7 +11,7 @@ activeMenu: /
 breadcrumbArray: []
 ---
 
-# Resurse digitale: **Resurse.dev**
+## Resurse digitale: **Resurse.dev**
 
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/ViorelMocanu/digital-resources/static.yml)](https://github.com/ViorelMocanu/digital-resources/actions)
 [![GitHub Pages Deploy Status](https://github.com/ViorelMocanu/digital-resources/actions/workflows/static.yml/badge.svg)](https://github.com/ViorelMocanu/digital-resources/deployments)

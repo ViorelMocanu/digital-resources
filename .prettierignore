@@ -75,3 +75,6 @@ coverage
 
 # Husky
 .husky
+
+# Certain 3rd party code components
+src/components/Analytics.astro

@@ -12,10 +12,10 @@
  * @returns {astro.AstroNode} The footer component.
  */
 
+import { type CollectionEntry } from "astro:content";
 import NewsletterSection from "../components/NewsletterSection.astro";
-import { highlightUrl } from "../utils/urlHelpers";
 import getSortedItems from "../utils/getSortedItems";
-import type { CollectionEntry } from "astro:content";
+import { highlightUrl } from "../utils/urlHelpers";
 
 export interface Props {
 	activeMenu?: string | undefined;
@@ -25,8 +25,13 @@ const { activeMenu } = Astro.props;
 const activePage = activeMenu || Astro.url.pathname.substring(1);
 const currentYear = new Date().getFullYear();
 const yearPrint = currentYear > 2023 ? ` - ${currentYear} ` : " ";
-// Second example of how to use the getSortedItems function
-const allSections = await getSortedItems<CollectionEntry<'sections'>>({ collectionKey: 'sections', sortKey: 'sortOrder', type: 'number' })
+const allSections = await getSortedItems({
+	collectionKey: "sections",
+	sortKey: "sortOrder",
+	type: "number",
+	order: "asc"
+}) as CollectionEntry<"sections">[];
+
 ---
 
 <NewsletterSection />

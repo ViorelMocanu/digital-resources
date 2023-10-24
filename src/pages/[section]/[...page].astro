@@ -12,8 +12,13 @@ export async function getStaticPaths ({ paginate }: any) {
 
 	const allSections = (await getCollection('sections')).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
 	const allSectionsArray = allSections.flatMap((section:CollectionEntry<"sections">) => (section.slug));
-	// First example of how to use getSortedItems function
-	const allResources = await getSortedItems<CollectionEntry<'resources'>>({ collectionKey: 'resources', sortKey: 'modDate', type: 'date', order: 'asc' })
+
+	const allResources = await getSortedItems({
+		collectionKey: "resources",
+		sortKey: "modDate",
+		type: "date",
+		order: "asc"
+	}) as CollectionEntry<"resources">[];
 	const finalPagination = allSectionsArray.flatMap((section) => {
 		const selectedResources = allResources.filter((res) => (res.data.section.slug == section));
 		return paginate(selectedResources, {
@@ -52,7 +57,7 @@ const breadcrumbArray = [{
 		{section.data.imageUrl && (
 			<div class="HeroVisual">
 				{/* @TODO breakpoint must be edited here */}
-				<ResponsiveImage breakpoint={1100} classList={["HeroImage"]} breakpoint={} image={section.data.imageUrl} width={287} height={120} alt={section.data.imageAlt || 'Without alt'} lazyLoading={false} />
+				<ResponsiveImage breakpoint={1100} classList={["HeroImage"]} image={section.data.imageUrl} width={287} height={120} alt={section.data.imageAlt || 'Without alt'} lazyLoading={false} />
 			</div>
 		)}
 		<div class="HeroText">
