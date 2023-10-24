@@ -33,6 +33,7 @@ import {
 	ACCENT_COLOR,
 	type BreadcrumbArray,
 	CONTACT_EMAIL,
+	ENV,
 	FACEBOOK_APP_ID,
 	LANGUAGE,
 	LANGUAGE_EXTENDED,
@@ -118,8 +119,8 @@ const {
 
 		<link rel="author" href="https://resurse.dev/humans.txt" />
 		<link rel="sitemap" href="/sitemap-index.xml" />
-		<link rel="preload" href="/font/atkinson-hyperlegible-regular.woff2" as="font" type="font/woff2" crossorigin />
-		<link rel="preload" href="/font/atkinson-hyperlegible-bold.woff2" as="font" type="font/woff2" crossorigin />
+		<link rel="prefetch" href="/font/atkinson-hyperlegible-regular.woff2" as="font" type="font/woff2" crossorigin />
+		<link rel="prefetch" href="/font/atkinson-hyperlegible-bold.woff2" as="font" type="font/woff2" crossorigin />
 
 		<ViewTransitions />
 	</head>
@@ -129,7 +130,7 @@ const {
 			<Header breadcrumbArray={breadcrumbArray} activeMenu={activeMenu} />
 			<slot />
 			<Footer activeMenu={activeMenu} />
-			<p class="TemporaryMessage">Template: <strong>{template}</strong> built at <em>{buildDate}</em>.</p>
+			<p class="TemporaryMessage">Template: <strong>{template}</strong> built at <em>{buildDate}</em> on ENV = <strong>{ENV}</strong>.</p>
 		</div>
 		<Analytics />
 	</body>

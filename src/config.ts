@@ -5,7 +5,9 @@ import type { CollectionEntry, CollectionKey } from "astro:content";
 // My .env file imports
 const PUBLIC_APP_ENV = import.meta.env.PUBLIC_APP_ENV;
 const PUBLIC_APP_DEBUG = import.meta.env.PUBLIC_APP_DEBUG;
-const PUBLIC_APP_URL = (PUBLIC_APP_ENV === "local") ? import.meta.env.PUBLIC_APP_URL_LOCAL : import.meta.env.PUBLIC_APP_URL_PRODUCTION;
+const PUBLIC_APP_URL = (PUBLIC_APP_ENV === "local" || PUBLIC_APP_ENV === "development") ? import.meta.env.PUBLIC_APP_URL_LOCAL :
+	(PUBLIC_APP_ENV === "staging" || PUBLIC_APP_ENV === "preview") ? import.meta.env.PUBLIC_APP_URL_STAGING || import.meta.env.BASE_URL :
+		import.meta.env.PUBLIC_APP_URL_PRODUCTION;
 export const CLARITY_ID = import.meta.env.CLARITY_ID;
 export const PIWIK_ID = import.meta.env.PIWIK_ID;
 

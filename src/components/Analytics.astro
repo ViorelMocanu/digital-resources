@@ -16,7 +16,7 @@ import { CLARITY_ID, ENV, PIWIK_ID } from '../config';
 
 ---
 
-{ENV === 'production' && (
+{(ENV !== 'local' && ENV !== 'development') && (
 	<div class="Information">
 
 		<script is:inline async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>

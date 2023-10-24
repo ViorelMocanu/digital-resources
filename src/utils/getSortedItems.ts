@@ -10,7 +10,7 @@
  */
 
 import { type CollectionEntry, type DataCollectionKey, getCollection } from "astro:content";
-import type { Order, Type, CollectionKeyEnum } from "../config";
+import type { CollectionKeyEnum, Order, Type } from "../config";
 
 type Props = {
 	collectionKey: CollectionKeyEnum;
