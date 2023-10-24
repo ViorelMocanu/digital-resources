@@ -8,7 +8,7 @@ import { ENV, LANGUAGE_EXTENDED, SITE_DESCRIPTION, SITE_NAME, ACCENT_COLOR, URL,
 // https://astro.build/config
 export default defineConfig({
 	site: URL || "https://resurse.dev",
-	compressHTML: ENV !== 'local' ? true : false,
+	compressHTML: (ENV !== 'local' && ENV !== 'development' ) ? true : false,
 	redirects: {
 		// '/old': '/new',
 	},
