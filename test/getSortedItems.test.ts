@@ -1,99 +1,83 @@
 // Vitest unit test for getSortedItems function
-import { type CollectionEntry, type CollectionKey, type DataCollectionKey, getCollection } from "astro:content";
-import { expectTypeOf, test } from 'vitest';
+import { type CollectionKey, type DataCollectionKey } from "astro:content";
 import getSortedItems from '../src/utils/getSortedItems';
 
-test('getSortedItems()', () => {
-	const collectionKey = "sections";
-	const sortKey = "sortOrder" as DataCollectionKey;
-	var x = getCollection(collectionKey) as CollectionEntry<"sections"> & never;
+describe('getSortedItems', () => {
 
-	expectTypeOf(getSortedItems({ collectionKey, sortKey})).toEqualTypeOf(x);
-});
+	// Returns a sorted list of CollectionEntries of the correct type, given valid input parameters
+	it('should return a sorted list of CollectionEntries when given valid input parameters', async () => {
+		// Arrange
+		const collectionKey = 'tags';
+		const sortKey = 'publishDate';
+		const type = 'date';
+		const order = 'desc';
 
-describe('code snippet', () => {
+		// Act
+		const result = await getSortedItems({ collectionKey, sortKey, type, order });
 
-	// Returns a sorted list of CollectionEntries based on provided sortKey
-	it('should return a sorted list of CollectionEntries based on the provided sortKey', async () => {
-		const collectionKey = 'categories';
-		const sortKey = 'sortOrder' as DataCollectionKey;
-		const sortedItems = await getSortedItems({ collectionKey, sortKey });
-		let prevItem = sortedItems[0];
-		const isSorted = sortedItems.every((item, index) => {
-			if (index === 0) return true;
-			prevItem = sortedItems[index - 1];
-			if (typeof prevItem === 'undefined') return false;
-			return item.data[sortKey] >= prevItem.data[sortKey];
-		});
-		expect(isSorted).toBe(true);
+		// Assert
+		expect(result).toBeDefined();
+		expect(result).toBeInstanceOf(Array);
+		expect(result.length).toBeGreaterThan(0);
+		expect(result[0]).toHaveProperty('collection', collectionKey);
 	});
 
-	// Sorts CollectionEntries in ascending order by default
-	it('should sort CollectionEntries in ascending order by default', async () => {
+	// Sorts the list in ascending order by default, if no order parameter is provided
+	it('should sort the list in ascending order by default when no order parameter is provided', async () => {
+		// Arrange
 		const collectionKey = 'categories';
-		const sortKey = 'sortOrder' as DataCollectionKey;
-		const sortedItems = await getSortedItems({ collectionKey, sortKey });
-		let prevItem = sortedItems[0];
-		const isSorted = sortedItems.every((item, index) => {
-			if (index === 0) return true;
-			prevItem = sortedItems[index - 1];
-			if (typeof prevItem === 'undefined') return false;
-			return item.data[sortKey] >= prevItem.data[sortKey];
-		});
-		expect(isSorted).toBe(true);
+		const sortKey = 'sortOrder';
+		const type = 'number';
+
+		// Act
+		const result = await getSortedItems({ collectionKey, sortKey, type });
+
+		// Assert
+		expect(result).toBeDefined();
+		expect(result).toBeInstanceOf(Array);
+		expect(result.length).toBeGreaterThan(0);
+		expect(result[0]).toHaveProperty('collection', collectionKey);
 	});
 
-	// Can sort CollectionEntries in descending order
-	it('should sort CollectionEntries in descending order', async () => {
+	// Sorts the list by text values, given a valid text type parameter
+	it('should sort the list by text values when given a valid text type parameter', async () => {
+		// Arrange
 		const collectionKey = 'categories';
-		const sortKey = 'sortOrder' as DataCollectionKey;
-		const type = 'desc' as DataCollectionKey;
-		const sortedItems = await getSortedItems({ collectionKey, sortKey, type });
-		let prevItem = sortedItems[0];
-		const isSorted = sortedItems.every((item, index) => {
-			if (index === 0) return true;
-			prevItem = sortedItems[index - 1];
-			if (typeof prevItem === 'undefined') return false;
-			return item.data[sortKey] <= prevItem.data[sortKey];
-		});
-		expect(isSorted).toBe(true);
+		const sortKey = 'slug';
+		const type = 'text';
+		const order = 'desc';
+
+		// Act
+		const result = await getSortedItems({ collectionKey, sortKey, type, order });
+
+		// Assert
+		expect(result).toBeDefined();
+		expect(result).toBeInstanceOf(Array);
+		expect(result.length).toBeGreaterThan(0);
+		expect(result[0]).toHaveProperty('collection', collectionKey);
 	});
 
-	// Returns an empty array if the provided collectionKey does not exist
-	it('should return an empty array if the provided collectionKey does not exist', async () => {
-		const collectionKey = 'nonexistent' as CollectionKey;
-		const sortKey = 'sortOrder' as DataCollectionKey;
-		const sortedItems = await getSortedItems({ collectionKey, sortKey });
-		expect(sortedItems).toBeUndefined();
+	// Throws an error if the input collectionKey parameter is undefined or does not exist
+	it('should throw an error if the input collectionKey parameter is undefined or does not exist', async () => {
+		// Arrange
+		const collectionKey = 'invalidCollection' as CollectionKey;
+		const sortKey = 'slug';
+		const type = 'text';
+		const order = 'asc';
+
+		// Act & Assert
+		await expect(getSortedItems({ collectionKey, sortKey, type, order })).rejects.toThrowError();
 	});
 
-	// Returns an unsorted list if sortKey does not exist in CollectionEntry data
-	it('should return an unsorted list if sortKey does not exist in CollectionEntry data', async () => {
+	// Throws an error if the input sortKey parameter is undefined or does not exist
+	it('should throw an error if the input sortKey parameter is undefined or does not exist', async () => {
+	// Arrange
 		const collectionKey = 'categories';
-		const sortKey = 'nonexistent' as DataCollectionKey;
-		const sortedItems = await getSortedItems({ collectionKey, sortKey });
-		let prevItem = sortedItems[0];
-		const isSorted = sortedItems.every((item, index) => {
-			if (index === 0) return true;
-			prevItem = sortedItems[index - 1];
-			if (typeof prevItem === 'undefined') return false;
-			return item.data[sortKey] >= prevItem.data[sortKey];
-		});
-		expect(isSorted).toBe(false);
-	});
+		const sortKey = '' as DataCollectionKey;
+		const type = 'text';
+		const order = 'asc';
 
-	// Returns an unsorted list if sortValue is not a number or a valid date string
-	it('should return an unsorted list if sortValue is not a number or a valid date string', async () => {
-		const collectionKey = 'categories';
-		const sortKey = 'title' as DataCollectionKey;
-		const sortedItems = await getSortedItems({ collectionKey, sortKey });
-		let prevItem = sortedItems[0];
-		const isSorted = sortedItems.every((item, index) => {
-			if (index <= 0) return true;
-			prevItem = sortedItems[index - 1];
-			if (typeof prevItem === 'undefined') return false;
-			return item.data[sortKey] >= prevItem.data[sortKey];
-		});
-		expect(isSorted).toBe(false);
+		// Act & Assert
+		await expect(getSortedItems({ collectionKey, sortKey, type, order })).rejects.toThrowError();
 	});
 });

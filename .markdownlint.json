@@ -8,5 +8,6 @@
 	},
 	"line-length": false,
 	"no-hard-tabs": false,
-	"whitespace": false
+	"whitespace": false,
+	"MD033": false
 }

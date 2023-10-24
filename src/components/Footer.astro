@@ -12,10 +12,10 @@
  * @returns {astro.AstroNode} The footer component.
  */
 
-import { type CollectionEntry, type DataCollectionKey } from "astro:content";
+import { type CollectionEntry } from "astro:content";
 import NewsletterSection from "../components/NewsletterSection.astro";
-import { highlightUrl } from "../utils/urlHelpers";
 import getSortedItems from "../utils/getSortedItems";
+import { highlightUrl } from "../utils/urlHelpers";
 
 export interface Props {
 	activeMenu?: string | undefined;
@@ -27,7 +27,9 @@ const currentYear = new Date().getFullYear();
 const yearPrint = currentYear > 2023 ? ` - ${currentYear} ` : " ";
 const allSections = await getSortedItems({
 	collectionKey: "sections",
-	sortKey: "sortOrder" as DataCollectionKey
+	sortKey: "sortOrder",
+	type: "number",
+	order: "asc"
 }) as CollectionEntry<"sections">[];
 
 ---

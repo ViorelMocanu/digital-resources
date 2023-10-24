@@ -37,15 +37,16 @@
 		"format": "prettier --check ./**/*.{html,css,js,cjs,ts,astro,md,json,yaml} --plugin=prettier-plugin-astro",
 		"format:fix": "prettier --write ./**/*.{html,css,js,cjs,ts,astro,md,json,yaml} --plugin=prettier-plugin-astro",
 		"lint:js": "eslint ./**/*.js ./**/*.ts ./**/*.astro",
-		"lint:md": "markdownlint src/content/**/*.md",
+		"lint:md": "markdownlint ./src/**/*.md",
 		"lint:fix": "pnpm lint:js --fix . && pnpm lint:md --fix",
 		"lint": "pnpm lint:js . && pnpm lint:md",
 		"prepare": "husky install",
 		"coverage": "pnpm test:unit --coverage",
-		"test:unit": "vitest",
+		"test:unit": "vitest run",
 		"test:e2e": "playwright test",
 		"test": "pnpm test:unit && pnpm test:e2e",
-		"typecheck": "pnpm tsc --project tsconfig.json --noEmit"
+		"typecheck": "pnpm tsc --project tsconfig.json --noEmit",
+		"verify": "pnpm lint && pnpm typecheck && pnpm test:unit && pnpm format"
 	},
 	"dependencies": {
 		"@astrojs/partytown": "^2.0.1",

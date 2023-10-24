@@ -6,15 +6,21 @@ import ResourceFilter from '../../components/ResourceFilter.astro';
 import ResourceList from '../../components/ResourceList.astro';
 import ResourceTOC from '../../components/ResourceTOC.astro';
 import ResponsiveImage from '../../components/ResponsiveImage.astro';
+import getSortedItems from '../../utils/getSortedItems';
 
 export async function getStaticPaths ({ paginate }: any) {
 
 	const allSections = (await getCollection('sections')).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
 	const allSectionsArray = allSections.flatMap((section:CollectionEntry<"sections">) => (section.slug));
-	const allResources = (await getCollection('resources')).sort((a, b) => new Date(a.data.modDate as string).valueOf() - new Date(b.data.modDate as string).valueOf());
 
+	const allResources = await getSortedItems({
+		collectionKey: "resources",
+		sortKey: "modDate",
+		type: "date",
+		order: "asc"
+	}) as CollectionEntry<"resources">[];
 	const finalPagination = allSectionsArray.flatMap((section) => {
-		const selectedResources = allResources.filter((res:CollectionEntry<"resources">) => (res.data.section.slug == section));
+		const selectedResources = allResources.filter((res) => (res.data.section.slug == section));
 		return paginate(selectedResources, {
 			params: { section, category: undefined, subcategory: undefined },
 			pageSize: PAGE_SIZE,
@@ -50,7 +56,8 @@ const breadcrumbArray = [{
 	<div class="Hero" id="hero">
 		{section.data.imageUrl && (
 			<div class="HeroVisual">
-				<ResponsiveImage class="HeroImage" image={section.data.imageUrl} width={287} height={120} alt={section.data.imageAlt} lazyLoading={false} />
+				{/* @TODO breakpoint must be edited here */}
+				<ResponsiveImage breakpoint={1100} classList={["HeroImage"]} image={section.data.imageUrl} width={287} height={120} alt={section.data.imageAlt || 'Without alt'} lazyLoading={false} />
 			</div>
 		)}
 		<div class="HeroText">

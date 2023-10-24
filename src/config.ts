@@ -1,6 +1,6 @@
 // Place any global data in this file.
 // You can import this data from anywhere in your site by using the `import` keyword.
-import type { CollectionEntry } from "astro:content";
+import type { CollectionEntry, CollectionKey } from "astro:content";
 
 // My .env file imports
 const PUBLIC_APP_ENV = import.meta.env.PUBLIC_APP_ENV;
@@ -64,3 +64,7 @@ export type extendedResource = CollectionEntry<"resources"> & {
 	categoryData: CollectionEntry<"categories">[] | [];
 	subCategoryData: CollectionEntry<"subcategories">[] | [];
 };
+
+export type Order = 'asc' | 'desc';
+export type Type = 'text' | 'number' | 'date';
+export type collectionKeyEnum = 'sections' | 'categories' | 'subcategories' | 'resources' | 'tags' | CollectionKey;
