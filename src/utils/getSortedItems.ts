@@ -2,7 +2,7 @@
  * A function built to return any Astro Content Collection sorted by the provided sortKey parameter.
  * 
  * @astroProps
- * @prop {collectionKeyEnum} collectionKey Name of the collection from which you want to extract data
+ * @prop {CollectionKeyEnum} collectionKey Name of the collection from which you want to extract data
  * @prop {string} sortKey Attribute you want to sort by
  * @prop {Type} [type] What is the value of the attribute you want to sort by {text, number, date}
  * @prop {Order} [order] Order type {asc, desc}, default 'asc'
@@ -10,10 +10,10 @@
  */
 
 import { type CollectionEntry, type DataCollectionKey, getCollection } from "astro:content";
-import type { Order, Type, collectionKeyEnum } from "../config";
+import type { Order, Type, CollectionKeyEnum } from "../config";
 
 type Props = {
-	collectionKey: collectionKeyEnum;
+	collectionKey: CollectionKeyEnum;
 	sortKey: string;
 	type: Type;
 	order?: Order;
@@ -65,7 +65,7 @@ const sortFunctions = {
 	number: sortNumbers
 };
 
-export default async function getSortedItems ({ collectionKey, sortKey, type, order = 'asc' }: Props): Promise<CollectionEntry<collectionKeyEnum>[]> {
+export default async function getSortedItems ({ collectionKey, sortKey, type, order = 'asc' }: Props): Promise<CollectionEntry<CollectionKeyEnum>[]> {
 	if (typeof collectionKey !== 'string') {
 		throw new Error("Invalid input. Expected 'collectionKey' to be a string.");
 	}
@@ -92,5 +92,5 @@ export default async function getSortedItems ({ collectionKey, sortKey, type, or
 		const { data: { [sortKey as DataCollectionKey]: sortValueFromA } } = a;
 		const { data: { [sortKey as DataCollectionKey]: sortValueFromB } } = b;
 		return sortFunctions[type](sortValueFromA, sortValueFromB, order);
-	}) as CollectionEntry<collectionKeyEnum>[];
+	}) as CollectionEntry<CollectionKeyEnum>[];
 };

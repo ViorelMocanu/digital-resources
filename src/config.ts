@@ -67,4 +67,4 @@ export type extendedResource = CollectionEntry<"resources"> & {
 
 export type Order = 'asc' | 'desc';
 export type Type = 'text' | 'number' | 'date';
-export type collectionKeyEnum = 'sections' | 'categories' | 'subcategories' | 'resources' | 'tags' | CollectionKey;
+export type CollectionKeyEnum = 'sections' | 'categories' | 'subcategories' | 'resources' | 'tags' | CollectionKey;
