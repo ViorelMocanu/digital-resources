@@ -53,6 +53,7 @@
 		"@astrojs/prefetch": "^0.4.1",
 		"@astrojs/sitemap": "^3.0.2",
 		"astro": "^3.3.3",
+		"astro-simpleanalytics-plugin": "^0.1.4",
 		"astro-webmanifest": "^1.0.0",
 		"lite-youtube-embed": "^0.3.0",
 		"sass": "^1.69.4",

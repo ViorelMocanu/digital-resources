@@ -48,6 +48,7 @@ import {
 import Analytics from '../components/Analytics.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import { SimpleAnalytics } from 'astro-simpleanalytics-plugin';
 import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
@@ -133,5 +134,6 @@ const {
 			<p class="TemporaryMessage">Template: <strong>{template}</strong> built at <em>{buildDate}</em> on ENV = <strong>{ENV}</strong>.</p>
 		</div>
 		<Analytics />
+		<SimpleAnalytics debug={true} partytown={false} allEnvironments={true} />
 	</body>
 </html>

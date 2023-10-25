@@ -18,11 +18,12 @@ import { CLARITY_ID, ENV, PIWIK_ID } from '../config';
 
 {(ENV !== 'local' && ENV !== 'development') && (
 	<div class="Information">
-
+		{/*
 		<script is:inline async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
 		<noscript>
 			<img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" />
 		</noscript>
+		*/}
 
 		<script is:inline define:vars={{ CLARITY_ID }} async defer type="text/partytown">
 			(function (c, l, a, r, i, t, y) {
