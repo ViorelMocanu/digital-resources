@@ -33,14 +33,14 @@ if (sectionCategories) {
 		const category = allCategories.find((el) => {
 			return el.slug == cat.slug;
 		});
-		let subCategoryData = category.data.subcategories.map((subcat: { slug: string }): CollectionEntry<"subcategories"> => {
+		let subCategoryData = category?.data.subcategories?.map((subcat: { slug: string }): CollectionEntry<"subcategories"> => {
 			const subcategory = allSubcategories.find((el) => {
 				return el.slug == subcat.slug;
 			});
 			if (subcategory) {
 				return subcategory;
 			}
-		}).filter(Boolean);
+		}).filter(Boolean) || [];
 
 		categoryList.push( {
 			...category,

@@ -41,7 +41,7 @@ export interface Props {
 
 const { resources, page, pageTitle } = Astro.props as Props;
 
-let r = resources as extendedResource[];
+let r = resources as unknown as extendedResource[];
 const allTags = await getCollection("tags");
 const allSections = await getCollection("sections");
 const allCategories = await getCollection("categories");
