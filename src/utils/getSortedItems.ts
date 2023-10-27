@@ -1,6 +1,6 @@
 /**
  * A function built to return any Astro Content Collection sorted by the provided sortKey parameter.
- * 
+ *
  * @astroProps
  * @prop {CollectionKeyEnum} collectionKey Name of the collection from which you want to extract data
  * @prop {string} sortKey Attribute you want to sort by
@@ -12,35 +12,35 @@
 import { type CollectionEntry, type DataCollectionKey, getCollection } from "astro:content";
 import type { CollectionKeyEnum, Order, Type } from "../config";
 
-type Props = {
-	collectionKey: CollectionKeyEnum;
-	sortKey: string;
-	type: Type;
-	order?: Order;
-}
 
-function sortTexts (a: string, b: string, order: Order) {
+function sortTexts(a: string, b: string, order: Order) {
 	switch (order) {
-		case 'asc': return ((a < b) ? -1 : ((a > b) ? 1 : 0));
-		case 'desc': return ((a > b) ? -1 : ((a < b) ? 1 : 0));
-		default: throw new Error("Invalid order value. Expected 'asc' or 'desc'.");
+		case 'asc':
+			return ((a < b) ? -1 : ((a > b) ? 1 : 0));
+		case 'desc':
+			return ((a > b) ? -1 : ((a < b) ? 1 : 0));
+		default:
+			throw new Error("Invalid order value. Expected 'asc' or 'desc'.");
 	}
 }
 
-function isValidDate (dateString: string): boolean {
+function isValidDate(dateString: string): boolean {
 	return !isNaN(Date.parse(dateString));
 }
 
-function sortDates (a: string, b: string, order: Order) {
+function sortDates(a: string, b: string, order: Order) {
 	if (!isValidDate(a) || !isValidDate(b)) {
 		throw new Error("Invalid date strings");
 	}
 	const dateA = new Date(a);
 	const dateB = new Date(b);
 	switch (order) {
-		case 'asc': return (dateA.valueOf() - dateB.valueOf());
-		case 'desc': return (dateB.valueOf() - dateA.valueOf());
-		default: throw new Error(`Invalid order value: ${order}`);
+		case 'asc':
+			return (dateA.valueOf() - dateB.valueOf());
+		case 'desc':
+			return (dateB.valueOf() - dateA.valueOf());
+		default:
+			throw new Error(`Invalid order value: ${order}`);
 	}
 }
 
@@ -53,9 +53,12 @@ function sortNumbers (a: string, b: string, order: Order) {
 	}
 
 	switch (order) {
-		case 'asc': return numA - numB;
-		case 'desc': return numB - numA;
-		default: throw new Error(`Invalid order value: ${order}`);
+		case 'asc':
+			return numA - numB;
+		case 'desc':
+			return numB - numA;
+		default:
+			throw new Error(`Invalid order value: ${order}`);
 	}
 }
 
@@ -64,8 +67,14 @@ const sortFunctions = {
 	date: sortDates,
 	number: sortNumbers
 };
+type GetSortedItemsProps<T extends CollectionKeyEnum> = {
+	collectionKey: T;
+	sortKey: string;
+	type: Type;
+	order?: Order;
+}
 
-export default async function getSortedItems ({ collectionKey, sortKey, type, order = 'asc' }: Props): Promise<CollectionEntry<CollectionKeyEnum>[]> {
+export default async function getSortedItems<T extends CollectionKeyEnum>({ collectionKey, sortKey, type, order = 'asc' }: GetSortedItemsProps<T>): Promise<CollectionEntry<T>[]> {
 	if (typeof collectionKey !== 'string') {
 		throw new Error("Invalid input. Expected 'collectionKey' to be a string.");
 	}
@@ -81,16 +90,17 @@ export default async function getSortedItems ({ collectionKey, sortKey, type, or
 	if (!sortFunctions.hasOwnProperty(type)) {
 		throw new Error(`Invalid type value: ${type}`);
 	}
-	const unsorted = await getCollection(collectionKey);
+	const unsorted = await getCollection<T>(collectionKey);
 	if (typeof unsorted === 'undefined' || !unsorted[0]) {
 		throw new Error("Invalid input. Most likely, 'collectionKey' does not exist.");
 	}
 	if (!unsorted[0].hasOwnProperty(sortKey) && !unsorted[0].data.hasOwnProperty(sortKey)) {
 		throw new Error(`Invalid sortKey value: ${sortKey}`);
 	}
+
 	return unsorted.sort((a, b) => {
 		const { data: { [sortKey as DataCollectionKey]: sortValueFromA } } = a;
 		const { data: { [sortKey as DataCollectionKey]: sortValueFromB } } = b;
 		return sortFunctions[type](sortValueFromA, sortValueFromB, order);
-	}) as CollectionEntry<CollectionKeyEnum>[];
+	});
 };

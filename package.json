@@ -12,7 +12,7 @@
 	},
 	"homepage": "https://resurse.dev",
 	"engines": {
-		"vscode": "^1.22.0",
+		"vscode": "1.22.0",
 		"node": "18.x",
 		"pnpm": ">=8"
 	},
@@ -49,31 +49,30 @@
 		"verify": "pnpm lint && pnpm typecheck && pnpm test:unit && pnpm format"
 	},
 	"dependencies": {
-		"@astrojs/partytown": "^2.0.1",
-		"@astrojs/prefetch": "^0.4.1",
-		"@astrojs/sitemap": "^3.0.2",
-		"astro": "^3.3.3",
-		"astro-simpleanalytics-plugin": "^0.1.4",
-		"astro-webmanifest": "^1.0.0",
-		"lite-youtube-embed": "^0.3.0",
-		"sass": "^1.69.4",
-		"sharp": "^0.32.6"
+		"@astrojs/partytown": "2.0.1",
+		"@astrojs/prefetch": "0.4.1",
+		"@astrojs/sitemap": "3.0.2",
+		"astro": "3.3.3",
+		"astro-simpleanalytics-plugin": "0.1.4",
+		"astro-webmanifest": "1.0.0",
+		"lite-youtube-embed": "0.3.0",
+		"sass": "1.69.4",
+		"sharp": "0.32.6"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^18.0.0",
-		"@commitlint/config-conventional": "^18.0.0",
-		"@typescript-eslint/eslint-plugin": "^6.9.0",
-		"@typescript-eslint/parser": "^6.9.0",
-		"@vitest/coverage-v8": "^0.34.6",
-		"astro": "^3.2.2",
-		"eslint": "^8.52.0",
-		"eslint-plugin-astro": "^0.29.1",
-		"eslint-plugin-jsx-a11y": "^6.7.1",
-		"husky": "^8.0.3",
-		"markdownlint-cli": "^0.37.0",
-		"prettier": "^3.0.3",
-		"prettier-plugin-astro": "^0.12.0",
-		"typescript": "^5.2.2",
-		"vitest": "^0.34.6"
+		"@commitlint/cli": "18.0.0",
+		"@commitlint/config-conventional": "18.0.0",
+		"@typescript-eslint/eslint-plugin": "6.9.0",
+		"@typescript-eslint/parser": "6.9.0",
+		"@vitest/coverage-v8": "0.34.6",
+		"eslint": "8.52.0",
+		"eslint-plugin-astro": "0.29.1",
+		"eslint-plugin-jsx-a11y": "6.7.1",
+		"husky": "8.0.3",
+		"markdownlint-cli": "0.37.0",
+		"prettier": "3.0.3",
+		"prettier-plugin-astro": "0.12.0",
+		"typescript": "5.2.2",
+		"vitest": "0.34.6"
 	}
 }

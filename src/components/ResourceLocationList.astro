@@ -33,7 +33,7 @@ export interface Props {
 	subcategories?: CollectionEntry<"subcategories">[];
 }
 
-const { res, section, categories, subcategories } = Astro.props as Props;
+const { res, section, categories, subcategories } = Astro.props;
 
 const resourceSection = res ? res.data.section : section;
 
@@ -61,7 +61,7 @@ const resourceSection = res ? res.data.section : section;
 			)}
 		</li>
 	)}
-	
+
 	{(res && res.data.categories && resourceSection) &&
 		res.categoryData.map((cat:CollectionEntry<"categories">) => (
 			<li class="ResourceLocationItem Classification">

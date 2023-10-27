@@ -42,10 +42,10 @@ export interface Props {
 const { resources, page, pageTitle } = Astro.props as Props;
 
 let r = resources as extendedResource[];
-const allTags = await getCollection("tags") as CollectionEntry<"tags">[];
-const allSections = await getCollection("sections") as CollectionEntry<"sections">[];
-const allCategories = await getCollection("categories") as CollectionEntry<"categories">[];
-const allSubCategories = await getCollection("subcategories") as CollectionEntry<"subcategories">[];
+const allTags = await getCollection("tags");
+const allSections = await getCollection("sections");
+const allCategories = await getCollection("categories");
+const allSubCategories = await getCollection("subcategories");
 
 if (resources) {
 	r.forEach((resource:extendedResource) => {

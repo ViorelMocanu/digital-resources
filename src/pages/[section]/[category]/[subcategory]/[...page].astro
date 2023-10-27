@@ -114,12 +114,12 @@ export async function getStaticPaths ({ paginate }: any) {
 const { page } = Astro.props;
 const params = Astro.params;
 
-const currentSection = params.section as string;
-const section = await getEntry("sections", currentSection) as CollectionEntry<"sections">;
-const currentCategory = params.category as string;
-const category = await getEntry("categories", currentCategory) as CollectionEntry<"categories">;
-const currentSubCategory = params.subcategory as string;
-const subcategory = await getEntry("subcategories", currentSubCategory) as CollectionEntry<"subcategories">;
+const currentSection = params.section;
+const section = await getEntry("sections", currentSection);
+const currentCategory = params.category;
+const category = await getEntry("categories", currentCategory);
+const currentSubCategory = params.subcategory;
+const subcategory = await getEntry("subcategories", currentSubCategory);
 const { Content } = await category.render();
 
 const pageTitle = subcategory.data.title;

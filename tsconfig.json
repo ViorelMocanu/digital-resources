@@ -15,6 +15,7 @@
 		"types": [
 			"astro/client",
 			"vitest/globals",
+			"vite/client"
 			// "vite-plugin-pwa/info"
 		],
 		"strictNullChecks": true,

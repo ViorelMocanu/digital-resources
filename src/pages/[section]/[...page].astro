@@ -18,7 +18,7 @@ export async function getStaticPaths ({ paginate }: any) {
 		sortKey: "modDate",
 		type: "date",
 		order: "asc"
-	}) as CollectionEntry<"resources">[];
+	});
 	const finalPagination = allSectionsArray.flatMap((section) => {
 		const selectedResources = allResources.filter((res) => (res.data.section.slug == section));
 		return paginate(selectedResources, {
@@ -28,13 +28,13 @@ export async function getStaticPaths ({ paginate }: any) {
 	});
 
 	return finalPagination;
-	
+
 }
 const { page } = Astro.props;
 const params = Astro.params;
 
 const currentSection = params.section as string;
-const section = await getEntry("sections", currentSection) as CollectionEntry<"sections">;
+const section = await getEntry("sections", currentSection);
 const { Content } = await section.render();
 
 const pageTitle = section.data.title;
