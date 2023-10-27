@@ -71,8 +71,10 @@
 		"eslint-plugin-jsx-a11y": "^6.7.1",
 		"husky": "^8.0.3",
 		"markdownlint-cli": "^0.37.0",
+		"meta-fetcher": "^3.1.1",
 		"prettier": "^3.0.3",
 		"prettier-plugin-astro": "^0.12.0",
+		"slugify": "^1.6.6",
 		"typescript": "^5.2.2",
 		"vitest": "^0.34.6"
 	}
