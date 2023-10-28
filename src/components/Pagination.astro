@@ -28,39 +28,48 @@ export interface Props {
 
 const { currentPage, lastPage, next, prev, boxHeader = true, pageTitle } = Astro.props;
 const paginationList = Array.from({ length: Number(lastPage) }, (_, i) => i + 1);
-const pagePrototype = next ? next.replace(`/${currentPage+1}`,"") : prev ? prev.replace(`/${currentPage-1}`,"") : Astro.url;
+const pagePrototype = next ? next.replace(`/${currentPage + 1}`, '') : prev ? prev.replace(`/${currentPage - 1}`, '') : Astro.url;
 ---
 
 <nav class="Pagination">
-	{boxHeader && (
-		<h3 class="PaginationTitle">Ești pe pagina <strong>{currentPage}</strong> din <strong>{lastPage}</strong>&#32;
-			{pageTitle && <span>în zona de {pageTitle}</span>}.&#32;
-			{lastPage > 1 && <span>Navighează către altă pagină:</span>}
-		</h3>
-	)}
-	{lastPage > 1 && (
-		<ol class="PaginationList">
-			<li class="PaginationItem PaginationPrevious">
-				{currentPage > 1 ? (
-					<a class="PaginationLink" href={prev} title="Mergi la pagina precedentă">&laquo; Precedenta<span class="HideLowRes"> Pagină</span></a>
-				) : (
-					<span class="PaginationUnavailable">&laquo; Pagina Precedentă</span>
-				)}
-			</li>
-			{
-				paginationList.map((num) => (
-					<li class:list={num == currentPage ? ["PaginationItem", "PaginationCurrent"] : ["PaginationItem"]}>
-						<a class="PaginationLink" href={`${pagePrototype}/${num == 1 ? "" : num}`} title={`Mergi la pagina ${num} din ${lastPage}`}>{num}</a>
+	{
+		boxHeader && (
+			<h3 class="PaginationTitle">
+				Ești pe pagina <strong>{currentPage}</strong> din <strong>{lastPage}</strong>&#32;
+				{pageTitle && <span>în zona de {pageTitle}</span>}.&#32;
+				{lastPage > 1 && <span>Navighează către altă pagină:</span>}
+			</h3>
+		)
+	}
+	{
+		lastPage > 1 && (
+			<ol class="PaginationList">
+				<li class="PaginationItem PaginationPrevious">
+					{currentPage > 1 ? (
+						<a class="PaginationLink" href={prev} title="Mergi la pagina precedentă">
+							&laquo; Precedenta<span class="HideLowRes"> Pagină</span>
+						</a>
+					) : (
+						<span class="PaginationUnavailable">&laquo; Pagina Precedentă</span>
+					)}
+				</li>
+				{paginationList.map((num) => (
+					<li class:list={num == currentPage ? ['PaginationItem', 'PaginationCurrent'] : ['PaginationItem']}>
+						<a class="PaginationLink" href={`${pagePrototype}/${num == 1 ? '' : num}`} title={`Mergi la pagina ${num} din ${lastPage}`}>
+							{num}
+						</a>
 					</li>
-				))
-			}
-			<li class="PaginationItem PaginationNext">
-				{currentPage < lastPage ? (
-					<a class="PaginationLink" href={next} title="Mergi la pagina următoare">Următoarea<span class="HideLowRes"> Pagină</span> &raquo;</a>
-				) : (
-					<span class="PaginationUnavailable">Pagina Următoare &raquo;</span>
-				)}
-			</li>
-		</ol>
-	)}
+				))}
+				<li class="PaginationItem PaginationNext">
+					{currentPage < lastPage ? (
+						<a class="PaginationLink" href={next} title="Mergi la pagina următoare">
+							Următoarea<span class="HideLowRes"> Pagină</span> &raquo;
+						</a>
+					) : (
+						<span class="PaginationUnavailable">Pagina Următoare &raquo;</span>
+					)}
+				</li>
+			</ol>
+		)
+	}
 </nav>

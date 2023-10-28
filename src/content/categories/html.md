@@ -1,24 +1,24 @@
 ---
-title: "HTML (Hyper Text Markup Language)"
-menu: "HTML"
+title: 'HTML (Hyper Text Markup Language)'
+menu: 'HTML'
 sortOrder: 2
 image:
-  imageUrl: "test.jpg"
-  imageAlt: "test"
+    imageUrl: 'test.jpg'
+    imageAlt: 'test'
 description: "@TODO: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
 subcategories:
-- elemente-de-baza
-- structuri-informationale
-- sectiuni-de-continut
-- formulare
-- meta-informatii
-- semantica
-- multimedia
-- embed-uri-si-componente
-- conventii-si-bune-practici
-- accesibilitate
-- seo-tehnic
-- emmet
+    - elemente-de-baza
+    - structuri-informationale
+    - sectiuni-de-continut
+    - formulare
+    - meta-informatii
+    - semantica
+    - multimedia
+    - embed-uri-si-componente
+    - conventii-si-bune-practici
+    - accesibilitate
+    - seo-tehnic
+    - emmet
 publishDate: 2023-09-24
 ---
 

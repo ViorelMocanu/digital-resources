@@ -76,5 +76,12 @@ coverage
 # Husky
 .husky
 
+# static files from original design
+static
+_old*
+
 # Certain 3rd party code components
 src/components/Analytics.astro
+
+# My precious single-line styles
+src/styles

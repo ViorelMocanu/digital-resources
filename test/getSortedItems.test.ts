@@ -1,9 +1,8 @@
 // Vitest unit test for getSortedItems function
-import { type CollectionKey, type DataCollectionKey } from "astro:content";
+import { type CollectionKey, type DataCollectionKey } from 'astro:content';
 import getSortedItems from '../src/utils/getSortedItems';
 
 describe('getSortedItems', () => {
-
 	// Returns a sorted list of CollectionEntries of the correct type, given valid input parameters
 	it('should return a sorted list of CollectionEntries when given valid input parameters', async () => {
 		// Arrange
@@ -71,7 +70,7 @@ describe('getSortedItems', () => {
 
 	// Throws an error if the input sortKey parameter is undefined or does not exist
 	it('should throw an error if the input sortKey parameter is undefined or does not exist', async () => {
-	// Arrange
+		// Arrange
 		const collectionKey = 'categories';
 		const sortKey = '' as DataCollectionKey;
 		const type = 'text';

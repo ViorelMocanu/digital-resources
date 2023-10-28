@@ -4,30 +4,17 @@ import { Content as Readme } from '../../README.md';
 import ResponsiveImage from '../components/ResponsiveImage.astro';
 import testImage from '../img/ViorelMocanu - Splash YouTube v2 1920x1080 109.jpg';
 
-const pageTitle = "Resurse.dev @TODO";
-const pageDescription = "@TODO: scrie descrierea";
-
+const pageTitle = 'Resurse.dev @TODO';
+const pageDescription = '@TODO: scrie descrierea';
 ---
 
-<Layout
-	title={pageTitle}
-	description={pageDescription}
-	template="HomePage"
->
+<Layout title={pageTitle} description={pageDescription} template="HomePage">
 	@TODO: Completează conținutul paginii curente
 	<main class="Main">
 		<div class="MarkdownContent">
 			<Readme />
 			<a href="/resurse">Resurse</a>
-			<ResponsiveImage
-				image={testImage}
-				alt="Test 1234"
-				width={2560}
-				height={1440}
-				lazyLoading={true}
-				classList={["TestClassName","test2"]}
-				breakpoint={1100}
-			/>
+			<ResponsiveImage image={testImage} alt="Test 1234" width={2560} height={1440} lazyLoading={true} classList={['TestClassName', 'test2']} breakpoint={1100} />
 		</div>
 	</main>
 </Layout>

@@ -14,7 +14,6 @@ test('highlightUrl()', () => {
 });
 
 describe('highlightUrl', () => {
-
 	// Returns an array with the standard class name when no URL matches are found
 	it('should return an array with the standard class name when no URL matches are found', () => {
 		const urlFragment = 'example';

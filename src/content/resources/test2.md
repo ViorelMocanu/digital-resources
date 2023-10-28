@@ -1,33 +1,33 @@
 ---
-title: "front end html emmet"
-url: "https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/how-does-the-web-work"
-language: "en"
-modDate: "05 October 2011 14:48 UTC"
-addDate: ""
-description: "asdasdsadasdadsa asdasd asdasdasdasd"
-authorName: "The Odin Project"
-authorUrl: "https://www.theodinproject.com/"
-section: "front-end"
+title: 'front end html emmet'
+url: 'https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/how-does-the-web-work'
+language: 'en'
+modDate: '05 October 2011 14:48 UTC'
+addDate: ''
+description: 'asdasdsadasdadsa asdasd asdasdasdasd'
+authorName: 'The Odin Project'
+authorUrl: 'https://www.theodinproject.com/'
+section: 'front-end'
 categories:
-- "html"
+    - 'html'
 subcategories:
-- "emmet"
+    - 'emmet'
 rating: 100
 price: 0
 requiredTime: 20
-type: "carte"
+type: 'carte'
 mandatory: true
 image:
-  imageUrl: "https://docs.astro.build/assets/full-logo-light.png"
-  imageAlt: "asdasdasdasdas"
+    imageUrl: 'https://docs.astro.build/assets/full-logo-light.png'
+    imageAlt: 'asdasdasdasdas'
 tags:
-- "curs"
-- "platit"
-- "incepatori"
-- "mid"
-- "avansati"
-- "pro"
-- "obligatoriu"
+    - 'curs'
+    - 'platit'
+    - 'incepatori'
+    - 'mid'
+    - 'avansati'
+    - 'pro'
+    - 'obligatoriu'
 ---
 
 Test 456 test content.

@@ -1,18 +1,18 @@
 ---
-title: "Resurse de Front End Development"
-menu: "Front End"
+title: 'Resurse de Front End Development'
+menu: 'Front End'
 slug: front-end
 sortOrder: 0
-imageUrl: "./front-end.svg"
-imageAlt: "Tehnologiile de bază ale Internetului: HTML, CSS și JavaScript"
-description: "Învață despre tehnologiile de bază ale Internetului, descoperă ce este și cum funcționează o pagină web și cum să construiești și tu aplicații online."
+imageUrl: './front-end.svg'
+imageAlt: 'Tehnologiile de bază ale Internetului: HTML, CSS și JavaScript'
+description: 'Învață despre tehnologiile de bază ale Internetului, descoperă ce este și cum funcționează o pagină web și cum să construiești și tu aplicații online.'
 categories:
-- introducere-in-front-end
-- unelte-utile-de-front-end
-- html
-- css
-- mobile-first-responsive-design
-- experienta-utilizatorului
+    - introducere-in-front-end
+    - unelte-utile-de-front-end
+    - html
+    - css
+    - mobile-first-responsive-design
+    - experienta-utilizatorului
 publishDate: 2023-10-04
 ---
 

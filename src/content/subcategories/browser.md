@@ -1,6 +1,6 @@
 ---
-title: "Browser"
-menu: "Browser"
+title: 'Browser'
+menu: 'Browser'
 sortOrder: 0
 description: TODO de scris descrierea
 ---

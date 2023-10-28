@@ -1,6 +1,6 @@
 ---
-title: "SEO Tehnic"
-menu: "SEO"
+title: 'SEO Tehnic'
+menu: 'SEO'
 sortOrder: 10
 description: de scris descrierea
 ---

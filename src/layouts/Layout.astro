@@ -43,7 +43,7 @@ import {
 	SITE_NAME,
 	SITE_TITLE,
 	TWITTER_CREATOR,
-	TWITTER_SITE
+	TWITTER_SITE,
 } from '../config';
 import Analytics from '../components/Analytics.astro';
 import Footer from '../components/Footer.astro';
@@ -64,20 +64,10 @@ interface Props {
 
 const buildDate = __DATE__;
 
-const {
-	title = SITE_TITLE,
-	description = SITE_DESCRIPTION,
-	ogImage = OG_IMAGE,
-	modDate = buildDate,
-	canonical = Astro.url,
-	template,
-	activeMenu,
-	breadcrumbArray
-} = Astro.props;
-
+const { title = SITE_TITLE, description = SITE_DESCRIPTION, ogImage = OG_IMAGE, modDate = buildDate, canonical = Astro.url, template, activeMenu, breadcrumbArray } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang={LANGUAGE}>
 	<head>
 		<meta charset="UTF-8" />
@@ -86,7 +76,7 @@ const {
 
 		<!-- SEO -->
 		<link rel="canonical" href={canonical} />
-		<meta name="description" content={description}>
+		<meta name="description" content={description} />
 		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
 		<meta property="og:site_name" content={SITE_NAME} />
@@ -97,7 +87,7 @@ const {
 		<meta property="og:image" content={ogImage} />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
-		<meta property="og:image:alt" content={OG_IMAGE_ALT}>
+		<meta property="og:image:alt" content={OG_IMAGE_ALT} />
 		<meta property="og:email" content={CONTACT_EMAIL} />
 		<meta property="article:publisher" content={SITE_NAME} />
 		<meta property="fb:app_id" content={FACEBOOK_APP_ID} />

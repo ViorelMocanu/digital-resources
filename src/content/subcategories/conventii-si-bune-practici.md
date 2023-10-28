@@ -1,8 +1,8 @@
 ---
-title: "Convenții și bune practici"
-menu: "Bune practici"
+title: 'Convenții și bune practici'
+menu: 'Bune practici'
 sortOrder: 8
-description : de scris descrierea
+description: de scris descrierea
 ---
 
 @TODO: Convenții și bune practici

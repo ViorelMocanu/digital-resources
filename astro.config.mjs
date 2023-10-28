@@ -4,23 +4,23 @@ import { fileURLToPath } from 'url';
 import compress from 'astro-compress';
 import mdx from '@astrojs/mdx';
 import path from 'path';
-import prefetch from "@astrojs/prefetch";
-import partytown from "@astrojs/partytown";
-import sitemap from "@astrojs/sitemap";
-import webmanifest from "astro-webmanifest";
+import prefetch from '@astrojs/prefetch';
+import partytown from '@astrojs/partytown';
+import sitemap from '@astrojs/sitemap';
+import webmanifest from 'astro-webmanifest';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // https://astro.build/config
 export default defineConfig({
-	site: URL || "https://resurse.dev",
+	site: URL || 'https://resurse.dev',
 	output: 'static',
-	compressHTML: (ENV !== 'local' && ENV !== 'development' ) ? true : false,
+	compressHTML: ENV !== 'local' && ENV !== 'development' ? true : false,
 	redirects: {
 		// '/old': '/new',
 	},
 	image: {
-		remotePatterns: [{ protocol: "https" }],
+		remotePatterns: [{ protocol: 'https' }],
 	},
 	vite: {
 		logLevel: DEBUG ? 'info' : 'silent',
@@ -36,8 +36,8 @@ export default defineConfig({
 	markdown: {
 		syntaxHighlight: 'shiki',
 		remarkRehype: {
-			footnoteLabel: "Note de subsol",
-			footnoteBackLabel: "Înapoi la conținut"
+			footnoteLabel: 'Note de subsol',
+			footnoteBackLabel: 'Înapoi la conținut',
 		},
 		shikiConfig: {
 			// Choose from Shiki's built-in themes (or add your own)
@@ -54,7 +54,7 @@ export default defineConfig({
 	integrations: [
 		prefetch({
 			// Only prefetch links with an href that begins with `/resurse` or `.front-end`
-			intentSelector: ["a[href^='/resurse']"]
+			intentSelector: ["a[href^='/resurse']"],
 		}),
 		webmanifest({
 			name: SITE_NAME,
@@ -75,14 +75,14 @@ export default defineConfig({
 				insertManifestLink: true, // default - true
 				crossOrigin: 'anonymous',
 				insertAppleTouchLinks: true,
-				iconPurpose: ['badge', 'maskable', 'monochrome']
-			}
+				iconPurpose: ['badge', 'maskable', 'monochrome'],
+			},
 		}),
 		partytown({
 			config: {
 				debug: true,
-				forward: ['dataLayer.push']
-			}
+				forward: ['dataLayer.push'],
+			},
 		}),
 		sitemap({
 			customPages: ['https://resurse.dev/external-page2'],

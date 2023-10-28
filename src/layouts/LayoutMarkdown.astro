@@ -43,7 +43,7 @@ import {
 	SITE_NAME,
 	SITE_TITLE,
 	TWITTER_CREATOR,
-	TWITTER_SITE
+	TWITTER_SITE,
 } from '../config';
 import Analytics from '../components/Analytics.astro';
 import Footer from '../components/Footer.astro';
@@ -75,7 +75,7 @@ const {
 	// file,
 	// url,
 	content,
-	headings
+	headings,
 } = Astro.props;
 
 // Solve the ability to render Markdown as well as Astro files
@@ -84,13 +84,12 @@ const theTitle = content?.title ? content.title : SITE_TITLE;
 const theDescription = content?.description ? content.description : SITE_DESCRIPTION;
 const theOgImage = content?.ogImage ? content.ogImage : OG_IMAGE;
 const theModDate = content?.modDate ? content.modDate.toString() : buildDate.toString();
-const theTemplate = content?.template ? content.template : "MarkdownPage";
+const theTemplate = content?.template ? content.template : 'MarkdownPage';
 const theActiveMenu = content?.activeMenu ? content.activeMenu.toString() : canonical.toString();
 const theBreadcrumbArray = content?.breadcrumbArray ? content.breadcrumbArray : [];
-
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang={LANGUAGE}>
 	<head>
 		<meta charset="UTF-8" />
@@ -99,7 +98,7 @@ const theBreadcrumbArray = content?.breadcrumbArray ? content.breadcrumbArray : 
 
 		<!-- SEO -->
 		<link rel="canonical" href={canonical} />
-		<meta name="description" content={theDescription}>
+		<meta name="description" content={theDescription} />
 		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
 		<meta property="og:site_name" content={SITE_NAME} />
@@ -110,7 +109,7 @@ const theBreadcrumbArray = content?.breadcrumbArray ? content.breadcrumbArray : 
 		<meta property="og:image" content={theOgImage} />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
-		<meta property="og:image:alt" content={OG_IMAGE_ALT}>
+		<meta property="og:image:alt" content={OG_IMAGE_ALT} />
 		<meta property="og:email" content={CONTACT_EMAIL} />
 		<meta property="article:publisher" content={SITE_NAME} />
 		<meta property="fb:app_id" content={FACEBOOK_APP_ID} />

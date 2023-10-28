@@ -1,6 +1,6 @@
 ---
-title: "Structuri informaționale"
-menu: "Arhitectură"
+title: 'Structuri informaționale'
+menu: 'Arhitectură'
 sortOrder: 1
 description: TODO de scris descrierea
 ---
