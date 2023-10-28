@@ -17,7 +17,7 @@ export interface Props {
 	taglist: Pick<CollectionEntry<'tags'>, 'slug' | 'collection'>[];
 }
 
-const { taglist } = Astro.props as Props;
+const { taglist } = Astro.props satisfies Props;
 const activePage = Astro.url.pathname.substring(1);
 ---
 

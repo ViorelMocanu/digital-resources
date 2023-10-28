@@ -114,7 +114,7 @@ breadcrumbArray.push({
 					<a class="HeroResourceLink" href={entry.data.url} title={`Vizitează resursa: ${entry.data.title}`} target="_blank" rel="external noopener noreferrer">
 						<h1 class="HeroTitle">
 							{entry.data.title}
-							{resourceTypeIcon[resourceType ? resourceType.toLowerCase() : (entry.data.type.toLowerCase() as keyof typeof resourceTypeIcon)]}
+							{resourceTypeIcon[resourceType ? resourceType.toLowerCase() : (entry.data.type.toLowerCase() satisfies keyof typeof resourceTypeIcon)]}
 						</h1>
 						<em class="HeroUrl">
 							<strong class="HeroUrlLabel">URL:</strong>&nbsp;{entry.data.url}

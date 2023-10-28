@@ -5,23 +5,27 @@ import jsdoc from 'eslint-plugin-jsdoc';
 import ts from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
 
+const ignoreArray = [
+	'.astro/**',
+	'.cache/**',
+	'.github/**',
+	'.idea/**',
+	'.netlify/**',
+	'.vercel/**',
+	'build/**',
+	'coverage/**',
+	'demo/**',
+	'dev-dist/**',
+	'dist/**',
+	'node_modules/**',
+	'static/**',
+	'src/env.d.ts',
+];
+
 export default [
 	{
 		files: ['**/*.js'],
-		ignores: [
-			'.astro/**',
-			'.cache/**',
-			'.github/**',
-			'.idea/**',
-			'.netlify/**',
-			'.vercel/**',
-			'build/**',
-			'coverage/**',
-			'dev-dist/**',
-			'dist/**',
-			'node_modules/**',
-			'static/**',
-		],
+		ignores: ignoreArray,
 		languageOptions: {
 			parser: tsParser,
 			parserOptions: {
@@ -62,20 +66,7 @@ export default [
 	},
 	{
 		files: ['**/*.ts'],
-		ignores: [
-			'.astro/**',
-			'.cache/**',
-			'.github/**',
-			'.idea/**',
-			'.netlify/**',
-			'.vercel/**',
-			'build/**',
-			'coverage/**',
-			'dist/**',
-			'dev-dist/**',
-			'node_modules/**',
-			'src/env.d.ts',
-		],
+		ignores: ignoreArray,
 		languageOptions: {
 			parser: tsParser,
 			parserOptions: {
@@ -116,7 +107,7 @@ export default [
 	},
 	{
 		files: ['**/*.astro'],
-		ignores: ['.astro/**', '.cache/**', '.github/**', '.idea/**', '.netlify/**', '.vercel/**', 'build/**', 'coverage/**', 'dist/**', 'dev-dist/**', 'node_modules/**'],
+		ignores: ignoreArray,
 		languageOptions: {
 			parser: astroParser,
 			parserOptions: {
