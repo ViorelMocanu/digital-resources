@@ -45,7 +45,8 @@
 		"test:e2e": "playwright test",
 		"test": "pnpm test:unit && pnpm test:e2e",
 		"typecheck": "pnpm tsc --project tsconfig.json --noEmit",
-		"verify": "pnpm lint && pnpm typecheck && pnpm test:unit && pnpm format"
+		"verify": "pnpm lint && pnpm typecheck && pnpm test:unit && pnpm format",
+		"verify:fix": "pnpm lint:fix && pnpm typecheck && pnpm test:unit && pnpm format:fix"
 	},
 	"dependencies": {
 		"@astrojs/partytown": "^2.0.1",

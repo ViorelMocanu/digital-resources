@@ -60,8 +60,8 @@ const sectionCategories = section ? section.data.categories : false;
 					<strong class="FilterOptionTitle">După tip:</strong>
 				</li>
 				<li class="FilterOptionItem">
-					<label class="FilterOptionLabel">
-						<input class="FilterOptionCheckbox" type="checkbox" name="tip" value="video" checked="checked" />
+					<label class="FilterOptionLabel" id="label-tip-video">
+						<input class="FilterOptionCheckbox" type="checkbox" name="tip" value="video" checked="checked" aria-labelledby="label-tip-video" />
 						<span class="Icon IconFilterVideo">
 							<span class="SROnly">📽️</span>
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -75,8 +75,8 @@ const sectionCategories = section ? section.data.categories : false;
 					</label>
 				</li>
 				<li class="FilterOptionItem">
-					<label class="FilterOptionLabel">
-						<input class="FilterOptionCheckbox" type="checkbox" name="tip" value="curs" checked="checked" />
+					<label class="FilterOptionLabel" id="label-tip-curs">
+						<input class="FilterOptionCheckbox" type="checkbox" name="tip" value="curs" checked="checked" aria-labelledby="label-tip-curs" />
 						<span class="Icon IconFilterCourse">
 							<span class="SROnly">🧑‍🏫</span>
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -91,8 +91,8 @@ const sectionCategories = section ? section.data.categories : false;
 					</label>
 				</li>
 				<li class="FilterOptionItem">
-					<label class="FilterOptionLabel">
-						<input class="FilterOptionCheckbox" type="checkbox" name="tip" value="articol" checked="checked" />
+					<label class="FilterOptionLabel" id="label-tip-articol">
+						<input class="FilterOptionCheckbox" type="checkbox" name="tip" value="articol" checked="checked" aria-labelledby="label-tip-articol" />
 						<span class="Icon IconFilterArticle">
 							<span class="SROnly">📃</span>
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -110,29 +110,29 @@ const sectionCategories = section ? section.data.categories : false;
 					<strong class="FilterOptionTitle">După nivel:</strong>
 				</li>
 				<li class="FilterOptionItem">
-					<label class="FilterOptionLabel">
-						<input class="FilterOptionCheckbox" type="checkbox" name="nivel" value="incepatori" checked="checked" />
+					<label class="FilterOptionLabel" id="label-nivel-incepatori">
+						<input class="FilterOptionCheckbox" type="checkbox" name="nivel" value="incepatori" checked="checked" aria-labelledby="label-nivel-incepatori" />
 						<span class="Icon IconFilterBeginner">🟢</span>
 						<span class="FilterOptionText">Începători</span>
 					</label>
 				</li>
 				<li class="FilterOptionItem">
-					<label class="FilterOptionLabel">
-						<input class="FilterOptionCheckbox" type="checkbox" name="nivel" value="mid" checked="checked" />
+					<label class="FilterOptionLabel" id="label-nivel-mid">
+						<input class="FilterOptionCheckbox" type="checkbox" name="nivel" value="mid" checked="checked" aria-labelledby="label-nivel-mid" />
 						<span class="Icon IconFilterMid">🔵</span>
 						<span class="FilterOptionText">Mid</span>
 					</label>
 				</li>
 				<li class="FilterOptionItem">
-					<label class="FilterOptionLabel">
-						<input class="FilterOptionCheckbox" type="checkbox" name="nivel" value="avansati" checked="checked" />
+					<label class="FilterOptionLabel" id="label-nivel-avansati">
+						<input class="FilterOptionCheckbox" type="checkbox" name="nivel" value="avansati" checked="checked" aria-labelledby="label-nivel-avansati" />
 						<span class="Icon IconFilterAdvanced">🟣</span>
 						<span class="FilterOptionText">Avansați</span>
 					</label>
 				</li>
 				<li class="FilterOptionItem">
-					<label class="FilterOptionLabel">
-						<input class="FilterOptionCheckbox" type="checkbox" name="nivel" value="pro" checked="checked" />
+					<label class="FilterOptionLabel" id="label-nivel-pro">
+						<input class="FilterOptionCheckbox" type="checkbox" name="nivel" value="pro" checked="checked" aria-labelledby="label-nivel-pro" />
 						<span class="Icon IconFilterPro">🔴</span>
 						<span class="FilterOptionText">Pro</span>
 					</label>
@@ -141,8 +141,8 @@ const sectionCategories = section ? section.data.categories : false;
 					<strong class="FilterOptionTitle">După costuri:</strong>
 				</li>
 				<li class="FilterOptionItem">
-					<label class="FilterOptionLabel">
-						<input class="FilterOptionCheckbox" type="checkbox" name="costuri" value="gratuit" checked="checked" />
+					<label class="FilterOptionLabel" id="label-costuri-gratuit">
+						<input class="FilterOptionCheckbox" type="checkbox" name="costuri" value="gratuit" checked="checked" aria-labelledby="label-costuri-gratuit" />
 						<span class="Icon IconFilterFree">
 							<span class="SROnly">💸</span>
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -157,8 +157,8 @@ const sectionCategories = section ? section.data.categories : false;
 					</label>
 				</li>
 				<li class="FilterOptionItem">
-					<label class="FilterOptionLabel">
-						<input class="FilterOptionCheckbox" type="checkbox" name="costuri" value="premium" checked="checked" />
+					<label class="FilterOptionLabel" id="label-costuri-premium">
+						<input class="FilterOptionCheckbox" type="checkbox" name="costuri" value="premium" checked="checked" aria-labelledby="label-costuri-premium" />
 						<span class="Icon IconFilterPremium">
 							<span class="SROnly">💰</span>
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -190,8 +190,8 @@ const sectionCategories = section ? section.data.categories : false;
 			</summary>
 			<ul class="FilterOptionList">
 				<li class="FilterOptionItem">
-					<label class="FilterOptionLabel">
-						<input class="FilterOptionRadio" type="radio" name="sort" id="sort-default" value="default" checked="checked" />
+					<label class="FilterOptionLabel" id="label-sort-default">
+						<input class="FilterOptionRadio" type="radio" name="sort" id="sort-default" value="default" checked="checked" aria-labelledby="label-sort-default" />
 						<span class="Icon IconSortDefault">
 							<span class="SROnly">🔥</span>
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -210,8 +210,8 @@ const sectionCategories = section ? section.data.categories : false;
 					</label>
 				</li>
 				<li class="FilterOptionItem">
-					<label class="FilterOptionLabel">
-						<input class="FilterOptionRadio" type="radio" name="sort" id="sort-rating-desc" value="rating-desc" />
+					<label class="FilterOptionLabel" id="label-sort-rating-desc">
+						<input class="FilterOptionRadio" type="radio" name="sort" id="sort-rating-desc" value="rating-desc" aria-labelledby="label-sort-rating-desc" />
 						<span class="Icon IconSortDesc">
 							<span class="SROnly">⬇️</span>
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -226,8 +226,8 @@ const sectionCategories = section ? section.data.categories : false;
 					</label>
 				</li>
 				<li class="FilterOptionItem">
-					<label class="FilterOptionLabel">
-						<input class="FilterOptionRadio" type="radio" name="sort" id="sort-rating-asc" value="rating-asc" />
+					<label class="FilterOptionLabel" id="label-sort-rating-asc">
+						<input class="FilterOptionRadio" type="radio" name="sort" id="sort-rating-asc" value="rating-asc" aria-labelledby="label-sort-rating-asc" />
 						<span class="Icon IconSortAsc">
 							<span class="SROnly">⬆️</span>
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -242,8 +242,8 @@ const sectionCategories = section ? section.data.categories : false;
 					</label>
 				</li>
 				<li class="FilterOptionItem">
-					<label class="FilterOptionLabel">
-						<input class="FilterOptionRadio" type="radio" name="sort" id="sort-time-desc" value="time-desc" />
+					<label class="FilterOptionLabel" id="label-sort-time-desc">
+						<input class="FilterOptionRadio" type="radio" name="sort" id="sort-time-desc" value="time-desc" aria-labelledby="label-sort-time-desc" />
 						<span class="Icon IconSortDesc">
 							<span class="SROnly">⬇️</span>
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -258,8 +258,8 @@ const sectionCategories = section ? section.data.categories : false;
 					</label>
 				</li>
 				<li class="FilterOptionItem">
-					<label class="FilterOptionLabel">
-						<input class="FilterOptionRadio" type="radio" name="sort" id="sort-time-asc" value="time-asc" />
+					<label class="FilterOptionLabel" id="label-sort-time-asc">
+						<input class="FilterOptionRadio" type="radio" name="sort" id="sort-time-asc" value="time-asc" aria-labelledby="label-sort-time-asc" />
 						<span class="Icon IconSortAsc">
 							<span class="SROnly">⬆️</span>
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
