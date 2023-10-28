@@ -34,14 +34,16 @@ if (entry.data.tags) {
 let breadcrumbArray = new Array();
 
 const sectionSlug = entry.data.section.slug;
-const section = (await getEntry('sections', sectionSlug)) as CollectionEntry<'sections'>;
-breadcrumbArray.push({
-	href: `/${section.slug}`,
-	title: section.data.title,
-	label: section.data.menu,
-});
+const section = await getEntry('sections', sectionSlug);
+if (section) {
+	breadcrumbArray.push({
+		href: `/${section.slug}`,
+		title: section.data.title,
+		label: section.data.menu,
+	});
+}
 
-const resourceCategories = (await getEntries(entry.data.categories)) as CollectionEntry<'categories'>[];
+const resourceCategories = await getEntries(entry.data.categories);
 const firstResourceCategory = resourceCategories[0];
 if (firstResourceCategory) {
 	breadcrumbArray.push({
@@ -54,7 +56,7 @@ if (firstResourceCategory) {
 let resourceSubCategories = new Array();
 let firstResourceSubcategory: CollectionEntry<'subcategories'>;
 if (entry.data.subcategories) {
-	resourceSubCategories = (await getEntries(entry.data.subcategories)) as CollectionEntry<'resources'>[];
+	resourceSubCategories = await getEntries(entry.data.subcategories);
 	firstResourceSubcategory = resourceSubCategories[0];
 	if (firstResourceCategory && firstResourceSubcategory) {
 		breadcrumbArray.push({

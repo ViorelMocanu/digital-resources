@@ -21,7 +21,8 @@
 		"noUnusedParameters": true,
 		"types": [
 			"astro/client",
-			"vitest/globals"
+			"vitest/globals",
+			"vite/client"
 			// "vite-plugin-pwa/info"
 		],
 		"sourceMap": true,

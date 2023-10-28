@@ -68,15 +68,15 @@ export type Headings = {
 }[];
 
 export type extendedCategory = CollectionEntry<'categories'> & {
-	subCategoryData: CollectionEntry<'subcategories'>[] | [];
+	subCategoryData: CollectionEntry<'subcategories'>[];
 };
 
-export type extendedResource = CollectionEntry<'resources'> & {
+export type extendedResource = Omit<CollectionEntry<'resources'>, 'render'> & {
 	type: string;
-	tagData: CollectionEntry<'tags'>[] | [];
-	sectionData: CollectionEntry<'sections'> | '';
-	categoryData: CollectionEntry<'categories'>[] | [];
-	subCategoryData: CollectionEntry<'subcategories'>[] | [];
+	tagData: CollectionEntry<'tags'>[];
+	sectionData: CollectionEntry<'sections'> | undefined;
+	categoryData: CollectionEntry<'categories'>[];
+	subCategoryData: CollectionEntry<'subcategories'>[];
 };
 
 export type Order = 'asc' | 'desc';

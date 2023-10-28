@@ -24,23 +24,28 @@ const activePage = Astro.url.pathname;
 const sectionCategories = section.data.categories;
 let categoryList: extendedCategory[] = [];
 if (sectionCategories) {
-	const allCategories = (await getCollection('categories')) as CollectionEntry<'categories'>[];
-	const allSubcategories = (await getCollection('subcategories')) as CollectionEntry<'subcategories'>[];
+	const allCategories = await getCollection('categories');
+	const allSubcategories = await getCollection('subcategories');
 	sectionCategories.forEach((cat: { slug: string; collection: string }) => {
 		const category = allCategories.find((el) => {
 			return el.slug == cat.slug;
-		}) as extendedCategory;
-		if (typeof category !== 'undefined' && typeof category.data.subcategories !== 'undefined' && category.data.subcategories !== null) {
-			let subCategoryData: CollectionEntry<'subcategories'>[] = [];
-			category.data.subcategories.forEach((subcat: { slug: string; collection: string }) => {
-				const subcategory = allSubcategories.find((el) => {
-					return el.slug == subcat.slug;
-				}) as CollectionEntry<'subcategories'>;
-				subCategoryData.push(subcategory);
-			});
-			category['subCategoryData'] = subCategoryData;
-		}
-		categoryList.push(category);
+		});
+		let subCategoryData =
+			category?.data.subcategories
+				?.map((subcat: { slug: string }): CollectionEntry<'subcategories'> => {
+					const subcategory = allSubcategories.find((el) => {
+						return el.slug == subcat.slug;
+					});
+					if (subcategory) {
+						return subcategory;
+					}
+				})
+				.filter(Boolean) || [];
+
+		categoryList.push({
+			...category,
+			subCategoryData,
+		} as extendedCategory);
 	});
 }
 ---
@@ -49,9 +54,11 @@ if (sectionCategories) {
 	{
 		sectionCategories ? (
 			<>
-				<h2 class="ListNavTitle">Categorii de {section.data.title}:</h2>
+				<h2 class="ListNavTitle" id="treeTitle">
+					Categorii de {section.data.title}:
+				</h2>
 				<ol class="ListNav">
-					{categoryList.map((category: extendedCategory) => (
+					{categoryList.map((category) => (
 						<li class:list={highlightUrl(`/${section.slug}/${category.slug}`, 'ListNavItem', 'ActiveListNav', activePage)}>
 							<a class="ListNavLink" href={`/${section.slug}/${category.slug}`} title={`Vezi resursele din categoria ${category.data.title}`}>
 								{category.data.title}

@@ -1,13 +1,6 @@
 import { type CollectionEntry, type DataCollectionKey, getCollection } from 'astro:content';
 import type { CollectionKeyEnum, Order, Type } from '../config';
 
-type Props = {
-	collectionKey: CollectionKeyEnum;
-	sortKey: string;
-	type: Type;
-	order?: Order;
-};
-
 /**
  * Compares two strings based on the specified order and returns a numerical value indicating their relative order.
  * @param {string} a - The first string to compare.
@@ -101,18 +94,25 @@ const sortFunctions = {
 	number: sortNumbers,
 };
 
+type GetSortedItemsProps<T extends CollectionKeyEnum> = {
+	collectionKey: T;
+	sortKey: string;
+	type: Type;
+	order?: Order;
+};
+
 /**
  * A function built to return any Astro Content Collection sorted by the provided sortKey parameter.
  * @async
  * @function getSortedItems
- * @param {Props} root0 Property object
+ * @param {GetSortedItemsProps} root0 Property object
  * @param {CollectionKeyEnum} root0.collectionKey Name of the collection from which you want to extract data
  * @param {string} root0.sortKey Attribute you want to sort by
  * @param {Type} [root0.type] What is the value of the attribute you want to sort by {text, number, date}
  * @param {Order} [root0.order] Order type {asc, desc}, default 'asc'
  * @returns {Promise<CollectionEntry<CollectionKeyEnum>[]>} A sorted list containing CollectionEntries of the correct type
  */
-export default async function getSortedItems({ collectionKey, sortKey, type, order = 'asc' }: Props): Promise<CollectionEntry<CollectionKeyEnum>[]> {
+export default async function getSortedItems<T extends CollectionKeyEnum>({ collectionKey, sortKey, type, order = 'asc' }: GetSortedItemsProps<T>): Promise<CollectionEntry<T>[]> {
 	if (typeof collectionKey !== 'string') {
 		throw new Error("Invalid input. Expected 'collectionKey' to be a string.");
 	}
@@ -128,13 +128,14 @@ export default async function getSortedItems({ collectionKey, sortKey, type, ord
 	if (!sortFunctions.hasOwnProperty(type)) {
 		throw new Error(`Invalid type value: ${type}`);
 	}
-	const unsorted = await getCollection(collectionKey);
+	const unsorted = await getCollection<T>(collectionKey);
 	if (typeof unsorted === 'undefined' || !unsorted[0]) {
 		throw new Error("Invalid input. Most likely, 'collectionKey' does not exist.");
 	}
 	if (!unsorted[0].hasOwnProperty(sortKey) && !unsorted[0].data.hasOwnProperty(sortKey)) {
 		throw new Error(`Invalid sortKey value: ${sortKey}`);
 	}
+
 	return unsorted.sort((a, b) => {
 		const {
 			data: { [sortKey as DataCollectionKey]: sortValueFromA },
@@ -143,5 +144,5 @@ export default async function getSortedItems({ collectionKey, sortKey, type, ord
 			data: { [sortKey as DataCollectionKey]: sortValueFromB },
 		} = b;
 		return sortFunctions[type](sortValueFromA, sortValueFromB, order);
-	}) as CollectionEntry<CollectionKeyEnum>[];
+	});
 }

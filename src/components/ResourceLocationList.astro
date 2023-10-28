@@ -29,9 +29,13 @@ export interface Props {
 	subcategories?: CollectionEntry<'subcategories'>[];
 }
 
-const { res, section, categories, subcategories } = Astro.props as Props;
+const { res, section, categories, subcategories } = Astro.props;
 
 const resourceSection = res ? res.data.section : section;
+const shouldRenderCategoriesFromRes = res && res.data.categories && resourceSection;
+const shouldRenderCategoriesFromCat = categories && resourceSection;
+const shouldRenderSubcategoriesFromRes = res && res.data.subcategories;
+const shouldRenderSubcategoriesFromCat = subcategories && categories && resourceSection;
 ---
 
 <ul class="ResourceLocationList">
@@ -54,9 +58,7 @@ const resourceSection = res ? res.data.section : section;
 	}
 
 	{
-		res &&
-			res.data.categories &&
-			resourceSection &&
+		shouldRenderCategoriesFromRes &&
 			res.categoryData.map((cat) => (
 				<li class="ResourceLocationItem Classification">
 					<a class="ClassificationLink" href={`/${resourceSection.slug}/${cat.slug}`} title={`Vezi toate resursele din categoria ${cat.data.title}`}>
@@ -66,8 +68,7 @@ const resourceSection = res ? res.data.section : section;
 			))
 	}
 	{
-		categories &&
-			resourceSection &&
+		shouldRenderCategoriesFromCat &&
 			categories.map((cat) => (
 				<li class="ResourceLocationItem Classification">
 					<a class="ClassificationLink" href={`/${resourceSection.slug}/${cat.slug}`} title={`Vezi toate resursele din categoria ${cat.data.title}`}>
@@ -78,8 +79,7 @@ const resourceSection = res ? res.data.section : section;
 	}
 
 	{
-		res &&
-			res.data.subcategories &&
+		shouldRenderSubcategoriesFromRes &&
 			res.categoryData.map((cat) =>
 				res.subCategoryData.map((subcat) => (
 					<li class="ResourceLocationItem Classification">
@@ -95,9 +95,7 @@ const resourceSection = res ? res.data.section : section;
 			)
 	}
 	{
-		subcategories &&
-			categories &&
-			resourceSection &&
+		shouldRenderSubcategoriesFromCat &&
 			categories.map((cat) =>
 				subcategories.map((subcat) => (
 					<li class="ResourceLocationItem Classification">

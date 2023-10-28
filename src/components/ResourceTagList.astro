@@ -14,7 +14,7 @@ import { type CollectionEntry } from 'astro:content';
 import { highlightUrl } from '../utils/urlHelpers';
 
 export interface Props {
-	taglist: CollectionEntry<'tags'>[] | { slug: string; collection: string }[];
+	taglist: Pick<CollectionEntry<'tags'>, 'slug' | 'collection'>[];
 }
 
 const { taglist } = Astro.props as Props;
