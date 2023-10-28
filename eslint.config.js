@@ -1,6 +1,7 @@
 import a11y from 'eslint-plugin-jsx-a11y';
 import astro from 'eslint-plugin-astro';
 import astroParser from 'astro-eslint-parser';
+import jsdoc from 'eslint-plugin-jsdoc';
 import ts from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
 
@@ -31,10 +32,12 @@ export default [
 		plugins: {
 			'@typescript-eslint': ts,
 			ts,
+			jsdoc,
 		},
 		rules: {
 			...ts.configs['eslint-recommended'].rules,
 			...ts.configs['recommended'].rules,
+			...jsdoc.configs['flat/recommended'].rules,
 			'indent': ['error', 'tab', { SwitchCase: 1 }],
 			'linebreak-style': ['error', 'unix'],
 			'brace-style': ['error', '1tbs', { allowSingleLine: true }],
@@ -54,6 +57,7 @@ export default [
 			'space-in-parens': ['warn', 'never'],
 			'template-curly-spacing': 'warn',
 			'wrap-regex': 'warn',
+			'jsdoc/require-description': 'warn',
 		},
 	},
 	{
@@ -82,10 +86,12 @@ export default [
 		plugins: {
 			'@typescript-eslint': ts,
 			ts,
+			jsdoc,
 		},
 		rules: {
 			...ts.configs['eslint-recommended'].rules,
 			...ts.configs['recommended'].rules,
+			...jsdoc.configs['flat/recommended'].rules,
 			'indent': ['error', 'tab', { SwitchCase: 1 }],
 			'linebreak-style': ['error', 'unix'],
 			'brace-style': ['error', '1tbs', { allowSingleLine: true }],
@@ -105,6 +111,7 @@ export default [
 			'space-in-parens': ['warn', 'never'],
 			'template-curly-spacing': 'warn',
 			'wrap-regex': 'warn',
+			'jsdoc/require-description': 'warn',
 		},
 	},
 	{
@@ -121,6 +128,7 @@ export default [
 		plugins: {
 			astro,
 			a11y,
+			jsdoc,
 		},
 		rules: {
 			'indent': ['error', 'tab', { SwitchCase: 1 }],
@@ -186,6 +194,7 @@ export default [
 			'space-in-parens': ['warn', 'never'],
 			'template-curly-spacing': 'warn',
 			'wrap-regex': 'warn',
+			'jsdoc/require-description': 'warn',
 		},
 	},
 ];

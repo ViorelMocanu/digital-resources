@@ -1,5 +1,6 @@
 /**
  * Inserts proper class names to navigational elements that should be marked as Active when appropriate
+ * @function highlightUrl
  * @param {string} urlFragment The slug you would like to check against the current link to make active
  * @param {string} standardClass The CSS class names you would like to have by default on all links / buttons
  * @param {string} activeClass The CSS class names you would like to have on Active links / buttons

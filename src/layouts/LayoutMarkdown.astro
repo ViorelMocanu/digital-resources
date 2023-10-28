@@ -1,7 +1,6 @@
 ---
 /**
  * Renders an Astro Layout that renders an HTML page with metadata for SEO purposes and slots in the Markdown content of each page.
- *
  * @component
  * @example
  * ```astro
@@ -10,21 +9,20 @@
  *   headings={headings}
  * />
  * ```
- * @astroProps
- * @prop {string} file - The file reference
- * @prop {string} url - The URL of the current Markdown page
- * @prop {Object} content - The content object coming from Astro Markdown
- * @prop {string} content.title - A string representing the title of the page
- * @prop {string} content.description - A string representing the description of the page
- * @prop {string} content.ogImage - An optional string representing the URL of the Open Graph image
- * @prop {string} content.modDate - An optional string representing the modification date of the page
- * @prop {string} content.canonical - An optional string representing the canonical URL of the page
- * @prop {string} content.template - A string representing the template used for the page
- * @prop {string} content.[activeMenu] - An optional string representing the active menu item
- * @prop {string} content.file - The file reference
- * @prop {string} content.url - The URL of the current Markdown page
- * @prop {BreadcrumbArray} content.breadcrumbArray - An array of objects representing the breadcrumb navigation
- * @prop {Headings} headings - The Headings array of objects defining the internal subheadings for TOC generation
+ * @property {string} file - The file reference
+ * @property {string} url - The URL of the current Markdown page
+ * @property {Object} content - The content object coming from Astro Markdown
+ * @property {string} content.title - A string representing the title of the page
+ * @property {string} content.description - A string representing the description of the page
+ * @property {string} content.ogImage - An optional string representing the URL of the Open Graph image
+ * @property {string} content.modDate - An optional string representing the modification date of the page
+ * @property {string} content.canonical - An optional string representing the canonical URL of the page
+ * @property {string} content.template - A string representing the template used for the page
+ * @property {string} content.[activeMenu] - An optional string representing the active menu item
+ * @property {string} content.file - The file reference
+ * @property {string} content.url - The URL of the current Markdown page
+ * @property {BreadcrumbArray} content.breadcrumbArray - An array of objects representing the breadcrumb navigation
+ * @property {Headings} headings - The Headings array of objects defining the internal subheadings for TOC generation
  * @returns {astro.AstroNode} The rendered HTML layout with metadata and components.
  */
 

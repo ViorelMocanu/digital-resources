@@ -1,20 +1,18 @@
 ---
 /**
  * Renders the resource list. Is used in multiple locations throughout every resource listing page.
- *
  * @component
  * @example
  * ```astro
  * <ResourceList resources={theResources} page={thePage} pageTitle="The page title" />
  * ```
- * @astroProps
- * @prop {CollectionEntry<"resources">[]} resources - The list of resources.
- * @prop {Object} [page] - The optional page object.
- * @prop {number} page.currentPage - The current page number.
- * @prop {number} page.lastPage - The last page number.
- * @prop {Object} page.url - The URL object.
- * @prop {string} page.url.[next] - The URL for the next page.
- * @prop {string} page.url.[prev] - The URL for the previous page.
+ * @property {CollectionEntry<"resources">[]} resources - The list of resources.
+ * @property {Object} [page] - The optional page object.
+ * @property {number} page.currentPage - The current page number.
+ * @property {number} page.lastPage - The last page number.
+ * @property {Object} page.url - The URL object.
+ * @property {string} page.url.[next] - The URL for the next page.
+ * @property {string} page.url.[prev] - The URL for the previous page.
  * @returns {astro.AstroNode} The rendered resource list component.
  */
 

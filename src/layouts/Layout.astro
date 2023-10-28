@@ -1,7 +1,6 @@
 ---
 /**
  * Renders an Astro Layout that renders an HTML page with metadata for SEO purposes and slots in the content of each page.
- *
  * @component
  * @example
  * ```astro
@@ -16,15 +15,14 @@
  *   breadcrumbArray={breadcrumbArray}
  * />
  * ```
- * @astroProps
- * @prop {string} title - A string representing the title of the page
- * @prop {string} description - A string representing the description of the page
- * @prop {string} ogImage - An optional string representing the URL of the Open Graph image
- * @prop {string} modDate - An optional string representing the modification date of the page
- * @prop {string} canonical - An optional string representing the canonical URL of the page
- * @prop {string} template - A string representing the template used for the page
- * @prop {string} [activeMenu] - An optional string representing the active menu item
- * @prop {BreadcrumbArray} breadcrumbArray - An array of objects representing the breadcrumb navigation
+ * @property {string} title - A string representing the title of the page
+ * @property {string} description - A string representing the description of the page
+ * @property {string} ogImage - An optional string representing the URL of the Open Graph image
+ * @property {string} modDate - An optional string representing the modification date of the page
+ * @property {string} canonical - An optional string representing the canonical URL of the page
+ * @property {string} template - A string representing the template used for the page
+ * @property {string} [activeMenu] - An optional string representing the active menu item
+ * @property {BreadcrumbArray} breadcrumbArray - An array of objects representing the breadcrumb navigation
  * @returns {astro.AstroNode} The rendered HTML layout with metadata and components.
  */
 

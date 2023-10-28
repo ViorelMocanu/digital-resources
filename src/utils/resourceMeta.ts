@@ -2,6 +2,7 @@ import { z } from 'zod';
 
 /**
  * Formats a given date into the 'YYYY-MM-DD' format.
+ * @function getFormattedDate
  * @param {Date | string} date - The date to be formatted. Can be a Date object or a string.
  * @returns {string} The formatted date string. If the date is malformed, returns 'Malformed date'.
  */

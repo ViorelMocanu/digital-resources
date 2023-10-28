@@ -70,6 +70,7 @@
 		"astro-compress": "^2.1.6",
 		"eslint": "^8.52.0",
 		"eslint-plugin-astro": "^0.29.1",
+		"eslint-plugin-jsdoc": "^46.8.2",
 		"eslint-plugin-jsx-a11y": "^6.7.1",
 		"husky": "^8.0.3",
 		"markdownlint-cli": "^0.37.0",
