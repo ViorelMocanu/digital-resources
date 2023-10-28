@@ -6,11 +6,15 @@
 	"bracketSpacing": true,
 	"bracketSameLine": false,
 	"arrowParens": "always",
-	"insertPragma": true,
+	"embeddedLanguageFormatting": "auto",
+	"endOfLine": "lf",
+	"requirePragma": false,
+	"insertPragma": false,
 	"proseWrap": "never",
 	"singleQuote": true,
 	"singleAttributePerLine": false,
-	"plugins": [
-		"prettier-plugin-astro"
-	]
+	"printWidth": 180,
+	"tabWidth": 4,
+	"htmlWhitespaceSensitivity": "css",
+	"plugins": ["prettier-plugin-astro"]
 }

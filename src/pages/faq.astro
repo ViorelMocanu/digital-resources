@@ -1,29 +1,22 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from '../layouts/Layout.astro';
 
-const pageTitle = "Întrebări frecvente";
-const pageDescription = "@TODO: scrie descrierea";
-const breadcrumbArray = [{
-	href: Astro.url,
-	title: pageTitle,
-	label: "FAQ"
-}];
-
+const pageTitle = 'Întrebări frecvente';
+const pageDescription = '@TODO: scrie descrierea';
+const breadcrumbArray = [
+	{
+		href: Astro.url,
+		title: pageTitle,
+		label: 'FAQ',
+	},
+];
 ---
 
-<Layout
-	title={pageTitle}
-	description={pageDescription}
-	template="FAQPage TextPage"
-	breadcrumbArray={breadcrumbArray}
->
+<Layout title={pageTitle} description={pageDescription} template="FAQPage TextPage" breadcrumbArray={breadcrumbArray}>
 	<div class="Hero" id="hero">
 		<div class="HeroText">
 			<h1 class="HeroTitle">Întrebări frecvente</h1>
 		</div>
 	</div>
-	<main class="Main">
-		@TODO: Completează conținutul paginii curente
-		FAQ
-	</main>
+	<main class="Main">@TODO: Completează conținutul paginii curente FAQ</main>
 </Layout>

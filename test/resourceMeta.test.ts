@@ -12,7 +12,6 @@ test('getFormattedDate()', () => {
 });
 
 describe('getFormattedDate', () => {
-
 	// Returns a formatted date string when given a valid Date object.
 	it('should return a formatted date string when given a valid Date object', () => {
 		const date = new Date('2022-01-01');
@@ -53,5 +52,4 @@ describe('getFormattedDate', () => {
 		const result = getFormattedDate(isoString);
 		expect(result).toBe('Time not specified');
 	});
-
 });

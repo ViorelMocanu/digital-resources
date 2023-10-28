@@ -1,21 +1,14 @@
 # Resurse digitale: **Resurse.dev**
 
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/ViorelMocanu/digital-resources/static.yml)](https://github.com/ViorelMocanu/digital-resources/actions)
-[![GitHub Pages Deploy Status](https://github.com/ViorelMocanu/digital-resources/actions/workflows/static.yml/badge.svg)](https://github.com/ViorelMocanu/digital-resources/deployments)
-[![Uptime Robot status](https://img.shields.io/uptimerobot/status/m795450488-8340b637195100fd9eb8309b)](https://resurse.dev)
-[![GitHub contributors](https://img.shields.io/github/contributors/ViorelMocanu/digital-resources.svg)](https://github.com/ViorelMocanu/digital-resources/graphs/contributors)
-[![GitHub Sponsors](https://img.shields.io/github/sponsors/ViorelMocanu)](https://github.com/sponsors/ViorelMocanu/)
-[![ISC license](https://img.shields.io/badge/License-ISC-blue.svg?style=flat)](https://github.com/ViorelMocanu/digital-resources/blob/main/LICENSE)
-[![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fresurse.dev)](https://validator.w3.org/nu/?doc=https%3A%2F%2Fresurse.dev%2F&showsource=yes&showoutline=yes)
-![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/ViorelMocanu/digital-resources)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/ViorelMocanu/digital-resources/static.yml)](https://github.com/ViorelMocanu/digital-resources/actions) [![GitHub Pages Deploy Status](https://github.com/ViorelMocanu/digital-resources/actions/workflows/static.yml/badge.svg)](https://github.com/ViorelMocanu/digital-resources/deployments) [![Uptime Robot status](https://img.shields.io/uptimerobot/status/m795450488-8340b637195100fd9eb8309b)](https://resurse.dev) [![GitHub contributors](https://img.shields.io/github/contributors/ViorelMocanu/digital-resources.svg)](https://github.com/ViorelMocanu/digital-resources/graphs/contributors) [![GitHub Sponsors](https://img.shields.io/github/sponsors/ViorelMocanu)](https://github.com/sponsors/ViorelMocanu/) [![ISC license](https://img.shields.io/badge/License-ISC-blue.svg?style=flat)](https://github.com/ViorelMocanu/digital-resources/blob/main/LICENSE) [![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fresurse.dev)](https://validator.w3.org/nu/?doc=https%3A%2F%2Fresurse.dev%2F&showsource=yes&showoutline=yes) ![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/ViorelMocanu/digital-resources)
 
 Salutare!
 
-Bine-ai venit în proiectul de *resurse digitale*, prin care transformăm link-urile din [Google Doc-ul făcut de mine acum mai mult timp] într-un website funcțional care să ajute oamenii să parcurgă resursele de învățare mai eficient.
+Bine-ai venit în proiectul de _resurse digitale_, prin care transformăm link-urile din [Google Doc-ul făcut de mine acum mai mult timp] într-un website funcțional care să ajute oamenii să parcurgă resursele de învățare mai eficient.
 
 Vezi toată seria de video-uri 🔴LIVE de pe YouTube în care am generat codul pentru acest proiect în [playlist-ul Resurse.dev de aici &rarr;].
 
-Proiectul e abia la început, și dacă vrei să te implici, orice contribuție de-a ta este binevenită! Citește [regulile] și [ghidul despre cum să contribui] și ajută-ne să facem proiectul ăsta *cel mai bun loc din care să alegi ce resurse să folosești pentru învățare*! Contribuitorii majori vor fi menționați în [`humans.txt`].
+Proiectul e abia la început, și dacă vrei să te implici, orice contribuție de-a ta este binevenită! Citește [regulile] și [ghidul despre cum să contribui] și ajută-ne să facem proiectul ăsta _cel mai bun loc din care să alegi ce resurse să folosești pentru învățare_! Contribuitorii majori vor fi menționați în [`humans.txt`].
 
 Documentul curent este momentan în 🇷🇴 Română, însă cel mai probabil la finalul [v1.0] va fi bilingv (inclusiv în 🇬🇧 Engleză) pentru a stimula oameni din toate colțurile lumii să se alăture pentru a contribui la proiect și a semnala potențiale probleme. Restul documentației și task-urile din [GitHub Project-ul] unde poți vedea statusul tuturor issue-urilor create vor fi exclusiv în 🇬🇧 Engleză.
 
@@ -31,33 +24,33 @@ This project began in a 🇷🇴 Romanian community, so please excuse the almost
 
 Ne-am mai inspirat de aici ca să facem proiectul curent:
 
-- [Tutorial oficial al Astro 3.0]
-- Componente: <https://github.com/markteekman/accessible-astro-starter> + <https://www.accessible-astro.dev/accessible-components/> + <https://github.com/markteekman/accessible-astro-components> + <https://github.com/shaunchander/astro-pwa-starter>
-- [Integrări] din care vrem să testăm:
-    - [ ] `@astrojs/mdx`
-    - [x] `@astrojs/sitemap`
-    - [ ] `astro-compress` vs `astro-compressor` vs `astro-html-minifier`
-    - [ ] `astro-seo`
-    - [ ] `astro-seo-meta`
-    - [ ] `astro-seo-schema`
-    - [ ] `astro-robots-txt`
-    - [ ] `vite-plugin-pwa` + `astro-webmanifest`
-    - [x] `@astrojs/partytown`
-    - [ ] `astro-i18next`
-    - [x] `typescript` + `@typescript-eslint/eslint-plugin` + `@typescript-eslint/parser`
-    - [x] `eslint` + `eslint-plugin-astro` + `eslint-plugin-jsx-a11y`
-    - [x] `sass`
-    - [ ] `svgo`
-    - [ ] `@astro-community/astro-embed-youtube` + `@astro-community/astro-embed-twitter`
-    - [ ] `astro-purgecss`
-    - [ ] `@astrojs/vercel` vs `@astrojs/netlify` vs `@astrojs/cloudflare` vs `@astrojs/deno` pentru deploy
-    - [ ] `astro-icon` (optional) testat?
-    - [ ] `@sendgrid` (optional) pentru email?
-    - [ ] `accessible-astro-components` (optional) ca să „furăm” cod de aici?
-    - [ ] `@astrojs/tailwind` + `tailwindcss` (optional)
-    - [x] `prettier` + `prettier-plugin-astro` + `prettier-plugin-tailwindcss` (optional)
+-   [Tutorial oficial al Astro 3.0]
+-   Componente: <https://github.com/markteekman/accessible-astro-starter> + <https://www.accessible-astro.dev/accessible-components/> + <https://github.com/markteekman/accessible-astro-components> + <https://github.com/shaunchander/astro-pwa-starter>
+-   [Integrări] din care vrem să testăm:
+    -   [ ] `@astrojs/mdx`
+    -   [x] `@astrojs/sitemap`
+    -   [ ] `astro-compress` vs `astro-compressor` vs `astro-html-minifier`
+    -   [ ] `astro-seo`
+    -   [ ] `astro-seo-meta`
+    -   [ ] `astro-seo-schema`
+    -   [ ] `astro-robots-txt`
+    -   [ ] `vite-plugin-pwa` + `astro-webmanifest`
+    -   [x] `@astrojs/partytown`
+    -   [ ] `astro-i18next`
+    -   [x] `typescript` + `@typescript-eslint/eslint-plugin` + `@typescript-eslint/parser`
+    -   [x] `eslint` + `eslint-plugin-astro` + `eslint-plugin-jsx-a11y`
+    -   [x] `sass`
+    -   [ ] `svgo`
+    -   [ ] `@astro-community/astro-embed-youtube` + `@astro-community/astro-embed-twitter`
+    -   [ ] `astro-purgecss`
+    -   [ ] `@astrojs/vercel` vs `@astrojs/netlify` vs `@astrojs/cloudflare` vs `@astrojs/deno` pentru deploy
+    -   [ ] `astro-icon` (optional) testat?
+    -   [ ] `@sendgrid` (optional) pentru email?
+    -   [ ] `accessible-astro-components` (optional) ca să „furăm” cod de aici?
+    -   [ ] `@astrojs/tailwind` + `tailwindcss` (optional)
+    -   [x] `prettier` + `prettier-plugin-astro` + `prettier-plugin-tailwindcss` (optional)
 
----------------
+---
 
 ## 🕹️ Cum pornești proiectul?
 
@@ -67,7 +60,7 @@ Ne-am mai inspirat de aici ca să facem proiectul curent:
 git clone https://github.com/ViorelMocanu/digital-resources.git
 ```
 
-**BONUS:** dacă ești pe <del>Winblows</del> <ins>Windows</ins>, asigură-te că faci pașii următori într-o consolă cu drepturi de Administrator. Fie deschide VSCode sau IDE-ul tău preferat cu consolă atașată cu *`click dreapta > Run as Administrator`* fie rulează `cmd.exe` sau `powershell.exe` cu drepturi de Admin.
+**BONUS:** dacă ești pe <del>Winblows</del> <ins>Windows</ins>, asigură-te că faci pașii următori într-o consolă cu drepturi de Administrator. Fie deschide VSCode sau IDE-ul tău preferat cu consolă atașată cu _`click dreapta > Run as Administrator`_ fie rulează `cmd.exe` sau `powershell.exe` cu drepturi de Admin.
 
 Asigură-te că ai ultima versiune de Node instalată de pe [site-ul oficial Node.js]. Ideal e să ai minim versiunea `18.18.0`. Poți verifica versiunea instalată cu comanda:
 
@@ -83,7 +76,7 @@ Pentru Windows:
 iwr https://get.pnpm.io/install.ps1 -useb | iex
 ```
 
-Pentru POSIX / Mac / Linux / *nix cu librăria `curl` disponibilă:
+Pentru POSIX / Mac / Linux / \*nix cu librăria `curl` disponibilă:
 
 ```bash
 curl -fsSL https://get.pnpm.io/install.sh | sh -
@@ -144,15 +137,9 @@ Toate comenzile sunt rulate din root-ul proiectului, dintr-un terminal:
 
 ## 🛑 Semnalează un bug sau contribuie
 
-![GitHub issues](https://img.shields.io/github/issues/ViorelMocanu/digital-resources)
-![GitHub issues by-label](https://img.shields.io/github/issues/ViorelMocanu/digital-resources/bug)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/ViorelMocanu/digital-resources)
-![GitHub milestone details](https://img.shields.io/github/milestones/progress/ViorelMocanu/digital-resources/2)
-![GitHub milestone details](https://img.shields.io/github/milestones/progress/ViorelMocanu/digital-resources/1)
-![GitHub milestone details](https://img.shields.io/github/milestones/progress/ViorelMocanu/digital-resources/3)
+![GitHub issues](https://img.shields.io/github/issues/ViorelMocanu/digital-resources) ![GitHub issues by-label](https://img.shields.io/github/issues/ViorelMocanu/digital-resources/bug) ![GitHub pull requests](https://img.shields.io/github/issues-pr/ViorelMocanu/digital-resources) ![GitHub milestone details](https://img.shields.io/github/milestones/progress/ViorelMocanu/digital-resources/2) ![GitHub milestone details](https://img.shields.io/github/milestones/progress/ViorelMocanu/digital-resources/1) ![GitHub milestone details](https://img.shields.io/github/milestones/progress/ViorelMocanu/digital-resources/3)
 
-Dacă ai observat un bug [![GitHub label: bug](https://img.shields.io/github/labels/ViorelMocanu/digital-resources/bug)
-](https://github.com/ViorelMocanu/digital-resources/labels/bug) și vrei să-l semnalezi, urmează documentația aferentă de aici: [CONTRIBUTING.md].
+Dacă ai observat un bug [![GitHub label: bug](https://img.shields.io/github/labels/ViorelMocanu/digital-resources/bug) ](https://github.com/ViorelMocanu/digital-resources/labels/bug) și vrei să-l semnalezi, urmează documentația aferentă de aici: [CONTRIBUTING.md].
 
 ## 🚀 Structura proiectului
 
@@ -178,7 +165,6 @@ Nu e nimic special cu folder-ul `src/components/`, doar că acolo ne punem în m
 
 Toate resursele statice în afară de imagini ar trebui puse în directorul `public/`, iar imaginile ar trebui puse în `src/img/` pentru a folosi [noile componente] `<Image />` și `<Picture />` din Astro 3.0.
 
-
 ## 👋 Vrei să discuți cu noi?
 
 Te așteptăm pe [server-ul de Discord], [canalul de YouTube] sau [grupul de Facebook] cu drag!
@@ -187,30 +173,19 @@ Pe serverul de Discord sunt: [![Discord](https://img.shields.io/discord/71565320
 
 Pe canalul de YouTube am strâns până acum: [![YouTube Channel Views](https://img.shields.io/youtube/channel/views/UCwCxt0pJ4DrKtbSjkcqcgCA) ![YouTube Channel Subscribers](https://img.shields.io/youtube/channel/subscribers/UCwCxt0pJ4DrKtbSjkcqcgCA)](https://www.youtube.com/@ViorelMocanu?sub_confirmation=1)
 
-[![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white)](https://www.youtube.com/@ViorelMocanu)
-[![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/invite/UpnAutz)
-[![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=for-the-badge&logo=Facebook&logoColor=white)](https://www.facebook.com/groups/carierait)
-[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white)](https://www.instagram.com/viorelmocanu.ro/)
-[![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/viorelmocanu/)
-[![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white)](https://twitter.com/ViorelMocanu)
-[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](https://viorelmocanu.ck.page/newsletter)
-[![WordPress](https://img.shields.io/badge/WordPress-%23117AC9.svg?style=for-the-badge&logo=WordPress&logoColor=white)](https://www.viorelmocanu.ro/blog/)
-
+[![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white)](https://www.youtube.com/@ViorelMocanu) [![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/invite/UpnAutz) [![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=for-the-badge&logo=Facebook&logoColor=white)](https://www.facebook.com/groups/carierait) [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white)](https://www.instagram.com/viorelmocanu.ro/) [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/viorelmocanu/) [![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white)](https://twitter.com/ViorelMocanu) [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](https://viorelmocanu.ck.page/newsletter) [![WordPress](https://img.shields.io/badge/WordPress-%23117AC9.svg?style=for-the-badge&logo=WordPress&logoColor=white)](https://www.viorelmocanu.ro/blog/)
 
 ## 💸 Sponsorizează inițiativa
 
 Dacă simți că poți contribui financiar la această inițiativă, inclusiv să susții video-urile lui Viorel și materialele ajutătoare pe care le produce, îl poți sponsoriza aici:
 
-[![Github-sponsors](https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#EA4AAA)](https://github.com/sponsors/ViorelMocanu)
-[![Patreon](https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white)](https://www.patreon.com/ViorelMocanu)
-[![BuyMeACoffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/viorel)
+[![Github-sponsors](https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#EA4AAA)](https://github.com/sponsors/ViorelMocanu) [![Patreon](https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white)](https://www.patreon.com/ViorelMocanu) [![BuyMeACoffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/viorel)
 
 Contribuțiile voastre vor ajuta la crearea de mai mult conținut pentru voi și la finalizarea mai rapidă a proiectului actual. Toți banii din investiții se întorc la comunitate, indirect, prin sprijinul acordat lui [Viorel](https://github.com/ViorelMocanu).
 
 Merci! ❤️
 
 [Viorel Mocanu], [Consultant digital] și [creator de conținut].
-
 
 [Google Doc-ul făcut de mine acum mai mult timp]: https://bit.ly/vio-digital
 [playlist-ul Resurse.dev de aici &rarr;]: https://youtube.com/playlist?list=PLfTqvIG4roBphVLnYuDTkfweQ2GmmcHOq

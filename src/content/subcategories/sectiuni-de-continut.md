@@ -1,6 +1,6 @@
 ---
-title: "Secțiuni de conținut"
-menu: "Secțiuni"
+title: 'Secțiuni de conținut'
+menu: 'Secțiuni'
 sortOrder: 2
 description: TODO de scris descrierea
 ---

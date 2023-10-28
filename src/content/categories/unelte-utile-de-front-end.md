@@ -1,14 +1,14 @@
 ---
-title: "Unelte Utile de Front End"
-menu: "Unelte"
+title: 'Unelte Utile de Front End'
+menu: 'Unelte'
 sortOrder: 1
 image:
-  imageUrl: "test.jpg"
-  imageAlt: "test"
+    imageUrl: 'test.jpg'
+    imageAlt: 'test'
 description: "@TODO: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
 subcategories:
-- browser
-- ide
+    - browser
+    - ide
 publishDate: 2023-09-24
 ---
 

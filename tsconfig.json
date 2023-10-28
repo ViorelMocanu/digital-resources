@@ -1,5 +1,6 @@
 {
 	"extends": "astro/tsconfigs/strictest",
+	"compileOnSave": true,
 	"compilerOptions": {
 		// Enable top-level await, and other modern ESM features.
 		"target": "ESNext",
@@ -12,12 +13,22 @@
 		"isolatedModules": true,
 		// Astro will directly run your TypeScript code, no transpilation needed.
 		"noEmit": true,
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitAny": true,
+		"noImplicitReturns": true,
+		"noImplicitThis": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
 		"types": [
 			"astro/client",
-			"vitest/globals",
+			"vitest/globals"
 			// "vite-plugin-pwa/info"
 		],
+		"sourceMap": true,
 		"strictNullChecks": true,
-		"allowJs": true
-	}
+		"strictFunctionTypes": true,
+		"allowJs": true,
+		"checkJs": true
+	},
+	"exclude": ["node_modules", "**/node_modules/*", "dist", "coverage", "static", "eslint.config.js"]
 }

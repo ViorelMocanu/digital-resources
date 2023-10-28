@@ -1,106 +1,93 @@
 ---
 /**
  * Renders a navigation menu based on the provided section and its categories and subcategories.
- *
  * @component
  * @example
  * ```astro
  * <ResourceTOC section={theSection} />
  * ```
- *
- * @astroProps
- * @prop {CollectionEntry<"sections">} section - An object representing the current section.
+ * @property {CollectionEntry<"sections">} section - An object representing the current section.
  * @returns {astro.AstroNode} The rendered navigation menu.
  */
 
-import { type CollectionEntry, getCollection } from "astro:content";
+import { type CollectionEntry, getCollection } from 'astro:content';
 import { type extendedCategory } from '../config';
-import { highlightUrl } from "../utils/urlHelpers";
+import { highlightUrl } from '../utils/urlHelpers';
 
 export interface Props {
-	section: CollectionEntry<"sections">;
+	section: CollectionEntry<'sections'>;
 }
 
 const { section } = Astro.props;
 const activePage = Astro.url.pathname;
 
 const sectionCategories = section.data.categories;
-let categoryList : extendedCategory[] = [];
+let categoryList: extendedCategory[] = [];
 if (sectionCategories) {
-	const allCategories = await getCollection('categories') as CollectionEntry<"categories">[];
-	const allSubcategories = await getCollection('subcategories') as CollectionEntry<"subcategories">[];
-	sectionCategories.forEach((cat:{slug: string, collection: string}) => {
+	const allCategories = (await getCollection('categories')) as CollectionEntry<'categories'>[];
+	const allSubcategories = (await getCollection('subcategories')) as CollectionEntry<'subcategories'>[];
+	sectionCategories.forEach((cat: { slug: string; collection: string }) => {
 		const category = allCategories.find((el) => {
 			return el.slug == cat.slug;
 		}) as extendedCategory;
-		if (typeof category !== "undefined" && typeof category.data.subcategories !== "undefined" && category.data.subcategories !== null) {
-			let subCategoryData: CollectionEntry<"subcategories">[] = [];
-			category.data.subcategories.forEach((subcat:{slug: string, collection: string}) => {
+		if (typeof category !== 'undefined' && typeof category.data.subcategories !== 'undefined' && category.data.subcategories !== null) {
+			let subCategoryData: CollectionEntry<'subcategories'>[] = [];
+			category.data.subcategories.forEach((subcat: { slug: string; collection: string }) => {
 				const subcategory = allSubcategories.find((el) => {
 					return el.slug == subcat.slug;
-				}) as CollectionEntry<"subcategories">;
+				}) as CollectionEntry<'subcategories'>;
 				subCategoryData.push(subcategory);
 			});
-			category["subCategoryData"] = subCategoryData;
+			category['subCategoryData'] = subCategoryData;
 		}
 		categoryList.push(category);
 	});
 }
-
 ---
 
 <nav class="ListNavigation">
-	{sectionCategories ? (
-		<h2 class="ListNavTitle" id="treeTitle">Categorii de {section.data.title}:</h2>
-		<ol class="ListNav" role="tree" aria-labelledby="treeTitle">
-			{categoryList.map((category: extendedCategory) => (
-				<li
-					class:list={highlightUrl(`/${section.slug}/${category.slug}`, 'ListNavItem', 'ActiveListNav', activePage)}
-					role="treeitem"
-					aria-selected={activePage.startsWith(`/${section.slug}/${category.slug}`) ? 'true' : 'false'}
-				>
-					<a class="ListNavLink" href={`/${section.slug}/${category.slug}`} title={`Vezi resursele din categoria ${category.data.title}`}>
-						{category.data.title}
-					</a>
-					{(category.data.subcategories && category.subCategoryData) && (
-						<ol class="ListSubNav">
-							{category.subCategoryData.map((subcategory:CollectionEntry<"subcategories">) => (
-								<li
-									class:list={highlightUrl(
-										`/${section.slug}/${category.slug}/${subcategory.slug}`,
-										'ListSubNavItem',
-										'ActiveListNav',
-										activePage
-									)}
-									role="treeitem"
-									aria-selected={activePage.startsWith(`/${section.slug}/${category.slug}/${subcategory.slug}`) ? 'true' : 'false'}
-								>
-									<a
-										class="ListSubNavLink"
-										href={`/${section.slug}/${category.slug}/${subcategory.slug}`}
-										title={`Vezi resursele din subcategoria ${subcategory.data.title}`}
-									>
-										{subcategory.data.title}
-									</a>
-								</li>
-							))}
-						</ol>
-					)}
-				</li>
-			))}
-			<li class="ListNavItem ListNavClose">
-				<button class="ListNavCloseButton" id="closeSubnav" title="Închide meniul de categorii">
-					<span class="Icon IconClose">
-						<span class="SROnly">❌</span>
-						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-							<path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-						</svg>
-					</span>
-					<span class="ButtonText">Închide</span>
-				</button>
-			</li>
-		</ol>
-	) : (
-		<h2 class="ListNavTitle">Această secțiune nu are categorii.</h2>
-	)}
+	{
+		sectionCategories ? (
+			<>
+				<h2 class="ListNavTitle">Categorii de {section.data.title}:</h2>
+				<ol class="ListNav">
+					{categoryList.map((category: extendedCategory) => (
+						<li class:list={highlightUrl(`/${section.slug}/${category.slug}`, 'ListNavItem', 'ActiveListNav', activePage)}>
+							<a class="ListNavLink" href={`/${section.slug}/${category.slug}`} title={`Vezi resursele din categoria ${category.data.title}`}>
+								{category.data.title}
+							</a>
+							{category.data.subcategories && category.subCategoryData && (
+								<ol class="ListSubNav">
+									{category.subCategoryData.map((subcategory: CollectionEntry<'subcategories'>) => (
+										<li class:list={highlightUrl(`/${section.slug}/${category.slug}/${subcategory.slug}`, 'ListSubNavItem', 'ActiveListNav', activePage)}>
+											<a
+												class="ListSubNavLink"
+												href={`/${section.slug}/${category.slug}/${subcategory.slug}`}
+												title={`Vezi resursele din subcategoria ${subcategory.data.title}`}
+											>
+												{subcategory.data.title}
+											</a>
+										</li>
+									))}
+								</ol>
+							)}
+						</li>
+					))}
+					<li class="ListNavItem ListNavClose">
+						<button class="ListNavCloseButton" id="closeSubnav" title="Închide meniul de categorii">
+							<span class="Icon IconClose">
+								<span class="SROnly">❌</span>
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+									<path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+								</svg>
+							</span>
+							<span class="ButtonText">Închide</span>
+						</button>
+					</li>
+				</ol>
+			</>
+		) : (
+			<h2 class="ListNavTitle">Această secțiune nu are categorii.</h2>
+		)
+	}
 </nav>

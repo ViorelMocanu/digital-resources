@@ -1,25 +1,21 @@
 ---
 /**
  * Renders a list of resource locations based on the provided props.
- *
  * @component
  * @example
  * ```astro
  * <ResourceLocationList res={resource} />
  * ```
  * This example renders a list of resource locations using the `res` prop.
- *
  * @example
  * ```astro
  * <ResourceLocationList section={theSection} categories={theCategories} subcategories={theSubcategories} />
  * ```
  * This example renders a list of resource locations using the `section`, `categories`, and `subcategories` props.
- *
- * @astroProps
- * @prop {extendedResource} [res] - An optional object representing an extended resource.
- * @prop {CollectionEntry<"sections">} [section] - An optional object representing a collection entry of type "sections".
- * @prop {CollectionEntry<"categories">[]} [categories] - An optional array of objects representing collection entries of type "categories".
- * @prop {CollectionEntry<"subcategories">[]} [subcategories] - An optional array of objects representing collection entries of type "subcategories".
+ * @property {extendedResource} [res] - An optional object representing an extended resource.
+ * @property {CollectionEntry<"sections">} [section] - An optional object representing a collection entry of type "sections".
+ * @property {CollectionEntry<"categories">[]} [categories] - An optional array of objects representing collection entries of type "categories".
+ * @property {CollectionEntry<"subcategories">[]} [subcategories] - An optional array of objects representing collection entries of type "subcategories".
  * @returns {astro.AstroNode} The rendered list of resource locations.
  */
 
@@ -28,95 +24,92 @@ import { type extendedResource } from '../config';
 
 export interface Props {
 	res?: extendedResource;
-	section?: CollectionEntry<"sections">;
-	categories?: CollectionEntry<"categories">[];
-	subcategories?: CollectionEntry<"subcategories">[];
+	section?: CollectionEntry<'sections'>;
+	categories?: CollectionEntry<'categories'>[];
+	subcategories?: CollectionEntry<'subcategories'>[];
 }
 
 const { res, section, categories, subcategories } = Astro.props as Props;
 
 const resourceSection = res ? res.data.section : section;
-
 ---
 
 <ul class="ResourceLocationList">
-	{resourceSection && (
-		<li class="ResourceLocationItem Classification">
-			{(res && res.data.section && res.sectionData) ? (
-				<a
-					class="ClassificationLink"
-					href={`/${resourceSection.slug}`}
-					title={`Vezi toate resursele din secțiunea ${res.sectionData.data.title}`}
-				>
-					{res.sectionData.data.menu}
-				</a>
-			) : (section) && (
-				<a
-					class="ClassificationLink"
-					href={`/${resourceSection.slug}`}
-					title={`Vezi toate resursele din secțiunea ${section.data.title}`}
-				>
-					{section.data.menu}
-				</a>
-			)}
-		</li>
-	)}
-	
-	{(res && res.data.categories && resourceSection) &&
-		res.categoryData.map((cat:CollectionEntry<"categories">) => (
+	{
+		resourceSection && (
 			<li class="ResourceLocationItem Classification">
-				<a
-					class="ClassificationLink"
-					href={`/${resourceSection.slug}/${cat.slug}`}
-					title={`Vezi toate resursele din categoria ${cat.data.title}`}
-				>
-					{cat.data.menu}
-				</a>
+				{res && res.data.section && res.sectionData ? (
+					<a class="ClassificationLink" href={`/${resourceSection.slug}`} title={`Vezi toate resursele din secțiunea ${res.sectionData.data.title}`}>
+						{res.sectionData.data.menu}
+					</a>
+				) : (
+					section && (
+						<a class="ClassificationLink" href={`/${resourceSection.slug}`} title={`Vezi toate resursele din secțiunea ${section.data.title}`}>
+							{section.data.menu}
+						</a>
+					)
+				)}
 			</li>
 		)
-		)}
-	{(categories && resourceSection) &&
-		categories.map((cat:CollectionEntry<"categories">) => (
-			<li class="ResourceLocationItem Classification">
-				<a
-					class="ClassificationLink"
-					href={`/${resourceSection.slug}/${cat.slug}`}
-					title={`Vezi toate resursele din categoria ${cat.data.title}`}
-				>
-					{cat.data.menu}
-				</a>
-			</li>
-		)
-		)}
+	}
 
-	{(res && res.data.subcategories) &&
-		res.categoryData.map((cat:CollectionEntry<"categories">) =>
-			res.subCategoryData.map((subcat:CollectionEntry<"subcategories">) => (
+	{
+		res &&
+			res.data.categories &&
+			resourceSection &&
+			res.categoryData.map((cat) => (
 				<li class="ResourceLocationItem Classification">
-					<a
-						class="ClassificationLink"
-						href={`/${res.data.section.slug}/${cat.slug}/${subcat.slug}`}
-						title={`Vezi toate resursele din subcategoria ${subcat.data.title}`}
-					>
-						{subcat.data.menu}
+					<a class="ClassificationLink" href={`/${resourceSection.slug}/${cat.slug}`} title={`Vezi toate resursele din categoria ${cat.data.title}`}>
+						{cat.data.menu}
 					</a>
 				</li>
-			)
-			)
-		)}
-	{(subcategories && categories && resourceSection) &&
-		categories.map((cat:CollectionEntry<"categories">) =>
-			subcategories.map((subcat:CollectionEntry<"subcategories">) => (
+			))
+	}
+	{
+		categories &&
+			resourceSection &&
+			categories.map((cat) => (
 				<li class="ResourceLocationItem Classification">
-					<a
-						class="ClassificationLink"
-						href={`/${resourceSection.slug}/${cat.slug}/${subcat.slug}`}
-						title={`Vezi toate resursele din subcategoria ${subcat.data.title}`}
-					>
-						{subcat.data.menu}
+					<a class="ClassificationLink" href={`/${resourceSection.slug}/${cat.slug}`} title={`Vezi toate resursele din categoria ${cat.data.title}`}>
+						{cat.data.menu}
 					</a>
 				</li>
+			))
+	}
+
+	{
+		res &&
+			res.data.subcategories &&
+			res.categoryData.map((cat) =>
+				res.subCategoryData.map((subcat) => (
+					<li class="ResourceLocationItem Classification">
+						<a
+							class="ClassificationLink"
+							href={`/${res.data.section.slug}/${cat.slug}/${subcat.slug}`}
+							title={`Vezi toate resursele din subcategoria ${subcat.data.title}`}
+						>
+							{subcat.data.menu}
+						</a>
+					</li>
+				))
 			)
+	}
+	{
+		subcategories &&
+			categories &&
+			resourceSection &&
+			categories.map((cat) =>
+				subcategories.map((subcat) => (
+					<li class="ResourceLocationItem Classification">
+						<a
+							class="ClassificationLink"
+							href={`/${resourceSection.slug}/${cat.slug}/${subcat.slug}`}
+							title={`Vezi toate resursele din subcategoria ${subcat.data.title}`}
+						>
+							{subcat.data.menu}
+						</a>
+					</li>
+				))
 			)
-		)}
+	}
 </ul>
