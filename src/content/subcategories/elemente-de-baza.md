@@ -1,6 +1,6 @@
 ---
-title: "Elemente de bază"
-menu: "Bază"
+title: 'Elemente de bază'
+menu: 'Bază'
 sortOrder: 0
 description: TODO de scris descrierea
 ---

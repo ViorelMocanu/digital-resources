@@ -1,6 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-pnpm typecheck
-# @TODO
-# pnpm test:unit:coverage --ci
+pnpm verify:fix

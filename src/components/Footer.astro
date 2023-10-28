@@ -1,21 +1,18 @@
 ---
 /**
  * Renders the website footer and highlights the active page in the footer menus, if any.
- *
  * @component
  * @example
  * ```astro
  * <Footer activeMenu={myActiveMenu} />
  * ```
- * @astroProps
- * @prop {Array} [activeMenu] - An optional string representing the active menu item.
+ * @property {Array} [activeMenu] - An optional string representing the active menu item.
  * @returns {astro.AstroNode} The footer component.
  */
 
-import { type CollectionEntry } from "astro:content";
-import NewsletterSection from "../components/NewsletterSection.astro";
-import getSortedItems from "../utils/getSortedItems";
-import { highlightUrl } from "../utils/urlHelpers";
+import NewsletterSection from '../components/NewsletterSection.astro';
+import getSortedItems from '../utils/getSortedItems';
+import { highlightUrl } from '../utils/urlHelpers';
 
 export interface Props {
 	activeMenu?: string | undefined;
@@ -24,14 +21,13 @@ export interface Props {
 const { activeMenu } = Astro.props;
 const activePage = activeMenu || Astro.url.pathname.substring(1);
 const currentYear = new Date().getFullYear();
-const yearPrint = currentYear > 2023 ? ` - ${currentYear} ` : " ";
+const yearPrint = currentYear > 2023 ? ` - ${currentYear} ` : ' ';
 const allSections = await getSortedItems({
-	collectionKey: "sections",
-	sortKey: "sortOrder",
-	type: "number",
-	order: "asc"
+	collectionKey: 'sections',
+	sortKey: 'sortOrder',
+	type: 'number',
+	order: 'asc',
 });
-
 ---
 
 <NewsletterSection />
@@ -39,11 +35,19 @@ const allSections = await getSortedItems({
 <footer class="Footer">
 	<div class="FooterMeta">
 		<a class="FooterHomepageLink" href="/" title="Mergi înapoi pe prima pagină a site-ului Resurse.dev">resurse.dev</a>
-		<p class="Copyright">Copyright &copy; 2023{yearPrint} <a href="https://www.viorelmocanu.ro/" title="Vezi site-ul personal al lui Viorel Mocanu">Viorel Mocanu</a> și <a href="https://discord.com/invite/UpnAutz" title="Vizitează comunitatea de Discord: Carieră în IT">comunitatea de Discord Carieră în IT</a>.</p>
+		<p class="Copyright">
+			Copyright &copy; 2023{yearPrint}
+			<a href="https://www.viorelmocanu.ro/" title="Vezi site-ul personal al lui Viorel Mocanu">Viorel Mocanu</a> și <a
+				href="https://discord.com/invite/UpnAutz"
+				title="Vizitează comunitatea de Discord: Carieră în IT">comunitatea de Discord Carieră în IT</a
+			>.
+		</p>
 	</div>
 	<ul class="FooterList">
 		<li class="FooterItem">
-			<a class="FooterLink" href="https://github.com/ViorelMocanu/digital-resources" title="Vizitează proiectul de GitHub pe care se găsesc sursele acestui website">Proiectul de GitHub</a>
+			<a class="FooterLink" href="https://github.com/ViorelMocanu/digital-resources" title="Vizitează proiectul de GitHub pe care se găsesc sursele acestui website">
+				Proiectul de GitHub
+			</a>
 		</li>
 		<li class:list={highlightUrl('/termeni-si-conditii', 'FooterItem', 'Active', activePage)}>
 			<a class="FooterLink" href="/termeni-si-conditii" title="@TODO">Termeni și condiții</a>
@@ -65,11 +69,11 @@ const allSections = await getSortedItems({
 		{
 			allSections.map((section) => (
 				<li class:list={highlightUrl(section.slug, 'FooterItem', 'Active', activePage)}>
-					<a class="FooterLink" href={`/${section.slug}`} title={`Vezi exclusiv lista de ${section.data.title}`}>{section.data.menu}</a>
+					<a class="FooterLink" href={`/${section.slug}`} title={`Vezi exclusiv lista de ${section.data.title}`}>
+						{section.data.menu}
+					</a>
 				</li>
 			))
 		}
 	</ul>
 </footer>
-
-

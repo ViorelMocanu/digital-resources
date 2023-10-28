@@ -1,19 +1,17 @@
 ---
 /**
  * Renders a navigation menu based on the provided headings.
- *
  * @component
  * @example
  * ```astro
  * <MarkdownTOC headings={myHeadings} />
  * ```
- * @astroProps
- * @prop {Headings} [Headings] props.headings - The list of heading objects.
+ * @property {Headings} [Headings] props.headings - The list of heading objects.
  * @returns {astro.AstroNode} - The rendered navigation menu.
  */
 
-import { type Headings } from "../config";
-import { highlightUrl } from "../utils/urlHelpers";
+import { type Headings } from '../config';
+import { highlightUrl } from '../utils/urlHelpers';
 
 export interface Props {
 	headings?: Headings | undefined;
@@ -21,20 +19,25 @@ export interface Props {
 
 const { headings } = Astro.props;
 const activePage = Astro.url.pathname;
-
 ---
 
-<nav class="ListNavigation">
-	{headings ? (
-		<h2 class="ListNavTitle">Navighează către:</h2>
-		<ol class="ListNav">
-			{headings.map((heading) => (
-				<li class:list={highlightUrl(`#${heading.slug}`, 'ListNavItem', 'Active', activePage)}>
-					<a class="ListNavLink" href={`#${heading.slug}`} title={`Mergi direct la secțiunea ${heading.text}`}>{heading.text}</a>
-				</li>
-			))}
-		</ol>
+{
+	headings ? (
+		<nav class="ListNavigation">
+			<h2 class="ListNavTitle">Navighează către:</h2>
+			<ol class="ListNav">
+				{headings.map((heading) => (
+					<li class:list={highlightUrl(`#${heading.slug}`, 'ListNavItem', 'Active', activePage)}>
+						<a class="ListNavLink" href={`#${heading.slug}`} title={`Mergi direct la secțiunea ${heading.text}`}>
+							{heading.text}
+						</a>
+					</li>
+				))}
+			</ol>
+		</nav>
 	) : (
-		<h2 class="ListNavTitle">Această pagină nu are navigare internă.</h2>
-	)}
-</nav>
+		<nav class="ListNavigation">
+			<h2 class="ListNavTitle">Această pagină nu are navigare internă.</h2>
+		</nav>
+	)
+}

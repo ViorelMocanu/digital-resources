@@ -10,9 +10,5 @@
 	"typescript.tsdk": "node_modules/typescript/lib",
 	"git.inputValidationLength": 100,
 	"git.inputValidationSubjectLength": 72,
-	"eslint.validate": [
-		"javascript",
-		"astro",
-		"typescript",
-	],
+	"eslint.validate": ["javascript", "astro", "typescript"]
 }

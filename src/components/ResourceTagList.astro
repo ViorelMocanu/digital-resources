@@ -1,15 +1,12 @@
 ---
 /**
  * Renders a list of tags.
- *
  * @component
  * @example
  * ```astro
  * <ResourceTagList taglist={theTagList} />
  * ```
- *
- * @astroProps
- * @prop {CollectionEntry<"tags">[] | Object} taglist - An array of objects or a single object representing the list of tags.
+ * @property {CollectionEntry<"tags">[] | Object} taglist - An array of objects or a single object representing the list of tags.
  * @returns {astro.AstroNode} The rendered HTML for the list of tags.
  */
 
@@ -17,7 +14,7 @@ import { type CollectionEntry } from 'astro:content';
 import { highlightUrl } from '../utils/urlHelpers';
 
 export interface Props {
-	taglist: Pick<CollectionEntry<"tags">, 'slug' | 'collection'>[];
+	taglist: Pick<CollectionEntry<'tags'>, 'slug' | 'collection'>[];
 }
 
 const { taglist } = Astro.props as Props;
@@ -25,17 +22,19 @@ const activePage = Astro.url.pathname.substring(1);
 ---
 
 <ul class="ResourceTags">
-	{taglist.map((tag:any) => (
-		<li class:list={highlightUrl(`taguri/${tag.slug}`, 'ResourceTag', 'Active', activePage)}>
-			<a
-				class:list={["ResourceTagLink", `${tag.data ? tag.data.type : tag.type}-${tag.slug}`]}
-				href={`/taguri/${tag.slug}`}
-				title={`Vezi toate resursele care sunt clasificate cu eticheta: ${tag.data ? tag.data.title : tag.title}`}
-				rel="tag"
-			>
-				<span class="Icon IconTag">Tag:</span>
-				<span class="TagName">{tag.data ? tag.data.title : tag.title}</span>
-			</a>
-		</li>
-	))}
+	{
+		taglist.map((tag: any) => (
+			<li class:list={highlightUrl(`taguri/${tag.slug}`, 'ResourceTag', 'Active', activePage)}>
+				<a
+					class:list={['ResourceTagLink', `${tag.data ? tag.data.type : tag.type}-${tag.slug}`]}
+					href={`/taguri/${tag.slug}`}
+					title={`Vezi toate resursele care sunt clasificate cu eticheta: ${tag.data ? tag.data.title : tag.title}`}
+					rel="tag"
+				>
+					<span class="Icon IconTag">Tag:</span>
+					<span class="TagName">{tag.data ? tag.data.title : tag.title}</span>
+				</a>
+			</li>
+		))
+	}
 </ul>

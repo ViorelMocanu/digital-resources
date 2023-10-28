@@ -1,10 +1,10 @@
 ---
-title: "Introducere în Back End"
-menu: "Intro"
+title: 'Introducere în Back End'
+menu: 'Intro'
 sortOrder: 0
 image:
-  imageUrl: "test.jpg"
-  imageAlt: "test"
+    imageUrl: 'test.jpg'
+    imageAlt: 'test'
 description: "@TODO: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
 subcategories:
 publishDate: 2023-09-24

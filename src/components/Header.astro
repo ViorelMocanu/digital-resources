@@ -1,15 +1,13 @@
 ---
 /**
  * Renders the website header and highlights the active page in the header main menu, if any.
- *
  * @component
  * @example
  * ```astro
  * <Header activeMenu={myActiveMenu} />
  * ```
- * @astroProps
- * @prop {Array} [breadcrumbArray] - An optional array of breadcrumb items.
- * @prop {string} [activeMenu] - An optional string representing the active menu item.
+ * @property {Array} [breadcrumbArray] - An optional array of breadcrumb items.
+ * @property {string} [activeMenu] - An optional string representing the active menu item.
  * @returns {astro.AstroNode} The header component.
  */
 
@@ -22,13 +20,14 @@ export interface Props {
 	activeMenu?: string | undefined;
 }
 
-const allSections = (await getCollection('sections', ({data}) => {
-	return data.sortOrder >= 0; // negative sort orders removes sections altogether
-})).sort((a, b) => a.data.sortOrder - b.data.sortOrder); // ordering by sortOrder asc
+const allSections = (
+	await getCollection('sections', ({ data }) => {
+		return data.sortOrder >= 0; // negative sort orders removes sections altogether
+	})
+).sort((a, b) => a.data.sortOrder - b.data.sortOrder); // ordering by sortOrder asc
 
 const { breadcrumbArray = [], activeMenu } = Astro.props;
 const activePage = activeMenu || Astro.url.pathname.substring(1);
-
 ---
 
 <header class="Header">
@@ -48,16 +47,20 @@ const activePage = activeMenu || Astro.url.pathname.substring(1);
 			<span class="Icon IconUser">
 				<span class="SROnly">👤</span>
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-					<path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
+					></path>
 				</svg>
 			</span>
 			<span class="LinkText">Login</span>
 		</a>
-		<nav class="MainMenu" id="menu" role="menubar" aria-labelledby="menuTrigger">
+		<nav class="MainMenu" id="menu" aria-labelledby="menuTrigger">
 			<ul class="MainMenuList">
 				{
 					allSections.map((section) => (
-						<li class:list={highlightUrl(section.slug, 'MainMenuItem', 'Active', activePage)} role="menuitem">
+						<li class:list={highlightUrl(section.slug, 'MainMenuItem', 'Active', activePage)}>
 							<a class="MainMenuLink" href={`/${section.slug}`} title={`Vezi exclusiv lista de ${section.data.title}`}>
 								<span class="LinkText">{section.data.menu}</span>
 							</a>
@@ -69,7 +72,19 @@ const activePage = activeMenu || Astro.url.pathname.substring(1);
 				<fieldset class="Fieldset">
 					<legend class="SROnly">Caută în Resurse.dev</legend>
 					<label class="Label" id="searchLabel" for="s">Introdu cuvintele căutate:</label>
-					<input type="search" class="Input InputSearch" id="s" name="s" maxlength="200" value="" placeholder="🔍 Caută resurse de orice fel..." spellcheck="false" autocorrect="off" results="10" aria-labelledby="searchLabel" />
+					<input
+						type="search"
+						class="Input InputSearch"
+						id="s"
+						name="s"
+						maxlength="200"
+						value=""
+						placeholder="🔍 Caută resurse de orice fel..."
+						spellcheck="false"
+						autocorrect="off"
+						results="10"
+						aria-labelledby="searchLabel"
+					/>
 					<button type="submit" class="SROnly">Caută acum &raquo;</button>
 				</fieldset>
 			</form>
@@ -80,7 +95,9 @@ const activePage = activeMenu || Astro.url.pathname.substring(1);
 
 <script>
 	declare global {
-		interface Window { menuListeners: any; }
+		interface Window {
+			menuListeners: any;
+		}
 	}
 	window.menuListeners = function () {
 		const menuTrigger = document.getElementById('menuTrigger');
@@ -90,8 +107,8 @@ const activePage = activeMenu || Astro.url.pathname.substring(1);
 		menuTrigger?.addEventListener('click', function (event) {
 			event.preventDefault();
 			body.classList.toggle('ActiveMenu');
-			if ( body.classList.contains('ActiveMenu') ) {
-				document.body.dataset.menuOpen = "true";
+			if (body.classList.contains('ActiveMenu')) {
+				document.body.dataset.menuOpen = 'true';
 				// this are valoarea e.currentTarget adică menuTrigger
 				// https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#the_value_of_this_within_the_handler
 				this.setAttribute('aria-expanded', 'true');
@@ -103,8 +120,10 @@ const activePage = activeMenu || Astro.url.pathname.substring(1);
 			}
 			return false;
 		});
-	}
+	};
 	window.menuListeners();
 	// Runs on view transitions navigation
-	document.addEventListener('astro:after-swap', function() { window.menuListeners(); });
+	document.addEventListener('astro:after-swap', function () {
+		window.menuListeners();
+	});
 </script>

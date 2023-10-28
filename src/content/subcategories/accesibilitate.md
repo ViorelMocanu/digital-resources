@@ -1,8 +1,8 @@
 ---
-title: "Accesibilitate"
-menu: "A11y"
+title: 'Accesibilitate'
+menu: 'A11y'
 sortOrder: 9
-description : de scris descrierea
+description: de scris descrierea
 ---
 
 @TODO: Accesibilitate

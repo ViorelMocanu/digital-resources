@@ -1,7 +1,6 @@
 ---
 /**
  * Renders an Astro Layout that renders an HTML page with metadata for SEO purposes and slots in the content of each page.
- *
  * @component
  * @example
  * ```astro
@@ -16,15 +15,14 @@
  *   breadcrumbArray={breadcrumbArray}
  * />
  * ```
- * @astroProps
- * @prop {string} title - A string representing the title of the page
- * @prop {string} description - A string representing the description of the page
- * @prop {string} ogImage - An optional string representing the URL of the Open Graph image
- * @prop {string} modDate - An optional string representing the modification date of the page
- * @prop {string} canonical - An optional string representing the canonical URL of the page
- * @prop {string} template - A string representing the template used for the page
- * @prop {string} [activeMenu] - An optional string representing the active menu item
- * @prop {BreadcrumbArray} breadcrumbArray - An array of objects representing the breadcrumb navigation
+ * @property {string} title - A string representing the title of the page
+ * @property {string} description - A string representing the description of the page
+ * @property {string} ogImage - An optional string representing the URL of the Open Graph image
+ * @property {string} modDate - An optional string representing the modification date of the page
+ * @property {string} canonical - An optional string representing the canonical URL of the page
+ * @property {string} template - A string representing the template used for the page
+ * @property {string} [activeMenu] - An optional string representing the active menu item
+ * @property {BreadcrumbArray} breadcrumbArray - An array of objects representing the breadcrumb navigation
  * @returns {astro.AstroNode} The rendered HTML layout with metadata and components.
  */
 
@@ -43,7 +41,7 @@ import {
 	SITE_NAME,
 	SITE_TITLE,
 	TWITTER_CREATOR,
-	TWITTER_SITE
+	TWITTER_SITE,
 } from '../config';
 import Analytics from '../components/Analytics.astro';
 import Footer from '../components/Footer.astro';
@@ -64,20 +62,10 @@ interface Props {
 
 const buildDate = __DATE__;
 
-const {
-	title = SITE_TITLE,
-	description = SITE_DESCRIPTION,
-	ogImage = OG_IMAGE,
-	modDate = buildDate,
-	canonical = Astro.url,
-	template,
-	activeMenu,
-	breadcrumbArray
-} = Astro.props;
-
+const { title = SITE_TITLE, description = SITE_DESCRIPTION, ogImage = OG_IMAGE, modDate = buildDate, canonical = Astro.url, template, activeMenu, breadcrumbArray } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang={LANGUAGE}>
 	<head>
 		<meta charset="UTF-8" />
@@ -86,7 +74,7 @@ const {
 
 		<!-- SEO -->
 		<link rel="canonical" href={canonical} />
-		<meta name="description" content={description}>
+		<meta name="description" content={description} />
 		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
 		<meta property="og:site_name" content={SITE_NAME} />
@@ -97,7 +85,7 @@ const {
 		<meta property="og:image" content={ogImage} />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
-		<meta property="og:image:alt" content={OG_IMAGE_ALT}>
+		<meta property="og:image:alt" content={OG_IMAGE_ALT} />
 		<meta property="og:email" content={CONTACT_EMAIL} />
 		<meta property="article:publisher" content={SITE_NAME} />
 		<meta property="fb:app_id" content={FACEBOOK_APP_ID} />
@@ -134,6 +122,6 @@ const {
 			<p class="TemporaryMessage">Template: <strong>{template}</strong> built at <em>{buildDate}</em> on ENV = <strong>{ENV}</strong>.</p>
 		</div>
 		<Analytics />
-		<SimpleAnalytics debug={true} partytown={false} allEnvironments={true} />
+		<SimpleAnalytics debug={false} partytown={false} allEnvironments={true} />
 	</body>
 </html>

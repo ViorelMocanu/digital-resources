@@ -1,10 +1,10 @@
 ---
-title: "Resurse de UI / UX Design"
-menu: "Design"
+title: 'Resurse de UI / UX Design'
+menu: 'Design'
 slug: design
 sortOrder: 2
-imageUrl: "./design.svg"
-imageAlt: "Resurse care țin de design de interfață (UI) și experiență (UX)"
+imageUrl: './design.svg'
+imageAlt: 'Resurse care țin de design de interfață (UI) și experiență (UX)'
 description: "@TODO: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
 categories:
 publishDate: 2023-09-30

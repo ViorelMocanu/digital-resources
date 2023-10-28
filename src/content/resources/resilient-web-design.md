@@ -1,29 +1,29 @@
 ---
-title: "Resilient Web Design"
-url: "https://resilientwebdesign.com/"
-language: "en"
-modDate: "12 October 2023 14:48 UTC"
-addDate: ""
-description: "Una din cele mai bune cărți care descrie evoluția și progresul web development-ului de-a lungul anilor, și în care sunt explicate concepte de bază de care ai nevoie să afli cât mai devreme în viitoarea ta carieră în Front End Development, cum ar fi: backwards compatibility, progressive enhancement și future-friendlyness."
-authorName: "Jeremy Keith"
-authorUrl: "https://adactio.com/"
-section: "front-end"
+title: 'Resilient Web Design'
+url: 'https://resilientwebdesign.com/'
+language: 'en'
+modDate: '12 October 2023 14:48 UTC'
+addDate: ''
+description: 'Una din cele mai bune cărți care descrie evoluția și progresul web development-ului de-a lungul anilor, și în care sunt explicate concepte de bază de care ai nevoie să afli cât mai devreme în viitoarea ta carieră în Front End Development, cum ar fi: backwards compatibility, progressive enhancement și future-friendlyness.'
+authorName: 'Jeremy Keith'
+authorUrl: 'https://adactio.com/'
+section: 'front-end'
 categories:
-- "introducere-in-front-end"
+    - 'introducere-in-front-end'
 rating: 100
 price: 0
 requiredTime: 10
-type: "carte"
+type: 'carte'
 mandatory: true
 tags:
-- "carte"
-- "text"
-- "free"
-- "incepatori"
-- "mid"
-- "avansati"
-- "pro"
-- "obligatoriu"
+    - 'carte'
+    - 'text'
+    - 'free'
+    - 'incepatori'
+    - 'mid'
+    - 'avansati'
+    - 'pro'
+    - 'obligatoriu'
 ---
 
 E o carte inspirațională și fundamentală care nu te învață un skill concret, dar îți dă contextul în care ar trebui să înveți orice dacă vrei să te apuci de Front End Development. Îți explică pe ce se bazează Internetul să funcționeze corect, care sunt relațiile dintre limbajele și tehnologiile existente și îți oferă un punct de sprijin de care să te folosești când iei decizii arhitecturale cât timp înveți și profesezi în industrie.
