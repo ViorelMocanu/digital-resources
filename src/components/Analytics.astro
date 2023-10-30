@@ -10,19 +10,29 @@
  */
 
 import { CLARITY_ID, ENV, PIWIK_ID } from '../config';
+import { SimpleAnalytics } from 'astro-simpleanalytics-plugin';
 
 // @TODO: analyze whether we need light or latest SA script: https://docs.simpleanalytics.com/light
 
 ---
 
+<SimpleAnalytics
+	debug={false}
+	allEnvironments={true}
+	partytown={false}
+	light={false}
+	collectDNT={true}
+	strictUTMs={false}
+	allowParams={undefined}
+	customHostname={undefined}
+	customDomain={undefined}
+	ignorePages={undefined}
+	nonUniqueHostnames="fastspring.com,stripe.com"
+	ignoreMetrics={undefined}
+/>
+
 {(ENV !== 'local' && ENV !== 'development') && (
 	<div class="Information">
-		{/*
-		<script is:inline async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
-		<noscript>
-			<img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" />
-		</noscript>
-		*/}
 
 		<script is:inline define:vars={{ CLARITY_ID }} async defer type="text/partytown">
 			(function (c, l, a, r, i, t, y) {
