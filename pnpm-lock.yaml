@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@astrojs/partytown':
-    specifier: 2.0.1
-    version: 2.0.1
+    specifier: 2.0.2
+    version: 2.0.2
   '@astrojs/prefetch':
     specifier: 0.4.1
     version: 0.4.1
@@ -186,8 +186,8 @@ packages:
       - supports-color
     dev: true
 
-  /@astrojs/partytown@2.0.1:
-    resolution: {integrity: sha512-WQC5lR2XINGxvQ35KDu806AVKNsD4Qc6I/am+4JpW6CZb0ccqVt7TSCosTMmYSiuNTInsnV34RAeile88kTtbw==}
+  /@astrojs/partytown@2.0.2:
+    resolution: {integrity: sha512-7AnY0W8mXiog5S1gEGefCNcvJSjxn/mfhr+ou1QH7QwqxtnIsS7mQ+ci5wDRDDbM5ipnEdQGHIxz2DAP2DXnXQ==}
     dependencies:
       '@builder.io/partytown': 0.8.1
       mrmime: 1.0.1
