@@ -12,7 +12,7 @@
  * <ResourceLocationList section={theSection} categories={theCategories} subcategories={theSubcategories} />
  * ```
  * This example renders a list of resource locations using the `section`, `categories`, and `subcategories` props.
- * @property {extendedResource} [res] - An optional object representing an extended resource.
+ * @property {ExtendedResource} [res] - An optional object representing an extended resource.
  * @property {CollectionEntry<"sections">} [section] - An optional object representing a collection entry of type "sections".
  * @property {CollectionEntry<"categories">[]} [categories] - An optional array of objects representing collection entries of type "categories".
  * @property {CollectionEntry<"subcategories">[]} [subcategories] - An optional array of objects representing collection entries of type "subcategories".
@@ -20,10 +20,10 @@
  */
 
 import { type CollectionEntry } from 'astro:content';
-import { type extendedResource } from '../config';
+import { type ExtendedResource } from '../config';
 
 export interface Props {
-	res?: extendedResource;
+	res?: ExtendedResource;
 	section?: CollectionEntry<'sections'>;
 	categories?: CollectionEntry<'categories'>[];
 	subcategories?: CollectionEntry<'subcategories'>[];
