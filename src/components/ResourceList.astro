@@ -17,7 +17,7 @@
  */
 
 import { type CollectionEntry, getCollection } from 'astro:content';
-import { type extendedResource, resourceTypeIcon } from '../config';
+import { type ExtendedResource, resourceTypeIcon } from '../config';
 import HelpfulLinks from '../components/HelpfulLinks.astro';
 import Message from './Message.astro';
 import Pagination from './Pagination.astro';
@@ -39,14 +39,14 @@ export interface Props {
 
 const { resources, page, pageTitle } = Astro.props as Props;
 
-let r = resources as unknown as extendedResource[];
+let r = resources as unknown as ExtendedResource[];
 const allTags = await getCollection('tags');
 const allSections = await getCollection('sections');
 const allCategories = await getCollection('categories');
 const allSubCategories = await getCollection('subcategories');
 
 if (resources) {
-	r.forEach((resource: extendedResource) => {
+	r.forEach((resource: ExtendedResource) => {
 		if (resource.data.tags !== null) {
 			let tagData: CollectionEntry<'tags'>[] = [];
 			resource.data.tags.forEach((tag: { slug: string; collection: string }) => {

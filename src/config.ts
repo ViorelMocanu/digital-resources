@@ -67,11 +67,11 @@ export type Headings = {
 	text: string;
 }[];
 
-export type extendedCategory = CollectionEntry<'categories'> & {
+export type ExtendedCategory = CollectionEntry<'categories'> & {
 	subCategoryData: CollectionEntry<'subcategories'>[];
 };
 
-export type extendedResource = Omit<CollectionEntry<'resources'>, 'render'> & {
+export type ExtendedResource = Omit<CollectionEntry<'resources'>, 'render'> & {
 	type: string;
 	tagData: CollectionEntry<'tags'>[];
 	sectionData: CollectionEntry<'sections'> | undefined;

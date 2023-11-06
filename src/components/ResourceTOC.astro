@@ -11,7 +11,7 @@
  */
 
 import { type CollectionEntry, getCollection } from 'astro:content';
-import { type extendedCategory } from '../config';
+import { type ExtendedCategory } from '../config';
 import { highlightUrl } from '../utils/urlHelpers';
 
 export interface Props {
@@ -22,7 +22,7 @@ const { section } = Astro.props;
 const activePage = Astro.url.pathname;
 
 const sectionCategories = section.data.categories;
-let categoryList: extendedCategory[] = [];
+let categoryList: ExtendedCategory[] = [];
 if (sectionCategories) {
 	const allCategories = await getCollection('categories');
 	const allSubcategories = await getCollection('subcategories');
@@ -45,7 +45,7 @@ if (sectionCategories) {
 		categoryList.push({
 			...category,
 			subCategoryData,
-		} as extendedCategory);
+		} as ExtendedCategory);
 	});
 }
 ---
