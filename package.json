@@ -49,13 +49,13 @@
 		"verify:fix": "pnpm lint:fix && pnpm typecheck && pnpm test:unit && pnpm format:fix"
 	},
 	"dependencies": {
-		"@astrojs/partytown": "2.0.1",
+		"@astrojs/partytown": "2.0.2",
 		"@astrojs/prefetch": "0.4.1",
 		"@astrojs/rss": "3.0.0",
 		"@astrojs/sitemap": "3.0.3",
-		"astro": "3.4.1",
+		"astro": "3.4.4",
 		"astro-compress": "2.1.6",
-		"astro-simpleanalytics-plugin": "0.3.4",
+		"astro-simpleanalytics-plugin": "0.3.5",
 		"astro-webmanifest": "1.0.0",
 		"lite-youtube-embed": "0.3.0",
 		"sass": "1.69.5",
