@@ -39,7 +39,7 @@
 		"lint:md": "markdownlint ./src/**/*.md",
 		"lint:fix": "pnpm lint:js --fix . && pnpm lint:md --fix",
 		"lint": "pnpm lint:js . && pnpm lint:md",
-		"prepare": "husky install",
+		"postinstall": "husky install",
 		"coverage": "pnpm test:unit --coverage",
 		"test:unit": "vitest run",
 		"test:e2e": "playwright test",
