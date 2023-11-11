@@ -1,11 +1,12 @@
 ---
+import type { InferGetStaticPropsType } from 'astro';
 import { type CollectionEntry, getCollection, getEntries, getEntry } from 'astro:content';
-import Layout from '../../layouts/Layout.astro';
 import ResourceLocationList from '../../components/ResourceLocationList.astro';
 import ResourceTagList from '../../components/ResourceTagList.astro';
 import ResponsiveImage from '../../components/ResponsiveImage.astro';
+import { type BreadcrumbItem, resourceTypeIcon } from '../../config';
+import Layout from '../../layouts/Layout.astro';
 import { getFormattedDate } from '../../utils/resourceMeta';
-import { resourceTypeIcon } from '../../config';
 
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
@@ -16,25 +17,27 @@ export async function getStaticPaths() {
 	}));
 }
 
+export type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
 // 2. For your template, you can get the entry directly from the prop
-const { entry } = Astro.props;
+const { entry } = Astro.props as Props;
 const { Content } = await entry.render();
 
 let resourceTags = new Array();
 let resourceType = 'generic';
 if (entry.data.tags) {
 	const allTags = await getCollection('tags');
-	entry.data.tags.map((tag: CollectionEntry<'tags'>) => {
+	entry.data.tags.forEach((tag) => {
 		const currentTag = allTags.find((t) => t.slug == tag.slug);
 		resourceTags.push({ title: currentTag?.data.title, slug: tag.slug, type: currentTag?.data.type });
 		if (currentTag?.data.type == 'Tip') resourceType = currentTag.data.title;
 	});
 }
 
-let breadcrumbArray = new Array();
+let breadcrumbArray: BreadcrumbItem[] = [];
 
 const sectionSlug = entry.data.section.slug;
-const section = await getEntry('sections', sectionSlug);
+const section = (await getEntry('sections', sectionSlug))!; // @TODO fix this !
 if (section) {
 	breadcrumbArray.push({
 		href: `/${section.slug}`,
@@ -43,13 +46,13 @@ if (section) {
 	});
 }
 
-const resourceCategories = await getEntries(entry.data.categories);
+const resourceCategories = (await getEntries(entry.data.categories as any))!;
 const firstResourceCategory = resourceCategories[0];
 if (firstResourceCategory) {
 	breadcrumbArray.push({
 		href: `/${section.slug}/${firstResourceCategory.slug}`,
 		title: firstResourceCategory.data.title,
-		label: firstResourceCategory.data.menu,
+		label: (firstResourceCategory.data as any).menu, // @TODO fix this any
 	});
 }
 
@@ -67,7 +70,7 @@ if (entry.data.subcategories) {
 	}
 }
 
-const pageTitle = entry.title;
+const pageTitle = entry.data.title;
 const pageDescription = entry.data.description;
 if (breadcrumbArray.length <= 1) {
 	breadcrumbArray.push({
@@ -84,7 +87,7 @@ breadcrumbArray.push({
 });
 ---
 
-<Layout title={pageTitle} description={pageDescription} modDate={entry.modDate} template="ResourcePage" activeMenu={sectionSlug} breadcrumbArray={breadcrumbArray}>
+<Layout title={pageTitle} description={pageDescription} modDate={entry.data.modDate} template="ResourcePage" activeMenu={sectionSlug} breadcrumbArray={breadcrumbArray}>
 	<div class="Hero" id="hero">
 		{
 			entry.data.image && entry.data.image.imageUrl && entry.data.url && (
@@ -378,8 +381,8 @@ breadcrumbArray.push({
 					<strong class="InfoItemValue">7895</strong>
 				</li>
 			</ul>
-
-			<ResourceLocationList section={section} categories={resourceCategories} subcategories={resourceSubCategories} />
+			<!-- @TODO fix th as any -->
+			<ResourceLocationList section={section} categories={resourceCategories as any} subcategories={resourceSubCategories} />
 
 			<div class="InfoItem InfoItemStandalone">
 				<div class="InfoItemLabel">

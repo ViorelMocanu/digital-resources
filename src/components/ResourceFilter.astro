@@ -17,7 +17,7 @@ export interface Props {
 }
 
 const { section } = Astro.props;
-const sectionCategories = section ? section.data.categories : false;
+const sectionCategories = !!section?.data?.categories;
 ---
 
 <form class="SortAndFilter" action="#" method="get" aria-label="Filtrează resursele în contextul curent">
