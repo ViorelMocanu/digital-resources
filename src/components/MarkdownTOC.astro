@@ -17,7 +17,7 @@ export interface Props {
 	headings?: Headings | undefined;
 }
 
-const { headings } = Astro.props;
+const { headings } = Astro.props satisfies Props;
 const activePage = Astro.url.pathname;
 ---
 

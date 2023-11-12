@@ -24,7 +24,7 @@ export interface Props {
 	pageTitle?: string | undefined;
 }
 
-const { currentPage, lastPage, next, prev, boxHeader = true, pageTitle } = Astro.props;
+const { currentPage, lastPage, next, prev, boxHeader = true, pageTitle } = Astro.props satisfies Props;
 const paginationList = Array.from({ length: Number(lastPage) }, (_, i) => i + 1);
 const pagePrototype = next ? next.replace(`/${currentPage + 1}`, '') : prev ? prev.replace(`/${currentPage - 1}`, '') : Astro.url;
 ---

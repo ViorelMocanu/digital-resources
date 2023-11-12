@@ -36,7 +36,7 @@ export interface Props {
 	breakpoint: number;
 }
 
-const { image, alt, width, height, lazyLoading = true, classList = ['Picture'], breakpoint = 850, ...attrs } = Astro.props;
+const { image, alt, width, height, lazyLoading = true, classList = ['Picture'], breakpoint = 850, ...attrs } = Astro.props satisfies Props;
 
 let renderSmallImage = false;
 let smallerWidth = image.width < width ? image.width : width;

@@ -1,11 +1,11 @@
 ---
-import type { InferGetStaticPropsType } from 'astro';
+import { type BreadcrumbItem, resourceTypeIcon } from '../../config';
 import { type CollectionEntry, getCollection, getEntries, getEntry } from 'astro:content';
+import type { InferGetStaticPropsType } from 'astro';
+import Layout from '../../layouts/Layout.astro';
 import ResourceLocationList from '../../components/ResourceLocationList.astro';
 import ResourceTagList from '../../components/ResourceTagList.astro';
 import ResponsiveImage from '../../components/ResponsiveImage.astro';
-import { type BreadcrumbItem, resourceTypeIcon } from '../../config';
-import Layout from '../../layouts/Layout.astro';
 import { getFormattedDate } from '../../utils/resourceMeta';
 
 // 1. Generate a new path for every collection entry
@@ -20,7 +20,7 @@ export async function getStaticPaths() {
 export type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 // 2. For your template, you can get the entry directly from the prop
-const { entry } = Astro.props as Props;
+const { entry } = Astro.props satisfies Props;
 const { Content } = await entry.render();
 
 let resourceTags = new Array();
@@ -117,7 +117,7 @@ breadcrumbArray.push({
 					<a class="HeroResourceLink" href={entry.data.url} title={`Vizitează resursa: ${entry.data.title}`} target="_blank" rel="external noopener noreferrer">
 						<h1 class="HeroTitle">
 							{entry.data.title}
-							{resourceTypeIcon[resourceType ? resourceType.toLowerCase() : (entry.data.type.toLowerCase() as keyof typeof resourceTypeIcon)]}
+							{resourceTypeIcon[resourceType ? resourceType.toLowerCase() : (entry.data.type.toLowerCase() satisfies keyof typeof resourceTypeIcon)]}
 						</h1>
 						<em class="HeroUrl">
 							<strong class="HeroUrlLabel">URL:</strong>&nbsp;{entry.data.url}

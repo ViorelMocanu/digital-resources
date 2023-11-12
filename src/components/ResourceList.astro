@@ -37,7 +37,7 @@ export interface Props {
 	pageTitle?: string | undefined;
 }
 
-const { resources, page, pageTitle } = Astro.props as Props;
+const { resources, page, pageTitle } = Astro.props satisfies Props;
 
 let r = resources as unknown as ExtendedResource[];
 const allTags = await getCollection('tags');

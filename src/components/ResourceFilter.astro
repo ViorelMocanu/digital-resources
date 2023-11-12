@@ -16,7 +16,7 @@ export interface Props {
 	section?: CollectionEntry<'sections'>;
 }
 
-const { section } = Astro.props;
+const { section } = Astro.props satisfies Props;
 const sectionCategories = !!section?.data?.categories;
 ---
 

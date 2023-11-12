@@ -15,7 +15,7 @@ export interface Props {
 	title?: string;
 	type?: string;
 }
-const { title, type } = Astro.props;
+const { title, type } = Astro.props satisfies Props;
 ---
 
 <div class:list={['Message', `Message-${type}`]} role="alert">

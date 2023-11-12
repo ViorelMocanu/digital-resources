@@ -1,5 +1,6 @@
 ---
 import { type CollectionEntry, getCollection, getEntry } from 'astro:content';
+import type { InferGetStaticPropsType } from 'astro';
 import Layout from '../../layouts/Layout.astro';
 import { PAGE_SIZE } from '../../config';
 import ResourceFilter from '../../components/ResourceFilter.astro';
@@ -28,7 +29,8 @@ export async function getStaticPaths({ paginate }: any) {
 
 	return finalPagination;
 }
-const { page } = Astro.props;
+export type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const { page } = Astro.props satisfies Props;
 const params = Astro.params;
 
 const currentSection = params.section as string;

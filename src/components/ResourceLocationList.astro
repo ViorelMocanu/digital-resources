@@ -29,7 +29,7 @@ export interface Props {
 	subcategories?: CollectionEntry<'subcategories'>[];
 }
 
-const { res, section, categories, subcategories } = Astro.props;
+const { res, section, categories, subcategories } = Astro.props satisfies Props;
 
 const resourceSection = res ? res.data.section : section;
 const shouldRenderCategoriesFromRes = res && res.data.categories && resourceSection;

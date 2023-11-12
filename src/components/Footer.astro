@@ -18,7 +18,7 @@ export interface Props {
 	activeMenu?: string | undefined;
 }
 
-const { activeMenu } = Astro.props;
+const { activeMenu } = Astro.props satisfies Props;
 const activePage = activeMenu || Astro.url.pathname.substring(1);
 const currentYear = new Date().getFullYear();
 const yearPrint = currentYear > 2023 ? ` - ${currentYear} ` : ' ';

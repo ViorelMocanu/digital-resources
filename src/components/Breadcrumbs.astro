@@ -15,7 +15,7 @@ export interface Props {
 	breadcrumbArray: BreadcrumbItem[];
 }
 
-const { breadcrumbArray } = Astro.props;
+const { breadcrumbArray } = Astro.props satisfies Props;
 ---
 
 <nav class="Breadcrumbs">

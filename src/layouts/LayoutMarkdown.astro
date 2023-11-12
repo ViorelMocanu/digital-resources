@@ -21,16 +21,12 @@
  * @property {string} content.[activeMenu] - An optional string representing the active menu item
  * @property {string} content.file - The file reference
  * @property {string} content.url - The URL of the current Markdown page
- * @property {BreadcrumbArray} content.breadcrumbArray - An array of objects representing the breadcrumb navigation
+ * @property {BreadcrumbItem[]} content.breadcrumbArray - An array of objects representing the breadcrumb navigation
  * @property {Headings} headings - The Headings array of objects defining the internal subheadings for TOC generation
  * @returns {astro.AstroNode} The rendered HTML layout with metadata and components.
  */
 
-import { ViewTransitions } from 'astro:transitions';
-import Analytics from '../components/Analytics.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import MarkdownTOC from '../components/MarkdownTOC.astro';
+import '../style/style.scss';
 import {
 	ACCENT_COLOR,
 	type BreadcrumbItem,
@@ -47,7 +43,11 @@ import {
 	TWITTER_CREATOR,
 	TWITTER_SITE,
 } from '../config';
-import '../style/style.scss';
+import Analytics from '../components/Analytics.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import MarkdownTOC from '../components/MarkdownTOC.astro';
+import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
 	file?: string;
@@ -74,7 +74,7 @@ const {
 	// url,
 	content,
 	headings,
-} = Astro.props;
+} = Astro.props satisfies Props;
 
 // Solve the ability to render Markdown as well as Astro files
 const canonical = Astro.url;

@@ -22,14 +22,11 @@
  * @property {string} canonical - An optional string representing the canonical URL of the page
  * @property {string} template - A string representing the template used for the page
  * @property {string} [activeMenu] - An optional string representing the active menu item
- * @property {BreadcrumbArray} breadcrumbArray - An array of objects representing the breadcrumb navigation
+ * @property {BreadcrumbItem[]} breadcrumbArray - An array of objects representing the breadcrumb navigation
  * @returns {astro.AstroNode} The rendered HTML layout with metadata and components.
  */
 
-import { ViewTransitions } from 'astro:transitions';
-import Analytics from '../components/Analytics.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
+import '../style/style.scss';
 import {
 	ACCENT_COLOR,
 	type BreadcrumbItem,
@@ -46,7 +43,10 @@ import {
 	TWITTER_CREATOR,
 	TWITTER_SITE,
 } from '../config';
-import '../style/style.scss';
+import Analytics from '../components/Analytics.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
 	title: string;
@@ -61,7 +61,16 @@ interface Props {
 
 const buildDate = __DATE__;
 
-const { title = SITE_TITLE, description = SITE_DESCRIPTION, ogImage = OG_IMAGE, modDate = buildDate, canonical = Astro.url, template, activeMenu, breadcrumbArray } = Astro.props;
+const {
+	title = SITE_TITLE,
+	description = SITE_DESCRIPTION,
+	ogImage = OG_IMAGE,
+	modDate = buildDate,
+	canonical = Astro.url,
+	template,
+	activeMenu,
+	breadcrumbArray,
+} = Astro.props satisfies Props;
 ---
 
 <!doctype html>
