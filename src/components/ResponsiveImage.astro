@@ -28,7 +28,7 @@ import { Image, getImage } from 'astro:assets';
 
 export interface Props {
 	image: ImageMetadata;
-	alt: string;
+	alt?: string | undefined;
 	width: number;
 	height: number;
 	lazyLoading: boolean;

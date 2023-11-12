@@ -1,10 +1,11 @@
 ---
+import type { InferGetStaticPropsType } from 'astro';
 import { type CollectionEntry, getCollection, getEntry } from 'astro:content';
-import Layout from '../../../../layouts/Layout.astro';
-import { PAGE_SIZE } from '../../../../config';
 import ResourceFilter from '../../../../components/ResourceFilter.astro';
 import ResourceList from '../../../../components/ResourceList.astro';
 import ResourceTOC from '../../../../components/ResourceTOC.astro';
+import { PAGE_SIZE } from '../../../../config';
+import Layout from '../../../../layouts/Layout.astro';
 
 export async function getStaticPaths({ paginate }: any) {
 	const allSections = (await getCollection('sections')).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
@@ -15,7 +16,7 @@ export async function getStaticPaths({ paginate }: any) {
 	const allSubCategoriesArray = allSubCategories.flatMap((subcategory: { slug: string; collection: string }) => subcategory.slug);
 	const allResources = (await getCollection('resources')).sort((a, b) => new Date(a.data.modDate as string).valueOf() - new Date(b.data.modDate as string).valueOf());
 
-	let finalPagination = new Array();
+	let finalPagination: { props: any; params: any }[] = new Array(); // @TODO fix typescript
 	allSectionsArray.forEach((section) => {
 		const currentSection = allSections.find((sec: CollectionEntry<'sections'>) => sec.slug == section);
 		if (currentSection == null || currentSection.data.categories == null) {
@@ -112,15 +113,16 @@ export async function getStaticPaths({ paginate }: any) {
 	return finalPagination;
 }
 
-const { page } = Astro.props;
+export type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const { page } = Astro.props as Props;
 const params = Astro.params;
 
-const currentSection = params.section;
-const section = await getEntry('sections', currentSection);
-const currentCategory = params.category;
-const category = await getEntry('categories', currentCategory);
-const currentSubCategory = params.subcategory;
-const subcategory = await getEntry('subcategories', currentSubCategory);
+const currentSection = params.section as any; // @TODO fix this
+const section = (await getEntry('sections', currentSection))!; // @TODO fix this;
+const currentCategory = params.category as any; // @TODO fix this;
+const category = (await getEntry('categories', currentCategory))!; // @TODO fix this;
+const currentSubCategory = params.subcategory as any; // @TODO fix this;
+const subcategory = (await getEntry('subcategories', currentSubCategory))!; // @TODO fix this;
 const { Content } = await category.render();
 
 const pageTitle = subcategory.data.title;

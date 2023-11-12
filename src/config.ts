@@ -54,12 +54,11 @@ export const resourceTypeIcon: { [key: string]: string } = {
 };
 
 // My introduced types
-
-export type BreadcrumbArray = {
+export type BreadcrumbItem = {
 	href: string | URL;
 	title: string;
 	label: string;
-}[];
+};
 
 export type Headings = {
 	depth: number;
