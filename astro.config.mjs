@@ -8,36 +8,39 @@ import prefetch from '@astrojs/prefetch';
 import partytown from '@astrojs/partytown';
 import sitemap from '@astrojs/sitemap';
 import webmanifest from 'astro-webmanifest';
-
+import cloudflare from "@astrojs/cloudflare";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 
 // https://astro.build/config
 export default defineConfig({
 	site: URL || 'https://resurse.dev',
-	output: 'static',
+	output: 'hybrid',
 	compressHTML: ENV !== 'local' && ENV !== 'development' ? true : false,
 	redirects: {
 		// '/old': '/new',
 	},
 	image: {
-		remotePatterns: [{ protocol: 'https' }],
+		remotePatterns: [{
+			protocol: 'https'
+		}]
 	},
 	vite: {
 		logLevel: DEBUG ? 'info' : 'silent',
 		define: {
-			__DATE__: `'${new Date().toISOString()}'`,
+			__DATE__: `'${new Date().toISOString()}'`
 		},
 		resolve: {
 			alias: {
-				'~': path.resolve(__dirname, './src'),
-			},
-		},
+				'~': path.resolve(__dirname, './src')
+			}
+		}
 	},
 	markdown: {
 		syntaxHighlight: 'shiki',
 		remarkRehype: {
 			footnoteLabel: 'Note de subsol',
-			footnoteBackLabel: 'Înapoi la conținut',
+			footnoteBackLabel: 'Înapoi la conținut'
 		},
 		shikiConfig: {
 			// Choose from Shiki's built-in themes (or add your own)
@@ -48,13 +51,13 @@ export default defineConfig({
 			// https://github.com/shikijs/shiki/blob/main/docs/languages.md
 			langs: [],
 			// Enable word wrap to prevent horizontal scrolling
-			wrap: true,
-		},
+			wrap: true
+		}
 	},
 	integrations: [
 		prefetch({
 			// Only prefetch links with an href that begins with `/resurse` or `.front-end`
-			intentSelector: ["a[href^='/resurse']"],
+			intentSelector: ["a[href^='/resurse']"]
 		}),
 		webmanifest({
 			name: SITE_NAME,
@@ -70,27 +73,25 @@ export default defineConfig({
 			config: {
 				outfile: 'site.webmanifest',
 				createFavicon: true,
-				insertFaviconLinks: true, // default - true
-				insertThemeColorMeta: false, // default - true
-				insertManifestLink: true, // default - true
+				insertFaviconLinks: true,
+				insertThemeColorMeta: false,
+				insertManifestLink: true,
 				crossOrigin: 'anonymous',
 				insertAppleTouchLinks: true,
-				iconPurpose: ['badge', 'maskable', 'monochrome'],
-			},
+				iconPurpose: ['badge', 'maskable', 'monochrome']
+			}
 		}),
 		partytown({
 			config: {
 				debug: true,
-				forward: ['dataLayer.push'],
-			},
+				forward: ['dataLayer.push']
+			}
 		}),
 		sitemap({
 			customPages: ['https://resurse.dev/external-page2'],
-			filter: (page) =>
-				page !== 'https://resurse.dev/secret-vip-lounge-1/' &&
-				page !== 'https://resurse.dev/secret-vip-lounge-2/' &&
-				page !== 'https://resurse.dev/secret-vip-lounge-3/' &&
-				page !== 'https://resurse.dev/secret-vip-lounge-4/',
+			filter: page => {
+				return page !== 'https://resurse.dev/dashboard/' && page !== 'https://resurse.dev/secret-vip-lounge-2/';
+			},
 			entryLimit: 10000,
 			changefreq: 'weekly',
 			priority: 0.7,
@@ -98,21 +99,21 @@ export default defineConfig({
 			i18n: {
 				defaultLocale: 'ro',
 				locales: {
-					ro: 'ro-RO',
-					en: 'en-US',
-				},
-			},
+					ro: 'ro-RO'
+				}
+			}
 		}),
 		mdx(),
 		compress({
 			CSS: true,
 			HTML: {
-				removeAttributeQuotes: false,
+				removeAttributeQuotes: false
 			},
 			Image: false,
 			JavaScript: true,
 			SVG: true,
-			Logger: 1,
-		}),
+			Logger: 1
+		})
 	],
+	adapter: cloudflare()
 });

@@ -1,0 +1,90 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const accessToken = Astro.cookies.get('sb-access-token');
+const refreshToken = Astro.cookies.get('sb-refresh-token');
+
+if (accessToken && refreshToken) {
+	return redirect('/dashboard');
+}
+
+const pageTitle = 'Intră în contul tău pe Resurse.dev';
+const pageDescription = '@TODO: scrie descrierea';
+const breadcrumbArray = [
+	{
+		href: Astro.url,
+		title: pageTitle,
+		label: 'Intră în cont',
+	},
+];
+---
+
+<Layout title={pageTitle} description={pageDescription} template="SignInPage" breadcrumbArray={breadcrumbArray}>
+	<div class="Hero" id="hero">
+		<div class="HeroText">
+			<h1 class="HeroTitle">Intră în contul tău</h1>
+		</div>
+	</div>
+	<main class="Main">
+		<p>Nu ai încă un cont? <a href="/register">Creează-ți unul acum &raquo;</a></p>
+		<form id="signinForm" name="signin" action="/api/auth/signin" method="post">
+			<fieldset class="Fieldset">
+				<legend class="Legend">Introdu credențialele</legend>
+				<label class="Label" for="email">
+					<span class="LabelText">
+						E-mail:
+						<abbr class="Mandatory" title="Nu poți merge mai departe cu completarea acestui formular fără să completezi acest câmp.">(obligatoriu)</abbr>
+					</span>
+					<input
+						class="Input"
+						id="email"
+						name="email"
+						type="email"
+						maxlength="150"
+						minlength="3"
+						placeholder="E-mail-ul tău..."
+						pattern="\w{3-100}"
+						required="required"
+						autocomplete="email"
+					/>
+				</label>
+				<label class="Label" for="password">
+					<span class="LabelText">
+						Parola:
+						<abbr class="Mandatory" title="Nu poți merge mai departe cu completarea acestui formular fără să completezi acest câmp.">(obligatoriu)</abbr>
+					</span>
+					<input
+						class="Input"
+						id="password"
+						name="password"
+						type="password"
+						maxlength="50"
+						minlength="8"
+						placeholder="Parola ta..."
+						required="required"
+						autocomplete="current-password"
+					/>
+				</label>
+			</fieldset>
+			<fieldset class="Fieldset">
+				<legend class="Legend">Bifează căsuțele dorite</legend>
+				<label class="Label CheckboxLabel" for="check_remember">
+					<input class="Checkbox" id="check_remember" name="check_remember" type="checkbox" value="remember" checked="checked" />
+					<span class="LabelText">Ține-mă minte și nu-mi cere din nou parola timp de 30 zile.</span>
+				</label>
+				<button class="Button CTAButton FormSubmitButton" id="submit_signin" name="submit_signin" type="submit" title="Intră în contul tău de pe Resurse.dev acum!">
+					<span class="ButtonText">Intră în cont &raquo;</span>
+				</button>
+				<hr />
+				<ul class="SignInList">
+					<li class="SignInItem">
+						<button class="Button CTAButton OAUTHButton" value="google" name="provider" type="submit">Folosește contul tău Google</button>
+					</li>
+					<li class="SignInItem">
+						<button class="Button CTAButton OAUTHButton" value="github" name="provider" type="submit">Folosește contul tău GitHub</button>
+					</li>
+				</ul>
+			</fieldset>
+		</form>
+	</main>
+</Layout>

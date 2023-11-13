@@ -1968,10 +1968,6 @@
 		"title": "this video"
 	},
 	{
-		"url": "https://resilientwebdesign.com/",
-		"title": "Resilient web design"
-	},
-	{
 		"url": "https://briefs.video/videos/is-progressive-enhancement-dead-yet/",
 		"title": "This video"
 	},
@@ -6538,38 +6534,6 @@
 	{
 		"url": "https://www.youtube.com/watch?v=jgQjes7MgTM",
 		"title": "The BEST Coding Interview Roadmap in 2023 (free)"
-	},
-	{
-		"title": "Resilient Web Design",
-		"slug": "resilient-web-design",
-		"url": "https://resilientwebdesign.com/",
-		"language": "en",
-		"pubDate": "05 October 2011 14:48 UTC",
-		"addDate": "05 October 2011 14:48 UTC",
-		"description": "Una din cele mai bune cărți care descrie evoluția și progresul web development-ului de-a lungul anilor, și în care sunt explicate concepte de bază de la...",
-		"author": "Jeremy Keith",
-		"authorUrl": "https://adactio.com/",
-		"section": "Front End",
-		"category": "Introducere",
-		"rating": 100,
-		"price": 0,
-		"requiredTime": 20,
-		"type": "carte",
-		"mandatory": true,
-		"image": {
-			"imageUrl": "https://docs.astro.build/assets/full-logo-light.png",
-			"imageAlt": "Prima pagină din Resilient Web Design"
-		},
-		"tags": [
-			"carte",
-			"title",
-			"free",
-			"începători",
-			"mid",
-			"avansați",
-			"pro",
-			"obligatoriu"
-		]
 	},
 	{
 		"url": "https://uxhints.com/",

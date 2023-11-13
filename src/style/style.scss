@@ -63,7 +63,11 @@ a:active { color: var(--light-800); text-decoration: none; }
 
 .Form { display: block; }
 	.Fieldset { display: block; margin: 0; padding: 0; border: none; }
-		.Label { display: block; }
+		.Legend { @extend .SROnly; }
+		.Label { display: block; cursor: pointer; }
+		.Label:hover { color: var(--light-600); }
+		.CheckboxLabel { display: flex; flex-direction: row; gap: 1rem; }
+			.LabelText { display: block; }
 		.Input { display: block; appearance: none; padding: 0.25rem; border: none; font-family: $fonts; font-size: 1rem; line-height: 1.5em; }
 
 /* Utility classes */
@@ -75,6 +79,7 @@ a:active { color: var(--light-800); text-decoration: none; }
 	@media (min-width: $desktop) { display: block; }
 }
 .SROnly { clip: rect(1px, 1px, 1px, 1px); clip-path: inset(50%); height: 1px; width: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; }
+.visually-hidden { position: absolute; overflow: hidden; clip: rect(0 0 0 0); width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; }
 a#skip { @extend .SROnly; }
 a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; height: auto; }
 .Icon { display: inline-block; width: 1.5rem; height: 1.5rem; overflow: hidden; }
@@ -194,6 +199,9 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 		@media (min-width: 600px) { max-width: 60ch; margin: 0 auto; gap: 1.5rem; padding: 2rem 1rem 1rem; }
 		@media (min-width: $desktop) { display: flex; max-width: unset; margin: unset; padding: 0; flex-direction: row; gap: 0; }
 	}
+	.SignInPage .Hero, .RegisterPage .Hero {
+		@media (min-width: 600px) { max-width: none; }
+	}
 	.ResourcePage .Hero {
 		@media (min-width: $desktop) { display: block; }
 		@media (min-width: 1200px) { display: flex; flex-direction: row; gap: 0; }
@@ -251,6 +259,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 	.MarkdownPage .Main {
 		@media (min-width: $desktop) { display: flex; flex-direction: row; }
 	}
+	.SignInPage .Main, .RegisterPage .Main { padding: 1rem; }
 		.MainContainer { padding: 0.5rem 1rem;
 			@media (min-width: 600px) { padding: 0 1rem; }
 			@media (min-width: $desktop) { width: 75%; max-width: 80ch; padding: 0.5rem 1rem; }
