@@ -1,9 +1,12 @@
 /* CSS Variables */
 :root {
 	--dark-100: #030303;
+	--dark-150: #0a0a0a;
 	--dark-200: #222222;
+	--dark-250: #2e2e2e;
 	--dark-300: #333333;
 	--dark-400: #4f4f4f;
+	--medium-500: #888888;
 	--light-600: #bdbdbd;
 	--light-800: #FDFDFD;
 	--light-900: #ffffff;
@@ -37,8 +40,8 @@ $fonts: 'Atkinson Hyperlegible', 'Inter', 'Roboto', 'Helvetica Neue', 'Arial Nov
 }
 
 /* Custom CSS reset */
-html { font-family: $fonts; font-size: 16px; line-height: 1.25; -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
-body { padding: 0 0 2.5rem; background: var(--dark-100); color: var(--light-800); margin: 0; overflow-x: hidden; }
+html { background: var(--dark-150); color: var(--light-800); font-family: $fonts; font-size: 16px; line-height: 1.25; -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { padding: 0 0 2.5rem; background: var(--dark-150); color: var(--light-800); margin: 0; overflow-x: hidden; }
 .ActiveMenu, .ActiveSubnav { overflow: hidden;
 	@media (min-width: $desktop) { overflow: unset; }
 }
@@ -94,7 +97,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 		.MessageBody p { margin: 0; }
 
 /* Structural classes */
-.Framework {
+.Framework { background: var(--dark-100);
 	@media (min-width: $desktop) { margin: 1rem; border: 1px solid var(--light-900); }
 }
 	.Header { background: var(--dark-100);
@@ -163,6 +166,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 							@media (min-width: $desktop) { border: none; }
 							@media (min-width: 1400px) { text-align: center; }
 						}
+						.MainMenuLink:hover { background: var(--dark-150); }
 						.Active > .MainMenuLink { background: var(--accent-400); color: var(--light-900); }
 				.SearchForm {
 					@media (min-width: $desktop) { flex-grow: 1; }
@@ -214,6 +218,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 			@media (min-width: $desktop) { display: block; width: unset; padding: 0; border-bottom: 1px solid var(--light-900); }
 			@media (min-width: 1200px) { width: 37.5%; background: var(--light-900); border-bottom: none; border-right: 1px solid var(--light-900); }
 		}
+		.ResourcePage .HeroVideo { max-width: unset; background-repeat: no-repeat; background-size: contain; background-position: center center; }
 			.HeroImage { display: block; width: 100%; height: auto;
 				@media (min-width: $desktop) { margin: 0; }
 			}
@@ -230,7 +235,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 					@media (min-width: $desktop) { padding: 0.5rem 1rem 1rem; }
 				}
 				.HeroResourceLink:hover .HeroTitle { border-bottom-color: var(--accent-400); }
-				.HeroUrl { display: block; padding: 0.5rem 0 0; font-size: 0.75rem; line-height: 1em; text-wrap: wrap; word-break: break-all; color: var(--dark-400);
+				.HeroUrl { display: block; padding: 0.5rem 0 0; font-size: 0.75rem; line-height: 1em; text-wrap: wrap; word-break: break-all; color: var(--medium-500);
 					@media (min-width: 600px) { padding: 0; }
 					@media (min-width: $desktop) { padding: 0 1rem; font-size: 1rem; line-height: 1.5em; }
 				}
@@ -287,10 +292,10 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 				.SortAndFilter .InputSearch { width: 100%; margin: 0; padding: 0.5rem; max-width: unset; text-align: left; }
 				.FilterOptions { flex-grow: 1; background: var(--dark-100); border-bottom: 1px solid var(--light-900); }
 				.FilterOptions:first-of-type { border-right: 1px solid var(--light-900); }
-					.FilterTrigger { display: flex; flex-direction: row; justify-content: center; gap: 0.25rem; padding: 0.5rem; font-size: 0.75rem; line-height: 2em; user-select: none; cursor: pointer;
+					.FilterTrigger { display: flex; flex-direction: row; justify-content: center; gap: 0.25rem; padding: 0.5rem; font-size: 0.75rem; line-height: 2em; user-select: none; cursor: pointer; text-decoration: underline; text-decoration-color: var(--medium-500);
 						@media (min-width: 450px) { font-size: 1rem; line-height: 1.5rem; }
 					}
-					.FilterTrigger:hover { background: var(--accent-400); color: var(--light-900); }
+					.FilterTrigger:hover { background: var(--accent-400); color: var(--light-900); text-decoration: none; }
 					.FilterTrigger:active, .FilterOptions[open] .FilterTrigger { background: var(--light-900); color: var(--dark-200); }
 						.FilterTrigger .Icon { display: none; width: 1.5rem; height: 1.5rem; text-align: center; line-height: 1.5rem;
 							@media (min-width: 400px) { display: block; }
@@ -316,7 +321,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 		.ResourceList { display: block; list-style-type: none; margin: 0; padding: 0;
 			@media (min-width: $desktop) { grid-column: 1 / span 1; }
 		}
-			.ResourceItem { display: block; border-bottom: 1px solid var(--light-900); transition: filter 0.5s ease-in; position: relative;
+			.ResourceItem { display: block; background: var(--dark-150); border-bottom: 1px solid var(--light-900); transition: filter 0.5s ease-in; position: relative;
 				/* @media (min-width: 600px) { display: flex; flex-direction: row; position: relative; flex-wrap: wrap; } */
 				@media (min-width: $desktop) { display: grid; grid-template-columns: 4fr 1fr 1fr; grid-template-rows: min-content 10fr; transition: unset; }
 			}
@@ -333,7 +338,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 						@media (min-width: $desktop) { padding: 1.25rem 1rem 1rem; margin: 0; }
 					}
 					.ResourceTitle { display: flex; flex-grow: 1; margin: 0; align-items: stretch; }
-						.ResourceLink { display: block; padding: 0.5rem 0 0.25rem 0.5rem; flex-grow: 1; font-size: 1.25rem; line-height: 1.5rem; font-weight: bold; text-wrap: balance; text-decoration-thickness: 0.125rem; text-decoration-skip-ink: auto; text-decoration-color: var(--light-600);
+						.ResourceLink { display: block; padding: 0.5rem 0 0.25rem 0.5rem; flex-grow: 1; font-size: 1.25rem; line-height: 1.5rem; font-weight: bold; text-wrap: balance; text-decoration-thickness: 2px; text-decoration-skip-ink: auto; text-decoration-color: var(--medium-500);
 							@media (min-width: 600px) { padding: 1rem 0 0.5rem 1rem; }
 							@media (min-width: 750px) { padding: 1rem 0 0.5rem 1rem; }
 							@media (min-width: $desktop) { padding: 1rem; font-size: 1.5rem; line-height: 1em; }
@@ -353,8 +358,8 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 					@media (min-width: $desktop) { position: static; right: unset; top: unset; z-index: 0; }
 				}
 				/*.ResourceMain[open] + .ResourceActions { display: block; }*/
-					.WidgetTitle { display: none; margin: 0; padding: 0; font-size: 1rem; line-height: 1em; color: var(--dark-400);
-						@media (min-width: $desktop) { display: block; padding: 1rem; margin: 0.5rem 0; text-align: center; border-bottom: 1px solid var(--dark-400); }
+					.WidgetTitle { display: none; margin: 0; padding: 0; font-size: 1rem; line-height: 1em; color: var(--medium-500);
+						@media (min-width: $desktop) { display: block; padding: 1rem; margin: 0.5rem 0; text-align: center; border-bottom: 1px solid var(--dark-250); }
 					}
 					.ResourceActions .WidgetTitle {
 						@media (min-width: $desktop) { text-align: left; }
@@ -367,7 +372,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 						@media (min-width: $desktop) { gap: 0; height: auto; }
 					}
 					.ResourcePage .InfoList { flex-direction: column; padding: 1rem 0 0; margin: 1rem 0 0; border-top: 1px solid var(--light-900);
-						@media (min-width: $desktop) { display: grid; grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr)); row-gap: 0; margin: 1rem 0 0; padding: 1rem 0.5rem 0.5rem; }
+						@media (min-width: $desktop) { display: grid; grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr)); row-gap: 0; margin: 1rem 0 0; padding: 1rem 0.5rem 0; }
 					}
 						.InfoItem { display: flex; flex-direction: row; align-items: center; justify-content: center; flex: 1; padding: 0.5rem; }
 						.InfoItem:nth-child(3n+1) { text-align: left; justify-content: flex-start; }
@@ -382,14 +387,14 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 							@media (min-width: $desktop) { padding: 0 0.5rem; }
 						}
 						.ResourcePage .InfoItem { justify-content: space-between;
-							@media (min-width: $desktop) { align-items: flex-start; justify-content: flex-start; }
+							@media (min-width: $desktop) { align-items: flex-start; justify-content: flex-start; padding-bottom: 1rem; }
 							@media (min-width: 1400px) { align-items: flex-start; }
 						}
 						.ResourcePage .InfoItem.InfoItemStandalone { flex-direction: column; align-items: flex-start;
 							@media (min-width: $desktop) { padding: 1rem; }
 						}
-						.ResourcePage .InfoItem.InfoItemTags { border-top: 1px solid var(--dark-400); }
-							.InfoItemLabel { height: 1rem; color: var(--dark-400);
+						.ResourcePage .InfoItem.InfoItemTags { border-top: 1px solid var(--dark-150); }
+							.InfoItemLabel { height: 1rem; color: var(--medium-500);
 								@media (min-width: 750px) { height: 1.5rem; }
 								@media (min-width: $desktop) { display: flex; height: auto; align-items: center; justify-content: center; flex-wrap: wrap; font-size: 0.75rem; line-height: 1em; }
 								@media (min-width: 1450px) { font-size: 1rem; line-height: 1em; }
@@ -487,7 +492,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 					@media (min-width: 750px) { padding: 0 5rem 0 0; }
 					@media (min-width: $desktop) { display: flex; flex-direction: column; padding: 0; border-right: 1px solid var(--light-900); }
 				}
-					.ResourceLocationList { display: flex; flex-direction: row; flex-wrap: wrap; margin: 0; padding: 0; list-style-type: none; border-top: 1px solid var(--dark-400); border-bottom: 1px solid var(--dark-400);
+					.ResourceLocationList { display: flex; flex-direction: row; flex-wrap: wrap; margin: 0; padding: 0; list-style-type: none; border-top: 1px solid var(--dark-250); border-bottom: 1px solid var(--dark-250);
 						@media (min-width: 600px) { padding: 0 0.5rem; }
 						@media (min-width: $desktop) { padding: 0; }
 					}

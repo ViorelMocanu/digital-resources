@@ -1,6 +1,7 @@
 ---
 // export const prerender = false;
 
+import Message from '../components/Message.astro';
 import Layout from '../layouts/Layout.astro';
 import { createClient } from '@supabase/supabase-js';
 const supabaseUrl = import.meta.env.SUPABASE_URL || import.meta.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -11,7 +12,7 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 
 let { data: resources, error } = await supabase.from('resources').select('url,title').range(0, 9);
 
-if (error) console.log(error);
+// if (error) console.log(error);
 
 // console.log(resources,error);
 
@@ -44,5 +45,12 @@ const breadcrumbArray = [
 				))
 			}
 		</ul>
+		{
+			error && (
+				<Message title="Eroare de Supabase" type="error">
+					{error}
+				</Message>
+			)
+		}
 	</main>
 </Layout>

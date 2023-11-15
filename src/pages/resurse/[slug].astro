@@ -70,6 +70,9 @@ if (entry.data.subcategories) {
 	}
 }
 
+const isYouTubeVideo = entry.data.url.substring(0, 32) === 'https://www.youtube.com/watch?v=';
+const videoId = entry.data.url ? new URL(entry.data.url).searchParams.get('v') : '';
+
 const pageTitle = entry.data.title;
 const pageDescription = entry.data.description;
 if (breadcrumbArray.length <= 1) {
@@ -90,7 +93,14 @@ breadcrumbArray.push({
 <Layout title={pageTitle} description={pageDescription} modDate={entry.data.modDate} template="ResourcePage" activeMenu={sectionSlug} breadcrumbArray={breadcrumbArray}>
 	<div class="Hero" id="hero">
 		{
-			entry.data.image && entry.data.image.imageUrl && entry.data.url && (
+			isYouTubeVideo && (
+				<div class="HeroVideoContainer HeroVisual">
+					<lite-youtube class="HeroVideo" videoid={videoId} playlabel={entry.data.title} />
+				</div>
+			)
+		}
+		{
+			!isYouTubeVideo && entry.data.image && entry.data.image.imageUrl && entry.data.url && (
 				<a class="HeroVisual" href={entry.data.url} title={`Vizitează resursa: ${entry.data.title}`}>
 					<img src={entry.data.image.imageUrl} alt={entry.data.image.imageAlt} width={1200} height={600} class:list={['HeroImage', 'ExternalImage']} />
 				</a>
@@ -428,3 +438,11 @@ breadcrumbArray.push({
 		<div class="MainActions">@TODO: add main actions</div>
 	</main>
 </Layout>
+{
+	isYouTubeVideo && (
+		<>
+			<link rel="stylesheet" href="/node_modules/lite-youtube-embed/src/lite-yt-embed.css" />
+			<script src="/node_modules/lite-youtube-embed/src/lite-yt-embed.js" />
+		</>
+	)
+}
