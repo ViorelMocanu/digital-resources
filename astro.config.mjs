@@ -8,7 +8,7 @@ import prefetch from '@astrojs/prefetch';
 import partytown from '@astrojs/partytown';
 import sitemap from '@astrojs/sitemap';
 import webmanifest from 'astro-webmanifest';
-import cloudflare from "@astrojs/cloudflare";
+import vercel from '@astrojs/vercel/serverless';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 
@@ -115,5 +115,5 @@ export default defineConfig({
 			Logger: 1
 		})
 	],
-	adapter: cloudflare()
+	adapter: vercel()
 });
