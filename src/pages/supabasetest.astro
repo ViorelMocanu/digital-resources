@@ -1,16 +1,17 @@
 ---
 // export const prerender = false;
 
+import { createClient } from '@supabase/supabase-js';
 import Message from '../components/Message.astro';
 import Layout from '../layouts/Layout.astro';
-import { createClient } from '@supabase/supabase-js';
+
 const supabaseUrl = import.meta.env.SUPABASE_URL || import.meta.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseKey = import.meta.env.SUPABASE_ANON_KEY || import.meta.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 // console.log(supabase);
 
-let { data: resources, error } = await supabase.from('resources').select('url,title').range(0, 9);
+let { data: resources, error } = await supabase.from('resources').select('*').range(0, 9);
 
 // if (error) console.log(error);
 
@@ -41,6 +42,7 @@ const breadcrumbArray = [
 				resources?.map((r) => (
 					<li>
 						<a href={r.url}>{r.title}</a>
+						<pre>{JSON.stringify(r, null, 2)}</pre>
 					</li>
 				))
 			}
