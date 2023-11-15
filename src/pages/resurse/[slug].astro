@@ -93,9 +93,14 @@ breadcrumbArray.push({
 <Layout title={pageTitle} description={pageDescription} modDate={entry.data.modDate} template="ResourcePage" activeMenu={sectionSlug} breadcrumbArray={breadcrumbArray}>
 	<div class="Hero" id="hero">
 		{
-			isYouTubeVideo && (
+			isYouTubeVideo && entry.data.image && (
 				<div class="HeroVideoContainer HeroVisual">
-					<lite-youtube class="HeroVideo" videoid={videoId} playlabel={entry.data.title} />
+					<lite-youtube class="HeroVideo" videoid={videoId} playlabel={entry.data.title}>
+						<a href={entry.data.url} class="HeroVisualContainer" title={`Vezi video-ul: ${entry.data.title}`}>
+							<img src={entry.data.image.imageUrl} alt={entry.data.image.imageAlt} width={1200} height={600} class:list={['SROnly']} />
+							<span class="SROnly">Vezi video-ul: {entry.data.title}</span>
+						</a>
+					</lite-youtube>
 				</div>
 			)
 		}
