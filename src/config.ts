@@ -3,10 +3,10 @@
 import type { CollectionEntry, CollectionKey } from 'astro:content';
 
 // My .env file imports
-const PUBLIC_APP_ENV = import.meta.env.PUBLIC_APP_ENV;
+const PUBLIC_APP_ENV = import.meta.env.PUBLIC_APP_ENV || import.meta.env.VERCEL_ENV;
 const PUBLIC_APP_DEBUG = import.meta.env.PUBLIC_APP_DEBUG;
 
-let u: string = import.meta.env.BASE_URL;
+let u: string = import.meta.env.BASE_URL || import.meta.env.VERCEL_URL;
 if (PUBLIC_APP_ENV === 'local' || PUBLIC_APP_ENV === 'development') {
 	// we are in a local or development environment
 	u = import.meta.env.PUBLIC_APP_URL_LOCAL;
