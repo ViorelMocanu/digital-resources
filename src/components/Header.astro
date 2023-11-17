@@ -57,7 +57,7 @@ const activePage = activeMenu || Astro.url.pathname.substring(1);
 			<span class="LinkText">Login</span>
 		</a>
 		<nav class="MainMenu" id="menu" aria-labelledby="menuTrigger">
-			<ul class="MainMenuList">
+			<menu class="MainMenuList">
 				{
 					allSections.map((section) => (
 						<li class:list={highlightUrl(section.slug, 'MainMenuItem', 'Active', activePage)}>
@@ -67,7 +67,7 @@ const activePage = activeMenu || Astro.url.pathname.substring(1);
 						</li>
 					))
 				}
-			</ul>
+			</menu>
 			<form class="SearchForm Form" action="/cauta" method="get" role="search" aria-label="Caută pe tot site-ul">
 				<fieldset class="Fieldset">
 					<legend class="SROnly">Caută în Resurse.dev</legend>
