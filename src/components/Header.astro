@@ -68,26 +68,28 @@ const activePage = activeMenu || Astro.url.pathname.substring(1);
 					))
 				}
 			</ul>
-			<form class="SearchForm Form" action="/cauta" method="get" role="search" aria-label="Caută pe tot site-ul">
-				<fieldset class="Fieldset">
-					<legend class="SROnly">Caută în Resurse.dev</legend>
-					<label class="Label" id="searchLabel" for="s">Introdu cuvintele căutate:</label>
-					<input
-						type="search"
-						class="Input InputSearch"
-						id="s"
-						name="s"
-						maxlength="200"
-						value=""
-						placeholder="🔍 Caută resurse de orice fel..."
-						spellcheck="false"
-						autocorrect="off"
-						results="10"
-						aria-labelledby="searchLabel"
-					/>
-					<button type="submit" class="SROnly">Caută acum &raquo;</button>
-				</fieldset>
-			</form>
+			<search>
+				<form class="SearchForm Form" action="/cauta" method="get" aria-label="Caută pe tot site-ul">
+					<fieldset class="Fieldset">
+						<legend class="SROnly">Caută în Resurse.dev</legend>
+						<label class="Label" id="searchLabel" for="s">Introdu cuvintele căutate:</label>
+						<input
+							type="search"
+							class="Input InputSearch"
+							id="s"
+							name="s"
+							maxlength="200"
+							value=""
+							placeholder="🔍 Caută resurse de orice fel..."
+							spellcheck="false"
+							autocorrect="off"
+							results="10"
+							aria-labelledby="searchLabel"
+						/>
+						<button type="submit" class="SROnly">Caută acum &raquo;</button>
+					</fieldset>
+				</form>
+			</search>
 		</nav>
 	</div>
 	<Breadcrumbs breadcrumbArray={breadcrumbArray} />
