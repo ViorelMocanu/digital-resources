@@ -55,7 +55,7 @@
 		"@astrojs/rss": "3.0.0",
 		"@astrojs/sitemap": "3.0.3",
 		"astro": "3.4.4",
-		"astro-compress": "2.1.6",
+		"astro-compress": "2.2.0",
 		"astro-simpleanalytics-plugin": "0.3.5",
 		"astro-webmanifest": "1.0.0",
 		"lite-youtube-embed": "0.3.0",
