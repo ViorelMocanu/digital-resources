@@ -1,8 +1,8 @@
 import { ENV, LANGUAGE_EXTENDED, SITE_DESCRIPTION, SITE_NAME, ACCENT_COLOR, URL, DEBUG } from './src/config';
 import { defineConfig } from 'astro/config';
 import { fileURLToPath } from 'url';
-import compress from 'astro-compress';
-import mdx from '@astrojs/mdx';
+// import compress from 'astro-compress';
+// import mdx from '@astrojs/mdx';
 import path from 'path';
 import prefetch from '@astrojs/prefetch';
 import partytown from '@astrojs/partytown';
@@ -103,6 +103,7 @@ export default defineConfig({
 				}
 			}
 		}),
+		/*
 		mdx(),
 		compress({
 			CSS: true,
@@ -114,6 +115,7 @@ export default defineConfig({
 			SVG: true,
 			Logger: 1
 		})
+		*/
 	],
 	adapter: vercel()
 });

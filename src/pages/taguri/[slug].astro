@@ -1,7 +1,7 @@
 ---
 import { type CollectionEntry, getCollection } from 'astro:content';
-import Layout from '../../layouts/Layout.astro';
-import ResourceList from '../../components/ResourceList.astro';
+import Layout from '@layouts/Layout.astro';
+import ResourceList from '@components/ResourceList.astro';
 
 export async function getStaticPaths() {
 	const tags = (await getCollection('tags')).sort((a, b) => new Date(a.data.title).valueOf() - new Date(b.data.title).valueOf()); // ordering by sortOrder asc

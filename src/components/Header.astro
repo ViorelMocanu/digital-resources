@@ -11,10 +11,10 @@
  * @returns {astro.AstroNode} The header component.
  */
 
-import { type BreadcrumbItem } from '../config';
-import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { type BreadcrumbItem } from '@config';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
 import { getCollection } from 'astro:content';
-import { highlightUrl } from '../utils/urlHelpers';
+import { highlightUrl } from '@utils/urlHelpers';
 export interface Props {
 	breadcrumbArray?: BreadcrumbItem[] | undefined;
 	activeMenu?: string | undefined;
