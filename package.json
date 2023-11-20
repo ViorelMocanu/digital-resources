@@ -11,6 +11,9 @@
 		"url": "https://github.com/ViorelMocanu/digital-resources"
 	},
 	"homepage": "https://resurse.dev",
+	"browserslist": [
+		"defaults"
+	],
 	"engineStrict": true,
 	"engines": {
 		"node": ">=18.15.0",
