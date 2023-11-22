@@ -28,7 +28,8 @@
 			"@layouts/*": ["src/layouts/*"],
 			"@lib/*": ["src/lib/*"],
 			"@utils/*": ["src/utils/*"],
-			"@style": ["src/style/style.scss"]
+			"@style": ["src/style/style.scss"],
+			"@customtypes/*": ["src/customtypes/*"]
 		},
 		"types": [
 			"astro/client",

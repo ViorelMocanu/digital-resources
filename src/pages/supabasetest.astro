@@ -1,9 +1,9 @@
 ---
 // export const prerender = false;
 
-import { createClient } from '@supabase/supabase-js';
-import Message from '@components/Message.astro';
 import Layout from '@layouts/Layout.astro';
+import Message from '@components/Message.astro';
+import { createClient } from '@supabase/supabase-js';
 
 const supabaseUrl = import.meta.env.SUPABASE_URL || import.meta.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseKey = import.meta.env.SUPABASE_ANON_KEY || import.meta.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;

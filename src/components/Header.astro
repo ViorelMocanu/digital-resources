@@ -11,7 +11,7 @@
  * @returns {astro.AstroNode} The header component.
  */
 
-import { type BreadcrumbItem } from '@config';
+import type { BreadcrumbItem } from '@customtypes/astro';
 import Breadcrumbs from '@components/Breadcrumbs.astro';
 import { getCollection } from 'astro:content';
 import { highlightUrl } from '@utils/urlHelpers';

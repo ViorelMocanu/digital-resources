@@ -17,12 +17,13 @@
  */
 
 import { type CollectionEntry, getCollection } from 'astro:content';
-import { type ExtendedResource, resourceTypeIcon } from '@config';
+import type { ExtendedResource } from '@customtypes/astro';
 import HelpfulLinks from '@components/HelpfulLinks.astro';
 import Message from '@components/Message.astro';
 import Pagination from '@components/Pagination.astro';
 import ResourceLocationList from '@components/ResourceLocationList.astro';
 import ResourceTagList from '@components/ResourceTagList.astro';
+import { resourceTypeIcon } from '@config';
 
 export interface Props {
 	resources: CollectionEntry<'resources'>[];
