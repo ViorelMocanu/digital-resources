@@ -54,7 +54,7 @@
 		"@astrojs/prefetch": "0.4.1",
 		"@astrojs/rss": "3.0.0",
 		"@astrojs/sitemap": "3.0.3",
-		"astro": "3.4.4",
+		"astro": "3.5.1",
 		"astro-compress": "2.1.6",
 		"astro-simpleanalytics-plugin": "0.3.5",
 		"astro-webmanifest": "1.0.0",
