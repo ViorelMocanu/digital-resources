@@ -60,7 +60,7 @@
 		"astro-webmanifest": "1.0.0",
 		"lite-youtube-embed": "0.3.0",
 		"sass": "1.69.5",
-		"sharp": "0.32.6"
+		"sharp": "0.33.0"
 	},
 	"devDependencies": {
 		"@astrojs/mdx": "1.1.3",
