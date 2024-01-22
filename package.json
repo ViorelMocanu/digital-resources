@@ -59,7 +59,7 @@
 		"astro-webmanifest": "1.0.0",
 		"lite-youtube-embed": "0.3.0",
 		"sass": "1.70.0",
-		"sharp": "0.33.2"
+		"sharp": "0.33.1"
 	},
 	"devDependencies": {
 		"@astrojs/mdx": "2.0.5",
@@ -78,5 +78,9 @@
 		"prettier-plugin-astro": "0.13.0",
 		"typescript": "5.3.3",
 		"vitest": "^0.34.6"
+	},
+	"resolutions": {
+		"astro/sharp": "0.33.1",
+		"astro-compress/sharp": "0.33.1"
 	}
 }
