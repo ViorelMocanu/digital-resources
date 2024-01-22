@@ -57,7 +57,7 @@
 		"@vercel/analytics": "1.1.2",
 		"astro": "4.2.1",
 		"astro-compress": "2.2.8",
-		"astro-simpleanalytics-plugin": "0.3.8",
+		"astro-simpleanalytics-plugin": "0.3.10",
 		"astro-webmanifest": "1.0.0",
 		"lite-youtube-embed": "0.3.0",
 		"sass": "1.70.0",
