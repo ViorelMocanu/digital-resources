@@ -1,10 +1,9 @@
 import { ENV, LANGUAGE_EXTENDED, SITE_DESCRIPTION, SITE_NAME, ACCENT_COLOR, URL, DEBUG } from './src/config';
-import { defineConfig } from 'astro/config';
+import { defineConfig, squooshImageService } from 'astro/config';
 import { fileURLToPath } from 'url';
-import compress from 'astro-compress';
+//import compress from 'astro-compress';
 import mdx from '@astrojs/mdx';
 import path from 'path';
-import prefetch from '@astrojs/prefetch';
 import partytown from '@astrojs/partytown';
 import sitemap from '@astrojs/sitemap';
 import webmanifest from 'astro-webmanifest';
@@ -20,7 +19,10 @@ export default defineConfig({
 		// '/old': '/new',
 	},
 	image: {
-		remotePatterns: [{ protocol: 'https' }],
+		service: squooshImageService(),
+		remotePatterns: [{
+			protocol: 'https'
+		}]
 	},
 	vite: {
 		logLevel: DEBUG ? 'info' : 'silent',
@@ -52,10 +54,6 @@ export default defineConfig({
 		},
 	},
 	integrations: [
-		prefetch({
-			// Only prefetch links with an href that begins with `/resurse` or `.front-end`
-			intentSelector: ["a[href^='/resurse']"],
-		}),
 		webmanifest({
 			name: SITE_NAME,
 			short_name: SITE_NAME,
@@ -104,15 +102,13 @@ export default defineConfig({
 			},
 		}),
 		mdx(),
-		compress({
+		/*compress({
 			CSS: true,
-			HTML: {
-				removeAttributeQuotes: false,
-			},
+			HTML: true,
 			Image: false,
 			JavaScript: true,
 			SVG: true,
 			Logger: 1,
-		}),
+		}),*/
 	],
 });
