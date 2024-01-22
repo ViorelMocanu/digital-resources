@@ -19,12 +19,25 @@
 		"noImplicitThis": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
+		"baseUrl": ".",
+		"paths": {
+			"@components/*": ["src/components/*"],
+			"@config": ["src/config"],
+			"@content/*": ["src/content/*"],
+			"@img/*": ["src/img/*"],
+			"@layouts/*": ["src/layouts/*"],
+			"@lib/*": ["src/lib/*"],
+			"@utils/*": ["src/utils/*"],
+			"@style": ["src/style/style.scss"],
+			"@customtypes/*": ["src/customtypes/*"]
+		},
 		"types": [
 			"astro/client",
 			"vitest/globals",
 			"vite/client"
 			// "vite-plugin-pwa/info"
 		],
+		"verbatimModuleSyntax": true,
 		"sourceMap": true,
 		"strictNullChecks": true,
 		"strictFunctionTypes": true,

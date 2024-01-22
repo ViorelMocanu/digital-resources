@@ -1,11 +1,75 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import ResourceFilter from '../../components/ResourceFilter.astro';
-import ResourceList from '../../components/ResourceList.astro';
+import type { InferGetStaticPropsType } from 'astro';
+import Layout from '@layouts/Layout.astro';
+import ResourceFilter from '@components/ResourceFilter.astro';
+import ResourceList from '@components/ResourceList.astro';
+import { supabase } from '@lib/supabase';
+import { PAGE_SIZE } from '@config';
 
-import { getCollection } from 'astro:content';
+export async function getStaticPaths({ paginate }: any) {
+	const newestResourcesQuery = supabase
+		.from('resources')
+		.select(
+			`
+			id,
+			created_at,
+			modified_at,
+			title,
+			slug,
+			url,
+			language,
+			description,
+			author_name,
+			author_url,
+			taxonomy (
+				id,
+				title,
+				slug,
+				type:taxonomy_types (
+					id,
+					title
+				),
+				parent:taxonomy (
+					id,
+					title,
+					slug
+				),
+				menu,
+				sort_order,
+				description,
+				image,
+				image_alt
+			),
+			tags (
+				id,
+				title,
+				slug,
+				type (
+					id,
+					title,
+					slug,
+					description
+				),
+				description,
+				image
+			),
+			rating,
+			price,
+			required_time,
+			image,
+			image_alt
+			`
+		)
+		.order('modified_at', { ascending: false });
+	let { data: resources, error } = await newestResourcesQuery;
+	if (error) throw error;
+	return paginate(resources, {
+		pageSize: PAGE_SIZE,
+	});
+}
 
-const resources = await getCollection('resources');
+export type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const { page } = Astro.props satisfies Props;
 
 const pageTitle = 'Toate resursele de pe Resurse.dev';
 const pageDescription = '@TODO: scrie descrierea';
@@ -22,11 +86,12 @@ const breadcrumbArray = [
 	<div class="Hero" id="hero">
 		<div class="HeroText">
 			<h1 class="HeroTitle">Toate resursele</h1>
+			<h2>Pagina {page.currentPage}</h2>
 			<details class="HeroDetails">
 				<summary class="HeroPreview">
 					<p class="HeroP">
-						Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-						unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
+						@TODO Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+						when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
 						electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
 						passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 					</p>
@@ -57,8 +122,7 @@ const breadcrumbArray = [
 		</div>
 	</div>
 	<main class="Main">
-		@TODO: index de resurse - listează cu paginație toate resursele?
 		<ResourceFilter />
-		<ResourceList resources={resources} pageTitle={pageTitle} />
+		<ResourceList resources={page.data} pageTitle={pageTitle} page={page} />
 	</main>
 </Layout>

@@ -1,5 +1,5 @@
 import { type CollectionEntry, type DataCollectionKey, getCollection } from 'astro:content';
-import type { CollectionKeyEnum, Order, Type } from '../config';
+import type { CollectionKeyEnum, Order, Type } from '@customtypes/astro';
 
 /**
  * Compares two strings based on the specified order and returns a numerical value indicating their relative order.

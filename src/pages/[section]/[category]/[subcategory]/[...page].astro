@@ -1,11 +1,11 @@
 ---
 import { type CollectionEntry, getCollection, getEntry } from 'astro:content';
-import type { InferGetStaticPropsType } from 'astro';
-import Layout from '../../../../layouts/Layout.astro';
-import { PAGE_SIZE } from '../../../../config';
-import ResourceFilter from '../../../../components/ResourceFilter.astro';
-import ResourceList from '../../../../components/ResourceList.astro';
-import ResourceTOC from '../../../../components/ResourceTOC.astro';
+import type { InferGetStaticParamsType, InferGetStaticPropsType } from 'astro';
+import Layout from '@layouts/Layout.astro';
+import { PAGE_SIZE } from '@config';
+import ResourceFilter from '@components/ResourceFilter.astro';
+import ResourceList from '@components/ResourceList.astro';
+import ResourceTOC from '@components/ResourceTOC.astro';
 
 export async function getStaticPaths({ paginate }: any) {
 	const allSections = (await getCollection('sections')).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
@@ -113,9 +113,10 @@ export async function getStaticPaths({ paginate }: any) {
 	return finalPagination;
 }
 
+export type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 export type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 const { page } = Astro.props satisfies Props;
-const params = Astro.params;
+const params = Astro.params satisfies Params;
 
 const currentSection = params.section as any; // @TODO fix this
 const section = (await getEntry('sections', currentSection))!; // @TODO fix this;

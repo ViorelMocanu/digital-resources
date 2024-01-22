@@ -1,0 +1,52 @@
+---
+// export const prerender = false;
+
+import Layout from '@layouts/Layout.astro';
+import Message from '@components/Message.astro';
+import { supabase } from '@lib/supabase';
+
+let { data: resources, error } = await supabase.from('resources').select('*').range(0, 99).order('modified_at', { ascending: false });
+
+// if (error) console.log(error);
+
+// console.log(resources,error);
+
+//import { supabase } from '@lib/supabase';
+
+const pageTitle = 'Test';
+const pageDescription = '@TODO: scrie descrierea';
+const breadcrumbArray = [
+	{
+		href: Astro.url,
+		title: pageTitle,
+		label: 'Test',
+	},
+];
+---
+
+<Layout title={pageTitle} description={pageDescription} template="TestPage" breadcrumbArray={breadcrumbArray}>
+	<div class="Hero" id="hero">
+		<div class="HeroText">
+			<h1 class="HeroTitle">Bine-ai venit în contul tău</h1>
+		</div>
+	</div>
+	<main class="Main">
+		<ul>
+			{
+				resources?.map((r) => (
+					<li>
+						<a href={r.url}>{r.title}</a>
+						<pre>{JSON.stringify(r, null, 2)}</pre>
+					</li>
+				))
+			}
+		</ul>
+		{
+			error && (
+				<Message title="Eroare de Supabase" type="error">
+					{error}
+				</Message>
+			)
+		}
+	</main>
+</Layout>

@@ -26,10 +26,9 @@
  * @returns {astro.AstroNode} The rendered HTML layout with metadata and components.
  */
 
-import '../style/style.scss';
+import '@style';
 import {
 	ACCENT_COLOR,
-	type BreadcrumbItem,
 	CONTACT_EMAIL,
 	ENV,
 	FACEBOOK_APP_ID,
@@ -42,11 +41,12 @@ import {
 	SITE_TITLE,
 	TWITTER_CREATOR,
 	TWITTER_SITE,
-} from '../config';
-import Analytics from '../components/Analytics.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
+} from '@config';
+import type { BreadcrumbItem } from '@customtypes/astro';
 import { ViewTransitions } from 'astro:transitions';
+import Analytics from '@components/Analytics.astro';
+import Footer from '@components/Footer.astro';
+import Header from '@components/Header.astro';
 
 interface Props {
 	title: string;
