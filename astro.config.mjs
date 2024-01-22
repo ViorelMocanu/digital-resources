@@ -1,5 +1,5 @@
 import { ENV, LANGUAGE_EXTENDED, SITE_DESCRIPTION, SITE_NAME, ACCENT_COLOR, URL, DEBUG } from './src/config';
-import { defineConfig } from 'astro/config';
+import { defineConfig, squooshImageService } from 'astro/config';
 import { fileURLToPath } from 'url';
 import compress from 'astro-compress';
 import mdx from '@astrojs/mdx';
@@ -19,7 +19,10 @@ export default defineConfig({
 		// '/old': '/new',
 	},
 	image: {
-		remotePatterns: [{ protocol: 'https' }],
+		service: squooshImageService(),
+		remotePatterns: [{
+			protocol: 'https'
+		}]
 	},
 	vite: {
 		logLevel: DEBUG ? 'info' : 'silent',
