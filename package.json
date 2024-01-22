@@ -54,7 +54,6 @@
 		"@astrojs/rss": "4.0.2",
 		"@astrojs/sitemap": "3.0.5",
 		"astro": "4.2.1",
-		"astro-compress": "2.2.8",
 		"astro-simpleanalytics-plugin": "0.3.8",
 		"astro-webmanifest": "1.0.0",
 		"lite-youtube-embed": "0.3.0",
@@ -78,9 +77,5 @@
 		"prettier-plugin-astro": "0.13.0",
 		"typescript": "5.3.3",
 		"vitest": "^0.34.6"
-	},
-	"resolutions": {
-		"astro/sharp": "0.33.1",
-		"astro-compress/sharp": "0.33.1"
 	}
 }
