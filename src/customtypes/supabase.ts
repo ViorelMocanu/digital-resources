@@ -48,68 +48,279 @@ export interface Database {
 				Row: {
 					author_name: string | null;
 					author_url: string | null;
-					categories: Json[] | null;
+					category: number | null;
 					created_at: string;
 					description: string | null;
 					id: number;
+					image: string | null;
 					image_alt: string | null;
-					image_url: string | null;
 					language: string;
-					mandatory: boolean | null;
 					modified_at: string | null;
 					price: number | null;
 					rating: number | null;
 					required_time: number | null;
-					section: Json | null;
-					subcategories: Json[] | null;
-					tags: Json[] | null;
+					section: number | null;
+					slug: string | null;
+					subcategory: number | null;
 					title: string;
-					type: string | null;
+					type: number | null;
 					url: string;
 				};
 				Insert: {
 					author_name?: string | null;
 					author_url?: string | null;
-					categories?: Json[] | null;
+					category?: number | null;
 					created_at?: string;
 					description?: string | null;
 					id?: number;
+					image?: string | null;
 					image_alt?: string | null;
-					image_url?: string | null;
 					language?: string;
-					mandatory?: boolean | null;
 					modified_at?: string | null;
 					price?: number | null;
 					rating?: number | null;
 					required_time?: number | null;
-					section?: Json | null;
-					subcategories?: Json[] | null;
-					tags?: Json[] | null;
+					section?: number | null;
+					slug?: string | null;
+					subcategory?: number | null;
 					title: string;
-					type?: string | null;
+					type?: number | null;
 					url: string;
 				};
 				Update: {
 					author_name?: string | null;
 					author_url?: string | null;
-					categories?: Json[] | null;
+					category?: number | null;
 					created_at?: string;
 					description?: string | null;
 					id?: number;
+					image?: string | null;
 					image_alt?: string | null;
-					image_url?: string | null;
 					language?: string;
-					mandatory?: boolean | null;
 					modified_at?: string | null;
 					price?: number | null;
 					rating?: number | null;
 					required_time?: number | null;
-					section?: Json | null;
-					subcategories?: Json[] | null;
-					tags?: Json[] | null;
+					section?: number | null;
+					slug?: string | null;
+					subcategory?: number | null;
 					title?: string;
-					type?: string | null;
+					type?: number | null;
 					url?: string;
+				};
+				Relationships: [
+					{
+						foreignKeyName: 'resources_category_fkey';
+						columns: ['category'];
+						isOneToOne: false;
+						referencedRelation: 'taxonomy';
+						referencedColumns: ['id'];
+					},
+					{
+						foreignKeyName: 'resources_section_fkey';
+						columns: ['section'];
+						isOneToOne: false;
+						referencedRelation: 'taxonomy';
+						referencedColumns: ['id'];
+					},
+					{
+						foreignKeyName: 'resources_subcategory_fkey';
+						columns: ['subcategory'];
+						isOneToOne: false;
+						referencedRelation: 'taxonomy';
+						referencedColumns: ['id'];
+					},
+					{
+						foreignKeyName: 'resources_type_fkey';
+						columns: ['type'];
+						isOneToOne: false;
+						referencedRelation: 'tags';
+						referencedColumns: ['id'];
+					},
+				];
+			};
+			resources_tags: {
+				Row: {
+					created_at: string;
+					id: number;
+					modified_at: string | null;
+					resource_id: number;
+					tag_id: number;
+				};
+				Insert: {
+					created_at?: string;
+					id?: number;
+					modified_at?: string | null;
+					resource_id: number;
+					tag_id: number;
+				};
+				Update: {
+					created_at?: string;
+					id?: number;
+					modified_at?: string | null;
+					resource_id?: number;
+					tag_id?: number;
+				};
+				Relationships: [
+					{
+						foreignKeyName: 'resources_tags_resource_id_fkey';
+						columns: ['resource_id'];
+						isOneToOne: false;
+						referencedRelation: 'resources';
+						referencedColumns: ['id'];
+					},
+					{
+						foreignKeyName: 'resources_tags_tag_id_fkey';
+						columns: ['tag_id'];
+						isOneToOne: false;
+						referencedRelation: 'tags';
+						referencedColumns: ['id'];
+					},
+				];
+			};
+			tags: {
+				Row: {
+					created_at: string;
+					description: string | null;
+					id: number;
+					image: string | null;
+					modified_at: string | null;
+					slug: string | null;
+					title: string;
+					type: number;
+				};
+				Insert: {
+					created_at?: string;
+					description?: string | null;
+					id?: number;
+					image?: string | null;
+					modified_at?: string | null;
+					slug?: string | null;
+					title: string;
+					type: number;
+				};
+				Update: {
+					created_at?: string;
+					description?: string | null;
+					id?: number;
+					image?: string | null;
+					modified_at?: string | null;
+					slug?: string | null;
+					title?: string;
+					type?: number;
+				};
+				Relationships: [
+					{
+						foreignKeyName: 'tags_type_fkey';
+						columns: ['type'];
+						isOneToOne: false;
+						referencedRelation: 'tags_types';
+						referencedColumns: ['id'];
+					},
+				];
+			};
+			tags_types: {
+				Row: {
+					created_at: string;
+					description: string | null;
+					id: number;
+					image: string | null;
+					modified_at: string | null;
+					slug: string | null;
+					title: string;
+				};
+				Insert: {
+					created_at?: string;
+					description?: string | null;
+					id?: number;
+					image?: string | null;
+					modified_at?: string | null;
+					slug?: string | null;
+					title: string;
+				};
+				Update: {
+					created_at?: string;
+					description?: string | null;
+					id?: number;
+					image?: string | null;
+					modified_at?: string | null;
+					slug?: string | null;
+					title?: string;
+				};
+				Relationships: [];
+			};
+			taxonomy: {
+				Row: {
+					created_at: string;
+					description: string | null;
+					id: number;
+					image: string | null;
+					image_alt: string | null;
+					menu: string;
+					modified_at: string | null;
+					parent: number | null;
+					slug: string | null;
+					sort_order: number;
+					title: string;
+					type: number;
+				};
+				Insert: {
+					created_at?: string;
+					description?: string | null;
+					id?: number;
+					image?: string | null;
+					image_alt?: string | null;
+					menu: string;
+					modified_at?: string | null;
+					parent?: number | null;
+					slug?: string | null;
+					sort_order?: number;
+					title: string;
+					type: number;
+				};
+				Update: {
+					created_at?: string;
+					description?: string | null;
+					id?: number;
+					image?: string | null;
+					image_alt?: string | null;
+					menu?: string;
+					modified_at?: string | null;
+					parent?: number | null;
+					slug?: string | null;
+					sort_order?: number;
+					title?: string;
+					type?: number;
+				};
+				Relationships: [
+					{
+						foreignKeyName: 'taxonomy_parent_fkey';
+						columns: ['parent'];
+						isOneToOne: false;
+						referencedRelation: 'taxonomy';
+						referencedColumns: ['id'];
+					},
+					{
+						foreignKeyName: 'taxonomy_type_fkey';
+						columns: ['type'];
+						isOneToOne: false;
+						referencedRelation: 'taxonomy_types';
+						referencedColumns: ['id'];
+					},
+				];
+			};
+			taxonomy_types: {
+				Row: {
+					id: number;
+					title: string;
+				};
+				Insert: {
+					id?: number;
+					title: string;
+				};
+				Update: {
+					id?: number;
+					title?: string;
 				};
 				Relationships: [];
 			};
@@ -118,7 +329,24 @@ export interface Database {
 			[_ in never]: never;
 		};
 		Functions: {
-			[_ in never]: never;
+			slugify: {
+				Args: {
+					value: string;
+				};
+				Returns: string;
+			};
+			unaccent: {
+				Args: {
+					'': string;
+				};
+				Returns: string;
+			};
+			unaccent_init: {
+				Args: {
+					'': unknown;
+				};
+				Returns: unknown;
+			};
 		};
 		Enums: {
 			[_ in never]: never;
@@ -128,5 +356,3 @@ export interface Database {
 		};
 	};
 }
-
-export type Tables<T extends keyof Database['public']['Tables']> = Database['public']['Tables'][T]['Row'];

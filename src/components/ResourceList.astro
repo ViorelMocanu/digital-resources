@@ -6,18 +6,17 @@
  * ```astro
  * <ResourceList resources={theResources} page={thePage} pageTitle="The page title" />
  * ```
- * @property {CollectionEntry<"resources">[]} resources - The list of resources.
+ * @property {Array} resources - The list of resources.
  * @property {Object} [page] - The optional page object.
  * @property {number} page.currentPage - The current page number.
  * @property {number} page.lastPage - The last page number.
  * @property {Object} page.url - The URL object.
  * @property {string} page.url.[next] - The URL for the next page.
  * @property {string} page.url.[prev] - The URL for the previous page.
+ * @property {Object} error - The error object.
  * @returns {astro.AstroNode} The rendered resource list component.
  */
 
-import { type CollectionEntry, getCollection } from 'astro:content';
-import type { ExtendedResource } from '@customtypes/astro';
 import HelpfulLinks from '@components/HelpfulLinks.astro';
 import Message from '@components/Message.astro';
 import Pagination from '@components/Pagination.astro';
@@ -25,8 +24,30 @@ import ResourceLocationList from '@components/ResourceLocationList.astro';
 import ResourceTagList from '@components/ResourceTagList.astro';
 import { resourceTypeIcon } from '@config';
 
+import { type DbResultErr, type DbResultOk, type Resources, supabase } from '@lib/supabase';
+
+/*
+const tagsQuery = supabase.from('tags').select(`
+	id,
+	created_at,
+	modified_at,
+	title,
+	slug,
+	type (
+		id,
+		title
+	),
+	description,
+	image
+`);
+export type TagsResources = DbResultOk<typeof tagsQuery>;
+let { data: tags, error: err } = await tagsQuery;
+if (err) throw err;
+console.log(tags);
+*/
+
 export interface Props {
-	resources: CollectionEntry<'resources'>[];
+	resources: Resources;
 	page?: {
 		currentPage: number;
 		lastPage: number;
@@ -36,10 +57,12 @@ export interface Props {
 		};
 	};
 	pageTitle?: string | undefined;
+	error?: DbResultErr | null;
 }
 
-const { resources, page, pageTitle } = Astro.props satisfies Props;
+const { resources, page, pageTitle, error } = Astro.props satisfies Props;
 
+/*
 let r = resources as unknown as ExtendedResource[];
 const allTags = await getCollection('tags');
 const allSections = await getCollection('sections');
@@ -57,7 +80,7 @@ if (resources) {
 				if (currentTag && typeof currentTag.data !== 'undefined') {
 					tagData.push(currentTag);
 					if (currentTag.data.type === 'Tip') {
-						resource.type = currentTag.data.title;
+						resource.type = currentTag.title;
 					}
 				}
 			});
@@ -94,6 +117,7 @@ if (resources) {
 		}
 	});
 }
+*/
 ---
 
 <div class="ResourceContainer">
@@ -102,14 +126,14 @@ if (resources) {
 	{
 		resources && resources.length > 0 ? (
 			<ol class="ResourceList">
-				{r.map((resource) => (
+				{resources.map((resource) => (
 					<li class="ResourceItem">
 						<div class="ResourceName">
 							<h4 class="ResourceTitle">
 								{resource.slug && (
-									<a class="ResourceLink" href={`/resurse/${resource.slug}`} title={`Vizitează resursa intitulată: ${resource.data.title}`}>
-										{resource.data.title}
-										{resourceTypeIcon[resource.type.toLowerCase()]}
+									<a class="ResourceLink" href={`/resurse/${resource.slug}`} title={`Vizitează resursa intitulată: ${resource.title}`}>
+										{resource.title}
+										{/*resourceTypeIcon[resource.type.toLowerCase()]*/}
 									</a>
 								)}
 								<button class="ResourceStatus" type="button" title="Marchează resursa ca fiind neparcursă">
@@ -134,7 +158,7 @@ if (resources) {
 										</span>
 										<span class="InfoItemText">Rating-ul link-ului</span>
 									</div>
-									<strong class="InfoItemValue">{resource.data.rating || 'n/a'} (10)</strong>
+									<strong class="InfoItemValue">{resource.rating || 'n/a'} (10)</strong>
 								</li>
 								<li class="InfoItem">
 									<div class="InfoItemLabel">
@@ -153,26 +177,24 @@ if (resources) {
 									</div>
 									<strong class="InfoItemValue">7895</strong>
 								</li>
-								{resource.data.requiredTime && (
-									<li class="InfoItem">
-										<div class="InfoItemLabel">
-											<span class="Icon IconTime">
-												<span class="SROnly">⏰</span>
-												<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-													<path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-												</svg>
-											</span>
-											<span class="InfoItemText">Timp necesar</span>
-										</div>
-										<strong class="InfoItemValue">{resource.data.requiredTime}h</strong>
-									</li>
-								)}
+								<li class="InfoItem">
+									<div class="InfoItemLabel">
+										<span class="Icon IconTime">
+											<span class="SROnly">⏰</span>
+											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+												<path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+											</svg>
+										</span>
+										<span class="InfoItemText">Timp necesar</span>
+									</div>
+									<strong class="InfoItemValue">{resource.required_time || '? '}h</strong>
+								</li>
 							</ul>
 						</div>
 						<div class="ResourceMainContent">
-							<ResourceLocationList res={resource} />
-							{resource.data.description && <p class="ResourceP">{resource.data.description}</p>}
-							{resource.data.tags && <ResourceTagList taglist={resource.tagData} />}
+							<ResourceLocationList resource={resource} />
+							<p class="ResourceP">{resource.description && resource.description.length > 160 ? resource.description?.substring(0, 160) : resource.description}</p>
+							{resource.tags && <ResourceTagList taglist={resource.tags} />}
 						</div>
 						<aside class="ResourceAside ResourceActions">
 							<h5 class="WidgetTitle">Acțiuni disponibile:</h5>
@@ -239,6 +261,14 @@ if (resources) {
 			</ol>
 		) : (
 			<Message title="Nu s-au găsit resurse pentru contextul curent" type="error">
+				<HelpfulLinks />
+			</Message>
+		)
+	}
+
+	{
+		error && (
+			<Message title="Am întâmpinat o problemă cu baza de date." type="error">
 				<HelpfulLinks />
 			</Message>
 		)

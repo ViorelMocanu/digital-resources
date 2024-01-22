@@ -16,8 +16,8 @@
 	],
 	"engineStrict": true,
 	"engines": {
-		"node": ">=18.15.0",
-		"pnpm": ">=8.9.2"
+		"node": ">=18.0.0",
+		"pnpm": ">=8.0.0"
 	},
 	"license": "ISC",
 	"keywords": [
@@ -46,44 +46,44 @@
 		"postinstall": "husky install",
 		"coverage": "pnpm test:unit --coverage",
 		"typegen:astro": "astro sync",
-		"typegen:supabase": "pnpm supabase gen types typescript --project-id \"$SUPABASE_REFERENCE\" --schema public > src/types/supabase.ts --debug",
+		"typegen:supabase": "pnpm supabase gen types typescript --project-id \"$PUBLIC_SUPABASE_REFERENCE\" --schema public > src/types/supabase.ts --debug",
 		"test:unit": "vitest run",
 		"test:e2e": "playwright test",
 		"test": "pnpm test:unit && pnpm test:e2e",
 		"typecheck": "pnpm astro check && pnpm tsc --project tsconfig.json",
+		"upd": "pnpm up --latest --interactive && pnpm update",
 		"verify": "pnpm lint && pnpm typecheck && pnpm test:unit && pnpm format",
 		"verify:fix": "pnpm lint:fix && pnpm typecheck && pnpm test:unit && pnpm format:fix"
 	},
 	"dependencies": {
-		"@astrojs/check": "0.3.1",
+		"@astrojs/check": "0.3.3",
 		"@astrojs/partytown": "2.0.2",
-		"@astrojs/prefetch": "0.4.1",
 		"@astrojs/sitemap": "3.0.3",
-		"@astrojs/vercel": "5.2.0",
-		"@supabase/supabase-js": "2.38.5",
-		"astro": "3.6.0",
+		"@astrojs/vercel": "6.1.0",
+		"@supabase/supabase-js": "2.39.0",
+		"astro": "4.0.6",
 		"astro-simpleanalytics-plugin": "0.3.6",
 		"astro-webmanifest": "1.0.0",
 		"lite-youtube-embed": "0.3.0",
-		"sharp": "0.32.6"
+		"sharp": "0.33.1"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "18.4.3",
 		"@commitlint/config-conventional": "18.4.3",
-		"@typescript-eslint/eslint-plugin": "6.12.0",
-		"@typescript-eslint/parser": "6.12.0",
-		"@vitest/coverage-v8": "0.34.6",
-		"eslint": "8.54.0",
-		"eslint-plugin-astro": "0.29.1",
-		"eslint-plugin-jsdoc": "46.9.0",
+		"@typescript-eslint/eslint-plugin": "6.15.0",
+		"@typescript-eslint/parser": "6.15.0",
+		"@vitest/coverage-v8": "1.0.4",
+		"eslint": "8.56.0",
+		"eslint-plugin-astro": "0.31.0",
+		"eslint-plugin-jsdoc": "46.9.1",
 		"eslint-plugin-jsx-a11y": "6.8.0",
 		"husky": "8.0.3",
-		"markdownlint-cli": "0.37.0",
-		"prettier": "3.1.0",
+		"markdownlint-cli": "0.38.0",
+		"prettier": "3.1.1",
 		"prettier-plugin-astro": "0.12.2",
 		"sass": "1.69.5",
-		"supabase": "1.113.2",
-		"typescript": "5.3.2",
-		"vitest": "0.34.6"
+		"supabase": "1.123.4",
+		"typescript": "5.3.3",
+		"vitest": "1.0.4"
 	}
 }

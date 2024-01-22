@@ -1,90 +1,78 @@
 ---
-import { type CollectionEntry, getCollection, getEntry } from 'astro:content';
 import type { InferGetStaticParamsType, InferGetStaticPropsType } from 'astro';
 import Layout from '@layouts/Layout.astro';
 import { PAGE_SIZE } from '@config';
 import ResourceFilter from '@components/ResourceFilter.astro';
 import ResourceList from '@components/ResourceList.astro';
 import ResourceTOC from '@components/ResourceTOC.astro';
-import ResponsiveImage from '@components/ResponsiveImage.astro';
-import getSortedItems from '@utils/getSortedItems';
+// import ResponsiveImage from '@components/ResponsiveImage.astro';
+import { allResources, allSections, taxonomyTree } from '@lib/supabase';
+// import { searchTaxonomyTree } from '@utils/getTaxonomies';
 
 export async function getStaticPaths({ paginate }: any) {
-	const allSections = (await getCollection('sections')).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
-	const allSectionsArray = allSections.flatMap((section: CollectionEntry<'sections'>) => section.slug);
-
-	const allResources = await getSortedItems({
-		collectionKey: 'resources',
-		sortKey: 'modDate',
-		type: 'date',
-		order: 'asc',
+	const sections = allSections;
+	// console.log('taxonomyTree', taxonomyTree, taxonomyTree[0].categories);
+	const resources = allResources?.filter((resource) => {
+		return true;
+		//return searchTaxonomyTree(taxonomyTree, resource.taxonomy);
 	});
-	const finalPagination = allSectionsArray.flatMap((section) => {
-		const selectedResources = allResources.filter((res) => res.data.section.slug == section);
-		return paginate(selectedResources, {
-			params: { section, category: undefined, subcategory: undefined },
+	return sections?.flatMap((section) => {
+		return paginate(resources, {
+			params: { section: section.slug, category: undefined, subcategory: undefined },
 			pageSize: PAGE_SIZE,
 		});
 	});
-
-	return finalPagination;
 }
 export type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 export type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 const { page } = Astro.props satisfies Props;
 const params = Astro.params satisfies Params;
 
-const currentSection = params.section as string;
-const section = (await getEntry('sections', currentSection))!; // @TODO fix this;
-const { Content } = await section.render();
+// console.log('PAGE DATE', page.data);
 
-const pageTitle = section.data.title;
-const pageDescription = section.data.description;
+const currentSection = params.section as string;
+const section = allSections?.find((section) => section.slug === currentSection);
+const categories = taxonomyTree?.find((section) => section.slug === currentSection)?.categories;
+
+const pageTitle = section?.title;
+const pageDescription = section?.description;
 const breadcrumbArray = [
 	{
-		href: `/${section.slug}`,
-		title: section.data.title,
-		label: section.data.menu,
+		href: `/${section?.slug}`,
+		title: section?.title,
+		label: section?.menu,
 	},
 ];
 ---
 
-<Layout title={pageTitle} description={pageDescription} template="SectionPage" activeMenu={section.slug} breadcrumbArray={breadcrumbArray}>
+<Layout title={pageTitle} description={pageDescription} template="SectionPage" activeMenu={section?.slug} breadcrumbArray={breadcrumbArray}>
 	<div class="Hero" id="hero">
-		{
-			section.data.imageUrl && (
+		{/*
+			section?.image && (
 				<div class="HeroVisual">
-					{/* @TODO breakpoint must be edited here */}
+					@TODO breakpoint must be edited here
 					<ResponsiveImage
 						breakpoint={1100}
 						classList={['HeroImage']}
-						image={section.data.imageUrl}
+						image={section?.image}
 						width={287}
 						height={120}
-						alt={section.data.imageAlt || 'Without alt'}
+						alt={section?.image_alt || 'Without alt'}
 						lazyLoading={false}
 					/>
 				</div>
 			)
-		}
+		*/}
 		<div class="HeroText">
-			<h1 class="HeroTitle">{section.data.title}</h1>
-			<details class="HeroDetails">
-				<summary class="HeroPreview">
-					<p class="HeroP">{section.data.description}</p>
-					<p class="HeroP">
-						<span class="HeroExpand Link" title={`Afișează întreg textul descriptiv pentru resursele de ${section.data.menu}`}>Citește mai mult &raquo;</span>
-					</p>
-				</summary>
-				<div class="HeroContent">
-					<Content />
-				</div>
-			</details>
+			<h1 class="HeroTitle">{section?.title}</h1>
+			<div class="HeroContent">
+				{pageDescription}
+			</div>
 		</div>
 	</div>
 	<main class="Main">
-		<ResourceFilter section={section} />
-		<ResourceList resources={page.data} page={page} pageTitle={section.data.title} />
-		<ResourceTOC section={section} />
+		<ResourceFilter section={section} categories={categories} />
+		<ResourceList resources={page.data} page={page} pageTitle={section?.title} />
+		<ResourceTOC section={section} categories={categories} />
 	</main>
 </Layout>

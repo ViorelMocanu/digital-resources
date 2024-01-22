@@ -3,15 +3,9 @@
 
 import Layout from '@layouts/Layout.astro';
 import Message from '@components/Message.astro';
-import { createClient } from '@supabase/supabase-js';
+import { supabase } from '@lib/supabase';
 
-const supabaseUrl = import.meta.env.SUPABASE_URL || import.meta.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseKey = import.meta.env.SUPABASE_ANON_KEY || import.meta.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
-
-// console.log(supabase);
-
-let { data: resources, error } = await supabase.from('resources').select('*').range(0, 9);
+let { data: resources, error } = await supabase.from('resources').select('*').range(0, 99).order('modified_at', { ascending: false });
 
 // if (error) console.log(error);
 

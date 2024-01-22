@@ -4,7 +4,6 @@ import { fileURLToPath } from 'url';
 // import compress from 'astro-compress';
 // import mdx from '@astrojs/mdx';
 import path from 'path';
-import prefetch from '@astrojs/prefetch';
 import partytown from '@astrojs/partytown';
 import sitemap from '@astrojs/sitemap';
 import webmanifest from 'astro-webmanifest';
@@ -17,6 +16,9 @@ export default defineConfig({
 	site: URL || 'https://resurse.dev',
 	output: 'hybrid',
 	compressHTML: ENV !== 'local' && ENV !== 'development' ? true : false,
+	prefetch: {
+		defaultStrategy: 'viewport'
+	},
 	redirects: {
 		// '/old': '/new',
 	},
@@ -49,16 +51,19 @@ export default defineConfig({
 			// Add custom languages
 			// Note: Shiki has countless langs built-in, including .astro!
 			// https://github.com/shikijs/shiki/blob/main/docs/languages.md
-			langs: [],
+			// import customLang from './custom.tmLanguage.json'
+			langs: [
+				// customLang,
+			],
 			// Enable word wrap to prevent horizontal scrolling
 			wrap: true
 		}
 	},
+	i18n: {
+		defaultLocale: 'ro',
+		locales: ['ro'],
+	},
 	integrations: [
-		prefetch({
-			// Only prefetch links with an href that begins with `/resurse` or `.front-end`
-			intentSelector: ["a[href^='/resurse']"]
-		}),
 		webmanifest({
 			name: SITE_NAME,
 			short_name: SITE_NAME,

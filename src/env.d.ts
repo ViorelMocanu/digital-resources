@@ -4,8 +4,8 @@
 
 interface ImportMetaEnv {
 	readonly OAUTH_GOOGLE_CALLBACK_URL: string;
-	readonly SUPABASE_URL: string;
-	readonly SUPABASE_ANON_KEY: string;
+	readonly PUBLIC_SUPABASE_URL: string;
+	readonly PUBLIC_SUPABASE_ANON_KEY: string;
 	readonly PUBLIC_APP_ENV: string;
 	readonly PUBLIC_APP_DEBUG: boolean;
 	readonly PUBLIC_APP_URL_LOCAL: string;

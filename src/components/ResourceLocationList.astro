@@ -4,110 +4,60 @@
  * @component
  * @example
  * ```astro
- * <ResourceLocationList res={resource} />
+ * <ResourceLocationList resource={resource} />
  * ```
  * This example renders a list of resource locations using the `res` prop.
- * @example
- * ```astro
- * <ResourceLocationList section={theSection} categories={theCategories} subcategories={theSubcategories} />
- * ```
- * This example renders a list of resource locations using the `section`, `categories`, and `subcategories` props.
  * @property {ExtendedResource} [res] - An optional object representing an extended resource.
- * @property {CollectionEntry<"sections">} [section] - An optional object representing a collection entry of type "sections".
- * @property {CollectionEntry<"categories">[]} [categories] - An optional array of objects representing collection entries of type "categories".
- * @property {CollectionEntry<"subcategories">[]} [subcategories] - An optional array of objects representing collection entries of type "subcategories".
  * @returns {astro.AstroNode} The rendered list of resource locations.
  */
 
-import { type CollectionEntry } from 'astro:content';
-import type { ExtendedResource } from '@customtypes/astro';
+import { allTaxonomies } from '@lib/supabase';
+import type { Database } from '@customtypes/supabase';
+import { getTaxonomyParents } from '@utils/getTaxonomies';
 
 export interface Props {
-	res?: ExtendedResource;
-	section?: CollectionEntry<'sections'>;
-	categories?: CollectionEntry<'categories'>[];
-	subcategories?: CollectionEntry<'subcategories'>[];
+	resource: Database['public']['Tables']['resources']['Row'];
 }
 
-const { res, section, categories, subcategories } = Astro.props satisfies Props;
+const { resource } = Astro.props satisfies Props;
 
-const resourceSection = res ? res.data.section : section;
-const shouldRenderCategoriesFromRes = res && res.data.categories && resourceSection;
-const shouldRenderCategoriesFromCat = categories && resourceSection;
-const shouldRenderSubcategoriesFromRes = res && res.data.subcategories;
-const shouldRenderSubcategoriesFromCat = subcategories && categories && resourceSection;
+const taxonomies = getTaxonomyParents(allTaxonomies, resource?.taxonomy?.id);
+const section = taxonomies.pop();
+const category = taxonomies.pop();
+const subcategory = taxonomies.pop();
 ---
 
 <ul class="ResourceLocationList">
+	<li class="DesktopOnlyBlock">
+		<span class="ResourceLocationText">Găsești resursa în:</span>
+	</li>
 	{
-		resourceSection && (
+		section && (
 			<li class="ResourceLocationItem Classification">
-				{res && res.data.section && res.sectionData ? (
-					<a class="ClassificationLink" href={`/${resourceSection.slug}`} title={`Vezi toate resursele din secțiunea ${res.sectionData.data.title}`}>
-						{res.sectionData.data.menu}
-					</a>
-				) : (
-					section && (
-						<a class="ClassificationLink" href={`/${resourceSection.slug}`} title={`Vezi toate resursele din secțiunea ${section.data.title}`}>
-							{section.data.menu}
-						</a>
-					)
-				)}
+				<a class="ClassificationLink" href={`/${section.slug}`} title={`Vezi toate resursele din secțiunea ${section.title}`}>
+					{section.menu}
+				</a>
 			</li>
 		)
 	}
 
 	{
-		shouldRenderCategoriesFromRes &&
-			res.categoryData.map((cat) => (
-				<li class="ResourceLocationItem Classification">
-					<a class="ClassificationLink" href={`/${resourceSection.slug}/${cat.slug}`} title={`Vezi toate resursele din categoria ${cat.data.title}`}>
-						{cat.data.menu}
-					</a>
-				</li>
-			))
-	}
-	{
-		shouldRenderCategoriesFromCat &&
-			categories.map((cat) => (
-				<li class="ResourceLocationItem Classification">
-					<a class="ClassificationLink" href={`/${resourceSection.slug}/${cat.slug}`} title={`Vezi toate resursele din categoria ${cat.data.title}`}>
-						{cat.data.menu}
-					</a>
-				</li>
-			))
+		section && category && (
+			<li class="ResourceLocationItem Classification">
+				<a class="ClassificationLink" href={`/${section.slug}/${category.slug}`} title={`Vezi toate resursele din categoria ${category.title}`}>
+					{category.menu}
+				</a>
+			</li>
+		)
 	}
 
 	{
-		shouldRenderSubcategoriesFromRes &&
-			res.categoryData.map((cat) =>
-				res.subCategoryData.map((subcat) => (
-					<li class="ResourceLocationItem Classification">
-						<a
-							class="ClassificationLink"
-							href={`/${res.data.section.slug}/${cat.slug}/${subcat.slug}`}
-							title={`Vezi toate resursele din subcategoria ${subcat.data.title}`}
-						>
-							{subcat.data.menu}
-						</a>
-					</li>
-				))
-			)
-	}
-	{
-		shouldRenderSubcategoriesFromCat &&
-			categories.map((cat) =>
-				subcategories.map((subcat) => (
-					<li class="ResourceLocationItem Classification">
-						<a
-							class="ClassificationLink"
-							href={`/${resourceSection.slug}/${cat.slug}/${subcat.slug}`}
-							title={`Vezi toate resursele din subcategoria ${subcat.data.title}`}
-						>
-							{subcat.data.menu}
-						</a>
-					</li>
-				))
-			)
+		section && category && subcategory && (
+			<li class="ResourceLocationItem Classification">
+				<a class="ClassificationLink" href={`/${section.slug}/${category.slug}/${subcategory.slug}`} title={`Vezi toate resursele din subcategoria ${subcategory.title}`}>
+					{subcategory.menu}
+				</a>
+			</li>
+		)
 	}
 </ul>

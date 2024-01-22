@@ -156,21 +156,35 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 			.ActiveMenu .MainMenu { transform: translate3d(0, 0, 0); }
 				.MainMenuList { display: flex; flex-direction: column; list-style-type: none; margin: 0; padding: 0;
 					@media (min-width: $desktop) { flex-direction: row; }
-					@media (min-width: 1400px) { flex-grow: 1; }
+					@media (min-width: 1450px) { flex-grow: 1; }
 				}
 					.MainMenuItem { display: block;
-						@media (min-width: 1400px) { width: 16.6666%; }
-						@media (min-width: 2200px) { width: 14.2857%; }
+						@media (min-width: $desktop) { position: relative; }
+						/*@media (min-width: 1450px) { width: 16.6666%; }
+						@media (min-width: 2200px) { width: 14.2857%; }*/
+					}
+					.MainMenuItem:hover {
+						@media (min-width: $desktop) { background: var(--dark-200); }
 					}
 						.MainMenuLink { display: block; padding: 1rem; border-bottom: 1px solid var(--accent-400); font-weight: bold; text-decoration: none; font-size: 1.5rem; line-height: 1em;
-							@media (min-width: $desktop) { border: none; }
-							@media (min-width: 1400px) { text-align: center; }
+							@media (min-width: $desktop) { border: none; font-size: clamp(1rem, 1.75vw, 1.5rem); line-height: 1.5rem; }
+							@media (min-width: 1280px) { font-size: 1.5rem; line-height: 1em; }
+							@media (min-width: 1450px) { /*text-align: center;*/ }
 						}
 						.MainMenuLink:hover { background: var(--dark-150); }
 						.Active > .MainMenuLink { background: var(--accent-400); color: var(--light-900); }
+						.MainMenuSubList { display: flex; flex-direction: column; margin: 0; padding: 0;
+							@media (min-width: $desktop) { display: none; width: 32vw; position: absolute; background: var(--dark-200); border: 1px solid var(--light-800); grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); }
+							@media (min-width: 1450px) { width: 39vw; }
+						}
+						.MainMenuItem:hover .MainMenuSubList {
+							@media (min-width: $desktop) { display: grid; }
+						}
+							.MainMenuSubItem { display: block; }
+								.MainMenuSubItem .MainMenuLink { border-bottom-color: var(--dark-200); font-size: 1rem; line-height: 1.5rem; text-align: left; font-weight: normal; }
 				.SearchForm {
 					@media (min-width: $desktop) { flex-grow: 1; }
-					@media (min-width: 1400px) { flex-grow: 0; width: 25%; }
+					@media (min-width: 1450px) { flex-grow: 0; width: 25%; }
 					@media (min-width: 2200px) { width: 12.5%; }
 				}
 					.SearchForm .Fieldset {
@@ -181,7 +195,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 						}
 						.InputSearch { margin: 0.5rem 1rem 1rem; width: calc(100% - 2rem);
 							@media (min-width: $desktop) { width: 100%; max-width: 22rem; margin: 0; padding: 1rem; text-align: right; }
-							@media (min-width: 1400px) { max-width: unset; }
+							@media (min-width: 1450px) { max-width: unset; }
 						}
 		.Breadcrumbs { padding: 0 0.5rem; margin-top: 3rem; border-bottom: 1px solid var(--light-900);
 			@media (min-width: $desktop) { padding: 0 1rem; margin-top: 0; }
@@ -332,7 +346,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 					@media (min-width: 600px) { flex-grow: 1; }
 					@media (min-width: $desktop) { grid-column: 1 / span 1; grid-row: 1 / span 1; padding: 0; border-right: 1px solid var(--light-900); }
 				}
-					.ResourceStatus { display: flex; align-items: flex-start; margin: 0; padding: 0.75rem 0.5rem 0.25rem; appearance: none; background: transparent; border: none;
+					.ResourceStatus { display: none; /*display: flex;*/ align-items: flex-start; margin: 0; padding: 0.75rem 0.5rem 0.25rem; appearance: none; background: transparent; border: none;
 						@media (min-width: 600px) { padding: 1.25rem 1rem 0.5rem 1rem; margin: 0 2.5rem 0 0; }
 						@media (min-width: 750px) { margin: 0 5rem 0 0; }
 						@media (min-width: $desktop) { padding: 1.25rem 1rem 1rem; margin: 0; }
@@ -350,7 +364,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 				}
 				.ResourceInfo { display: block; border-bottom: 1px solid var(--dark-300);
 					@media (min-width: 600px) { padding: 0 3rem 0 0.5rem; }
-					@media (min-width: 750px) { padding: 0.25rem 6rem 0.25rem 0.5rem; }
+					@media (min-width: 750px) { padding: 0.25rem 5.5rem 0.25rem 0.5rem; }
 					@media (min-width: $desktop) { padding: 0; border-top: none; border-right: 1px solid var(--light-900); }
 				}
 				.ResourceActions { display: block; border-top: 1px solid var(--dark-400);
@@ -360,6 +374,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 				/*.ResourceMain[open] + .ResourceActions { display: block; }*/
 					.WidgetTitle { display: none; margin: 0; padding: 0; font-size: 1rem; line-height: 1em; color: var(--medium-500);
 						@media (min-width: $desktop) { display: block; padding: 1rem; margin: 0.5rem 0; text-align: center; border-bottom: 1px solid var(--dark-250); }
+						@media (min-width: 1500px) { padding: 1rem 2rem; }
 					}
 					.ResourceActions .WidgetTitle {
 						@media (min-width: $desktop) { text-align: left; }
@@ -448,6 +463,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 								@media (min-width: 750px) { flex-direction: column; }
 								@media (min-width: $desktop) { flex-direction: column; justify-content: flex-start; align-items: flex-start; height: auto; border: none; }
 								@media (min-width: 1280px) { flex-direction: row; justify-content: flex-start; align-items: center; }
+								@media (min-width: 1500px) { padding: 0.5rem 2rem; }
 							}
 							.InfoLink:hover { color: var(--accent-400); text-decoration: none;
 								@media (min-width: 600px) { background: var(--dark-100); }
@@ -502,16 +518,17 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 							@media (min-width: $desktop) { padding: 1rem 0; }
 						}
 						.ResourceLocationItem:last-of-type:after { content: ''; display: none; }
-							.ClassificationLink { padding: 0.5rem;
+							.ClassificationLink, .ResourceLocationText { padding: 0.5rem;
 								@media (min-width: 600px) { padding: 0.5rem 1rem; }
 								@media (min-width: $desktop) { padding: 1rem; }
 							}
 							.ClassificationLink:hover { text-decoration: none; }
-					.ResourceP { display: block; margin: 0.5rem; padding: 0;
+							.ResourceLocationText { display: block; }
+					.ResourceP { display: block; margin: 0.5rem; padding: 0; min-height: 1.5rem;
 						@media (min-width: 600px) { margin: 1rem; }
 						@media (min-width: $desktop) { flex-grow: 1; }
 					}
-					.ResourceTags { display: flex; flex-direction: row; flex-wrap: wrap; gap: 0.5rem; list-style-type: none; margin: 0; padding: 0 0.5rem 0.5rem;
+					.ResourceTags { display: flex; flex-direction: row; flex-wrap: wrap; gap: 0.5rem; min-height: 1rem; list-style-type: none; margin: 0; padding: 0 0.5rem 0.5rem;
 						@media (min-width: 600px) { padding: 0 1rem 1rem; }
 						@media (min-width: $desktop) { gap: 1rem; }
 					}
@@ -586,10 +603,10 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 					}
 					.ListNavCloseButton:hover { background: var(--accent-400); color: var(--light-900); }
 					.ListNavCloseButton:active { background: var(--light-900); color: var(--accent-400); }
-		.Pagination {
+		.Pagination { background: var(--dark-200);
 			@media (min-width: $desktop) { grid-column: 1 / span 2; }
 		}
-			.PaginationTitle { display: block; padding: 0.5rem; margin: 0;
+			.PaginationTitle { display: block; padding: 0.5rem; margin: 0; background-color: var(--dark-150);
 				@media (min-width: $desktop) { padding: 1rem; }
 			}
 			.PaginationList { display: flex; flex-direction: row; margin: 0; padding: 0; list-style-type: none;
@@ -598,7 +615,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 				.PaginationItem { display: none; border-left: 1px solid var(--light-900);
 					@media (min-width: 800px) { display: block; flex-grow: 1; text-align: center; }
 				}
-				.PaginationPrevious, .PaginationNext { display: block; flex-grow: 1;
+				.PaginationPrevious, .PaginationNext, .PaginationEllipsis { display: block; flex-grow: 1;
 					@media (min-width: 1100px) { flex-grow: 0; flex-basis: 33.3333%; }
 					@media (min-width: 1400px) { flex-basis: 16.6666%; }
 				}
@@ -611,13 +628,14 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 					.PaginationLink, .SpacerSymbol, .PaginationUnavailable { display: block; padding: 0.5rem; text-transform: capitalize; border-top: 1px solid var(--light-900); border-bottom: 1px solid var(--light-900); text-decoration: none;
 						@media (min-width: 800px) { padding: 0.5rem 1rem; }
 					}
+					.SpacerSymbol { text-align: center; background-color: var(--dark-150); }
 					.PaginationCurrent .PaginationLink { background: var(--accent-400); color: var(--light-900); }
 					.PaginationLink:hover { background: var(--accent-400); color: var(--light-900); }
 					.PaginationLink:active { background: var(--light-900); color: var(--accent-400); }
-					.PaginationUnavailable { color: var(--dark-200); cursor: not-allowed; }
+					.PaginationUnavailable { color: var(--dark-400); background-color: var(--dark-150); cursor: not-allowed; }
 						.HideLowRes { display: none;
 							@media (min-width: 400px) { display: inline; }
-							@media (min-width: $desktop) { display: none; }
+							@media (min-width: 800px) { display: none; }
 							@media (min-width: 1600px) { display: inline; }
 						}
 		.Comments { border-top: 1px solid var(--light-900);
