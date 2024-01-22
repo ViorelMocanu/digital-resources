@@ -22,14 +22,14 @@
 		"types": [
 			"astro/client",
 			"vitest/globals",
-			"vite/client"
+			"vite/client",
 			// "vite-plugin-pwa/info"
 		],
 		"sourceMap": true,
 		"strictNullChecks": true,
 		"strictFunctionTypes": true,
 		"allowJs": true,
-		"checkJs": true
+		"checkJs": true,
 	},
-	"exclude": ["node_modules", "**/node_modules/*", "dist", "coverage", "static", "eslint.config.js"]
+	"exclude": ["node_modules", "**/node_modules/*", "dist", "coverage", "static", "eslint.config.js"],
 }

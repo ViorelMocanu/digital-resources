@@ -4,7 +4,6 @@ import { fileURLToPath } from 'url';
 import compress from 'astro-compress';
 import mdx from '@astrojs/mdx';
 import path from 'path';
-import prefetch from '@astrojs/prefetch';
 import partytown from '@astrojs/partytown';
 import sitemap from '@astrojs/sitemap';
 import webmanifest from 'astro-webmanifest';
@@ -52,10 +51,6 @@ export default defineConfig({
 		},
 	},
 	integrations: [
-		prefetch({
-			// Only prefetch links with an href that begins with `/resurse` or `.front-end`
-			intentSelector: ["a[href^='/resurse']"],
-		}),
 		webmanifest({
 			name: SITE_NAME,
 			short_name: SITE_NAME,
@@ -106,9 +101,7 @@ export default defineConfig({
 		mdx(),
 		compress({
 			CSS: true,
-			HTML: {
-				removeAttributeQuotes: false,
-			},
+			HTML: true,
 			Image: false,
 			JavaScript: true,
 			SVG: true,
