@@ -6,7 +6,7 @@ import mdx from '@astrojs/mdx';
 import path from 'path';
 import partytown from '@astrojs/partytown';
 import sitemap from '@astrojs/sitemap';
-import vercelStatic from '@astrojs/vercel/static';
+import vercel from '@astrojs/vercel/serverless';
 import webmanifest from 'astro-webmanifest';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -14,15 +14,14 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // https://astro.build/config
 export default defineConfig({
 	site: URL || 'https://resurse.dev',
-	output: 'static', // hybrid with `@astrojs/vercel/serverless`
+	output: 'hybrid',
 	// https://vercel.com/docs/frameworks/astro
-	adapter: vercelStatic({
+	adapter: vercel({
 		webAnalytics: {
 			enabled: true,
 		},
-		// enable when switching to supabase adapter
-		// edgeMiddleware: true,
-		// maxDuration: 8,
+		maxDuration: 8,
+		edgeMiddleware: true,
 	}),
 	compressHTML: ENV !== 'local' && ENV !== 'development' ? true : false,
 	redirects: {
