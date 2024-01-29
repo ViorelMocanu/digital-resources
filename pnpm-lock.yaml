@@ -18,8 +18,8 @@ dependencies:
     specifier: 3.0.5
     version: 3.0.5
   '@astrojs/vercel':
-    specifier: 7.0.0
-    version: 7.0.0(astro@4.2.1)
+    specifier: 7.0.2
+    version: 7.0.2(astro@4.2.1)
   '@vercel/analytics':
     specifier: 1.1.2
     version: 1.1.2
@@ -258,8 +258,8 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /@astrojs/vercel@7.0.0(astro@4.2.1):
-    resolution: {integrity: sha512-wMES6lCmSAsHKLgGMlOAmnPEP2az3cPAQ3Ztu+Yu727SbddVDG7RzDb3NSVkwI06X5lvG0D1hlQdJvvVZQHW0w==}
+  /@astrojs/vercel@7.0.2(astro@4.2.1):
+    resolution: {integrity: sha512-XlUNqstoGVDDk5txGF2JadSt+jK79peMeFHlH6D5u9d9yeql1Kyw2o9nPvu9nr1PMdnDrBkF82DQE06iIzXZ1Q==}
     peerDependencies:
       astro: ^4.2.0
     dependencies:
