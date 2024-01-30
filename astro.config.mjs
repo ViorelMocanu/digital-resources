@@ -1,6 +1,6 @@
 import { ENV, LANGUAGE_EXTENDED, SITE_DESCRIPTION, SITE_NAME, ACCENT_COLOR, URL, DEBUG } from './src/config';
 import { defineConfig, squooshImageService } from 'astro/config';
-import { astroCSPHashGenerator } from './src/utils/csp-hash';
+//import { astroCSPHashGenerator } from './src/utils/csp-hash';
 import { fileURLToPath } from 'url';
 import { loadEnv } from 'vite';
 //import compress from 'astro-compress';
@@ -123,7 +123,7 @@ export default defineConfig({
 			SVG: true,
 			Logger: 1,
 		}),*/
-		astroCSPHashGenerator,
+		//astroCSPHashGenerator,
 		sentry({
 			dsn: "https://344f761c5efeb4b9ea6b08942c01f5b6@o4506599007911936.ingest.sentry.io/4506661195808768",
 			// @ts-ignore
