@@ -7,7 +7,7 @@ import { fileURLToPath } from 'url';
 import mdx from '@astrojs/mdx';
 import path from 'path';
 import partytown from '@astrojs/partytown';
-import sentry from "@sentry/astro";
+//import sentry from "@sentry/astro";
 import sitemap from '@astrojs/sitemap';
 import vercel from '@astrojs/vercel/serverless';
 import webmanifest from 'astro-webmanifest';
@@ -124,9 +124,9 @@ export default defineConfig({
 			Logger: 1,
 		}),*/
 		//astroCSPHashGenerator,
+		/*
 		sentry({
 			dsn: "https://344f761c5efeb4b9ea6b08942c01f5b6@o4506599007911936.ingest.sentry.io/4506661195808768",
-			/*
 			// @ts-ignore
 			sourceMapsUploadOptions: {
 				project: "resurse-dev",
@@ -134,7 +134,7 @@ export default defineConfig({
 				authToken: VITE_SENTRY_AUTH_TOKEN,
 				telemetry: false,
 			},
-			*/
 		}),
+		*/
 	],
 });
