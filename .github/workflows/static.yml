@@ -48,5 +48,5 @@ jobs:
                   path: './dist'
             - name: Deploy to GitHub Pages
               id: deployment
-              uses: actions/deploy-pages@v2
+              uses: actions/deploy-pages@v4
     # Find an alternative 2-step version of this on https://docs.astro.build/en/guides/deploy/github/
