@@ -1,4 +1,5 @@
 import type { AstroIntegration } from 'astro';
+/*
 import { fileURLToPath } from 'node:url';
 import { parse } from 'node-html-parser';
 import { readFile } from 'node:fs/promises';
@@ -9,10 +10,12 @@ const createCspHash = async (s: string) => {
 
 	return `'sha256-${hashBase64}'`;
 };
+*/
 
 export const astroCSPHashGenerator: AstroIntegration = {
 	name: 'astro-csp-hash-generator',
 	hooks: {
+		/*
 		'astro:build:done': async ({ dir, pages, logger }) => {
 			let hashes = [];
 			for (let i = 0; i < pages.length; i++) {
@@ -35,5 +38,6 @@ export const astroCSPHashGenerator: AstroIntegration = {
 			}
 			logger.info(hashes.join(' '));
 		},
+		*/
 	},
 };
