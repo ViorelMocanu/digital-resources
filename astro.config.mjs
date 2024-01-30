@@ -124,6 +124,7 @@ export default defineConfig({
 			Logger: 1,
 		}),*/
 		//astroCSPHashGenerator,
+		//add in vercel.json script-src: 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-lqmxBU0DSNZSjDq7cbo8xTfsaMru8pCfYf7WgXwuD9E=' 'sha256-ipVu24fJB4N9VK6cLL0TmioKXqjvYwd6zJ/Sn+5suLg='
 		/*
 		sentry({
 			dsn: "https://344f761c5efeb4b9ea6b08942c01f5b6@o4506599007911936.ingest.sentry.io/4506661195808768",
