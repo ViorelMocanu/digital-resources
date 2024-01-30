@@ -48,6 +48,7 @@ Thumbs.db
 # Hosting provider adapters
 .netlify
 .vercel
+.vercel/*
 .turbo
 lambda
 
@@ -71,3 +72,6 @@ coverage
 
 # nyc test coverage
 .nyc_output
+
+# Sentry Config File
+.env.sentry-build-plugin

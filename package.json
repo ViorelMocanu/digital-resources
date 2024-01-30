@@ -35,10 +35,10 @@
 		"astro": "astro",
 		"format": "prettier --check ./**/*.{html,css,js,cjs,ts,astro,md,json,yaml} --plugin=prettier-plugin-astro",
 		"format:fix": "prettier --write ./**/*.{html,css,js,cjs,ts,astro,md,json,yaml} --plugin=prettier-plugin-astro",
-		"lint:js": "eslint ./**/*.js ./**/*.ts ./**/*.astro",
+		"lint:js": "eslint ./**/*.js ./**/*.ts ./**/*.astro --ignore-pattern '.vercel/*' --ignore-pattern '.astro/*' --ignore-pattern 'build/*' --ignore-pattern 'coverage/*' --ignore-pattern 'dist/*' --ignore-pattern 'node_modules/*'",
 		"lint:md": "markdownlint ./src/**/*.md",
-		"lint:fix": "pnpm lint:js --fix . && pnpm lint:md --fix",
-		"lint": "pnpm lint:js . && pnpm lint:md",
+		"lint:fix": "pnpm lint:js --fix && pnpm lint:md --fix",
+		"lint": "pnpm lint:js && pnpm lint:md",
 		"postinstall": "husky",
 		"coverage": "pnpm test:unit --coverage",
 		"test:unit": "vitest run",
@@ -54,12 +54,14 @@
 		"@astrojs/rss": "4.0.4",
 		"@astrojs/sitemap": "3.0.5",
 		"@astrojs/vercel": "7.0.2",
-		"@vercel/analytics": "1.1.2",
+		"@sentry/astro": "^7.99.0",
+		"@vercel/analytics": "^1.1.2",
 		"astro": "4.2.7",
 		"astro-compress": "2.2.8",
 		"astro-simpleanalytics-plugin": "^0.3.11",
 		"astro-webmanifest": "1.0.0",
 		"lite-youtube-embed": "0.3.0",
+		"node-html-parser": "6.1.12",
 		"sass": "1.70.0",
 		"sharp": "0.33.2"
 	},
@@ -79,6 +81,7 @@
 		"prettier": "3.2.4",
 		"prettier-plugin-astro": "0.13.0",
 		"typescript": "5.3.3",
+		"vite": "^5.0.12",
 		"vitest": "1.2.2"
 	}
 }

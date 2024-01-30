@@ -12,6 +12,7 @@ const ignoreArray = [
 	'.idea/**',
 	'.netlify/**',
 	'.vercel/**',
+	'/.vercel/**',
 	'build/**',
 	'coverage/**',
 	'demo/**',
@@ -20,6 +21,9 @@ const ignoreArray = [
 	'node_modules/**',
 	'static/**',
 	'src/env.d.ts',
+	'.vercel',
+	'**/.vercel/**',
+	'/.vercel/**',
 ];
 
 export default [

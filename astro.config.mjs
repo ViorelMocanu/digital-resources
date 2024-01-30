@@ -1,15 +1,19 @@
 import { ENV, LANGUAGE_EXTENDED, SITE_DESCRIPTION, SITE_NAME, ACCENT_COLOR, URL, DEBUG } from './src/config';
 import { defineConfig, squooshImageService } from 'astro/config';
+import { astroCSPHashGenerator } from './src/utils/csp-hash';
 import { fileURLToPath } from 'url';
+import { loadEnv } from 'vite';
 //import compress from 'astro-compress';
 import mdx from '@astrojs/mdx';
 import path from 'path';
 import partytown from '@astrojs/partytown';
+import sentry from "@sentry/astro";
 import sitemap from '@astrojs/sitemap';
 import vercel from '@astrojs/vercel/serverless';
 import webmanifest from 'astro-webmanifest';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const { VITE_SENTRY_AUTH_TOKEN } = loadEnv(import.meta.env.PUBLIC_SENTRY_AUTH_TOKEN ?? process.env.PUBLIC_SENTRY_AUTH_TOKEN, process.cwd(), "");
 
 // https://astro.build/config
 export default defineConfig({
@@ -119,5 +123,16 @@ export default defineConfig({
 			SVG: true,
 			Logger: 1,
 		}),*/
+		astroCSPHashGenerator,
+		sentry({
+			dsn: "https://344f761c5efeb4b9ea6b08942c01f5b6@o4506599007911936.ingest.sentry.io/4506661195808768",
+			// @ts-ignore
+			sourceMapsUploadOptions: {
+				project: "resurse-dev",
+				// @ts-ignore
+				authToken: VITE_SENTRY_AUTH_TOKEN,
+				telemetry: false,
+			},
+		}),
 	],
 });
