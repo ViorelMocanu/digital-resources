@@ -19,8 +19,10 @@ if (PUBLIC_APP_ENV === 'local' || PUBLIC_APP_ENV === 'development') {
 }
 const PUBLIC_APP_URL = u;
 
+/*
 export const CLARITY_ID = import.meta.env.CLARITY_ID;
 export const PIWIK_ID = import.meta.env.PIWIK_ID;
+*/
 
 // @TODO: make variables below asynchronous
 

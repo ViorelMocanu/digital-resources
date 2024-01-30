@@ -9,11 +9,13 @@
  * @returns {astro.AstroNode} The Astro component for analytics tracking.
  */
 
-import { CLARITY_ID, ENV, PIWIK_ID } from '../config';
+//import { CLARITY_ID, ENV, PIWIK_ID } from '../config';
 import { SimpleAnalytics } from 'astro-simpleanalytics-plugin';
 
+/*
 const clarity_id = CLARITY_ID;
 const piwik_id = PIWIK_ID;
+*/
 
 // @TODO: analyze whether we need light or latest SA script: https://docs.simpleanalytics.com/light
 
@@ -34,7 +36,7 @@ const piwik_id = PIWIK_ID;
 	ignoreMetrics={undefined}
 />
 
-{(ENV !== 'local' && ENV !== 'development') && (
+{/*(ENV !== 'local' && ENV !== 'development') && (
 	<div class="Information">
 
 		<script is:inline define:vars={{ clarity_id }} async defer type="text/partytown">
@@ -99,4 +101,4 @@ const piwik_id = PIWIK_ID;
 		</script>
 
 	</div>
-)}
+)*/}
