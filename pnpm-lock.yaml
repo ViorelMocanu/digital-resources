@@ -2281,8 +2281,8 @@ packages:
       terser: 5.26.0
     dev: false
 
-  /astro-eslint-parser@0.16.2:
-    resolution: {integrity: sha512-JJ/AlnPEiFgu5Tuuj9AxkSjiyobg2x7hjiXpglZtyzN2Bkj7GSXVppDQL6oavwtk0kHOAAkvyuJJ+8cC5c1NqQ==}
+  /astro-eslint-parser@0.16.3:
+    resolution: {integrity: sha512-CGaBseNtunAV2DCpwBXqTKq8+9Tw65XZetMaC0FsMoZuLj0gxNIkbCf2QyKYScVrNOU7/ayfNdVw8ZCSHBiqCg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     dependencies:
       '@astrojs/compiler': 2.5.1
@@ -3402,7 +3402,7 @@ packages:
       '@eslint-community/eslint-utils': 4.4.0(eslint@8.56.0)
       '@jridgewell/sourcemap-codec': 1.4.15
       '@typescript-eslint/types': 5.62.0
-      astro-eslint-parser: 0.16.2
+      astro-eslint-parser: 0.16.3
       eslint: 8.56.0
       eslint-compat-utils: 0.4.1(eslint@8.56.0)
       postcss: 8.4.33
