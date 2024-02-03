@@ -317,6 +317,29 @@ packages:
     resolution: {integrity: sha512-uU27kfDRlhfKl+w1U6vp16IuvSLtjAxdArVXPa9BvLkrr7CYIsxH5adpHObeAGY/41+syctUWOZ140a2Rvkgjw==}
     engines: {node: '>=6.9.0'}
 
+  /@babel/core@7.18.5:
+    resolution: {integrity: sha512-MGY8vg3DxMnctw0LdvSEojOsumc70g0t18gNyUdAZqB1Rpd1Bqo/svHGvt+UJ6JcGX+DIekGFDxxIWofBxLCnQ==}
+    engines: {node: '>=6.9.0'}
+    dependencies:
+      '@ampproject/remapping': 2.2.1
+      '@babel/code-frame': 7.23.5
+      '@babel/generator': 7.23.6
+      '@babel/helper-compilation-targets': 7.23.6
+      '@babel/helper-module-transforms': 7.23.3(@babel/core@7.18.5)
+      '@babel/helpers': 7.23.9
+      '@babel/parser': 7.23.9
+      '@babel/template': 7.23.9
+      '@babel/traverse': 7.23.9
+      '@babel/types': 7.23.9
+      convert-source-map: 1.9.0
+      debug: 4.3.4
+      gensync: 1.0.0-beta.2
+      json5: 2.2.3
+      semver: 6.3.1
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
   /@babel/core@7.23.9:
     resolution: {integrity: sha512-5q0175NOjddqpvvzU+kDiSOAk4PfdO6FvwCWoQ6RO7rTzEe8vlo+4HVfcnAREhD4npMs0e9uZypjTwzZPCf/cw==}
     engines: {node: '>=6.9.0'}
@@ -386,6 +409,20 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/types': 7.23.9
+
+  /@babel/helper-module-transforms@7.23.3(@babel/core@7.18.5):
+    resolution: {integrity: sha512-7bBs4ED9OmswdfDzpz4MpWgSrV7FXlc3zIagvLFjS5H+Mk7Snr21vQ6QwrsoCGMfNC4e4LQPdoULEt4ykz0SRQ==}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0
+    dependencies:
+      '@babel/core': 7.18.5
+      '@babel/helper-environment-visitor': 7.22.20
+      '@babel/helper-module-imports': 7.22.15
+      '@babel/helper-simple-access': 7.22.5
+      '@babel/helper-split-export-declaration': 7.22.6
+      '@babel/helper-validator-identifier': 7.22.20
+    dev: false
 
   /@babel/helper-module-transforms@7.23.3(@babel/core@7.23.9):
     resolution: {integrity: sha512-7bBs4ED9OmswdfDzpz4MpWgSrV7FXlc3zIagvLFjS5H+Mk7Snr21vQ6QwrsoCGMfNC4e4LQPdoULEt4ykz0SRQ==}
@@ -1423,11 +1460,16 @@ packages:
       '@sentry/node': 7.99.0
       '@sentry/types': 7.99.0
       '@sentry/utils': 7.99.0
-      '@sentry/vite-plugin': 2.10.3
+      '@sentry/vite-plugin': 2.13.0
       astro: 4.2.7(@types/node@20.11.10)(sass@1.70.0)(typescript@5.3.3)
     transitivePeerDependencies:
       - encoding
       - supports-color
+    dev: false
+
+  /@sentry/babel-plugin-component-annotate@2.13.0:
+    resolution: {integrity: sha512-NOKin57L0ZePOHsnbRJpaWxdDnPS+SQUBJDyBYfcIrS74EPXFoFhFADYwGGI5hEKYL7/L0H3a4sIB5iJci3+fQ==}
+    engines: {node: '>= 14'}
     dev: false
 
   /@sentry/browser@7.99.0:
@@ -1443,10 +1485,12 @@ packages:
       '@sentry/utils': 7.99.0
     dev: false
 
-  /@sentry/bundler-plugin-core@2.10.3:
-    resolution: {integrity: sha512-glokZ9O6m3l5OlVk/2C9EPI3Fy7rAxwWQZixItLmrVJnJAf0lDX7bTNJUvZKKDrMRoCypL6WpM/QeSe1i3i8ig==}
+  /@sentry/bundler-plugin-core@2.13.0:
+    resolution: {integrity: sha512-KCq5JL/bW/bvY+0LIB4kgtDcg/5cyHzJjuDKOorcMV4OmKD2BG5xCG518gIARfPlELxWpURO4LYz9ZKkkPs/hw==}
     engines: {node: '>= 14'}
     dependencies:
+      '@babel/core': 7.18.5
+      '@sentry/babel-plugin-component-annotate': 2.13.0
       '@sentry/cli': 2.27.0
       '@sentry/node': 7.99.0
       '@sentry/utils': 7.99.0
@@ -1586,11 +1630,11 @@ packages:
       '@sentry/types': 7.99.0
     dev: false
 
-  /@sentry/vite-plugin@2.10.3:
-    resolution: {integrity: sha512-IOt49G3KM189a2M3ISrctY0b8PlSnUZFnfNKYyaa6ojTjhkVekPopUg3vCp93cxCWRlw6D1UzX9j2i4fXi9k/g==}
+  /@sentry/vite-plugin@2.13.0:
+    resolution: {integrity: sha512-T6vxrBeqrtGgyOuuHufKTe3FBa1lFNW5i0JsESKapsIbGNIdAbHfQVQaYp7eDaLa9OaOwYB7jGhSDykfYpCvJQ==}
     engines: {node: '>= 14'}
     dependencies:
-      '@sentry/bundler-plugin-core': 2.10.3
+      '@sentry/bundler-plugin-core': 2.13.0
       unplugin: 1.0.1
     transitivePeerDependencies:
       - encoding
@@ -2907,6 +2951,10 @@ packages:
       meow: 12.1.1
       split2: 4.2.0
     dev: true
+
+  /convert-source-map@1.9.0:
+    resolution: {integrity: sha512-ASFBup0Mz1uyiIjANan1jzLQami9z1PoYSZCiiYW2FczPbenXc45FZdBZLzOT+r6+iciuEModtmCti+hjaAk0A==}
+    dev: false
 
   /convert-source-map@2.0.0:
     resolution: {integrity: sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==}
