@@ -1,0 +1,89 @@
+name: PTT Light Scan
+
+on:
+    # Runs on pushes targeting the default branch
+    push:
+        branches: ['main']
+
+    # Allows you to run this workflow manually from the Actions tab
+    workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+    contents: read
+    pages: write
+    id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+    group: 'pages'
+    cancel-in-progress: false
+
+jobs:
+    # Single deploy job since we're just deploying
+    deploy:
+
+      steps:
+
+        - name: Actual test
+          uses: pentesttoolscom/pentesttools-github-action@master
+          id: ptt
+          with:
+            target: ${{steps.deployment.outputs.page_url || "https://"}} # Has to be accessible to our scanners: https://pentest-tools.com/whitelist-ipv4.txt
+            format: text # Human readable text. JSON is also available
+            fail: low # The run will fail if a vulnerability with at least a low risk is found
+            
+        - name: Print the output
+          run: echo "The report: ${{ steps.ptt.outputs.result }}"
+
+jobs:
+  test_action:
+    runs-on: ubuntu-latest
+    name: Test that our Github Action works
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Actual PTT test
+        uses: pentesttoolscom/pentesttools-github-action@master
+        id: ptt
+        with:
+          target: ${{steps.deployment.outputs.page_url || 'https://resurse.dev'}}
+          format: text
+      # Use the output
+      - name: Check the output
+        run: echo "The report ${{ steps.ptt.outputs.result }}"
+
+  test_that_action_fails:
+    runs-on: ubuntu-latest
+    name: Test that our Github Action fails when it needs to fail
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Actual test
+        uses: pentesttoolscom/pentesttools-github-action@master
+        id: ptt
+        with:
+          # No target, which is a required parameter
+          target:
+          format: text
+      # Use the output
+      - name: Check the output
+        run: echo "The report ${{ steps.ptt.outputs.result }}"
+
+  test_that_action_fails_if_fail_criteria:
+    runs-on: ubuntu-latest
+    name: Test that our Github Action fails when it needs to fail
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Actual test
+        uses: pentesttoolscom/pentesttools-github-action@master
+        id: ptt
+        with:
+          target: ${{steps.deployment.outputs.page_url || 'https://resurse.dev'}}
+          format: text
+          fail: low
+      # Use the output
+      - name: Check the output
+        run: echo "The report ${{ steps.ptt.outputs.result }}"
