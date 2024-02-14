@@ -17,7 +17,7 @@ const { Content } = await tag.render();
 
 const resources = (
 	await getCollection('resources', ({ data }) => {
-		return data.tags.find((t: CollectionEntry<'tags'>) => t.slug == tag.slug);
+		return data.tags.find((t) => t.slug == tag.slug);
 	})
 ).sort((a, b) => new Date(a.data.modDate as string).valueOf() - new Date(b.data.modDate as string).valueOf()) satisfies CollectionEntry<'resources'>[];
 

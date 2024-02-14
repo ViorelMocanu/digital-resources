@@ -27,7 +27,7 @@ let resourceTags = new Array();
 let resourceType = 'generic';
 if (entry.data.tags) {
 	const allTags = await getCollection('tags');
-	entry.data.tags.forEach((tag: CollectionEntry<'tags'>) => {
+	entry.data.tags.forEach((tag) => {
 		const currentTag = allTags.find((t: CollectionEntry<'tags'>) => t.slug == tag.slug);
 		resourceTags.push({ title: currentTag?.data.title, slug: tag.slug, type: currentTag?.data.type });
 		if (currentTag?.data.type == 'Tip') resourceType = currentTag.data.title;
