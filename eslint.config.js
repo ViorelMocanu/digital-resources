@@ -26,7 +26,6 @@ const ignoreArray = [
 export default [
 	{
 		files: ['**/*.js'],
-		ignores: ignoreArray,
 		languageOptions: {
 			parser: tsParser,
 			parserOptions: {
@@ -67,7 +66,6 @@ export default [
 	},
 	{
 		files: ['**/*.ts'],
-		ignores: ignoreArray,
 		languageOptions: {
 			parser: tsParser,
 			parserOptions: {
@@ -108,7 +106,6 @@ export default [
 	},
 	{
 		files: ['**/*.astro'],
-		ignores: ignoreArray,
 		languageOptions: {
 			parser: astroParser,
 			parserOptions: {
@@ -188,5 +185,8 @@ export default [
 			'wrap-regex': 'warn',
 			'jsdoc/require-description': 'warn',
 		},
+	},
+	{
+		ignores: [...ignoreArray],
 	},
 ];
