@@ -62,7 +62,7 @@
 		"astro-webmanifest": "1.0.0",
 		"lite-youtube-embed": "0.3.0",
 		"node-html-parser": "6.1.12",
-		"sass": "1.70.0",
+		"sass": "1.71.0",
 		"sharp": "0.33.2"
 	},
 	"devDependencies": {
