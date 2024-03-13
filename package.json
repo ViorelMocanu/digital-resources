@@ -52,7 +52,7 @@
 		"@astrojs/check": "0.5.4",
 		"@astrojs/partytown": "2.0.4",
 		"@astrojs/rss": "4.0.5",
-		"@astrojs/sitemap": "3.0.5",
+		"@astrojs/sitemap": "3.1.0",
 		"@astrojs/vercel": "7.3.1",
 		"@sentry/astro": "^7.101.0",
 		"@vercel/analytics": "^1.1.3",
