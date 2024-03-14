@@ -49,7 +49,7 @@
 		"verify:fix": "pnpm lint:fix && pnpm typecheck && pnpm test:unit && pnpm format:fix"
 	},
 	"dependencies": {
-		"@astrojs/check": "0.5.4",
+		"@astrojs/check": "0.5.5",
 		"@astrojs/partytown": "2.0.4",
 		"@astrojs/rss": "4.0.5",
 		"@astrojs/sitemap": "3.0.5",
