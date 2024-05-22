@@ -6,6 +6,6 @@
 		"esbenp.prettier-vscode",
 		"jock.svg",
 		"mikestead.dotenv",
-		"ZixuanChen.vitest-explorer"
+		"vitest.explorer"
 	]
 }
