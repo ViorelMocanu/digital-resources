@@ -3,7 +3,7 @@ title: 'HTML (Hyper Text Markup Language)'
 menu: 'HTML'
 sortOrder: 2
 image:
-    imageUrl: 'test.jpg'
+    imageUrl: '/src/content/sections/front-end.svg'
     imageAlt: 'test'
 description: "@TODO: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
 subcategories:

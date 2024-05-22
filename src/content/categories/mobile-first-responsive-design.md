@@ -3,7 +3,7 @@ title: 'Mobile-first Responsive Web Design'
 menu: 'Mobile 1st RWD'
 sortOrder: 4
 image:
-    imageUrl: 'test.jpg'
+    imageUrl: '/src/content/sections/front-end.svg'
     imageAlt: 'test'
 description: "@TODO: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
 subcategories:
