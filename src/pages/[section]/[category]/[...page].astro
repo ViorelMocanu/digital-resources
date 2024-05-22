@@ -19,7 +19,6 @@ export async function getStaticPaths({ paginate }: any) {
 		const currentSection = allSections.find((sec: CollectionEntry<'sections'>) => sec.slug == section);
 		if (currentSection == null || currentSection.data.categories == null) {
 			// nu se poate sa nu existe o sectiune definita
-			// eslint-disable-next-line no-console
 			// console.warn('false', 'currentSection', currentSection?.id);
 		} else {
 			// există secțiunea
@@ -31,7 +30,6 @@ export async function getStaticPaths({ paginate }: any) {
 			if (selectedCategories.length < 1) {
 				// secțiunea nu are categorii
 				// caz tratat în `/src/pages/[sections]/[...page].astro`
-				// eslint-disable-next-line no-console
 				// console.warn('false', 'selectedCategories', selectedCategories);
 			} else {
 				// există cel puțin o categorie pe care o putem adăuga în lista paginilor
@@ -46,7 +44,7 @@ export async function getStaticPaths({ paginate }: any) {
 					});
 					if (selectedResources.length < 1) {
 						// nu avem resurse atașate categoriei în general
-						// eslint-disable-next-line no-console
+
 						// console.warn('false', 'selectedResources', selectedResources);
 						finalPagination.push({
 							params: {
