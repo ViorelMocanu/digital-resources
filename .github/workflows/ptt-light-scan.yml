@@ -8,19 +8,10 @@ on:
     # Allows you to run this workflow manually from the Actions tab
     workflow_dispatch:
       inputs:
-        logLevel:
-          description: 'Log level'
+        pr-id:
+          type: string
+          description: PR ID
           required: true
-          default: 'warning'
-          type: choice
-          options:
-            - info
-            - warning
-            - debug
-        tags:
-          description: 'Test scenario tags'
-          required: false
-          type: boolean
         environment:
           description: 'Environment to run tests against'
           type: environment
@@ -39,7 +30,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  test_action:
+  test_light_scan:
     runs-on: ubuntu-latest
     name: Run a light scan, no API key needed
     steps:
@@ -71,3 +62,19 @@ jobs:
           key: ${{ secrets.PTT_API_KEY }}
       - name: Check the deep output
         run: echo "The deep report ${{ steps.ptt.outputs.result }}"
+  test_light_scan_manual:
+    runs-on: ubuntu-latest
+    name: Run a light scan, no API key needed
+    if: github.event_name == 'manual'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Actual PTT light test
+        uses: pentesttoolscom/pentesttools-github-action@master
+        id: ptt
+        with:
+          target: ${{steps.deployment.outputs.page_url || 'https://resurse.dev'}}
+          format: text
+          fail: low
+      - name: Check the light output
+        run: echo "The light report ${{ steps.ptt.outputs.result }}"
