@@ -1,4 +1,4 @@
-name: PTT-CLI
+name: Pentest-Tools.com CLI Light Scan
 
 on:
     # Runs on pushes targeting the default branch
@@ -41,10 +41,10 @@ jobs:
           fail: medium
       - name: Check the light output
         run: echo "The light report ${{ steps.ptt.outputs.result }}"
-  test_deep_scan_manual:
+  test_deep_scan:
     runs-on: ubuntu-latest
-    name: Run a deep scan. You will need a suitable API key
-    if: github.event_name == 'manual'
+    name: Run a manual deep scan. You will need a suitable API key
+    if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -59,19 +59,3 @@ jobs:
           key: ${{ secrets.PTT_API_KEY }}
       - name: Check the deep output
         run: echo "The deep report ${{ steps.ptt.outputs.result }}"
-  test_light_scan_manual:
-    runs-on: ubuntu-latest
-    name: Run a light scan, no API key needed
-    if: github.event_name == 'manual'
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Actual PTT light test
-        uses: pentesttoolscom/pentesttools-github-action@master
-        id: ptt
-        with:
-          target: ${{ inputs.url || 'https://resurse.dev' }}
-          format: text
-          fail: medium
-      - name: Check the light output
-        run: echo "The light report ${{ steps.ptt.outputs.result }}"
