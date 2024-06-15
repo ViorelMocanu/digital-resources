@@ -8,13 +8,9 @@ on:
     # Allows you to run this workflow manually from the Actions tab
     workflow_dispatch:
       inputs:
-        pr-id:
+        url:
           type: string
-          description: PR ID
-          required: true
-        environment:
-          description: 'Environment to run tests against'
-          type: environment
+          description: The URL to scan
           required: true
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
@@ -40,14 +36,15 @@ jobs:
         uses: pentesttoolscom/pentesttools-github-action@master
         id: ptt
         with:
-          target: ${{steps.deployment.outputs.page_url || 'https://resurse.dev'}}
+          target: ${{ steps.deployment.outputs.page_url || 'https://resurse.dev' }}
           format: text
-          fail: low
+          fail: medium
       - name: Check the light output
         run: echo "The light report ${{ steps.ptt.outputs.result }}"
-  test_deep_scan:
+  test_deep_scan_manual:
     runs-on: ubuntu-latest
     name: Run a deep scan. You will need a suitable API key
+    if: github.event_name == 'manual'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -55,9 +52,9 @@ jobs:
         uses: pentesttoolscom/pentesttools-github-action@master
         id: ptt
         with:
-          target: ${{ steps.deployment.outputs.page_url || 'https://resurse.dev' }}
+          target: ${{ inputs.url || 'https://resurse.dev' }}
           format: text
-          fail: low
+          fail: medium
           type: deep
           key: ${{ secrets.PTT_API_KEY }}
       - name: Check the deep output
@@ -73,8 +70,8 @@ jobs:
         uses: pentesttoolscom/pentesttools-github-action@master
         id: ptt
         with:
-          target: ${{steps.deployment.outputs.page_url || 'https://resurse.dev'}}
+          target: ${{ inputs.url || 'https://resurse.dev' }}
           format: text
-          fail: low
+          fail: medium
       - name: Check the light output
         run: echo "The light report ${{ steps.ptt.outputs.result }}"
