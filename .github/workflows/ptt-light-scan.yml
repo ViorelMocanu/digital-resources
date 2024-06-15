@@ -1,4 +1,4 @@
-name: PTT Light Scan
+name: PTT-CLI
 
 on:
     # Runs on pushes targeting the default branch
