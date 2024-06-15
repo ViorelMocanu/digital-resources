@@ -57,7 +57,7 @@
 		"@sentry/astro": "^8.2.1",
 		"@vercel/analytics": "^1.2.2",
 		"astro": "4.8.7",
-		"astro-compress": "2.2.23",
+		"astro-compress": "2.2.25",
 		"astro-simpleanalytics-plugin": "^0.3.13",
 		"astro-webmanifest": "1.0.0",
 		"lite-youtube-embed": "0.3.2",
