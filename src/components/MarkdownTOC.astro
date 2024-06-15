@@ -23,7 +23,7 @@ const activePage = Astro.url.pathname;
 
 {
 	headings ? (
-		<nav class="ListNavigation">
+		<nav class="ListNavigation" transition:name="ListNavigation">
 			<h2 class="ListNavTitle">Navighează către:</h2>
 			<ol class="ListNav">
 				{headings.map((heading) => (
@@ -36,7 +36,7 @@ const activePage = Astro.url.pathname;
 			</ol>
 		</nav>
 	) : (
-		<nav class="ListNavigation">
+		<nav class="ListNavigation" transition:name="ListNavigation">
 			<h2 class="ListNavTitle">Această pagină nu are navigare internă.</h2>
 		</nav>
 	)

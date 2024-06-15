@@ -133,7 +133,7 @@ const theBreadcrumbArray = content?.breadcrumbArray ? content.breadcrumbArray : 
 		<link rel="preload" href="/font/atkinson-hyperlegible-regular.woff2" as="font" type="font/woff2" crossorigin />
 		<link rel="preload" href="/font/atkinson-hyperlegible-bold.woff2" as="font" type="font/woff2" crossorigin />
 
-		<ViewTransitions />
+		<ViewTransitions fallback="none" />
 	</head>
 	<body class:list={[theTemplate]}>
 		<a id="skip" href="#hero" title="Mergi direct la conținutul acestei pagini">Mergi la conținut</a>

@@ -30,7 +30,7 @@ const { breadcrumbArray = [], activeMenu } = Astro.props satisfies Props;
 const activePage = activeMenu || Astro.url.pathname.substring(1);
 ---
 
-<header class="Header">
+<header class="Header" transition:name="Header">
 	<div class="HeaderMain" role="toolbar">
 		<button class="MenuTrigger" type="button" id="menuTrigger" aria-expanded="false" aria-label="Deschide meniul principal" aria-haspopup="true" aria-controls="menu">
 			<span class="Icon IconHamburger">
