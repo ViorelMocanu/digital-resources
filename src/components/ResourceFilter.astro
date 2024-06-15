@@ -20,7 +20,7 @@ const { section } = Astro.props satisfies Props;
 const sectionCategories = !!section?.data?.categories;
 ---
 
-<form class="SortAndFilter" action="#" method="get" aria-label="Filtrează resursele în contextul curent">
+<form class="SortAndFilter" action="#" method="get" aria-label="Filtrează resursele în contextul curent" transition:name="SortAndFilter">
 	<fieldset class="Fieldset" role="search" aria-label="Caută resurse în contextul curent">
 		<legend class="SROnly">Caută prin lista de resurse curentă:</legend>
 		<label class="SROnly" id="innerSLabel" for="inner-s">Introdu cuvintele căutate:</label>

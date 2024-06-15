@@ -15,13 +15,14 @@ import { highlightUrl } from '../utils/urlHelpers';
 
 export interface Props {
 	taglist: Pick<CollectionEntry<'tags'>, 'slug' | 'collection'>[];
+	resslug: string;
 }
 
-const { taglist } = Astro.props satisfies Props;
+const { taglist, resslug } = Astro.props satisfies Props;
 const activePage = Astro.url.pathname.substring(1);
 ---
 
-<ul class="ResourceTags">
+<ul class="ResourceTags" transition:name={`${resslug} tags`}>
 	{
 		taglist.map((tag: any) => (
 			<li class:list={highlightUrl(`taguri/${tag.slug}`, 'ResourceTag', 'Active', activePage)}>

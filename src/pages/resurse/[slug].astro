@@ -1,8 +1,9 @@
 ---
-import { type BreadcrumbItem, resourceTypeIcon } from '../../config';
+import { type BreadcrumbItem, type ExtendedResource, resourceTypeIcon } from '../../config';
 import { type CollectionEntry, getCollection, getEntries, getEntry } from 'astro:content';
 import type { InferGetStaticPropsType } from 'astro';
 import Layout from '../../layouts/Layout.astro';
+import ResourceActionList from '../../components/ResourceActionList.astro';
 import ResourceLocationList from '../../components/ResourceLocationList.astro';
 import ResourceTagList from '../../components/ResourceTagList.astro';
 import ResponsiveImage from '../../components/ResponsiveImage.astro';
@@ -115,7 +116,7 @@ breadcrumbArray.push({
 			{
 				entry.data.url && (
 					<a class="HeroResourceLink" href={entry.data.url} title={`Vizitează resursa: ${entry.data.title}`} target="_blank" rel="external noopener noreferrer">
-						<h1 class="HeroTitle">
+						<h1 class="HeroTitle" transition:name={`${entry.slug} title`}>
 							{entry.data.title}
 							{resourceTypeIcon[resourceType ? resourceType.toLowerCase() : (entry.data.type.toLowerCase() satisfies keyof typeof resourceTypeIcon)]}
 						</h1>
@@ -310,7 +311,7 @@ breadcrumbArray.push({
 						</li>
 					)
 				}
-				<li class="InfoItem">
+				<li class="InfoItem" transition:name={`${entry.slug} rating`}>
 					<div class="InfoItemLabel">
 						<span class="Icon IconRating">
 							<span class="SROnly">⭐</span>
@@ -328,7 +329,7 @@ breadcrumbArray.push({
 				</li>
 				{
 					entry.data.requiredTime && (
-						<li class="InfoItem">
+						<li class="InfoItem" transition:name={`${entry.slug} time`}>
 							<div class="InfoItemLabel">
 								<span class="Icon IconTime">
 									<span class="SROnly">⏰</span>
@@ -363,7 +364,7 @@ breadcrumbArray.push({
 						</li>
 					)
 				}
-				<li class="InfoItem">
+				<li class="InfoItem" transition:name={`${entry.slug} views`}>
 					<div class="InfoItemLabel">
 						<span class="Icon IconViews">
 							<span class="SROnly">👁️</span>
@@ -399,7 +400,7 @@ breadcrumbArray.push({
 					</span>
 					<span class="InfoItemText">Descrierea resursei:</span>
 				</div>
-				<p class="InfoItemValue">{entry.data.description}</p>
+				<p class="InfoItemValue" transition:name={`${entry.slug} description`}>{entry.data.description}</p>
 			</div>
 
 			<div class="InfoItem InfoItemStandalone InfoItemTags">
@@ -417,8 +418,10 @@ breadcrumbArray.push({
 					</span>
 					<span class="InfoItemText">Etichete pentru resursă:</span>
 				</div>
-				{entry.data.tags && <ResourceTagList taglist={resourceTags} />}
+				{entry.data.tags && <ResourceTagList taglist={resourceTags} resslug={entry.slug} />}
 			</div>
+
+			<ResourceActionList res={entry as unknown as ExtendedResource} />
 		</div>
 	</div>
 	<main class="Main MarkdownMain">

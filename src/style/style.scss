@@ -15,6 +15,11 @@
 	--accent-obligatoriu: #910;
 	--accent-optional: #9da;
 }
+
+@view-transition {
+	navigation: auto; /* enabled! */
+}
+
 /* SCSS Variables */
 $desktop: 1100px;
 $fonts: 'Atkinson Hyperlegible', 'Inter', 'Roboto', 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
@@ -92,7 +97,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 .Framework {
 	@media (min-width: $desktop) { margin: 1rem; border: 1px solid var(--light-900); }
 }
-	.Header { background: var(--dark-100);
+	.Header { background: var(--dark-100); position: relative; z-index: 10;
 		@media (min-width: $desktop) { position: sticky; top: 0; z-index: 10; transition: top 0.25s ease-in; }
 	}
 	/*.ScrollDown .Header {
@@ -340,6 +345,9 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 					@media (min-width: $desktop) { padding: 0; border-top: none; border-right: 1px solid var(--light-900); }
 				}
 				.ResourceActions { display: block; border-top: 1px solid var(--dark-400);
+
+				}
+				.ResourceItem .ResourceActions {
 					@media (min-width: 600px) { position: absolute; right: 0; top: 0; bottom: 0; z-index: 2; height: 100%; background: var(--dark-100); border-top: none; border-left: 1px solid var(--light-600); }
 					@media (min-width: $desktop) { position: static; right: unset; top: unset; z-index: 0; }
 				}
@@ -350,6 +358,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 					.ResourceActions .WidgetTitle {
 						@media (min-width: $desktop) { text-align: left; }
 					}
+					.ResourcePage .WidgetTitle { display: block; padding: 0.5rem 0.5rem 0; }
 					.InfoList { display: flex; flex-direction: row; justify-content: stretch; list-style-type: none; margin: 0; padding: 0;
 						@media (min-width: $desktop) { flex-direction: column; gap: 1rem; padding-bottom: 1rem; }
 					}
@@ -359,6 +368,9 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 					}
 					.ResourcePage .InfoList { flex-direction: column; padding: 1rem 0 0; margin: 1rem 0 0; border-top: 1px solid var(--light-900);
 						@media (min-width: $desktop) { display: grid; grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr)); row-gap: 0; margin: 1rem 0 0; padding: 1rem 0.5rem 0.5rem; }
+					}
+					.ResourcePage .ResourceActions .InfoList { border: none; margin: 0;
+						@media (min-width: 600px) { flex-direction: row; }
 					}
 						.InfoItem { display: flex; flex-direction: row; align-items: center; justify-content: center; flex: 1; padding: 0.5rem; }
 						.InfoItem:nth-child(3n+1) { text-align: left; justify-content: flex-start; }
@@ -385,7 +397,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 								@media (min-width: $desktop) { display: flex; height: auto; align-items: center; justify-content: center; flex-wrap: wrap; font-size: 0.75rem; line-height: 1em; }
 								@media (min-width: 1450px) { font-size: 1rem; line-height: 1em; }
 							}
-							.ResourcePage .InfoItemLabel { height: auto; display: flex; flex-direction: row; align-items: center; justify-content: flex-start;
+							.ResourcePage .InfoItemLabel, .ResourcePage .WidgetTitle { height: auto; display: flex; flex-direction: row; align-items: center; justify-content: flex-start;
 								@media (min-width: $desktop) { font-size: 1rem; }
 							}
 								.InfoItemLabel .Icon { width: 1rem; height: 1rem; margin: 0 0.25rem 0 0;
@@ -435,6 +447,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 								@media (min-width: $desktop) { flex-direction: column; justify-content: flex-start; align-items: flex-start; height: auto; border: none; }
 								@media (min-width: 1280px) { flex-direction: row; justify-content: flex-start; align-items: center; }
 							}
+							.ResourcePage .ResourceActions .InfoLink { width: auto; border: none; gap: 0.25rem; flex-direction: row; flex-grow: 1; }
 							.InfoLink:hover { color: var(--accent-400); text-decoration: none;
 								@media (min-width: 600px) { background: var(--dark-100); }
 							}
@@ -450,6 +463,9 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 									@media (min-width: 750px) { display: block; line-height: 1.5rem; }
 									@media (min-width: $desktop) { display: block; font-size: 0.75rem; line-height: 2em; }
 									@media (min-width: 1500px) { display: inline; font-size: 1rem; line-height: 1em; }
+								}
+								.ResourcePage .InfoLink .ButtonText {
+									@media (min-width: 600px) { display: block; }
 								}
 				/*
 				.ResourceMain { display: block; position: relative;

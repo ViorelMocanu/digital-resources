@@ -38,7 +38,7 @@ const shouldRenderSubcategoriesFromRes = res && res.data.subcategories;
 const shouldRenderSubcategoriesFromCat = subcategories && categories && resourceSection;
 ---
 
-<ul class="ResourceLocationList">
+<ul class="ResourceLocationList" transition:name={`${res?.slug} location`}>
 	{
 		resourceSection && (
 			<li class="ResourceLocationItem Classification">
