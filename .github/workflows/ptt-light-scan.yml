@@ -21,63 +21,13 @@ concurrency:
     cancel-in-progress: false
 
 jobs:
-    # Single deploy job since we're just deploying
-    deploy:
-
-      steps:
-
-        - name: Actual test
-          uses: pentesttoolscom/pentesttools-github-action@master
-          id: ptt
-          with:
-            target: ${{steps.deployment.outputs.page_url || "https://"}} # Has to be accessible to our scanners: https://pentest-tools.com/whitelist-ipv4.txt
-            format: text # Human readable text. JSON is also available
-            fail: low # The run will fail if a vulnerability with at least a low risk is found
-            
-        - name: Print the output
-          run: echo "The report: ${{ steps.ptt.outputs.result }}"
-
-jobs:
   test_action:
     runs-on: ubuntu-latest
     name: Test that our Github Action works
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Actual PTT test
-        uses: pentesttoolscom/pentesttools-github-action@master
-        id: ptt
-        with:
-          target: ${{steps.deployment.outputs.page_url || 'https://resurse.dev'}}
-          format: text
-      # Use the output
-      - name: Check the output
-        run: echo "The report ${{ steps.ptt.outputs.result }}"
-
-  test_that_action_fails:
-    runs-on: ubuntu-latest
-    name: Test that our Github Action fails when it needs to fail
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Actual test
-        uses: pentesttoolscom/pentesttools-github-action@master
-        id: ptt
-        with:
-          # No target, which is a required parameter
-          target:
-          format: text
-      # Use the output
-      - name: Check the output
-        run: echo "The report ${{ steps.ptt.outputs.result }}"
-
-  test_that_action_fails_if_fail_criteria:
-    runs-on: ubuntu-latest
-    name: Test that our Github Action fails when it needs to fail
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Actual test
+      - name: Actual PTT light test
         uses: pentesttoolscom/pentesttools-github-action@master
         id: ptt
         with:
@@ -85,5 +35,22 @@ jobs:
           format: text
           fail: low
       # Use the output
+      - name: Check the output
+        run: echo "The report ${{ steps.ptt.outputs.result }}"
+  test_deep_scan:
+    runs-on: ubuntu-latest
+    name: Run a deep scan. You will need a suitable API key
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Actual PTT deep test
+        uses: pentesttoolscom/pentesttools-github-action@master
+        id: ptt
+        with:
+          target: ${{steps.deployment.outputs.page_url || 'https://resurse.dev'}}
+          format: text
+          fail: low
+          type: deep
+          key: ${{ secrets.PTT_API_KEY }}
       - name: Check the output
         run: echo "The report ${{ steps.ptt.outputs.result }}"
