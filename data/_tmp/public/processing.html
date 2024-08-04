@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Processing...</title>
+</head>
+
+<body>
+	<h1>Processing Links</h1>
+	<div id="progress"></div>
+	<div id="errors"></div>
+	<script>
+		const progressDiv = document.getElementById('progress');
+		const errorsDiv = document.getElementById('errors');
+		const ws = new WebSocket(`ws://${window.location.host}`);
+		ws.onmessage = function (event) {
+			const message = JSON.parse(event.data);
+			if (message.type === 'progress') {
+				progressDiv.textContent = message.message;
+			} else if (message.type === 'error') {
+				const errorElement = document.createElement('div');
+				errorElement.textContent = message.message;
+				errorsDiv.appendChild(errorElement);
+			} else if (message.type === 'complete') {
+				progressDiv.textContent = message.message;
+				const completeElement = document.createElement('div');
+				completeElement.textContent = "Processing complete!";
+				document.body.appendChild(completeElement);
+			}
+		};
+	</script>
+</body>
+
+</html>

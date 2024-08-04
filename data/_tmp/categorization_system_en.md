@@ -1,0 +1,535 @@
+Please transform the following Markdown structure into a CSV.
+
+The Markdown describes a categorization system for a website that will contain various links to 3rd party resources that help people develop new skills in various areas from design to front end, from marketing to databases, etc.
+
+Please treat the main headers as "sections", e.g. "Alte resurse digitale" is a section.
+
+Please treat the first level list items as "categories", e.g. "Freelancing" is a category of the "Alte resurse digitale" section.
+
+Please treat the second level list items as "subcategories", e.g. "Fundamentele testării" is a subcategory of the "Testare manuală (MQA) și automată (AQA)" category.
+
+Where you find "???" please make your own suggestions of items that could be placed in the taxonomy system, considering we are building a resource website aimed to help people develop skills in various fields. Please keep the list of added items relatively short. Also, please add the additional items in Romanian too.
+
+The end result should be a CSV file with the following structure: taxonomy_id (which should auto-increment), taxonomy_title (the name of the section, category or subcategory), taxonomy_type (section or category or subcategory), taxonomy_parent (the id of the parent item, with sections having this field null).
+
+Here is the Markdown:
+
+```
+
+# ***Structure***
+
+## **Front End Development Resources**
+
+- Introduction to Front End
+- Useful Front End Tools
+  - Browsers and plugins
+  - Text editors and IDEs
+  - Version control and GIT
+  - File transfer and FTP
+  - Website testing
+  - Hosting & deployment for websites
+  - Other Front End tools and resources
+- HTML (Hyper Text Markup Language)
+  - Basic elements
+  - Information architecture and structures
+  - Content sections
+  - Forms
+  - Meta information
+  - Semantics
+  - Multimedia and non-standard elements
+  - Embeds and Web Components
+  - Conventions and best practices
+  - Accessibility
+  - Technical SEO
+  - Progressive enhancement
+  - Performance
+  - Emmet and other speed utilities
+- CSS (Cascading Style Sheets)
+  - Introduction to CSS
+  - Components and details
+  - Typography
+  - Layout and Box Model
+  - Interactivity
+  - Animations and special effects
+  - Design principles and systems
+  - SCSS vs. SASS vs. LESS
+  - Tailwind and other CSS frameworks
+- Layout & Mobile-first Responsive Web Design
+  - Responsive Web Design
+  - Mobile 1st
+  - Layout
+  - Templating
+- Implementation of design, templating and UX
+  - UX (User Experience)
+  - Figma
+  - Adobe XD
+  - Photoshop
+- JavaScript
+  - Introduction to JS
+  - Basic syntax in JS
+  - Advanced techniques in JS
+  - Algorithmic in JS
+  - Tutorials and Resources by Vanilla JS
+  - Conventions and best practices
+- TypeScript
+  - Introduction to TS
+  - Types and assertions
+  - Advanced TS concepts
+  - TS modules
+  - TS ecosystem
+- Front End tooling
+  - Bundling (NPM)
+  - Package Management (PNPM)
+  - Task running (?)
+  - Style formatting (Prettier)
+  - Linting (ESLint)
+  - Unit Testing (Vitest)
+  - End to End Testing (Playwright)
+  - Type checking (TS)
+- Frameworks and Front End systems
+  - React.js and Next.js
+  - Vue and Nuxt.js
+  - Angular
+  - Svelte and SvelteKit
+  - Qwik and QwikCity
+  - Solid and SolidStart
+  - Astro
+  - Right now
+  - Express
+  - HTMX
+  - Other frameworks
+- Authentication and Security in Front End
+  - Authentication (JWT, OAuth, SSO, Basic Auth, Session Auth)
+  - Web security (CORS, HTTPS, CSP, OWASP)
+- Rendering and content delivery strategies
+  - Static & SSG / MPA
+  - Server & SSR
+  - Client & SPA
+  - Hybrid (SSG \+ SSR \+ SPA)
+  - Multi-platform (PWA, Electron, React Native, Flutter)
+- Front End project ideas
+- Programming news and updates
+  - Article sites
+  - Newsletters
+  - Communities
+
+## **Programming Resources and Back End Development**
+
+- Introduction to programming
+  - Resources for children
+  - Good places to start
+- Useful Back End Tools
+  - Text editors and IDEs
+  - Version control and GIT
+  - File transfer and FTP
+  - Free public APIs
+  - Other Back End tools and resources
+- Theory of programming and Computer Science
+  - Data structures
+  - Asymptotic notation and Big O
+  - Common algorithms
+  - Manipulation of strings
+  - Binary operators
+  - Real numbers and floating point
+  - Character encoding
+  - UML diagrams
+  - Design patterns
+  - Classes of complexity
+  - Search trees
+  - Systems design
+  - Database
+  - Networking
+  - Security
+  - How computers work
+  - Processes and threads
+- Mathematics required for programming
+  - ???
+- Algorithms and data structures
+  - ???
+- Software design and architecture
+  - Design patterns
+  - Domain driven design
+  - Test driven development
+  - CQRS
+  - Event sourcing
+  - Architectural models
+  - Message brokers
+  - Containerization and virtualization
+  - Servers and clients
+  - Scalability
+- Programming languages
+  - Node.js
+  - PHP
+  - Python
+  - Java
+  - C / C++
+  - C\# / ASP.NET
+  - Rust
+  - GoLang
+  - Haskell
+  - OCaml
+  - Prologue
+  - Forth
+  - Erlang
+  - R
+  - Rails
+  - Kotlin
+  - Bash
+  - PowerShell
+  - Other programming languages
+- SQL (Relational Databases)
+  - Introduction to SQL, DDL and DML
+  - MySQL
+  - PostgreSQL
+  - SQLite
+  - Microsoft SQL Server
+  - Oracle
+  - IBM Db2
+  - MariaDB
+  - Other SQL databases
+  - Advanced SQL optimizations and techniques
+- NoSQL (Non-Relational Databases)
+  - Introduction to NoSQL
+  - MongoDB / CouchDB (Document DBs)
+  - Redis / DynamoDB (Key-Value)
+  - Firebase / Supabase / RethinkDB (Realtime)
+  - ElasticSearch / Splunk (Search)
+  - Apache Cassandra / HBase (Column DBs)
+  - InfluxDB / TimeScale (Time series)
+  - Other NoSQL databases
+  - Advanced NoSQL optimizations and techniques
+- OOP (Object Oriented Programming)
+  - ???
+- APIs
+  - Login
+  - REST
+  - JSON
+  - SOAP
+  - gRPC / tRPC
+  - GraphQL
+  - Free public APIs
+- Frameworks and Back End systems
+  - WordPress
+  - Laravel
+  - .NET
+  - Ruby on Rails
+  - Express
+  - Other Back End frameworks
+- DevOps (Development Operations)
+  - The terminal of the operating system
+  - Version control and GIT
+  - Related systems
+  - Containers
+  - Cloud providers
+  - Networking and security protocols
+  - Serverless
+  - Infrastructural provision
+- Configuration management
+  - CI/CD
+  - Management of secrets
+  - Infrastructure management
+  - Software monitoring
+  - Management of logs
+  - Container orchestration
+  - Artifact management
+  - GitOps
+  - Other DevOps concepts and solutions
+- Game Development
+  - Assets for games
+  - Mathematics required for games
+  - Physics systems used in games
+  - Game development in Unity
+  - Game development in Unreal Engine
+  - Game development in Godot
+  - Native game development
+  - Other game development engines
+  - 3D modeling
+  - Digital graphics and rendering for games
+  - Artificial Intelligence in games
+  - Networking and scalability in multiplayer games
+  - Game data storage
+  - Multithreading for games
+  - Other resources for Game Development
+- Native Mobile Development
+  - Components of mobile applications
+  - Interface and navigation in mobile applications
+  - Architecture and design patterns for mobile applications
+  - Data storage in mobile applications
+  - Mobile communication and synchronicity
+  - Services for native applications
+  - Other resources for native development
+- Graphics and rendering engines
+  - ???
+- Blockchain & Crypto Development
+  - Blockchain concepts
+  - EVM Blockchains
+  - L2 Blockchains
+  - Other blockchains
+  - Oracles
+  - Smart Contracts
+  - Blockchain Security
+  - Decentralized applications
+  - Blockchain Scalability
+- Operating systems
+  - Linux / Unix
+  - Windows
+  - macOS / iOS
+  - Android
+- Low level hardware and programming
+  - ???
+- Data Science & Data Mining
+  - ???
+- Artificial Intelligence and Machine Learning
+  - Math
+  - Statistics
+  - Econometrics
+  - Programming languages
+  - Exploratory Data Analysis (EDA)
+  - Machine Learning
+  - Deep Learning
+  - MLOps
+- Back End project ideas
+- Programming news and updates
+  - Article sites
+  - Newsletters
+  - Communities
+
+## **Design, Graphics, Videography and Creativity Resources**
+
+- Principles of design and aesthetics
+  - White space
+  - Contrast
+  - Sizes
+  - Alignment
+  - Visual hierarchy
+  - Measurement units
+- Typography and typefaces
+  - Essential principles of typographic design
+  - Text arrangement
+  - Choice of fonts
+- Layout and grid systems
+  - ???
+- Color theory
+  - ???
+- Branding and identity design
+  - ???
+- Design of UI (User Interface) components
+  - Buttons and navigation
+  - Articles and content
+  - Forms and interactivity
+  - Visual artifacts
+- UX (User Experience) design
+  - Information architecture
+  - Wireframing and Prototyping
+  - Behavior and HCI (Human Computer Interaction)
+  - Product & Business Model
+  - Best practices in UX
+  - Impact measurement and user testing
+- Accessible design
+  - Contrast
+  - Sizes
+- Interaction Design, animations and special effects
+  - Animations
+  - Special effects
+- Illustration, infographics and graphic design
+  - ???
+- Graphics and 3D Modeling
+  - ???
+- Computer graphics, rendering and graphic engines
+  - ???
+- Game Design & Level Design
+  - ???
+- Photography and photo editing
+  - ???
+- Videography and video editing
+  - ???
+- Design Systems and Design Thinking
+  - ???
+- Design resources
+  - Stock images and videos
+  - Font repositories
+  - Icons
+  - Vector graphics
+  - Creative tools based on AI
+
+## **Online Marketing Resources**
+
+- Introduction to online marketing
+  - Conversion and the buyer's journey
+  - Funnel vs flywheel
+  - UVP (Unique Value Proposition)
+  - ROI (Return on Investment)
+- Market research and competitor analysis
+  - Business analysis
+  - Behaviors, personas and target market
+  - Competition and analysis tools
+  - KPIs and analytics solutions
+- Creating, auditing and optimizing your website
+  - ???
+- Copywriting, Content Writing & Content Marketing
+  - ???
+- SEO (Search Engine Optimization)
+  - Introduction to SEO
+  - Search engines and how they work
+  - Keyword research
+  - On-page SEO
+  - Link building
+  - Technical SEO
+  - Content marketing
+  - SEO tools
+- PPC (Pay Per Click Advertising)
+  - Introduction to PPC
+  - Google Ads
+  - Bing Ads
+  - Yandex Ads
+  - Facebook / Instagram Ads
+  - TikTok Ads
+  - LinkedIn Ads
+  - X / Twitter Ads
+  - Pinterest Ads
+  - Reddit Ads
+  - Retargeting
+- Display Advertising and image campaigns
+  - ???
+- Social Media Marketing
+  - Introduction to SMM
+  - YouTube
+  - TikTok
+  - Facebook
+  - Instagram
+  - X / Twitter
+  - LinkedIn
+  - Reddit
+  - Pinterest
+  - Quora
+  - Mastodon
+- Influencer Marketing
+  - ???
+- Referral & Affiliate Marketing
+  - ???
+- Email & Permission Marketing
+  - ???
+- Marketplace & Mobile App Marketing
+  - ???
+- B2B Marketing
+  - ???
+- AI, automation and emerging technology in marketing
+  - ???
+- Marketing tactics for eCommerce
+  - eCommerce platforms
+  - eCommerce functionalities
+  - Shopping marketplaces
+  - Price comparisons
+- Marketing tactics for SaaS
+  - Business reviews
+- eCommerce functionalities
+- Marketing tactics for brick & mortar
+  - Google Maps & Google My Business
+  - TripAdvisor
+- Business strategy
+  - Business strategy and tactics
+  - How to set prices
+  - Product-market fit
+  - Internationalization
+- Growth hacking
+  - Acquisition and inbound traffic channels
+  - Traffic qualification
+  - A/B Testing and experimentation
+  - CRO and optimization of landing pages
+  - Onboarding, retention, repeat business
+  - KPIs and measurement
+
+## **Networking & Cyber ​​Security Resources**
+
+- Introduction to IT, networking and security
+  - ???
+- Networking
+  - Network devices
+  - Network services and applications
+  - DHCP
+  - DNS
+  - Network Address Translation
+  - WAN
+  - Wiring
+  - Network topologies
+  - Infrastructure
+  - Protocols: IPv4 vs IPv6
+  - Routing
+  - Subnetting
+  - Virtualization
+  - Implementation
+  - Monitoring and forensics
+  - Configuration
+  - Login
+  - Troubleshooting
+- Operating systems
+  - Linux / Unix
+  - Windows
+  - macOS / iOS
+  - Android
+- Cyber ​​security
+  - Cryptography
+  - Vulnerabilities
+  - Incident response & discovery
+  - Threat classification
+  - Management of protocols
+  - Management of logs
+  - Network attacks
+  - Application attacks
+  - Attacks on people
+  - Hardening
+  - Security tools
+  - Certifications
+- Security in the Cloud
+  - Basic concepts for Cloud Security
+  - Security for Amazon Web Services
+  - Security for Google Cloud
+  - Security for Azure
+  - Security for private clouds
+  - Security for other cloud systems
+- Programming languages
+  - Python
+  - Go
+  - Rust
+  - JavaScript
+  - C++
+  - Bash / PowerShell
+
+## **Management**
+
+- Workflow, SCRUM and Project Management
+  - ???
+- Management & Leadership
+  - ???
+- Product Management
+  - ???
+- Entrepreneurship and startups
+  - Introduction to entrepreneurship
+  - Product-market fit
+- Tips for recruiters
+  - ???
+
+## **Other digital resources**
+
+- How to get hired more easily
+  - ???
+- Freelancing
+  - ???
+- Manual (MQA) and automated (AQA) testing
+  - Fundamentals of testing
+  - Functional testing techniques
+  - Non-functional testing techniques
+  - Other testing techniques
+  - Front end automation
+  - Back end automation
+  - Mobile automation
+  - Monitoring and logs
+  - Headless testing techniques
+  - Integration in CI/CD systems
+- Science and technology
+  - ???
+- English language
+  - ???
+- General and life advice
+  - ???
+```

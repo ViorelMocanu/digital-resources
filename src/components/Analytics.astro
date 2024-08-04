@@ -11,6 +11,8 @@
 
 //import { CLARITY_ID, ENV, PIWIK_ID } from '../config';
 import { SimpleAnalytics } from 'astro-simpleanalytics-plugin';
+import PostHog from '../components/PostHog.astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
 
 /*
 const clarity_id = CLARITY_ID;
@@ -35,6 +37,10 @@ const piwik_id = PIWIK_ID;
 	nonUniqueHostnames="fastspring.com,stripe.com"
 	ignoreMetrics={undefined}
 />
+
+<PostHog />
+{/* @ts-ignore */}
+<SpeedInsights />
 
 {/*(ENV !== 'local' && ENV !== 'development') && (
 	<div class="Information">

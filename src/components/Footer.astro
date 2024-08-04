@@ -10,9 +10,9 @@
  * @returns {astro.AstroNode} The footer component.
  */
 
-import NewsletterSection from '../components/NewsletterSection.astro';
-import getSortedItems from '../utils/getSortedItems';
+import { Taxonomy, db, eq } from 'astro:db';
 import { highlightUrl } from '../utils/urlHelpers';
+import NewsletterSection from '../components/NewsletterSection.astro';
 
 export interface Props {
 	activeMenu?: string | undefined;
@@ -22,12 +22,8 @@ const { activeMenu } = Astro.props satisfies Props;
 const activePage = activeMenu || Astro.url.pathname.substring(1);
 const currentYear = new Date().getFullYear();
 const yearPrint = currentYear > 2023 ? ` - ${currentYear} ` : ' ';
-const allSections = await getSortedItems({
-	collectionKey: 'sections',
-	sortKey: 'sortOrder',
-	type: 'number',
-	order: 'asc',
-});
+const allSectionsQuery = await db.select().from(Taxonomy).where(eq(Taxonomy.type, 1));
+const sections = allSectionsQuery.map((section) => section);
 ---
 
 <NewsletterSection />
@@ -67,10 +63,10 @@ const allSections = await getSortedItems({
 	</ul>
 	<ul class="FooterList">
 		{
-			allSections.map((section) => (
+			sections.map((section) => (
 				<li class:list={highlightUrl(section.slug, 'FooterItem', 'Active', activePage)}>
-					<a class="FooterLink" href={`/${section.slug}`} title={`Vezi exclusiv lista de ${section.data.title}`}>
-						{section.data.menu}
+					<a class="FooterLink" href={`/${section.slug}`} title={`Vezi exclusiv lista de ${section.title}`}>
+						{section.menu}
 					</a>
 				</li>
 			))

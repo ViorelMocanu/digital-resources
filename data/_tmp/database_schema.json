@@ -1,0 +1,26 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "DatabaseCSV",
+	"type": "object",
+	"properties": {
+		"id": {
+			"type": "integer"
+		},
+		"url": {
+			"type": "string"
+		},
+		"link_text": {
+			"type": "string"
+		},
+		"link_meta_title": {
+			"type": "string"
+		},
+		"link_meta_description": {
+			"type": "string"
+		},
+		"link_meta_ogimage": {
+			"type": "string"
+		}
+	},
+	"required": ["id", "url", "link_text", "link_meta_title", "link_meta_description", "link_meta_ogimage"]
+}

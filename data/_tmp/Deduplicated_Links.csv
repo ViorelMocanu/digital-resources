@@ -1,0 +1,2016 @@
+url,id,link_text
+http://adactio.com/journal/4999/,1,Pursuing semantic value
+http://adam.chlipala.net/cpdt/,2,Certified Programming With Dependent Types
+http://alistapart.com/,3,http://alistapart.com/
+http://alistapart.com/article/a-brief-history-of-markup,4,A brief history of markup on A List Apart
+http://alistapart.com/article/getting-started-with-sass,5,A List Apart: Getting started with SASS
+http://alistapart.com/article/responsive-web-design,6,this one
+http://alistapart.com/author/emarcotte,7,Ethan Marcotte’s articles on A List Apart
+http://alistapart.com/topics,8,list of topics
+http://apps.workflower.fi/vocabs/css/en,9,CSS Vocabulary
+http://book.mixu.net/distsys/single-page.html,10,Distributed Systems for Fun and Profit | Distributed Systems for Fun and Profit
+http://brackets.io/,11,Brackets
+http://bradfrost.com/blog/post/i-have-no-idea-what-the-hell-i-am-doing/,12,I have no idea what the hell I am doing
+http://caniuse.com/,13,CanIUse
+http://canonical.org/\~kragen/memory-models/,14,The Memory Models That Underline Programming Languages
+http://catalog.mit.edu/schools/engineering/electrical-engineering-computer-science/\#subjectstext,15,Cursurile de la MIT de Computer Science & Electrical Engineering
+http://catb.org/\~esr/faqs/smart-questions.html,16,How to ask questions the smart way
+http://code.tutsplus.com/tutorials/build-a-sleek-portfolio-site-from-scratch--net-16,17,Build a sleek portfolio site from scratch
+http://code.tutsplus.com/tutorials/from-psd-to-html-building-a-set-of-website-designs-step-by-step--net-37,18,PSD to HTML
+http://codeforces.com/,19,http://codeforces.com/
+http://codepen.io/honglio/pen/FKyxG,20,Hover effects
+http://coding-geek.com/how-databases-work/,21,How Does a Relational Database Work | How does a relational database work?
+http://comptia.org/certifications/security,22,CompTIA Security+
+http://conqueringthecommandline.com/book,23,http://conqueringthecommandline.com/book
+http://craftinginterpreters.com/,24,Crafting Interpreters | Crafting Interpreters
+http://cs-www.cs.yale.edu/homes/aspnes/classes/465/notes.pdf,25,Notes On Theory Of Distributed Systems
+http://csgordon.github.io/books.html,26,Listă cu Cărți Gratis din Computer Science
+http://css-weekly.com/,27,https://css-weekly.com/
+http://cssgridgarden.com/,28,Grid Garden
+http://cve.org,29,CVE.org
+http://desandro.github.io/3dtransforms/examples/box-02-show-sides.html,30,Box
+http://diveinto.html5doctor.com/,31,Dive into HTML5
+http://diveintohtml5.info/table-of-contents.html,32,Diving into HTML5
+http://drpete.co/blog/25-point-website-usability-checklist,33,25 point usability checklist
+http://eccouncil.org/programs/certified-ethical-hacker-ceh,34,Certified Ethical Hacker
+http://eloquentjavascript.net/,35,Eloquent JavaScript by Marijn Haverbeke
+http://es6-features.org/,36,ES6 Feats
+http://euclid.trentu.ca/math/sb/pcml/pcml-16.pdf,37,A Problem Course in Mathematical Logic
+http://exploringjs.com/,38,Exploring JS
+http://h5bp.github.io/Effeckt.css/,39,Effekts
+http://handlebarsjs.com/,40,Handlebars
+http://html5doctor.com/lets-talk-about-semantics/,41,Let’s talk about semantics
+http://ianlunn.github.io/Hover/,42,Hovers
+http://introtodeeplearning.com/,43,http://introtodeeplearning.com/
+http://ix.cs.uoregon.edu/\~norris/cis330books/ThinkingInC/Index.html,44,http://ix.cs.uoregon.edu/\~norris/cis330books/ThinkingInC/Index.html
+http://jamie-wong.com/2016/07/15/ray-marching-signed-distance-functions/,45,http://jamie-wong.com/2016/07/15/ray-marching-signed-distance-functions/
+http://javascript.info/,46,The modern JavaScript Tutorial at JavaScript.info
+http://javascriptbook.com/,47,Superhero JS
+http://javascriptissexy.com/how-to-learn-javascript-properly/,48,**JS is sexy \- how to learn JS properly**
+http://jigsaw.w3.org/css-validator/,49,W3C CSS Validator
+http://kaner.com/,50,paid
+http://kti.ms.mff.cuni.cz/\~bartak/prolog/contents.html,51,Guide to Prolog Programming
+http://learn.shayhowe.com/html-css/,52,Learn HTML/CSS: Shay Howe | Learn HTML/CSS: Shay Howe
+http://learnlayout.com/,53,Learn Layout
+http://learnyouahaskell.com/,54,http://learnyouahaskell.com/
+http://learnyouahaskell.com/chapters,55,Learn You A Haskell For Great Good
+http://littleosbook.github.io/,56,http://littleosbook.github.io/
+http://madwomb.com/tutorials/GameDesign\_Tufts.html,57,Super cool introductory course
+http://marcdrummond.com/responsive-web-design/2011/12/29/default-breakpoints-are-dead,58,Natural responsive web design breakpoints
+http://microformats.org/2014/03/05/getting-started-with-microformats2,59,Microformats v2
+http://microformats.org/wiki/get-started,60,Get started with Microformats
+http://mir.aculo.us/dom-monster/,61,DOM Monster
+http://offlinefirst.org/,62,https://offlinefirst.org/
+http://play.elevatorsaga.com/,63,Elevator Saga
+http://railscasts.com/,64,http://railscasts.com/
+http://reactivex.io/learnrx/,65,Functional programming in JavaScript
+http://responsivedesign.is/,66,Responsive Design is…
+http://sass-lang.com/guide,67,Official SASS guide
+http://screensiz.es/about,68,full list of devices and their resolutions
+http://sixrevisions.com/tutorials/web-development-tutorials/psdhtml-conversion-code-a-clean-business-website-design/,69,Code a clean business website design
+http://specificity.keegan.st/,70,Specificity calculator
+http://thesecretlivesofdata.com/raft/,71,Vizualizarea algoritmului raft
+http://thinking-forth.sourceforge.net/,72,Thinking Forth
+http://torquemag.io/developers-guide-learning-sass-twenty-minutes-less/,73,Learn SASS in 20 min
+http://tortoisesvn.net/downloads.html,74,Tortoise SVN
+http://tryqa.com/istqb-dumps-download-mock-tests-and-sample-question-papers/,75,tests
+http://tympanus.net/codrops/,76,Codrops
+http://uiaccess.com/JustAsk/index.html,77,Just Ask: Integrating Accessibility Throughout Design
+http://usability.com.au/,78,Making the web more inclusive and usable from Usability.com.ua
+http://uxchecklist.github.io/,79,UX Checklist
+http://uxrecipe.github.io/,80,UX Recipe
+http://validator.w3.org/,81,W3C HTML Validator
+http://w3.impa.br/\~diego/teaching/vg/,82,Curs despre Vector Graphics
+http://webdam.inria.fr/Alice/,83,Foundations Of Databases | http://webdam.inria.fr/Alice/
+http://www.agileuprising.com/2016/09/29/agile-uprising-agile-manifesto-review/,84,Agile manifesto review | Agile Manifesto
+http://www.awwwards.com/10-html-css-online-code-editors-for-web-developers.html,85,Online editors (for testing only)
+http://www.brokenthorn.com/Resources/OSDevIndex.html,86,Operating Systems Development Series
+http://www.buildyourownlisp.com/,87,Build You Own Lisp
+http://www.colorzilla.com/gradient-editor/,88,CSS3 gradient generator
+http://www.coreftp.com/download.html,89,CoreFTP
+http://www.creativebloq.com/rwd/responsive-web-design-tutorials-71410085,90,RWD Tutorials
+http://www.crunchzilla.com/,91,http://www.crunchzilla.com/
+http://www.cs.ioc.ee/ewscs/2010/mycroft/linear-2up.pdf,92,Linear types can change the world\!
+http://www.csszengarden.com/,93,CSS Zen Garden
+http://www.datasciencecourse.org/,94,15-388 A \- Practical Data Science
+http://www.designhistory.org/index.html,95,http://www.designhistory.org/index.html
+http://www.designishistory.com/,96,http://www.designishistory.com/
+http://www.dungeonsanddevelopers.com/,97,RPG variant
+http://www.ebaytechblog.com/2015/11/04/how-our-css-framework-helps-enforce-accessibility/,98,How a CSS framework can enforce accessibility
+http://www.extremeprogramming.org/,99,Extreme programming
+http://www.ghisler.com/download.htm,100,Total Commander
+http://www.hongkiat.com/blog/angularjs-tutorials-screencast/,101,http://www.hongkiat.com/blog/angularjs-tutorials-screencast/
+http://www.howtomakesenseofanymess.com/,102,How to make sense of any mess
+http://www.htaccesscheck.com/,103,.htaccess check
+http://www.html5rocks.com/en/mobile/responsivedesign/,104,Creating a mobile-first responsive web design
+http://www.htmldog.com/guides/css/advanced/,105,Advanced CSS tutorial
+http://www.htmldog.com/guides/css/beginner/,106,Beginner CSS tutorial
+http://www.htmldog.com/guides/css/intermediate/,107,Intermediate CSS tutorial
+http://www.icce.rug.nl/documents/cplusplus/,108,C++ Annotations | C++ Annotations
+http://www.ieee-security.org/TC/SPW2014/papers/5103a198.PDF,109,The pitfalls of protocol design \- Attempting to write a formally verified PDF parser
+http://www.iso-9899.info/wiki/Main\_Page,110,Resurse din \#C de pe Freenode
+http://www.learnjavascript.online,111,www.learnjavascript.online
+http://www.let.rug.nl/bos/lpn//lpnpage.php?pageid=handheld,112,aici
+http://www.let.rug.nl/bos/lpn//lpnpage.php?pageid=online,113,Learn Prolog Now\!
+http://www.lukew.com/presos/,114,Luke Wroblewski’s interesting presentations
+http://www.minimamente.com/example/magic\_animations/,115,Magic animations
+http://www.nngroup.com/,116,http://www.nngroup.com/
+http://www.nngroup.com/articles/scaling-user-interfaces/,117,Scaling User Interfaces
+http://www.nngroup.com/articles/ten-usability-heuristics/,118,Jacob Nielsen’s 10 Rules of Thumb for Usability
+http://www.nngroup.com/articles/usability-101-introduction-to-usability/,119,Jacob Nielsen’s Usability 101
+http://www.nngroup.com/topic/web-usability/,120,NNGroup’s excellent articles
+http://www.pbr-book.org/3ed-2018/contents.html,121,Physically based rendering
+http://www.responsivepx.com/,122,http://www.responsivepx.com/
+http://www.sans.org/cyber-security-courses,123,SANS Cyber Security Courses
+http://www.seobythesea.com/2018/06/google-ranking-signals/,124,SEOByTheSea Google Ranking Signals
+http://www.smarty.net/,125,Smarty
+http://www.smashingmagazine.com/,126,https://www.smashingmagazine.com/
+http://www.smashingmagazine.com/2011/11/18/html5-semantics/,127,HTML5 semantics from Smashing Magazine
+http://www.smashingmagazine.com/2012/03/22/device-agnostic-approach-to-responsive-web-design/,128,Device agnostic breakpoints
+http://www.smashingmagazine.com/2013/03/05/building-a-better-responsive-website/,129,Building a better responsive website
+http://www.sublimetext.com/3,130,Sublime
+http://www.tcpipguide.com/free/t\_toc.htm,131,http://www.tcpipguide.com/free/t\_toc.htm
+http://www.usability.gov/what-and-why/index.html?view=list,132,Usability basics from Usability.org
+http://www.vishalchovatiya.com/cpp20-coroutine-under-the-hood/,133,C++20 Coroutine: Under The Hood
+http://www.w3.org/Style/CSS/,134,The CSS “homepage”
+http://www.w3.org/Style/LieBos2e/enter/,135,CSS: Designing for the Web
+http://www.w3.org/WAI/ER/tools/index.html,136,Other accessibility tools
+http://www.w3.org/WAI/eval/preliminary.html,137,Easy checks: a fast review of web accessibility
+http://www.w3.org/WAI/eval/report-tool/\#/,138,Website accessibility report generator
+http://www.w3.org/standards/webdesign/accessibility,139,W3C Accessibility Standards
+http://www.washington.edu/accesscomputing/webd2/student/unit1/module3/index.html,140,Web Standards and Accessible Design
+http://www.washington.edu/accesscomputing/webd2/student/unit1/module3/lesson1.html,141,Washington Edu lesson in Standards
+http://www.washington.edu/accesscomputing/webd2/student/unit2/index.html,142,Washington.edu course on HTML
+http://www.washington.edu/accesscomputing/webd2/student/unit3/index.html,143,Washington.edu course on CSS
+http://www.washington.edu/accesscomputing/webd2/student/unit6/index.html,144,Quality Control
+http://www.webdesignerdepot.com/2013/11/the-beginners-guide-to-sass/,145,The beginner’s guide to SASS
+http://www.webstandards.org/learn/external/wai/,146,Accessibility link list from WASP
+http://www.webstandards.org/learn/faq/,147,What are web standards and why should I use them?
+http://www.webstandards.org/learn/tutorials/accessible-forms/,148,Accessible forms
+http://www.youtube.com/watch?v=YCJdESNKHl8,149,part 2
+http://www.youtube.com/watch?v=\_b0hYKuZ88A,150,part 7
+http://www.youtube.com/watch?v=aYzUOzaDjQE,151,part 6
+http://www.youtube.com/watch?v=j1VchPUv-54,152,part 4
+http://www.youtube.com/watch?v=oj7A2YDgIWE,153,How does the Internet work? - Naked Science Scrapbook
+http://www.youtube.com/watch?v=pt8H4GHMY6w,154,part 5
+http://www.youtube.com/watch?v=x9xnwEOYHS0,155,part 1
+http://www.youtube.com/watch?v=yjkrdYddT0s,156,part 3
+http://www.zeldman.com/2011/12/29/state-of-the-web-of-apps-devices-and-breakpoints/,157,State of the Web
+http://youtube.com/playlist?list=PLylTVsqZiRXPU09ULWGfXYsEtw-Qtq0Yn,158,Theory of computation
+https://0xboku.com/2021/09/14/0dayappsecBeginnerGuide.html,159,zero day guide
+https://1stwebdesigner.com/psd-to-html/,160,PSD to HTML tutorial
+https://20years.withgoogle.com/,161,20years.withgoogle.com/
+https://50projects50days.com/,162,50Projects in 50Days
+https://64.github.io/tonemapping/,163,https://64.github.io/tonemapping/
+https://99designs.com/blog/web-digital/website-usability-principles/,164,Principles of website usability
+https://a11ymyths.com/,165,A11yMyths
+https://academy.hackthebox.com/,166,https://academy.hackthebox.com/
+https://academy.hackthebox.com/preview/certifications,167,https://academy.hackthebox.com/preview/certifications
+https://academy.hubspot.com/,168,https://academy.hubspot.com/
+https://academy.hubspot.com/courses/inbound-marketing?library=true,169,https://academy.hubspot.com/courses/inbound-marketing?library=true
+https://academy.tcm-sec.com/courses,170,all courses
+https://academy.tcm-sec.com/p/linux-101,171,https://academy.tcm-sec.com/p/linux-101
+https://academy.tcm-sec.com/p/practical-ethical-hacking-the-complete-course,172,https://academy.tcm-sec.com/p/practical-ethical-hacking-the-complete-course | practical ethical hacking
+https://academy.zerotomastery.io/p/complete-sql-database-bootcamp-zero-to-mastery,173,https://academy.zerotomastery.io/p/complete-sql-database-bootcamp-zero-to-mastery
+https://accidental-opinion-6b5.notion.site/PRD-Template-868c644a2b614f1095ed3d6af2dc5aa1,174,PRD Template in Notion
+https://adaptable.io/,175,Adaptable
+https://addyosmani.com/blog/software-engineering-soft-parts/,176,https://addyosmani.com/blog/software-engineering-soft-parts/
+https://addyosmani.com/resources/essentialjsdesignpatterns/book/,177,Learning JavaScript Design Patterns
+https://adminmart.com/,178,https://adminmart.com/
+https://adrianroselli.com/2023/02/aria-vs-html.html,179,ARIA vs HTML — Adrian Roselli
+https://ads.google.com/home/tools/keyword-planner/,180,Keywords Planner
+https://adv-r.hadley.nz/,181,Advanced R
+https://advancedweb.hu/a-categorized-list-of-all-java-and-jvm-features-since-jdk-8-to-16/,182,A categorized list of all Java and JVM features since JDK 8 to 16
+https://aegeorge42.github.io/,183,Neural Networks from Scratch: An Interactive Guide
+https://af79471c-693e-43f9-840b-9b70f48aaec8.filesusr.com/ugd/defd98\_ca5a028ffb76428e92d6b99b453bbcf2.pdf,184,https://af79471c-693e-43f9-840b-9b70f48aaec8.filesusr.com/ugd/defd98\_ca5a028ffb76428e92d6b99b453bbcf2.pdf
+https://ahrefs.com/academy/blogging-for-business,185,Ahrefs Academy: Blogging for business
+https://ahrefs.com/academy/blogging-for-business/lesson-1-1,186,Blogging for business
+https://ahrefs.com/academy/seo-training-course,187,https://ahrefs.com/academy/seo-training-course
+https://ahrefs.com/blog/,188,The Ahrefs Blog
+https://ahrefs.com/blog/content-marketing/,189,Content Marketing
+https://ahrefs.com/blog/learn-seo/,190,ahrefs.com/blog/learn-seo/
+https://ahrefs.com/blog/semantic-search/,191,Why Semantic Search is important
+https://ahrefs.com/blog/seo-for-startups/,192,https://ahrefs.com/blog/seo-for-startups/
+https://ahrefs.com/free-seo-tools,193,Free SEO Tools
+https://ahrefs.com/seo,194,The Ahrefs Guide | https://ahrefs.com/seo
+https://ai.google/education/,195,https://ai.google/education/
+https://alexnisnevich.github.io/untrusted/,196,Untrusted
+https://alialaa.github.io/css-grid-cheat-sheet/,197,https://alialaa.github.io/css-grid-cheat-sheet/
+https://alistapart.com/article/alaprimer/,198,with this article
+https://alistapart.com/article/alaprimer2/,199,this
+https://alistapart.com/article/more-meaningful-typography/,200,https://alistapart.com/article/more-meaningful-typography/
+https://allinone.tools/,201,https://allinone.tools/
+https://almanac.httparchive.org/en/2020/css,202,Web Almanac on CSS
+https://amzn.to/2O14vdd,203,Algorithmics
+https://amzn.to/3gtvCK6,204,Best Practices
+https://analytics.google.com/analytics/academy/,205,https://analytics.google.com/analytics/academy/
+https://andreasbm.github.io/web-skills/,206,https://andreasbm.github.io/web-skills/ | alternative here
+https://anthonyhobday.com/sideprojects/saferules/,207,https://anthonyhobday.com/sideprojects/saferules/
+https://app.buzzsumo.com/content/web,208,BuzzSumo
+https://app.codecrafters.io/catalog,209,https://app.codecrafters.io/catalog
+https://app.codility.com/programmers/lessons/1-iterations/,210,https://app.codility.com/programmers/lessons/1-iterations/
+https://app.quicktype.io/?l=ts,211,https://app.quicktype.io/?l=ts
+https://appetize.io/demo?device=iphone14pro\&osVersion=16.2\&record=true,212,Appetize
+https://apple.co/3uTzTzn,213,https://apple.co/3uTzTzn
+https://apps.apple.com/ro/app/swiftyprep/id6466783060,214,https://apps.apple.com/ro/app/swiftyprep/id6466783060
+https://appsumo.com/,215,https://appsumo.com/
+https://archive.org/web/,216,https://archive.org/web/
+https://arttoolkit.github.io/,217,https://arttoolkit.github.io/
+https://arxiv.org/abs/2004.05074,218,Paxos vs. Raft: Have We Reached Distributed Consensus on Distributed Consensus?
+https://askgib.substack.com/,219,Ask Gib
+https://askgib.substack.com/archive?sort=top,220,best articles here
+https://askplaybook.com/,221,https://askplaybook.com/
+https://assetstore.unity.com/top-assets/top-free,222,https://assetstore.unity.com/top-assets/top-free
+https://astexplorer.net/,223,AST Explorer
+https://astro.build/blog/2023-web-framework-performance-report/,224,https://astro.build/blog/2023-web-framework-performance-report/
+https://atelierul.digital/,225,https://atelierul.digital/
+https://austingil.com/ai-for-web-devs-set-up/,226,https://austingil.com/ai-for-web-devs-set-up/
+https://auth0.com/blog/glossary-of-modern-javascript-concepts/,227,Concept Glossary
+https://authenticatorpro.jmh.me/,228,Authenticator Pro
+https://automatetheboringstuff.com/,229,Automate the boring stuff with Python
+https://autovortex.ro/,230,https://autovortex.ro/
+https://backlinko.com/content-study,231,backlinko.com/content-study
+https://backlinko.com/hub/content,232,https://backlinko.com/hub/content | https://backlinko.com/hub/content
+https://backlinko.com/seo-checklist,233,https://backlinko.com/seo-checklist
+https://backlinko.com/seo-this-year,234,https://backlinko.com/seo-this-year
+https://basecamp.com/learn,235,the Basecamp way
+https://beej.us/guide/bgnet/,236,Beej's Guide to Network Programming | https://beej.us/guide/bgnet/
+https://beej.us/guide/bgnet/html/,237,https://beej.us/guide/bgnet/html/
+https://bejamas.io/blog/practical-guide-to-astro-js-framework/,238,https://bejamas.io/blog/practical-guide-to-astro-js-framework/
+https://benjamincongdon.me/blog/2021/05/16/Building-a-Raft/,239,Building a Raft
+https://betalist.com/,240,https://betalist.com/
+https://betterwebtype.com/8-more-tips-for-remarkably-better-typography/,241,https://betterwebtype.com/8-more-tips-for-remarkably-better-typography/
+https://betterwebtype.com/8-tips-for-remarkably-better-typography/,242,https://betterwebtype.com/8-tips-for-remarkably-better-typography/
+https://bit.ly/ace-coding,243,https://bit.ly/ace-coding
+https://bit.ly/reality-broken,244,Reality is Broken by Jane McGonigal
+https://bit.ly/vio-freehosting,245,SiteGround
+https://bitcoin.org/en/bitcoin-paper,246,https://bitcoin.org/en/bitcoin-paper
+https://blockly.games/,247,https://blockly.games/
+https://blog.datawrapper.de/fonts-for-data-visualization/,248,https://blog.datawrapper.de/fonts-for-data-visualization/
+https://blog.google/products/marketingplatform/analytics/prepare-for-future-with-google-analytics-4/,249,https://blog.google/products/marketingplatform/analytics/prepare-for-future-with-google-analytics-4/
+https://blog.hubspot.com/marketing/free-online-marketing-classes,250,https://blog.hubspot.com/marketing/free-online-marketing-classes
+https://blog.pope.tech/2023/03/01/a-beginners-guide-to-manual-accessibility-testing/,251,A beginner's guide to manual accessibility testing \- Pope Tech Blog
+https://blog.prototypr.io/my-collection-of-best-resources-for-junior-designers-c3b755c2b9c4,252,List
+https://blog.stephenmarz.com/2021/02/22/writing-pong-in-rust/,253,joc
+https://blog.typekit.com/2016/04/29/combining-typefaces-free-guide-to-great-typography/,254,https://blog.typekit.com/2016/04/29/combining-typefaces-free-guide-to-great-typography/
+https://blog.webdevsimplified.com/2021-09/javascript-promises/,255,JS Promise Guide
+https://blog.ycombinator.com/ycs-essential-startup-advice/,256,https://blog.ycombinator.com/ycs-essential-startup-advice/
+https://boagworld.com/dev/semantic-code-what-why-how/,257,Semantic code: What? Why? How?
+https://book.hacktricks.xyz/,258,https://book.hacktricks.xyz/
+https://book.rvemu.app/,259,Writing a RISC-V Emulator in Rust
+https://books.google.ro/books/about/Mastering\_Bitcoin.html?id=tponDwAAQBAJ\&printsec=frontcover\&source=kp\_read\_button\&hl=en\&redir\_esc=y\#v=onepage\&q\&f=false,260,https://books.google.ro/books/about/Mastering\_Bitcoin.html?id=tponDwAAQBAJ\&printsec=frontcover\&source=kp\_read\_button\&hl=en\&redir\_esc=y\#v=onepage\&q\&f=false
+https://boris-marinov.github.io/category-theory-illustrated/,261,Category Theory Illustrated
+https://briefs.video/videos/is-progressive-enhancement-dead-yet/,262,This video
+https://brilliant.org/,263,https://brilliant.org/
+https://browser.engineering/,264,Web Browser Engineering
+https://browsershots.org/,265,https://browsershots.org/
+https://bugcrowd.com/programs,266,https://bugcrowd.com/programs
+https://build.washingtonpost.com/,267,https://build.washingtonpost.com/
+https://builtwith.com/,268,BuiltWith
+https://bulletproofphp.dev/yes-php-is-worth-using,269,https://bulletproofphp.dev/yes-php-is-worth-using
+https://bundlephobia.com/,270,https://bundlephobia.com/
+https://calendar-js.com/,271,https://calendar-js.com/
+https://caniuse.com/\#feat=css-grid,272,CSS Grid
+https://cards-dev.twitter.com/validator,273,Card Validator
+https://careerfoundry.com/en/short-courses/become-a-ux-designer/,274,UX Course
+https://cbea.ms/git-commit/,275,Commits
+https://ceramichacker.com/blog/1-1x-hardcaml-mips-intro-what-and-why,276,Building a MIPS CPU in Hardcaml
+https://cgcookie.com/course/character-animation-toolkit/,277,https://cgcookie.com/course/character-animation-toolkit/
+https://checkio.org/,278,CheckIO | https://checkio.org/
+https://chrome.google.com/webstore/detail/checkbot-seo-web-speed-se/dagohlmlhagincbfilmkadjgmdnkjinl/related,279,Chrome ext
+"https://chrome.google.com/webstore/detail/dom-monster/hlimphkgopfdlelabkioalhfjfblnclk\#:\~:text=DOM%20Monster%20is%20a%20bookmarklet,you%20its%20bill%20of%20health.\&text=DOM%20Monster%20is%20a%20cross,you%20its%20bill%20of%20health.",280,Chrome ext
+https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=en,281,Chrome ext
+https://chrome.google.com/webstore/detail/scientific-calculator/fnplhdldnhaodknidfddmkfdhlhjihpd,282,Scientific Calculator
+https://chrome.google.com/webstore/detail/secure-shell/iodihamcpbpeioajjeobimgagajmlibd,283,Secure Shell
+https://chrome.google.com/webstore/detail/tota11y-for-chrome/nkghaekndgmonifcpfgjmpfjlhnmflhp,284,Chrome ext
+https://chromewebstore.google.com/detail/detailed-seo-extension/pfjdepjjfjjahkjfpkcgfmfhmnakjfba,285,https://chromewebstore.google.com/detail/detailed-seo-extension/pfjdepjjfjjahkjfpkcgfmfhmnakjfba
+https://ciechanow.ski/curves-and-surfaces/,286,Curves and Surfaces
+https://ciechanow.ski/exposing-floating-point/,287,Exposing Float Point | Exposing Floating Point
+https://circuitmess.com/products/nibble-diy-game-console,288,https://circuitmess.com/products/nibble-diy-game-console
+https://clonezilla.org/downloads.php,289,Clonezilla
+https://cloud.google.com/free,290,https://cloud.google.com/free
+https://cloudirregular.substack.com/p/the-greatest-resume-ive-ever-seen,291,presentation article
+https://cloudresumechallenge.dev/instructions/,292,The Cloud Resume Challenge
+https://cms.greatquestion.co/blog/ai-for-design-research,293,https://cms.greatquestion.co/blog/ai-for-design-research
+https://code.org/,294,https://code.org/ | https://code.org/
+https://code.tutsplus.com/tutorials/9-most-common-ie-bugs-and-how-to-fix-them--net-7764,295,Solve most of IE’s bugs
+https://code.visualstudio.com/,296,Visual Studio Code | VSCode
+https://codeadrian.github.io/clay.css/,297,https://codeadrian.github.io/clay.css/
+https://codeburst.io/the-2018-web-developer-roadmap-826b1b806e8d,298,here
+https://codecombat.com/,299,https://codecombat.com/ | https://codecombat.com/
+https://codeforces.com/blog/entry/43256,300,https://codeforces.com/blog/entry/43256
+https://codeforces.com/blog/entry/55219,301,https://codeforces.com/blog/entry/55219
+https://codeforces.com/blog/entry/62690,302,https://codeforces.com/blog/entry/62690
+https://codeforces.com/blog/entry/68138,303,https://codeforces.com/blog/entry/68138
+https://codenquest.com/,304,https://codenquest.com/
+https://coderbyte.com/,305,https://coderbyte.com/
+https://coderkids.teachable.com/p/welcome-to-scratch,306,https://coderkids.teachable.com/p/welcome-to-scratch
+https://codersblock.com/blog/the-surprising-things-that-css-can-animate/,307,Advanced animations
+https://codewithmosh.com/p/mastering-react,308,https://codewithmosh.com/p/mastering-react
+https://codewithmosh.com/p/python-programming-course-beginners,309,https://codewithmosh.com/p/python-programming-course-beginners
+https://codewithmosh.com/p/the-ultimate-docker-course,310,https://codewithmosh.com/p/the-ultimate-docker-course
+https://codingbat.com/java,311,CodingBat Java
+https://codingnest.com/generating-random-numbers-using-c-standard-library-the-problems/,312,Generating random numbers using C++ standard library: the problems
+https://colorandcontrast.com/,313,https://colorandcontrast.com/
+https://commandlinepoweruser.com/,314,https://commandlinepoweruser.com/
+https://commoncog.com/,315,Common Cog
+https://commoncog.com/start-here/,316,best articles here
+https://conferfly.com/,317,Conferfly
+https://connary.com/pairing.html,318,https://connary.com/pairing.html
+https://contentmarketinginstitute.com/,319,https://contentmarketinginstitute.com/
+https://convertkit.com/?lmref=kKIXuQ,320,ConvertKit
+https://coolify.io/,321,https://coolify.io/
+https://copyblogger.com/,322,https://copyblogger.com/
+https://copyblogger.com/imfsp/,323,https://copyblogger.com/imfsp/ | https://copyblogger.com/imfsp/
+https://corneacristian.medium.com/from-zero-to-your-first-penetration-test-7479bce3a5,324,https://corneacristian.medium.com/from-zero-to-your-first-penetration-test-7479bce3a5
+https://courses.csail.mit.edu/6.042/spring17/mcs.pdf,325,Mathematics For Computer Science
+https://courses.learnvue.co/p/build-along-vue3-time-blocking-app/,326,Vue3 Time Blocking App
+https://courses.zeropointsecurity.co.uk/courses/red-team-ops,327,https://courses.zeropointsecurity.co.uk/courses/red-team-ops
+https://cp-algorithms.com/,328,https://cp-algorithms.com/ | CP Algorithms
+https://crackstation.net/,329,https://crackstation.net/
+https://craftinginterpreters.com/,330,https://craftinginterpreters.com/
+https://create.microsoft.com/en-us,331,https://create.microsoft.com/en-us
+https://create.t3.gg/en/other-recs/,332,recommendations of technologies
+https://creativecloud.adobe.com/cc/learn/app/premiere-pro,333,https://creativecloud.adobe.com/cc/learn/app/premiere-pro
+https://creativemarket.com/blog/10-design-ted-talks-you-should-watch,334,https://creativemarket.com/blog/10-design-ted-talks-you-should-watch
+https://crux-compare.netlify.app/,335,Crux
+https://cs193p.sites.stanford.edu/,336,CS193p \- Developing Applications for iOS using SwiftUI
+https://cs50.harvard.edu/x/2020/,337,CS50 by Harvard
+https://cs50.harvard.edu/x/2023/,338,https://cs50.harvard.edu/x/2023/
+https://csp-evaluator.withgoogle.com/,339,CSP Evaluator
+https://cspvalidator.org/,340,CSP Validator
+https://css-generators.com/ribbon-shapes/,341,https://css-generators.com/ribbon-shapes/
+https://css-loaders.com/,342,https://css-loaders.com/
+https://css-tricks.com/a-complete-beginners-guide-to-npm/,343,https://css-tricks.com/a-complete-beginners-guide-to-npm/
+https://css-tricks.com/almanac/,344,CSSTricks Almanac
+https://css-tricks.com/complete-guide-to-css-functions/,345,A complete guide to CSS functions
+https://css-tricks.com/examples/IconFont/,346,Why IconFonts are great
+https://css-tricks.com/front-end-challenges/,347,https://css-tricks.com/front-end-challenges/
+https://css-tricks.com/guide-svg-animations-smil/,348,SVG Animations
+https://css-tricks.com/guides/,349,CSS Tricks Guides | CSS Tricks Guides
+https://css-tricks.com/making-calendars-with-accessibility-and-internationalization-in-mind/,350,calendar
+https://css-tricks.com/snippets/css/,351,CSS-Tricks CSS Snippets
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/,352,Flexbox tutorial
+https://css-tricks.com/snippets/css/complete-guide-grid/,353,Guide to Grid
+https://css-tricks.com/specifics-on-css-specificity/,354,Calculating CSS Specificity
+https://css-tricks.com/technical-writing-for-developers/,355,https://css-tricks.com/technical-writing-for-developers/
+https://cssbattle.dev/,356,https://cssbattle.dev/ | https://cssbattle.dev/ | https://cssbattle.dev/
+https://cssgrid.io/,357,CSS Grids by Wes Bos
+https://cssstats.com/stats/,358,CSS Stats
+https://csswizardry.com/2020/05/the-fastest-google-fonts/,359,https://csswizardry.com/2020/05/the-fastest-google-fonts/
+https://ctftime.org/,360,CTF Time
+https://ctftime.org/calendar/,361,https://ctftime.org/calendar/
+https://cursor.sh/,362,https://cursor.sh/
+https://cursuri-it.ejobs.ro/,363,Cursuri IT by eJobs
+https://cursuri-it.ejobs.ro/cursuri/tester/tester-qa/,364,https://cursuri-it.ejobs.ro/cursuri/tester/tester-qa/
+https://cxl.com/playbooks/,365,https://cxl.com/playbooks/
+https://cyberempathy.org/,366,https://cyberempathy.org/
+https://cybersectools.com/,367,https://cybersectools.com/
+https://cybersecurityguide.org/programs/cybersecurity-certifications/oscp/,368,https://cybersecurityguide.org/programs/cybersecurity-certifications/oscp/
+https://d.mba/guides/,369,https://d.mba/guides/
+https://d3fend.mitre.org/,370,https://d3fend.mitre.org/
+https://darknetdiaries.com/,371,Darknet Diaries
+https://dash.generalassemb.ly/,372,https://dash.generalassemb.ly/
+https://dashboarddesignpatterns.github.io/patterns.html,373,https://dashboarddesignpatterns.github.io/patterns.html
+https://db-engines.com/en/ranking,374,https://db-engines.com/en/ranking | https://db-engines.com/en/ranking
+https://defensivecss.dev/,375,Defensive CSS
+https://defensivecss.dev/articles/intro-defensive-css/,376,intro
+https://designcourse.com/ui-ux,377,https://designcourse.com/ui-ux
+https://designer.microsoft.com/,378,https://designer.microsoft.com/ | https://designer.microsoft.com/
+https://designmodo.com/html-css-emails/,379,HTML \+ CSS in Emails: What Works in 2022?
+https://designsystem.digital.gov/design-principles/,380,US Government Digital Design System
+https://designsystem.webstandards.ca.gov/,381,https://designsystem.webstandards.ca.gov/
+https://dev.to/daniels1996/plumber-s-guide-to-cloud-88,382,related article
+https://dev.to/eduardoleao052/deep-learning-in-javascript-23od,383,ML in JS
+https://dev.to/frontendmentor/16-front-end-projects-with-designs-to-help-improve-your-coding-skills-5ajl,384,here
+https://dev.to/javinpaul/5-free-courses-to-learn-linux-for-beginners-367f,385,https://dev.to/javinpaul/5-free-courses-to-learn-linux-for-beginners-367f
+https://dev.to/simonholdorf/9-awesome-projects-you-can-build-with-vanilla-javascript-2o1b,386,these ideas
+https://dev.to/yuridevat/how-i-come-up-with-project-ideas-and-never-faced-tutorial-hell-3287,387,Project ideas
+https://devdocs.io/,388,DevDocs
+https://developer.android.com/courses\#for-new-programmers,389,https://developer.android.com/courses\#for-new-programmers
+https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/Searching.html,390,https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/Searching.html
+https://developer.apple.com/tutorials/SwiftUI,391,https://developer.apple.com/tutorials/SwiftUI
+https://developer.ibm.com/tutorials/wa-build2dphysicsengine/,392,Bulid a simple 2D physics engine for JavaScript games | https://developer.ibm.com/tutorials/wa-build2dphysicsengine/
+https://developer.mozilla.org/,393,https://developer.mozilla.org/
+https://developer.mozilla.org/en-US/docs/Learn,394,The MDN Front End Development Learning Index | Learn Web Development \- Mozilla Developer Network
+https://developer.mozilla.org/en-US/docs/Learn/Front-end\_web\_developer,395,Mozilla Front End tutorial
+https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia\_and\_embedding/Responsive\_images,396,Responsive Images tutorial on MDN
+https://developer.mozilla.org/en-US/docs/Web/CSS,397,Mozilla Developer Network CSS Info
+https://developer.mozilla.org/en-US/docs/Web/CSS/Reference,398,Mozilla Developer Network: CSS reference
+https://developer.mozilla.org/en-US/docs/Web/JavaScript,399,MDN docs
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction,400,MDN introduction to JS
+https://developer.mozilla.org/en-US/docs/Web/JavaScript\#tutorials,401,MDN tutorials | Javascript Tutorials \- Mozilla Developer Network
+https://developer.mozilla.org/en/docs/Web/HTML/Element,402,Mozilla Developer Network: HTML reference
+https://developer.wordpress.org/themes/getting-started/,403,Getting started in Wordpress templating
+https://developers.facebook.com/tools/debug/,404,Sharing Debugger
+https://developers.google.com/certification,405,https://developers.google.com/certification
+https://developers.google.com/edu/python/,406,https://developers.google.com/edu/python/
+https://developers.google.com/learn/pathways,407,Learn with Google
+https://developers.google.com/learn/pathways/web-vitals?hl=en,408,https://developers.google.com/learn/pathways/web-vitals?hl=en
+https://developers.google.com/search/docs/beginner/seo-starter-guide,409,https://developers.google.com/search/docs/beginner/seo-starter-guide
+https://developers.google.com/search/docs/essentials,410,https://developers.google.com/search/docs/essentials
+https://developers.google.com/search/docs/guides/intro-structured-data,411,Google Structured Data Intro
+https://developers.google.com/search/docs/guides/search-gallery,412,Structured Data Search Gallery
+https://developers.google.com/search/reference/overview,413,Google Structured Data Examples
+https://developers.google.com/solutions/content-driven,414,https://developers.google.com/solutions/content-driven
+https://developers.google.com/speed/pagespeed/insights/,415,Google PageSpeed Insights
+https://devforum.ro/t/ce-vrei-sa-stii-despre-freelancing/15520,416,Ce vrei să știi despre freelancing?
+https://devhints.io/,417,https://devhints.io/
+https://devicon.dev/,418,Dev
+https://devskiller.com/become-recruiter-tech/,419,https://devskiller.com/become-recruiter-tech/
+https://devtoys.app/,420,https://devtoys.app/
+https://djangodeployment.readthedocs.io/en/latest/01-getting-started.html,421,https://djangodeployment.readthedocs.io/en/latest/01-getting-started.html
+https://doc.rust-lang.org/book/,422,The Rust Programming Language | The Rust Programming Language
+https://doc.rust-lang.org/nomicon/,423,The Rustonomicon
+https://doc.rust-lang.org/rust-by-example/,424,Rust by Example
+https://docs.angularjs.org/guide/templates,425,Angular Templating
+https://docs.angularjs.org/tutorial/step\_02,426,Tutorial
+https://docs.github.com/en/get-started/quickstart/set-up-git,427,Setup
+https://docs.github.com/en/get-started/using-git/about-git,428,101
+https://docs.google.com/document/d/19QmYipgc6WxRrdzobVvItHTnJpG9mx7\_K1GTBhIbiEY/edit?usp=sharing,429,Another dedicated document
+https://docs.microsoft.com/en-us/training/,430,https://docs.microsoft.com/en-us/training/
+https://docs.microsoft.com/en-us/training/modules/intro-to-python/,431,https://docs.microsoft.com/en-us/training/modules/intro-to-python/
+https://docs.oracle.com/cd/E19957-01/806-3568/ncg\_goldberg.html,432,What Every Computer Scientist Should Know About Floating-Point Arithmetic
+https://docs.python.org/3/library/functions.html,433,https://docs.python.org/3/library/functions.html
+https://docs.python.org/3/tutorial/,434,The Python Tutorial | The Python Tutorial
+https://docs.rust-embedded.org/book/,435,The Embedded Rust Book
+https://domevents.dev/,436,Explore DOM events
+https://dontasktoask.com/,437,"Don’t ask to ask, just ask\!"
+https://drive.google.com/drive/folders/1E5fGWnZ-tjpjSX8vOf584o6HnHqTiS9n,438,https://drive.google.com/drive/folders/1E5fGWnZ-tjpjSX8vOf584o6HnHqTiS9n
+https://drive.google.com/drive/folders/1Z30-9EO6B0oEuFHYMKUzzzEO6p82-dYU,439,https://drive.google.com/drive/folders/1Z30-9EO6B0oEuFHYMKUzzzEO6p82-dYU | https://drive.google.com/drive/folders/1Z30-9EO6B0oEuFHYMKUzzzEO6p82-dYU
+https://drive.google.com/drive/folders/1pIxb-KlTzpMuuRroxt5bneqdq-zldP0F,440,https://drive.google.com/drive/folders/1pIxb-KlTzpMuuRroxt5bneqdq-zldP0F
+https://eater.net/,441,Ben Eater
+https://ebooks.infobits.ro/,442,https://ebooks.infobits.ro/
+https://echoctf.red/,443,EchoCTF
+https://ecsc.eu/,444,European Cyber Security Challenge
+https://edabit.com/,445,https://edabit.com/
+https://edoardottt.github.io/awesome-hacker-search-engines/,446,https://edoardottt.github.io/awesome-hacker-search-engines/
+https://education.github.com/,447,https://education.github.com/
+https://eel.is/c++draft/,448,"C++ Standard Draft | Working Draft, Standard for Programming Language C++"
+https://eev.ee/blog/2015/09/12/dark-corners-of-unicode/,449,https://eev.ee/blog/2015/09/12/dark-corners-of-unicode/
+https://egghead.io/browse/frameworks,450,frameworks
+https://egghead.io/browse/languages,451,JS and derived languages
+https://egghead.io/browse/libraries,452,libraries
+https://egghead.io/courses/professor-frisby-introduces-composable-functional-javascript,453,Composable Functional JavaScript
+https://egghead.io/learn,454,https://egghead.io/learn
+https://egghead.io/playlists/design-with-tailwind-css-masterclass-f0db,455,Collection \- Design with Tailwind CSS Masterclass on @eggheadio
+https://egghead.io/q/react,456,https://egghead.io/q/react
+https://elitedatascience.com/,457,https://elitedatascience.com/
+https://eloquentjavascript.net/,458,Eloquent Javascript
+https://en.cppreference.com/w/,459,cppreference | https://en.cppreference.com/w/ | C++ Reference
+https://en.cppreference.com/w/c,460,https://en.cppreference.com/w/c
+https://en.m.wikipedia.org/wiki/List\_of\_algorithms,461,List of algorithms
+https://en.m.wikipedia.org/wiki/List\_of\_data\_structures,462,List of data structures
+https://en.ryte.com/,463,Ryte free
+https://en.ryte.com/free-tools/,464,Ryte Free Tools
+https://en.wikipedia.org/wiki/Comparison\_of\_web\_template\_engines,465,A comprehensive list of most web templating engines
+https://en.wikipedia.org/wiki/First-order\_logic,466,logica de ordin I
+https://event.2performant.com/events/click?ad\_type=quicklink\&aff\_code=304c4ab32\&unique=7b88fe442\&redirect\_to=https%253A//www.books-express.ro/influence-new-and-expanded/p/vsc%252C9780062937650,467,"Cialdini \- Influence, the psychology of persuasion (new and expanded)"
+https://event.2performant.com/events/click?ad\_type=quicklink\&aff\_code=304c4ab32\&unique=7b88fe442\&redirect\_to=https%253A//www.books-express.ro/ogilvy-d-ogilvy-on-advertising/p/kjsa%252C9781853756153,468,Ogilvy on Advertising in the Digital Age
+https://every-layout.dev/,469,Relearn CSS layout | https://every-layout.dev/
+https://excessive-preface-69c.notion.site/HTML-CSS-28bc6ac713eb41af94e4324bb24db450,470,https://excessive-preface-69c.notion.site/HTML-CSS-28bc6ac713eb41af94e4324bb24db450
+https://excessive-preface-69c.notion.site/JavaScript-e3921343cb3944a4b4fa8235f3ca1375,471,https://excessive-preface-69c.notion.site/JavaScript-e3921343cb3944a4b4fa8235f3ca1375
+https://exercism.org/,472,https://exercism.org/
+https://exploringjs.com/deep-js/toc.html,473,Deep JavaScript | Deep Javascript
+https://fasterthanli.me/articles/a-half-hour-to-learn-rust,474,A Half Hour to Learn Rust
+https://fearlesssalarynegotiation.com/articles/,475,https://fearlesssalarynegotiation.com/articles/
+https://fffuel.co/mmmotif/,476,https://fffuel.co/mmmotif/
+https://fifty.user-interface.io/,477,https://fifty.user-interface.io/
+https://fifty.user-interface.io/50\_ui\_tips.pdf,478,https://fifty.user-interface.io/50\_ui\_tips.pdf
+https://file-converter.io/,479,File Converter
+https://filezilla-project.org/download.php?type=client,480,FileZilla
+https://fili.com/\#learn-seo,481,https://fili.com/\#learn-seo
+https://flexboxfroggy.com/,482,FlexboxFroggy | flexbox froggy
+https://flexboxzombies.com/p/flexbox-zombies,483,FlexboxZombie
+https://floating-point-gui.de/,484,What Every Programmer Should Know About Floating-Point Arithmetic | What Every Programmer Should Know About Floating-Point Arithmetic
+https://floatui.com/,485,https://floatui.com/
+https://fly.io/,486,Fly.io
+https://foldingburritos.com/,487,https://foldingburritos.com/
+https://fontawesome.com/,488,FontAwesome
+https://fonts.google.com/knowledge,489,https://fonts.google.com/knowledge
+https://fonts.google.com/knowledge/glossary,490,https://fonts.google.com/knowledge/glossary
+https://fontsinuse.com/,491,https://fontsinuse.com/
+https://formsubmit.co/,492,https://formsubmit.co/
+https://foundersnetwork.com/,493,https://foundersnetwork.com/
+https://frankrausch.com/ios-navigation,494,https://frankrausch.com/ios-navigation
+https://free-for.dev/,495,resources that are free for devs | https://free-for.dev/
+https://free-icons.github.io/free-icons/,496,Free
+https://freebiesbug.com/,497,https://freebiesbug.com/
+https://freecarrierlookup.com/,498,Free Carrier Lookup
+https://fridayfrontend.curated.co/,499,bonus
+https://frontend.ro/,500,FrontEnd.ro
+https://frontend.ro/html/tutorial,501,HTML tutorial
+https://frontendchecklist.io/,502,https://frontendchecklist.io/
+https://frontendfoc.us/,503,https://frontendfoc.us/
+https://frontendmasters.com/courses/web-development-v2/,504,https://frontendmasters.com/courses/web-development-v2/
+https://frontendmasters.com/guides/front-end-handbook/2018/practice/interview-q.html,505,Front-End interview questions
+https://frontendmasters.com/guides/learning-roadmap/,506,this one from Front End Masters
+https://frontendmasters.com/kyle-simpson/,507,Frontend Masters courses by Kyle Simpson
+https://frontendresource.com/,508,https://frontendresource.com/
+https://fronty.com/,509,https://fronty.com/
+https://fsharpforfunandprofit.com/fppatterns/,510,https://fsharpforfunandprofit.com/fppatterns/
+https://fullstackopen.com/en/,511,https://fullstackopen.com/en/ | Full Stack Open
+https://gamehacking.academy/,512,https://gamehacking.academy/
+https://ggradient.com/,513,https://ggradient.com/
+https://gist.github.com/,514,https://gist.github.com/
+https://gist.github.com/amysimmons/1d3c6fa84800b50d6b515662b55d0cb9,515,this fantastic GitHub list
+https://git-scm.com/book/en/v2,516,git
+https://github.com/,517,GitHub | https://github.com/
+https://github.com/1Remote/1Remote,518,1Remote
+https://github.com/30-seconds/30-seconds-of-code,519,https://github.com/30-seconds/30-seconds-of-code | https://github.com/30-seconds/30-seconds-of-code
+https://github.com/Alikhll/golang-developer-roadmap,520,https://github.com/Alikhll/golang-developer-roadmap
+https://github.com/AllThingsSmitty/css-protips,521,CSS Protips
+https://github.com/Crizstian/data-structure-and-algorithms-with-ES6,522,3
+https://github.com/Divide-By-0/ideas-for-projects-people-would-use,523,https://github.com/Divide-By-0/ideas-for-projects-people-would-use | Software ideas that people would use
+https://github.com/DoctorWkt/acwj,524,A Compiler Writing Journey
+https://github.com/EbookFoundation/free-programming-books,525,https://github.com/EbookFoundation/free-programming-books | https://github.com/EbookFoundation/free-programming-books | https://github.com/EbookFoundation/free-programming-books
+https://github.com/EbookFoundation/free-programming-books?tab=readme-ov-file,526,Books
+"https://github.com/GSoft-SharePoint/Dynamite/wiki/Getting-started-with-SourceTree,-Git-and-git-flow",527,GitHub \+ SourceTree tutorial
+https://github.com/Hack-with-Github/Awesome-Hacking,528,https://github.com/Hack-with-Github/Awesome-Hacking
+https://github.com/JanVanRyswyck/awesome-talks,529,https://github.com/JanVanRyswyck/awesome-talks
+https://github.com/JeckyOH/e-books-oh/blob/master/%5BAddison-Wesley%20Professional%5D%20TCP%20IP%20Illustrated%20Volume%202%20The%20Implementation.pdf,530,https://github.com/JeckyOH/e-books-oh/blob/master/%5BAddison-Wesley%20Professional%5D%20TCP%20IP%20Illustrated%20Volume%202%20The%20Implementation.pdf
+https://github.com/KittyGiraudel/selectors-explained,531,Explain CSS selectors in plain English
+https://github.com/MoienTajik/AspNetCore-Developer-Roadmap,532,https://github.com/MoienTajik/AspNetCore-Developer-Roadmap
+https://github.com/UnterrainerInformatik/GameDevelopmentLinks,533,https://github.com/UnterrainerInformatik/GameDevelopmentLinks
+https://github.com/ViorelMocanu/digital-resources,534,with a free to use website
+https://github.com/WorthyD/WorthyD-Cutout-Demo,535,HTML
+https://github.com/acmesh-official/acme.sh,536,acme.sh
+https://github.com/airbnb/javascript,537,JavaScript / ES6 | AirBNB JavaScript Style guide
+https://github.com/airbnb/javascript/tree/master/react,538,React / JSX
+https://github.com/akib1162100/mac/blob/master/The%20TCP-IP%20Guide%20-%20A%20Comprehensive%20Illustrated%20Internet%20Protocols%20Reference.pdf,539,https://github.com/akib1162100/mac/blob/master/The%20TCP-IP%20Guide%20-%20A%20Comprehensive%20Illustrated%20Internet%20Protocols%20Reference.pdf
+https://github.com/algolia/autocomplete,540,https://github.com/algolia/autocomplete
+https://github.com/amejiarosario/dsa.js-data-structures-algorithms-javascript,541,1
+https://github.com/aycanogut/front-end-resources,542,https://github.com/aycanogut/front-end-resources
+https://github.com/bitjson/qr-code,543,https://github.com/bitjson/qr-code
+https://github.com/bnorrish/qe-learning-roadmap,544,roadmap for Quality Engineers
+https://github.com/bradtraversy/design-resources-for-developers,545,https://github.com/bradtraversy/design-resources-for-developers
+https://github.com/bradtraversy/vanillawebprojects,546,Vanilla Web Projects
+https://github.com/cjbt/Free-Algorithm-Books/tree/master,547,https://github.com/cjbt/Free-Algorithm-Books/tree/master | https://github.com/cjbt/Free-Algorithm-Books/tree/master
+https://github.com/codecrafters-io/build-your-own-x,548,https://github.com/codecrafters-io/build-your-own-x
+https://github.com/dabeaz-course/practical-python/blob/master/Notes/Contents.md,549,Practical Python Programming | https://github.com/dabeaz-course/practical-python/blob/master/Notes/Contents.md
+https://github.com/danistefanovic/build-your-own-x,550,build-your-own-x
+https://github.com/dehydrated-io/dehydrated,551,Dehydrated
+https://github.com/donnemartin/system-design-primer,552,https://github.com/donnemartin/system-design-primer | https://github.com/donnemartin/system-design-primer
+https://github.com/elsewhencode/project-guidelines,553,Project rules
+https://github.com/facebook/react,554,GitHub for React
+https://github.com/felipernb/algorithms.js,555,4
+https://github.com/flashohq/open-source-react-courses,556,OS React
+https://github.com/florinpop17/app-ideas,557,https://github.com/florinpop17/app-ideas
+https://github.com/getify,558,https://github.com/getify
+https://github.com/getify/You-Dont-Know-JS,559,You Don't Know JS | You Don't Know JS
+https://github.com/goldbergyoni/nodebestpractices,560,Node.js Best Practices | https://github.com/goldbergyoni/nodebestpractices
+https://github.com/gothinkster/realworld,561,RealWorldExampleApps | https://github.com/gothinkster/realworld
+https://github.com/h5bp/Front-end-Developer-Interview-Questions,562,https://github.com/h5bp/Front-end-Developer-Interview-Questions
+https://github.com/husnainfareed/awesome-ethical-hacking-resources,563,https://github.com/husnainfareed/awesome-ethical-hacking-resources
+https://github.com/janl/mustache.js/,564,Mustache
+https://github.com/jivoi/awesome-osint,565,https://github.com/jivoi/awesome-osint
+https://github.com/jlevy/the-art-of-command-line,566,https://github.com/jlevy/the-art-of-command-line
+https://github.com/johandry/CKAD,567,https://github.com/johandry/CKAD
+https://github.com/juliocesarfort/public-pentesting-reports,568,reports
+https://github.com/jwasham/coding-interview-university,569,https://github.com/jwasham/coding-interview-university | https://github.com/jwasham/coding-interview-university | https://github.com/jwasham/coding-interview-university
+https://github.com/kamranahmedse/developer-roadmap,570,https://github.com/kamranahmedse/developer-roadmap | https://github.com/kamranahmedse/developer-roadmap
+https://github.com/kevinSuttle/html-meta-tags,571,Meta Tags
+https://github.com/kosson/javascript-invat-eu-inveti-si-tu,572,"Învăț eu, înveți și tu"
+https://github.com/lauragift21/awesome-learning-resources,573,https://github.com/lauragift21/awesome-learning-resources
+https://github.com/laurentiucozma12/SEO-cheat-code,574,https://github.com/laurentiucozma12/SEO-cheat-code
+https://github.com/lc/gau,575,https://github.com/lc/gau
+https://github.com/lefticus/cpp\_starter\_project,576,cpp\_starter\_project
+https://github.com/lettier/3d-game-shaders-for-beginners,577,3D Game Shaders For Beginners
+https://github.com/loiane/javascript-datastructures-algorithms,578,2
+https://github.com/lydiahallie/javascript-questions,579,https://github.com/lydiahallie/javascript-questions | https://github.com/lydiahallie/javascript-questions
+https://github.com/m3y54m/embedded-engineering-roadmap,580,https://github.com/m3y54m/embedded-engineering-roadmap
+https://github.com/madhuakula/kubernetes-goat,581,https://github.com/madhuakula/kubernetes-goat
+https://github.com/mariusciurea/python\_challenge,582,https://github.com/mariusciurea/python\_challenge
+https://github.com/mbeaudru/modern-js-cheatsheet,583,Modern JS Cheatsheet
+https://github.com/microsoft/IoT-For-Beginners,584,IoT For Beginners
+https://github.com/microsoft/Web-Dev-For-Beginners,585,Web Dev for Beginners | Web Dev For Beginners
+https://github.com/minimaxir/big-list-of-naughty-strings,586,https://github.com/minimaxir/big-list-of-naughty-strings
+https://github.com/msaaddev/frontend-resources,587,https://github.com/msaaddev/frontend-resources
+https://github.com/nccgroup,588,https://github.com/nccgroup
+https://github.com/nhivp/awesome-embedded,589,https://github.com/nhivp/awesome-embedded
+https://github.com/ossu,590,https://github.com/ossu
+https://github.com/ossu/computer-science,591,https://github.com/ossu/computer-science | https://github.com/ossu/computer-science
+https://github.com/pa11y/pa11y,592,https://github.com/pa11y/pa11y
+https://github.com/papers-we-love/papers-we-love,593,https://github.com/papers-we-love/papers-we-love
+https://github.com/practical-tutorials/project-based-learning,594,Project Based Learning | https://github.com/practical-tutorials/project-based-learning | https://github.com/practical-tutorials/project-based-learning
+https://github.com/prettydiff/a11y-tools,595,https://github.com/prettydiff/a11y-tools
+https://github.com/public-apis/public-apis,596,https://github.com/public-apis/public-apis | https://github.com/public-apis/public-apis | https://github.com/public-apis/public-apis | https://github.com/public-apis/public-apis
+https://github.com/ripienaar/free-for-dev,597,https://github.com/ripienaar/free-for-dev | https://github.com/ripienaar/free-for-dev
+https://github.com/ryanmcdermott/clean-code-javascript,598,Clean Code JS
+https://github.com/salem53/OCP-JAVA-11/blob/master/OCP%20Oracle%20Certified%20Professional%20Java%20SE%2011%20Developer%20Complete%20Study%20Guide%20Exam%201Z0-815%2C%20Exam%201Z0-816%20and%20Exam%201Z0-817%20by%20Jeanne%20Boyarsky%2C%20Scott%20Selikoff%20(z-lib.org,599,OCP Java 11 book
+https://github.com/satwikkansal/wtfpython,600,"What the fuck, Python\!"
+https://github.com/sdmg15/Best-websites-a-programmer-should-visit,601,https://github.com/sdmg15/Best-websites-a-programmer-should-visit
+https://github.com/security-summer-school,602,https://github.com/security-summer-school
+https://github.com/siit-dev/better-select,603,https://github.com/siit-dev/better-select
+https://github.com/sindresorhus/awesome,604,WTF JS?\! | https://github.com/sindresorhus/awesome | https://github.com/sindresorhus/awesome | https://github.com/sindresorhus/awesome
+https://github.com/smicallef/spiderfoot,605,https://github.com/smicallef/spiderfoot
+https://github.com/ssloy/tinyrenderer,606,Tiny Software Renderer
+https://github.com/stars/ViorelMocanu/lists/cyber-security,607,https://github.com/stars/ViorelMocanu/lists/cyber-security
+https://github.com/tensorflow/tensorflow,608,https://github.com/tensorflow/tensorflow
+https://github.com/thedaviddias/Front-End-Checklist,609,Front End checklist | https://github.com/thedaviddias/Front-End-Checklist
+https://github.com/thedaviddias/Front-End-Performance-Checklist,610,https://github.com/thedaviddias/Front-End-Performance-Checklist
+https://github.com/thedaviddias/Resources-Front-End-Beginner,611,https://github.com/thedaviddias/Resources-Front-End-Beginner
+https://github.com/thelocalh0st/thelocalh0st.github.io/blob/a78150dfc0204e15e498bc9984d924a535af0d8b/\_posts/2022-04-29-cybersec-resources.md?plain=1\#L81,612,cybersec resources
+https://github.com/topics/awesome,613,https://github.com/topics/awesome
+https://github.com/trekhleb/javascript-algorithms,614,JS Algorithms | https://github.com/trekhleb/javascript-algorithms
+https://github.com/trimstray/the-book-of-secret-knowledge,615,https://github.com/trimstray/the-book-of-secret-knowledge | https://github.com/trimstray/the-book-of-secret-knowledge
+https://github.com/trufflesecurity/trufflehog,616,https://github.com/trufflesecurity/trufflehog
+https://github.com/tuhdo/os01,617,Operating Systems: From 0 to 1
+https://github.com/tuvtran/project-based-learning,618,https://github.com/tuvtran/project-based-learning | Project Based Learning
+https://github.com/usagi/rust-memory-container-cs,619,Rust Memory Container Cheat-sheet
+https://github.com/vavkamil/awesome-vulnerable-apps,620,https://github.com/vavkamil/awesome-vulnerable-apps
+https://github.com/veeral-patel/how-to-secure-anything,621,how to secure anything
+https://github.com/xfiveco/html-coding-standards,622,HTML
+https://github.com/yangshun/tech-interview-handbook,623,https://github.com/yangshun/tech-interview-handbook | https://github.com/yangshun/tech-interview-handbook
+https://github.com/zachleat/glyphhanger,624,https://github.com/zachleat/glyphhanger
+https://github.com/zero-to-mastery/start-here-guidelines/blob/855a00243db60c71905f6e3afd95ebf2cf7459a0/gitstartedguideoptimized.pdf,625,PDF guide
+https://github.com/ziishaned/learn-regex,626,https://github.com/ziishaned/learn-regex
+https://gitimmersion.com/,627,Immersion
+https://go.dev/ref/spec,628,https://go.dev/ref/spec
+https://go.dev/tour/welcome/1,629,https://go.dev/tour/welcome/1
+https://go101.org/,630,https://go101.org/
+https://goalkicker.com/,631,https://goalkicker.com/
+https://gobyexample.com/,632,Go by Example | https://gobyexample.com/
+https://golang.org/doc/effective\_go,633,Efective Go
+https://golang.org/doc/tutorial/,634,Go Tutorials
+https://golangbot.com/,635,https://golangbot.com/
+https://gopractice.io/sat/,636,Free Growth Skills Assessment Test
+https://gorails.com/,637,https://gorails.com/
+https://gridbyexample.com/,638,Grid by Example
+https://grow.google/certificates/interview-warmup/,639,https://grow.google/certificates/interview-warmup/
+https://grow.google/intl/ALL\_au/learn-skills/,640,https://grow.google/intl/ALL\_au/learn-skills/
+https://grow.google/intl/uk/,641,https://grow.google/intl/uk/
+https://gtmetrix.com/,642,GTMetrix
+https://guides.github.com/introduction/flow/index.html,643,GIT
+https://guides.rubyonrails.org/getting\_started.html,644,https://guides.rubyonrails.org/getting\_started.html
+https://gustedt.gitlabpages.inria.fr/modern-c/,645,https://gustedt.gitlabpages.inria.fr/modern-c/
+https://hackaday.com/,646,https://hackaday.com/
+https://hackernoon.com/the-system-design-cheat-sheet-api-styles-rest-graphql-websocket-webhook-rpcgrpc-soap,647,https://hackernoon.com/the-system-design-cheat-sheet-api-styles-rest-graphql-websocket-webhook-rpcgrpc-soap
+https://hackerone.com/hacktivity,648,https://hackerone.com/hacktivity
+https://hackr.io/,649,https://hackr.io/
+https://hackxpert.com/,650,HackXpert
+https://hak5.org/,651,Hak5
+https://handbook.gitlab.com/handbook/product/,652,https://handbook.gitlab.com/handbook/product/
+https://haveibeenpwned.com/,653,https://haveibeenpwned.com/
+https://hawkticehurst.com/mega-full-stack-resource-guide/,654,https://hawkticehurst.com/mega-full-stack-resource-guide/ | https://hawkticehurst.com/mega-full-stack-resource-guide/ | Non-visual but super comprehensive
+https://helpx.adobe.com/ro/premiere-pro/view-all-tutorials.html,655,https://helpx.adobe.com/ro/premiere-pro/view-all-tutorials.html
+https://heroicons.com/,656,Hero
+https://hourofcode.com/ro,657,https://hourofcode.com/ro
+https://howdns.works/,658,How DNS Works | How DNS Works
+https://howhttps.works/why-do-we-need-https/,659,How HTTPS works
+https://hpbn.co/,660,https://hpbn.co/ | High Performance Browser Networking
+https://html5up.net/,661,https://html5up.net/
+https://htmldog.com/,662,HTMLDog
+https://htmldom.dev/,663,Vanilla JS DOM Manipulation
+https://htmlrev.com/,664,https://htmlrev.com/ | https://htmlrev.com/
+https://hubermanlab.com/teach-and-learn-better-with-a-neuroplasticity-super-protocol/,665,Huberman
+https://hubermanlab.com/toolkit-for-sleep/,666,Toolkit for Sleep \- Huberman Lab
+https://hymhub.github.io/css-to-tailwind/,667,CSS to Tailwind
+https://i.redd.it/ky0ooxpzinda1.png,668,project ideas
+https://ia.net/topics/the-web-is-all-about-typography-period,669,https://ia.net/topics/the-web-is-all-about-typography-period
+https://icodethis.com/,670,iCodeThis | https://icodethis.com/
+https://icomoon.io/,671,IcoMoon
+https://icones.js.org/,672,Icones
+https://ine.com/,673,https://ine.com/
+https://infoarena.ro/,674,InfoArena | InfoArena
+https://infoarena.ro/arhiva-educationala,675,https://infoarena.ro/arhiva-educationala | Arhiva educațională de pe InfoArena
+https://infoarena.ro/downloads,676,https://infoarena.ro/downloads
+https://insights.stackoverflow.com/trends?tags=reactjs%2Cangular%2Cvue.js%2Csvelte,677,comparison of frameworks
+https://inst.eecs.berkeley.edu/\~cs61a/sp20/,678,CS61A \- Structure and Interpretation of Computer Programs
+https://intelx.io/,679,https://intelx.io/
+https://interfaceingame.com/games/,680,https://interfaceingame.com/games/
+https://intopia.digital/wp-content/uploads/2023/10/Intopia-WCAG-2.2-Map-Portrait-Mode.pdf,681,https://intopia.digital/wp-content/uploads/2023/10/Intopia-WCAG-2.2-Map-Portrait-Mode.pdf
+https://inventory.raw.pm/overview.html,682,https://inventory.raw.pm/overview.html
+https://iobotics.ro/,683,https://iobotics.ro/
+https://ioinformatics.org/page/contests/10,684,https://ioinformatics.org/page/contests/10
+https://iq.opengenus.org/100-interview-problems/,685,https://iq.opengenus.org/100-interview-problems/
+https://ishadeed.com/article/grid-layout-flexbox-components/,686,"Grid for layout, Flexbox for components"
+https://ishadeed.com/article/target-size,687,Usability of target sizes
+https://it-tools.tech/,688,https://it-tools.tech/
+https://itch.io/game-assets/free,689,https://itch.io/game-assets/free
+https://ixdchecklist.com/,690,https://ixdchecklist.com/
+https://iximiuz.com/en/posts/computer-networking-101/,691,Computer Networking Introduction: Ethernet and IP
+https://jakewharton.com/blog/,692,https://jakewharton.com/blog/
+https://java-programming.mooc.fi/,693,MOOC.fi | https://java-programming.mooc.fi/
+https://javascript.info/,694,The Modern Javascript Tutorial
+https://javascript30.com/,695,JavaScript 30: build 30 things in 30 days with 30 JS tutorials
+https://jeffe.cs.illinois.edu/teaching/algorithms/,696,https://jeffe.cs.illinois.edu/teaching/algorithms/
+https://jigsaw.w3.org/css-validator/,697,CSS Validator
+https://johnresig.com/apps/learn/,698,Learning Advanced JavaScript
+https://joyofcryptography.com/,699,The Joy Of Cryptography
+https://jsoncrack.com/,700,https://jsoncrack.com/
+https://jsonplaceholder.typicode.com/,701,https://jsonplaceholder.typicode.com/
+https://jstherightway.org/,702,JS the right way
+https://juniormind.com/ro/,703,https://juniormind.com/ro/
+https://justboil.me/,704,https://justboil.me/
+https://kam.mff.cuni.cz/\~matousek/stml-53-matousek-1.pdf,705,Thirty-three Miniatures: Mathematical and Algorithmic Applications of Linear Algebra
+https://kata-log.rocks/refactoring,706,https://kata-log.rocks/refactoring
+https://khan.github.io/tota11y/,707,bookmarklet
+https://klogg.filimonov.dev/,708,klogg
+https://kodekloud.com/pages/free-week,709,https://kodekloud.com/pages/free-week
+https://kraken.io/web-interface,710,Image Optimizer
+https://lab.github.com/githubtraining/introduction-to-github,711,GIT
+https://lab.reaal.me/jsrobot/,712,https://lab.reaal.me/jsrobot/
+https://labfreechemistry.com/,713,https://labfreechemistry.com/
+https://labs.jensimmons.com/,714,Jen Simmons Labs
+https://landingpage.fyi/landing-page-checklist.html,715,https://landingpage.fyi/landing-page-checklist.html
+https://laracasts.com/,716,https://laracasts.com/
+https://laracasts.com/series/learn-vue-2-step-by-step,717,Laracasts: Learn Vue 2: Step By Step
+https://laravel.com/docs/5.1/quickstart,718,https://laravel.com/docs/5.1/quickstart
+https://laraveldaily.com/people-to-follow,719,https://laraveldaily.com/people-to-follow
+https://launchschool.com/books,720,https://launchschool.com/books
+https://lawsofux.com/,721,Laws of UX
+https://layoffs.fyi/,722,https://layoffs.fyi/
+https://layoutflow.com/,723,https://layoutflow.com/
+https://leakix.net/,724,https://leakix.net/
+https://leanpub.com/cppbestpractices,725,C++ Best Practices
+https://leanpub.com/javascriptallongesix/read,726,"JavaScript Allonge, the ""Six"" Edition"
+https://leanweb.dev/ebook/intro/,727,The lean web
+https://leanweb.dev/talk/,728,this video
+https://learn.coderfoundry.com/course-catalog,729,https://learn.coderfoundry.com/course-catalog
+https://learn.microsoft.com/en-us/training/browse/,730,https://learn.microsoft.com/en-us/training/browse/
+https://learn.mongodb.com/,731,https://learn.mongodb.com/
+https://learn.saylor.org/,732,https://learn.saylor.org/
+https://learn.unity.com/,733,https://learn.unity.com/
+https://learndigital.withgoogle.com/atelieruldigital,734,https://learndigital.withgoogle.com/atelieruldigital
+https://learndigital.withgoogle.com/digitalgarage/course/digital-marketing,735,https://learndigital.withgoogle.com/digitalgarage/course/digital-marketing
+https://learndigital.withgoogle.com/digitalgarage/course/seo-fundamentals,736,https://learndigital.withgoogle.com/digitalgarage/course/seo-fundamentals
+https://learndigital.withgoogle.com/digitalunlocked,737,https://learndigital.withgoogle.com/digitalunlocked
+https://learnflakes.net/,738,https://learnflakes.net/
+https://learning.lpi.org/en/,739,https://learning.lpi.org/en/
+https://learning.postman.com/,740,https://learning.postman.com/
+https://learningseo.io/,741,https://learningseo.io/
+https://learnopengl.com/,742,Learn OpenGL
+https://learnprogramming.online/,743,LearnProgramming
+https://learnui.design/,744,https://learnui.design/
+https://learnwardleymapping.com/,745,https://learnwardleymapping.com/
+https://learnxinyminutes.com/,746,Learn X in Y Minutes
+https://learnyousomeerlang.com/content,747,Learn You Some Erlang For Great Good
+https://lecoupa.github.io/awesome-cheatsheets/,748,https://lecoupa.github.io/awesome-cheatsheets/
+https://leetcode.com/,749,LeetCode | LeetCode
+https://leetcode.com/discuss/general-discussion/460599/blind-75-leetcode-questions,750,Blind75 | https://leetcode.com/discuss/general-discussion/460599/blind-75-leetcode-questions
+https://legible-typography.com/en/,751,https://legible-typography.com/en/
+https://leonnoel.com/100devs/,752,https://leonnoel.com/100devs/
+https://letsdefend.io/,753,LetsDefend
+https://letsenhance.io/,754,https://letsenhance.io/
+https://levelup.gitconnected.com/the-2020-web-developer-roadmap-76503ddfb327,755,here
+https://lhbg-book.link/,756,Learn Haskell By Building a Blog Generator
+https://lightbot.com/,757,https://lightbot.com/
+https://link.springer.com/book/10.1007/978-3-540-77974-2,758,Computational Geometry: Algorithms and Applications
+https://linux-kernel-labs.github.io/refs/heads/master/index.html,759,https://linux-kernel-labs.github.io/refs/heads/master/index.html
+https://linuxjourney.com/,760,https://linuxjourney.com/ | Linux Journey: Home
+https://llvm.org/docs/tutorial/index.html,761,LLVM compiler infrastructure
+https://loup-vaillant.fr/articles/crypto-is-not-magic,762,Cryptography is not magic
+https://lucasfcosta.com/2022/10/02/scrum-versus-kanban.html,763,https://lucasfcosta.com/2022/10/02/scrum-versus-kanban.html | Scrum vs Kanban
+https://lukaszadam.com/illustrations,764,https://lukaszadam.com/illustrations
+https://lwn.net/Articles/842964/,765,An introduction to SciPy
+https://lwn.net/Kernel/LDD3/,766,https://lwn.net/Kernel/LDD3/
+https://machinelearningmastery.com/,767,https://machinelearningmastery.com/
+https://magcius.github.io/xplain/article/rast1.html,768,Basic 2D Rasterization
+https://mail.tm/en/,769,Temp Mail
+https://majestic.com/reports/site-explorer,770,MajesticSEO
+https://makeapullrequest.com/,771,PR guide
+https://manishearth.github.io/blog/2015/05/27/wrapper-types-in-rust-choosing-your-guarantees/,772,Wrapper Types in Rust: Choose Your Guarantees
+https://manishearth.github.io/blog/2017/01/14/stop-ascribing-meaning-to-unicode-code-points/,773,https://manishearth.github.io/blog/2017/01/14/stop-ascribing-meaning-to-unicode-code-points/
+https://marketingexamples.com/,774,Marketing examples
+https://marksheet.io/,775,MarkSheet
+https://marplo.net/javascript,776,https://marplo.net/javascript
+https://masterofproject.com/p/ethical-hacking-overview,777,https://masterofproject.com/p/ethical-hacking-overview
+https://mattdesl.svbtle.com/drawing-lines-is-hard,778,Drawing lines is hard
+https://maze.co/guides/ux-research/,779,The Ultimate Guide to UX Research
+https://mcla.ug/blog/risc-v-cpu-part-1.html,780,Designing a RISC-V CPU \- Learning Hardware Design as a Software Engineer
+https://media.defense.gov/2021/Aug/03/2002820425/-1/-1/0/CTR\_Kubernetes\_Hardening\_Guidance\_1.1\_20220315.PDF,781,Kubernetes Hardening Guide
+https://mediaquery.style/,782,https://mediaquery.style/
+https://medium.com/@samanthaming/my-top-3-favorite-free-javascript-courses-for-beginners-ef8cd20d7c0d,783,this Medium article
+https://medium.muz.li/gestalt-principles-in-ui-design-6b75a41e9965,784,https://medium.muz.li/gestalt-principles-in-ui-design-6b75a41e9965
+https://medium.muz.li/typography-in-mobile-design-15-best-practices-to-excellent-ui-5eaf18280ad,785,https://medium.muz.li/typography-in-mobile-design-15-best-practices-to-excellent-ui-5eaf18280ad
+https://meowni.ca/font-style-matcher/,786,https://meowni.ca/font-style-matcher/
+https://mimo.org/,787,Mimo
+https://minidump.net/,788,https://minidump.net/
+https://miro.com/app/board/o9J\_ktZHnRA=/,789,UX methodology
+https://mirrors.edge.kernel.org/pub/linux/kernel/people/paulmck/perfbook/perfbook.html,790,"Is Parallel Programming Hard, And, If So, What Can You Do About it?"
+https://missing.csail.mit.edu/,791,https://missing.csail.mit.edu/
+https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book.html,792,Structure And Interpretation Of Computer Programs
+https://mitre-attack.github.io/attack-navigator/,793,https://mitre-attack.github.io/attack-navigator/
+https://mml-book.github.io/,794,https://mml-book.github.io/
+https://mobbin.design/browse/ios/apps,795,https://mobbin.design/browse/ios/apps
+https://modern-fluid-typography.vercel.app/,796,https://modern-fluid-typography.vercel.app/
+https://modernc.gforge.inria.fr/,797,Modern C
+https://moderncss.dev/,798,Modern CSS solutions for old CSS problems
+https://modernfontstacks.com/,799,https://modernfontstacks.com/
+https://monsterone.com/free-html-templates/,800,https://monsterone.com/free-html-templates/
+https://moz.com/beginners-guide-to-seo,801,https://moz.com/beginners-guide-to-seo | moz.com/beginners-guide-to-seo | https://moz.com/beginners-guide-to-seo
+https://moz.com/blog/google-e-a-t,802,moz.com/blog/google-e-a-t
+https://moz.com/google-algorithm-change,803,moz.com/google-algorithm-change
+https://moz.com/learn/seo,804,moz.com/learn/seo
+https://moz.com/professionals-guide-to-seo,805,https://moz.com/professionals-guide-to-seo
+https://mxtoolbox.com/SuperTool.aspx,806,Email Server Checker
+https://natureofcode.com/,807,https://natureofcode.com/
+https://neetcode.io/,808,https://neetcode.io/
+https://neilpatel.com/ubersuggest/,809,UberSuggest
+https://neilpatel.com/wp-content/uploads/2018/10/Neil-Patels-Advanced-Cheatsheet-to-SEO.pdf,810,Neil Patel’s SEO Cheat Sheet
+https://netsec.expert/posts/xss-in-2021/,811,XSS cheat sheet
+https://networkchuck.com/,812,NetworkChuck
+https://news.ycombinator.com/news,813,News
+https://nextui.org/,814,https://nextui.org/
+https://nocodefounders.com/,815,https://nocodefounders.com/
+https://nodeschool.io/,816,NodeSchool
+https://norvig.com/21-days.html,817,https://norvig.com/21-days.html
+https://not-checklist.intopia.digital/,818,https://not-checklist.intopia.digital/
+https://noti.st/rar/BgtJDk,819,https://noti.st/rar/BgtJDk
+https://nuxtjs.org/api,820,API
+https://nuxtjs.org/examples,821,Examples
+https://nuxtjs.org/faq,822,"FAQ \- Common development, configuration and deployment questions"
+https://nuxtjs.org/guide,823,Guide
+https://nuxtjs.org/guides/get-started/installation,824,Guide v2 (Beta)
+https://observablehq.com/plot/,825,https://observablehq.com/plot/
+https://observatory.mozilla.org/,826,Observatory
+https://ocaml.org/learn/books.html,827,OCaml Books
+https://ocaml.org/learn/tutorials/,828,OCaml Tutorials
+https://ocw.cs.pub.ro/courses/,829,https://ocw.cs.pub.ro/courses/ | Cursuri și laboratoare de la UPB | A bunch of courses in Romanian
+https://ocw.mit.edu/,830,https://ocw.mit.edu/
+https://ocw.mit.edu/courses/6-172-performance-engineering-of-software-systems-fall-2018/download/,831,https://ocw.mit.edu/courses/6-172-performance-engineering-of-software-systems-fall-2018/download/
+https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/,832,MIT Course: Electrical Engineering and Computer Science
+https://ocw.mit.edu/courses/entrepreneurship/,833,https://ocw.mit.edu/courses/entrepreneurship/ | https://ocw.mit.edu/courses/entrepreneurship/
+https://ocw.mit.edu/courses/mathematics/18-404j-theory-of-computation-fall-2020/,834,MIT Course: Theory of computation | Theory of Computation
+https://ohshitgit.com/,835,"Oh shit, GIT?"
+https://olivier3lanc.github.io/Scroll-Btween/,836,https://olivier3lanc.github.io/Scroll-Btween/
+https://onepagelove.com/,837,https://onepagelove.com/
+https://onepagelove.com/100-tips,838,https://onepagelove.com/100-tips
+https://onlywei.github.io/explain-git-with-d3/,839,Visualizing Git Concepts With D3
+https://open-foundry.com/,840,https://open-foundry.com/
+https://open-gpt.app/,841,https://open-gpt.app/
+https://open-ui.org/,842,https://open-ui.org/
+https://open.appacademy.io/,843,https://open.appacademy.io/
+https://open.kattis.com/,844,https://open.kattis.com/
+https://opensource.com/article/19/4/devops-pipeline,845,https://opensource.com/article/19/4/devops-pipeline
+https://opensource.com/article/20/4/git-merge-conflict,846,Conflicts
+https://opentdb.com/,847,https://opentdb.com/
+https://osblog.stephenmarz.com/,848,Making a RISC-V Operating System using Rust
+https://ossinsight.io/collections/security-tool/,849,https://ossinsight.io/collections/security-tool/
+https://ossu.firebaseapp.com/\#/curriculum,850,https://ossu.firebaseapp.com/\#/curriculum
+https://ourway.keybase.pub/mathematics\_cheat\_sheet.pdf,851,All in One Math Cheatsheet
+https://overapi.com/,852,https://overapi.com/
+https://overthewire.org/wargames/,853,Over the Wire | OverTheWire
+https://overthewire.org/wargames/bandit/,854,https://overthewire.org/wargames/bandit/
+https://owasp.org/www-project-top-ten/,855,https://owasp.org/www-project-top-ten/ | OWASP Top 10
+https://owasp.org/www-project-web-security-testing-guide/,856,https://owasp.org/www-project-web-security-testing-guide/
+https://ozanoz.notion.site/Product-Design-Resources-48d76e4b4252443eb2ae77ff0ab8cfca,857,https://ozanoz.notion.site/Product-Design-Resources-48d76e4b4252443eb2ae77ff0ab8cfca
+https://pagelocity.com/,858,Pagelocity
+https://pages.cs.wisc.edu/\~remzi/OSTEP/,859,Operating Systems: Three Easy Pieces
+https://pages.github.com/,860,GitHub Pages
+https://paperswelove.org/,861,https://paperswelove.org/
+https://pauljerimy.com/it-career-roadmap/,862,https://pauljerimy.com/it-career-roadmap/
+https://pauljerimy.com/security-certification-roadmap/,863,Security Certification Roadmap
+https://peacockindia.mintlify.app/introduction,864,https://peacockindia.mintlify.app/introduction
+https://pebblely.com/,865,https://pebblely.com/
+https://pencilandpaper.io/articles/microinteractions-ux-interaction-patterns/,866,High Quality Microinteractions
+https://pentest-tools.com/,867,Pentest-Tools.com
+https://pentest-tools.com/blog/offensive-security-books,868,https://pentest-tools.com/blog/offensive-security-books
+https://pentest-tools.com/information-gathering/google-hacking,869,https://pentest-tools.com/information-gathering/google-hacking
+https://pentest-tools.com/network-vulnerability-scanning/tcp-port-scanner-online-nmap,870,TCP Port Scanner with Nmap
+https://pentest-tools.com/website-vulnerability-scanning/website-scanner,871,Free Website Scanner
+https://pentestbook.six2dez.com/others/web-checklist,872,Pentesting Web checklist
+https://pentesterlab.com/,873,https://pentesterlab.com/ | PentesterLab
+https://people.freebsd.org/\~lstewart/articles/cpumemory.pdf,874,What Every Programmer Should Know About Memory
+https://performance.sucuri.net/,875,LoadTime Tester
+https://petertyliu.github.io/toaster/,876,https://petertyliu.github.io/toaster/
+https://phpdelusions.net/pdo,877,https://phpdelusions.net/pdo
+https://phptherightway.com/,878,https://phptherightway.com/ | https://phptherightway.com/
+https://phuoc.ng/collection/html-dom/,879,DOM
+https://picoctf.org/,880,Pico CTF
+https://pimpmytype.com/avoid-centered-text/,881,https://pimpmytype.com/avoid-centered-text/
+https://pimpmytype.com/font-size/,882,https://pimpmytype.com/font-size/
+https://pimpmytype.com/line-length-line-height/,883,https://pimpmytype.com/line-length-line-height/
+https://pkg.go.dev/std,884,https://pkg.go.dev/std
+https://plato.stanford.edu/entries/logic-classical/,885,Classical Logic
+https://play.elevatorsaga.com/,886,https://play.elevatorsaga.com/
+https://play.google.com/store/apps/details?id=net.techet.netanalyzerlite.an,887,Network Analyzer
+https://pll.harvard.edu/catalog/free,888,https://pll.harvard.edu/catalog/free
+https://polypane.app/blog/the-complete-guide-to-css-media-queries/,889,Complete guide to Media Queries
+https://portfoliorave.com/,890,https://portfoliorave.com/
+https://portswigger.net/burp/communitydownload,891,BurpSuite proxy
+https://portswigger.net/web-security,892,https://portswigger.net/web-security | Web Security Academy | PortSwigger Web Security
+https://portswigger.net/web-security/certification,893,https://portswigger.net/web-security/certification
+https://posthog.com/blog/what-to-ask-in-interviews,894,https://posthog.com/blog/what-to-ask-in-interviews
+https://powercoders.org/program/,895,Power.Coders bootcamp
+https://ppn.snovvcrash.rocks/,896,https://ppn.snovvcrash.rocks/
+https://practicaltypography.com/,897,https://practicaltypography.com/
+https://practicaltypography.com/typography-in-ten-minutes.html,898,https://practicaltypography.com/typography-in-ten-minutes.html
+https://preshing.com/20210315/how-cpp-resolves-a-function-call/,899,How C++ Resolves a Function Call
+https://prezi.com/aafmvya6bk7t/understanding-information-architecture/,900,Understanding Information Architecture
+https://principles.adactio.com/,901,collects principles
+https://principles.design/,902,https://principles.design/
+https://productschool.com/resources,903,Free Online Resources for Product Managers
+https://productschool.teachable.com/p/productledgrowth,904,Product-Led Growth Micro-Certification
+https://programming-idioms.org/about\#about-block-all-idioms,905,https://programming-idioms.org/about\#about-block-all-idioms
+https://projecteuler.net/,906,https://projecteuler.net/
+https://py.checkio.org/,907,https://py.checkio.org/
+https://python.swaroopch.com/,908,https://python.swaroopch.com/
+https://qmo.io/blog/ultimate-guide-to-api-design,909,https://qmo.io/blog/ultimate-guide-to-api-design
+https://railway.app/,910,Railway
+https://raytracing.github.io/,911,Ray Tracing in One Weekend Series
+https://rclone.org/,912,RClone
+https://react-icons.github.io/react-icons/,913,React
+https://realfavicongenerator.net/favicon\_checker,914,Favicon Checker
+https://reallygoodemails.com/,915,Really Good Emails
+https://realpython.com/best-python-books/,916,The Best Python Books – Real Python
+https://realtoughcandy.com/learn-to-code-for-free/,917,https://realtoughcandy.com/learn-to-code-for-free/
+https://refactoring.guru/,918,https://refactoring.guru/
+https://refocus.me/ph/,919,https://refocus.me/ph/
+https://replit.com/,920,https://replit.com/
+https://rescuezilla.com/,921,RescueZilla
+https://research.hackerrank.com/developer-skills/2020/,922,https://research.hackerrank.com/developer-skills/2020/
+https://resilientwebdesign.com/,923,Resilient web design
+https://resilientwebdesign.com/chapter1/,924,Resilient web design book
+https://responsivewebdesign.com/podcast/,925,https://responsivewebdesign.com/podcast/
+https://resurse.dev/,926,Resurse.dev
+https://rhc14.grey-panther.net/,927,Spectrum programming circa 1980
+https://ro.duolingo.com/course/en/ro/%C3%8Enva%C8%9B%C4%83-englez%C4%83,928,https://ro.duolingo.com/course/en/ro/%C3%8Enva%C8%9B%C4%83-englez%C4%83
+https://roadmap.sh/,929,Roadmap.sh | https://roadmap.sh/
+https://roadmap.sh/cyber-security,930,https://roadmap.sh/cyber-security
+https://roadmap.sh/design-system,931,https://roadmap.sh/design-system
+https://roadmap.sh/frontend,932,https://roadmap.sh/frontend
+https://roadmap.sh/qa,933,QA roadmap from Roadmap.sh
+https://rogerdudler.github.io/git-guide/,934,git \- the simple guide
+https://rubyflow.com/,935,https://rubyflow.com/
+https://rubymonk.com/,936,https://rubymonk.com/
+https://rust-unofficial.github.io/too-many-lists/,937,Learn Rust With Entirely Too Many Linked Lists | Learn Rust With Entirely Too Many Linked Lists
+https://salmer.github.io/CppDeveloperRoadmap/,938,https://salmer.github.io/CppDeveloperRoadmap/
+https://scoaladevalori.ro/kit-de-angajabilitate-pentru-tineri/,939,https://scoaladevalori.ro/kit-de-angajabilitate-pentru-tineri/
+https://scotch.io/tutorials/getting-started-with-sass,940,Getting started with SASS
+https://scratch.mit.edu/,941,https://scratch.mit.edu/ | https://scratch.mit.edu/
+https://screenspan.net/fallback,942,https://screenspan.net/fallback
+https://screeps.com/,943,https://screeps.com/ | Screeps
+https://scrimba.com/learn/frontend,944,Scrimba
+https://scrimba.com/learn/htmlandcss,945,Per Harald Borgen’s
+https://scrimba.com/learn/introhtmlcss,946,Kevin Powell’s tutorial on Scrimba
+https://scrimba.com/learn/python,947,https://scrimba.com/learn/python
+https://scrimba.com/learn/spacetravel,948,"Scrimba FTW | Build a space travel website from a Frontend Mentor design using HTML, CSS and JavaScript."
+https://scrimba.com/learn/typescript,949,Learn TypeScript for Free (Scrimba)
+https://scrollbar.app/,950,https://scrollbar.app/
+https://search.google.com/search-console,951,Search Console
+https://search.google.com/structured-data/testing-tool/u/0/,952,old
+https://search.google.com/test/mobile-friendly,953,Mobile Friendly Test
+https://search.google.com/test/rich-results,954,Structured Data Tester
+https://security.ine.com/certifications/ecppt-certification/,955,https://security.ine.com/certifications/ecppt-certification/
+https://security.ine.com/certifications/ejpt-certification/,956,https://security.ine.com/certifications/ejpt-certification/
+https://securityheaders.com/,957,Security Headers
+https://seek-oss.github.io/capsize/,958,https://seek-oss.github.io/capsize/
+https://seesparkbox.com/foundry/13\_wcag\_2.1\_web\_accessibility\_guidelines,959,13 days of Accessibility by Sparkbox
+https://serviceworkies.com/,960,Service Workies
+https://shadycharacters.co.uk/,961,https://shadycharacters.co.uk/
+https://shaper.design/,962,https://shaper.design/
+https://sheetsformarketers.com/,963,https://sheetsformarketers.com/
+https://simpleicons.org/,964,Simple
+https://sitecheck.sucuri.net/,965,SiteCheck
+https://sites.google.com/site/mattgsccie/Home,966,Road to CCIE
+https://skillsforall.com/topics/cisco-packet-tracer,967,https://skillsforall.com/topics/cisco-packet-tracer
+https://skillshop.exceedlms.com/student/path/17374-learn-the-fundamentals-of-google-ads-search,968,Google’s own tutorial
+https://slidesgo.com/,969,https://slidesgo.com/
+https://smart-interface-design-patterns.com/articles/accessible-tap-target-sizes/,970,https://smart-interface-design-patterns.com/articles/accessible-tap-target-sizes/
+https://smolcss.dev/,971,Smol CSS layouts
+https://software.imdea.org/Conferences/CICLOPS2017/files/tarau\_ciclops17.pdf,972,A Hitchhiker’s Guide to Reinventing a Prolog Machine | A Hitchhiker's Guide to Reinventing a Prolog Machine
+https://softwareengineering.stackexchange.com/questions/194340/why-are-nosql-databases-more-scalable-than-sql/194408\#194408,973,Why are NoSQL databases more scalable than SQL?
+https://softwarefoundations.cis.upenn.edu/,974,Software Foundations
+https://solinfo.ro/,975,https://solinfo.ro/
+https://solstice.sh/,976,https://solstice.sh/
+https://sotrh.github.io/learn-wgpu/\#what-is-wgpu,977,Learn wgpu
+https://sp21.datastructur.es/,978,CS61B \- Data Structures
+https://speakerdeck.com/kavya719/applied-performance-theory?slide=11,979,https://speakerdeck.com/kavya719/applied-performance-theory?slide=11
+https://spectaclehq.com/,980,https://spectaclehq.com/
+https://spencermortensen.com/articles/typographic-scale/,981,https://spencermortensen.com/articles/typographic-scale/
+https://spotibo.com/seo-analyzer,982,Spotibo SEO Analyzer
+https://spring.io/quickstart,983,Spring Quickstart Guide
+https://sqlbolt.com/,984,https://sqlbolt.com/
+https://squoosh.app/,985,Squoosh
+https://stackify.com/what-is-sdlc/,986,https://stackify.com/what-is-sdlc/
+https://start.bitwarden.com/hubfs/The%20Hacker%E2%80%99s%20Guide%20to%20Securing%20Your%20Organization\_V2.pdf,987,https://start.bitwarden.com/hubfs/The%20Hacker%E2%80%99s%20Guide%20to%20Securing%20Your%20Organization\_V2.pdf
+https://startupstash.com/explore/,988,https://startupstash.com/explore/
+https://static.googleusercontent.com/media/fonts.google.com/en//knowledge/stop\_stealing\_sheep.pdf,989,https://static.googleusercontent.com/media/fonts.google.com/en//knowledge/stop\_stealing\_sheep.pdf
+https://static1.squarespace.com/static/54bf3241e4b0f0d81bf7ff36/t/55e9494fe4b011aed10e48e5/1441352015658/probability\_cheatsheet.pdf,990,Probability Cheat Sheet
+https://statquest.org/,991,https://statquest.org/
+https://stattrek.com/,992,Stat Trek
+https://stephaniewalter.design/blog/a-cheatsheet-for-user-interview-and-follow-ups-questions/,993,Interview sheet
+https://stepik.org/course/102668/promo,994,Programming using Python · Stepik
+https://stepik.org/course/52108/promo,995,Programming II (C/C++) · Stepik
+https://strawberry.quest/,996,https://strawberry.quest/
+https://streamlabs.com/goprime?promo=viorelmocanu-e332-10,997,StreamLabs
+https://styleshout.com/,998,https://styleshout.com/
+https://stylestage.dev/,999,https://stylestage.dev/
+https://survivejs.com/,1000,SurviveJS
+https://sustainablewebdesign.org/,1001,Sustainable Web
+https://swtch.com/\~rsc/regexp/regexp1.html,1002,"Regular Expressions matching can be simple and fast | Regular Expression Matching Can Be Simple And Fast (but is slow in Java, Perl, PHP, Python, Ruby, ...)"
+https://tailwindcss-custom-forms.netlify.app/,1003,Tailwind CSS Custom Forms
+https://tailwindcss.com/,1004,Docs
+https://tailwindcss.com/components,1005,Component Examples
+https://tailwindcss.com/course,1006,Screencasts: Designing with Tailwind CSS
+https://tc.gts3.org/cs3210/2020/spring/lab.html,1007,Implementing an OS in Rust
+https://tcm-sec.com/,1008,TCM Security
+https://tcm-sec.com/so-you-want-to-be-a-hacker-2022-edition/,1009,https://tcm-sec.com/so-you-want-to-be-a-hacker-2022-edition/
+https://teachyourselfcs.com/,1010,https://teachyourselfcs.com/ | https://teachyourselfcs.com/
+https://teamtreehouse.com/,1011,https://teamtreehouse.com/
+https://techbeacon.com/app-dev-testing/10-portfolio-projects-aspiring-automation-engineers,1012,10 portfolio projects for aspiring automation engineers
+https://techinterviewhandbook.org/,1013,Tech Interview Handbook
+https://technicalinterviews.dev/,1014,Technical Interviews | https://technicalinterviews.dev/
+https://technicalseo.com/tools/,1015,Technical SEO Tools
+https://templated.co/,1016,https://templated.co/
+https://templatesjungle.com/downloads/category/free-html-templates/,1017,https://templatesjungle.com/downloads/category/free-html-templates/
+https://testautomationu.applitools.com/learningpaths.html,1018,https://testautomationu.applitools.com/learningpaths.html
+https://textbooks.math.gatech.edu/ila/,1019,Interactive Linear Algebra
+https://thegymnasium.com/courses,1020,https://thegymnasium.com/courses | https://thegymnasium.com/courses
+https://thegymnasium.com/courses/GYM/001/0/about,1021,Defeating busy
+https://thegymnasium.com/courses/GYM/008/0/about,1022,Advanced prototyping with Axure
+https://thegymnasium.com/courses/GYM/103/0/about,1023,UX Fundamentals
+https://thegymnasium.com/courses/GYM/104/0/about,1024,JavaScript Foundations @ Gymnasium
+https://thegymnasium.com/courses/GYM/106/0/about,1025,Information Design & Visualization fundamentals
+https://thegymnasium.com/courses/GYM/107/0/about,1026,Modern web design
+https://thegymnasium.com/courses/course-v1:GYM+011+0/about,1027,Build better websites with Google Dev Tools
+https://thegymnasium.com/courses/course-v1:GYM+013+0/about,1028,3D modeling for Virtual Reality
+https://thegymnasium.com/courses/course-v1:GYM+015+0/about,1029,Prototyping digital products & websites
+https://thegymnasium.com/courses/course-v1:GYM+017+0/about,1030,everyone
+https://thegymnasium.com/courses/course-v1:GYM+018+0/about,1031,designers
+https://thegymnasium.com/courses/course-v1:GYM+019+0/about,1032,developers
+https://thegymnasium.com/courses/course-v1:GYM+020+0/about,1033,product managers
+https://thegymnasium.com/courses/course-v1:GYM+109+0/about,1034,RWD fundamentals
+https://thehistoryoftheweb.com/timeline/,1035,full history of the Web
+https://themeselection.com/,1036,https://themeselection.com/
+https://thepihut.com/products/arduino-starter-kit,1037,https://thepihut.com/products/arduino-starter-kit
+https://theschoolof.design/,1038,The School Of Design: Design
+https://timeline.knightlab.com/,1039,https://timeline.knightlab.com/
+https://timroughgarden.org/videos.html,1040,https://timroughgarden.org/videos.html
+https://tiny-helpers.dev/,1041,https://tiny-helpers.dev/
+https://tinypng.com/,1042,Image Optimizer
+https://tome.app/,1043,https://tome.app/
+https://tools.keycdn.com/http2-test,1044,HTTP/2 Test
+https://tools.keycdn.com/speed,1045,Website Speed Test
+https://tools.pingdom.com/,1046,Pingdom
+https://toolsalad.com/,1047,ToolSalad
+https://towardsdatascience.com/designing-a-relational-database-and-creating-an-entity-relationship-diagram-89c1c19320b2,1048,https://towardsdatascience.com/designing-a-relational-database-and-creating-an-entity-relationship-diagram-89c1c19320b2
+https://training.linuxfoundation.org/certification/certified-kubernetes-security-specialist/,1049,https://training.linuxfoundation.org/certification/certified-kubernetes-security-specialist/
+https://transform.tools/json-to-typescript,1050,https://transform.tools/json-to-typescript
+https://transparencyreport.google.com/safe-browsing/search,1051,Safe Browsing Check
+https://try.ruby-lang.org/playground/,1052,https://try.ruby-lang.org/playground/
+https://try2hack.me/,1053,Try2Hack
+https://tryhackme.com/,1054,TryHackMe | TryHackMe
+https://tryhackme.com/hacktivities\#learning-modules,1055,https://tryhackme.com/hacktivities\#learning-modules
+https://tryhackme.com/path/outline/beginner,1056,https://tryhackme.com/path/outline/beginner
+https://tutorialehtml.com/ro/introducere-in-html/,1057,HTML Tutorial
+https://twitter.com/AnjanaVakil,1058,https://twitter.com/AnjanaVakil
+https://twitter.com/DThompsonDev,1059,https://twitter.com/DThompsonDev
+https://twitter.com/FMuntenescu,1060,https://twitter.com/FMuntenescu
+https://twitter.com/MagdaMiu,1061,https://twitter.com/MagdaMiu
+https://twitter.com/Philo01,1062,https://twitter.com/Philo01
+https://twitter.com/aarondfrancis,1063,https://twitter.com/aarondfrancis
+https://twitter.com/ammbra1508,1064,https://twitter.com/ammbra1508
+https://twitter.com/christophrumpel,1065,https://twitter.com/christophrumpel
+https://twitter.com/ericlbarnes,1066,https://twitter.com/ericlbarnes
+https://twitter.com/fireship\_dev,1067,https://twitter.com/fireship\_dev
+https://twitter.com/freekmurze,1068,https://twitter.com/freekmurze
+https://twitter.com/getify,1069,https://twitter.com/getify
+https://twitter.com/i/events/994601867987619840,1070,https://twitter.com/i/events/994601867987619840
+https://twitter.com/jackmcdade,1071,https://twitter.com/jackmcdade
+https://twitter.com/marcelpociot,1072,https://twitter.com/marcelpociot
+https://twitter.com/mirocupak,1073,https://twitter.com/mirocupak
+https://twitter.com/mpjme,1074,@mpjme
+https://twitter.com/robhope/status/1265278107088347136,1075,https://twitter.com/robhope/status/1265278107088347136
+https://twitter.com/taylorotwell,1076,https://twitter.com/taylorotwell
+https://twitter.com/timacdonald87,1077,https://twitter.com/timacdonald87
+https://twitter.com/venkat\_s,1078,https://twitter.com/venkat\_s
+https://twitter.com/vlad\_mihalcea,1079,https://twitter.com/vlad\_mihalcea
+https://twitter.com/vponamariov/status/1368851471660421120,1080,https://twitter.com/vponamariov/status/1368851471660421120
+https://type-scale.com/,1081,https://type-scale.com/
+https://type.method.ac/,1082,https://type.method.ac/
+https://typedesignresources.com/,1083,https://typedesignresources.com/
+https://typehunting.com/,1084,https://typehunting.com/
+https://typescale.io/,1085,https://typescale.io/
+https://uitest.com/analysis/,1086,uitest.com/analysis/
+https://uizard.io/,1087,https://uizard.io/
+https://umbrellum.com/tools/keyword-discovery,1088,https://umbrellum.com/tools/keyword-discovery
+https://unbounce.com/landing-page-analyzer/,1089,Landing Page Analyzer
+https://unity.com/learn,1090,https://unity.com/learn
+https://untools.co/,1091,https://untools.co/
+https://unused-css.com/detect-unused-css,1092,Unused CSS check
+https://usemodify.com/,1093,https://usemodify.com/
+https://utopia.fyi/blog/css-modular-scales/,1094,https://utopia.fyi/blog/css-modular-scales/
+https://uxarchive.com/,1095,https://uxarchive.com/
+https://uxchecklist.github.io/,1096,Yet another checklist
+https://uxdesign.cc/baseline-grids-design-systems-ae23b5af8cec,1097,https://uxdesign.cc/baseline-grids-design-systems-ae23b5af8cec
+https://uxdesign.cc/dieter-rams-and-ten-principles-for-good-design-61cc32bcd6e6,1098,https://uxdesign.cc/dieter-rams-and-ten-principles-for-good-design-61cc32bcd6e6
+https://uxdesign.cc/digging-deep-in-layout-grids-in-mobile-app-design-ef07ace5b291,1099,https://uxdesign.cc/digging-deep-in-layout-grids-in-mobile-app-design-ef07ace5b291
+https://uxdesign.cc/guide-for-designing-better-mobile-apps-typography-5796495ef86f,1100,https://uxdesign.cc/guide-for-designing-better-mobile-apps-typography-5796495ef86f
+https://uxdesign.cc/guide-on-creating-ui-design-for-ios-apps-5bed644b1667,1101,https://uxdesign.cc/guide-on-creating-ui-design-for-ios-apps-5bed644b1667
+https://uxdesign.cc/how-to-write-inclusive-accessible-digital-products-2f4b35ec59a2,1102,"How to write inclusive, accessible digital products | by Nick DiLallo"
+https://uxdesign.cc/interaction-design-is-more-than-just-user-flows-and-clicks-4cc37011418c,1103,What is interaction design?
+https://uxdesign.cc/uniwidth-typefaces-for-interface-design-b6e8078dc0f7,1104,https://uxdesign.cc/uniwidth-typefaces-for-interface-design-b6e8078dc0f7
+https://uxdesign.cc/usability-heuristic-frameworks-which-one-is-right-for-you-1962387b7cc,1105,https://uxdesign.cc/usability-heuristic-frameworks-which-one-is-right-for-you-1962387b7cc
+https://uxhints.com/,1106,https://uxhints.com/
+https://uxknowledgebase.com/table-of-contents-4d24ed5114ac,1107,UX Knowledge Base
+https://uxtools.co/blog/best-ux-research-methods-in-a-pinch/,1108,https://uxtools.co/blog/best-ux-research-methods-in-a-pinch/
+https://uxtools.co/challenges/,1109,UX Challenges
+https://v3.vuejs.org/cookbook/,1110,Cookbook
+https://v3.vuejs.org/guide/introduction.html,1111,Guide
+https://v3.vuejs.org/style-guide/,1112,Style Guide
+https://validator.w3.org/,1113,HTML Validator
+https://validator.w3.org/feed/,1114,RSS Validator
+https://validator.w3.org/i18n-checker/,1115,i18n Validator
+https://venngage.com/tools/accessible-color-palette-generator,1116,https://venngage.com/tools/accessible-color-palette-generator
+https://vercel.com/,1117,Vercel
+https://viewports.fyi/,1118,https://viewports.fyi/
+https://vimeo.com/30073532,1119,https://vimeo.com/30073532
+https://vuejs.org/v2/guide/,1120,startup guide
+https://vueschool.io/courses/nuxtjs-fundamentals,1121,Nuxt.js Fundamentals \- VueSchool.io
+https://vueschool.io/courses/vuejs-components-fundamentals,1122,Vue.js Components Fundamentals \- VueSchool.io
+https://vueschool.io/courses/vuejs-fundamentals,1123,Vue.js Fundamentals \- VueSchool.io
+https://vulnmachines.com/,1124,https://vulnmachines.com/
+https://wave.webaim.org/,1125,WebAIM Wave
+https://web.cecs.pdx.edu/\~maier/TheoryBook/TRD.html,1126,The Theory Of Relational Databases | https://web.cecs.pdx.edu/\~maier/TheoryBook/TRD.html
+https://web.dev/articles/5-css-snippets-every-front-end-developer-should-know-in-2024,1127,Snippets
+https://web.dev/articles/6-css-snippets-every-front-end-developer-should-know-in-2023,1128,https://web.dev/articles/6-css-snippets-every-front-end-developer-should-know-in-2023
+https://web.dev/learn/accessibility/,1129,https://web.dev/learn/accessibility/
+https://web.dev/learn/css/,1130,Learn CSS from Web.DEV | https://web.dev/learn/css/ | Learn CSS
+https://web.dev/learn/design/,1131,Learn Responsive Design | Learn RWD @ Web.Dev
+https://web.dev/learn/forms/,1132,https://web.dev/learn/forms/ | https://web.dev/learn/forms/
+https://web.dev/learn/images/,1133,https://web.dev/learn/images/
+https://web.dev/learn/privacy/,1134,https://web.dev/learn/privacy/
+https://web.dev/learn/pwa/,1135,https://web.dev/learn/pwa/
+https://web.dev/pwas-in-app-stores/,1136,https://web.dev/pwas-in-app-stores/
+https://web.dev/sign-in-form-best-practices/,1137,Sign-in form best practices
+https://webaim.org/techniques/aria/,1138,Introduction to ARIA
+https://webbkoll.dataskydd.net/en,1139,Webbkoll Scanner
+https://webdesign.tutsplus.com/articles/html-css-for-beginners-mega-free-course--cms-93199,1140,Adi Purdilă
+https://webdesignledger.com/,1141,https://webdesignledger.com/
+https://webgl2fundamentals.org/,1142,WebGL2 Fundamentals
+https://webglfundamentals.org/,1143,WebGL Fundamentals
+https://webhint.io/scanner/,1144,Scanner
+https://website.grader.com/,1145,Website Grader
+https://webspeedtest.cloudinary.com/,1146,Website Speed Test
+https://wesbos.com/javascript,1147,Wes Bos
+https://wesztyweb.com/the-definitive-guide-to-create-a-technically-perfect-website/,1148,https://wesztyweb.com/the-definitive-guide-to-create-a-technically-perfect-website/
+https://whydoweinterface.com/,1149,Why Do We Interface?
+https://wiki.haskell.org/H-99:\_Ninety-Nine\_Haskell\_Problems,1150,99 Haskell Problems
+https://wiki.osdev.org/Expanded\_Main\_Page,1151,OsDev
+https://winand.at/sql-slides-for-developers,1152,Modern SQL
+https://wolchok.org/posts/parameter-passing/,1153,Parameter Passing in C and C++
+https://workos.com/blog/the-developers-guide-to-sso,1154,https://workos.com/blog/the-developers-guide-to-sso
+https://www-igm.univ-mlv.fr/\~lecroq/string/node19.html,1155,Quick Search Algorithm
+https://www.9bis.net/kitty/\#\!index.md,1156,KiTTY
+https://www.a11yproject.com/,1157,https://www.a11yproject.com/
+https://www.a11yproject.com/checklist/,1158,https://www.a11yproject.com/checklist/ | Accessibility Checklist
+https://www.academiatestarii.ro/,1159,https://www.academiatestarii.ro/
+https://www.accessify.com/,1160,Accessify
+https://www.adhamdannaway.com/blog/ui-design/16-ui-design-rules,1161,https://www.adhamdannaway.com/blog/ui-design/16-ui-design-rules
+https://www.aircrack-ng.org/,1162,https://www.aircrack-ng.org/
+https://www.algoexpert.io/product,1163,AlgoExpert
+https://www.algolia.com/doc/ui-libraries/autocomplete/introduction/what-is-autocomplete/,1164,https://www.algolia.com/doc/ui-libraries/autocomplete/introduction/what-is-autocomplete/
+https://www.allaboutcircuits.com/textbook/,1165,All About Circuits
+https://www.alphaprep.net/,1166,https://www.alphaprep.net/
+https://www.amazon.co.uk/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742,1167,JavaScript The Good Parts
+https://www.amazon.com/Basic-Mathematics-Serge-Lang/dp/0387967877,1168,Basic Mathematics \- Serge Lang
+https://www.amazon.com/Compilers-Principles-Techniques-Tools-2nd/dp/0321486811,1169,"Compilers: Principles, Techniques and Tools"
+https://www.amazon.com/Computer-Architecture-Quantitative-John-Hennessy/dp/012383872X,1170,Computer Architecture: A Quantitative Approach
+https://www.amazon.com/Discrete-Mathematics-Applications-Susanna-Epp/dp/1337694193/ref=sr\_1\_1?dchild=1\&keywords=discrete+epp\&qid=1627280503\&s=books\&sr=1-1,1171,Discrete Mathematics with Applications
+https://www.amazon.com/Effective-JavaScript-Specific-Software-Development/dp/0321812182,1172,Effective JavaScript by David Herman
+https://www.amazon.com/Engineering-Compiler-Keith-Cooper/dp/012088478X,1173,Engineering a Compiler
+https://www.amazon.com/Primer-5th-Stanley-B-Lippman/dp/0321714113,1174,C++ Primer
+https://www.amazon.com/Principles-Object-Oriented-JavaScript-Nicholas-Zakas/dp/1593275404/ref=pd\_lpo\_sbs\_14\_t\_1?\_encoding=UTF8\&psc=1\&refRID=K3M950JGW61XESSZQ0QH,1175,The Principles of OOP JavaScript
+https://www.amazon.com/Programming-Language-2nd-Brian-Kernighan/dp/0131103628,1176,The C Programming Language
+https://www.amazon.com/Standard-C-Library-P-J-Plauger/dp/0131315099,1177,The Standard C Library
+https://www.analog.com/en/education/education-library/scientist\_engineers\_guide.html,1178,The Scientist & Engineer's Guide to Digital Signal Processing
+https://www.appypie.com/learn-ios-development-how-to,1179,https://www.appypie.com/learn-ios-development-how-to
+https://www.atlassian.com/git/tutorials/comparing-workflows,1180,Workflows
+https://www.autodraw.com/,1181,https://www.autodraw.com/
+https://www.baeldung.com/,1182,Baeldung
+https://www.baeldung.com/java-collections,1183,Java Collections
+https://www.baeldung.com/java-streams,1184,Java Streams
+https://www.baeldung.com/java-tutorial,1185,Back to basics
+https://www.bardeen.ai/jobhub,1186,https://www.bardeen.ai/jobhub
+https://www.betterup.com/blog/servant-leadership-what-makes-it-different,1187,https://www.betterup.com/blog/servant-leadership-what-makes-it-different | Servant leadership
+https://www.bing.com/create,1188,https://www.bing.com/create
+https://www.bitdegree.org/course/coding-for-beginners-space-doggos,1189,https://www.bitdegree.org/course/coding-for-beginners-space-doggos
+https://www.blender.org/support/tutorials/,1190,Tutorials — blender.org
+https://www.blenderguru.com/articles/how-i-learned-blender-and-5-tips-for-you,1191,https://www.blenderguru.com/articles/how-i-learned-blender-and-5-tips-for-you
+https://www.bluearrayacademy.com/courses/technical-seo-certification,1192,https://www.bluearrayacademy.com/courses/technical-seo-certification
+https://www.booth.ai/,1193,https://www.booth.ai/
+https://www.brightlocal.com/,1194,https://www.brightlocal.com/
+https://www.britishcouncil.ro/engleza/invata-online/gratis,1195,https://www.britishcouncil.ro/engleza/invata-online/gratis
+https://www.bugcrowd.com/hackers/bugcrowd-university/,1196,https://www.bugcrowd.com/hackers/bugcrowd-university/
+https://www.cambridgesemantics.com/blog/semantic-university/intro-semantic-web/,1197,Introduction to the semantic web
+https://www.caniemail.com/,1198,CanIEmail
+https://www.certifiedsecure.com/,1199,Certified Secure
+https://www.checkbot.io/,1200,Checkbot.io
+https://www.checklist.design/,1201,https://www.checklist.design/
+https://www.chess.com/forum/view/general/a-step-by-step-video-guide-to-writing-a-chess-engine,1202,Creating a Chess Engine From Scratch
+https://www.cisa.gov/known-exploited-vulnerabilities-catalog,1203,Known Exploited Vulnerabilities Catalog | CISA
+https://www.cisco.com/c/en/us/training-events/training-certifications/certifications/associate/ccna.html,1204,https://www.cisco.com/c/en/us/training-events/training-certifications/certifications/associate/ccna.html | CISCO CCNA
+https://www.codecademy.com/,1205,https://www.codecademy.com/ | https://www.codecademy.com/
+https://www.codecademy.com/learn/learn-c,1206,https://www.codecademy.com/learn/learn-c
+https://www.codecademy.com/learn/learn-c-plus-plus,1207,Learn C++ | Codecademy
+https://www.codecademy.com/learn/learn-php,1208,https://www.codecademy.com/learn/learn-php
+https://www.codecademy.com/learn/learn-rails,1209,https://www.codecademy.com/learn/learn-rails
+https://www.codecademy.com/learn/learn-ruby,1210,https://www.codecademy.com/learn/learn-ruby
+https://www.codecademy.com/learn/learn-sql,1211,https://www.codecademy.com/learn/learn-sql
+https://www.codecademy.com/resources/cheatsheets/all,1212,https://www.codecademy.com/resources/cheatsheets/all | https://www.codecademy.com/resources/cheatsheets/all
+https://www.codecamp.com.au/blog/8-best-programming-games-for-kids,1213,https://www.codecamp.com.au/blog/8-best-programming-games-for-kids
+https://www.codelita.com/,1214,https://www.codelita.com/
+https://www.codemonkey.com/,1215,https://www.codemonkey.com/
+https://www.coderkids.com/blog/scratchjr-projects-for-kids,1216,https://www.coderkids.com/blog/scratchjr-projects-for-kids
+https://www.coderkids.com/blog/top-10-free-coding-programs-for-kids,1217,https://www.coderkids.com/blog/top-10-free-coding-programs-for-kids | https://www.coderkids.com/blog/top-10-free-coding-programs-for-kids
+https://www.codeschool.com/courses/assembling-sass,1218,SASS CodeSchool tutorial
+https://www.codeschool.com/paths/html-css,1219,CodeSchool Web Path | CodeSchool Web Path
+https://www.codewars.com/,1220,CodeWars | CodeWars | https://www.codewars.com/
+https://www.codewizardshq.com/coding-websites-for-kids/,1221,https://www.codewizardshq.com/coding-websites-for-kids/
+https://www.codingame.com/start,1222,CodinGame | https://www.codingame.com/start
+https://www.codium.ai/,1223,https://www.codium.ai/
+https://www.computer-networking.info/2nd/html/index.html,1224,"Computer Networking: Principles, Protocols and Practice | https://www.computer-networking.info/2nd/html/index.html"
+https://www.computerscience.org/resources/kids-introduction-to-coding/,1225,https://www.computerscience.org/resources/kids-introduction-to-coding/
+https://www.coursera.org/courses?query=full%20stack%20web%20development,1226,https://www.coursera.org/courses?query=full%20stack%20web%20development
+https://www.coursera.org/learn/decision-making,1227,Data-driven Decision Making
+https://www.coursera.org/learn/introduction-to-nosql-databases,1228,https://www.coursera.org/learn/introduction-to-nosql-databases
+https://www.coursera.org/learn/learning-how-to-learn,1229,learning how to learn
+https://www.coursera.org/learn/marketing-plan,1230,https://www.coursera.org/learn/marketing-plan
+https://www.coursera.org/learn/object-oriented-java,1231,more JAVA
+https://www.coursera.org/learn/uva-darden-digital-product-management,1232,Digital Product Management: Modern Fundamentals
+https://www.coursera.org/learn/web-applications-php,1233,https://www.coursera.org/learn/web-applications-php
+https://www.coursera.org/professional-certificates/google-business-intelligence,1234,https://www.coursera.org/professional-certificates/google-business-intelligence
+https://www.coursera.org/professional-certificates/google-data-analytics,1235,https://www.coursera.org/professional-certificates/google-data-analytics
+https://www.coursera.org/professional-certificates/google-ux-design,1236,UX Design course at Google
+https://www.coursera.org/professional-certificates/meta-front-end-developer,1237,https://www.coursera.org/professional-certificates/meta-front-end-developer
+https://www.coursera.org/specializations/algorithms,1238,https://www.coursera.org/specializations/algorithms
+https://www.coursera.org/specializations/game-design-and-development,1239,https://www.coursera.org/specializations/game-design-and-development
+https://www.coursera.org/specializations/project-management,1240,Project Management Principles and Practices Specialization
+https://www.coursera.org/specializations/python-3-programming,1241,https://www.coursera.org/specializations/python-3-programming
+https://www.creative-tim.com/,1242,https://www.creative-tim.com/
+https://www.creativebloq.com/features/blender-shortcuts,1243,https://www.creativebloq.com/features/blender-shortcuts
+https://www.crunchlabs.com/,1244,https://www.crunchlabs.com/
+https://www.cs.unm.edu/\~crowley/papers/sds.pdf,1245,Data structures for text sequences
+https://www.cs.utexas.edu/\~ear/cs341/automatabook/,1246,"Automata, Computability, Complexity Theory and Applications"
+https://www.cyberseclabs.co.uk/,1247,CyberSecLabs
+https://www.cybrary.it/info/freeittraining/,1248,https://www.cybrary.it/info/freeittraining/ | Cybrary
+https://www.dannicula.ro/books/electronica\_digitala/book\_ed1.pdf,1249,https://www.dannicula.ro/books/electronica\_digitala/book\_ed1.pdf
+https://www.dareboost.com/,1250,Dareboost
+https://www.darkpatterns.org/,1251,https://www.darkpatterns.org/
+https://www.datacamp.com/,1252,https://www.datacamp.com/
+https://www.datacamp.com/learn/sql,1253,https://www.datacamp.com/learn/sql
+https://www.dataquest.io/,1254,https://www.dataquest.io/
+https://www.designprinciplesftw.com/,1255,https://www.designprinciplesftw.com/
+https://www.designsystemchecklist.com/,1256,https://www.designsystemchecklist.com/
+https://www.deviantart.com/martinsilvertant/art/Typography-Series-01-Anatomy-of-typography-329617642,1257,https://www.deviantart.com/martinsilvertant/art/Typography-Series-01-Anatomy-of-typography-329617642
+https://www.digitalocean.com/community,1258,https://www.digitalocean.com/community
+https://www.digitalocean.com/community/tutorial\_series/how-to-code-in-javascript,1259,How to code in Javascript at DigitalOcean
+https://www.digitalocean.com/community/tutorials/single-page-apps-with-angularjs-routing-and-templating,1260,Another tutorial
+https://www.dotcom-tools.com/website-speed-test,1261,Website Speed
+https://www.dropbox.com/referrals/AABmF73hhZ5dhy8kP3C2Thz5VPYJTVJmnis?src=global9,1262,Dropbox
+https://www.dropbox.com/s/1oawqmhjf1ohrdf/acadEMy%20front%20end%20Midterm%20exam.pdf?dl=0,1263,midterm exam
+https://www.dropbox.com/s/3ipssvi685flnlc/frontend-books.rar?dl=0,1264,:
+https://www.dropbox.com/s/6fgd0m8884p65hz/2021%20Frontend%20Roadmap%20-%20Dark.pdf?dl=0,1265,WebDevSimplified Front End
+https://www.dropbox.com/s/jjj9pzesrkv8c99/Quality%20Engineer%20Roadmap.pdf?dl=0,1266,PDF
+https://www.dropbox.com/s/lx6irjbo0i7vnez/The%20Road%20Map%20to%20JavaScript%20Attainment.pdf?dl=0,1267,acadEMy on JavaScript has the full curriculum here
+https://www.dropbox.com/s/n93ozoj5js6lag7/2021%20Backend%20Roadmap%20-%20Dark.pdf?dl=0,1268,WDS Backend
+https://www.dropbox.com/s/oif8f5foarnulj5/humbleBundle-Devops.zip?dl=1,1269,https://www.dropbox.com/s/oif8f5foarnulj5/humbleBundle-Devops.zip?dl=1
+https://www.dropbox.com/s/r7xbtr2v2ychcpp/acadEMy%20Photoshop%20Cheat%20Sheet%20v0.1.pdf?dl=0,1270,Photoshop Shortcuts Cheat sheet
+https://www.dropbox.com/s/vpd4jsq3bhuplgv/acadEMy%20front%20end%20Final%20Exam.pdf?dl=0,1271,final exam
+https://www.dropbox.com/s/xij72qwp72okem0/fxtbook.pdf?dl=1,1272,https://www.dropbox.com/s/xij72qwp72okem0/fxtbook.pdf?dl=1
+https://www.dropbox.com/sh/qvqdbr6pfd0j76o/AADtit\_bYB0FqtRctH8\_EaYWa?dl=0,1273,ALL courses from VueMastery.com
+https://www.dropbox.com/sh/x5y1mrfc8n6msbp/AACuxhEdzcH2lcrmEnmBvYqBa?dl=0,1274,"Functional Testing, Test Management, Automated, Performance and Security Testing"
+https://www.duolingo.com/,1275,https://www.duolingo.com/
+https://www.eccouncil.org/train-certify/certified-ethical-hacker-ceh/,1276,https://www.eccouncil.org/train-certify/certified-ethical-hacker-ceh/
+https://www.educative.io/courses/learn-php-from-scratch,1277,https://www.educative.io/courses/learn-php-from-scratch
+https://www.educative.io/explore,1278,https://www.educative.io/explore
+https://www.edx.org/,1279,https://www.edx.org/
+https://www.edx.org/course/digital-marketing-strategy,1280,https://www.edx.org/course/digital-marketing-strategy
+https://www.edx.org/course/digital-strategy-and-action,1281,https://www.edx.org/course/digital-strategy-and-action
+https://www.edx.org/course/introduction-to-linux,1282,https://www.edx.org/course/introduction-to-linux
+https://www.edx.org/course/javascript-introduction,1283,EdX JavaScript Introduction
+https://www.edx.org/course/nosql-basics,1284,https://www.edx.org/course/nosql-basics
+https://www.edx.org/cs50,1285,https://www.edx.org/cs50
+https://www.edx.org/learn/object-oriented-programming,1286,a bunch more courses
+https://www.edx.org/learn/product-management/the-university-of-maryland-college-park-product-management-fundamentals,1287,"UMD, USMx: Product Management Fundamentals"
+https://www.edx.org/learn/project-management/university-of-adelaide-introduction-to-project-management,1288,AdelaideX: Introduction to Project Management
+https://www.elforum.info/,1289,https://www.elforum.info/
+https://www.exploit-db.com/google-hacking-database,1290,https://www.exploit-db.com/google-hacking-database
+https://www.fecundity.com/logic/,1291,Forall X
+https://www.figma.com/community/file/1114720838108123725,1292,https://www.figma.com/community/file/1114720838108123725
+https://www.figma.com/community/file/769694576496801916,1293,here
+https://www.figma.com/resources/learn-design/,1294,"Figma, which you can learn right here | Learn Design with Figma"
+https://www.firsttimersonly.com/,1295,https://www.firsttimersonly.com/
+https://www.flackbox.com/resources,1296,https://www.flackbox.com/resources
+https://www.fontpair.co/,1297,https://www.fontpair.co/
+https://www.forth.com/starting-forth/,1298,Starting FORTH
+https://www.fpgatutorial.com/,1299,FPGA Tutorial
+https://www.framer.com/,1300,https://www.framer.com/
+https://www.freecodecamp.org/learn/2022/responsive-web-design/,1301,FreeCodeCamp Responsive Web Design
+https://www.freecodecamp.org/learn/coding-interview-prep/,1302,Coding interview preparation
+https://www.freecodecamp.org/learn/front-end-libraries/,1303,"FreeCodeCamp \- React, Redux, etc"
+https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/,1304,FreeCodeCamp \- JS algorithms \+ data str
+https://www.freecodecamp.org/news/coding-interviews-for-dummies-5e048933b82b/,1305,"How to Rock the Coding Interview – Tips That Helped Me Land Job Offers from Google, Airbnb, and Dropbox"
+https://www.freecodecamp.org/news/game-development-for-beginners-unity-course/,1306,https://www.freecodecamp.org/news/game-development-for-beginners-unity-course/
+https://www.freecodecamp.org/news/how-not-to-bomb-your-offer-negotiation-c46bb9bc7dea/,1307,How not to bomb your offer negotiation
+https://www.freecodecamp.org/news/ten-rules-for-negotiating-a-job-offer-ee17cccbdab6/,1308,Ten Rules for Negotiating a Job Offer
+https://www.freecodecamp.org/news/the-c-beginners-handbook/,1309,https://www.freecodecamp.org/news/the-c-beginners-handbook/
+https://www.freecoursesonline.me/code-with-mosh-the-complete-python-programming-course-for-beginners-2431658790/,1310,https://www.freecoursesonline.me/code-with-mosh-the-complete-python-programming-course-for-beginners-2431658790/
+https://www.freefaces.gallery/,1311,https://www.freefaces.gallery/
+https://www.frontendcheatsheets.com/javascript ,1312,JS Cheat Sheets
+https://www.frontendinterviewhandbook.com/,1313,https://www.frontendinterviewhandbook.com/
+https://www.frontendmentor.io/,1314,https://www.frontendmentor.io/ | Frontend Mentor | https://www.frontendmentor.io/
+https://www.frontendmentor.io/resources,1315,https://www.frontendmentor.io/resources
+https://www.frontendpractice.com/,1316,https://www.frontendpractice.com/
+https://www.futurelearn.com/subjects/business-and-management-courses/marketing/digital-marketing,1317,https://www.futurelearn.com/subjects/business-and-management-courses/marketing/digital-marketing
+https://www.gameuidatabase.com/,1318,https://www.gameuidatabase.com/
+https://www.geeksforgeeks.org/,1319,https://www.geeksforgeeks.org/
+https://www.geeksforgeeks.org/sleep-sort-king-laziness-sorting-sleeping/,1320,https://www.geeksforgeeks.org/sleep-sort-king-laziness-sorting-sleeping/
+https://www.giac.org/certifications/certified-web-application-defender-gweb/,1321,https://www.giac.org/certifications/certified-web-application-defender-gweb/
+https://www.giac.org/get-certified/giac-portfolio-certifications/,1322,https://www.giac.org/get-certified/giac-portfolio-certifications/
+https://www.goodemailcopy.com/,1323,Good Copy • Email copy from great companies
+https://www.goodreads.com/book/show/10127019-the-lean-startup,1324,The lean startup
+https://www.goodreads.com/book/show/112252.Types\_and\_Programming\_Languages,1325,Types and Programming Languages
+https://www.goodreads.com/book/show/22221112-user-story-mapping,1326,User Story Mapping
+https://www.goodreads.com/book/show/34691715-product-management-in-practice,1327,Product Management in Practice
+https://www.goodreads.com/book/show/35249663-inspired,1328,Inspired: How to Create Tech Products Customers Love
+https://www.goodreads.com/book/show/35274263-the-product-book,1329,The Product Book: How to Become a Great Product Manager
+https://www.goodreads.com/book/show/42611483-escaping-the-build-trap,1330,Escaping the Build Trap
+https://www.goodreads.com/book/show/840.The\_Design\_of\_Everyday\_Things,1331,The Design of Everyday Things
+https://www.google.com/chrome/browser/canary.html,1332,Chrome Canary
+https://www.google.com/webmasters/markup-helper/u/0/,1333,https://www.google.com/webmasters/markup-helper/u/0/
+https://www.gov.uk/design-principles,1334,Design Principles
+https://www.gov.uk/service-manual/user-centred-design,1335,gov.co.uk
+https://www.growthmentor.com/,1336,https://www.growthmentor.com/
+https://www.guru99.com/software-testing.html,1337,A primer on Software Testing / QA
+https://www.hacker101.com/,1338,https://www.hacker101.com/ | https://www.hacker101.com/
+https://www.hackerrank.com/,1339,HackerRank | HackerRank
+https://www.hackthebox.com/,1340,Hack The Box
+https://www.hackthebox.com/blog/aws-pentesting-guide,1341,https://www.hackthebox.com/blog/aws-pentesting-guide
+https://www.hackthebox.eu/,1342,HackTheBox
+https://www.htmldog.com/guides/,1343,https://www.htmldog.com/guides/
+https://www.hustlebadger.com/product-management/execution/,1344,Great product execution
+https://www.hustlebadger.com/product-management/people/,1345,How to build a high performance product organization
+https://www.hustlebadger.com/product-management/product-strategy/,1346,How to write a great product strategy
+https://www.ibm.com/able/requirements/requirements/,1347,Requirements List
+https://www.ibm.com/design/practices/design-for-sustainability/,1348,Design for Sustainability
+https://www.ic.unicamp.br/\~meidanis/courses/mc336/2009s2/prolog/problemas/,1349,99 Prolog Problems
+https://www.iconhunt.site/,1350,search
+https://www.ideasgrab.com/,1351,IdeasGrab
+https://www.imdb.com/title/tt3322570/,1352,https://www.imdb.com/title/tt3322570/
+https://www.indiehackers.com/,1353,https://www.indiehackers.com/
+https://www.indiehackers.com/post/66-sites-to-promote-your-startup-4f7559abaf,1354,https://www.indiehackers.com/post/66-sites-to-promote-your-startup-4f7559abaf
+https://www.indiehackers.com/post/these-now-successful-founders-failed-hard-so-you-don-t-have-to-8d95d439db,1355,https://www.indiehackers.com/post/these-now-successful-founders-failed-hard-so-you-don-t-have-to-8d95d439db
+https://www.indiehackers.com/post/tools-ive-used-to-market-my-saas-with-a-0-budget-d6a0ae0f4e,1356,https://www.indiehackers.com/post/tools-ive-used-to-market-my-saas-with-a-0-budget-d6a0ae0f4e
+https://www.infinityfree.net/,1357,InfinityFree
+https://www.infoarena.ro/arhiva-educationala,1358,https://www.infoarena.ro/arhiva-educationala
+https://www.infoarena.ro/links,1359,https://www.infoarena.ro/links
+https://www.infoq.com/presentations/little-usl-scalability-performance/,1360,https://www.infoq.com/presentations/little-usl-scalability-performance/
+https://www.interaction-design.org/literature/book/the-encyclopedia-of-human-computer-interaction-2nd-ed,1361,HCI
+https://www.interdb.jp/pg/,1362,https://www.interdb.jp/pg/
+https://www.internetmarketingninjas.com/tools/,1363,https://www.internetmarketingninjas.com/tools/
+https://www.internetmarketingninjas.com/tools/free-tools/pagespeed,1364,Page Speed
+https://www.ired.team/,1365,https://www.ired.team/
+https://www.isc2.org/landing/CC-bundles,1366,https://www.isc2.org/landing/CC-bundles
+https://www.isi.edu/\~hussain/TEACH/Spring2014/notes/Steven00a.pdf,1367,https://www.isi.edu/\~hussain/TEACH/Spring2014/notes/Steven00a.pdf
+https://www.istqb.org/,1368,tests
+https://www.istqb.org/certification-path-root/foundation-level-2018.html,1369,free courses
+https://www.javascript.com/,1370,JS.com
+https://www.javascripttutorial.net/,1371,https://www.javascripttutorial.net/
+https://www.javatpoint.com/php-pdo,1372,https://www.javatpoint.com/php-pdo
+https://www.jetbrains.com/webstorm/download/,1373,WebStorm
+https://www.jetbrains.com/webstorm/help/using-git-integration.html,1374,GIT with WebStorm
+https://www.joshwcomeau.com/animation/css-transitions/,1375,A complete guide to CSS transitions
+https://www.joshwcomeau.com/css/interactive-guide-to-flexbox/,1376,An interactive guide to Flexbox
+https://www.joshwcomeau.com/css/interactive-guide-to-grid/,1377,Grid guide
+https://www.joshwcomeau.com/css/understanding-layout-algorithms/,1378,Understand CSS Layout algorithms
+https://www.joyofreact.com/,1379,https://www.joyofreact.com/
+https://www.jsoftware.com/papers/50/,1380,A History of APL in 50 Functions
+https://www.jsv9000.app/,1381,https://www.jsv9000.app/
+https://www.kaggle.com/,1382,https://www.kaggle.com/
+https://www.kali.org/,1383,Kali Linux
+https://www.khanacademy.org/,1384,https://www.khanacademy.org/ | https://www.khanacademy.org/
+https://www.khanacademy.org/computing/computer-programming/html-css,1385,Khan Academy Web Programming | Khan Academy Web Programming
+https://www.kodable.com/,1386,https://www.kodable.com/
+https://www.layoutgridcalculator.com/typographic-scale/,1387,https://www.layoutgridcalculator.com/typographic-scale/
+https://www.learn-c.org/,1388,https://www.learn-c.org/ | https://www.learn-c.org/
+https://www.learn-js.org/,1389,https://www.learn-js.org/
+https://www.learn-js.org/en/,1390,https://www.learn-js.org/en/
+https://www.learn-php.org/,1391,https://www.learn-php.org/
+https://www.learncpp.com/,1392,learncpp | https://www.learncpp.com/ | Learn C++
+https://www.learnenough.com/command-line-tutorial,1393,https://www.learnenough.com/command-line-tutorial
+https://www.learnjavaonline.org/,1394,Learn Java \- Free Interactive Java Tutorial
+https://www.learnpython.org/,1395,https://www.learnpython.org/
+https://www.learnui.design/blog/guide-pairing-fonts.html,1396,https://www.learnui.design/blog/guide-pairing-fonts.html
+https://www.learnui.design/blog/ios-vs-android-app-ui-design-complete-guide.html,1397,https://www.learnui.design/blog/ios-vs-android-app-ui-design-complete-guide.html
+https://www.learnui.design/blog/spice-up-designs.html,1398,https://www.learnui.design/blog/spice-up-designs.html
+https://www.lego.com/ro-ro/product/boost-creative-toolbox-17101,1399,https://www.lego.com/ro-ro/product/boost-creative-toolbox-17101
+https://www.lego.com/ro-ro/themes/mindstorms/ev3,1400,https://www.lego.com/ro-ro/themes/mindstorms/ev3
+https://www.lennysnewsletter.com/,1401,Lenny’s Newsletter
+https://www.lennysnewsletter.com/archive?sort=top,1402,best articles here
+https://www.librariaonline.ro/culegeri\_si\_auxiliare\_scolare/informatica/altele/programarea\_in\_limbajul\_c\_c\_pentru\_liceu\_volumul\_al\_iii\_lea-cerchez\_emanuela-polirom-p10081338,1403,number 3
+https://www.librariaonline.ro/it\_calculatoare/diverse/it/programarea\_in\_limbajul\_c\_c\_pentru\_liceu\_volumul\_al\_ii\_lea\_metode\_si\_tehnici\_de\_programare-cerchez\_emanuela-polirom-p10133772,1404,number 2
+https://www.librariaonline.ro/it\_calculatoare/software/limbaje\_de\_programare/programarea\_in\_limbajul\_c\_c\_pentru\_liceu\_volumul\_1\_editia\_a\_ii\_a\_revazuta\_si\_adaugita-cerchez\_emanuela-polirom-p10187667,1405,number 1
+https://www.librariaonline.ro/it\_calculatoare/software/limbaje\_de\_programare/programarea\_in\_limbajul\_c\_c\_pentru\_liceu\_volumul\_al\_iv\_lea\_programare\_orientata\_pe\_obiecte\_si\_programare\_generica\_cu\_stl-cerchez\_emanuela-polirom-p10068032,1406,number 4
+https://www.lingohut.com/ro/l1/%C3%AEnva%C8%9B%C4%83-limba-englez%C4%83,1407,https://www.lingohut.com/ro/l1/%C3%AEnva%C8%9B%C4%83-limba-englez%C4%83
+https://www.linkedin.com/feed/update/urn:li:activity:7025016663125151744/,1408,https://www.linkedin.com/feed/update/urn:li:activity:7025016663125151744/
+https://www.linkedin.com/feed/update/urn:li:activity:7124747846431436800/,1409,https://www.linkedin.com/feed/update/urn:li:activity:7124747846431436800/
+https://www.linkedin.com/in/stefan-galescu/,1410,Ștefan
+https://www.linkedin.com/learning/accessibility-for-web-design/welcome?autoplay=true,1411,Derek Featherstone Web Accessibility primer
+https://www.linkedin.com/learning/html-essential-training-4/what-is-html,1412,Jen Simmons teaching HTML
+https://www.linkedin.com/learning/paths/become-an-online-marketing-manager,1413,https://www.linkedin.com/learning/paths/become-an-online-marketing-manager
+https://www.linkedin.com/learning/universal-principles-of-design/welcome-2,1414,Welcome \- Universal Principles of Design Video Tutorial
+https://www.linkedin.com/newsletters/interface-design-patterns-%25F0%259F%258D%25A3-7015923371875926016/,1415,LinkedIn list | https://www.linkedin.com/newsletters/interface-design-patterns-%25F0%259F%258D%25A3-7015923371875926016/
+https://www.linkedin.com/post-inspector/,1416,Post Inspector
+https://www.linkedin.com/posts/rocky-bhatia-a4801010\_cloud-devops-kubernetes-activity-7074233926705119232-FIPo/,1417,https://www.linkedin.com/posts/rocky-bhatia-a4801010\_cloud-devops-kubernetes-activity-7074233926705119232-FIPo/
+https://www.linkedin.com/posts/shlomogenchin\_18-books-that-have-helped-me-become-a-better-activity-7123229056208150529-VdgF/,1418,https://www.linkedin.com/posts/shlomogenchin\_18-books-that-have-helped-me-become-a-better-activity-7123229056208150529-VdgF/
+https://www.linkedin.com/posts/vitalyfriedman\_ui-design-activity-7074644381244215296-D5WZ/,1419,https://www.linkedin.com/posts/vitalyfriedman\_ui-design-activity-7074644381244215296-D5WZ/
+https://www.linkedin.com/posts/vitalyfriedman\_ux-design-accessibility-activity-7096750363969511426-BzEE/,1420,https://www.linkedin.com/posts/vitalyfriedman\_ux-design-accessibility-activity-7096750363969511426-BzEE/
+https://www.linode.com/docs/guides/using-the-terminal/,1421,Using the terminal
+https://www.logiscool.com/ro/,1422,https://www.logiscool.com/ro/
+https://www.lpi.org/our-certifications/lpic-1-overview,1423,Linux Certification
+https://www.manning.com/books/secrets-of-the-javascript-ninja-second-edition,1424,"Secrets of the JavaScript Ninja by John Resig, Bear Bibeault, and Josip Maras"
+https://www.manuale.edu.ro/,1425,https://www.manuale.edu.ro/
+https://www.masterywithsql.com/,1426,https://www.masterywithsql.com/
+https://www.mathpages.com/,1427,Math Pages | Mathpages
+https://www.metalevel.at/prolog,1428,The Power of Prolog
+https://www.miciideveloperi.ro/curs-gratuit-programare-pentru-copii-bucuresti,1429,https://www.miciideveloperi.ro/curs-gratuit-programare-pentru-copii-bucuresti
+https://www.mindtheproduct.com/,1430,https://www.mindtheproduct.com/
+https://www.mingcute.com/,1431,ming
+https://www.modularscale.com/,1432,https://www.modularscale.com/
+https://www.mongodb.com/developer/quickstart/node-crud-tutorial/,1433,https://www.mongodb.com/developer/quickstart/node-crud-tutorial/
+https://www.mongodb.com/nosql-explained,1434,https://www.mongodb.com/nosql-explained
+https://www.mooc.fi/en/,1435,https://www.mooc.fi/en/
+https://www.myfonts.com/pages/whatthefont,1436,https://www.myfonts.com/pages/whatthefont
+https://www.nan.fyi/svg-paths,1437,https://www.nan.fyi/svg-paths
+https://www.nand2tetris.org/,1438,From Nand to Tetris
+https://www.netacad.com/courses/cybersecurity,1439,https://www.netacad.com/courses/cybersecurity
+https://www.netacad.com/courses/cybersecurity/introduction-cybersecurity,1440,https://www.netacad.com/courses/cybersecurity/introduction-cybersecurity
+https://www.netacad.com/courses/iot/big-data-analytics,1441,https://www.netacad.com/courses/iot/big-data-analytics
+https://www.netacad.com/courses/iot/introduction-iot,1442,https://www.netacad.com/courses/iot/introduction-iot
+https://www.netacad.com/courses/iot/iot-fundamentals,1443,https://www.netacad.com/courses/iot/iot-fundamentals
+https://www.netacad.com/courses/networking,1444,https://www.netacad.com/courses/networking
+https://www.netacad.com/courses/networking/ccna-enterprise-networking-security-automation,1445,https://www.netacad.com/courses/networking/ccna-enterprise-networking-security-automation
+https://www.netacad.com/courses/networking/ccna-introduction-networks,1446,https://www.netacad.com/courses/networking/ccna-introduction-networks
+https://www.netacad.com/courses/networking/ccna-switching-routing-wireless-essentials,1447,https://www.netacad.com/courses/networking/ccna-switching-routing-wireless-essentials
+https://www.netacad.com/courses/networking/networking-essentials,1448,https://www.netacad.com/courses/networking/networking-essentials
+https://www.netacad.com/courses/os-it/get-connected,1449,https://www.netacad.com/courses/os-it/get-connected
+https://www.netacad.com/courses/os-it/it-essentials,1450,https://www.netacad.com/courses/os-it/it-essentials
+https://www.netacad.com/courses/packet-tracer,1451,https://www.netacad.com/courses/packet-tracer
+https://www.netacad.com/node/1278,1452,https://www.netacad.com/node/1278
+https://www.netlify.com/,1453,Netlify
+https://www.nextlab.tech/,1454,https://www.nextlab.tech/
+https://www.nngroup.com/articles/career-progression-practitioners/,1455,https://www.nngroup.com/articles/career-progression-practitioners/
+https://www.nngroup.com/articles/guide-ux-research-methods/,1456,UX research methods
+https://www.nngroup.com/articles/mobile-ux-study-guide/,1457,https://www.nngroup.com/articles/mobile-ux-study-guide/
+https://www.nngroup.com/articles/state-mobile-ux/,1458,https://www.nngroup.com/articles/state-mobile-ux/
+https://www.nngroup.com/articles/ten-usability-heuristics/,1459,Nielsen Norman Group’s heuristics
+https://www.npmjs.com/package/@chec/commerce.js,1460,An ecommerce API library
+https://www.offensive-security.com/courses-and-certifications/,1461,Offensive Security Certifications | Offensive Security Certifications
+https://www.offsec.com/courses/exp-301/,1462,https://www.offsec.com/courses/exp-301/
+https://www.offsec.com/courses/exp-401/,1463,https://www.offsec.com/courses/exp-401/
+https://www.offsec.com/courses/pen-300/,1464,https://www.offsec.com/courses/pen-300/
+https://www.olympiad.org.uk/problems.html,1465,https://www.olympiad.org.uk/problems.html
+https://www.onthemap.com/seo-browser/,1466,https://www.onthemap.com/seo-browser/
+https://www.openadmintools.com/,1467,OpenAdminTools
+https://www.oreilly.com/library/view/effective-modern-c/9781491908419/,1468,Effective Modern C++
+https://www.palantir.net/blog/re-thinking-breakpoints-responsive-design,1469,Re-thinking breakpoints in responsive design
+https://www.pandaneer.com/the-remote-developers-guide-to-writing-a-resume,1470,https://www.pandaneer.com/the-remote-developers-guide-to-writing-a-resume
+https://www.pandaneer.com/top-front-end-development-resources,1471,https://www.pandaneer.com/top-front-end-development-resources | React \+ TS res
+https://www.patrickweaver.net/blog/a-blog-post-with-every-html-element/,1472,https://www.patrickweaver.net/blog/a-blog-post-with-every-html-element/
+https://www.pbinfo.ro/,1473,PBInfo | https://www.pbinfo.ro/
+https://www.pbinfo.ro/articole/5547/informatica-clasa-a-ix-a,1474,https://www.pbinfo.ro/articole/5547/informatica-clasa-a-ix-a
+https://www.pbinfo.ro/probleme-categorii/9,1475,https://www.pbinfo.ro/probleme-categorii/9
+https://www.pbr-book.org/,1476,PBR Book
+https://www.pentesteracademy.com/,1477,https://www.pentesteracademy.com/ | Pentester Academy
+https://www.pexels.com/,1478,https://www.pexels.com/
+https://www.php.net/manual/en/book.pdo.php,1479,https://www.php.net/manual/en/book.pdo.php
+https://www.phpied.com/3po/,1480,https://www.phpied.com/3po/
+https://www.phptutorial.net/php-pdo/,1481,https://www.phptutorial.net/php-pdo/
+https://www.pluralsight.com/courses/code-school-rails-for-zombies,1482,https://www.pluralsight.com/courses/code-school-rails-for-zombies
+https://www.pluralsight.com/courses/csharp-fundamentals-dev,1483,https://www.pluralsight.com/courses/csharp-fundamentals-dev
+https://www.pluralsight.com/courses/introduction-game-development-unity,1484,https://www.pluralsight.com/courses/introduction-game-development-unity
+https://www.pluralsight.com/courses/javascript-objects-prototypes,1485,JavaScript Objects and Prototypes
+https://www.pluralsight.com/courses/principles-oo-design,1486,Solid principles of OOP
+https://www.pluralsight.com/paths/aspnet-core-6-web-api,1487,https://www.pluralsight.com/paths/aspnet-core-6-web-api
+https://www.plusdocs.com/,1488,https://www.plusdocs.com/
+https://www.pmi.org/learning/training-development/free-elearning-courses,1489,Free courses
+https://www.postman.com/,1490,https://www.postman.com/
+https://www.powermapper.com/products/sortsite/checks/accessibility-checks/,1491,Accessibility Scanner
+https://www.ppl-lang.dev/blog/introduction-to-monads-with-java/index.html,1492,Introduction to monads with Java code examples
+https://www.practical-go-lessons.com/,1493,Practical Go Lessons
+https://www.practical-ui.com/,1494,https://www.practical-ui.com/
+https://www.pramp.com/,1495,Pramp
+https://www.pramp.com/\#/,1496,Prepare for your technical interview by practicing on Pramp
+https://www.probabilitycourse.com/,1497,Probability Course
+https://www.process-masterclass.com/free-resources\#column\_jpo670268,1498,https://www.process-masterclass.com/free-resources\#column\_jpo670268
+https://www.prodpad.com/webinars/,1499,https://www.prodpad.com/webinars/
+https://www.producthunt.com/,1500,https://www.producthunt.com/
+https://www.productlessons.xyz/library,1501,Product Lessons you need to learn now
+https://www.profesorultau.ro/lectii-video-matematica.aspx,1502,https://www.profesorultau.ro/lectii-video-matematica.aspx
+https://www.professormesser.com/,1503,https://www.professormesser.com/
+https://www.professormesser.com/free-a-plus-training/220-1001/220-1000-training-course/,1504,CompTIA 220-1001 and 220-1002 A+ Training Course \- Professor Messer IT Certification Training Courses
+https://www.professormesser.com/network-plus/n10-007/n10-007-training-course/,1505,Professor Messer's CompTIA N10-007 Network+ Course
+https://www.programiz.com/,1506,https://www.programiz.com/ | https://www.programiz.com/
+https://www.pythonanywhere.com/,1507,https://www.pythonanywhere.com/
+https://www.pythonisti.ro/,1508,Curs de programare în Python 3 pentru începători \- Online interactiv gratuit
+https://www.pythonmorsels.com/,1509,https://www.pythonmorsels.com/
+https://www.quicksprout.com/the-beginners-guide-to-online-marketing/,1510,https://www.quicksprout.com/the-beginners-guide-to-online-marketing/
+https://www.railstutorial.org/,1511,https://www.railstutorial.org/
+https://www.railstutorial.org/book,1512,https://www.railstutorial.org/book
+https://www.rangeforce.com/,1513,RangeForce
+https://www.reallygoodux.io/,1514,https://www.reallygoodux.io/
+https://www.realworkfromanywhere.com/,1515,https://www.realworkfromanywhere.com/
+https://www.reddit.com/r/EngineeringResumes/wiki/index/,1516,https://www.reddit.com/r/EngineeringResumes/wiki/index/
+https://www.reddit.com/r/Romania/comments/ftr5y8/o\_lista\_de\_canale\_youtube\_romanesti\_despre/,1517,Reddit list (ro)
+https://www.reddit.com/r/jobs/comments/8hs6xc/part\_deux\_of\_the\_top\_post\_of\_all\_time\_on\_rjobs\_im/,1518,https://www.reddit.com/r/jobs/comments/8hs6xc/part\_deux\_of\_the\_top\_post\_of\_all\_time\_on\_rjobs\_im/
+https://www.reddit.com/r/programare/wiki/index/,1519,https://www.reddit.com/r/programare/wiki/index/
+https://www.reddit.com/r/sysadmin/comments/1dt4we5/free\_tools/,1520,Reddit
+https://www.refactoringui.com/,1521,https://www.refactoringui.com/
+https://www.refactornow.dev/,1522,https://www.refactornow.dev/
+https://www.remove.bg/,1523,https://www.remove.bg/
+https://www.researchgate.net/publication/349104699\_Introduction\_to\_Mathematical\_Logic\_Edition\_2021,1524,An Introduction To Mathematical Logic
+https://www.restorephotos.io/,1525,https://www.restorephotos.io/
+https://www.rezi.ai/,1526,https://www.rezi.ai/
+https://www.rezistenta-online.ro/p/instrumente-marketing-online.html,1527,https://www.rezistenta-online.ro/p/instrumente-marketing-online.html
+https://www.rezistenta-online.ro/p/make-it-academy.html,1528,https://www.rezistenta-online.ro/p/make-it-academy.html
+https://www.riseo.ai/,1529,https://www.riseo.ai/
+https://www.robbierichards.com/seo/seo-for-startups/,1530,Content strategy for startups
+https://www.root-me.org/,1531,Root Me
+https://www.ruby-lang.org/en/documentation/quickstart/,1532,https://www.ruby-lang.org/en/documentation/quickstart/
+https://www.rubytapas.com/,1533,https://www.rubytapas.com/
+https://www.rusoaica.com/fara-categorie/cuprins,1534,https://www.rusoaica.com/fara-categorie/cuprins
+https://www.salvia-kit.com/,1535,https://www.salvia-kit.com/
+https://www.saminiir.com/lets-code-tcp-ip-stack-1-ethernet-arp/,1536,Let's Code a TCP/IP Stack | https://www.saminiir.com/lets-code-tcp-ip-stack-1-ethernet-arp/
+https://www.sans.org/cyber-security-courses/,1537,SANS Security Certifications
+https://www.sarasoueidan.com/blog/keyboard-friendlier-article-listings/,1538,A very nifty tabindex enhancing primer for navigation
+https://www.scratchapixel.com/,1539,Scratchapixel | Learn computer graphics from scratch
+https://www.scrigroup.com/calculatoare/,1540,https://www.scrigroup.com/calculatoare/
+https://www.scrumguides.org/,1541,https://www.scrumguides.org/
+https://www.seancdavis.com/blog/right-way-to-learn-javascript-2020/,1542,The right way to learn JavaScript
+https://www.searchenginejournal.com/how-to-become-seo-expert/234841/,1543,SearchEngineJournal Become an SEO Expert
+https://www.searchenginejournal.com/seo-101/best-seo-resources/,1544,SearchEngineJournal Best SEO Resources
+https://www.securitydawg.com/how-bots-spam-contact-forms/,1545,make your forms really spambot-proof
+https://www.selfauthoring.com/,1546,"Draw a map of your past, evaluate your present and plan your future"
+https://www.selikoff.net/,1547,https://www.selikoff.net/
+https://www.semrush.com/academy/courses/content-led-seo-course-with-brian-dean/start-here,1548,https://www.semrush.com/academy/courses/content-led-seo-course-with-brian-dean/start-here
+https://www.shelly.com/en-ro/products/product-overview\#unfiltered,1549,https://www.shelly.com/en-ro/products/product-overview\#unfiltered
+https://www.shodan.io/,1550,https://www.shodan.io/ | Shodan
+https://www.sitepoint.com/microformats-meaning-markup/,1551,Microformats primer \- Sitepoint
+https://www.sitespeed.io/,1552,https://www.sitespeed.io/
+https://www.smartcurs.ro/,1553,https://www.smartcurs.ro/
+https://www.smashingmagazine.com/2010/11/best-practices-of-combining-typefaces/,1554,https://www.smashingmagazine.com/2010/11/best-practices-of-combining-typefaces/
+https://www.smashingmagazine.com/2019/07/web-on-50mb-budget/,1555,https://www.smashingmagazine.com/2019/07/web-on-50mb-budget/
+https://www.smashingmagazine.com/2021/03/complete-guide-accessible-front-end-components/,1556,Complete guide to accessible web components
+https://www.smashingmagazine.com/2021/10/guide-debugging-css/,1557,Debugging CSS
+https://www.smashingmagazine.com/2023/11/designing-web-design-documentation/,1558,https://www.smashingmagazine.com/2023/11/designing-web-design-documentation/
+https://www.smashingmagazine.com/category/design/,1559,https://www.smashingmagazine.com/category/design/
+https://www.softwaretestinghelp.com/,1560,SoftwareTestingHelp
+https://www.solarwinds.com/free-tools/ip-address-tracker,1561,Solarwinds IP Address Tracker
+https://www.solarwinds.com/free-tools/ipmonitor-free,1562,IP Monitor
+https://www.sololearn.com/home,1563,https://www.sololearn.com/home | https://www.sololearn.com/home | https://www.sololearn.com/home
+https://www.sourcetreeapp.com/,1564,SourceTree
+https://www.speakhuman.today/,1565,Speak Human
+https://www.speedcurve.com/web-performance-guide/,1566,Performance optimization
+https://www.spf-record.com/spf-lookup/www.viorelmocanu.ro,1567,SPF Record Checker
+https://www.springboard.com/resources/learning-paths/data-analysis/,1568,https://www.springboard.com/resources/learning-paths/data-analysis/
+https://www.spyfu.com/,1569,SpyFu
+https://www.sscsrl.com/wireless-security-expert-osstmm-owse/,1570,https://www.sscsrl.com/wireless-security-expert-osstmm-owse/
+https://www.sslshopper.com/ssl-checker.html,1571,SSL Checker
+https://www.startupschool.org/,1572,https://www.startupschool.org/
+https://www.stefanjudis.com/notes/glyphhanger-a-tool-subset-and-optimize-fonts/,1573,https://www.stefanjudis.com/notes/glyphhanger-a-tool-subset-and-optimize-fonts/
+https://www.stencyl.com/,1574,https://www.stencyl.com/
+https://www.stylized.ai/,1575,https://www.stylized.ai/
+https://www.svgator.com/,1576,"How to animate SVGs, the simple way"
+https://www.synack.com/,1577,Synack
+https://www.taskade.com/,1578,https://www.taskade.com/
+https://www.techinterviewhandbook.org/,1579,https://www.techinterviewhandbook.org/
+https://www.templatefoundation.com/,1580,https://www.templatefoundation.com/
+https://www.textise.net/,1581,Textise your site
+https://www.thebalancecareers.com/job-interview-questions-and-answers-2061204,1582,"Job Interview Questions, Answers, and Tips to Prepare | https://www.thebalancecareers.com/job-interview-questions-and-answers-2061204"
+https://www.thegoodlineheight.com/,1583,https://www.thegoodlineheight.com/
+https://www.thegreenwebfoundation.org/directory/,1584,green
+https://www.theleagueofmoveabletype.com/,1585,https://www.theleagueofmoveabletype.com/
+https://www.theodinproject.com/,1586,https://www.theodinproject.com/ | The Odin Project | The Odin Project
+https://www.theodinproject.com/courses/getting-hired,1587,The Odin Project: Getting Hired
+https://www.theodinproject.com/courses/javascript,1588,The Odin Project: JavaScript
+https://www.theodinproject.com/courses/nodejs,1589,The Odin Project: Node.JS
+https://www.theodinproject.com/courses/web-development-101,1590,The Odin Project \- Web Development 101
+https://www.theodinproject.com/lessons/foundations-introduction-to-html-and-css,1591,The Odin Project: HTML and CSS
+https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/how-does-the-web-work,1592,How does the Web work?
+https://www.theodinproject.com/paths/full-stack-javascript/courses/react-new,1593,React (new) | https://www.theodinproject.com/paths/full-stack-javascript/courses/react-new
+https://www.theodinproject.com/paths/full-stack-ruby-on-rails/courses/ruby-on-rails,1594,https://www.theodinproject.com/paths/full-stack-ruby-on-rails/courses/ruby-on-rails
+https://www.theproductfolks.com/,1595,https://www.theproductfolks.com/
+https://www.thinkful.com/,1596,https://www.thinkful.com/
+https://www.tiobe.com/tiobe-index/,1597,https://www.tiobe.com/tiobe-index/
+https://www.toools.design/ui-web-design-inspiration-websites,1598,https://www.toools.design/ui-web-design-inspiration-websites
+https://www.topcoder.com/,1599,TopCoder
+https://www.tremend.com/qa-course-beginners,1600,https://www.tremend.com/qa-course-beginners
+https://www.tubebuddy.com/viorelmocanu,1601,TubeBuddy
+https://www.tutorialspoint.com/laravel/index.htm,1602,https://www.tutorialspoint.com/laravel/index.htm
+https://www.tutorialspoint.com/php/index.htm,1603,https://www.tutorialspoint.com/php/index.htm
+https://www.tutorialspoint.com/php/php\_and\_mysql.htm,1604,https://www.tutorialspoint.com/php/php\_and\_mysql.htm
+https://www.tutorialspoint.com/ruby-on-rails/,1605,https://www.tutorialspoint.com/ruby-on-rails/
+https://www.twitch.tv/anthonywritescode,1606,https://www.twitch.tv/anthonywritescode
+https://www.twitch.tv/learnwithleon/videos,1607,https://www.twitch.tv/learnwithleon/videos
+https://www.twitch.tv/rwxrob,1608,https://www.twitch.tv/rwxrob
+https://www.tynker.com/,1609,https://www.tynker.com/
+https://www.typewolf.com/,1610,https://www.typewolf.com/
+https://www.typewolf.com/resources,1611,https://www.typewolf.com/resources
+https://www.ucreative.com/design/,1612,https://www.ucreative.com/design/
+https://www.udemy.com/course/advanced-and-object-oriented-javascript/,1613,JavaScript
+https://www.udemy.com/course/backend-master-class-golang-postgresql-kubernetes/,1614,https://www.udemy.com/course/backend-master-class-golang-postgresql-kubernetes/
+https://www.udemy.com/course/basics-of-object-oriented-programming-with-csharp/,1615,C\#
+https://www.udemy.com/course/build-crud-application-php-mysql/,1616,https://www.udemy.com/course/build-crud-application-php-mysql/
+https://www.udemy.com/course/code-your-first-game/,1617,https://www.udemy.com/course/code-your-first-game/
+https://www.udemy.com/course/complete-aspnet-core-21-course/,1618,https://www.udemy.com/course/complete-aspnet-core-21-course/
+https://www.udemy.com/course/complete-csharp-masterclass/,1619,https://www.udemy.com/course/complete-csharp-masterclass/
+https://www.udemy.com/course/comptia-network-cert-n10-007-the-total-course/,1620,TOTAL: CompTIA Network+ Certification (N10-007)
+https://www.udemy.com/course/create-quick-professional-2d-game-backgrounds-in-photoshop/,1621,https://www.udemy.com/course/create-quick-professional-2d-game-backgrounds-in-photoshop/
+https://www.udemy.com/course/creating-a-simple-newsletter-signup-using-php-and-mysql/,1622,https://www.udemy.com/course/creating-a-simple-newsletter-signup-using-php-and-mysql/
+https://www.udemy.com/course/free-prep-for-html5-game-development/,1623,https://www.udemy.com/course/free-prep-for-html5-game-development/
+https://www.udemy.com/course/full-stack-application-development-with-spring-boot-and-angular/,1624,FullStack with Boot and Angular
+https://www.udemy.com/course/full-stack-application-with-spring-boot-and-react/,1625,FullStack with Boot and React
+https://www.udemy.com/course/how-to-program-games/,1626,https://www.udemy.com/course/how-to-program-games/
+https://www.udemy.com/course/introduction-to-game-development-with-unity/,1627,https://www.udemy.com/course/introduction-to-game-development-with-unity/
+https://www.udemy.com/course/java-enterprise-edition-8/,1628,Java EE
+https://www.udemy.com/course/java-tutorial/,1629,https://www.udemy.com/course/java-tutorial/
+https://www.udemy.com/course/learn-professional-pixel-art-animation-for-games/,1630,https://www.udemy.com/course/learn-professional-pixel-art-animation-for-games/
+https://www.udemy.com/course/master-object-oriented-programming-concepts/,1631,OOP knowledge
+https://www.udemy.com/course/master-python-programming-complete-python-bootcamp/,1632,https://www.udemy.com/course/master-python-programming-complete-python-bootcamp/
+https://www.udemy.com/course/object-oriented-programming-oops-for-java-certification/,1633,JAVA
+https://www.udemy.com/course/php-mysql-tutorial/,1634,https://www.udemy.com/course/php-mysql-tutorial/
+https://www.udemy.com/course/practical-ethical-hacking/,1635,Practical ethical hacking
+https://www.udemy.com/course/python-oop/,1636,Python
+https://www.udemy.com/course/real-time-chat-system-using-php-mysql-pdo-and-ajax/,1637,https://www.udemy.com/course/real-time-chat-system-using-php-mysql-pdo-and-ajax/
+https://www.udemy.com/course/spring-framework-5-beginner-to-guru/,1638,Spring 5
+https://www.udemy.com/course/spring-tutorial-for-beginners/,1639,Spring
+https://www.udemy.com/course/testare-manuala-si-automata-curs-qa/,1640,Testare manuala si automata t(Curs QA) | Udemy
+https://www.udemy.com/course/the-ultimate-2d-game-character-design-animation-course/,1641,https://www.udemy.com/course/the-ultimate-2d-game-character-design-animation-course/
+https://www.udemy.com/course/unity-game-developer/,1642,https://www.udemy.com/course/unity-game-developer/
+https://www.udemy.com/javascript-advanced/,1643,Advanced JavaScript
+https://www.udemy.com/understand-javascript/,1644,JavaScript: Understanding the Weird Parts
+https://www.udemy.com/user/bentristem/,1645,https://www.udemy.com/user/bentristem/
+https://www.uie.com/,1646,https://www.uie.com/
+https://www.untitledui.com/blog/free-icon-sets,1647,others
+https://www.usability.gov/what-and-why/information-architecture.html,1648,this primer
+https://www.userinterviews.com/launch-kit,1649,https://www.userinterviews.com/launch-kit
+https://www.utest.com/academy,1650,alternatives | https://www.utest.com/academy
+https://www.uxbeginner.com/,1651,UXBeginner
+https://www.uxbooth.com/articles/complete-beginners-guide-to-information-architecture/,1652,this article
+https://www.uxlibrary.org/,1653,https://www.uxlibrary.org/
+https://www.uxpin.com/studio/ebooks/,1654,Free UX books
+https://www.uxwritinglibrary.com/,1655,UX Writing Resource Library \- Home
+https://www.videosmaller.com/,1656,https://www.videosmaller.com/
+https://www.vieodesign.com/blog/what-are-lsi-keywords-and-do-they-matter,1657,VieoDesign What are LSI keywords
+https://www.viorelmocanu.ro/everymatrix-sass-standards.pdf,1658,SASS Standards | CSS / SCSS
+https://www.viorelmocanu.ro/greselile-recrutorilor/,1659,https://www.viorelmocanu.ro/greselile-recrutorilor/
+https://www.visily.ai/,1660,https://www.visily.ai/ | https://www.visily.ai/
+https://www.vuemastery.com/courses-path/vue3,1661,others@V3
+https://www.vuemastery.com/courses/intro-to-vue-3/intro-to-vue3,1662,VueMastery Intro to Vue 3
+https://www.vulnhub.com/,1663,https://www.vulnhub.com/ | VulnHub | Vuln Hub
+https://www.vulnmachines.com/,1664,Vuln Machines
+https://www.w3.org/TR/WCAG21/,1665,Official Web Content Accessibility Guidelines documentation
+https://www.w3resource.com/c-programming-exercises/,1666,https://www.w3resource.com/c-programming-exercises/
+https://www.w3resource.com/python-exercises/,1667,https://www.w3resource.com/python-exercises/
+https://www.w3schools.com/php/default.asp,1668,https://www.w3schools.com/php/default.asp
+https://www.w3schools.com/php/php\_mysql\_intro.asp,1669,https://www.w3schools.com/php/php\_mysql\_intro.asp
+https://www.w3schools.com/python,1670,https://www.w3schools.com/python
+https://www.wearehr.ro/,1671,https://www.wearehr.ro/
+https://www.webdesigndev.com/14-questions-to-ask-a-graphic-design-client/,1672,Questions to ask before starting a design project
+https://www.webfx.com/tools/read-able/,1673,Readability Test
+https://www.webpagetest.org/,1674,WebPageTest
+https://www.wikihow.com/Learn-PHP-and-MySQL,1675,https://www.wikihow.com/Learn-PHP-and-MySQL
+https://www.wiley.com/en-bb/Job+Ready+Java-p-9781119775645,1676,Job Ready Java
+https://www.wireshark.org/,1677,Wireshark
+https://www.woorank.com/,1678,https://www.woorank.com/
+https://www.wordstream.com/blog/ws/2015/04/30/seo-basics,1679,https://www.wordstream.com/blog/ws/2015/04/30/seo-basics
+https://www.wordstream.com/blog/ws/2023/10/27/brand-messaging,1680,https://www.wordstream.com/blog/ws/2023/10/27/brand-messaging
+https://www.wordstream.com/learn,1681,https://www.wordstream.com/learn
+https://www.wrappixel.com/,1682,https://www.wrappixel.com/
+https://www.wroromania.ro/,1683,https://www.wroromania.ro/
+https://www.xml-sitemaps.com/validate-xml-sitemap.html,1684,Sitemap Validator
+https://www.ycombinator.com/,1685,Website
+https://www.ycombinator.com/blog/13-startup-ideas,1686,https://www.ycombinator.com/blog/13-startup-ideas
+https://www.ycombinator.com/rfs/,1687,Y Combinator | https://www.ycombinator.com/rfs/
+https://www.youtube.com/@AhrefsCom,1688,https://www.youtube.com/@AhrefsCom
+https://www.youtube.com/@AnalyticsMania,1689,https://www.youtube.com/@AnalyticsMania
+https://www.youtube.com/@AniaKubow,1690,https://www.youtube.com/@AniaKubow
+https://www.youtube.com/@ArjanCodes,1691,https://www.youtube.com/@ArjanCodes
+https://www.youtube.com/@BenEater,1692,https://www.youtube.com/@BenEater
+https://www.youtube.com/@Brackeys,1693,https://www.youtube.com/@Brackeys
+https://www.youtube.com/@BrianDean,1694,https://www.youtube.com/@BrianDean
+https://www.youtube.com/@ChromeDevs,1695,https://www.youtube.com/@ChromeDevs | https://www.youtube.com/@ChromeDevs
+https://www.youtube.com/@CodeAesthetic,1696,https://www.youtube.com/@CodeAesthetic
+https://www.youtube.com/@Codewrinkles,1697,https://www.youtube.com/@Codewrinkles
+https://www.youtube.com/@CodingGarden,1698,https://www.youtube.com/@CodingGarden
+https://www.youtube.com/@CodingTech,1699,https://www.youtube.com/@CodingTech
+https://www.youtube.com/@CrawlingMondaysbyAleyda,1700,https://www.youtube.com/@CrawlingMondaysbyAleyda
+https://www.youtube.com/@DEFCONConference,1701,https://www.youtube.com/@DEFCONConference
+https://www.youtube.com/@Dani\_Krossing,1702,https://www.youtube.com/@Dani\_Krossing
+https://www.youtube.com/@DavesGarage,1703,https://www.youtube.com/@DavesGarage
+https://www.youtube.com/@DavidMahler,1704,https://www.youtube.com/@DavidMahler
+https://www.youtube.com/@DavidWehleGames,1705,https://www.youtube.com/@DavidWehleGames
+https://www.youtube.com/@DecodedFrontend,1706,https://www.youtube.com/@DecodedFrontend
+https://www.youtube.com/@DesignCourse,1707,https://www.youtube.com/@DesignCourse
+https://www.youtube.com/@DotNextConf,1708,https://www.youtube.com/@DotNextConf
+https://www.youtube.com/@EveryoneHatesMarketers,1709,https://www.youtube.com/@EveryoneHatesMarketers
+https://www.youtube.com/@Figma,1710,https://www.youtube.com/@Figma
+https://www.youtube.com/@FlorinPop,1711,https://www.youtube.com/@FlorinPop
+https://www.youtube.com/@ForeverDansky,1712,https://www.youtube.com/@ForeverDansky
+https://www.youtube.com/@Frankslaboratory,1713,https://www.youtube.com/@Frankslaboratory
+https://www.youtube.com/@FrontendMasters,1714,https://www.youtube.com/@FrontendMasters
+https://www.youtube.com/@GMTK,1715,https://www.youtube.com/@GMTK
+https://www.youtube.com/@GameDevChats,1716,https://www.youtube.com/@GameDevChats
+https://www.youtube.com/@GameTheory,1717,https://www.youtube.com/@GameTheory
+https://www.youtube.com/@GarethDavidStudio,1718,https://www.youtube.com/@GarethDavidStudio
+https://www.youtube.com/@Gdconf,1719,https://www.youtube.com/@Gdconf
+https://www.youtube.com/@HackerSploit,1720,https://www.youtube.com/@HackerSploit
+https://www.youtube.com/@Hacking-Work,1721,https://www.youtube.com/@Hacking-Work
+https://www.youtube.com/@IAmMarkManson,1722,https://www.youtube.com/@IAmMarkManson
+https://www.youtube.com/@IMSAIGuy,1723,https://www.youtube.com/@IMSAIGuy
+https://www.youtube.com/@JackRhysider,1724,https://www.youtube.com/@JackRhysider
+https://www.youtube.com/@JamesQQuick,1725,https://www.youtube.com/@JamesQQuick
+https://www.youtube.com/@JesseShowalter,1726,https://www.youtube.com/@JesseShowalter
+https://www.youtube.com/@JohnMaedaverse,1727,https://www.youtube.com/@JohnMaedaverse
+https://www.youtube.com/@JordanBPeterson,1728,https://www.youtube.com/@JordanBPeterson
+https://www.youtube.com/@JoshuaFluke1,1729,https://www.youtube.com/@JoshuaFluke1
+https://www.youtube.com/@JustForFunc,1730,https://www.youtube.com/@JustForFunc
+https://www.youtube.com/@KeepOnCoding,1731,https://www.youtube.com/@KeepOnCoding
+https://www.youtube.com/@KevinPowell,1732,https://www.youtube.com/@KevinPowell
+https://www.youtube.com/@LaravelDaily,1733,https://www.youtube.com/@LaravelDaily
+https://www.youtube.com/@LennysPodcast,1734,https://www.youtube.com/@LennysPodcast
+https://www.youtube.com/@LetsGameItOut,1735,https://www.youtube.com/@LetsGameItOut
+https://www.youtube.com/@LironSegev,1736,https://www.youtube.com/@LironSegev
+https://www.youtube.com/@LiveOverflow,1737,https://www.youtube.com/@LiveOverflow
+https://www.youtube.com/@LostRelicGames,1738,https://www.youtube.com/@LostRelicGames
+https://www.youtube.com/@Machinationsio,1739,https://www.youtube.com/@Machinationsio
+https://www.youtube.com/@MariusCiurea1,1740,https://www.youtube.com/@MariusCiurea1
+https://www.youtube.com/@MarkRober,1741,https://www.youtube.com/@MarkRober
+https://www.youtube.com/@MilanJovanovicTech,1742,https://www.youtube.com/@MilanJovanovicTech | https://www.youtube.com/@MilanJovanovicTech
+https://www.youtube.com/@MilanJovanovicTech/community,1743,https://www.youtube.com/@MilanJovanovicTech/community
+https://www.youtube.com/@MindArchitect,1744,https://www.youtube.com/@MindArchitect
+https://www.youtube.com/@NDC,1745,https://www.youtube.com/@NDC
+https://www.youtube.com/@NetworkChuck,1746,https://www.youtube.com/@NetworkChuck
+https://www.youtube.com/@Pontypants,1747,https://www.youtube.com/@Pontypants
+https://www.youtube.com/@ProductLed,1748,https://www.youtube.com/@ProductLed
+https://www.youtube.com/@ProductSchoolSanFrancisco,1749,https://www.youtube.com/@ProductSchoolSanFrancisco
+https://www.youtube.com/@Radu,1750,https://www.youtube.com/@Radu
+https://www.youtube.com/@RahulNath,1751,https://www.youtube.com/@RahulNath
+https://www.youtube.com/@RawCoding,1752,https://www.youtube.com/@RawCoding
+https://www.youtube.com/@SatoriGraphics,1753,https://www.youtube.com/@SatoriGraphics
+https://www.youtube.com/@ScrumOrg,1754,https://www.youtube.com/@ScrumOrg
+https://www.youtube.com/@SebastianLague,1755,https://www.youtube.com/@SebastianLague
+https://www.youtube.com/@StrangeLoopConf,1756,https://www.youtube.com/@StrangeLoopConf
+https://www.youtube.com/@TCMSecurityAcademy,1757,https://www.youtube.com/@TCMSecurityAcademy
+https://www.youtube.com/@TechWithTim/featured,1758,https://www.youtube.com/@TechWithTim/featured
+https://www.youtube.com/@TechWorldwithNana,1759,https://www.youtube.com/@TechWorldwithNana
+https://www.youtube.com/@TimBeaudet,1760,https://www.youtube.com/@TimBeaudet
+https://www.youtube.com/@TraversyMedia,1761,https://www.youtube.com/@TraversyMedia
+https://www.youtube.com/@UnaKravets,1762,https://www.youtube.com/@UnaKravets
+https://www.youtube.com/@ViorelMocanu,1763,V
+https://www.youtube.com/@WebDevCody,1764,https://www.youtube.com/@WebDevCody
+https://www.youtube.com/@WebDevSimplified,1765,https://www.youtube.com/@WebDevSimplified
+https://www.youtube.com/@Webcrunch,1766,https://www.youtube.com/@Webcrunch
+https://www.youtube.com/@WesBos,1767,https://www.youtube.com/@WesBos
+https://www.youtube.com/@Wynterio,1768,https://www.youtube.com/@Wynterio
+https://www.youtube.com/@\_JohnHammond,1769,https://www.youtube.com/@\_JohnHammond
+https://www.youtube.com/@aliabdaal,1770,https://www.youtube.com/@aliabdaal
+https://www.youtube.com/@amigoscode,1771,https://www.youtube.com/@amigoscode
+https://www.youtube.com/@anatudor,1772,https://www.youtube.com/@anatudor
+https://www.youtube.com/@basecamp,1773,https://www.youtube.com/@basecamp
+https://www.youtube.com/@bawad,1774,https://www.youtube.com/@bawad
+https://www.youtube.com/@blenderguru,1775,https://www.youtube.com/@blenderguru
+https://www.youtube.com/@coreyms,1776,https://www.youtube.com/@coreyms
+https://www.youtube.com/@cs50/playlists,1777,https://www.youtube.com/@cs50/playlists
+https://www.youtube.com/@davidbombal,1778,https://www.youtube.com/@davidbombal
+https://www.youtube.com/@derekbanas,1779,https://www.youtube.com/@derekbanas
+https://www.youtube.com/@dotnet,1780,https://www.youtube.com/@dotnet
+https://www.youtube.com/@elithecomputerguy,1781,https://www.youtube.com/@elithecomputerguy
+https://www.youtube.com/@flow-seo,1782,https://www.youtube.com/@flow-seo
+https://www.youtube.com/@grabbitt,1783,https://www.youtube.com/@grabbitt
+https://www.youtube.com/@hubermanlab,1784,https://www.youtube.com/@hubermanlab
+https://www.youtube.com/@indiehackers9840,1785,https://www.youtube.com/@indiehackers9840
+https://www.youtube.com/@javascriptmastery,1786,https://www.youtube.com/@javascriptmastery
+https://www.youtube.com/@jonasschmedtmann,1787,https://www.youtube.com/@jonasschmedtmann
+https://www.youtube.com/@jonhoo,1788,https://www.youtube.com/@jonhoo
+https://www.youtube.com/@jsconf\_,1789,https://www.youtube.com/@jsconf\_
+https://www.youtube.com/@kurzgesagt,1790,https://www.youtube.com/@kurzgesagt
+https://www.youtube.com/@laurspilca,1791,https://www.youtube.com/@laurspilca
+https://www.youtube.com/@leerob,1792,https://www.youtube.com/@leerob
+https://www.youtube.com/@librariadedesign,1793,https://www.youtube.com/@librariadedesign
+https://www.youtube.com/@mattpocockuk,1794,https://www.youtube.com/@mattpocockuk
+https://www.youtube.com/@mrgergelyorosz,1795,https://www.youtube.com/@mrgergelyorosz
+https://www.youtube.com/@neilpatel,1796,https://www.youtube.com/@neilpatel
+https://www.youtube.com/@nickchapsas,1797,https://www.youtube.com/@nickchapsas
+https://www.youtube.com/@pmi,1798,https://www.youtube.com/@pmi
+https://www.youtube.com/@product\_hq,1799,https://www.youtube.com/@product\_hq
+https://www.youtube.com/@programmingwithmosh,1800,https://www.youtube.com/@programmingwithmosh
+https://www.youtube.com/@robykatai,1801,https://www.youtube.com/@robykatai
+https://www.youtube.com/@smarters.romania,1802,https://www.youtube.com/@smarters.romania
+https://www.youtube.com/@t3dotgg,1803,https://www.youtube.com/@t3dotgg
+https://www.youtube.com/@thefutur,1804,https://www.youtube.com/@thefutur
+https://www.youtube.com/@thenewboston,1805,https://www.youtube.com/@thenewboston
+https://www.youtube.com/@thomasbrush,1806,https://www.youtube.com/@thomasbrush
+https://www.youtube.com/@tim-ruswick,1807,https://www.youtube.com/@tim-ruswick
+https://www.youtube.com/@toddbirzerproductmanagement,1808,https://www.youtube.com/@toddbirzerproductmanagement
+https://www.youtube.com/@unity,1809,https://www.youtube.com/@unity
+https://www.youtube.com/@visualstudio,1810,https://www.youtube.com/@visualstudio
+https://www.youtube.com/@ycombinator,1811,https://www.youtube.com/@ycombinator
+https://www.youtube.com/@zoran-horvat,1812,https://www.youtube.com/@zoran-horvat
+https://www.youtube.com/EEVBlog,1813,https://www.youtube.com/EEVBlog
+https://www.youtube.com/ViorelMocanu?sub\_confirmation=1,1814,My YouTube
+https://www.youtube.com/c/Academind,1815,https://www.youtube.com/c/Academind
+https://www.youtube.com/c/AngularFirebase,1816,https://www.youtube.com/c/AngularFirebase
+https://www.youtube.com/c/Azure4Everyone,1817,https://www.youtube.com/c/Azure4Everyone
+https://www.youtube.com/c/CGFastTrack/playlists,1818,CG Fast Track
+https://www.youtube.com/c/CGGeek/playlists,1819,CG Geek
+https://www.youtube.com/c/CloudAdvocate,1820,https://www.youtube.com/c/CloudAdvocate
+https://www.youtube.com/c/Frankslaboratory/videos,1821,channel | Franks laboratory
+https://www.youtube.com/c/GarethDavidStudio/videos,1822,Gareth David Studio
+https://www.youtube.com/c/LiveOverflowCTF,1823,https://www.youtube.com/c/LiveOverflowCTF
+https://www.youtube.com/c/MadeByGPS,1824,https://www.youtube.com/c/MadeByGPS
+https://www.youtube.com/c/MarcelDempers,1825,https://www.youtube.com/c/MarcelDempers
+https://www.youtube.com/c/TheChernoProject,1826,https://www.youtube.com/c/TheChernoProject
+https://www.youtube.com/c/ViorelMocanu?sub\_confirmation=1,1827,canalul meu | https://www.youtube.com/c/ViorelMocanu?sub\_confirmation=1
+https://www.youtube.com/c/cs50/featured,1828,YouTube
+https://www.youtube.com/c/javidx9,1829,https://www.youtube.com/c/javidx9
+https://www.youtube.com/c/rwxrob,1830,https://www.youtube.com/c/rwxrob
+https://www.youtube.com/c/tutoriaLinux,1831,https://www.youtube.com/c/tutoriaLinux
+https://www.youtube.com/c/ycombinator,1832,YouTube
+https://www.youtube.com/channel/UC0NErq0RhP51iXx64ZmyVfg,1833,https://www.youtube.com/channel/UC0NErq0RhP51iXx64ZmyVfg
+https://www.youtube.com/channel/UC0z3MpVGrpSZzClXrYcZBfw,1834,https://www.youtube.com/channel/UC0z3MpVGrpSZzClXrYcZBfw
+https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA,1835,Brad Traversy
+https://www.youtube.com/channel/UC46xhU1EH7aywEgvA9syS3w,1836,https://www.youtube.com/channel/UC46xhU1EH7aywEgvA9syS3w
+https://www.youtube.com/channel/UC7yfnfvEUlXUIfm8rGLwZdA,1837,https://www.youtube.com/channel/UC7yfnfvEUlXUIfm8rGLwZdA
+https://www.youtube.com/channel/UC9x0AN7BWHpCDHSm9NiJFJQ,1838,free tutorials
+https://www.youtube.com/channel/UCDidoS6DWZVYk-PdNtcY9PQ,1839,SAAS marketing vlog
+https://www.youtube.com/channel/UCG21GE2Go3vkj7mrs675ysA,1840,https://www.youtube.com/channel/UCG21GE2Go3vkj7mrs675ysA
+https://www.youtube.com/channel/UCMlGfpWw-RUdWX\_JbLCukXg,1841,cppcon
+https://www.youtube.com/channel/UCP7WmQ\_U4GB3K51Od9QvM0w/videos,1842,David Bombal
+https://www.youtube.com/channel/UCZGGwqjk5jfO4vN1SOCJ2ew,1843,https://www.youtube.com/channel/UCZGGwqjk5jfO4vN1SOCJ2ew
+https://www.youtube.com/channel/UCa6eh7gCkpPo5XXUDfygQQA,1844,IppSec
+https://www.youtube.com/channel/UCbfYPyITQ-7l4upoX8nvctg/videos,1845,Two minute papers
+https://www.youtube.com/channel/UCdngmbVKX1Tgre699-XLlUA,1846,https://www.youtube.com/channel/UCdngmbVKX1Tgre699-XLlUA
+https://www.youtube.com/channel/UCeU-1X402kT-JlLdAitxSMA,1847,Florin Ion
+https://www.youtube.com/channel/UClcE-kVhqyiHCcjYwcpfj9w,1848,LiveOverflow
+https://www.youtube.com/channel/UCrRiVfHqBIIvSgKmgnSY66g,1849,mmmEnglish
+https://www.youtube.com/channel/UCslYinLbZnzzUdG0BMaiDKw,1850,https://www.youtube.com/channel/UCslYinLbZnzzUdG0BMaiDKw
+https://www.youtube.com/channel/UCufT4mqkeAss6qmI0OF5Bzw,1851,https://www.youtube.com/channel/UCufT4mqkeAss6qmI0OF5Bzw
+https://www.youtube.com/channel/UCxHAlbZQNFU2LgEtiqd2Maw,1852,C++ Weekly
+https://www.youtube.com/playlist?list=PL-osiE80TeTskrapNbzXhwoFUiLCjGgY7,1853,Python Programming Beginner Tutorials \- YouTube
+https://www.youtube.com/playlist?list=PL0eyrZgxdwhwNC5ppZo\_dYGVjerQY3xYU,1854,HTML and CSS Tutorials \- YouTube | https://www.youtube.com/playlist?list=PL0eyrZgxdwhwNC5ppZo\_dYGVjerQY3xYU
+https://www.youtube.com/playlist?list=PL30C13C91CFFEFEA6,1855,Justice \- Moral Philosophy course
+https://www.youtube.com/playlist?list=PL590L5WQmH8dsxxz7ooJAgmijwOz0lh2H,1856,HACKING GOOGLE \- YouTube
+https://www.youtube.com/playlist?list=PL9D558D49CA734A02,1857,Programming Paradigms
+https://www.youtube.com/playlist?list=PLB0Tybl0UNfb3hTHPfEIg1SPw\_-Ca9iIw,1858,Visual Web Development (2021)
+https://www.youtube.com/playlist?list=PLBDA2E52FB1EF80C9,1859,Crash Course in World History
+https://www.youtube.com/playlist?list=PLDesaqWTN6ESsmwELdrzhcGiRhk5DjwLP,1860,Precalculus \- College Algebra/Trigonometry \- YouTube
+https://www.youtube.com/playlist?list=PLEiEAq2VkUUJpY2dHm-X7VB1acIH8d0Ze,1861,Simplilearn YouTube SEO course
+https://www.youtube.com/playlist?list=PLKAyGpypHE7dHpGjm\_sW9htRkCogBW97i,1862,https://www.youtube.com/playlist?list=PLKAyGpypHE7dHpGjm\_sW9htRkCogBW97i
+https://www.youtube.com/playlist?list=PLLAZ4kZ9dFpOFJ9JcVW9u4PlSWO-VFoao,1863,https://www.youtube.com/playlist?list=PLLAZ4kZ9dFpOFJ9JcVW9u4PlSWO-VFoao
+https://www.youtube.com/playlist?list=PLLKT\_\_MCUeix3O0DPbmuaRuR\_4Hxo4m3G,1864,Buffer Overflows Made Easy \- YouTube
+https://www.youtube.com/playlist?list=PLOeFnOV9YBa4yaz-uIi5T4ZW3QQGHJQXi,1865,ASP.NET Core Authentication and Authorization Tutorials \- YouTube
+https://www.youtube.com/playlist?list=PLQB56B9Yjxu-xAYGg9z\_s271UvDSgcA7h,1866,"Retelistica pentru Incepatori | Cisco CCNA Modulul 1, 2, 3, 4 | Retele de Calculatoare \- YouTube"
+https://www.youtube.com/playlist?list=PLQB56B9Yjxu9\_265koJhWmL02PhhuBW0G,1867,Securitate Cibernetica si Ethical Hacking: Tutoriale pentru incepatori | CEH | CCNA Security | Invata Securitate \- YouTube
+https://www.youtube.com/playlist?list=PLQB56B9Yjxu9a8rjrrRSov7DSSbwPQ8So,1868,Linux: Tutoriale pentru Incepatori | Invata Linux & Ubuntu \- YouTube
+https://www.youtube.com/playlist?list=PLQB56B9Yjxu9zwF8jZ5AnPiJPKDyZnR9g,1869,Programare pentru Incepatori: Tutoriale in Romana | Programare pentru Incepatori | Limbaje de Programare \- YouTube
+https://www.youtube.com/playlist?list=PLUVWXwPeA4CxcA2o1lCBGb2elaglSVRQ2,1870,Curs de Python gratis pentru incepatori \- YouTube | Tutoriale în Python de Marius Ciurea
+https://www.youtube.com/playlist?list=PLUl4u3cNGP63gFHB6xb-kVBiQHYe\_4hSi,1871,Cursul MIT despre AI
+https://www.youtube.com/playlist?list=PLVz1bbeMX6hy6Xb6exLUuEq845VIiJU\_n,1872,Google Tag Manager for Beginners 2021
+https://www.youtube.com/playlist?list=PLYElE\_rzEw\_v8TXJ\_ITSSBP\_ypUKfQ7K-,1873,Front End Web Development Projects for Beginners
+https://www.youtube.com/playlist?list=PLYdpEVB86eG6IDpm0siSVxY7He6gnJs\_E,1874,https://www.youtube.com/playlist?list=PLYdpEVB86eG6IDpm0siSVxY7He6gnJs\_E
+https://www.youtube.com/playlist?list=PLa1F2ddGya\_-UvuAqHAksYnB0qL9yWDO6,1875,Blender Fundamentals 2.8
+https://www.youtube.com/playlist?list=PLaJiOUIMDSh5TtO1kedWRScDHn7r0cR7x,1876,https://www.youtube.com/playlist?list=PLaJiOUIMDSh5TtO1kedWRScDHn7r0cR7x
+https://www.youtube.com/playlist?list=PLbN57C5Zdl6j\_qJA-pARJnKsmROzPnO9V,1877,Nonlinear Dynamics and Chaos
+https://www.youtube.com/playlist?list=PLe7Ei6viL6jGp1Rfu0dil1JH1SHk9bgDV,1878,Haskell for Imperative Programmers
+https://www.youtube.com/playlist?list=PLfTqvIG4roBpruaYAsLJvQMnKuVqA4Glg,1879,https://www.youtube.com/playlist?list=PLfTqvIG4roBpruaYAsLJvQMnKuVqA4Glg
+https://www.youtube.com/playlist?list=PLfTqvIG4roBrMc7SWJQ4NSpVA93jCHfOF,1880,The EveryMatrix Site Building Workshops
+https://www.youtube.com/playlist?list=PLfTqvIG4roBriVPmIV\_42alacUcK1xt23,1881,36 types of jobs in IT (in Romanian) from my YouTube channel
+https://www.youtube.com/playlist?list=PLgGbWId6zgaWZkPFI4Sc9QXDmmOWa1v5F,1882,30 days to HTML/CSS
+https://www.youtube.com/playlist?list=PLhQjrBD2T382\_R182iC2gNZI9HzWFMC\_8,1883,CS50 Lectures 2020 \- YouTube
+https://www.youtube.com/playlist?list=PLlrxD0HtieHjqO1pNqScMngrV7oFro-TY\#fef,1884,PWA for beginners
+https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU,1885,Machine Learning course
+https://www.youtube.com/playlist?list=PLsR1AO4QH1AyR0HEQH9eq53K9RSfzXsbD,1886,https://www.youtube.com/playlist?list=PLsR1AO4QH1AyR0HEQH9eq53K9RSfzXsbD
+https://www.youtube.com/playlist?list=PLuv3GM6-gsE01L9yDO0e5UhQapkCPGnY3,1887,https://www.youtube.com/playlist?list=PLuv3GM6-gsE01L9yDO0e5UhQapkCPGnY3
+https://www.youtube.com/playlist?list=PLwscrByc3TJ5GcsnLQVrJ4OwvS\_xCm\_-f,1888,Web Development \- YouTube
+https://www.youtube.com/playlist?list=PLyQSN7X0ro203puVhQsmCj9qhlFQ-As8e,1889,Physics course
+https://www.youtube.com/playlist?list=PLz8Iz-Fnk\_eTpvd49Sa77NiF8Uqq5Iykx,1890,https://www.youtube.com/playlist?list=PLz8Iz-Fnk\_eTpvd49Sa77NiF8Uqq5Iykx
+https://www.youtube.com/user/AndrewPPrice/playlists,1891,Blender Guru
+https://www.youtube.com/user/BlackHatOfficialYT,1892,BlackHat
+https://www.youtube.com/user/DEFCONConference,1893,DEFCON
+https://www.youtube.com/user/Nephaste20,1894,https://www.youtube.com/user/Nephaste20
+https://www.youtube.com/user/RootOfTheNull,1895,https://www.youtube.com/user/RootOfTheNull | John Hammond
+https://www.youtube.com/user/TechGuyWeb,1896,https://www.youtube.com/user/TechGuyWeb
+https://www.youtube.com/user/bienadam,1897,https://www.youtube.com/user/bienadam
+https://www.youtube.com/user/lefticus1,1898,https://www.youtube.com/user/lefticus1 | Cᐩᐩ Weekly With Jason Turner
+https://www.youtube.com/user/vrentea,1899,https://www.youtube.com/user/vrentea
+https://www.youtube.com/watch?v=-56x56UppqQ,1900,MongoDB Crash Course
+https://www.youtube.com/watch?v=-YepJsv0ing,1901,https://www.youtube.com/watch?v=-YepJsv0ing
+https://www.youtube.com/watch?v=0ihChIaN8d0,1902,https://www.youtube.com/watch?v=0ihChIaN8d0
+https://www.youtube.com/watch?v=0mrl1ASOr\_M,1903,TS tutorial
+https://www.youtube.com/watch?v=0pThnRneDjw,1904,Traversy Media | https://www.youtube.com/watch?v=0pThnRneDjw
+https://www.youtube.com/watch?v=1lBdlh3AGSc\&safe=active,1905,GIT 101
+https://www.youtube.com/watch?v=24fHLWXGS-M,1906,Beginner Web Application Hacking (Full Course)
+https://www.youtube.com/watch?v=28\_x6BQVd6I,1907,"T-minus 3, 2, 1: Future-proofing production systems - Kavya Joshi (Samsara)"
+https://www.youtube.com/watch?v=2eebptXfEvw,1908,PHP For Absolute Beginners | 6.5 Hour Course
+https://www.youtube.com/watch?v=2olsGf6JIkU,1909,105 STL Algorithms in Less Than an Hour | 105 STL Algorithms in Less Than an Hour
+https://www.youtube.com/watch?v=3EMxBkqC4z0,1910,Intro to Game Development with JavaScript - Full Tutorial
+https://www.youtube.com/watch?v=3PHXvlpOkf4,1911,2
+https://www.youtube.com/watch?v=3\_hVG5H4sYA,1912,The Complete 2023 Web Development Bootcamp By Angela Yu (Full Course Download Link In Description)
+https://www.youtube.com/watch?v=3eqEl6scOvw,1913,How DNS Works
+https://www.youtube.com/watch?v=47e8b5XmHfQ,1914,How You Can Learn Design Without School
+https://www.youtube.com/watch?v=6oMZb3yP\_H8,1915,Marching Squares Visualized
+https://www.youtube.com/watch?v=9zdvmgGsww0\&list=PL4cUxeGkcC9jERUGvbudErNCeSZHWUVlb,1916,Getting Started with Firebase 9 \#1 - Intro & What's New?
+https://www.youtube.com/watch?v=9zdvmgGsww0\&list=PL4cUxeGkcC9jERUGvbudErNCeSZHWUVlb\&ab\_channel=NetNinja,1917,Getting Started with Firebase 9 \#1 - Intro & What's New?
+https://www.youtube.com/watch?v=AOQHe3Si-VA,1918,https://www.youtube.com/watch?v=AOQHe3Si-VA
+https://www.youtube.com/watch?v=As6g6IXcVa4\&list=PLG49S3nxzAnlCJiCrOYuRYb6cne864a7G,1919,How to Pass Your N10-008 Network+ Exam
+https://www.youtube.com/watch?v=EcYXsp78Xy8,1920,Laravel PHP Framework Tutorial - Full Course for Beginners | Build a Blog with Laravel
+https://www.youtube.com/watch?v=FTAPjr7vgxE,1921,How the Internet Works for Developers - Pt 2 - Servers & Scaling
+https://www.youtube.com/watch?v=GNO\_CYUjMK8,1922,Making WebGL Dance
+https://www.youtube.com/watch?v=HnXmI2UVZlU,1923,0
+https://www.youtube.com/watch?v=IKFNGFUxOTA,1924,Tutorial JavaScript pentru începători | Tutorial Web Development de la 0
+https://www.youtube.com/watch?v=IPmRDS0OSxM,1925,"A Firehose of Rust, for busy people who know some C++"
+https://www.youtube.com/watch?v=IhX0fOUYd8Q,1926,How to Build a PC\! Step-by-step
+https://www.youtube.com/watch?v=IlU-zDU6aQ0,1927,"study less, study smart"
+https://www.youtube.com/watch?v=ImBlQJAMCQY,1928,The 10-Minute Rule That Makes Hard Work Feel Like TikTok
+https://www.youtube.com/watch?v=ImtZ5yENzgE,1929,Laravel PHP Framework Tutorial - Full Course for Beginners (2019)
+https://www.youtube.com/watch?v=JkeyKeK3V24,1930,5 HTML/CSS/JS free projects
+https://www.youtube.com/watch?v=KJgsSFOSQv0,1931,C Programming Tutorial for Beginners
+https://www.youtube.com/watch?v=M1\_v5HBVHWo,1932,CISSP Certification Course – PASS the Certified Information Security Professional Exam\!
+https://www.youtube.com/watch?v=OK\_JCtrrv-c,1933,PHP Programming Language Tutorial - Full Course
+https://www.youtube.com/watch?v=OQGbOI0DZLg,1934,PSD to HTML
+https://www.youtube.com/watch?v=OUzaUJ3gEug,1935,"Full Stack Web Development in the Cloud Course - Svelte, Postgres, Vercel, Gitpod"
+https://www.youtube.com/watch?v=P6UKhR0T6cs\&t=65s,1936,The Physics of Light and Rendering
+https://www.youtube.com/watch?v=POxtIWLNlmI,1937,this guy’s tutorial
+https://www.youtube.com/watch?v=PUPDGbnpSjw,1938,CS50 2017 - Lecture 6 - HTTP
+https://www.youtube.com/watch?v=PkZNo7MFNFg,1939,Learn JavaScript - Full Course for Beginners | 1 | Learn JavaScript - Full Course for Beginners
+https://www.youtube.com/watch?v=QpAhX-gsHMs,1940,https://www.youtube.com/watch?v=QpAhX-gsHMs
+https://www.youtube.com/watch?v=QpAhX-gsHMs\&t=1112s,1941,Modern C and What We Can Learn From It
+https://www.youtube.com/watch?v=SBB1YtwODT0,1942,LearnCode Academy
+https://www.youtube.com/watch?v=TJg1qrkR5mI,1943,part 0
+https://www.youtube.com/watch?v=TPrnSACiTJ4,1944,video 2
+https://www.youtube.com/watch?v=TdqQqyc7pfU,1945,"Web Development Full Course (Front End) |  HTML,CSS,JavaScript"
+https://www.youtube.com/watch?v=TzdajQHS7xA,1946,How to Prepare for Technical Interviews
+https://www.youtube.com/watch?v=UB1O30fR-EE,1947,HTML Crash Course For Absolute Beginners
+https://www.youtube.com/watch?v=Unzc731iCUY,1948,an MIT lecture
+https://www.youtube.com/watch?v=VT5oZndzj68,1949,video 1
+https://www.youtube.com/watch?v=Wm6CUkswsNw,1950,Build An HTML5 Website With A Responsive Layout
+https://www.youtube.com/watch?v=WnN6dbos5u8,1951,Full Ethical Hacking Course - Beginner Network Penetration Testing (2019)
+https://www.youtube.com/watch?v=XGnDu\_NsTss,1952,Lighting and Baking Workflow: Blender Tutorial
+https://www.youtube.com/watch?v=XKHEtdqhLK8,1953,Python Full Course for free 🐍
+https://www.youtube.com/watch?v=Xm4BObh4MhI,1954,12HR+ YouTube Coding Bootcamp 2021\! by Ania Kubów
+https://www.youtube.com/watch?v=YnWhqhNdYyk,1955,Stop Teaching C | Stop Teaching C
+https://www.youtube.com/watch?v=YoXxevp1WRQ\&list=PLhQjrBD2T382\_R182iC2gNZI9HzWFMC\_8,1956,CS50
+https://www.youtube.com/watch?v=ZQFzMfHIxng,1957,"C++ atomics, from basic to advanced. What do they really do?"
+https://www.youtube.com/watch?v=ZcpwnozMh2U,1958,Quantum Mechanical view of Reality
+https://www.youtube.com/watch?v=Zys7mWgz85k,1959,GIT tutorial Română
+https://www.youtube.com/watch?v=\_160oMzblY8,1960,Blockchain 101 - A Visual Demo
+https://www.youtube.com/watch?v=\_j4Lj-BT00g,1961,https://www.youtube.com/watch?v=\_j4Lj-BT00g
+https://www.youtube.com/watch?v=ajv46BSqcK4,1962,GJK Algorithm Visualized
+https://www.youtube.com/watch?v=b4mS5UPHh20,1963,Crust of Rust: Channels
+https://www.youtube.com/watch?v=bBC-nXj3Ng4,1964,https://www.youtube.com/watch?v=bBC-nXj3Ng4
+https://www.youtube.com/watch?v=bMHd4qS2o2w,1965,Cyber Security Paths | The LAST Roadmap You'll Ever Need
+https://www.youtube.com/watch?v=cGwSm8xDSwI,1966,PHP & MySQL Tutorial | Learn PHP From Scratch | Full Tutorial
+https://www.youtube.com/watch?v=cwtpLIWylAw,1967,CS50x 2024 - Lecture 1 - C
+https://www.youtube.com/watch?v=e4S8zfLdLgQ,1968,How the Internet Works for Developers - Pt 1 - Overview & Frontend
+https://www.youtube.com/watch?v=ewrBalT\_eBM,1969,A Packet's Tale. How Does the Internet Work?
+https://www.youtube.com/watch?v=f-9LEoYYvE4,1970,100 second introduction into WebGL
+https://www.youtube.com/watch?v=fNzpcB7ODxQ,1971,Ethical Hacking in 12 Hours - Full Course - Learn to Hack\!
+https://www.youtube.com/watch?v=fmyvWz5TUWg,1972,https://www.youtube.com/watch?v=fmyvWz5TUWg
+https://www.youtube.com/watch?v=g1J4181W8ss,1973,https://www.youtube.com/watch?v=g1J4181W8ss
+https://www.youtube.com/watch?v=g9uUIUqhrSQ,1974,Introduction to Economics
+https://www.youtube.com/watch?v=gB1F9G0JXOo,1975,Learn Unity - Beginner's Game Development Tutorial
+https://www.youtube.com/watch?v=gCa0z4B-CRo,1976,JS games crash course | JavaScript Game Development Crash Course
+https://www.youtube.com/watch?v=gCa0z4B-CRo\&list=WL,1977,JavaScript Game Development Crash Course
+https://www.youtube.com/watch?v=gjWM5K02lAY,1978,Google Not Crawling My Website - How to Index Website FAST
+https://www.youtube.com/watch?v=hvoniP3uso8,1979,https://www.youtube.com/watch?v=hvoniP3uso8
+https://www.youtube.com/watch?v=hxxw9VhRyik,1980,https://www.youtube.com/watch?v=hxxw9VhRyik
+https://www.youtube.com/watch?v=j9tlJAqMV7U,1981,"Nano-coroutines to the Rescue\! (Using Coroutines TS, of Course)"
+https://www.youtube.com/watch?v=jTCxUXGM6tc,1982,Premiere Pro Tutorial for Beginners 2022 - Everything You NEED to KNOW\!
+https://www.youtube.com/watch?v=jgQjes7MgTM,1983,The BEST Coding Interview Roadmap in 2023 (free)
+https://www.youtube.com/watch?v=jtLpCLELKgI,1984,How to Learn SEO Fast (The RIGHT Way)
+https://www.youtube.com/watch?v=k6U-i4gXkLM\&list=PL4C4720A6F225E074,1985,Cursuri MIT
+https://www.youtube.com/watch?v=kEW6f7Pilc4,1986,PDO Crash Course (PHP)
+https://www.youtube.com/watch?v=kes2qmijy7w,1987,https://www.youtube.com/watch?v=kes2qmijy7w
+https://www.youtube.com/watch?v=lBBtq3Oawqw,1988,MongoDB Full Course | MongoDB Tutorial | MongoDB Tutorial For Beginners | MongoDB  | Simplilearn
+https://www.youtube.com/watch?v=lhNdUVh3qCc,1989,3 | Learn JavaScript by Building 7 Games - Full Course
+https://www.youtube.com/watch?v=myi5i2zIUAk,1990,Everything you need to know about making your CV (in Romanian) from my YouTube
+https://www.youtube.com/watch?v=n1cKlKM3jYI,1991,An Introduction to Browser Rendering
+https://www.youtube.com/watch?v=n\_2jPbQornY,1992,Linux Essentials - Beginner Crash Course (Ubuntu)
+https://www.youtube.com/watch?v=q1fsBWLpYW4,1993,21 Awesome Web Features you’re not using yet
+https://www.youtube.com/watch?v=qIMvacpagfw,1994,https://www.youtube.com/watch?v=qIMvacpagfw
+https://www.youtube.com/watch?v=qwA6MmbeGNo,1995,https://www.youtube.com/watch?v=qwA6MmbeGNo
+https://www.youtube.com/watch?v=rAl-9HwD858\&list=PLqbS7AVVErFiWDOAVrPt7aYmnuuOLYvOa,1996,Crust of Rust
+https://www.youtube.com/watch?v=rZsJieGi8os,1997,The Complete Linux for Ethical Hackers Course for 2019
+https://www.youtube.com/watch?v=tv-\_1er1mWI,1998,10 Design Patterns Explained in 10 Minutes
+https://www.youtube.com/watch?v=u4VWQZ8KLmI,1999,Become an Ethical Hacker for $0
+https://www.youtube.com/watch?v=uoc0U-WsPa0,2000,How to Teach 5 Semesters of Game Design in 1 Class
+https://www.youtube.com/watch?v=vBU70EjwGfw,2001,CRDT for Non-Academics
+https://www.youtube.com/watch?v=wN0x9eZLix4,2002,Object Oriented Programming (OOP) in C++ Course
+https://www.youtube.com/watch?v=w\_6j9R6v0n4,2003,Use ChatGPT to learn any language for free
+https://www.youtube.com/watch?v=xsVTqzratPs,2004,Complete SEO Course for Beginners: Learn to Rank \#1 in Google | Complete SEO Course for Beginners: Learn to Rank \#1 in Google
+https://www.youtube.com/watch?v=yfoY53QXEnI,2005,Crash Course
+https://www.zachleat.com/web/glyphhanger/,2006,https://www.zachleat.com/web/glyphhanger/
+https://www2.mathematik.tu-darmstadt.de/\~ehartmann/cdgen0104.pdf,2007,Geometry and Algorithms for CAD
+https://xsgames.co/animatiss/,2008,https://xsgames.co/animatiss/
+https://yellowlab.tools/,2009,Yellow Lab Tools
+https://yoast.com/wordpress-seo/,2010,yoast.com/wordpress-seo/
+https://youmightnotneed.com/,2011,https://youmightnotneed.com/
+https://yourbrainoncomputers.com/using-github-to-build-a-portfolio-ultimate-guide/,2012,Using GitHub to Build a Portfolio (2020 Ultimate Guide)
+https://youtu.be/xk4\_1vDrzzo,2013,Java Full Course ☕【𝙁𝙧𝙚𝙚】
+https://youtube.com/@RefactoringDuncan,2014,https://youtube.com/@RefactoringDuncan
+https://youtube.com/@developedbyed,2015,developedbyed \- YouTube

@@ -45,6 +45,10 @@ export const ACCENT_COLOR = '#2f8ded';
 export const OG_IMAGE = '../public/ogimage.jpg';
 export const OG_IMAGE_ALT = ''; //					🛑 @TODO: OG Image ALT
 export const GLOBAL_PUB_DATE = '2023-09-30T19:35:55+03:00';
+export const DEFAULT_URL = '/';
+export const DEFAULT_TITLE = 'Titlul nu a fost găsit';
+export const DEFAULT_DESCRIPTION = 'Descrierea nu a fost găsită.';
+export const DEFAULT_MENULABEL = 'Pagină';
 export const PAGE_SIZE = 10;
 
 export const resourceTypeIcon: { [key: string]: string } = {
@@ -67,6 +71,45 @@ export type Headings = {
 	slug: string;
 	text: string;
 }[];
+
+export interface Taxonomy {
+	id: number;
+	title: string;
+	title_en?: string | null;
+	slug: string;
+	description?: string | null;
+	description_en?: string | null;
+	type: number;
+	parent?: number | null;
+	menu?: string | null;
+	menu_en?: string | null;
+	sort_order?: number | null;
+	image?: string | null;
+	image_alt?: string | null;
+	created_at: Date;
+	modified_at: Date;
+}
+
+export interface Resource {
+	id: number;
+	title: string;
+	title_en?: string | null;
+	slug: string;
+	url: string;
+	language: string;
+	description?: string | null;
+	description_en?: string | null;
+	author_id: string;
+	price: number;
+	required_time?: number | null;
+	image?: string | null;
+	image_alt?: string | null;
+	section?: number | null;
+	category?: number | null;
+	subcategory: number;
+	created_at: Date;
+	modified_at: Date;
+}
 
 export type ExtendedCategory = CollectionEntry<'categories'> & {
 	subCategoryData: CollectionEntry<'subcategories'>[];

@@ -4,24 +4,22 @@
  * @component
  * @example
  * ```astro
- * <ResourceFilter section={mySection} />
+ * <ResourceFilter tid="1" />
  * ```
- * @property {CollectionEntry<"sections">} [section] - An optional string representing the section.
+ * @property {number} [tid] - An object representing the current section ID.
  * @returns {astro.AstroNode} The resource filter component.
  */
 
-import { type CollectionEntry } from 'astro:content';
+import { Taxonomy, db, eq } from 'astro:db';
 
-export interface Props {
-	section?: CollectionEntry<'sections'>;
-}
+const { tid } = Astro.props;
 
-const { section } = Astro.props satisfies Props;
-const sectionCategories = !!section?.data?.categories;
+const taxonomyQuery = await db.select().from(Taxonomy).where(eq(Taxonomy.id, tid)).limit(1);
+const taxonomy = taxonomyQuery.map((item) => item)[0];
 ---
 
 <form class="SortAndFilter" action="#" method="get" aria-label="Filtrează resursele în contextul curent" transition:name="SortAndFilter">
-	<fieldset class="Fieldset" role="search" aria-label="Caută resurse în contextul curent">
+	<fieldset class="Fieldset" role="search" aria-label={`Caută resurse în contextul curent din ${taxonomy?.title}`}>
 		<legend class="SROnly">Caută prin lista de resurse curentă:</legend>
 		<label class="SROnly" id="innerSLabel" for="inner-s">Introdu cuvintele căutate:</label>
 		<input
@@ -31,7 +29,7 @@ const sectionCategories = !!section?.data?.categories;
 			name="inner-s"
 			maxlength="200"
 			value=""
-			placeholder="🔍 Caută prin Front End..."
+			placeholder={`🔍 Caută prin ${taxonomy?.title}...`}
 			spellcheck="false"
 			autocorrect="off"
 			aria-labelledby="innerSLabel"
@@ -274,7 +272,7 @@ const sectionCategories = !!section?.data?.categories;
 			</ul>
 		</details>
 		{
-			sectionCategories && (
+			true && (
 				<button class="SubnavTrigger" type="button" id="subnavTrigger">
 					<span class="Icon IconCategories">
 						<span class="SROnly">🔥</span>

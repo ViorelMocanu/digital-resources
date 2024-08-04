@@ -1,0 +1,516 @@
+# **_Structura [Resurse.dev](https://resurse.dev/)_**
+
+## **Resurse de Front End Development**
+
+-   Introducere în Front End
+-   Unelte Utile de Front End
+    -   Browsere și plugin-uri
+    -   Editoare text și IDE-uri
+    -   Version control și GIT
+    -   Transfer de fișiere și FTP
+    -   Testarea site-urilor
+    -   Hosting & deployment pentru site-uri
+    -   Alte unelte și resurse de Front End
+-   HTML (Hyper Text Markup Language)
+    -   Elemente de bază
+    -   Arhitectură și structuri informaționale
+    -   Secțiuni de conținut
+    -   Formulare
+    -   Meta informații
+    -   Semantică
+    -   Multimedia și elemente non-standard
+    -   Embed-uri și Web Components
+    -   Convenții și bune practici
+    -   Accesibilitate
+    -   SEO Tehnic
+    -   Progressive enhancement
+    -   Performanță
+    -   Emmet și alte utilitare pentru viteză
+-   CSS (Cascading Style Sheets)
+    -   Introducere în CSS
+    -   Componente și detalii
+    -   Tipografie
+    -   Layout și Box Model
+    -   Interactivitate
+    -   Animații și efecte speciale
+    -   Principii și sisteme de design
+    -   SCSS vs SASS vs LESS
+    -   Tailwind și alte framework-uri de CSS
+-   Layout & Mobile-first Responsive Web Design
+    -   Responsive Web Design
+    -   Mobile 1st
+    -   Layout
+    -   Templating
+-   Implementare de design, templating și UX
+    -   UX (Experiența Utilizatorului)
+    -   Figma
+    -   Adobe XD
+    -   Photoshop
+-   JavaScript
+    -   Introducere în JS
+    -   Sintaxă de bază în JS
+    -   Tehnici avansate în JS
+    -   Algoritmică în JS
+    -   Cursuri și resurse de Vanilla JS
+    -   Convenții și bune practici
+-   TypeScript
+    -   Introducere în TS
+    -   Types și aserții
+    -   Concepte avansate de TS
+    -   Module de TS
+    -   Ecosistem de TS
+-   Tooling de Front End
+    -   Bundling (NPM)
+    -   Package Management (PNPM)
+    -   Task running (?)
+    -   Style formatting (Prettier)
+    -   Linting (ESLint)
+    -   Unit Testing (Vitest)
+    -   End to End Testing (Playwright)
+    -   Type checking (TS)
+-   Framework-uri și sisteme de Front End
+    -   React.js și Next.js
+    -   Vue și Nuxt.js
+    -   Angular
+    -   Svelte și SvelteKit
+    -   Qwik și QwikCity
+    -   Solid și SolidStart
+    -   Astro
+    -   Preact
+    -   Express
+    -   HTMX
+    -   Alte framework-uri
+-   Autentificare și securitate în Front End
+    -   Autentificare (JWT, OAuth, SSO, Basic Auth, Session Auth)
+    -   Securitate web (CORS, HTTPS, CSP, OWASP)
+-   Strategii de randare și content delivery
+    -   Static & SSG / MPA
+    -   Server & SSR
+    -   Client & SPA
+    -   Hybrid (SSG \+ SSR \+ SPA)
+    -   Multi-platform (PWA, Electron, React Native, Flutter)
+-   Idei de proiecte de Front End
+-   Știri și noutăți din programare
+    -   Site-uri cu articole
+    -   Newslettere
+    -   Comunități
+
+## **Resurse de Programare și Back End Development**
+
+-   Introducere în programare
+    -   Resurse pentru copii
+    -   Locuri bune de unde să începi
+-   Unelte Utile de Back End
+    -   Editoare text și IDE-uri
+    -   Version control și GIT
+    -   Transfer de fișiere și FTP
+    -   API-uri publice gratuite
+    -   Alte unelte și resurse de Back End
+-   Teoria programării și Computer Science
+    -   Structuri de date
+    -   Notație asimptotică și Big O
+    -   Algoritmi comuni
+    -   Manipulare de string-uri
+    -   Operatori binari
+    -   Numere reale și floating point
+    -   Encoding de caractere
+    -   Diagrame UML
+    -   Design patterns
+    -   Clase de complexitate
+    -   Arbori de căutare
+    -   Design de sisteme
+    -   Baze de date
+    -   Rețelistică
+    -   Securitate
+    -   Cum funcționează calculatoarele
+    -   Procese și thread-uri
+-   Matematica necesară programării
+    -   ???
+-   Algoritmi și structuri de date
+    -   ???
+-   Design și arhitectură software
+    -   Design patterns
+    -   Domain driven design
+    -   Test driven development
+    -   CQRS
+    -   Event sourcing
+    -   Modele arhitecturale
+    -   Brokeri de mesaje
+    -   Containerizare și virtualizare
+    -   Servere și clienți
+    -   Scalabilitate
+-   Limbaje de programare
+    -   Node.js
+    -   PHP
+    -   Python
+    -   Java
+    -   C / C++
+    -   C\# / ASP.NET
+    -   Rust
+    -   GoLang
+    -   Haskell
+    -   OCaml
+    -   Prolog
+    -   Forth
+    -   Erlang
+    -   R
+    -   Rails
+    -   Kotlin
+    -   Bash
+    -   PowerShell
+    -   Alte limbaje de programare
+-   SQL (Baze de date relaționale)
+    -   Introducere în SQL, DDL și DML
+    -   MySQL
+    -   PostgreSQL
+    -   SQLite
+    -   Microsoft SQL Server
+    -   Oracle
+    -   IBM Db2
+    -   MariaDB
+    -   Alte base de date SQL
+    -   Optimizări și tehnici avansate de SQL
+-   NoSQL (Baze de date non-relaționale)
+    -   Introducere în NoSQL
+    -   MongoDB / CouchDB (Document DBs)
+    -   Redis / DynamoDB (Key-Value)
+    -   Firebase / Supabase / RethinkDB (Realtime)
+    -   ElasticSearch / Splunk (Search)
+    -   Apache Cassandra / HBase (Column DBs)
+    -   InfluxDB / TimeScale (Time series)
+    -   Alte baze de date NoSQL
+    -   Optimizări și tehnici avansate de NoSQL
+-   OOP (Programare orientată pe obiecte)
+    -   ???
+-   API-uri
+    -   Autentificare
+    -   REST
+    -   JSON
+    -   SOAP
+    -   gRPC / tRPC
+    -   GraphQL
+    -   API-uri publice gratuite
+-   Framework-uri și sisteme de Back End
+    -   Wordpress
+    -   Laravel
+    -   .NET
+    -   Ruby on Rails
+    -   Express
+    -   Alte framework-uri de Back End
+-   DevOps (Development Operations)
+    -   Terminalul sistemului de operare
+    -   Version control și GIT
+    -   Sisteme conexe
+    -   Containere
+    -   Provideri de Cloud
+    -   Protocoale de rețelistică și securitate
+    -   Serverless
+    -   Provizionare infrastructurală
+    -   Management-ul configurărilor
+    -   CI/CD
+    -   Management-ul secretelor
+    -   Management-ul infrastructurii
+    -   Monitorizare software
+    -   Management-ul log-urilor
+    -   Orchestrarea containerelor
+    -   Management-ul artefactelor
+    -   GitOps
+    -   Alte concepte și soluții DevOps
+-   Game Development (Dezvoltarea de jocuri)
+    -   Asset-uri pentru jocuri
+    -   Matematica necesară jocurilor
+    -   Sisteme de fizică folosite în jocuri
+    -   Dezvoltare de jocuri în Unity
+    -   Dezvoltare de jocuri în Unreal Engine
+    -   Dezvoltare de jocuri în Godot
+    -   Dezvoltare de jocuri native
+    -   Alte engine-uri de game development
+    -   Modelare 3D
+    -   Grafică digitală și randare pentru jocuri
+    -   Inteligență Artificială în jocuri
+    -   Rețelistică și scalabilitate în jocuri multiplayer
+    -   Stocare de date pentru jocuri
+    -   Multithreading pentru jocuri
+    -   Alte resurse pentru Game Development
+-   Native Mobile Development
+    -   Componentele aplicațiilor mobile
+    -   Interfața și navigarea în aplicații mobile
+    -   Arhitectură și design patterns pentru aplicații mobile
+    -   Stocarea datelor în aplicații mobile
+    -   Comunicare și sincronicitate mobilă
+    -   Servicii pentru aplicații native
+    -   Alte resurse pentru dezvoltare nativă
+-   Grafică și engine-uri de randare
+    -   ???
+-   Blockchain & Crypto Development
+    -   Concepte de Blockchain
+    -   Blockchain-uri EVM
+    -   Blockchain-uri L2
+    -   Alte blockchain-uri
+    -   Oracles
+    -   Smart Contracts
+    -   Securitate Blockchain
+    -   Aplicații descentralizate
+    -   Scalabilitate Blockchain
+-   Sisteme de operare
+    -   Linux / Unix
+    -   Windows
+    -   MacOS / iOS
+    -   Android
+-   Hardware și programare low level
+    -   ???
+-   Data Science & Data Mining
+    -   ???
+-   Inteligență Artificială și Machine Learning
+    -   Matematică
+    -   Statistică
+    -   Econometrică
+    -   Limbaje de programare
+    -   Analiză de date exploratorie (EDA)
+    -   Machine Learning
+    -   Deep Learning
+    -   MLOps
+-   Idei de proiecte de Back End
+-   Știri și noutăți din Programare
+    -   Site-uri cu articole
+    -   Newslettere
+    -   Comunități
+
+## **Resurse de Design, Grafică, Videografie și creativitate**
+
+-   Principii de design și estetică
+    -   White space
+    -   Contrast
+    -   Mărimi
+    -   Aliniament
+    -   Ierarhie vizuală
+    -   Unități de măsură
+-   Tipografie și typeface-uri
+    -   Principii esențiale de design tipografic
+    -   Aranjarea textului
+    -   Alegerea font-urilor
+-   Layout și sisteme de grid-uri
+    -   ???
+-   Teoria culorilor
+    -   ???
+-   Branding și design de identitate
+    -   ???
+-   Design de componente de UI (User Interface)
+    -   Butoane și navigare
+    -   Articole și conținut
+    -   Formulare și interactivitate
+    -   Artefacte vizuale
+-   Design de UX (User Experience)
+    -   Arhitectură informațională
+    -   Wireframing și Prototyping
+    -   Comportament și HCI (Human Computer Interaction)
+    -   Product & Business Model
+    -   Bune practici în UX
+    -   Măsurarea impactului și user testing
+-   Design accesibil
+    -   Contrast
+    -   Mărimi
+-   Interaction Design, animații și efecte speciale
+    -   Animații
+    -   Efecte speciale
+-   Ilustrație, infografice și design grafic
+    -   ???
+-   Grafică și Modelare 3D
+    -   ???
+-   Computer graphics, randare și engine-uri grafice
+    -   ???
+-   Game Design & Level Design
+    -   ???
+-   Fotografie și editare foto
+    -   ???
+-   Videografie și editare video
+    -   ???
+-   Design Systems și Design Thinking
+    -   ???
+-   Resurse de design
+    -   Imagini și video-uri stock
+    -   Repository-uri de font-uri
+    -   Iconițe
+    -   Grafică vectorială
+    -   Unelte creative bazate pe AI
+
+## **Resurse de Marketing Online**
+
+-   Introducere în marketing online
+    -   Conversie și călătoria cumpărătorului
+    -   Funnel vs flywheel
+    -   UVP (Unique Value Proposition)
+    -   ROI (Return on Investment)
+-   Studii de piață și analiza concurenței
+    -   Analiza business-ului
+    -   Comportamente, personas și target market
+    -   Competiție și unelte de analiză
+    -   KPI-uri și soluții de analytics
+-   Crearea, auditarea și optimizarea site-ului tău
+    -   ???
+-   Copywriting, Content Writing & Content Marketing
+    -   ???
+-   SEO (Search Engine Optimization)
+    -   Introducere în SEO
+    -   Motoare de căutare și cum funcționează
+    -   Keyword research
+    -   On-page SEO
+    -   Link building
+    -   SEO Tehnic
+    -   Content marketing
+    -   Unelte de SEO
+-   PPC (Pay Per Click Advertising)
+    -   Introducere în PPC
+    -   Google Ads
+    -   Bing Ads
+    -   Yandex Ads
+    -   Facebook / Instagram Ads
+    -   TikTok Ads
+    -   LinkedIn Ads
+    -   X / Twitter Ads
+    -   Pinterest Ads
+    -   Reddit Ads
+    -   Retargeting
+-   Display Advertising și campanii de imagine
+    -   ???
+-   Social Media Marketing
+    -   Introducere în SMM
+    -   YouTube
+    -   TikTok
+    -   Facebook
+    -   Instagram
+    -   X / Twitter
+    -   LinkedIn
+    -   Reddit
+    -   Pinterest
+    -   Quora
+    -   Mastodon
+-   Influencer Marketing
+    -   ???
+-   Referral & Affiliate Marketing
+    -   ???
+-   Email & Permission Marketing
+    -   ???
+-   Marketplace & Mobile App Marketing
+    -   ???
+-   B2B Marketing
+    -   ???
+-   AI, automatizare și tehnologie emergentă în marketing
+    -   ???
+-   Tactici de marketing pentru eCommerce
+    -   Platforme de eCommerce
+    -   Funcționalități de eCommerce
+    -   Shopping marketplaces
+    -   Comparatoare de prețuri
+-   Tactici de marketing pentru SaaS
+    -   Business reviews
+    -   Funcționalități de eCommerce
+-   Tactici de marketing pentru brick & mortar
+    -   Google Maps & Google My Business
+    -   TripAdvisor
+-   Business strategy
+    -   Strategia și tacticile de business
+    -   Cum să setezi prețurile
+    -   Product-market fit
+    -   Internaționalizare
+-   Growth hacking
+    -   Achiziție și canale de inbound traffic
+    -   Calificarea traficului
+    -   A/B Testing și experimentare
+    -   CRO și optimizarea landing page-urilor
+    -   Onboarding, retenție, repeat business
+    -   KPI-uri și măsurare
+
+## **Resurse de Networking & Cyber Security**
+
+-   Introducere în IT, rețelistică și securitate
+    -   ???
+-   Rețelistică
+    -   Dispozitive din rețea
+    -   Servicii și aplicații de rețea
+    -   DHCP
+    -   DNS
+    -   Network Address Translation
+    -   WAN
+    -   Cablare
+    -   Topologii de rețea
+    -   Infrastructură
+    -   Protocoale: IPv4 vs IPv6
+    -   Routing
+    -   Subnetting
+    -   Virtualizare
+    -   Implementare
+    -   Monitorizare și forensics
+    -   Configurare
+    -   Autentificare
+    -   Troubleshooting
+-   Sisteme de operare
+    -   Linux / Unix
+    -   Windows
+    -   MacOS / iOS
+    -   Android
+-   Securitate cibernetică
+    -   Criptografie
+    -   Vulnerabilități
+    -   Incident response & discovery
+    -   Threat classification
+    -   Management-ul protocoalelor
+    -   Management-ul log-urilor
+    -   Atacuri de rețea
+    -   Atacuri de aplicație
+    -   Atacuri la adresa oamenilor
+    -   Hardening
+    -   Unelte de securitate
+    -   Certificări
+-   Securitate în Cloud
+    -   Concepte de bază pentru securitate în Cloud
+    -   Securitate pentru Amazon Web Services
+    -   Securitate pentru Google Cloud
+    -   Securitate pentru Azure
+    -   Securitate pentru cloud-uri private
+    -   Securitate pentru alte sisteme cloud
+-   Limbaje de programare
+    -   Python
+    -   Go
+    -   Rust
+    -   JavaScript
+    -   C++
+    -   Bash / PowerShell
+
+## **Management**
+
+-   Workflow, SCRUM și Project Management
+    -   ???
+-   Management & Leadership
+    -   ???
+-   Product Management
+    -   ???
+-   Antreprenoriat și startup-uri
+    -   Introducere în antreprenoriat
+    -   Product-market fit
+-   Sfaturi pentru recrutori
+    -   ???
+
+## **Alte resurse digitale**
+
+-   Cum să te angajezi mai ușor
+    -   ???
+-   Freelancing
+    -   ???
+-   Testare manuală (MQA) și automată (AQA)
+    -   Fundamentele testării
+    -   Tehnici de testare funcțională
+    -   Tehnici de testare non-funcțională
+    -   Alte tehnici de testare
+    -   Automatizare de front end
+    -   Automatizare de back end
+    -   Automatizare mobilă
+    -   Monitorizare și log-uri
+    -   Tehnici de testare headless
+    -   Integrare în sisteme de CI/CD
+-   Știință și tehnologie
+    -   ???
+-   Limba Engleză
+    -   ???
+-   Sfaturi generale și de viață
+    -   ???

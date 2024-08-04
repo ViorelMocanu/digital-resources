@@ -1,0 +1,588 @@
+id,title,menu,description,title_en,menu_en,description_en,type,parent,slug,content,content_en,sort_order
+1,Resurse de Front End Development,Front End,"Instrumente și ghiduri pentru dezvoltarea abilităților front end: HTML, CSS, JavaScript, și framework-uri moderne.",Front End Development Resources,Front End,"Tools and guides for developing front end skills: HTML, CSS, JavaScript, and modern frameworks.",1,,front-end,,,1
+2,Introducere în Front End,Introducere,"Învață bazele dezvoltării front end cu tutoriale pentru HTML, CSS și JavaScript.",Introduction to Front End,Introduction,"Learn the basics of front end development with HTML, CSS, and JavaScript tutorials.",2,1,intro,,,1
+3,Unelte Utile de Front End,Unelte utile,"Cele mai bune unelte pentru eficientizarea muncii în front end: editoare, plugin-uri și versiuni de control.",Useful Front End Tools,Useful tools,"The best tools for streamlining front-end work: editors, plugins and version control.",2,1,useful,,,2
+4,Browsere și plugin-uri,Browsere și plugin-uri,Ghiduri pentru utilizarea browserelor și plugin-urilor esențiale în dezvoltarea front end.,Browsers and plugins,Browsers and plugins,Guides to using essential browsers and plugins in front end development.,3,3,browsers-plugins,,,1
+5,Editoare text și IDE-uri,IDE-uri,Recomandări pentru cele mai performante editoare text și IDE-uri pentru dezvoltatori front end.,Text editors and IDEs,IDEs,Recommendations for the best text editors and IDEs for front end developers.,3,3,ide,,,2
+6,Version control și GIT,GIT,Resurse pentru gestionarea codului sursă utilizând GIT și alte sisteme de versionare.,Version control and GIT,neck,Resources for managing source code using GIT and other versioning systems.,3,3,git,,,3
+7,Transfer de fișiere și FTP,FTP,Tutoriale pentru transferul fișierelor și utilizarea protocolului FTP în proiectele web.,File transfer and FTP,FTP,Tutorials for transferring files and using the FTP protocol in web projects.,3,3,ftp,,,4
+8,Testarea site-urilor,Testare,Tehnici și instrumente pentru testarea performanței și funcționalității site-urilor web.,Website testing,tESTING,Techniques and tools for testing the performance and functionality of websites.,3,3,testing,,,5
+9,Hosting & deployment pentru site-uri,Hosting,Ghiduri pentru găzduirea și implementarea site-urilor web pe servere.,Hosting & deployment for websites,Hosting,Guidelines for hosting and deploying websites on servers.,3,3,hosting,,,6
+10,Alte unelte și resurse de Front End,Alte unelte,O colecție de unelte și resurse diverse pentru dezvoltatorii front end.,Other Front End Tools and Resources,Other tools,A collection of various tools and resources for front end developers.,3,3,other-tools,,,7
+11,HTML (Hyper Text Markup Language),HTML,Resurse complete pentru învățarea și utilizarea HTML în dezvoltarea web.,HTML (Hyper Text Markup Language),HTML,Complete resources for learning and using HTML in web development.,2,1,html,,,3
+12,Elemente de bază,Elemente de bază,Ghiduri pentru elementele fundamentale ale limbajului HTML.,Basic elements,Basic elements,Guides to the fundamentals of the HTML language.,3,11,basics,,,1
+13,Arhitectură și structuri informaționale,Arhitectură informațională,Sfaturi pentru organizarea și structurarea informației pe paginile web.,Architecture and information structures,Information architecture,Tips for organizing and structuring information on web pages.,3,11,information-architecture,,,2
+14,Secțiuni de conținut,Secțiuni de conținut,Tehnici pentru crearea și gestionarea secțiunilor de conținut în HTML.,Content Sections,Content Sections,Techniques for creating and managing content sections in HTML.,3,11,content-sections,,,3
+15,Formulare,Formulare,Ghiduri pentru crearea formularelor interactive și accesibile în HTML.,formulation,formulation,Guidelines for creating interactive and accessible forms in HTML.,3,11,forms,,,4
+16,Meta informații,Meta informații,Utilizarea meta tag-urilor pentru optimizarea paginilor web.,Meta information,Meta information,Use of meta tags to optimize web pages.,3,11,meta,,,5
+17,Semantică,Semantică,Importanța elementelor semantice în HTML și cum să le folosești eficient.,Semantics,Semantics,The importance of semantic elements in HTML and how to use them effectively.,3,11,semantics,,,6
+18,Multimedia și elemente non-standard,Multimedia,Integrarea elementelor multimedia și personalizate în paginile web.,Multimedia and non-standard elements,Multimedia,Integrating multimedia and custom elements into web pages.,3,11,media,,,7
+19,Embed-uri și Web Components,Embed-uri,Ghiduri pentru includerea componentelor web și a elementelor integrate în HTML.,Embeds and Web Components,Embed Links,Guidelines for including web components and embedded elements in HTML.,3,11,embeds,,,8
+20,Convenții și bune practici,Bune practici,Cele mai bune practici și convenții pentru scrierea codului HTML.,Conventions and best practices,Good practices,Best practices and conventions for writing HTML code.,3,11,best-practices,,,9
+21,Accesibilitate,Accesibilitate,"Ghiduri pentru crearea de pagini web accesibile pentru toți utilizatorii, inclusiv pentru cei cu dizabilități.",Accessibility,Accessibility,"Guidelines for creating accessible web pages for all users, including those with disabilities.",3,11,accessibility,,,10
+22,SEO Tehnic,SEO Tehnic,Tehnici avansate de SEO pentru optimizarea tehnică a paginilor web și îmbunătățirea clasamentelor în motoarele de căutare.,Technical SEO,Technical SEO,Advanced SEO techniques to technically optimize web pages and improve search engine rankings.,3,11,technical-seo,,,11
+23,Progressive enhancement,Progressive enhancement,Strategii pentru a asigura o experiență de utilizare îmbunătățită pe toate dispozitivele și browserele.,Progressive enhancement,Progressive enhancement,Strategies to ensure an improved user experience across all devices and browsers.,3,11,progressive-enhancement,,,12
+24,Performanță,Performanță,Optimizarea performanței paginilor web pentru încărcare rapidă și experiență utilizator excelentă.,Performance,Performance,Optimizing web page performance for fast loading and great user experience.,3,11,performance,,,13
+25,Emmet și alte utilitare pentru viteză,Emmet,Utilizarea Emmet și a altor instrumente pentru a crește eficiența și viteza de codare.,Emmet and other speed utilities,Emmett,Using Emmet and other tools to increase coding efficiency and speed.,3,11,emmet,,,14
+26,CSS (Cascading Style Sheets),CSS,Resurse pentru învățarea și utilizarea CSS pentru a stiliza paginile web și a crea design-uri atractive.,CSS (Cascading Style Sheets),CSS,Resources for learning and using CSS to style web pages and create attractive designs.,2,1,css,,,4
+27,Introducere în CSS,Introducere,Bazele CSS: învățarea sintaxei și a conceptelor fundamentale pentru stilizarea paginilor web.,Introduction to CSS,Introduction,CSS Basics: Learning the fundamental syntax and concepts for styling web pages.,3,26,intro,,,1
+28,Componente și detalii,Componente,Ghiduri pentru utilizarea componentelor CSS și detalii pentru stilizarea avansată a elementelor web.,Components and details,components,Guidelines for using CSS components and details for advanced styling of web elements.,3,26,components,,,2
+29,Tipografie,Tipografie,Stilizarea textului pe paginile web utilizând CSS pentru a crea design-uri tipografice profesionale.,PRINTING,PRINTING,Styling text on web pages using CSS to create professional typographic designs.,3,26,typography,,,3
+30,Layout și Box Model,Layout / Box model,Tehnici pentru crearea layout-urilor responsive și utilizarea modelului Box pentru aranjarea elementelor.,Layout and Box Model,Layout / Box model,Techniques for creating responsive layouts and using the Box pattern to arrange elements.,3,26,layout-box-model,,,4
+31,Interactivitate,Interactivitate,Adăugarea de interactivitate pe paginile web utilizând CSS și pseudo-clase.,Interactivity,Interactivity,Adding interactivity to web pages using CSS and pseudo-classes.,3,26,interactivity,,,5
+32,Animații și efecte speciale,Animații / SFX,Crearea de animații și efecte speciale în CSS pentru a îmbunătăți experiența utilizatorului.,Animations and special effects,Animations / SFX,Creating animations and special effects in CSS to improve the user experience.,3,26,animations-sfx,,,6
+33,Principii și sisteme de design,Sisteme de design,Implementarea principiilor de design și a sistemelor de design pentru coerență vizuală.,Design principles and systems,Design systems,Implementing design principles and design systems for visual coherence.,3,26,design-systems,,,7
+34,Preprocesoare de CSS: SCSS vs SASS vs LESS,Preprocesoare,"Compararea și utilizarea preprocesatoarelor CSS: SCSS, SASS și LESS.",CSS preprocessors: SCSS vs SASS vs LESS,preprocess,"Comparison and use of CSS preprocessors: SCSS, SASS and LESS.",3,26,preprocessors,,,8
+35,Tailwind și alte framework-uri de CSS,Framework-uri,Utilizarea Tailwind și a altor framework-uri CSS pentru a crea design-uri rapide și eficiente.,Tailwind and other CSS frameworks,Frameworks,Using Tailwind and other CSS frameworks to create fast and efficient designs.,3,26,css-frameworks,,,9
+36,Layout & Mobile-first Responsive Web Design,Layout / Responsive,"Strategii de design responsive, începând cu dispozitivele mobile pentru o experiență optimă.",Layout & Mobile-first Responsive Web Design,Layout / Responsive,"Responsive design strategies, starting with mobile devices for an optimal experience.",2,1,layout-rwd,,,5
+37,Responsive Web Design,Responsive Web Design,Ghiduri pentru crearea de pagini web responsive care se adaptează la diferite dimensiuni de ecran.,Responsive Web Design,Responsive Web Design,Guidelines for creating responsive web pages that adapt to different screen sizes.,3,36,responsive-web-design,,,1
+38,Mobile First Design,Mobile First Design,Abordarea Mobile-First: începerea design-ului pentru dispozitive mobile și extinderea la ecrane mai mari.,Mobile First Design,Mobile First Design,Mobile-First Approach: Starting with mobile design and scaling to larger screens.,3,36,mobile-first,,,2
+39,Layout,Layout,Crearea de layout-uri flexibile și adaptive pentru paginile web.,Layout,Layout,Creating flexible and adaptive layouts for web pages.,3,36,layout,,,3
+41,"Implementare de design, templating și UX",Templating,"Ghiduri pentru implementarea design-ului, crearea de template-uri și optimizarea experienței utilizatorului (UX).","Implementation of design, templating and UX",Templating,"Guidelines for design implementation, templating, and user experience (UX) optimization.",2,1,templating,,,6
+42,UX (Experiența Utilizatorului),UX,Tehnici și principii pentru îmbunătățirea experienței utilizatorului pe site-uri și aplicații web.,UX (User Experience),UX,Techniques and principles for improving user experience on websites and web applications.,3,41,ux,,,1
+43,Figma,Figma,Resurse pentru utilizarea Figma în design-ul UI/UX și colaborarea în echipă.,Fig,Fig,Resources for using Figma in UI/UX design and team collaboration.,3,41,figma,,,2
+44,Adobe XD,Adobe XD,Ghiduri pentru utilizarea Adobe XD în crearea de prototipuri și design-uri interactive.,Adobe XD,Adobe XD,Guidelines for using Adobe XD in prototyping and interactive designs.,3,41,adobe-xd,,,3
+45,Photoshop,Photoshop,Tutoriale pentru utilizarea Adobe Photoshop în design-ul web și editarea grafică.,Photoshop,Photoshop,Tutorials for using Adobe Photoshop in web design and graphic editing.,3,41,photoshop,,,4
+46,JavaScript,JavaScript,"Resurse pentru învățarea JavaScript, de la bazele limbajului la tehnici avansate.",JavaScript,JavaScript,"Resources for learning JavaScript, from the basics of the language to advanced techniques.",2,1,javascript,,,7
+47,Introducere în JavaScript,Introducere,Ghiduri pentru începători în JavaScript: sintaxă de bază și concepte fundamentale.,Introduction to JavaScript,Introduction,Beginner's Guide to JavaScript: Basic Syntax and Fundamental Concepts.,3,46,intro,,,1
+48,Sintaxă de bază în JavaScript,Sintaxă,Explicații detaliate ale sintaxei JavaScript pentru începători.,Basic syntax in JavaScript,Syntax,Detailed explanations of JavaScript syntax for beginners.,3,46,syntax,,,2
+49,Tehnici avansate de JavaScript,Tehnici avansate,Resurse pentru învățarea tehnicilor avansate în JavaScript și optimizarea codului.,Advanced JavaScript techniques,Advanced techniques,Resources for learning advanced JavaScript techniques and code optimization.,3,46,advanced-techniques,,,3
+50,Algoritmică în JavaScript,Algoritmică,Ghiduri pentru implementarea algoritmilor în JavaScript și soluționarea problemelor.,Algorithmics in JavaScript,Algorithms,Guidelines for implementing algorithms in JavaScript and solving problems.,3,46,js-algorithms,,,4
+52,Convenții și bune practici,Bune practici,Cele mai bune practici și convenții pentru scrierea codului JavaScript de calitate.,Conventions and best practices,Good practices,Best practices and conventions for writing quality JavaScript code.,3,46,best-practices,,,5
+53,TypeScript,TypeScript,Resurse pentru învățarea TypeScript și integrarea acestuia în proiectele web.,TypeScript,TypeScript,Resources for learning TypeScript and integrating it into your web projects.,2,1,typescript,,,8
+54,Introducere în TypeScript,Introducere,Ghiduri pentru începători în TypeScript: concepte fundamentale și sintaxă.,Introduction to TypeScript,Introduction,Beginner's Guide to TypeScript: Fundamentals and Syntax.,3,53,intro,,,1
+55,Types și aserții,Types și aserții,Explicații detaliate despre types și aserții în TypeScript.,Types and Assertions,Types and Assertions,Detailed explanations of types and assertions in TypeScript.,3,53,types-assertions,,,2
+56,Concepte avansate de TypeScript,Concepte avansate,Resurse pentru învățarea conceptelor avansate de TypeScript și aplicarea acestora.,Advanced concepts of TypeScript,Advanced concepts,Resources for learning and applying advanced TypeScript concepts.,3,53,advanced-concepts,,,3
+57,Module de TypeScript,Module,Ghiduri pentru utilizarea modulelor în TypeScript și organizarea codului.,TypeScript modules,modules,Guidelines for using modules in TypeScript and organizing your code.,3,53,modules,,,4
+58,Ecosistem de TypeScript,Ecosistem,Resurse pentru explorarea ecosistemului TypeScript și integrarea acestuia în diverse proiecte.,TypeScript ecosystem,Ecosystem,Resources for exploring the TypeScript ecosystem and integrating it into various projects.,3,53,ecosystem,,,5
+59,Tooling de Front End,Tooling,"Instrumente esențiale pentru dezvoltarea front end, incluzând bundling, linting și testare.",Front End Tooling,Tooling,"Essential tools for front end development, including bundling, linting and testing.",2,1,tooling,,,9
+60,"Bundling (NPM, Bun)",Bundling,Ghiduri pentru utilizarea NPM în bundling-ul fișierelor JavaScript și gestionarea pachetelor.,"Bundling (NPM, Good)",Bundling,Guidelines for using NPM in bundling JavaScript files and managing packages.,3,59,bundling,,,1
+61,"Package Management (PNPM, Bun)",Package management,Ghiduri pentru gestionarea pachetelor JavaScript folosind PNPM pentru eficiență și performanță.,"Package Management (PNPM, Good)",Package management,Guidelines for managing JavaScript packages using PNPM for efficiency and performance.,3,59,package-management,,,2
+62,Task running,Task running,Instrumente și tehnici pentru automatizarea sarcinilor în dezvoltarea front end.,Task running,Task running,Tools and techniques for automating tasks in front end development.,3,59,task-running,,,3
+63,Style formatting (Prettier),Style formatting,Utilizarea Prettier pentru formatarea consistentă și automată a codului front end.,Style formatting (Prettier),Style formatting,Using Prettier for consistent and automatic formatting of front end code.,3,59,style-formatting,,,4
+64,Linting (ESLint),Linting,Ghiduri pentru utilizarea ESLint în identificarea și corectarea erorilor de cod JavaScript.,Linting (ESLint),Linting,Guidelines for using ESLint in identifying and correcting errors in JavaScript code.,3,59,linting,,,5
+65,Unit Testing (Vitest),Unit testing,Resurse pentru testarea unităților de cod front end folosind Vitest.,Unit Testing (Vitest),Unit testing,Resources for unit testing front end code using Vitest.,3,59,unit-testing,,,6
+66,End to End Testing (Playwright),End to end testing,Tehnici pentru testarea completă a aplicațiilor web folosind Playwright.,End to End Testing (Playwright),End to end testing,Techniques for end-to-end web application testing using Playwright.,3,59,end-to-end-testing,,,7
+67,Type checking (ESLint),Type checking,Ghiduri pentru verificarea tipurilor de date în TypeScript.,Type checking (ESLint),Type checking,Guidelines for checking data types in TypeScript.,3,59,type-checking,,,8
+68,Framework-uri și sisteme de Front End,Framework-uri,Resurse pentru utilizarea celor mai populare framework-uri și sisteme de front end.,Frameworks and Front End Systems,Frameworks,Resources for using the most popular frameworks and front end systems.,2,1,frameworks,,,10
+69,React.js și Next.js,React și Next,Ghiduri pentru dezvoltarea aplicațiilor web cu React.js și Next.js.,React.js and Next.js,React and Next,Guidelines for developing web applications with React.js and Next.js.,3,68,reactjs-nextjs,,,1
+70,Vue și Nuxt.js,Vue și Nuxt,Resurse pentru învățarea și utilizarea Vue.js și Nuxt.js în dezvoltarea front end.,Vue and Nuxt.js,Vue and Nuxt,Resources for learning and using Vue.js and Nuxt.js in front end development.,3,68,vue-nuxtjs,,,2
+71,Angular,Angular,Tutoriale și resurse pentru dezvoltarea aplicațiilor web folosind Angular.,Angular,Angular,Tutorials and resources for developing web applications using Angular.,3,68,angular,,,3
+72,Svelte și SvelteKit,Svelte și SvelteKit,Ghiduri pentru utilizarea Svelte și SvelteKit în crearea de aplicații web eficiente.,Svelte and SvelteKit,Svelte and SvelteKit,Guidelines for using Svelte and SvelteKit in creating efficient web applications.,3,68,svelte-sveltekit,,,4
+73,Qwik și QwikCity,Qwik și QwikCity,Resurse pentru învățarea Qwik și QwikCity în dezvoltarea de aplicații performante.,Qwik and QwikCity,Qwik and QwikCity,Resources for learning Qwik and QwikCity in developing high-performance applications.,3,68,qwik-qwikcity,,,5
+74,Solid și SolidStart,Solid și SolidStart,Ghiduri pentru utilizarea Solid și SolidStart în dezvoltarea de aplicații web.,Solid and SolidStart,Solid and SolidStart,Guidelines for using Solid and SolidStart in web application development.,3,68,solid-solidstart,,,6
+75,Astro,Astro,Resurse pentru învățarea Astro pentru dezvoltarea site-urilor rapide și moderne.,Astro,Astro,"Resources for learning Astro for fast, modern website development.",3,68,astro,,,7
+76,Preact,Preact,Tutoriale pentru utilizarea Preact în dezvoltarea de aplicații rapide și eficiente.,Right now,Right now,Tutorials for using Preact to develop fast and efficient applications.,3,68,preact,,,8
+77,Express,Express,Ghiduri pentru utilizarea Express în dezvoltarea aplicațiilor backend cu Node.js.,Express,Express,Guidelines for using Express in developing backend applications with Node.js.,3,68,express,,,9
+78,HTMX,HTMX,Resurse pentru învățarea HTMX pentru interactivitate fără JavaScript.,HTMX,HTMX,Resources for learning HTMX for interactivity without JavaScript.,3,68,htmx,,,10
+79,Alte framework-uri,Alte framework-uri,O colecție de resurse pentru alte framework-uri de front end.,Other frameworks,Other frameworks,A collection of resources for other front end frameworks.,3,68,other-frameworks,,,11
+80,Autentificare și securitate în Front End,Securitate,Ghiduri pentru implementarea autentificării și securității în aplicațiile front end.,Authentication and Security in the Front End,Security,Guidelines for implementing authentication and security in front end applications.,2,1,security,,,11
+81,"Autentificare (JWT, OAuth, SSO, Basic Auth, Session Auth)",Autentificare,"Ghiduri pentru implementarea diverselor metode de autentificare în aplicațiile web: JWT, OAuth, SSO, Basic Auth, Session Auth.","Authentication (JWT, OAuth, SSO, Basic Auth, Session Auth)",Login,"Guidelines for implementing various authentication methods in web applications: JWT, OAuth, SSO, Basic Auth, Session Auth.",3,80,web-authentication,,,1
+82,"Securitate web (CORS, HTTPS, CSP, OWASP)",Securitate web,"Resurse pentru securizarea aplicațiilor web utilizând CORS, HTTPS, CSP și ghidurile OWASP.","Web Security (CORS, HTTPS, CSP, OWASP)",Web security,"Resources for securing web applications using CORS, HTTPS, CSP, and OWASP guidelines.",3,80,web-security,,,2
+83,Strategii de randare și content delivery,Randare,Tehnici pentru optimizarea randării și livrării conținutului în aplicațiile web.,Rendering strategies and content delivery,rendering,Techniques for optimizing content rendering and delivery in web applications.,2,1,rendering,,,12
+84,Static & SSG / MPA,Static / SSG,Ghiduri pentru utilizarea generatorilor de site-uri statice și aplicațiilor multi-pagină.,Static & SSG / MPA,Static / SSG,Guidelines for using static site builders and multi-page applications.,3,83,static-ssg-mpa,,,1
+85,Server & SSR,Server / SSR,Resurse pentru renderizarea pe server și optimizarea performanței aplicațiilor web.,Server & SSR,Server / SSR,Resources for server-side rendering and web application performance optimization.,3,83,server-ssr,,,2
+86,Client & SPA,Client / SPA,Tehnici pentru dezvoltarea aplicațiilor single-page (SPA) și îmbunătățirea experienței utilizatorului.,Client & SPA,Customer / SPA,Techniques for developing single-page applications (SPA) and improving user experience.,3,83,client-spa,,,3
+87,Hybrid (SSG + SSR + SPA),Hybrid,"Combinații de renderizare pentru optimizarea aplicațiilor web: SSG, SSR și SPA.",Hybrid (SSG + SSR + SPA),Hybrid,"Rendering combinations for optimizing web applications: SSG, SSR and SPA.",3,83,hybrid-ssg-ssr-spa,,,4
+88,"Multi-platform (PWA, Electron, React Native, Flutter)",Multi-platform,"Ghiduri pentru dezvoltarea aplicațiilor multi-platformă utilizând PWA, Electron, React Native și Flutter.","Multi-platform (PWA, Electron, React Native, Flutter)",Multi-platform,"Guides to developing cross-platform apps using PWA, Electron, React Native and Flutter.",3,83,multiplatform-pwa,,,5
+89,Idei de proiecte de Front End,Idei de proiecte,Sugestii și exemple de proiecte pentru a practica și îmbunătăți abilitățile de front end.,Front End Project Ideas,Project ideas,Hints and sample projects to practice and improve front end skills.,2,1,front-end-project-ideas,,,13
+90,Știri și noutăți de Front End,Știri,Surse de informare despre cele mai recente știri și tendințe în programare.,Front End news and updates,News,Sources of information on the latest news and trends in programming.,2,1,news,,,14
+91,Site-uri cu articole,Site-uri cu articole,Liste de site-uri cu articole și tutoriale despre programare și tehnologii.,Article sites,Article sites,Lists of sites with articles and tutorials about programming and technologies.,3,90,articles,,,1
+92,Newslettere,Newslettere,Recomandări de newslettere pentru a rămâne la curent cu noutățile din programare.,Newsletters,Newsletters,Newsletter recommendations to stay up to date with programming news.,3,90,newsletters,,,2
+93,Comunități,Comunități,Ghiduri pentru implicarea în comunitățile de programare și colaborarea cu alți dezvoltatori.,community,community,Guidelines for getting involved in programming communities and collaborating with other developers.,3,90,communities,,,3
+94,Resurse de Programare și Back End Development,Back End,"Resurse pentru dezvoltarea abilităților de programare și back end, incluzând limbaje de programare și arhitectură software.",Programming and Back End Development Resources,Back End,"Resources for developing programming and back end skills, including programming languages ​​and software architecture.",1,,back-end,,,2
+95,Introducere în programare,Introducere,"Ghiduri introductive pentru începători în programare, acoperind concepte și tehnici de bază.",Introduction to programming,Introduction,"Introductory guides for beginners in programming, covering basic concepts and techniques.",2,94,intro-programming,,,1
+96,Resurse pentru copii,Resurse pentru copii,Resurse și tutoriale pentru a învăța programarea de la o vârstă fragedă.,Resources for children,Resources for children,Resources and tutorials to learn programming from a young age.,3,95,kids,,,1
+97,Locuri bune de unde să începi,De unde începi,Sugestii de resurse și platforme pentru a începe să înveți programarea.,Good places to start,Where do you start?,Suggested resources and platforms to start learning programming.,3,95,places-to-start,,,2
+98,Unelte Utile de Back End,Unelte utile,"Instrumente esențiale pentru dezvoltarea back end, incluzând editoare text, version control și gestionarea fișierelor.",Useful Back End Tools,Useful tools,"Essential tools for back end development, including text editors, version control and file management.",2,94,back-end-tools,,,2
+99,Editoare text și IDE-uri,IDE-uri,Recomandări pentru cele mai bune editoare text și medii de dezvoltare integrate (IDE-uri) pentru back end.,Text editors and IDEs,IDEs,Recommendations for the best text editors and integrated development environments (IDEs) for the back end.,3,98,ides,,,1
+100,Version control și GIT,GIT,Resurse pentru gestionarea codului sursă în proiectele back end utilizând GIT și alte sisteme de versionare.,Version control and GIT,neck,Resources for managing source code in back end projects using GIT and other versioning systems.,3,98,version-control,,,2
+101,Transfer de fișiere și FTP,FTP,Ghiduri detaliate pentru transferul eficient și securizat al fișierelor utilizând protocolul FTP în proiectele de back end.,File transfer and FTP,FTP,Detailed guidelines for efficient and secure file transfer using the FTP protocol in back end projects.,3,98,file-transfer,,,3
+102,API-uri publice gratuite,API-uri,Resurse și exemple pentru integrarea și utilizarea API-urilor publice gratuite în dezvoltarea aplicațiilor back end.,Free public APIs,APIs,Resources and examples for integrating and using free public APIs in back end application development.,3,98,public-apis,,,4
+103,Alte unelte și resurse de Back End,Alte unelte,"O colecție variată de unelte și resurse esențiale pentru dezvoltatorii de back end, incluzând biblioteci și framework-uri.",Other Back End Tools and Resources,Other tools,"A diverse collection of essential tools and resources for back-end developers, including libraries and frameworks.",3,98,other-resources,,,5
+104,Teoria programării și Computer Science,Teoria programării,"Concepte fundamentale și teorii avansate din știința calculatoarelor și programării, esențiale pentru orice dezvoltator.",Programming Theory and Computer Science,Programming theory,"Fundamental concepts and advanced theories in computer science and programming, essential for any developer.",2,94,computer-science,,,3
+105,Structuri de date,Structuri de date,Învață despre diverse structuri de date și aplicarea lor în optimizarea și eficientizarea codului de programare.,Data structures,Data structures,Learn about various data structures and their application in optimizing and streamlining programming code.,3,104,data-structures,,,1
+106,"Complexitate, notație asimptotică și Big O",Complexitate,"Explicații și resurse pentru înțelegerea complexității algoritmice și a notației Big O, esențiale pentru evaluarea performanței.","Complexity, asymptotic notation and Big O",Complexity,Explanations and resources for understanding algorithmic complexity and Big O notation essential for performance evaluation.,3,104,complexity-big-o,,,2
+107,Algoritmi comuni,Algoritmi comuni,"Implementarea și analiza celor mai utilizați algoritmi în dezvoltarea software, pentru rezolvarea problemelor comune.",Common algorithms,Common algorithms,"Implementation and analysis of the most used algorithms in software development, for solving common problems.",3,104,common-algorithms,,,3
+108,Manipulare de string-uri,Manipulare de string-uri,Tehnici și practici pentru manipularea și procesarea eficientă a șirurilor de caractere în diverse limbaje de programare.,Manipulation of strings,Manipulation of strings,Techniques and practices for efficient manipulation and processing of strings in various programming languages.,3,104,string-manipulation,,,4
+109,Operatori binari,Operatori binari,"Resurse pentru înțelegerea și aplicarea operatorilor binari în programare, esențiali pentru operațiuni la nivel de biți.",Binary operators,Binary operators,"Resources for understanding and applying binary operators in programming, essential for bitwise operations.",3,104,binary-operators,,,5
+110,Numere reale și floating point,Floating point,Ghiduri pentru manipularea și utilizarea numerelor reale și a celor de tip floating point în aplicațiile software.,Real numbers and floating point,Floating point,Guidelines for handling and using real and floating point numbers in software applications.,3,104,floating-point,,,6
+111,Encoding de caractere,Encoding de caractere,Învață diferite metode de encoding al caracterelor și aplicarea lor în dezvoltarea aplicațiilor compatibile internațional.,Character encoding,Character encoding,Learn different character encoding methods and their application in developing internationally compatible applications.,3,104,character-encoding,,,7
+112,Diagrame UML,Diagrame UML,Crearea și utilizarea diagramelor UML pentru modelarea și vizualizarea arhitecturii sistemelor software complexe.,UML diagrams,UML diagrams,Create and use UML diagrams to model and visualize the architecture of complex software systems.,3,104,uml-diagrams,,,8
+113,Design patterns,Design patterns,Resurse detaliate pentru învățarea și aplicarea pattern-urilor de design în dezvoltarea eficientă a software-ului.,Design patterns,Design patterns,Detailed resources for learning and applying design patterns in effective software development.,3,104,design-patterns,,,9
+115,Arbori de căutare,Arbori de căutare,Implementarea și utilizarea arborilor de căutare pentru optimizarea proceselor de căutare și sortare în programare.,Search trees,Search trees,Implementation and use of search trees to optimize search and sort processes in programming.,3,104,search-trees,,,10
+116,Design de sisteme,Design de sisteme,"Tehnici avansate pentru proiectarea și arhitectura sistemelor software mari și complexe, asigurând scalabilitatea și fiabilitatea.",Systems design,Systems design,"Advanced techniques for designing and architecting large and complex software systems, ensuring scalability and reliability.",3,104,system-design,,,11
+117,Baze de date,Baze de date,"Ghiduri și resurse pentru proiectarea, implementarea și gestionarea bazelor de date relaționale și non-relaționale.",Database,Database,"Guidelines and resources for designing, implementing, and managing relational and non-relational databases.",3,104,databases,,,12
+118,Rețelistică,Rețelistică,"Concepte fundamentale și practici avansate în rețelistică, esențiale pentru dezvoltarea și întreținerea rețelelor de calculatoare.",Networking,Networking,Fundamental concepts and advanced networking practices essential to developing and maintaining computer networks.,3,104,networking,,,13
+119,Securitate,Securitate,"Resurse pentru protejarea aplicațiilor și a datelor, incluzând practici de securitate și instrumente pentru identificarea vulnerabilităților.",Security,Security,"Resources for protecting applications and data, including security practices and tools for identifying vulnerabilities.",3,104,security,,,14
+120,Cum funcționează calculatoarele,Calculatoare,"Înțelegerea modului în care funcționează calculatoarele, de la hardware la software, pentru o bază solidă în programare.",How computers work,Computers,"Understanding how computers work, from hardware to software, for a solid foundation in programming.",3,104,how-computers-work,,,15
+121,Procese și thread-uri,Procese și thread-uri,"Ghiduri pentru gestionarea proceselor și thread-urilor în programare, asigurând execuția eficientă a aplicațiilor.",Processes and Threads,Processes and Threads,"Guidelines for managing processes and threads in programming, ensuring efficient execution of applications.",3,104,processes-threads,,,16
+122,Matematica necesară programării,Matematică,"Resurse și ghiduri pentru învățarea matematicii aplicate în programare, esențială pentru dezvoltarea algoritmilor și a aplicațiilor complexe.",Mathematics needed for programming,Math,"Resources and guides for learning applied programming mathematics, essential for developing complex algorithms and applications.",2,94,math,,,4
+123,Algebră liniară,Algebră liniară,Detalii și exemple pentru aplicarea algoritmilor și structurilor de date în rezolvarea problemelor de programare.,Linear algebra,Linear algebra,Details and examples for applying algorithms and data structures to solving programming problems.,3,122,linear-algebra,,,1
+124,Calcul diferențial,Calcul diferențial,Resurse avansate pentru proiectarea și dezvoltarea arhitecturilor software scalabile și eficiente.,Differential calculus,Differential calculus,Advanced resources for designing and developing scalable and efficient software architectures.,3,122,differential-calculus,,,2
+125,Teoria grafurilor,Teoria grafurilor,Ghiduri detaliate pentru utilizarea design patterns în crearea de software robust și ușor de întreținut.,Graph theory,Graph theory,Detailed guidelines for using design patterns in creating robust and maintainable software.,3,122,graph-theory,,,3
+636,Statistici descriptive,Statistici descriptive,,Descriptive statistics,Descriptive statistics,,3,122,statistici-descriptive,,,4
+637,Statistici inferențiale,Statistici inferențiale,,Inferential statistics,Inferential statistics,,3,122,statistici-inferentiale,,,5
+638,Teoria probabilităților,Teoria probabilităților,,Probability theory,Probability theory,,3,122,teoria-probabilitatilor,,,6
+640,Modelare predictivă,Modelare predictivă,,Predictive modeling,Predictive modeling,,3,122,modelare-predictiva,,,7
+641,Regresie și clasificare,Regresie și clasificare,,Regression and classification,Regression and classification,,3,122,regresie-clasificare,,,8
+642,Serii temporale,Serii temporale,,Time series,Time series,,3,122,serii-temporale,,,9
+129,Algoritmi și structuri de date,Algoritmică,Resurse pentru învățarea și aplicarea tehnicii de event sourcing în gestionarea stării aplicațiilor.,Algorithms and data structures,Algorithms,Resources for learning and applying event sourcing to application state management.,2,94,algorithms,,,5
+130,Sortări,Sortări,Explorarea diverselor modele arhitecturale utilizate în dezvoltarea de software scalabil și performant.,assortment,assortment,Exploring the various architectural patterns used in scalable and performant software development.,3,129,sorting,,,1
+131,Căutări,Căutări,Ghiduri pentru utilizarea brokerilor de mesaje în comunicarea și coordonarea componentelor aplicațiilor distribuite.,Searches,Searches,Guidelines for using message brokers in communicating and coordinating distributed application components.,3,129,searching,,,2
+132,Structuri de date avansate,Structuri de date avansate,Resurse pentru utilizarea tehnologiilor de containerizare și virtualizare în dezvoltarea și gestionarea aplicațiilor.,Advanced data structures,Advanced data structures,Resources for using containerization and virtualization technologies in application development and management.,3,129,advanced-data-structures,,,3
+136,Design și arhitectură software,Arhitectură software,Ghiduri pentru utilizarea Node.js în dezvoltarea aplicațiilor back end performante și scalabile.,Software design and architecture,Software architecture,Guidelines for using Node.js in developing high performance and scalable back end applications.,2,94,software-architecture,,,6
+137,Design patterns,Design patterns,Resurse pentru învățarea și utilizarea limbajului PHP în dezvoltarea aplicațiilor web dinamice.,Design patterns,Design patterns,Resources for learning and using the PHP language in developing dynamic web applications.,3,136,design-patterns,,,1
+138,Domain driven design,Domain Driven Design,Ghiduri și tutoriale pentru învățarea limbajului Python și aplicarea acestuia în diverse proiecte software.,Domain driven design,Domain Driven Design,Guides and tutorials for learning Python and applying it to various software projects.,3,136,domain-driven-design,,,2
+139,Test driven development,Test Driven Development,Resurse pentru învățarea și utilizarea limbajului Java în dezvoltarea aplicațiilor robuste și scalabile.,Test driven development,Test Driven Development,Resources for learning and using the Java language in developing robust and scalable applications.,3,136,test-driven-development,,,3
+140,CQRS,CQRS,"Ghiduri pentru învățarea limbajelor C și C++, incluzând practici de programare eficientă și aplicații.",CQRS,CQRS,"Guides for learning C and C++, including effective programming practices and applications.",3,136,cqrs,,,4
+141,Event sourcing,Event sourcing,,Event sourcing,Event sourcing,,3,136,event-sourcing,,,5
+142,Modele arhitecturale,Modele arhitecturale,,Architectural models,Architectural models,,3,136,architectural-models,,,6
+143,Brokeri de mesaje,Brokeri de mesaje,,Message brokers,Message brokers,,3,136,message-brokers,,,7
+144,Containerizare și virtualizare,Containizare / virtualizare,,Containerization and virtualization,Containerization / virtualization,,3,136,containerization-virtualization,,,8
+145,Servere și clienți,Servere și clienți,,Servers and clients,Servers and clients,,3,136,clients-servers,,,9
+146,Scalabilitate,Scalabilitate,,Scalability,Scalability,,3,136,scalability,,,10
+147,Limbaje de programare,Limbaje de programare,Resurse și ghiduri pentru limbaje de programare.,Programming languages,Programming languages,,2,94,programming-languages,,,7
+148,Node.js,Node.js,,Node.js,Node.js,,3,147,nodejs,,,1
+149,PHP,PHP,,PHP,PHP,,3,147,php,,,2
+150,Python,Python,,Python,Python,,3,147,python,,,3
+151,Java,Java,,Java,Java,,3,147,java,,,4
+152,C / C++,C / C++,,C/C++,C/C++,,3,147,c-cpp,,,5
+153,C# / ASP.NET,C# / ASP.NET,,C# / ASP.NET,C# / ASP.NET,,3,147,csharp-asp-net,,,6
+154,Rust,Rust,,Rust,Rust,,3,147,rust,,,7
+155,GoLang,GoLang,,GoLang,GoLang,,3,147,golang,,,8
+156,Haskell,Haskell,,Haskell,Haskell,,3,147,haskell,,,9
+157,OCaml,OCaml,,OCaml,OCaml,,3,147,ocaml,,,10
+158,Prolog,Prolog,,Prologue,Prologue,,3,147,prolog,,,11
+159,Forth,Forth,,Forth,Forth,,3,147,forth,,,12
+160,Erlang,Erlang,,Erlang,Erlang,,3,147,erlang,,,13
+161,R,R,,R,R,,3,147,r,,,14
+162,Rails,Rails,,Rails,Rails,,3,147,rails,,,15
+163,Kotlin,Kotlin,,Kotlin,Kotlin,,3,147,kotlin,,,16
+164,Bash,Bash,,Bash,Bash,,3,147,bash,,,17
+165,PowerShell,PowerShell,,PowerShell,PowerShell,,3,147,powershell,,,18
+166,Alte limbaje de programare,Alte limbaje,,Other programming languages,Other languages,,3,147,other-languages,,,19
+167,SQL (Baze de date relaționale),SQL,,SQL (Relational Databases),SQL statements,,2,94,sql,,,8
+168,"Introducere în SQL, DDL și DML",Introducere,,"Introduction to SQL, DDL and DML",Introduction,,3,167,intro-sql,,,1
+169,MySQL,MySQL,,MySQL,MySQL,,3,167,mysql,,,2
+170,PostgreSQL,PostgreSQL,,PostgreSQL,PostgreSQL,,3,167,postgresql,,,3
+171,SQLite,SQLite,,SQLite,SQLite,,3,167,sqlite,,,4
+172,Microsoft SQL Server,Microsoft SQL Server,,Microsoft SQL Server,Microsoft SQL Server,,3,167,microsoft-sql-server,,,5
+173,Oracle,Oracle,,Oracle,Oracle,,3,167,oracle,,,6
+174,IBM Db2,IBM Db2,,IBM Db2,IBM Db2,,3,167,ibm-db2,,,7
+175,MariaDB,MariaDB,,MariaDB,MariaDB,,3,167,mariadb,,,8
+176,Alte baze de date SQL,Alte SQL-uri,,Other SQL databases,Other SQLs,,3,167,other-sql,,,9
+177,Optimizări și tehnici avansate de SQL,Optimizări SQL,,Advanced SQL optimizations and techniques,SQL optimizations,,3,167,sql-optimization,,,10
+178,NoSQL (Baze de date non-relaționale),NoSQL,,NoSQL (Non-Relational Databases),NoSQL,,2,94,nosql,,,9
+179,Introducere în NoSQL,Introducere,,Introduction to NoSQL,Introduction,,3,178,intro-nosql,,,1
+180,MongoDB / CouchDB (Document DBs),MongoDB / CouchDB,,MongoDB / CouchDB (Document DBs),MongoDB / CouchDB,,3,178,document-dbs,,,2
+181,Redis / DynamoDB (Key-Value),Redis / DynamoDB,,Redis / DynamoDB (Key-Value),Redis / DynamoDB,,3,178,key-value-dbs,,,3
+182,Firebase / Supabase / RethinkDB (Realtime),Firebase / Supabase,,Firebase / Supabase / RethinkDB (Realtime),Firebase / Valvebase,,3,178,realtime-dbs,,,4
+183,ElasticSearch / Splunk (Search),ElasticSearch / Splunk,,ElasticSearch / Splunk (Search),ElasticSearch / Splunk,,3,178,search-dbs,,,5
+184,Apache Cassandra / HBase (Column DBs),Cassandra / HBase,,Apache Cassandra / HBase (Column DBs),Cassandra / HBase,,3,178,column-dbs,,,6
+185,InfluxDB / TimeScale (Time series),InfluxDB / TimeScale,,InfluxDB / TimeScale (Time series),InfluxDB / TimeScale,,3,178,time-series,,,7
+186,Alte baze de date NoSQL,Alte NoSQL-uri,,Other NoSQL databases,Other NoSQLs,,3,178,other-nosql,,,8
+187,Optimizări și tehnici avansate de NoSQL,Optimizări NoSQL,,Advanced NoSQL optimizations and techniques,NoSQL optimizations,,3,178,nosql-optimization,,,9
+188,OOP (Programare orientată pe obiecte),OOP,,OOP (Object Oriented Programming),OOP,,2,94,oop,,,10
+189,Principii de bază OOP,Principii OOP,,Basic OOP principles,OOP principles,,3,188,basic-oop,,,1
+190,Design patterns în OOP,Design patterns,,Design patterns in OOP,Design patterns,,3,188,oop-design-patterns,,,2
+191,Exemple de OOP,Exemple OOP,,Examples of OOP,OOP examples,,3,188,oop-examples,,,3
+195,API-uri,API-uri,,APIs,APIs,,2,94,api,,,11
+196,Autentificare,Autentificare,,Login,Login,,3,195,authentication,,,1
+197,REST,REST,,change,change,,3,195,rest,,,2
+198,JSON,JSON,,JSON,JSON,,3,195,json,,,3
+199,SOAP,SOAP,,SOAP,SOAP,,3,195,soap,,,4
+200,gRPC / tRPC,RPC,,gRPC / tRPC,PRC,,3,195,rpc,,,5
+201,GraphQL,GraphQL,,GraphQL,GraphQL,,3,195,graphql,,,6
+202,API-uri publice gratuite,API-uri gratuite,,Free public APIs,Free APIs,,3,195,public-free-api,,,7
+203,Framework-uri și sisteme de Back End,Framework-uri,,Frameworks and Back End Systems,Frameworks,,2,94,frameworks,,,12
+204,Wordpress,Wordpress,,WordPress,WordPress,,3,203,wordpress,,,1
+205,Laravel,Laravel,,Laravel,Laravel,,3,203,laravel,,,2
+206,.NET,.NET,,.NET,.NET,,3,203,dotnet,,,3
+207,Ruby on Rails,Ruby on Rails,,Ruby on Rails,Ruby on Rails,,3,203,ruby-on-rails,,,4
+208,Express,Express,,Express,Express,,3,203,express,,,5
+209,Alte framework-uri de Back End,Alte framework-uri,,Other Back End frameworks,Other frameworks,,3,203,other-back-end-frameworks,,,6
+573,Testare manuală (MQA) și automată (AQA),Testare,,Manual (MQA) and Automated (AQA) testing,tESTING,,2,94,testing,,,13
+574,Fundamentele testării,Fundamentele testării,,Fundamentals of testing,Fundamentals of testing,,3,573,testing-fundamentals,,,1
+575,Tehnici de testare funcțională,Testare funcțională,,Functional testing techniques,Functional testing,,3,573,functional-testing,,,2
+576,Tehnici de testare non-funcțională,Testare non-funcțională,,Non-functional testing techniques,Non-functional testing,,3,573,nonfunctional-testing,,,3
+577,Alte tehnici de testare,Alte tehnici de testare,,Other testing techniques,Other testing techniques,,3,573,other-testing-techniques,,,4
+578,Automatizare de front end,Automatizare Front-End,,Front end automation,Front-End Automation,,3,573,front-end-automation,,,5
+579,Automatizare de back end,Automatizare Back-End,,Back end automation,Back-End Automation,,3,573,back-end-automation,,,6
+580,Automatizare mobilă,Automatizare Mobilă,,Mobile automation,Mobile Automation,,3,573,native-mobile-automation,,,7
+581,Monitorizare și log-uri,Monitorizare,,Monitoring and Logs,mONITORING,,3,573,log-monitoring,,,8
+582,Tehnici de testare headless,Testare Headless,,Headless test techniques,Headless testing,,3,573,headless-testing,,,9
+583,Integrare în sisteme de CI/CD,Integrare CI / CD,,Integration into CI/CD systems,IC / CD integration,,3,573,ci-cd-integration,,,10
+210,DevOps (Development Operations),DevOps,,DevOps (Development Operations),DevOps,,2,94,devops,,,14
+211,Terminalul sistemului de operare,Terminalul,,Operating system terminal,terminal,,3,210,terminal,,,0
+213,Sisteme conexe,Sisteme conexe,,Related systems,Related systems,,3,210,connex-systems,,,0
+214,Containere,Containere,,container,container,,3,210,containers,,,0
+215,Provideri de Cloud,Provideri de Cloud,,Cloud providers,Cloud providers,,3,210,cloud-providers,,,0
+616,Amazon Web Services (AWS),AWS,,Amazon Web Services (AWS),AWS,,3,210,aws,,,0
+617,Microsoft Azure,Azure,,Microsoft Azure,Azure,,3,210,azure,,,0
+618,Google Cloud Platform (GCP),GCP,,Google Cloud Platform (GCP),GCP,,3,210,gcp,,,0
+619,"Alte platforme Cloud (IBM Cloud, Oracle Cloud)",Alte platforme,,"Other Cloud platforms (IBM Cloud, Oracle Cloud)",Other platforms,,3,210,other-cloud,,,0
+216,Protocoale de rețelistică și securitate,Protocoale,,Networking and security protocols,Protocols,,3,210,network-protocols,,,0
+217,Serverless,Serverless,,Serverless,Serverless,,3,210,serverless,,,0
+218,Provizionare infrastructurală,Provizionare,,Infrastructural provision,provisioning,,3,210,provisioning,,,0
+219,Management-ul configurărilor,Configurări,,Configuration management,settings,,3,210,configs,,,0
+220,Continuous Integration / Continuous Development,CI / CD,,Continuous Integration / Continuous Development,IC / CD,,3,210,ci-cd,,,0
+221,Management-ul secretelor,Secrete,,Management of secrets,secret,,3,210,secrets,,,0
+222,Management-ul infrastructurii,Infrastructură,,Infrastructure management,Infrastructure,,3,210,infrastructure,,,0
+223,Monitorizare software,Monitorizare,,Monitoring software,mONITORING,,3,210,monitoring,,,0
+224,Management-ul log-urilor,Log-uri,,Log management,Logs,,3,210,log-management,,,0
+225,Orchestrarea containerelor,Orchestrare,,Container orchestration,orchestration,,3,210,orchestration,,,0
+226,Management-ul artefactelor,Artefacte,,Artifact management,Artifacts,,3,210,artefacts,,,0
+227,GitOps,GitOps,,GitOps,GitOps,,3,210,gitops,,,0
+228,Alte concepte și soluții DevOps,Alte concepte,,Other DevOps concepts and solutions,Other concepts,,3,210,other-devops,,,0
+229,Game Development (Dezvoltarea de jocuri),Game Development,,Game Development,Game Development,,2,94,game-development,,,15
+230,Asset-uri pentru jocuri,Asset-uri,,Assets for games,asset Links,,3,229,game-assets,,,0
+231,Matematica necesară jocurilor,Matematică,,Mathematics needed for games,Math,,3,229,maths-for-games,,,0
+232,Sisteme de fizică folosite în jocuri,Fizică,,Physics systems used in games,Physics,,3,229,physics-for-games,,,0
+233,Dezvoltare de jocuri în Unity,Unity,,Game development in Unity,Unity,,3,229,unity,,,0
+234,Dezvoltare de jocuri în Unreal Engine,Unreal Engine,,Game development in Unreal Engine,Unreal Engine,,3,229,unreal-engine,,,0
+235,Dezvoltare de jocuri în Godot,Godot,,Game development in Godot,Godot,,3,229,godot,,,0
+236,Dezvoltare de jocuri native,Jocuri native,,Native game development,Native games,,3,229,mobile-native-games,,,0
+237,Alte engine-uri de game development,Alte engine-uri,,Other game development engines,Other engines,,3,229,other-game-engines,,,0
+238,Modelare 3D,Modelare 3D,,3D modeling,3D modeling,,3,229,3d-modelling-games,,,0
+239,Grafică digitală și randare pentru jocuri,Grafică / randare,,Digital graphics and rendering for games,Graphics / rendering,,3,229,game-graphics,,,0
+240,Inteligență Artificială în jocuri,Inteligență artificială,,Artificial Intelligence in games,Artificial intelligence,,3,229,game-ai,,,0
+241,Rețelistică și scalabilitate în jocuri multiplayer,Rețelistică / scalabilitate,,Networking and scalability in multiplayer games,Networking / Scalability,,3,229,game-scalability,,,0
+242,Stocare de date pentru jocuri,Stocare de date,,Game data storage,Data storage,,3,229,game-data-storage,,,0
+243,Multithreading pentru jocuri,Multithreading,,Multithreading for games,Multithreading,,3,229,game-multithreading,,,0
+244,Alte resurse pentru Game Development,Alte resurse,,Other Resources for Game Development,Other resources,,3,229,other-game-resources,,,0
+360,Principii de Game Design,Principii,,Principles of Game Design,pRINCIPLES,,3,229,game-design,,,0
+361,Crearea nivelelor de joc,Level design,,Creating game levels,Level design,,3,229,level-design,,,0
+362,Testarea jocurilor,Game testing,,Game testing,Game testing,,3,229,game-testing,,,0
+245,Native Mobile Development,Native Mobile Development,,Native Mobile Development,Native Mobile Development,,2,94,native-mobile,,,16
+246,Componentele aplicațiilor mobile,Componente,,Components of mobile applications,components,,3,245,components,,,0
+247,Interfața și navigarea în aplicații mobile,Interfața și navigarea,,Interface and navigation in mobile applications,Interface and navigation,,3,245,navigation,,,0
+248,Arhitectură și design patterns pentru aplicații mobile,Design patterns,,Architecture and design patterns for mobile applications,Design patterns,,3,245,design-patterns,,,0
+249,Stocarea datelor în aplicații mobile,Stocare de date,,Data storage in mobile applications,Data storage,,3,245,mobile-storage,,,0
+250,Comunicare și sincronicitate mobilă,Comunicare sincronă,,Mobile communication and synchronicity,Synchronous communication,,3,245,mobile-sync,,,0
+251,Servicii pentru aplicații native,Servicii,,Native Application Services,Services,,3,245,mobile-services,,,0
+252,Alte resurse pentru dezvoltare nativă,Alte resurse,,Other resources for native development,Other resources,,3,245,other-mobile,,,0
+253,Grafică și engine-uri de randare,Grafică / randare,,Graphics and rendering engines,Graphics / rendering,,2,94,rendering-graphics,,,17
+356,Algoritmi de randare,Algoritmi de randare,,Rendering algorithms,Rendering algorithms,,3,253,rendering-algorithms,,,0
+357,Engine-uri grafice populare,Engine-uri grafice,,Popular graphics engines,Graphics engines,,3,253,render-engines,,,0
+254,OpenGL,OpenGL,,OpenGL,OpenGL,,3,253,opengl,,,0
+255,Vulkan,Vulkan,,Vulkan,Vulkan,,3,253,vulkan,,,0
+256,DirectX,DirectX,,DirectX,DirectX,,3,253,directx,,,0
+257,Metal,Metal,,Metal,Metal,,3,253,metal,,,0
+262,Blockchain & Crypto Development,Blockchain / Crypto,,Blockchain & Crypto Development,Blockchain / Crypto,,2,94,blockchain-crypto,,,18
+263,Concepte de Blockchain,Concepte Blockchain,,Blockchain Concepts,Blockchain concepts,,3,262,blockchain-concepts,,,0
+264,Blockchain-uri EVM,EVM,,EVM Blockchains,EVM,,3,262,evm-blockchain,,,0
+265,Blockchain-uri L2,L2,,L2 Blockchains,L2,,3,262,l2-blockchain,,,0
+266,Alte blockchain-uri,Alte Blockchain-uri,,Other Blockchains,Other Blockchains,,3,262,other-blockchain,,,0
+267,Oracles,Oracles,,Oracles,Oracles,,3,262,oracles,,,0
+268,Smart Contracts,Smart Contracts,,Smart Contracts,Smart Contracts,,3,262,smart-contracts,,,0
+269,Securitate Blockchain,Securitate,,Blockchain Security,Security,,3,262,blockchain-security,,,0
+270,Aplicații descentralizate,Aplicații descentralizate,,Decentralized applications,Decentralized applications,,3,262,decentralized-apps,,,0
+271,Scalabilitate Blockchain,Scalabilitate Blockchain,,Blockchain Scalability,Blockchain Scalability,,3,262,blockchain-scalability,,,0
+272,Sisteme de operare,Sisteme de operare,,Operating systems,Operating systems,,2,94,operating-systems,,,19
+273,Linux / Unix,Linux / Unix,,Linux / Unix,Linux / Unix,,3,272,linux-unix,,,0
+274,Windows,Windows,,Windows,Windows,,3,272,windows,,,0
+275,MacOS / iOS,MacOS / iOS,,macOS / iOS,macOS / iOS,,3,272,macos-ios,,,0
+276,Android,Android,,Android,Android,,3,272,android,,,0
+284,Data Science & Data Mining,Data Science,,Data Science & Data Mining,Data Science,,2,94,data,,,20
+285,Python pentru Data Science,Python,,Python for Data Science,Python,,3,284,python-data,,,0
+286,R pentru Data Science,R,,R for Data Science,R,,3,284,r-data,,,0
+287,Analiza datelor,Analiza datelor,,Data analysis,Data analysis,,3,284,data-analysis,,,0
+631,Tableau,Tableau,,sheet,sheet,,3,284,tableau,,,0
+632,Power BI,Power BI,,Power BI,Power BI,,3,284,power-bi,,,0
+633,Google Looker Studio (ex Google Data Studio),Google Looker Studio,,Google Looker Studio (ex Google Data Studio),Google Looker Studio,,3,284,looker,,,0
+634,D3.js,D3.js,,D3.js,D3.js,,3,284,d3js,,,0
+291,Inteligență Artificială și Machine Learning,Inteligență artificială,,Artificial Intelligence and Machine Learning,Artificial intelligence,,2,94,ai,,,21
+292,Matematică,Matematică,,Math,Math,,3,291,ai-maths,,,0
+293,Statistică,Statistică,,Statistics,Statistics,,3,291,ai-statistics,,,0
+294,Econometrică,Econometrică,,Econometrics,Econometrics,,3,291,ai-econometrics,,,0
+295,Limbaje de programare,Limbaje AI,,Programming languages,AI languages,,3,291,ai-programming,,,0
+296,Analiză de date exploratorie (EDA),EDA,,Exploratory Data Analysis (EDA),EDA,,3,291,eda,,,0
+297,Machine Learning,Machine Learning,,Machine Learning,Machine Learning,,3,291,machine-learning,,,0
+298,Deep Learning,Deep Learning,,Deep Learning,Deep Learning,,3,291,deep-learning,,,0
+299,MLOps,MLOps,,MLOps,MLOps,,3,291,mlops,,,0
+277,Hardware și programare low level,Hardware / Low Level,,Low level hardware and programming,Hardware / Low Level,,2,94,hardware,,,22
+278,Asamblare,Asamblare,,Assembly,Assembly,,3,277,assembly,,,0
+279,Microcontrolere,Microcontrolere,,MICROCONTROLLERS,MICROCONTROLLERS,,3,277,microcontrollers,,,0
+280,Sisteme încorporate,Sisteme încorporate,,Embedded systems,Embedded systems,,3,277,embedded-systems,,,0
+300,Idei de proiecte de Back End,Idei de proiecte,,Back End Project Ideas,Project ideas,,2,94,back-end-project-ides,,,23
+301,Știri și noutăți din Programare,Știri,,Programming news and updates,News,,2,94,news,,,24
+302,Site-uri cu articole,Site-uri cu articole,,Article sites,Article sites,,3,301,articles,,,0
+303,Newslettere,Newslettere,,Newsletters,Newsletters,,3,301,newsletters,,,0
+304,Comunități,Comunități,,community,community,,3,301,communities,,,0
+305,"Resurse de Design, Grafică, Videografie și creativitate",Design,Ghiduri pentru crearea identității vizuale și a elementelor de branding pentru companii și produse.,"Design, Graphics, Videography and Creativity Resources",Design,Guidelines for creating visual identity and branding elements for companies and products.,1,,design,,,3
+306,Principii de design și estetică,Principii de design,,Design principles and aesthetics,Design principles,,2,305,design-aesthetics,,,1
+307,White space,White space,,White space,White space,,3,306,white-space,,,0
+308,Contrast,Contract,,Contrast,Contract,,3,306,contrast,,,0
+309,Mărimi,Mărimi,,SIZE,SIZE,,3,306,sizing,,,0
+310,Aliniament,Aliniament,,Alignment,Alignment,,3,306,alignment,,,0
+311,Ierarhie vizuală,Ierarhie vizuală,,Visual hierarchy,Visual hierarchy,,3,306,visual-hierarchy,,,0
+312,Unități de măsură,Unități de măsură,,Measurement units,Measurement units,,3,306,measuring-unites,,,0
+313,Tipografie și typeface-uri,Typography,,Typography and typefaces,Typography,,2,305,typography,,,2
+314,Principii esențiale de design tipografic,Principii tipografice,,Essential principles of typographic design,Typographic principles,,3,313,typographic-principles,,,0
+315,Aranjarea textului,Aranjarea textului,,Text arrangement,Text arrangement,,3,313,typesetting,,,0
+316,Alegerea font-urilor,Alegerea font-urilor,,Choice of fonts,Choice of fonts,,3,313,choosing-typefaces,,,0
+317,Layout și sisteme de grid-uri,Grid systems / Layout,,Layout and grid systems,Grid systems / Layout,,2,305,grid-systems,,,3
+318,Grid-uri de bază,Grid-uri de bază,,Basic grids,Basic grids,,3,317,basic-grids,,,0
+319,Layout flexibil,Layout flexibil,,Flexible layout,Flexible layout,,3,317,flexible-layouts,,,0
+320,Sisteme de grid responsive,Sisteme responsive,,Responsive grid systems,Responsive systems,,3,317,responsive-grid-systems,,,0
+321,Teoria culorilor,Teoria culorilor,,Color theory,Color theory,,2,305,color-theory,,,4
+322,Roata culorilor,Roata culorilor,,The color wheel,The color wheel,,3,321,color-wheel,,,0
+323,Combinații de culori,Combinații de culori,,Color combinations,Color combinations,,3,321,color-combinations,,,0
+324,Psihologia culorilor,Psihologia culorilor,,The psychology of colors,The psychology of colors,,3,321,color-psychology,,,0
+325,Branding și design de identitate,Branding / Identitate,,Branding and identity design,Branding / Identity,,2,305,branding-identity,,,5
+326,Crearea unui logo,Crearea unui logo,,Creating a logo,Creating a logo,,3,325,logo-design,,,0
+327,Identitate vizuală,Identitate vizuală,,Visual identity,Visual identity,,3,325,visual-identity,,,0
+328,Ghiduri de brand,Ghiduri de brand,,Brand guides,Brand guides,,3,325,brand-guidelines,,,0
+329,Design de componente de UI (User Interface),Componente UI,,Design of UI (User Interface) components,UI components,,2,305,user-interface,,,6
+330,Butoane și navigare,Butoane și navigare,,Buttons and navigation,Buttons and navigation,,3,329,buttons-navigation,,,0
+331,Design editorial: Articole și conținut,Design editorial,,Editorial design: Articles and content,Editorial design,,3,329,editorial-design,,,0
+332,Formulare și interactivitate,Formulare,,Forms and interactivity,formulation,,3,329,forms,,,0
+333,Artefacte vizuale,Artefacte vizuale,,Visual artifacts,Visual artifacts,,3,329,visual-artefacts,,,0
+334,Design de UX (User Experience),Design UX,,UX (User Experience) Design,UX design,,2,305,user-experience,,,7
+335,Arhitectură informațională,Arhitectură informațională,,Information architecture,Information architecture,,3,334,information-architecture,,,0
+336,Wireframing și Prototyping,Wireframing / Prototyping,,Wireframing and Prototyping,Wireframing / Prototyping,,3,334,wireframing-prototyping,,,0
+337,Comportament și HCI (Human Computer Interaction),HCI,,Behavior and HCI (Human Computer Interaction),HCl,,3,334,hci,,,0
+338,Product & Business Model,Product / Business Model,,Product & Business Model,Product / Business Model,,3,334,product-business-model,,,0
+339,Bune practici în UX,Bune practici UX,,Best practices in UX,UX best practices,,3,334,ux-best-practices,,,0
+340,Măsurarea impactului și user testing,User testing,,Impact measurement and user testing,User testing,,3,334,user-testing,,,0
+341,Design accesibil,Design accesibil,,Accessible design,Affordable design,,2,305,accessibile-design,,,8
+342,Contrast,Contrast,,Contrast,Contrast,,3,341,contrast,,,0
+343,Mărimi,Mărimi,,Sizes,SIZE,,3,341,sizing,,,0
+344,"Interaction Design, animații și efecte speciale",Interaction Design,,"Interaction Design, animations and special effects",Interaction Design,,2,305,interaction-design,,,9
+345,Animații,Animații,,Animations,Animations,,3,344,animations,,,0
+346,Efecte speciale,Efecte speciale,,Special effects,Special effects,,3,344,special-effects,,,0
+347,"Ilustrație, infografice și design grafic",Ilustrație,,"Illustration, infographics and graphic design",Illustration,,2,305,illustration,,,10
+348,Tehnici de ilustrație,Tehnici de ilustrație,,Illustration techniques,Illustration techniques,,3,347,illustration-techniques,,,0
+349,Crearea de infografice,Infografice,,Creating infographics,Infographics,,3,347,infographics,,,0
+350,Design grafic digital,Design grafic,,Digital graphic design,Graphic design,,3,347,graphic-design,,,0
+351,Grafică și Modelare 3D,Modelare 3D,,Graphics and 3D Modeling,3D modeling,,2,305,3d-modelling,,,11
+352,Modelare 3D,Modelare 3D,,3D modeling,3D modeling,,3,351,3d-modelling,,,0
+353,Texturare și iluminare,Texturare / Iluminare,,Texturing and lighting,Texturing / Lighting,,3,351,texturing-lighting,,,0
+354,Randare 3D,Randare 3D,,3D rendering,3D rendering,,3,351,3d-rendering,,,0
+363,Fotografie și editare foto,Fotografie,,Photography and photo editing,Photo,,2,305,photography,,,12
+364,Tehnici de fotografie,Tehnici fotografice,,Photography techniques,Photographic techniques,,3,363,photography-techniques,,,0
+365,Editare foto avansată,Editare foto,,Advanced photo editing,Photo editing,,3,363,photo-editing,,,0
+366,Manipulare foto digitală,Manipulare digitală,,Digital photo manipulation,Digital manipulation,,3,363,photo-manipulation,,,0
+367,Videografie și editare video,Videografie,,Videography and video editing,Videography,,2,305,videography,,,13
+368,Filmare video,Filmare video,,Video shooting,Video shooting,,3,367,filming,,,0
+369,Editare video,Editare video,,Video editing,Video editing,,3,367,video-editing,,,0
+370,Efecte speciale în video,Efecte speciale video,,Special effects in video,Special video effects,,3,367,video-special-effects,,,0
+371,Design Systems și Design Thinking,Design Thinking,,Design Systems and Design Thinking,Design Thinking,,2,305,design-thinking,,,14
+372,Crearea de Design Systems,Design systems,,Creation of Design Systems,Design systems,,3,371,design-systems,,,0
+373,Principii de Design Thinking,Design thinking,,Principles of Design Thinking,Design thinking,,3,371,design-thinking,,,0
+374,Implementarea Design Systems,Implementare,,Implementation of Design Systems,Implementation,,3,371,implementation,,,0
+375,Resurse de design,Resurse de design,,Design resources,Design resources,,2,305,design-resources,,,15
+376,Imagini și video-uri stock,Stock,,Stock images and videos,Stock,,3,375,stock,,,0
+377,Repository-uri de font-uri,Font-uri,,Font repositories,Fonts,,3,375,fonts,,,0
+378,Iconițe,Iconițe,,ICON,ICON,,3,375,icons,,,0
+379,Grafică vectorială,Grafică vectorială,,Vector graphics,Vector graphics,,3,375,vectors,,,0
+380,Unelte creative bazate pe AI,Unelte AI,,AI-powered creative tools,AI tools,,3,375,ai-tools,,,0
+381,Resurse de Marketing Online,Marketing,"Ghiduri, resurse și unelte pentru a asigura succesul afacerii tale prin tactici și strategii de marketing online, de la SEO la PPC și Growth Hacking.",Online Marketing Resources,Marketing,"Guides, resources and tools to ensure your business success through online marketing tactics and strategies, from SEO to PPC and Growth Hacking.",1,,marketing,,,4
+382,Introducere în marketing online,Introducere,,Introduction to Online Marketing,Introduction,,2,381,intro-marketing,,,1
+383,Conversie și călătoria cumpărătorului,User journey,,Conversion and the buyer's journey,User journey,,3,382,user-journey,,,0
+384,Funnel vs flywheel,Funnel / Flywheel,,Funnel vs flywheel,Funnel / Flywheel,,3,382,funnel-vs-flywheel,,,0
+385,UVP (Unique Value Proposition) / USP (Unique Selling Proposition),UVP / USP,,UVP (Unique Value Proposition) / USP (Unique Selling Proposition),UVP / USP,,3,382,uvp-usp,,,0
+386,ROI (Return on Investment) / CRO (Conversion Rate Optimization),ROI / CRO,,ROI (Return on Investment) / CRO (Conversion Rate Optimization),ROI / CRO,,3,382,roi-cro,,,0
+387,Studii de piață și analiza concurenței,Studii de piață / concurență,,Market research and competitor analysis,Market / competition studies,,2,381,market-competition,,,2
+388,Analiza business-ului,Analiză de business,,Business analysis,Business analysis,,3,387,business-analysis,,,0
+389,"Comportamente, personas și target market",Personas,,"Behaviors, personas and target market",personas,,3,387,personas-target-market,,,0
+390,Competiție și unelte de analiză,Competiție,,Competition and analysis tools,Competition,,3,387,competitive-analysis,,,0
+392,"Crearea, auditarea și optimizarea site-ului tău",Site-ul tău,,"Creating, auditing and optimizing your website",Your site,,2,381,website-optimization,,,3
+393,Crearea site-ului,Crearea unui site,,Website creation,Creating a website,,3,392,website-creation,,,0
+394,Auditarea site-ului,Auditarea site-urilor,,Auditing the site,Auditing of sites,,3,392,website-auditing,,,0
+395,Optimizarea performanței,Optimizarea performanței,,Performance optimization,Performance optimization,,3,392,performance-optimization,,,0
+396,Optimizarea UX/UI,Optimizarea UX/UI,,UX/UI optimization,UX/UI optimization,,3,392,ux-ui-optimization,,,0
+397,"Copywriting, Content Writing & Content Marketing",Copywriting / Content,,"Copywriting, Content Writing & Content Marketing",Copywriting / Content,,2,381,copywriting-content-writing,,,4
+398,Principii de copywriting,Copywriting,,Principles of copywriting,Copywriting,,3,397,copywriting,,,0
+399,Tehnici de content writing,Content Writing,,Content writing techniques,Content Writing,,3,397,content-writing,,,0
+400,Strategie de conținut,Strategie de conținut,,Content strategy,Content strategy,,3,397,content-strategy,,,0
+401,Distribuția și promovarea conținutului,Distribuția conținutului,,Distribution and promotion of content,Distribution of Content,,3,397,distribution-promotion,,,0
+402,SEO (Search Engine Optimization),SEO,,SEO (Search Engine Optimization),SEO,,2,381,seo,,,5
+403,Introducere în SEO,Introducere,,Introduction to SEO,Introduction,,3,402,intro-seo,,,0
+404,Motoare de căutare și cum funcționează,Motoare de căutare,,Search engines and how they work,Search engines,,3,402,search-engines,,,0
+405,Keyword research,Keyword research,,Keyword research,Keyword research,,3,402,keyword-research,,,0
+406,On-page SEO,On-page SEO,,On-page SEO,On-page SEO,,3,402,onpage-seo,,,0
+407,Link building,Link building,,Link building,Link building,,3,402,link-building,,,0
+408,SEO Tehnic,SEO Tehnic,,Technical SEO,Technical SEO,,3,402,technical-seo,,,0
+409,Content marketing,Content marketing,,Content marketing,Content marketing,,3,402,content-marketing,,,0
+410,Unelte de SEO,Unelte de SEO,,SEO tools,SEO tools,,3,402,seo-tools,,,0
+411,PPC (Pay Per Click Advertising),PPC,,PPC (Pay Per Click Advertising),PPC,,2,381,ppc,,,6
+412,Introducere în PPC,Introducere,,Introduction to PPC,Introduction,,3,411,intro-ppc,,,0
+413,Google Ads,Google Ads,,Google Ads,Google Ads,,3,411,google-ads,,,0
+414,Bing Ads,Bing Ads,,Bing Ads,Bing Ads,,3,411,bing-ads,,,0
+415,Yandex Ads,Yandex Ads,,Yandex Ads,Yandex Ads,,3,411,yandex-ads,,,0
+416,Facebook / Instagram Ads,Meta Ads,,Facebook / Instagram Ads,Meta Ads,,3,411,meta-ads,,,0
+417,TikTok Ads,TikTok Ads,,TikTok Ads,TikTok Ads,,3,411,tiktok-ads,,,0
+418,LinkedIn Ads,LinkedIn Ads,,LinkedIn Ads,LinkedIn Ads,,3,411,linkedin-ads,,,0
+419,X / Twitter Ads,X / Twitter Ads,,X / Twitter Ads,X / Twitter Ads,,3,411,x-ads,,,0
+420,Pinterest Ads,Pinterest Ads,,Pinterest Ads,Pinterest Ads,,3,411,pinterest-ads,,,0
+421,Reddit Ads,Reddit Ads,,Reddit Ads,Reddit Ads,,3,411,reddit-ads,,,0
+422,Retargeting,Retargeting,,Retargeting,Retargeting,,3,411,retargeting,,,0
+423,Display Advertising și campanii de imagine,Display,,Display Advertising and image campaigns,Display,,2,381,display,,,7
+424,Principii de display advertising,Principii,,Principles of display advertising,pRINCIPLES,,3,423,display-principles,,,0
+425,Tehnici de creare a bannerelor,Bannere,,Banner creation techniques,banners,,3,423,banners,,,0
+426,Strategii de campanii de imagine,Campanii de imagine,,Image campaign strategies,Image campaigns,,3,423,image-campaigns,,,0
+427,Social Media Marketing,Social media,,Social Media Marketing,Social media,,2,381,social-media,,,8
+428,Introducere în SMM,Introducere,,Introduction to SMM,Introduction,,3,427,intro-social-media,,,0
+429,YouTube,YouTube,,YouTube,YouTube,,3,427,youtube,,,0
+430,TikTok,TikTok,,TikTok,TikTok,,3,427,tiktok,,,0
+431,Facebook,Facebook,,Facebook,Facebook,,3,427,facebook,,,0
+432,Instagram,Instagram,,Instagram,Instagram,,3,427,instagram,,,0
+433,X / Twitter,X / Twitter,,X / Twitter,X / Twitter,,3,427,x-twitter,,,0
+434,LinkedIn,LinkedIn,,LinkedIn,LinkedIn,,3,427,linkedin,,,0
+435,Reddit,Reddit,,Reddit,Reddit,,3,427,reddit,,,0
+436,Pinterest,Pinterest,,Pinterest,Pinterest,,3,427,pinterest,,,0
+437,Quora,Quora,,Quora,Quora,,3,427,quora,,,0
+438,Mastodon,Mastodon,,Mastodon,Mastodon,,3,427,mastodon,,,0
+439,Influencer Marketing,Influencer,,Influencer Marketing,Influencer,,2,381,influencers,,,9
+440,Identificarea influencerilor,Identificare,,Identifying influencers,Identification,,3,439,identifying-influencers,,,0
+441,Colaborarea cu influencerii,Colaborare,,Collaboration with influencers,Collaboration,,3,439,influencer-collabs,,,0
+442,Măsurarea impactului,Măsurarea impactului,,Measuring impact,Measuring impact,,3,439,impact-measurement,,,0
+443,Referral & Affiliate Marketing,Referral / Affiliate,,Referral & Affiliate Marketing,Referral / Affiliate,,2,381,referral-affiliate-marketing,,,10
+444,Principii de referral marketing,Referral Marketing,,Principles of referral marketing,Referral Marketing,,3,443,referral,,,0
+445,Tehnici de affiliate marketing,Affiliate Marketing,,Affiliate marketing techniques,Affiliate Marketing,,3,443,affiliate,,,0
+446,Unelte de management,Unelte management,,Management tools,Management tools,,3,443,management-tools,,,0
+447,Email & Permission Marketing,Email,,Email & Permission Marketing,E-mail,,2,381,permission-marketing,,,11
+448,Crearea listelor de email,Liste de email,,Creating email lists,Email lists,,3,447,email-lists,,,0
+449,Segmentarea audienței,Segmentare,,Audience segmentation,segmentation,,3,447,audience-segmentation,,,0
+450,Tehnici de email marketing,Email marketing,,Email marketing techniques,Email marketing,,3,447,email-marketing,,,0
+451,Automatizarea campaniilor,Automatizarea campaniilor,,Automation of campaigns,Automation of campaigns,,3,447,campaign-automation,,,0
+452,Marketplace & Mobile App Marketing,Marketplace,,Marketplace & Mobile App Marketing,Marketplace,,2,381,mobile-app-marketing,,,12
+453,Marketing pe marketplace-uri,Marketplace-uri,,Marketing on marketplaces,marketplace sites,,3,452,marketplace-marketing,,,0
+454,Promovarea aplicațiilor mobile,Promovare mobilă,,Promotion of mobile applications,Mobile promotion,,3,452,mobile-app-promotion,,,0
+455,Optimizarea magazinului de aplicații,Optimizarea pe app store,,App store optimization,Optimization on the app store,,3,452,app-store-optimization,,,0
+456,B2B Marketing,B2B,,B2B Marketing,B2B,,2,381,b2b-marketing,,,13
+457,Strategii de B2B marketing,Strategii B2B,,B2B marketing strategies,B2B strategies,,3,456,b2b-strategies,,,0
+458,Generarea de lead-uri / DemandGen,Generare de lead-uri,,Lead generation / DemandGen,Lead generation,,3,456,lead-generation,,,0
+459,Campanii de nurturing,Nurturing,,Nurturing campaigns,Nurturing,,3,456,nurturing-campaigns,,,0
+460,"AI, automatizare și tehnologie emergentă în marketing",Marketing AI,,"AI, automation and emerging technology in marketing",Marketing AI,,2,381,ai-automation,,,14
+461,Utilizarea AI în marketing,Utilizarea AI,,Using AI in Marketing,Use of AI,,3,460,marketing-ai,,,0
+462,Automatizarea proceselor de marketing,Automatizarea proceselor,,Automation of marketing processes,Process automation,,3,460,marketing-automation,,,0
+463,Tehnologii emergente,Tehnologii emergente,,Emerging technologies,Emerging technologies,,3,460,emergent-tech,,,0
+464,Tactici de marketing pentru eCommerce,eCommerce,,Marketing tactics for eCommerce,eCommerce,,2,381,ecommerce,,,15
+465,Platforme de eCommerce,Platforme,,eCommerce platforms,platform,,3,464,ecommerce-platforms,,,0
+466,Funcționalități de eCommerce,Funcționalități,,eCommerce features,features,,3,464,ecommerce-features,,,0
+467,Shopping marketplaces,Marketplace-uri,,Shopping marketplaces,marketplace sites,,3,464,shopping-marketplaces,,,0
+468,Comparatoare de prețuri,Comparatoare de prețuri,,Price comparisons,Price comparisons,,3,464,price-comparisons,,,0
+469,Tactici de marketing pentru SaaS,SaaS,,SaaS Marketing Tactics,SaaS,,2,381,saas,,,16
+608,Strategii și tactici pentru Software as a Service,Strategii și tactici SaaS,,Strategies and Tactics for Software as a Service,SaaS strategies and tactics,,3,469,saas-strategy,,,
+470,Business reviews,Business reviews,,Business reviews,Business reviews,,3,469,business-reviews,,,0
+471,Dezvoltarea de relații cu clienții,Customer success,,Developing customer relationships,Customer success,,3,469,customer-success,,,0
+472,Tactici de marketing pentru brick & mortar,Brick & mortar,,Brick & mortar marketing tactics,Brick & mortar,,2,381,brick-and-mortar,,,17
+473,Google Maps & Google My Business,Google Maps,,Google Maps & Google My Business,Google Maps,,3,472,google-maps,,,0
+474,TripAdvisor,TripAdvisor,,TripAdvisor,TripAdvisor,,3,472,tripadvisor,,,0
+475,Business strategy,Strategie,,Business strategy,Strategy,,2,381,business-strategy,,,18
+476,Strategia și tacticile de business,Tactici,,Business strategy and tactics,Tactics,,3,475,business-tactics,,,0
+477,Cum să setezi prețurile,Pricing,,How to set prices,Pricing,,3,475,pricing-strategy,,,0
+478,Product-Market-Pricing fit,Product-Market-Pricing Fit,,Product-Market-Pricing fit,Product-Market-Pricing Fit,,3,475,product-market-pricing-fit,,,0
+479,Internaționalizare,Internaționalizare,,Internationalization,Internationalization,,3,475,internationalization,,,0
+480,Growth hacking,Growth hacking,,Growth hacking,Growth hacking,,2,381,growth-hacking,,,19
+481,Achiziție și canale de inbound traffic,Inbound traffic,,Acquisition and inbound traffic channels,Inbound traffic,,3,480,acquisition,,,0
+482,Calificarea traficului,Calificarea traficului,,Traffic qualification,Traffic qualification,,3,480,traffic-qualification,,,0
+483,A/B Testing și experimentare,A/B Testing,,A/B Testing and experimentation,A/B Testing,,3,480,ab-testing,,,0
+484,CRO și optimizarea landing page-urilor,CRO și optimizare,,CRO and optimization of landing pages,CRO and optimization,,3,480,cro,,,0
+485,"Onboarding, retenție, repeat business",Onboarding / Retenție,,"Onboarding, retention, repeat business",Onboarding / Retention,,3,480,onboarding-retention,,,0
+607,Product-led Growth,Product-led Growth,,Product-led Growth,Product-led Growth,,3,480,product-led-growth,,,0
+486,KPI-uri și măsurare,KPI-uri / Măsurare,,KPIs and measurement,KPIs / Measurement,,3,480,kpis-measurement,,,0
+487,Resurse de Networking & Cyber Security,NetSec,Resurse pentru învățarea și aplicarea conceptelor de rețelistică și securitate cibernetică.,Networking & Cyber ​​Security Resources,NetSec,Resources for learning and applying networking and cybersecurity concepts.,1,,security,,,5
+488,"Introducere în IT, rețelistică și securitate",Introducere,,"Introduction to IT, Networking and Security",Introduction,,2,487,intro-to-it,,,1
+489,Istoria IT,Istoria IT,,History of IT,History of IT,,3,488,it-history,,,0
+490,Bazele rețelisticii,Bazele rețelisticii,,The basics of networking,The basics of networking,,3,488,networking-basics,,,0
+491,Principii de securitate,Principii de securitate,,Security principles,Security principles,,3,488,security-principles,,,0
+492,Legalitate și etică în securitate,Legalitate și etică,,Legality and Ethics in Security,Legality and ethics,,3,488,legal-ethics,,,0
+493,Rețelistică,Rețelistică,,Networking,Networking,,2,487,networking,,,2
+494,Dispozitive din rețea,Dispozitive,,Network devices,Instruments,,3,493,network-devices,,,0
+495,Servicii și aplicații de rețea,Servicii și aplicații,,Network services and applications,Services and Applications,,3,493,network-services,,,0
+496,DHCP,DHCP,,DHCP,DHCP,,3,493,dhcp,,,0
+497,DNS,DNS,,DNS,DNS,,3,493,dns,,,0
+498,Network Address Translation,Network Address Translation,,Network Address Translation,Network Address Translation,,3,493,network-address-translation,,,0
+499,WAN,WAN,,WAN,WAN,,3,493,wan,,,0
+500,Cablare,Cablare,,Cabling,Cabling,,3,493,cabling,,,0
+501,Topologii de rețea,Topologii de rețea,,Network topologies,Network topologies,,3,493,network-topologies,,,0
+502,Infrastructură,Infrastructură,,Infrastructure,Infrastructure,,3,493,infrastructure,,,0
+503,Protocoale: IPv4 vs IPv6,IPv4 vs IPv6,,Protocols: IPv4 vs IPv6,IPv4 vs IPv6,,3,493,protocols,,,0
+504,Routing,Routing,,Routing,Routing,,3,493,routing,,,0
+505,Subnetting,Subnetting,,Subnetting,Subnetting,,3,493,subnetting,,,0
+506,Virtualizare,Virtualizare,,Virtualization,Virtualization,,3,493,virtualization,,,0
+507,Implementare,Implementare,,Implementation,Implementation,,3,493,implementation,,,0
+508,Monitorizare și forensics,Monitorizare,,Monitoring and forensics,mONITORING,,3,493,monitoring-forensics,,,0
+509,Configurare,Configurare,,Configuration,Configuration,,3,493,configuration,,,0
+510,Autentificare,Autentificare,,Login,Login,,3,493,authentication,,,0
+511,Troubleshooting,Troubleshooting,,Troubleshooting,Troubleshooting,,3,493,troubleshooting,,,0
+512,Sisteme de operare,Sisteme de operare,,Operating systems,Operating systems,,2,487,operating-systems,,,3
+513,Linux / Unix,Linux / Unix,,Linux / Unix,Linux / Unix,,3,512,linux-unix,,,0
+514,Windows,Windows,,Windows,Windows,,3,512,windows,,,0
+515,MacOS / iOS,MacOS / iOS,,macOS / iOS,macOS / iOS,,3,512,macos-ios,,,0
+516,Android,Android,,Android,Android,,3,512,android,,,0
+517,Securitate cibernetică,Securitate cibernetică,,Cyber ​​security,Cyber ​​security,,2,487,cyber-security,,,4
+518,Criptografie,Criptografie,,Cryptography,Cryptography,,3,517,cryptography,,,0
+519,Vulnerabilități,Vulnerabilități,,Vulnerabilities,Vulnerabilities,,3,517,vulnerabilities,,,0
+520,Incident response & discovery,Incident response,,Incident response & discovery,Incident response,,3,517,incident-response,,,0
+521,Threat classification,Threat classification,,Threat classification,Threat classification,,3,517,threat-classification,,,0
+522,Management-ul protocoalelor,Protocoale,,Management of protocols,Protocols,,3,517,protocol-management,,,0
+523,Management-ul log-urilor,Log-uri,,Log management,Logs,,3,517,log-management,,,0
+524,Atacuri de rețea,Atacuri de rețea,,Network attacks,Network attacks,,3,517,network-attacks,,,0
+525,Atacuri de aplicație,Atacuri de aplicație,,Application attacks,Application attacks,,3,517,application-attacks,,,0
+526,Atacuri la adresa oamenilor,Atacuri de oameni,,Attacks on people,Attacks on people,,3,517,people-attacks,,,0
+527,Hardening,Hardening,,Hardening,Hardening,,3,517,hardening,,,0
+528,Unelte de securitate,Unelte de securitate,,Security tools,Security tools,,3,517,security-tools,,,0
+529,Certificări,Certificări,,CERTIFICATION,CERTIFICATION,,3,517,certifications,,,0
+530,Securitate în Cloud,Securitate în Cloud,,Security in the Cloud,Security in the Cloud,,2,487,cloud-security,,,5
+531,Concepte de bază pentru securitate în Cloud,Concepte de bază,,Cloud Security Basics,Basic concepts,,3,530,basic-cloud-security,,,0
+532,Securitate pentru Amazon Web Services,AWS Security,,Security for Amazon Web Services,AWS Security,,3,530,aws-security,,,0
+533,Securitate pentru Google Cloud,Google Cloud Security,,Security for Google Cloud,Google Cloud Security,,3,530,gcp-security,,,0
+534,Securitate pentru Azure,Azure Security,,Security for Azure,Azure Security,,3,530,azure-security,,,0
+535,Securitate pentru cloud-uri private,Private Cloud Security,,Security for private clouds,Private Cloud Security,,3,530,private-cloud-security,,,0
+536,Securitate pentru alte sisteme cloud,Securitate cloud diversă,,Security for other cloud systems,Diverse cloud security,,3,530,other-cloud-security,,,0
+544,Resurse de Management,Management,Ghiduri pentru utilizarea tehnicilor de testare headless în proiectele software.,Management Resources,Management,Guidelines for using headless testing techniques in software projects.,1,,management,,,6
+545,"Workflow, SCRUM și Project Management",Project Management,,"Workflow, SCRUM and Project Management",Project Management,,2,544,workflow,,,1
+546,Metodologii Agile,Agile,,Agile methodologies,Agile,,3,545,agile,,,0
+547,Instrumente de management al proiectelor,Instrumente PM,,Project management tools,PM tools,,3,545,project-management,,,0
+548,Managementul resurselor,Resurse,,Resources management,Resources,,3,545,resource-management,,,0
+549,Management & Leadership,Leadership,,Management & Leadership,Leadership,,2,544,leadership,,,2
+550,Dezvoltarea abilităților de leadership,Abilități de leadership,,Developing leadership skills,Leadership skills,,3,549,leadership-skills,,,0
+551,Gestionarea echipelor,Echipe,,Team management,TEAMS,,3,549,team-management,,,0
+552,Managementul schimbării,Change Management,,Management of change,Change Management,,3,549,change-management,,,0
+553,Product Management,Product Management,,Product Management,Product Management,,2,544,product-management,,,3
+554,Ciclul de viață al produsului,Product Lifecycle,,Product life cycle,Product Lifecycle,,3,553,product-lifecycle,,,0
+555,Planificare și roadmap,Planificare,,Planning and roadmap,Planning,,3,553,planning,,,0
+556,Tehnici de prioritizare,Prioritizare,,Prioritization techniques,Prioritization,,3,553,prioritization,,,0
+557,Antreprenoriat și startup-uri,Antreprenoriat,,Entrepreneurship and startups,Entrepreneurship,,2,544,entrepreneurship,,,4
+558,Introducere în antreprenoriat,Introducere,,Introduction to entrepreneurship,Introduction,,3,557,intro-startups,,,0
+559,Product-market fit,Product-Market Fit,,Product-market fit,Product-Market Fit,,3,557,product-market-fit,,,0
+560,Sfaturi pentru recrutori,Recrutori,,Tips for recruiters,Recruiters,,2,544,recruitment,,,5
+561,Tehnici de recrutare,Recrutare,,Recruitment techniques,Recruitment,,3,560,recruitment-techniques,,,0
+562,Evaluarea candidaților,Candidați,,Evaluation of candidates,candidate,,3,560,candidate-evaluation,,,0
+563,Onboarding,Onboarding,,Onboarding,Onboarding,,3,560,candidate-onboarding,,,0
+564,Alte resurse digitale,Altele,Resurse pentru optimizarea procesului de angajare și îmbunătățirea șanselor de succes.,Other digital resources,Other,Resources to optimize the hiring process and improve the chances of success.,1,,others,,,7
+565,Cum să te angajezi mai ușor,Angajare,,How to get hired more easily,engagement,,2,564,getting-hired,,,1
+566,Scrierea CV-ului,Scrierea CV-ului,,CV writing,CV writing,,3,565,cv,,,0
+567,Pregătirea pentru interviu,Pregătirea pentru interviu,,Preparing for the interview,Preparing for the interview,,3,565,interview,,,0
+568,Networking profesional,Networking profesional,,Professional networking,Professional networking,,3,565,networking,,,0
+569,Freelancing,Freelancing,,Freelancing,Freelancing,,2,564,freelancing,,,2
+570,Cum să găsești clienți,Găsirea clienților,,How to find customers,Finding customers,,3,569,clienti,,,0
+571,Gestionarea proiectelor,Gestionarea proiectelor,,Project management,Project management,,3,569,proiecte,,,0
+572,Stabilirea prețurilor,Stabilirea prețurilor,,Pricing,Pricing,,3,569,preturi,,,0
+584,Știință și tehnologie,Știință și tehnologie,,Science and technology,Science and technology,,2,564,science-technology,,,3
+585,Descoperiri științifice recente,Descoperiri recente,,Recent scientific discoveries,Recent discoveries,,3,584,discoveries,,,0
+586,Inovații tehnologice,Inovații tehnologice,,Technological innovations,Technological innovations,,3,584,innovation,,,0
+587,Tendințe în tehnologie,Tendințe tehnologice,,Trends in technology,Technological trends,,3,584,trends,,,0
+588,Limba Engleză,Limba Engleză,,English language,English language,,2,564,english,,,4
+589,Învățarea limbii engleze - lucruri de bază,Lucruri de bază,,Learning English - Basics,Basic stuff,,3,588,learn-english,,,0
+590,Practici de comunicare,Comunicare,,Communication practices,Communication,,3,588,english-communication,,,0
+591,Resurse pentru exersare,Exersare,,Resources for practice,practice,,3,588,english-practice,,,0
+592,Sfaturi generale și de viață,Sfaturi generale și de viață,,General and life advice,General and life advice,,2,564,sfaturi-generale-viata,,,5
+593,Gestionarea timpului,Gestionarea timpului,,Time management,Time management,,3,592,time-management,,,0
+594,Tehnici de productivitate,Productivitate,,Productivity techniques,Productivity,,3,592,productivity,,,0
+595,Sfaturi pentru sănătate mentală,Sănătate mentală,,Tips for mental health,Mental health,,3,592,mental-health,,,0
+596,Comunicare verbală și non-verbală,Comunicare,,Verbal and non-verbal communication,Communication,,3,565,communication,,,0
+597,Prezentări și public speaking,Public speaking,,Presentations and public speaking,Public speaking,,3,565,public-speaking,,,0
+598,Negociere și influență,Negociere,,Negotiation and influence,Negotiation,,3,565,negociation,,,0
+599,Colaborare și cooperare,Colaborare și cooperare,,Collaboration and cooperation,Collaboration and cooperation,,3,569,collaboration,,,0
+600,Managementul conflictelor,Conflicte,,Conflict management,conflicts,,3,569,conflict-resolution,,,0
+601,Teambuilding și spirit de echipă,Team building,,Teambuilding and team spirit,Team building,,3,569,team-building,,,0
+602,Tehnici de gândire critică,Gândire critică,,Critical thinking techniques,Critical thinking,,3,592,critical-thinking,,,0
+603,Metodologii de rezolvare a problemelor,Rezolvarea problemelor,,Problem solving methodologies,Solving problems,,3,592,problem-solving,,,0
+604,Decizii bazate pe date,Decizii bazate pe date,,Data-driven decisions,Data-driven decisions,,3,592,data-based-decisions,,,0
+606,Prioritizare și planificare,Prioritizare,,Prioritization and planning,Prioritization,,3,592,prioritization,,,0

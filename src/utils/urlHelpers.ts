@@ -20,3 +20,25 @@ export function highlightUrl(urlFragment: string, standardClass: string, activeC
 
 	return classes;
 }
+
+/**
+ * Creates a slug from a title string
+ * @function createSlug
+ * @param {string} title The title of the current resource
+ * @returns {string} A slugified version of the title
+ */
+export function createSlug(title: string): string {
+	return (
+		title
+			// remove leading & trailing whitespace
+			.trim()
+			// remove special characters
+			.replace(/[^A-Za-z0-9 ]/g, '')
+			// replace spaces
+			.replace(/\s+/g, '-')
+			// remove leading & trailing separtors
+			.replace(/^-+|-+$/g, '')
+			// output lowercase
+			.toLowerCase()
+	);
+}

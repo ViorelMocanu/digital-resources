@@ -17,6 +17,33 @@ export interface Props {
 	res: ExtendedResource;
 }
 
+/**
+ * Handles the click event for the like button.
+ */
+/*
+function hitLike() {
+	console.log('Like button clicked');
+	fetch(`/api/like/${res.slug}`, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify({ like: true }),
+	})
+		.then((response) => response.json())
+		.then((data) => {
+			console.log('Success:', data);
+			if (!!numLikes) {
+				numLikes.innerText = data.likes;
+			}
+		})
+		.catch((error) => {
+			console.error('Error:', error);
+			alert("Couldn't like the resource. Please try again later.");
+		});
+}
+*/
+
 const { res } = Astro.props satisfies Props;
 ---
 

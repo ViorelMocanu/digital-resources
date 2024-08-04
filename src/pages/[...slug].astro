@@ -1,0 +1,190 @@
+---
+import { Resource, Taxonomy, db, eq } from 'astro:db';
+import { DEFAULT_DESCRIPTION, DEFAULT_MENULABEL, DEFAULT_TITLE, DEFAULT_URL, PAGE_SIZE } from '../config';
+import Layout from '../layouts/Layout.astro';
+import ResourceFilter from '../components/ResourceFilter.astro';
+// import ResourceList from '../components/ResourceList.astro';
+import ResourceTOC from '../components/ResourceTOC.astro';
+
+export async function getStaticPaths() {
+	const taxonomies = await db.select().from(Taxonomy);
+
+	function completeSlug(id: number, slug: string) {
+		const item = taxonomies.find((taxonomy) => taxonomy.id === id);
+		if (!item) {
+			return slug;
+		}
+		if (item.parent) {
+			const parent = taxonomies.find((taxonomy) => taxonomy.id === item.parent);
+			if (!parent) {
+				return slug;
+			}
+			slug = parent.slug + '/' + slug;
+			return completeSlug(parent.id, slug);
+		} else {
+			return slug;
+		}
+	}
+
+	const pages = taxonomies.map((taxonomy) => ({
+		lang: undefined,
+		slug: completeSlug(taxonomy.id, taxonomy.slug),
+		props: taxonomy,
+	}));
+
+	const c = pages.map(({ lang, slug, props }) => {
+		return {
+			params: {
+				lang,
+				slug,
+			},
+			props: {
+				...props,
+			},
+			pageSize: PAGE_SIZE,
+		};
+	});
+
+	return c;
+}
+
+const { lang, slug } = Astro.params;
+const page = Astro.props;
+
+const allResources = await db.select().from(Resource);
+const resources = allResources.filter((resource) => resource.taxonomy_id === page.id);
+
+const formattedDate = page.created_at.toLocaleDateString(lang, {
+	year: 'numeric',
+	month: 'long',
+	day: 'numeric',
+});
+let updateDate: string;
+if (page.modified_at) {
+	updateDate = page.modified_at.toLocaleDateString(lang, {
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric',
+	});
+} else {
+	updateDate = '';
+}
+
+const pageTemplate = page.type === 1 ? 'Section' : page.type === 2 ? 'Category' : 'Subcategory';
+const pageUrl = (lang === 'en' ? lang + '/' + slug : slug) || DEFAULT_URL;
+const pageTitle = (lang === 'en' ? page.title_en : page.title) || DEFAULT_TITLE;
+const pageMenu = (lang === 'en' ? page.menu_en : page.menu) || DEFAULT_MENULABEL;
+const pageDescription = (lang === 'en' ? page.description_en : page.description) || DEFAULT_DESCRIPTION;
+
+let breadcrumbArray = [
+	{
+		href: `/${pageUrl}`,
+		title: pageTitle,
+		label: pageMenu,
+	},
+];
+const categoryQuery = await db
+	.select()
+	.from(Taxonomy)
+	.where(eq(Taxonomy.id, page.parent || 0))
+	.limit(1);
+const category = categoryQuery.map((item) => item)[0];
+const sectionQuery = await db
+	.select()
+	.from(Taxonomy)
+	.where(eq(Taxonomy.id, category?.parent || 0))
+	.limit(1);
+const section = sectionQuery.map((item) => item)[0];
+let taxonomyId = page.id;
+switch (page.type) {
+	case 1:
+		taxonomyId = section?.id || 0;
+		break;
+	case 2:
+		breadcrumbArray.unshift({
+			href: `/${category?.slug}`,
+			title: category?.title || DEFAULT_TITLE,
+			label: category?.menu || DEFAULT_MENULABEL,
+		});
+		taxonomyId = category?.id || 0;
+		break;
+	case 3:
+		breadcrumbArray.unshift({
+			href: `/${section?.slug}/${category?.slug}`,
+			title: category?.title || DEFAULT_TITLE,
+			label: category?.menu || DEFAULT_MENULABEL,
+		});
+		breadcrumbArray.unshift({
+			href: `/${section?.slug}`,
+			title: section?.title || DEFAULT_TITLE,
+			label: section?.menu || DEFAULT_MENULABEL,
+		});
+		taxonomyId = page.id || 0;
+		break;
+}
+---
+
+<Layout title={pageTitle} description={pageDescription} template={pageTemplate} activeMenu={pageUrl} breadcrumbArray={breadcrumbArray}>
+	<div class="Hero" id="hero">
+		{
+			page.image && (
+				<div class="HeroVisual">
+					<img class="HeroImage" src={page.image} width="287" height="120" alt={page.image_alt} />
+				</div>
+			)
+		}
+		<div class="HeroText">
+			<h1 class="HeroTitle">{pageTitle}</h1>
+			<details class="HeroDetails">
+				<summary class="HeroPreview">
+					<p class="HeroP">{pageDescription}</p>
+					<p class="HeroP">
+						<span class="HeroExpand Link" title={`Afișează întreg textul descriptiv pentru resursele de ${pageTitle}`}>Citește mai mult &raquo;</span>
+					</p>
+				</summary>
+				<div class="HeroContent">
+					<p>Page: <pre>{JSON.stringify(page,null,4)}</pre></p>
+					<p>Lang: {lang}</p>
+					<p>Slug: {slug}</p>
+					<p>Parent: {page.parent}</p>
+					<p>Type: {page.type}</p>
+					<p>Sort order: {page.sort_order}</p>
+					<p>formattedDate: {formattedDate}</p>
+					{updateDate && <p>updateDate: {updateDate}</p>}
+					<h2>Resurse</h2>
+					<ul>
+						{
+							resources.map((item) => (
+								<li>
+									<h3>
+										<a href={`/resursa/${item.slug}`}>{item.title}</a>
+									</h3>
+									<p>{item.description}</p>
+									<p>
+										Resource: <pre>{JSON.stringify(item, null, 4)}</pre>
+									</p>
+								</li>
+							))
+						}
+					</ul>
+					{
+						/*
+							@TODO add content to CSV
+						*/
+					}
+				</div>
+			</details>
+		</div>
+	</div>
+	<main class="Main">
+		<ResourceFilter tid={taxonomyId} />
+		<ResourceTOC />
+		{
+			/*
+		<ResourceFilter section={section} />
+		<ResourceList resources={page.data} page={page} pageTitle={pageTitle} />
+		<ResourceTOC section={section} />
+			*/
+		}
+	</main>
+</Layout>
