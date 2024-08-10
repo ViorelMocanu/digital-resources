@@ -20,41 +20,48 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // https://astro.build/config
 export default defineConfig({
 	site: URL || 'https://resurse.dev',
+	// trailingSlash: 'always',
 	output: 'hybrid',
+	experimental: {
+		serverIslands: true,
+	},
 	// https://vercel.com/docs/frameworks/astro
 	adapter: vercel({
 		webAnalytics: {
-		enabled: true
+			enabled: true
 		},
 		maxDuration: 8,
 		edgeMiddleware: true
 	}),
 	compressHTML: ENV !== 'local' && ENV !== 'development' ? true : false,
+	devToolbar: {
+		enabled: ENV === 'local' || ENV === 'development' ? true : false
+	},
 	redirects: {
 		// '/old': '/new',
 	},
 	image: {
 		service: squooshImageService(),
 		remotePatterns: [{
-		protocol: 'https'
+			protocol: 'https'
 		}]
 	},
 	vite: {
 		logLevel: DEBUG ? 'info' : 'silent',
 		define: {
-		__DATE__: `'${new Date().toISOString()}'`
+			__DATE__: `'${new Date().toISOString()}'`
 		},
 		resolve: {
-		alias: {
-			'~': path.resolve(__dirname, './src')
-		}
+			alias: {
+				'~': path.resolve(__dirname, './src')
+			}
 		}
 	},
 	markdown: {
 		syntaxHighlight: 'shiki',
 		remarkRehype: {
-		footnoteLabel: 'Note de subsol',
-		footnoteBackLabel: 'Înapoi la conținut'
+			footnoteLabel: 'Note de subsol',
+			footnoteBackLabel: 'Înapoi la conținut'
 		},
 		shikiConfig: {
 		// Choose from Shiki's built-in themes (or add your own)
@@ -91,11 +98,10 @@ export default defineConfig({
 		crossOrigin: 'anonymous',
 		insertAppleTouchLinks: true,
 		iconPurpose: ['badge', 'maskable', 'monochrome']
-		}
-	}), partytown({
+	}}), partytown({
 		config: {
-		debug: true,
-		forward: ['dataLayer.push']
+			debug: true,
+			forward: ['dataLayer.push']
 		}
 	}), sitemap({
 		customPages: ['https://resurse.dev/external-page2'],
@@ -105,12 +111,24 @@ export default defineConfig({
 		priority: 0.7,
 		//lastmod: new Date(GLOBAL_PUB_DATE),
 		i18n: {
-		defaultLocale: 'ro',
-		locales: {
-			ro: 'ro-RO',
-			en: 'en-US'
-		}
-		}
+			defaultLocale: 'ro',
+			locales: {
+				ro: 'ro-RO',
+				en: 'en-US'
+			}
+		},
+		/*
+		serialize(item) {
+			if (item.url.endsWith('resurse.dev/')) {
+				item.priority = 1.0;
+			} else if (item.url.endsWith('resurse.dev/r/')) {
+				// @ts-expect-error they used a TS enum <smh>
+				item.changefreq = 'daily';
+				item.priority = 0.9;
+			}
+			return item;
+		},
+		*/
 	}),
 	embeds(),
 	mdx(),

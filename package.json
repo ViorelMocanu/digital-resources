@@ -63,6 +63,7 @@
 		"astro-compress": "^2.3.1",
 		"astro-embed": "^0.7.2",
 		"astro-simpleanalytics-plugin": "^0.3.15",
+		"astro-social-share": "^2.0.2",
 		"astro-webmanifest": "^1.0.0",
 		"lite-youtube-embed": "^0.3.2",
 		"node-html-parser": "^6.1.13",

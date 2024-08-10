@@ -42,3 +42,4 @@ export function createSlug(title: string): string {
 			.toLowerCase()
 	);
 }
+// @TODO: why not https://www.npmjs.com/package/limax ???

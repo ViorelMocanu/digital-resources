@@ -1,5 +1,41 @@
 import { type CollectionEntry, type DataCollectionKey, getCollection } from 'astro:content';
 import type { CollectionKeyEnum, Order, Type } from '../config';
+import { Taxonomy, db } from 'astro:db';
+
+const taxonomies = await db.select().from(Taxonomy);
+
+/**
+ *
+ * @param id
+ * @param slug
+ */
+function completeSlug(id: number, slug: string) {
+	const item = taxonomies.find((taxonomy) => taxonomy.id === id);
+	if (!item) {
+		return slug;
+	}
+	if (item.parent) {
+		const parent = taxonomies.find((taxonomy) => taxonomy.id === item.parent);
+		if (!parent) {
+			return slug;
+		}
+		slug = parent.slug + '/' + slug;
+		return completeSlug(parent.id, slug);
+	} else {
+		return slug;
+	}
+}
+
+export const finalTaxonomies = taxonomies
+	.map((taxonomy) => ({
+		params: {
+			lang: undefined,
+			slug: completeSlug(taxonomy.id, taxonomy.slug),
+		},
+		props: taxonomy,
+	}))
+	.sort((a, b) => new Date(b.props.sort_order).valueOf() - new Date(a.props.sort_order).valueOf());
+console.log('finalTaxonomies', finalTaxonomies);
 
 /**
  * Compares two strings based on the specified order and returns a numerical value indicating their relative order.

@@ -1,4 +1,4 @@
-import { Author, Like, LikeTest, Rating, RelationResourceTag, Resource, Session, Tag, TagType, Taxonomy, TaxonomyType, User } from './tables';
+import { Author, Like, LikeTest, Rating, RelationResourceTag, Resource, Session, Tag, TagType, Taxonomy, TaxonomyType, User, Visits } from './tables';
 import { defineDb } from 'astro:db';
 
 export default defineDb({
@@ -14,6 +14,7 @@ export default defineDb({
 		TagType,
 		Tag,
 		RelationResourceTag,
+		Visits,
 		Session,
 	},
 });

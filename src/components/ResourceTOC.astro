@@ -11,7 +11,7 @@
  * @returns {astro.AstroNode} The rendered navigation menu.
  */
 
-import { Taxonomy, db, eq } from 'astro:db';
+import { Resource, Taxonomy, db, eq } from 'astro:db';
 import { highlightUrl } from '../utils/urlHelpers';
 
 const { resourceId } = Astro.props;
@@ -20,20 +20,34 @@ const activePage = Astro.url.pathname;
 const allSectionsQuery = await db.select().from(Taxonomy).where(eq(Taxonomy.type, 1));
 const allCategoriesQuery = await db.select().from(Taxonomy).where(eq(Taxonomy.type, 2));
 const allSubcategoriesQuery = await db.select().from(Taxonomy).where(eq(Taxonomy.type, 3));
+const allResources = await db.select().from(Resource);
 
 let tocData = allSectionsQuery.map((section) => {
+	let resources = allResources.filter((resource) => resource.taxonomy_id === section.id);
 	const onlyCategories = allCategoriesQuery.filter((category) => category.parent === section.id);
-	//const subcategories = allSubcategoriesQuery.filter((subcategory) => categories.some((category) => category.id === subcategory.parent));
 	const categories = onlyCategories.map((category) => {
-		const subcategories = allSubcategoriesQuery.filter((subcategory) => subcategory.parent === category.id);
+		let categoryResources = allResources.filter((resource) => resource.taxonomy_id === category.id);
+		resources = resources.concat(categoryResources);
+		const onlySubcategories = allSubcategoriesQuery.filter((subcategory) => subcategory.parent === category.id);
+		const subcategories = onlySubcategories.map((subcategory) => {
+			let subcategoryResources = allResources.filter((resource) => resource.taxonomy_id === subcategory.id);
+			categoryResources = categoryResources.concat(subcategoryResources);
+			resources = resources.concat(subcategoryResources);
+			return {
+				...subcategory,
+				resources: subcategoryResources,
+			};
+		});
 		return {
 			...category,
+			resources: categoryResources,
 			subcategories,
 		};
 	});
 
 	return {
 		section,
+		resources,
 		categories,
 	};
 });
@@ -53,18 +67,18 @@ let tocData = allSectionsQuery.map((section) => {
 							'open': 'open',
 						})}
 					>
-						<summary>
+						<summary class="ListNavSummary">
 							<h2 class="ListNavTitle" id="treeTitle">
-								Categorii de {item.section.title}:
+								{item.section.title} <em>({item.resources.length})</em>
 							</h2>
 						</summary>
-						<div>
+						<div class="ListNavContent">
 							<ol class="ListNav">
 								{item.categories &&
 									item.categories.map((category) => (
 										<li class:list={highlightUrl(`/${item.section.slug}/${category.slug}`, 'ListNavItem', 'ActiveListNav', activePage)}>
 											<a class="ListNavLink" href={`/${item.section.slug}/${category.slug}`} title={`Vezi resursele din categoria ${category.title}`}>
-												{category.title}
+												{category.title} <em>({category.resources.length})</em>
 											</a>
 											{category.subcategories && (
 												<ol class="ListSubNav">
@@ -82,7 +96,7 @@ let tocData = allSectionsQuery.map((section) => {
 																href={`/${item.section.slug}/${category.slug}/${subcategory.slug}`}
 																title={`Vezi resursele din subcategoria ${subcategory.title}`}
 															>
-																{subcategory.title}
+																{subcategory.title} <em>({subcategory.resources.length})</em>
 															</a>
 														</li>
 													))}

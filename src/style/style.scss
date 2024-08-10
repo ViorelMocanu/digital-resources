@@ -141,7 +141,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 			.HeaderLink { display: flex; flex-direction: row; align-items: center; gap: 0.25rem; padding: 0.75rem; margin-left: auto; background: transparent; border: none; text-decoration: none;
 				@media (min-width: $desktop) { order: 3; padding: 1.125rem 1rem; margin-left: unset; }
 			}
-			.HeaderLink.Login {
+			.HeaderLink.Login, .HeaderLink.Dashboard {
 				@media (min-width: $desktop) { margin-left: auto; }
 			}
 				.HeaderLink .Icon { display: block; width: 1.5rem; height: 1.5rem; }
@@ -245,7 +245,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 					.HeroPreview:active .HeroExpand { color: var(--light-800); text-decoration: none; }
 				.HeroContent {  }
 					.HeroContent .HeroP {  }
-	.Main { display: block; margin: 1rem; border: 1px solid var(--light-900); }
+	.Main { display: grid; margin: 1rem; border: 1px solid var(--light-900); }
 	.SectionPage .Main, .CategoryPage .Main, .SubcategoryPage .Main { position: relative;
 		@media (min-width: $desktop) { display: grid; grid-template-columns: 3fr 1fr; grid-template-rows: 2.5rem 1fr; }
 	}
@@ -265,7 +265,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 			@media (min-width: $desktop) { flex-grow: 1; padding: 2rem 0 2rem 2rem; border-top: none; border-left: 1px solid var(--light-900); }
 		}
 		.MarkdownContent { padding: 1rem; overflow: hidden;
-			@media (min-width: $desktop) { width: 75%; padding: 2rem; box-sizing: border-box; border-right: 1px solid var(--light-900); }
+			@media (min-width: $desktop) { grid-row: 1 / span 1; grid-column: 1 / span 1; padding: 2rem; box-sizing: border-box; border-right: 1px solid var(--light-900); }
 		}
 			.MarkdownContent h1, .MarkdownContent h2 { scroll-margin-top: 4rem;
 				@media (min-width: $desktop) { scroll-margin-top: 12rem; }
@@ -551,43 +551,47 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 		.ActiveSubnav .ListNavigation { transform: translate3d(0, 0, 0); box-shadow: 0 1rem 1rem var(--dark-100);
 			@media (min-width: $desktop) { transform: none; box-shadow: none; }
 		}
-			.ListNavTitle { display: block; margin: 0; padding: 1rem 0.5rem;
-				@media (min-width: $desktop) { display: block; padding: 2rem 2rem 0 2rem; font-size: 1.5rem; line-height: 1em; font-weight: normal; }
-			}
-			.SubnavTrigger { display: flex; flex-direction: row; align-items: center; justify-content: center; flex-grow: 1; gap: 0.25rem; padding: 0.5rem; right: 0; bottom: 0; z-index: 1; background: var(--dark-100); color: var(--light-900); border: none; border-left: 1px solid var(--light-900); border-bottom: 1px solid var(--light-900); text-align: center; font-size: 0.75rem; line-height: 1.5rem; cursor: pointer;
-				@media (min-width: 450px) { font-size: 1rem; line-height: 1.5rem; }
-				@media (min-width: $desktop) { display: none; }
-			}
-			.SubnavTrigger:hover { background: var(--accent-400); color: var(--light-900); }
-			.SubnavTrigger:active { background: var(--light-900); color: var(--accent-400); }
-			.ListNav { display: block; max-height: calc(100vh - 14rem); list-style-type: none; margin: 0; padding: 0; overflow-y: auto; border: 1px solid var(--light-900);
-				@media (min-width: $desktop) { display: block; list-style-type: decimal; margin: 0; border: none; padding: 1rem 2rem; }
-			}
-				.SubnavTrigger .Icon { display: none;
-					@media (min-width: 400px) { display: block; }
+			.ListNavContainer .ListNavSummary { display: block; cursor: pointer; }
+			.ListNavContainer .ListNavSummary:hover { color: var(--accent-400); }
+				.ListNavTitle { display: block; margin: 0; padding: 1rem 0.5rem;
+					@media (min-width: $desktop) { display: block; padding: 1rem 2rem; font-size: 1.5rem; line-height: 1em; font-weight: normal; }
 				}
-				.ListNavItem { display: list-item;
-					@media (min-width: 1300px) { margin: 0 0 1rem; }
+				.ActiveListNavContainer .ListNavTitle { font-weight: bold; color: var(--accent-400); }
+				.SubnavTrigger { display: flex; flex-direction: row; align-items: center; justify-content: center; flex-grow: 1; gap: 0.25rem; padding: 0.5rem; right: 0; bottom: 0; z-index: 1; background: var(--dark-100); color: var(--light-900); border: none; border-left: 1px solid var(--light-900); border-bottom: 1px solid var(--light-900); text-align: center; font-size: 0.75rem; line-height: 1.5rem; cursor: pointer;
+					@media (min-width: 450px) { font-size: 1rem; line-height: 1.5rem; }
+					@media (min-width: $desktop) { display: none; }
 				}
-					.ListNavLink, .ListSubNavLink { display: block; padding: 0.5rem; text-decoration: none; border-bottom: 1px solid var(--light-900);
-						@media (min-width: $desktop) { padding: 0; text-decoration: underline; border-bottom: none; }
+				.SubnavTrigger:hover { background: var(--accent-400); color: var(--light-900); }
+				.SubnavTrigger:active { background: var(--light-900); color: var(--accent-400); }
+			.ListNavContainer .ListNavContent {  }
+				.ListNav { display: block; max-height: calc(100vh - 14rem); list-style-type: none; margin: 0; padding: 0; overflow-y: auto; border: 1px solid var(--light-900);
+					@media (min-width: $desktop) { display: block; list-style-type: decimal; margin: 0; border: none; padding: 1rem 2rem; }
+				}
+					.SubnavTrigger .Icon { display: none;
+						@media (min-width: 400px) { display: block; }
 					}
-					.ListNavLink:hover, .ListSubNavLink:hover { text-decoration: none; }
-					.ActiveListNav > .ListNavLink { font-weight: bold; color: var(--accent-400); text-decoration: none; }
-					.ListSubNav { display: block; list-style-type: none; margin: 0; padding: 0; border: 1px solid var(--light-900);
-						@media (min-width: $desktop) { margin: 0; border: none; }
+					.ListNavItem { display: list-item;
+						@media (min-width: 1300px) { margin: 0 0 1rem; }
 					}
-						.ListSubNavItem { display: block; }
-							.ListSubNavLink { border-left: 1rem solid var(--light-900);
-								@media (min-width: $desktop) { border-left: none; }
-							}
-							.ActiveListNav > .ListSubNavLink { font-weight: bold; color: var(--accent-400); text-decoration: none; }
-				.ListNavClose { list-style-type: none; }
-					.ListNavCloseButton { display: flex; flex-direction: row; align-items: center; gap: 0.5rem; width: 100%; padding: 0.5rem; background: var(--dark-100); color: var(--light-900); text-decoration: none; text-align: left; line-height: 1.5rem;
-						@media (min-width: $desktop) { display: none; }
-					}
-					.ListNavCloseButton:hover { background: var(--accent-400); color: var(--light-900); }
-					.ListNavCloseButton:active { background: var(--light-900); color: var(--accent-400); }
+						.ListNavLink, .ListSubNavLink { display: block; padding: 0.5rem; text-decoration: none; border-bottom: 1px solid var(--light-900);
+							@media (min-width: $desktop) { padding: 0; text-decoration: underline; border-bottom: none; }
+						}
+						.ListNavLink:hover, .ListSubNavLink:hover { text-decoration: none; }
+						.ActiveListNav > .ListNavLink { font-weight: bold; color: var(--accent-400); text-decoration: none; }
+						.ListSubNav { display: block; list-style-type: none; margin: 0; padding: 0; border: 1px solid var(--light-900);
+							@media (min-width: $desktop) { margin: 0; border: none; }
+						}
+							.ListSubNavItem { display: block; }
+								.ListSubNavLink { border-left: 1rem solid var(--light-900);
+									@media (min-width: $desktop) { border-left: none; }
+								}
+								.ActiveListNav > .ListSubNavLink { font-weight: bold; color: var(--accent-400); text-decoration: none; }
+					.ListNavClose { list-style-type: none; }
+						.ListNavCloseButton { display: flex; flex-direction: row; align-items: center; gap: 0.5rem; width: 100%; padding: 0.5rem; background: var(--dark-100); color: var(--light-900); text-decoration: none; text-align: left; line-height: 1.5rem;
+							@media (min-width: $desktop) { display: none; }
+						}
+						.ListNavCloseButton:hover { background: var(--accent-400); color: var(--light-900); }
+						.ListNavCloseButton:active { background: var(--light-900); color: var(--accent-400); }
 		.Pagination {
 			@media (min-width: $desktop) { grid-column: 1 / span 2; }
 		}

@@ -47,6 +47,9 @@ importers:
       astro-simpleanalytics-plugin:
         specifier: ^0.3.15
         version: 0.3.15(@types/node@22.1.0)(lightningcss@1.25.1)(sass@1.77.8)(terser@5.31.3)(typescript@5.5.4)
+      astro-social-share:
+        specifier: ^2.0.2
+        version: 2.0.2
       astro-webmanifest:
         specifier: ^1.0.0
         version: 1.0.0
@@ -1563,6 +1566,9 @@ packages:
     resolution: {integrity: sha512-TBMSVDhP7tqjxRKV6GOqRbrPQV/sgWP2ICfGnabcfr1TkQ2ypyRGbWPY+3KbHU+ATm3OJWLc0lyaQ25czXQUlA==}
     engines: {node: '>=18.19', pnpm: '>=8'}
 
+  astro-social-share@2.0.2:
+    resolution: {integrity: sha512-bPeZUOzOTuXIJjVYmRrnsP8bK+qv3aviey+F8tFgG30rR1npc4SkyOb05hsp2BLuDci9kbuoHFW6Vr3L4ozjSw==}
+
   astro-webmanifest@1.0.0:
     resolution: {integrity: sha512-ar8SZuFf8k2XuqAYpiaiGmzgpqVufyPx0A9d8OljPup+Sgs+1trG2bpvo7JcM+m4L3figPaYEZOy1rRawCEU0w==}
 
@@ -3023,7 +3029,6 @@ packages:
 
   libsql@0.3.19:
     resolution: {integrity: sha512-Aj5cQ5uk/6fHdmeW0TiXK42FqUlwx7ytmMLPSaUQPin5HKKKuUPD62MAbN4OEweGBBI7q1BekoEN4gPUEL6MZA==}
-    cpu: [x64, arm64, wasm32]
     os: [darwin, linux, win32]
 
   lightningcss-darwin-arm64@1.25.1:
@@ -6549,6 +6554,8 @@ snapshots:
       - supports-color
       - terser
       - typescript
+
+  astro-social-share@2.0.2: {}
 
   astro-webmanifest@1.0.0:
     dependencies:

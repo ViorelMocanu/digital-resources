@@ -2,7 +2,7 @@ import { NOW, column, defineTable } from 'astro:db';
 
 export const LikeTest = defineTable({
 	columns: {
-		id: column.text(),
+		id: column.number(),
 		likes: column.number({ default: 0 }),
 	},
 });
@@ -44,6 +44,7 @@ export const Resource = defineTable({
 		description: column.text({ optional: true }),
 		description_en: column.text({ optional: true }),
 		author_id: column.number({ optional: true /*, references: () => Author.columns.id*/ }),
+		type: column.text({ default: 'generic' }),
 		price: column.number({ default: 0, optional: false }),
 		required_time: column.number({ optional: true }),
 		image: column.text({ optional: true }),
@@ -153,6 +154,19 @@ export const RelationResourceTag = defineTable({
 		tag_id: column.number({ references: () => Tag.columns.id }),
 		created_at: column.date({ default: NOW }),
 		modified_at: column.date({ default: NOW, nullable: true }),
+	},
+});
+
+export const Visits = defineTable({
+	columns: {
+		id: column.number({ primaryKey: true }),
+		page_slug: column.text({ default: '/' }),
+		pagination: column.number({ default: 1 }),
+		visitor_logged_in: column.boolean({ default: false }),
+		visitor_user_id: column.number({ optional: true, references: () => User.columns.id }),
+		visitor_ip_hash: column.text(),
+		visitor_user_agent_hash: column.text(),
+		visitor_count: column.number({ default: 1 }),
 	},
 });
 

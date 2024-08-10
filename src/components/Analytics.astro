@@ -10,16 +10,16 @@
  */
 
 //import { CLARITY_ID, ENV, PIWIK_ID } from '../config';
-import { SimpleAnalytics } from 'astro-simpleanalytics-plugin';
+import { SimpleAnalytics } from 'astro-simpleanalytics-plugin'; // @TODO: analyze whether we need light or latest SA script: https://docs.simpleanalytics.com/light
 import PostHog from '../components/PostHog.astro';
 import SpeedInsights from '@vercel/speed-insights/astro';
+
+//const currentPage = Astro.url.pathname;
 
 /*
 const clarity_id = CLARITY_ID;
 const piwik_id = PIWIK_ID;
 */
-
-// @TODO: analyze whether we need light or latest SA script: https://docs.simpleanalytics.com/light
 
 ---
 
@@ -108,3 +108,6 @@ const piwik_id = PIWIK_ID;
 
 	</div>
 )*/}
+
+<!-- @TODO: make this work towards tracking visits of logged vs nonlogged people on each page -->
+<!--img src={`/api/hit?page=${currentPage}`} loading="eager" aria-hidden="true" alt="Hit pixel" width="1" height="1" /-->

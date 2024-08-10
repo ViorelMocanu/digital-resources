@@ -107,7 +107,7 @@ if (resources) {
 						<div class="ResourceName">
 							<h4 class="ResourceTitle" transition:name={`${resource.slug} title`}>
 								{resource.slug && (
-									<a class="ResourceLink" href={`/resurse/${resource.slug}`} title={`Vizitează resursa intitulată: ${resource.data.title}`}>
+									<a class="ResourceLink" href={`/r/${resource.slug}`} title={`Vizitează resursa intitulată: ${resource.data.title}`}>
 										{resource.data.title}
 										{resourceTypeIcon[resource.type.toLowerCase()]}
 									</a>

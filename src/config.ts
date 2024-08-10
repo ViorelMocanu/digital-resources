@@ -53,8 +53,8 @@ export const PAGE_SIZE = 10;
 
 export const resourceTypeIcon: { [key: string]: string } = {
 	generic: '🔗',
-	carte: '📖',
-	curs: '💡',
+	book: '📖',
+	course: '💡',
 	video: '🎥',
 	text: '📃',
 };
