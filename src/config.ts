@@ -6,7 +6,7 @@ import type { CollectionEntry, CollectionKey } from 'astro:content';
 const PUBLIC_APP_ENV = import.meta.env.PUBLIC_APP_ENV;
 const PUBLIC_APP_DEBUG = import.meta.env.PUBLIC_APP_DEBUG;
 
-let u: string = import.meta.env.BASE_URL;
+let u: string = import.meta.env.BASE_URL || import.meta.env.VERCEL_URL;
 if (PUBLIC_APP_ENV === 'local' || PUBLIC_APP_ENV === 'development') {
 	// we are in a local or development environment
 	u = import.meta.env.PUBLIC_APP_URL_LOCAL;
@@ -22,7 +22,7 @@ const PUBLIC_APP_URL = u;
 // @TODO: make variables below asynchronous
 
 // My static config variables
-export const ENV = PUBLIC_APP_ENV;
+export const ENV = PUBLIC_APP_ENV || import.meta.env.VERCEL_ENV;
 export const DEBUG = PUBLIC_APP_DEBUG;
 export const URL = PUBLIC_APP_URL;
 export const SITE_TITLE = 'Centralizator de resurse digitale gratuite pentru învățare';

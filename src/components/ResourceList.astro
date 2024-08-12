@@ -36,9 +36,10 @@ export interface Props {
 		};
 	};
 	pageTitle?: string | undefined;
+	error?: Error | null;
 }
 
-const { resources, page, pageTitle } = Astro.props satisfies Props;
+const { resources, page, pageTitle, error } = Astro.props satisfies Props;
 
 let r = resources as unknown as ExtendedResource[];
 const allTags = await getCollection('tags');
@@ -164,7 +165,7 @@ if (resources) {
 											</span>
 											<span class="InfoItemText">Timp necesar</span>
 										</div>
-										<strong class="InfoItemValue">{resource.data.requiredTime}h</strong>
+										<strong class="InfoItemValue">{/*resource.requiredTime || '? '*/}h</strong>
 									</li>
 								)}
 							</ul>
@@ -173,7 +174,7 @@ if (resources) {
 							<ResourceLocationList res={resource} />
 							{resource.data.description && (
 								<p class="ResourceP" transition:name={`${resource.slug} description`}>
-									{resource.data.description}
+									{/*resource.description && resource.description.length > 160 ? resource.description?.substring(0, 160) : resource.description*/}
 								</p>
 							)}
 							{resource.data.tags && <ResourceTagList taglist={resource.tagData} resslug={resource.slug} />}
@@ -184,6 +185,14 @@ if (resources) {
 			</ol>
 		) : (
 			<Message title="Nu s-au găsit resurse pentru contextul curent" type="error">
+				<HelpfulLinks />
+			</Message>
+		)
+	}
+
+	{
+		error && (
+			<Message title="Am întâmpinat o problemă cu baza de date." type="error">
 				<HelpfulLinks />
 			</Message>
 		)

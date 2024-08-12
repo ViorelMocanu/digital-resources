@@ -1,12 +1,12 @@
 ---
-import { Taxonomy, db, eq } from 'astro:db';
 import { DEFAULT_DESCRIPTION, DEFAULT_MENULABEL, DEFAULT_TITLE, DEFAULT_URL, PAGE_SIZE, resourceTypeIcon } from '@config';
-import { taxonomiesFlat } from '@utils/getSortedItems';
+import { Taxonomy, db, eq } from 'astro:db';
 import CommentList from '@components/CommentList.astro';
 import Layout from '@layouts/Layout.astro';
 import ResourceFilter from '@components/ResourceFilter.astro';
 // import ResourceList from '@components/ResourceList.astro';
 import ResourceTOC from '@components/ResourceTOC.astro';
+import { taxonomiesFlat } from '@utils/getSortedItems';
 
 // @TODO: paginate this according to the number of resources on each taxonomy
 export async function getStaticPaths() {

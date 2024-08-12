@@ -39,6 +39,9 @@ const shouldRenderSubcategoriesFromCat = subcategories && categories && resource
 ---
 
 <ul class="ResourceLocationList" transition:name={`${res?.slug} location`}>
+	<li class="DesktopOnlyBlock">
+		<span class="ResourceLocationText">Găsești resursa în:</span>
+	</li>
 	{
 		resourceSection && (
 			<li class="ResourceLocationItem Classification">

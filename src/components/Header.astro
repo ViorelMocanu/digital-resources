@@ -12,9 +12,9 @@
  */
 
 import { Taxonomy, db, eq } from 'astro:db';
+import Avatar from '@components/Avatar.astro';
 import { type BreadcrumbItem } from '@config';
 import Breadcrumbs from '@components/Breadcrumbs.astro';
-import Avatar from '@components/Avatar.astro';
 import { highlightUrl } from '@utils/urlHelpers';
 export interface Props {
 	breadcrumbArray?: BreadcrumbItem[] | undefined;
