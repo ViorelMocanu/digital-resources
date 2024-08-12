@@ -1,4 +1,4 @@
-id,title,menu,description,title_en,menu_en,description_en,type,parent,slug,content,content_en,sort_order
+id,title,menu,description,title_en,menu_en,description_en,taxonomy_type_id,parent_id,slug,content,content_en,sort_order
 1,Resurse de Front End Development,Front End,"Instrumente și ghiduri pentru dezvoltarea abilităților front end: HTML, CSS, JavaScript, și framework-uri moderne.",Front End Development Resources,Front End,"Tools and guides for developing front end skills: HTML, CSS, JavaScript, and modern frameworks.",1,,front-end,,,1
 2,Introducere în Front End,Introducere,"Învață bazele dezvoltării front end cu tutoriale pentru HTML, CSS și JavaScript.",Introduction to Front End,Introduction,"Learn the basics of front end development with HTML, CSS, and JavaScript tutorials.",2,1,intro,,,1
 3,Unelte Utile de Front End,Unelte utile,"Cele mai bune unelte pentru eficientizarea muncii în front end: editoare, plugin-uri și versiuni de control.",Useful Front End Tools,Useful tools,"The best tools for streamlining front-end work: editors, plugins and version control.",2,1,useful,,,2

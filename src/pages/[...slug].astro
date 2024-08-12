@@ -1,56 +1,16 @@
 ---
-import { Resource, Taxonomy, db, eq } from 'astro:db';
-import { DEFAULT_DESCRIPTION, DEFAULT_MENULABEL, DEFAULT_TITLE, DEFAULT_URL, PAGE_SIZE, resourceTypeIcon } from '../config';
-import Layout from '../layouts/Layout.astro';
-import ResourceFilter from '../components/ResourceFilter.astro';
-// import ResourceList from '../components/ResourceList.astro';
-import ResourceTOC from '../components/ResourceTOC.astro';
+import { Taxonomy, db, eq } from 'astro:db';
+import { DEFAULT_DESCRIPTION, DEFAULT_MENULABEL, DEFAULT_TITLE, DEFAULT_URL, PAGE_SIZE, resourceTypeIcon } from '@config';
+import { taxonomiesFlat } from '@utils/getSortedItems';
+import CommentList from '@components/CommentList.astro';
+import Layout from '@layouts/Layout.astro';
+import ResourceFilter from '@components/ResourceFilter.astro';
+// import ResourceList from '@components/ResourceList.astro';
+import ResourceTOC from '@components/ResourceTOC.astro';
 
 // @TODO: paginate this according to the number of resources on each taxonomy
 export async function getStaticPaths() {
-	const taxonomies = await db.select().from(Taxonomy);
-	const allResources = await db.select().from(Resource);
-
-	function completeSlug(id: number, slug: string) {
-		const item = taxonomies.find((taxonomy) => taxonomy.id === id);
-		if (!item) {
-			return slug;
-		}
-		if (item.parent) {
-			const parent = taxonomies.find((taxonomy) => taxonomy.id === item.parent);
-			if (!parent) {
-				return slug;
-			}
-			slug = parent.slug + '/' + slug;
-			return completeSlug(parent.id, slug);
-		} else {
-			return slug;
-		}
-	}
-
-	const pages = taxonomies.map((taxonomy) => {
-		let resources = allResources.filter((resource) => resource.taxonomy_id === taxonomy.id);
-		if (taxonomy.parent) {
-			const parentResources = allResources.filter((resource) => resource.taxonomy_id === taxonomy.parent);
-			resources = resources.concat(parentResources);
-			if (taxonomy.type === 3) {
-				const grandParentQuery = taxonomies.filter((grandparent) => grandparent.id === taxonomy.parent);
-				const grandParent = grandParentQuery.map((item) => item)[0];
-				const grandparentResources = allResources.filter((resource) => resource.taxonomy_id === grandParent?.id);
-				resources = resources.concat(grandparentResources);
-			}
-		}
-		return {
-			lang: undefined,
-			slug: completeSlug(taxonomy.id, taxonomy.slug),
-			props: {
-				...taxonomy,
-				resources,
-			},
-		};
-	});
-
-	const c = pages.map(({ lang, slug, props }) => {
+	const c = taxonomiesFlat.flatMap(({ lang, slug, props }) => {
 		return {
 			params: {
 				lang,
@@ -87,7 +47,7 @@ if (thisPage.modified_at) {
 	updateDate = '';
 }
 
-const pageTemplate = thisPage.type === 1 ? 'Section' : thisPage.type === 2 ? 'Category' : 'Subcategory';
+const pageTemplate = thisPage.taxonomy_type_id === 1 ? 'Section' : thisPage.taxonomy_type_id === 2 ? 'Category' : 'Subcategory';
 const pageUrl = (lang === 'en' ? lang + '/' + slug : slug) || DEFAULT_URL;
 const pageTitle = (lang === 'en' ? thisPage.title_en : thisPage.title) || DEFAULT_TITLE;
 const pageMenu = (lang === 'en' ? thisPage.menu_en : thisPage.menu) || DEFAULT_MENULABEL;
@@ -103,19 +63,20 @@ let breadcrumbArray = [
 const categoryQuery = await db
 	.select()
 	.from(Taxonomy)
-	.where(eq(Taxonomy.id, thisPage.parent || 0))
+	.where(eq(Taxonomy.id, thisPage.parent_id || 0))
 	.limit(1);
 const category = categoryQuery.map((item) => item)[0];
 const sectionQuery = await db
 	.select()
 	.from(Taxonomy)
-	.where(eq(Taxonomy.id, category?.parent || 0))
+	.where(eq(Taxonomy.id, category?.parent_id || 0))
 	.limit(1);
 const section = sectionQuery.map((item) => item)[0];
+
 let taxonomyId = thisPage.id;
-switch (thisPage.type) {
+switch (thisPage.taxonomy_type_id) {
 	case 1:
-		taxonomyId = section?.id || 0;
+		//taxonomyId = section?.id || 0;
 		break;
 	case 2:
 		breadcrumbArray.unshift({
@@ -160,14 +121,14 @@ switch (thisPage.type) {
 					</p>
 				</summary>
 				<div class="HeroContent">
-					<p>Page: <pre>{JSON.stringify(thisPage,null,4)}</pre></p>
 					<p>Lang: {lang}</p>
 					<p>Slug: {slug}</p>
-					<p>Parent: {thisPage.parent}</p>
+					<p>Parent: {thisPage.parent_id}</p>
 					<p>Type: {thisPage.type}</p>
 					<p>Sort order: {thisPage.sort_order}</p>
 					<p>formattedDate: {formattedDate}</p>
 					{updateDate && <p>updateDate: {updateDate}</p>}
+					<p>Page: <pre>{JSON.stringify(thisPage,null,4)}</pre></p>
 				</div>
 			</details>
 		</div>
@@ -281,5 +242,6 @@ switch (thisPage.type) {
 	<ResourceTOC section={section} />
 		*/
 		}
+		<CommentList />
 	</main>
 </Layout>

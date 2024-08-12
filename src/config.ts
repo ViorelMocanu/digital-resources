@@ -19,11 +19,6 @@ if (PUBLIC_APP_ENV === 'local' || PUBLIC_APP_ENV === 'development') {
 }
 const PUBLIC_APP_URL = u;
 
-/*
-export const CLARITY_ID = import.meta.env.CLARITY_ID;
-export const PIWIK_ID = import.meta.env.PIWIK_ID;
-*/
-
 // @TODO: make variables below asynchronous
 
 // My static config variables
@@ -71,45 +66,6 @@ export type Headings = {
 	slug: string;
 	text: string;
 }[];
-
-export interface Taxonomy {
-	id: number;
-	title: string;
-	title_en?: string | null;
-	slug: string;
-	description?: string | null;
-	description_en?: string | null;
-	type: number;
-	parent?: number | null;
-	menu?: string | null;
-	menu_en?: string | null;
-	sort_order?: number | null;
-	image?: string | null;
-	image_alt?: string | null;
-	created_at: Date;
-	modified_at: Date;
-}
-
-export interface Resource {
-	id: number;
-	title: string;
-	title_en?: string | null;
-	slug: string;
-	url: string;
-	language: string;
-	description?: string | null;
-	description_en?: string | null;
-	author_id: string;
-	price: number;
-	required_time?: number | null;
-	image?: string | null;
-	image_alt?: string | null;
-	section?: number | null;
-	category?: number | null;
-	subcategory: number;
-	created_at: Date;
-	modified_at: Date;
-}
 
 export type ExtendedCategory = CollectionEntry<'categories'> & {
 	subCategoryData: CollectionEntry<'subcategories'>[];

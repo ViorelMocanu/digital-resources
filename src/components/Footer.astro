@@ -11,8 +11,8 @@
  */
 
 import { Taxonomy, db, eq } from 'astro:db';
-import { highlightUrl } from '../utils/urlHelpers';
-import NewsletterSection from '../components/NewsletterSection.astro';
+import NewsletterSection from '@components/NewsletterSection.astro';
+import { highlightUrl } from '@utils/urlHelpers';
 
 export interface Props {
 	activeMenu?: string | undefined;
@@ -22,7 +22,7 @@ const { activeMenu } = Astro.props satisfies Props;
 const activePage = activeMenu || Astro.url.pathname.substring(1);
 const currentYear = new Date().getFullYear();
 const yearPrint = currentYear > 2023 ? ` - ${currentYear} ` : ' ';
-const allSectionsQuery = await db.select().from(Taxonomy).where(eq(Taxonomy.type, 1));
+const allSectionsQuery = await db.select().from(Taxonomy).where(eq(Taxonomy.taxonomy_type_id, 1));
 const sections = allSectionsQuery.map((section) => section);
 ---
 

@@ -33,6 +33,16 @@ export const User = defineTable({
 	},
 });
 
+export const ResourceType = defineTable({
+	columns: {
+		id: column.number({ primaryKey: true }),
+		title: column.text(),
+		icon: column.text(), // get from resourceTypeIcon
+		created_at: column.date({ default: NOW }),
+		modified_at: column.date({ default: NOW, nullable: true }),
+	},
+});
+
 export const Resource = defineTable({
 	columns: {
 		id: column.number({ primaryKey: true, unique: true }),
@@ -43,13 +53,14 @@ export const Resource = defineTable({
 		language: column.text({ default: 'en', optional: false }),
 		description: column.text({ optional: true }),
 		description_en: column.text({ optional: true }),
-		author_id: column.number({ optional: true /*, references: () => Author.columns.id*/ }),
-		type: column.text({ default: 'generic' }),
+		author_id: column.number({ optional: true /*, references: () => Author.columns.id*/ }), // @TODO: add reference to Author or turn this into embedded columns: author_name, author_url
+		resource_type_id: column.number({ default: 1, references: () => ResourceType.columns.id }),
+		mandatory: column.boolean({ default: false }),
 		price: column.number({ default: 0, optional: false }),
 		required_time: column.number({ optional: true }),
 		image: column.text({ optional: true }),
 		image_alt: column.text({ optional: true }),
-		taxonomy_id: column.number({ optional: true /*, references: () => Taxonomy.columns.id*/ }),
+		taxonomy_id: column.number({ optional: true }), // @TODO: transform to column.json for multiple taxonomies
 		created_at: column.date({ default: NOW }),
 		modified_at: column.date({ default: NOW, nullable: true }),
 	},
@@ -102,8 +113,8 @@ export const Taxonomy = defineTable({
 		slug: column.text({ optional: false, unique: false }), // @TODO: automatically generate slug from title using sqlight functions inline
 		description: column.text({ optional: true }),
 		description_en: column.text({ optional: true }),
-		type: column.number({ references: () => TaxonomyType.columns.id }),
-		parent: column.number({ optional: true, nullable: true /*, references: () => Taxonomy.columns.id*/ }), // @TODO: add self reference
+		taxonomy_type_id: column.number({ references: () => TaxonomyType.columns.id }),
+		parent_id: column.number({ optional: true, nullable: true /*, references: () => Taxonomy.columns.id*/ }), // @TODO: add self reference
 		menu: column.text({ optional: true }),
 		menu_en: column.text({ optional: true }),
 		sort_order: column.number({ default: 0 }),
@@ -114,7 +125,7 @@ export const Taxonomy = defineTable({
 	},
 	indexes: [
 		{
-			on: ['type', 'modified_at', 'slug'],
+			on: ['taxonomy_type_id', 'modified_at', 'slug'],
 			unique: false,
 		},
 	],

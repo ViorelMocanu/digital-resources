@@ -25,6 +25,11 @@ export default defineConfig({
 	experimental: {
 		serverIslands: true,
 	},
+	// https://docs.astro.build/en/guides/prefetch/
+	prefetch: {
+		defaultStrategy: 'hover',
+		prefetchAll: true, // opt out with data-astro-prefetch="false"
+	},
 	// https://vercel.com/docs/frameworks/astro
 	adapter: vercel({
 		webAnalytics: {
@@ -64,15 +69,15 @@ export default defineConfig({
 			footnoteBackLabel: 'Înapoi la conținut'
 		},
 		shikiConfig: {
-		// Choose from Shiki's built-in themes (or add your own)
-		// https://github.com/shikijs/shiki/blob/main/docs/themes.md
-		theme: 'github-dark',
-		// Add custom languages
-		// Note: Shiki has countless langs built-in, including .astro!
-		// https://github.com/shikijs/shiki/blob/main/docs/languages.md
-		langs: [],
-		// Enable word wrap to prevent horizontal scrolling
-		wrap: true
+			// Choose from Shiki's built-in themes (or add your own)
+			// https://github.com/shikijs/shiki/blob/main/docs/themes.md
+			theme: 'github-dark',
+			// Add custom languages
+			// Note: Shiki has countless langs built-in, including .astro!
+			// https://github.com/shikijs/shiki/blob/main/docs/languages.md
+			langs: [],
+			// Enable word wrap to prevent horizontal scrolling
+			wrap: true
 		}
 	},
 	integrations: [webmanifest({

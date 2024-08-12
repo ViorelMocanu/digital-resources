@@ -12,10 +12,10 @@
  */
 
 import { Taxonomy, db, eq } from 'astro:db';
-import { type BreadcrumbItem } from '../config';
-import Breadcrumbs from '../components/Breadcrumbs.astro';
-import Avatar from '../components/Avatar.astro';
-import { highlightUrl } from '../utils/urlHelpers';
+import { type BreadcrumbItem } from '@config';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
+import Avatar from '@components/Avatar.astro';
+import { highlightUrl } from '@utils/urlHelpers';
 export interface Props {
 	breadcrumbArray?: BreadcrumbItem[] | undefined;
 	activeMenu?: string | undefined;
@@ -24,8 +24,11 @@ export interface Props {
 const { breadcrumbArray = [], activeMenu } = Astro.props satisfies Props;
 const activePage = activeMenu || Astro.url.pathname.substring(1);
 
-const allSectionsQuery = await db.select().from(Taxonomy).where(eq(Taxonomy.type, 1));
+const allSectionsQuery = await db.select().from(Taxonomy).where(eq(Taxonomy.taxonomy_type_id, 1));
 const sections = allSectionsQuery.map((section) => section);
+const allCategoriesQuery = await db.select().from(Taxonomy).where(eq(Taxonomy.taxonomy_type_id, 2));
+const categories = allCategoriesQuery.map((category) => category);
+// @TODO: refactor this to use a single object from getSortedItems
 ---
 
 <header class="Header" transition:name="Header">
@@ -42,7 +45,7 @@ const sections = allSectionsQuery.map((section) => section);
 			<span class="LinkText">resurse.dev</span>
 		</a>
 		<Avatar server:defer>
-			<a slot="fallback" class:list={highlightUrl('login', 'HeaderLink Login', 'Active')} href="/login" title="Mergi la prima pagină a proiectului Resurse.dev">
+			<a slot="fallback" class:list={highlightUrl('login', 'HeaderLink Login', 'Active')} href="/login" title="Intră în contul tău pe Resurse.dev">
 				<span class="Icon IconUser">
 					<span class="SROnly">👤</span>
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -59,13 +62,27 @@ const sections = allSectionsQuery.map((section) => section);
 		<nav class="MainMenu" id="menu" aria-labelledby="menuTrigger">
 			<ul class="MainMenuList">
 				{
-					sections.map((section) => (
-						<li class:list={highlightUrl(section.slug, 'MainMenuItem', 'Active', activePage)}>
-							<a class="MainMenuLink" href={`/${section.slug}`} title={`Vezi exclusiv lista de ${section.title}`}>
-								<span class="LinkText">{section.menu}</span>
-							</a>
-						</li>
-					))
+					sections.map((section) => {
+						const currentCategories = categories.filter((category) => category.parent_id === section.id);
+						return (
+							<li class:list={highlightUrl(`/${section.slug}`, 'MainMenuItem', 'Active', activePage)}>
+								<a class="MainMenuLink" href={`/${section.slug}`} title={`Vezi exclusiv lista de ${section.title}`}>
+									<span class="LinkText">{section.menu}</span>
+								</a>
+								{currentCategories && (
+									<ul class="MainMenuSubList">
+										{currentCategories.map((category) => (
+											<li class:list={highlightUrl(`/${section.slug}/${category.slug}`, 'MainMenuSubItem', 'Active', activePage)}>
+												<a class="MainMenuLink" href={`/${section.slug}/${category.slug}`} title={`Vezi exclusiv lista de ${category.title}`}>
+													<span class="LinkText">{category.menu}</span>
+												</a>
+											</li>
+										))}
+									</ul>
+								)}
+							</li>
+						);
+					})
 				}
 			</ul>
 			<form class="SearchForm Form" action="/cauta" method="get" role="search" aria-label="Caută pe tot site-ul">

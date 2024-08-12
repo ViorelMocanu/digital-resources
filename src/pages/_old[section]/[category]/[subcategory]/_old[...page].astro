@@ -1,11 +1,11 @@
 ---
 import { type CollectionEntry, getCollection, getEntry } from 'astro:content';
 import type { InferGetStaticPropsType } from 'astro';
-import Layout from '../../../../layouts/Layout.astro';
-import { PAGE_SIZE } from '../../../../config';
-import ResourceFilter from '../../../../components/ResourceFilter.astro';
-import ResourceList from '../../../../components/ResourceList.astro';
-import ResourceTOC from '../../../../components/ResourceTOC.astro';
+import Layout from '@layouts/Layout.astro';
+import { PAGE_SIZE } from '@config';
+import ResourceFilter from '@components/ResourceFilter.astro';
+import ResourceList from '@components/ResourceList.astro';
+import ResourceTOC from '@components/ResourceTOC.astro';
 
 export async function getStaticPaths({ paginate }: any) {
 	const allSections = (await getCollection('sections')).sort((a, b) => a.data.sortOrder - b.data.sortOrder);

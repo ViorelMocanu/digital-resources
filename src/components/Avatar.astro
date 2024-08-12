@@ -1,5 +1,5 @@
 ---
-import { highlightUrl } from '../utils/urlHelpers';
+import { highlightUrl } from '@utils/urlHelpers';
 /*import { User } from 'astro:session';
 export interface Props {
 	user?: User | undefined;
@@ -31,7 +31,7 @@ const user = true;
 }
 {
 	!user && (
-		<a class:list={highlightUrl('login', 'HeaderLink Login', 'Active')} href="/login" title="Mergi la prima pagină a proiectului Resurse.dev">
+		<a class:list={highlightUrl('login', 'HeaderLink Login', 'Active')} href="/login" title="Intră în contul tău pe Resurse.dev">
 			<span class="Icon IconUser">
 				<span class="SROnly">👤</span>
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">

@@ -1,6 +1,6 @@
 import * as fs from 'fs';
-import { Author, Like, LikeTest, NOW, Rating, Resource, TagType, Taxonomy, TaxonomyType, User, Visits, db } from 'astro:db';
-import { createSlug } from '../src/utils/urlHelpers';
+import { Author, Like, LikeTest, NOW, Rating, Resource, ResourceType, TagType, Taxonomy, TaxonomyType, User, Visits, db } from 'astro:db';
+import { createSlug } from '@utils/urlHelpers';
 import csv from 'csv-parser';
 
 /**
@@ -36,9 +36,11 @@ async function insertResourceRow(row: typeof Resource.$inferInsert): Promise<voi
 }
 
 /**
- *
+ * Seed the database with initial data.
+ * @returns {Promise<void>} A promise that resolves once the seeding is completed.
+ * @see https://docs.astro.build/reference/api/db
  */
-export default async function seed() {
+export default async function seed(): Promise<void> {
 	console.info('Seeding AstroDB database...');
 
 	await db
@@ -88,6 +90,54 @@ export default async function seed() {
 		.then(() => console.info('TaxonomyType seeded'));
 
 	await db
+		.insert(ResourceType)
+		.values([
+			{
+				id: 1,
+				title: 'generic',
+				icon: '🔗',
+				created_at: NOW,
+				modified_at: NOW,
+			},
+			{
+				id: 2,
+				title: 'book',
+				icon: '📖',
+				created_at: NOW,
+				modified_at: NOW,
+			},
+			{
+				id: 3,
+				title: 'course',
+				icon: '💡',
+				created_at: NOW,
+				modified_at: NOW,
+			},
+			{
+				id: 4,
+				title: 'video',
+				icon: '🎥',
+				created_at: NOW,
+				modified_at: NOW,
+			},
+			{
+				id: 5,
+				title: 'repository',
+				icon: '💻',
+				created_at: NOW,
+				modified_at: NOW,
+			},
+			{
+				id: 6,
+				title: 'text',
+				icon: '📃',
+				created_at: NOW,
+				modified_at: NOW,
+			},
+		])
+		.then(() => console.info('ResourceType seeded'));
+
+	await db
 		.insert(Taxonomy)
 		.values([
 			{
@@ -97,8 +147,8 @@ export default async function seed() {
 				slug: 'test',
 				description: 'Taxonomie de test.',
 				description_en: 'Test taxonomy.',
-				type: 1,
-				parent: null,
+				taxonomy_type_id: 1,
+				parent_id: null,
 				menu: 'TaxTest',
 				menu_en: 'TestTax',
 				sort_order: 999999,
@@ -114,8 +164,8 @@ export default async function seed() {
 				slug: 'test2',
 				description: 'Taxonomie de test.',
 				description_en: 'Test taxonomy.',
-				type: 2,
-				parent: 999999,
+				taxonomy_type_id: 2,
+				parent_id: 999999,
 				menu: 'CatTest',
 				menu_en: 'TestCat',
 				sort_order: 999998,
@@ -131,8 +181,8 @@ export default async function seed() {
 				slug: 'test3',
 				description: 'Taxonomie de test.',
 				description_en: 'Test taxonomy.',
-				type: 3,
-				parent: 999998,
+				taxonomy_type_id: 3,
+				parent_id: 999998,
 				menu: 'SubcatTest',
 				menu_en: 'TestSubcat',
 				sort_order: 999997,
@@ -175,7 +225,7 @@ export default async function seed() {
 				description: 'Un site de test.',
 				description_en: 'A test site.',
 				author_id: 1,
-				type: 'course',
+				resource_type_id: 1,
 				price: 0,
 				required_time: 60,
 				image: '',
@@ -194,7 +244,7 @@ export default async function seed() {
 				description: 'Un site de test 2.',
 				description_en: 'A test site 2.',
 				author_id: 2,
-				type: 'video',
+				resource_type_id: 2,
 				price: 0,
 				required_time: 60,
 				image: '',
@@ -218,8 +268,8 @@ export default async function seed() {
 		.on('end', async () => {
 			// Sort data by type to ensure sections and categories are inserted before subcategories
 			data.sort((a, b) => {
-				if (a.type === 1 && b.type !== 1) return -1;
-				if (a.type === 2 && b.type === 3) return -1;
+				if (a.taxonomy_type_id === 1 && b.taxonomy_type_id !== 1) return -1;
+				if (a.taxonomy_type_id === 2 && b.taxonomy_type_id === 3) return -1;
 				return 1;
 			});
 
@@ -242,6 +292,15 @@ export default async function seed() {
 		.on('data', (row: typeof Resource.$inferInsert) => {
 			let r = row as typeof Resource.$inferInsert;
 			r.slug = !!row.slug ? row.slug : createSlug(row.title.toLowerCase());
+			let resourceType = 1;
+			const t = r.title.toLowerCase();
+			const u = r.url.toLowerCase();
+			if (u.indexOf('youtube.com') > -1 || u.indexOf('youtu.be') > -1 || u.indexOf('vimeo') > -1) resourceType = 4;
+			else if (u.indexOf('udemy.com') > -1 || u.indexOf('course') > -1) resourceType = 3;
+			else if (u.indexOf('amazon.com') > -1 || u.indexOf('pdf') > -1 || u.indexOf('book') > -1) resourceType = 2;
+			else if (u.indexOf('github.com') > -1 || u.indexOf('gitlab.com') > -1) resourceType = 5;
+			else if (u.indexOf('medium.com') > -1 || u.indexOf('dev.to') > -1 || u.indexOf('blog') > -1 || t.indexOf('blog') > -1) resourceType = 6;
+			r.resource_type_id = !!row.resource_type_id ? row.resource_type_id : resourceType;
 			resource_data.push(r);
 		})
 		.on('end', async () => {
