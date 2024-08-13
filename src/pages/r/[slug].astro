@@ -1,108 +1,174 @@
 ---
-import { type BreadcrumbItem, type ExtendedResource, resourceTypeIcon } from '@config';
-import { type CollectionEntry, getCollection, getEntries, getEntry } from 'astro:content';
-import type { InferGetStaticPropsType } from 'astro';
+import { Author, Rating, RelationResourceTag, Resource, ResourceType, Tag, TagType, db, eq } from 'astro:db';
+import { DEFAULT_DESCRIPTION, DEFAULT_TITLE, DEFAULT_URL, resourceTypeIcon } from '@config';
 import Layout from '@layouts/Layout.astro';
-import ResourceActionList from '@components/ResourceActionList.astro';
+/*import ResourceActionList from '@components/ResourceActionList.astro';
 import ResourceLocationList from '@components/ResourceLocationList.astro';
 import ResourceTagList from '@components/ResourceTagList.astro';
-import ResponsiveImage from '@components/ResponsiveImage.astro';
 import { getFormattedDate } from '@utils/resourceMeta';
+import ResponsiveImage from '@components/ResponsiveImage.astro';*/
+import { YouTube } from 'astro-embed';
+import path from 'path';
 
-// 1. Generate a new path for every collection entry
-export async function getStaticPaths() {
-	const blogEntries = await getCollection('resources');
-	return blogEntries.map((entry) => ({
-		params: { slug: entry.slug },
-		props: { entry },
-	}));
-}
-
-export type Props = InferGetStaticPropsType<typeof getStaticPaths>;
-
-// 2. For your template, you can get the entry directly from the prop
-const { entry } = Astro.props satisfies Props;
-const { Content } = await entry.render();
-
-let resourceTags = new Array();
-let resourceType = 'generic';
-if (entry.data.tags) {
-	const allTags = await getCollection('tags');
-	entry.data.tags.forEach((tag) => {
-		const currentTag = allTags.find((t: CollectionEntry<'tags'>) => t.slug == tag.slug);
-		resourceTags.push({ title: currentTag?.data.title, slug: tag.slug, type: currentTag?.data.type });
-		if (currentTag?.data.type == 'Tip') resourceType = currentTag.data.title;
-	});
-}
-
-let breadcrumbArray: BreadcrumbItem[] = [];
-
-const sectionSlug = entry.data.section.slug;
-const section = (await getEntry('sections', sectionSlug))!; // @TODO fix this !
-if (section) {
-	breadcrumbArray.push({
-		href: `/${section.slug}`,
-		title: section.data.title,
-		label: section.data.menu,
-	});
-}
-
-const resourceCategories = (await getEntries(entry.data.categories as any))!;
-const firstResourceCategory = resourceCategories[0];
-if (firstResourceCategory) {
-	breadcrumbArray.push({
-		href: `/${section.slug}/${firstResourceCategory.slug}`,
-		title: firstResourceCategory.data.title,
-		label: (firstResourceCategory.data as any).menu, // @TODO fix this any
-	});
-}
-
-let resourceSubCategories = new Array();
-let firstResourceSubcategory: CollectionEntry<'subcategories'>;
-if (entry.data.subcategories) {
-	resourceSubCategories = await getEntries(entry.data.subcategories);
-	firstResourceSubcategory = resourceSubCategories[0];
-	if (firstResourceCategory && firstResourceSubcategory) {
-		breadcrumbArray.push({
-			href: `/${section.slug}/${firstResourceCategory.slug}/${firstResourceSubcategory.slug}`,
-			title: firstResourceSubcategory.data.title,
-			label: firstResourceSubcategory.data.menu,
-		});
+/**
+ * A function to dynamically import images based on their file extension.
+ * @param {string|null} imageFileName - The name of the image file to import.
+ * @returns {Promise<any>} The imported image.
+ * @example
+ * ```astro
+ * <script>
+ * 	import { dynamicViteAssetImport } from '@utils/dynamicViteAssetImport';
+ * 	const image = dynamicViteAssetImport('test.jpg');
+ * </script>
+ * <img src={image.default} alt="Test image" />
+ * ```
+ * @see https://vitejs.dev/guide/features.html#glob-import
+ * @see https://vitejs.dev/guide/features.html#import-meta-url
+ */
+function dynamicViteAssetImport(imageFileName: string | null): Promise<any> {
+	if (!imageFileName || imageFileName.length <= 0 || imageFileName === null) return import(`/src/img/test.jpg`); // @TODO: change default image to something relevant
+	const filename = path.parse(imageFileName);
+	const name = filename.name;
+	const ext = filename.ext;
+	switch (ext) {
+		case '.webp':
+			return import(`/src/img/${name}.webp`);
+		case '.jpg':
+			return import(`/src/img/${name}.jpg`);
+		case '.png':
+			return import(`/src/img/${name}.png`);
+		case '.svg':
+			return import(`/src/img/${name}.svg`);
+		case '.gif':
+			return import(`/src/img/${name}.gif`);
+		case '.avif':
+			return import(`/src/img/${name}.avif`);
+		case '.jpeg':
+			return import(`/src/img/${name}.jpeg`);
+		default:
+			return import(`/src/img/${name}.jpg`);
 	}
 }
 
-const pageTitle = entry.data.title;
-const pageDescription = entry.data.description;
-if (breadcrumbArray.length <= 1) {
-	breadcrumbArray.push({
-		href: '/resurse',
-		title: 'Toate resursele de pe Resurse.dev',
-		label: 'Resurse',
+export async function getStaticPaths() {
+	const allResourcesDetailed = await db
+		.select()
+		.from(Resource)
+		.leftJoin(ResourceType, eq(Resource.resource_type_id, ResourceType.id))
+		.leftJoin(Author, eq(Resource.author_id, Author.id));
+	const allRatings = await db.select().from(Rating);
+	const allResourceTags = await db.select().from(RelationResourceTag).leftJoin(Tag, eq(RelationResourceTag.tag_id, Tag.id)).leftJoin(TagType, eq(Tag.tag_type_id, TagType.id));
+	return allResourcesDetailed.map(({ Resource, ResourceType, Author }) => {
+		const filteredRatings = allRatings.filter((rating) => rating.resource_id === Resource.id);
+		const totalRating = filteredRatings.reduce((acc, rating) => acc + rating.rating, 0);
+		const averageRating = totalRating / filteredRatings.length;
+
+		const filteredTags = allResourceTags.filter(({ RelationResourceTag }) => RelationResourceTag.resource_id === Resource.id);
+
+		return {
+			params: { lang: undefined, slug: Resource.slug },
+			props: {
+				...Resource,
+				type: ResourceType?.title,
+				authorName: Author?.name,
+				authorUrl: Author?.url,
+				aggregateRating: averageRating,
+				ratingCount: filteredRatings.length,
+				tags: { ...filteredTags },
+			},
+		};
 	});
 }
 
-breadcrumbArray.push({
-	href: Astro.url,
-	title: entry.data.title,
-	label: entry.data.title,
+const { lang, slug } = Astro.params;
+const thisPage = Astro.props;
+
+const formattedDate = thisPage.created_at.toLocaleDateString(lang, {
+	year: 'numeric',
+	month: 'long',
+	day: 'numeric',
 });
+let updateDate: string;
+if (thisPage.modified_at) {
+	updateDate = thisPage.modified_at.toLocaleDateString(lang, {
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric',
+	});
+} else {
+	updateDate = '';
+}
+
+const pageUrl = (lang === 'en' ? lang + '/' + slug : slug) || DEFAULT_URL;
+const pageTitle = (lang === 'en' ? thisPage.title_en : thisPage.title) || DEFAULT_TITLE;
+const pageDescription = (lang === 'en' ? thisPage.description_en : thisPage.description) || DEFAULT_DESCRIPTION;
+const pageImage = dynamicViteAssetImport(thisPage.image);
+const isYouTubeVideo = thisPage.url ? thisPage.url.substring(0, 32) === 'https://www.youtube.com/watch?v=' : false;
+const videoId = thisPage.url ? new URL(thisPage.url).searchParams.get('v') : 'n/a';
+
+const breadcrumbArray = [
+	{
+		href: `/r`,
+		title: 'Toate resursele de pe Resurse.dev',
+		label: 'Resurse',
+	},
+	{
+		href: `/r/${pageUrl}`,
+		title: pageTitle,
+		label: pageTitle, // .split(' ').slice(0, 8).join(' ')
+	},
+];
 ---
 
-<Layout title={pageTitle} description={pageDescription} modDate={entry.data.modDate} template="ResourcePage" activeMenu={sectionSlug} breadcrumbArray={breadcrumbArray}>
+<Layout
+	title={pageTitle}
+	description={pageDescription}
+	modDate={thisPage.modified_at.toDateString()}
+	template="ResourcePage"
+	activeMenu={pageUrl}
+	breadcrumbArray={breadcrumbArray}
+>
 	<div class="Hero" id="hero">
 		{
-			entry.data.image && entry.data.image.imageUrl && entry.data.url && (
-				<a class="HeroVisual" href={entry.data.url} title={`Vizitează resursa: ${entry.data.title}`}>
-					<img src={entry.data.image.imageUrl} alt={entry.data.image.imageAlt} width={1200} height={600} class:list={['HeroImage', 'ExternalImage']} />
-				</a>
+			isYouTubeVideo && (
+				<div class="HeroVideoContainer HeroVisual">
+					<YouTube class="HeroVideo" id={videoId || ''} playlabel={thisPage.title}>
+						<a href={thisPage.url} class="HeroVisualContainer" title={`Vezi video-ul: ${thisPage.title}`}>
+							<img
+								src={thisPage.image}
+								alt={thisPage.image_alt || `Imagine descriptivă pentru video-ul: ${thisPage.title}`}
+								width={1200}
+								height={600}
+								class:list={['SROnly']}
+							/>
+							<span class="SROnly">Vezi video-ul: {thisPage.title}</span>
+						</a>
+					</YouTube>
+				</div>
 			)
 		}
 		{
-			entry.data.image && entry.data.image.imageLocalUrl && entry.data.url && (
-				<a class="HeroVisual" href={entry.data.url} title={`Vizitează resursa: ${entry.data.title}`}>
+			!isYouTubeVideo && thisPage.image && thisPage.url && (
+				<a class="HeroVisual" href={thisPage.url} title={`Vizitează resursa: ${thisPage.title}`}>
+					<img
+						src={thisPage.image}
+						alt={thisPage.image_alt || `Imagine descriptivă pentru resursa: ${thisPage.title}`}
+						width={1200}
+						height={600}
+						class:list={['HeroImage', 'ExternalImage']}
+						loading="eager"
+					/>
+				</a>
+			)
+		}
+		{pageImage}
+		{
+			/*
+			pageImage && thisPage.url && (
+				<a class="HeroVisual" href={thisPage.url} title={`Vizitează resursa: ${thisPage.title}`}>
 					<ResponsiveImage
-						image={entry.data.image.imageLocalUrl}
-						alt={entry.data.image.imageAlt}
+						image={pageImage}
+						alt={thisPage.image_alt || `Imagine descriptivă pentru resursa: ${thisPage.title}`}
 						width={1200}
 						height={600}
 						lazyLoading={false}
@@ -111,24 +177,25 @@ breadcrumbArray.push({
 					/>
 				</a>
 			)
+		*/
 		}
 		<div class="HeroText">
 			{
-				entry.data.url && (
-					<a class="HeroResourceLink" href={entry.data.url} title={`Vizitează resursa: ${entry.data.title}`} target="_blank" rel="external noopener noreferrer">
-						<h1 class="HeroTitle" transition:name={`${entry.slug} title`}>
-							{entry.data.title}
-							{resourceTypeIcon[resourceType ? resourceType.toLowerCase() : (entry.data.type.toLowerCase() satisfies keyof typeof resourceTypeIcon)]}
+				thisPage.url && (
+					<a class="HeroResourceLink" href={thisPage.url} title={`Vizitează resursa: ${thisPage.title}`} target="_blank" rel="external noopener noreferrer">
+						<h1 class="HeroTitle" transition:name={`${thisPage.slug} title`}>
+							{thisPage.title}
+							{resourceTypeIcon[thisPage.type?.toLowerCase() || 'generic']}
 						</h1>
 						<em class="HeroUrl">
-							<strong class="HeroUrlLabel">URL:</strong>&nbsp;{entry.data.url}
+							<strong class="HeroUrlLabel">URL:</strong>&nbsp;{thisPage.url}
 						</em>
 					</a>
 				)
 			}
 			<ul class="InfoList">
 				{
-					entry.data.type && (
+					thisPage.type && (
 						<li class="InfoItem">
 							<div class="InfoItemLabel">
 								<span class="Icon IconType">
@@ -144,12 +211,12 @@ breadcrumbArray.push({
 								</span>
 								<span class="InfoItemText">Tipul resursei:</span>
 							</div>
-							<strong class:list={['InfoItemValue', 'TypeTag', `Type-${entry.data.type}`]}>{entry.data.type}</strong>
+							<strong class:list={['InfoItemValue', 'TypeTag', `Type-${thisPage.type}`]}>{thisPage.type}</strong>
 						</li>
 					)
 				}
 				{
-					typeof entry.data.mandatory !== undefined && (
+					typeof thisPage.mandatory !== undefined && (
 						<li class="InfoItem">
 							<div class="InfoItemLabel">
 								<span class="Icon IconType">
@@ -165,14 +232,14 @@ breadcrumbArray.push({
 								</span>
 								<span class="InfoItemText">Obligativitate:</span>
 							</div>
-							<strong class:list={['InfoItemValue', 'TypeTag', `Type-${entry.data.mandatory ? 'obligatoriu' : 'optional'}`]}>
-								{entry.data.mandatory ? 'obligatoriu' : 'opțional'}
+							<strong class:list={['InfoItemValue', 'TypeTag', `Type-${thisPage.mandatory ? 'obligatoriu' : 'optional'}`]}>
+								{thisPage.mandatory ? 'obligatoriu' : 'opțional'}
 							</strong>
 						</li>
 					)
 				}
 				{
-					entry.data.language && (
+					thisPage.language && (
 						<li class="InfoItem">
 							<div class="InfoItemLabel">
 								<span class="Icon IconType">
@@ -189,7 +256,7 @@ breadcrumbArray.push({
 								<span class="InfoItemText">Limba resursei:</span>
 							</div>
 							<strong class="InfoItemValue">
-								{entry.data.language == 'en' && (
+								{thisPage.language == 'en' && (
 									<span class="InfoItemLanguage">
 										<span class="Icon IconEnglish">
 											<span class="SROnly">🇬🇧</span>
@@ -229,7 +296,7 @@ breadcrumbArray.push({
 										<span class="InfoItemLangText">Engleză</span>
 									</span>
 								)}
-								{entry.data.language == 'ro' && (
+								{thisPage.language == 'ro' && (
 									<span class="InfoItemLanguage">
 										<span class="Icon IconRomanian">
 											<span class="SROnly">🇷🇴</span>
@@ -268,7 +335,7 @@ breadcrumbArray.push({
 					)
 				}
 				{
-					typeof entry.data.price !== undefined && (
+					typeof thisPage.price !== undefined && (
 						<li class="InfoItem">
 							<div class="InfoItemLabel">
 								<span class="Icon IconType">
@@ -284,12 +351,12 @@ breadcrumbArray.push({
 								</span>
 								<span class="InfoItemText">Preț:</span>
 							</div>
-							<strong class="InfoItemValue InfoItemValuePrice">{entry.data.price == 0 ? 'Gratuit' : entry.data.price}</strong>
+							<strong class="InfoItemValue InfoItemValuePrice">{thisPage.price === 0 || thisPage.price === null ? 'Gratuit' : thisPage.price}</strong>
 						</li>
 					)
 				}
 				{
-					entry.data.authorName && (
+					thisPage.authorName && (
 						<li class="InfoItem InfoItemAuthor">
 							<div class="InfoItemLabel">
 								<span class="Icon IconType">
@@ -305,13 +372,13 @@ breadcrumbArray.push({
 								</span>
 								<span class="InfoItemText">Autor:</span>
 							</div>
-							<a class="InfoItemValue" href={entry.data.authorUrl} title="Vizitează site-ul autorului">
-								<strong>{entry.data.authorName}</strong>
+							<a class="InfoItemValue" href={thisPage.authorUrl} title="Vizitează site-ul autorului">
+								<strong>{thisPage.authorName}</strong>
 							</a>
 						</li>
 					)
 				}
-				<li class="InfoItem" transition:name={`${entry.slug} rating`}>
+				<li class="InfoItem" transition:name={`${thisPage.slug} rating`}>
 					<div class="InfoItemLabel">
 						<span class="Icon IconRating">
 							<span class="SROnly">⭐</span>
@@ -325,11 +392,16 @@ breadcrumbArray.push({
 						</span>
 						<span class="InfoItemText">Rating-ul link-ului</span>
 					</div>
-					<strong class="InfoItemValue">{entry.data.rating || 'n/a'} (10)</strong>
+					<strong
+						class="InfoItemValue"
+						title={thisPage.aggregateRating >= 0
+							? `Nota ${thisPage.aggregateRating} din ${thisPage.ratingCount} voturi`
+							: `Resursa nu a fost încă votată. Creează-ți un cont s-o poți vota!`}>{thisPage.aggregateRating || 'n/a'} ({thisPage.ratingCount || '0'})</strong
+					>
 				</li>
 				{
-					entry.data.requiredTime && (
-						<li class="InfoItem" transition:name={`${entry.slug} time`}>
+					thisPage.required_time && (
+						<li class="InfoItem" transition:name={`${thisPage.slug} time`}>
 							<div class="InfoItemLabel">
 								<span class="Icon IconTime">
 									<span class="SROnly">⏰</span>
@@ -339,32 +411,11 @@ breadcrumbArray.push({
 								</span>
 								<span class="InfoItemText">Timp necesar</span>
 							</div>
-							<strong class="InfoItemValue">{entry.data.requiredTime}h</strong>
+							<strong class="InfoItemValue">{thisPage.required_time}h</strong>
 						</li>
 					)
 				}
-				{
-					entry.data.modDate && (
-						<li class="InfoItem">
-							<div class="InfoItemLabel">
-								<span class="Icon IconType">
-									<span class="SROnly">👁️</span>
-									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-										<path
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
-										/>
-										<path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-									</svg>
-								</span>
-								<span class="InfoItemText">Data adăugării:</span>
-							</div>
-							<strong class="InfoItemValue">{getFormattedDate(entry.data.modDate)}</strong>
-						</li>
-					)
-				}
-				<li class="InfoItem" transition:name={`${entry.slug} views`}>
+				<li class="InfoItem" transition:name={`${thisPage.slug} views`}>
 					<div class="InfoItemLabel">
 						<span class="Icon IconViews">
 							<span class="SROnly">👁️</span>
@@ -381,11 +432,84 @@ breadcrumbArray.push({
 					</div>
 					<strong class="InfoItemValue">7895</strong>
 				</li>
+				{
+					formattedDate && (
+						<li class="InfoItem" transition:name={`${thisPage.slug} created date`}>
+							<div class="InfoItemLabel">
+								<span class="Icon IconDate">
+									<span class="SROnly">🗓️</span>
+									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
+										/>
+										<path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+									</svg>
+								</span>
+								<span class="InfoItemText">Data adăugării:</span>
+							</div>
+							<strong class="InfoItemValue">{formattedDate}</strong>
+						</li>
+					)
+				}
+				{
+					updateDate && (
+						<li class="InfoItem" transition:name={`${thisPage.slug} created date`}>
+							<div class="InfoItemLabel">
+								<span class="Icon IconModifiedDate">
+									<span class="SROnly">🆕</span>
+									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
+										/>
+										<path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+									</svg>
+								</span>
+								<span class="InfoItemText">Actualizat pe:</span>
+							</div>
+							<strong class="InfoItemValue">{updateDate}</strong>
+						</li>
+					)
+				}
 			</ul>
 			<!-- @TODO fix th as any -->
-			<ResourceLocationList section={section} categories={resourceCategories as any} subcategories={resourceSubCategories} />
+			{
+				/*
+				<ResourceLocationList section={section} categories={resourceCategories as any} subcategories={resourceSubCategories} />
+			*/
+			}
 
-			<div class="InfoItem InfoItemStandalone">
+			<div class="InfoItem InfoItemStandalone InfoItemTags">
+				<div class="InfoItemLabel">
+					<span class="Icon IconType">
+						<span class="SROnly">🏷️</span>
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
+							></path>
+							<path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+						</svg>
+					</span>
+					<span class="InfoItemText">Etichete pentru resursă:</span>
+				</div>
+				{/*thisPage.tags && <ResourceTagList taglist={resourceTags} resslug={thisPage.slug} />*/}
+			</div>
+
+			{
+				/*
+				<ResourceActionList res={entry as unknown as ExtendedResource} />
+			*/
+			}
+		</div>
+	</div>
+	<main class="Main MarkdownMain">
+		<div class="MainContainer">
+			<article class="MainContent" id="content">
 				<div class="InfoItemLabel">
 					<span class="Icon IconType">
 						<span class="SROnly">👁️</span>
@@ -400,33 +524,8 @@ breadcrumbArray.push({
 					</span>
 					<span class="InfoItemText">Descrierea resursei:</span>
 				</div>
-				<p class="InfoItemValue" transition:name={`${entry.slug} description`}>{entry.data.description}</p>
-			</div>
-
-			<div class="InfoItem InfoItemStandalone InfoItemTags">
-				<div class="InfoItemLabel">
-					<span class="Icon IconType">
-						<span class="SROnly">👁️</span>
-						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
-							></path>
-							<path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-						</svg>
-					</span>
-					<span class="InfoItemText">Etichete pentru resursă:</span>
-				</div>
-				{entry.data.tags && <ResourceTagList taglist={resourceTags} resslug={entry.slug} />}
-			</div>
-
-			<ResourceActionList res={entry as unknown as ExtendedResource} />
-		</div>
-	</div>
-	<main class="Main MarkdownMain">
-		<div class="MainContainer">
-			<Content />
+				{thisPage.description}
+			</article>
 		</div>
 		<div class="MainActions">@TODO: add main actions</div>
 	</main>

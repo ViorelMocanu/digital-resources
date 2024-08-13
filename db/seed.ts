@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-import { Author, Like, LikeTest, NOW, Rating, Resource, ResourceType, TagType, Taxonomy, TaxonomyType, User, Visits, db } from 'astro:db';
+import { Author, Like, LikeTest, NOW, Rating, RelationResourceTag, Resource, ResourceType, Tag, TagType, Taxonomy, TaxonomyType, User, Visits, db } from 'astro:db';
 import { createSlug } from '@utils/urlHelpers';
 import csv from 'csv-parser';
 
@@ -154,6 +154,7 @@ export default async function seed(): Promise<void> {
 				sort_order: 999999,
 				image: '',
 				image_alt: '',
+				image_alt_en: '',
 				created_at: NOW,
 				modified_at: NOW,
 			},
@@ -171,6 +172,7 @@ export default async function seed(): Promise<void> {
 				sort_order: 999998,
 				image: '',
 				image_alt: '',
+				image_alt_en: '',
 				created_at: NOW,
 				modified_at: NOW,
 			},
@@ -188,6 +190,7 @@ export default async function seed(): Promise<void> {
 				sort_order: 999997,
 				image: '',
 				image_alt: '',
+				image_alt_en: '',
 				created_at: NOW,
 				modified_at: NOW,
 			},
@@ -230,6 +233,7 @@ export default async function seed(): Promise<void> {
 				required_time: 60,
 				image: '',
 				image_alt: '',
+				image_alt_en: '',
 				taxonomy_id: 999997,
 				created_at: NOW,
 				modified_at: NOW,
@@ -249,6 +253,7 @@ export default async function seed(): Promise<void> {
 				required_time: 60,
 				image: '',
 				image_alt: '',
+				image_alt_en: '',
 				taxonomy_id: 999997,
 				created_at: NOW,
 				modified_at: NOW,
@@ -283,6 +288,9 @@ export default async function seed(): Promise<void> {
 				});
 			}
 			console.info('Taxonomy CSV file successfully processed. ' + '\x1b[32m%s\x1b[0m', `${count} taxonomies processed.`);
+		})
+		.on('error', (error) => {
+			console.error(error);
 		});
 
 	const resource_data: Array<typeof Resource.$inferInsert> = [];
@@ -295,11 +303,19 @@ export default async function seed(): Promise<void> {
 			let resourceType = 1;
 			const t = r.title.toLowerCase();
 			const u = r.url.toLowerCase();
-			if (u.indexOf('youtube.com') > -1 || u.indexOf('youtu.be') > -1 || u.indexOf('vimeo') > -1) resourceType = 4;
+			if (
+				u.startsWith('https://youtube.com') ||
+				u.startsWith('http://youtube.com') ||
+				u.startsWith('https://www.youtube.com') ||
+				u.startsWith('http://www.youtube.com') ||
+				u.startsWith('https://youtu.be') ||
+				u.startsWith('https://vimeo.com')
+			)
+				resourceType = 4;
 			else if (u.indexOf('udemy.com') > -1 || u.indexOf('course') > -1) resourceType = 3;
 			else if (u.indexOf('amazon.com') > -1 || u.indexOf('pdf') > -1 || u.indexOf('book') > -1) resourceType = 2;
 			else if (u.indexOf('github.com') > -1 || u.indexOf('gitlab.com') > -1) resourceType = 5;
-			else if (u.indexOf('medium.com') > -1 || u.indexOf('dev.to') > -1 || u.indexOf('blog') > -1 || t.indexOf('blog') > -1) resourceType = 6;
+			else if (u.indexOf('medium.com') > -1 || u.indexOf('dev.to') > -1 || u.indexOf('blog') > -1 || t.indexOf('blog') > -1 || u.indexOf('.pdf') > -1) resourceType = 6;
 			r.resource_type_id = !!row.resource_type_id ? row.resource_type_id : resourceType;
 			resource_data.push(r);
 		})
@@ -314,6 +330,9 @@ export default async function seed(): Promise<void> {
 				});
 			}
 			console.info('Resource CSV file successfully processed. ' + '\x1b[32m%s\x1b[0m', `${count} resources processed.`);
+		})
+		.on('error', (error) => {
+			console.error(error);
 		});
 
 	await db
@@ -344,6 +363,7 @@ export default async function seed(): Promise<void> {
 				description: '',
 				image: '',
 				image_alt: '',
+				image_alt_en: '',
 			},
 			{
 				id: 2,
@@ -354,6 +374,7 @@ export default async function seed(): Promise<void> {
 				description: '',
 				image: '',
 				image_alt: '',
+				image_alt_en: '',
 			},
 			{
 				id: 3,
@@ -364,6 +385,7 @@ export default async function seed(): Promise<void> {
 				description: '',
 				image: '',
 				image_alt: '',
+				image_alt_en: '',
 			},
 			{
 				id: 4,
@@ -374,9 +396,73 @@ export default async function seed(): Promise<void> {
 				description: '',
 				image: '',
 				image_alt: '',
+				image_alt_en: '',
 			},
 		])
 		.then(() => console.info('TagType seeded'));
+
+	await db
+		.insert(Tag)
+		.values([
+			{
+				title: 'Începători',
+				title_en: 'Beginners',
+				slug: 'beginners',
+				description: '',
+				description_en: '',
+				tag_type_id: 1,
+				image: '',
+				image_alt: '',
+				image_alt_en: '',
+				created_at: NOW,
+				modified_at: NOW,
+			},
+			{
+				title: 'Mid-level',
+				title_en: 'Mid-level',
+				slug: 'mid-level',
+				description: '',
+				description_en: '',
+				tag_type_id: 1,
+				image: '',
+				image_alt: '',
+				image_alt_en: '',
+				created_at: NOW,
+				modified_at: NOW,
+			},
+			{
+				title: 'Avansați',
+				title_en: 'Advanced',
+				slug: 'advanced',
+				description: '',
+				description_en: '',
+				tag_type_id: 1,
+				image: '',
+				image_alt: '',
+				image_alt_en: '',
+				created_at: NOW,
+				modified_at: NOW,
+			},
+			{
+				title: 'Profesioniști',
+				title_en: 'Professionals',
+				slug: 'pro',
+				description: '',
+				description_en: '',
+				tag_type_id: 1,
+				image: '',
+				image_alt: '',
+				image_alt_en: '',
+				created_at: NOW,
+				modified_at: NOW,
+			},
+		])
+		.then(() => console.info('Tag seeded'));
+
+	await db.insert(RelationResourceTag).values([
+		{ resource_id: 999999, tag_id: 1 },
+		{ resource_id: 999998, tag_id: 2 },
+	]);
 
 	await db
 		.insert(Rating)

@@ -60,6 +60,7 @@ export const Resource = defineTable({
 		required_time: column.number({ optional: true }),
 		image: column.text({ optional: true }),
 		image_alt: column.text({ optional: true }),
+		image_alt_en: column.text({ optional: true }),
 		taxonomy_id: column.number({ optional: true }), // @TODO: transform to column.json for multiple taxonomies
 		created_at: column.date({ default: NOW }),
 		modified_at: column.date({ default: NOW, nullable: true }),
@@ -120,6 +121,7 @@ export const Taxonomy = defineTable({
 		sort_order: column.number({ default: 0 }),
 		image: column.text({ optional: true }),
 		image_alt: column.text({ optional: true }),
+		image_alt_en: column.text({ optional: true }),
 		created_at: column.date({ default: NOW }),
 		modified_at: column.date({ default: NOW, nullable: true }),
 	},
@@ -135,10 +137,13 @@ export const TagType = defineTable({
 	columns: {
 		id: column.number({ primaryKey: true }),
 		title: column.text(),
+		title_en: column.text({ optional: true }),
 		slug: column.text({ unique: true, optional: false }), // @TODO: automatically generate slug from title using sqlight functions inline
 		description: column.text({ optional: true }),
+		description_en: column.text({ optional: true }),
 		image: column.text({ optional: true }),
 		image_alt: column.text({ optional: true }),
+		image_alt_en: column.text({ optional: true }),
 		created_at: column.date({ default: NOW }),
 		modified_at: column.date({ default: NOW, nullable: true }),
 	},
@@ -148,11 +153,14 @@ export const Tag = defineTable({
 	columns: {
 		id: column.number({ primaryKey: true }),
 		title: column.text(),
+		title_en: column.text({ optional: true }),
 		slug: column.text({ unique: true, optional: false }), // @TODO: automatically generate slug from title using sqlight functions inline
 		description: column.text({ optional: true }),
-		type: column.number({ references: () => TagType.columns.id }),
+		description_en: column.text({ optional: true }),
+		tag_type_id: column.number({ references: () => TagType.columns.id }),
 		image: column.text({ optional: true }),
 		image_alt: column.text({ optional: true }),
+		image_alt_en: column.text({ optional: true }),
 		created_at: column.date({ default: NOW }),
 		modified_at: column.date({ default: NOW, nullable: true }),
 	},

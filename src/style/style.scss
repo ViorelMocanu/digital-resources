@@ -13,10 +13,11 @@
 	--accent-400: #2f8ded;
 	--accent-carte: #12a;
 	--accent-curs: #f90;
+	--accent-repo: #090;
 	--accent-video: #f30;
 	--accent-text: #939;
 	--accent-obligatoriu: #910;
-	--accent-optional: #9da;
+	--accent-optional: rgb(106, 137, 114);
 }
 
 @view-transition {
@@ -265,7 +266,7 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 				.HeroPreview:hover { opacity: 0.75; cursor: pointer; }
 				.HeroPreview:active { opacity: 0.95; }
 					.HeroP { margin: 0 0 0.5rem;
-						@media (min-width: 600px) { margin: 0 0 1rem;; }
+						@media (min-width: 600px) { margin: 0 0 1rem; }
 					}
 					.HeroExpand { font-weight: bold; }
 					.HeroPreview:hover .HeroExpand { color: var(--accent-400); }
@@ -461,9 +462,10 @@ a#skip:focus { clip: unset; clip-path: unset; position: static; width: auto; hei
 							}
 								.Type-text { background: var(--accent-text); }
 								.Type-video { background: var(--accent-video); }
-								.Type-curs { background: var(--accent-curs); }
-								.Type-carte { background: var(--accent-carte); }
-								.Type-obligatoriu { background: var(--accent-obligatoriu); }
+								.Type-course { background: var(--accent-curs); }
+								.Type-repository { background: var(--accent-repo); }
+								.Type-book { background: var(--accent-carte); }
+								.Type-mandatory { background: var(--accent-obligatoriu); }
 								.Type-optional { background: var(--accent-optional); }
 							.InfoLink { display: block; width: 100%; margin: 0 auto; padding: 0.5rem; border: none; background: transparent; color: var(--light-800); text-decoration: underline; cursor: pointer;
 								@media (min-width: 600px) { width: 2.5rem; height: 2.5rem; text-decoration: none; padding: 0.5rem; }

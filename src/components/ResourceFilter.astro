@@ -12,7 +12,9 @@
 
 import { Taxonomy, db, eq } from 'astro:db';
 
-const { tid } = Astro.props;
+let { tid } = Astro.props;
+
+tid = tid || 1;
 
 const taxonomyQuery = await db.select().from(Taxonomy).where(eq(Taxonomy.id, tid)).limit(1);
 const taxonomy = taxonomyQuery.map((item) => item)[0];
@@ -310,6 +312,8 @@ const taxonomy = taxonomyQuery.map((item) => item)[0];
 				const alreadyOpen = document.querySelector('.FilterOptions[open]');
 				// Dacă se găsesc astfel de butoane și ele sunt diferite de cel pe care am dat click acum, trebuie scos atributul `open` de pe ele ca să nu se suprapună.
 				if (alreadyOpen !== null && alreadyOpen != filterOptions[i]) alreadyOpen.removeAttribute('open');
+				/* @ts-ignore */
+				posthog && posthog.capture('Filter', { property: filterOptions[i] });
 				return true;
 			});
 		}
@@ -332,6 +336,8 @@ const taxonomy = taxonomyQuery.map((item) => item)[0];
 			body.classList.remove('ActiveSubnav');
 			const alreadyOpen = document.querySelector('.FilterOptions[open]');
 			alreadyOpen?.removeAttribute('open');
+			/* @ts-ignore */
+			posthog && posthog.capture('Filter', { property: 'close' });
 			return false;
 		});
 	};

@@ -1,11 +1,37 @@
 ---
+import { Author, Rating, RelationResourceTag, Resource, ResourceType, Tag, TagType, db, eq } from 'astro:db';
 import Layout from '@layouts/Layout.astro';
 import ResourceFilter from '@components/ResourceFilter.astro';
 import ResourceList from '@components/ResourceList.astro';
 
-import { getCollection } from 'astro:content';
+const allResourcesDetailed = await db
+	.select()
+	.from(Resource)
+	.leftJoin(ResourceType, eq(Resource.resource_type_id, ResourceType.id))
+	.leftJoin(Author, eq(Resource.author_id, Author.id));
+const allRatings = await db.select().from(Rating);
+const allResourceTags = await db.select().from(RelationResourceTag).leftJoin(Tag, eq(RelationResourceTag.tag_id, Tag.id)).leftJoin(TagType, eq(Tag.tag_type_id, TagType.id));
 
-const resources = await getCollection('resources');
+const resources = allResourcesDetailed.map(({ Resource, ResourceType, Author }) => {
+	const filteredRatings = allRatings.filter((rating) => rating.resource_id === Resource.id);
+	const totalRating = filteredRatings.reduce((acc, rating) => acc + rating.rating, 0);
+	const averageRating = totalRating / filteredRatings.length;
+
+	const filteredTags = allResourceTags.filter(({ RelationResourceTag }) => RelationResourceTag.resource_id === Resource.id);
+
+	return {
+		params: { lang: undefined, slug: Resource.slug },
+		props: {
+			...Resource,
+			type: ResourceType?.title,
+			authorName: Author?.name,
+			authorUrl: Author?.url,
+			aggregateRating: averageRating,
+			ratingCount: filteredRatings.length,
+			tags: { ...filteredTags },
+		},
+	};
+});
 
 const pageTitle = 'Toate resursele de pe Resurse.dev';
 const pageDescription = '@TODO: scrie descrierea';
@@ -25,8 +51,8 @@ const breadcrumbArray = [
 			<details class="HeroDetails">
 				<summary class="HeroPreview">
 					<p class="HeroP">
-						Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-						unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
+						@TODO: Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+						when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
 						electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
 						passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 					</p>
@@ -36,11 +62,11 @@ const breadcrumbArray = [
 				</summary>
 				<div class="HeroContent">
 					<p class="HeroP">
-						Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000
-						years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a
-						Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections
-						1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of
-						ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+						@TODO: Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over
+						2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur,
+						from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from
+						sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the
+						theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
 					</p>
 					<p class="HeroP">
 						The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et

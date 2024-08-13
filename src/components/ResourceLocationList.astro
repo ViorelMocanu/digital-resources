@@ -2,115 +2,46 @@
 /**
  * Renders a list of resource locations based on the provided props.
  * @component
- * @example
- * ```astro
- * <ResourceLocationList res={resource} />
- * ```
- * This example renders a list of resource locations using the `res` prop.
- * @example
- * ```astro
- * <ResourceLocationList section={theSection} categories={theCategories} subcategories={theSubcategories} />
- * ```
+
  * This example renders a list of resource locations using the `section`, `categories`, and `subcategories` props.
- * @property {ExtendedResource} [res] - An optional object representing an extended resource.
- * @property {CollectionEntry<"sections">} [section] - An optional object representing a collection entry of type "sections".
- * @property {CollectionEntry<"categories">[]} [categories] - An optional array of objects representing collection entries of type "categories".
- * @property {CollectionEntry<"subcategories">[]} [subcategories] - An optional array of objects representing collection entries of type "subcategories".
+
  * @returns {astro.AstroNode} The rendered list of resource locations.
  */
+import { Taxonomy, db } from 'astro:db';
+import { type TaxonomyItem, completeSlug } from '@utils/getSortedItems';
 
-import { type CollectionEntry } from 'astro:content';
-import { type ExtendedResource } from '@config';
+const { resource } = Astro.props;
 
-export interface Props {
-	res?: ExtendedResource;
-	section?: CollectionEntry<'sections'>;
-	categories?: CollectionEntry<'categories'>[];
-	subcategories?: CollectionEntry<'subcategories'>[];
+const allTaxonomies = await db.select().from(Taxonomy);
+/*
+const allSections = allTaxonomies.filter((item) => item.taxonomy_type_id === 1);
+const allCategories = allTaxonomies.filter((item) => item.taxonomy_type_id === 2);
+const allSubcategories = allTaxonomies.filter((item) => item.taxonomy_type_id === 3);
+*/
+let taxonomyArray: TaxonomyItem[] = [];
+const currentTaxonomy = allTaxonomies.filter((item) => item?.id === resource.taxonomy_id)[0];
+taxonomyArray.push(currentTaxonomy as TaxonomyItem);
+if (currentTaxonomy?.parent_id) {
+	const parentTaxonomy = allTaxonomies.filter((item) => item?.id === currentTaxonomy.parent_id)[0];
+	taxonomyArray.unshift(parentTaxonomy as TaxonomyItem);
+	if (parentTaxonomy?.parent_id) {
+		const grandparentTaxonomy = allTaxonomies.filter((item) => item?.id === parentTaxonomy.parent_id)[0];
+		taxonomyArray.unshift(grandparentTaxonomy as TaxonomyItem);
+	}
 }
-
-const { res, section, categories, subcategories } = Astro.props satisfies Props;
-
-const resourceSection = res ? res.data.section : section;
-const shouldRenderCategoriesFromRes = res && res.data.categories && resourceSection;
-const shouldRenderCategoriesFromCat = categories && resourceSection;
-const shouldRenderSubcategoriesFromRes = res && res.data.subcategories;
-const shouldRenderSubcategoriesFromCat = subcategories && categories && resourceSection;
 ---
 
-<ul class="ResourceLocationList" transition:name={`${res?.slug} location`}>
+<ul class="ResourceLocationList" transition:name={`${resource?.slug} location`}>
 	<li class="DesktopOnlyBlock">
 		<span class="ResourceLocationText">Găsești resursa în:</span>
 	</li>
 	{
-		resourceSection && (
+		taxonomyArray.map((item) => (
 			<li class="ResourceLocationItem Classification">
-				{res && res.data.section && res.sectionData ? (
-					<a class="ClassificationLink" href={`/${resourceSection.slug}`} title={`Vezi toate resursele din secțiunea ${res.sectionData.data.title}`}>
-						{res.sectionData.data.menu}
-					</a>
-				) : (
-					section && (
-						<a class="ClassificationLink" href={`/${resourceSection.slug}`} title={`Vezi toate resursele din secțiunea ${section.data.title}`}>
-							{section.data.menu}
-						</a>
-					)
-				)}
+				<a class="ClassificationLink" href={`/${completeSlug(item.id, item.slug)}`} title={`Vezi toate resursele din ${item.title}`}>
+					{item.menu}
+				</a>
 			</li>
-		)
-	}
-
-	{
-		shouldRenderCategoriesFromRes &&
-			res.categoryData.map((cat) => (
-				<li class="ResourceLocationItem Classification">
-					<a class="ClassificationLink" href={`/${resourceSection.slug}/${cat.slug}`} title={`Vezi toate resursele din categoria ${cat.data.title}`}>
-						{cat.data.menu}
-					</a>
-				</li>
-			))
-	}
-	{
-		shouldRenderCategoriesFromCat &&
-			categories.map((cat) => (
-				<li class="ResourceLocationItem Classification">
-					<a class="ClassificationLink" href={`/${resourceSection.slug}/${cat.slug}`} title={`Vezi toate resursele din categoria ${cat.data.title}`}>
-						{cat.data.menu}
-					</a>
-				</li>
-			))
-	}
-
-	{
-		shouldRenderSubcategoriesFromRes &&
-			res.categoryData.map((cat) =>
-				res.subCategoryData.map((subcat) => (
-					<li class="ResourceLocationItem Classification">
-						<a
-							class="ClassificationLink"
-							href={`/${res.data.section.slug}/${cat.slug}/${subcat.slug}`}
-							title={`Vezi toate resursele din subcategoria ${subcat.data.title}`}
-						>
-							{subcat.data.menu}
-						</a>
-					</li>
-				))
-			)
-	}
-	{
-		shouldRenderSubcategoriesFromCat &&
-			categories.map((cat) =>
-				subcategories.map((subcat) => (
-					<li class="ResourceLocationItem Classification">
-						<a
-							class="ClassificationLink"
-							href={`/${resourceSection.slug}/${cat.slug}/${subcat.slug}`}
-							title={`Vezi toate resursele din subcategoria ${subcat.data.title}`}
-						>
-							{subcat.data.menu}
-						</a>
-					</li>
-				))
-			)
+		))
 	}
 </ul>

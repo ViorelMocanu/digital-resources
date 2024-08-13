@@ -67,6 +67,7 @@
 		"astro-webmanifest": "^1.0.0",
 		"lite-youtube-embed": "^0.3.2",
 		"node-html-parser": "^6.1.13",
+		"posthog-js": "^1.155.0",
 		"sass": "^1.77.8",
 		"sharp": "^0.33.4"
 	},

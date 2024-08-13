@@ -2,102 +2,51 @@
 /**
  * Renders the resource list. Is used in multiple locations throughout every resource listing page.
  * @component
- * @example
- * ```astro
- * <ResourceList resources={theResources} page={thePage} pageTitle="The page title" />
- * ```
- * @property {CollectionEntry<"resources">[]} resources - The list of resources.
- * @property {Object} [page] - The optional page object.
- * @property {number} page.currentPage - The current page number.
- * @property {number} page.lastPage - The last page number.
- * @property {Object} page.url - The URL object.
- * @property {string} page.url.[next] - The URL for the next page.
- * @property {string} page.url.[prev] - The URL for the previous page.
- * @returns {astro.AstroNode} The rendered resource list component.
- */
 
-import { type CollectionEntry, getCollection } from 'astro:content';
-import { type ExtendedResource, resourceTypeIcon } from '@config';
+ */
+import { Author, /*Rating, RelationResourceTag,*/ Resource, ResourceType, /*Tag, TagType,*/ db, eq } from 'astro:db';
+//import { resourceTypeIcon } from '@config';
+import type { ResourceItem } from '@utils/getSortedItems';
 import HelpfulLinks from '@components/HelpfulLinks.astro';
 import Message from '@components/Message.astro';
 import Pagination from '@components/Pagination.astro';
 import ResourceActionList from '@components/ResourceActionList.astro';
 import ResourceLocationList from '@components/ResourceLocationList.astro';
-import ResourceTagList from '@components/ResourceTagList.astro';
+//import ResourceTagList from '@components/ResourceTagList.astro';
 
-export interface Props {
-	resources: CollectionEntry<'resources'>[];
-	page?: {
-		currentPage: number;
-		lastPage: number;
-		url: {
-			next?: string;
-			prev?: string;
+const { resources, page, pageTitle, error } = Astro.props;
+
+const allResourcesDetailed = await db
+	.select()
+	.from(Resource)
+	.leftJoin(ResourceType, eq(Resource.resource_type_id, ResourceType.id))
+	.leftJoin(Author, eq(Resource.author_id, Author.id));
+//const allRatings = await db.select().from(Rating);
+//const allResourceTags = await db.select().from(RelationResourceTag).leftJoin(Tag, eq(RelationResourceTag.tag_id, Tag.id)).leftJoin(TagType, eq(Tag.tag_type_id, TagType.id));
+
+const r: ResourceItem[] =
+	resources ||
+	allResourcesDetailed.map(({ Resource, ResourceType /*, Author*/ }) => {
+		//const filteredRatings = allRatings.filter((rating) => rating.resource_id === Resource.id);
+		//const totalRating = filteredRatings.reduce((acc, rating) => acc + rating.rating, 0);
+		//const averageRating = totalRating / filteredRatings.length;
+
+		//const filteredTags = allResourceTags.filter(({ RelationResourceTag }) => RelationResourceTag.resource_id === Resource.id);
+
+		return {
+			...Resource,
+			type: ResourceType?.title,
+			/*authorName: Author?.name,
+			authorUrl: Author?.url,
+			aggregateRating: averageRating,
+			ratingCount: filteredRatings.length,
+			tags: { ...filteredTags },*/
 		};
-	};
-	pageTitle?: string | undefined;
-	error?: Error | null;
-}
-
-const { resources, page, pageTitle, error } = Astro.props satisfies Props;
-
-let r = resources as unknown as ExtendedResource[];
-const allTags = await getCollection('tags');
-const allSections = await getCollection('sections');
-const allCategories = await getCollection('categories');
-const allSubCategories = await getCollection('subcategories');
-
-if (resources) {
-	r.forEach((resource: ExtendedResource) => {
-		if (resource.data.tags !== null) {
-			let tagData: CollectionEntry<'tags'>[] = [];
-			resource.data.tags.forEach((tag: { slug: string; collection: string }) => {
-				const currentTag = allTags.find((el) => {
-					return el.slug == tag.slug;
-				});
-				if (currentTag && typeof currentTag.data !== 'undefined') {
-					tagData.push(currentTag);
-					if (currentTag.data.type === 'Tip') {
-						resource.type = currentTag.data.title;
-					}
-				}
-			});
-			resource['tagData'] = tagData;
-		}
-
-		if (resource.data.section !== null) {
-			const sectionSlug = resource.data.section.slug;
-			allSections.forEach((s: CollectionEntry<'sections'>) => {
-				if (s.slug == sectionSlug) resource.sectionData = s;
-			});
-		}
-
-		if (resource.data.categories !== null && typeof resource.data.categories !== 'undefined' && resource.data.categories.length > 0) {
-			let categoryData: CollectionEntry<'categories'>[] = [];
-			const currentCategories = resource.data.categories.flatMap((cat: { slug: string; collection: string }) => cat.slug);
-			currentCategories.forEach((category: string) => {
-				allCategories.forEach((c: CollectionEntry<'categories'>) => {
-					if (c && c.slug == category) categoryData.push(c);
-				});
-			});
-			resource['categoryData'] = categoryData;
-		}
-
-		if (resource.data.subcategories !== null && typeof resource.data.subcategories !== 'undefined' && resource.data.subcategories.length > 0) {
-			let subCategoryData: CollectionEntry<'subcategories'>[] = [];
-			const currentSubCategories = resource.data.subcategories.flatMap((subcat: { slug: string; collection: string }) => subcat.slug);
-			currentSubCategories.forEach((subcategory: string) => {
-				allSubCategories.forEach((s: CollectionEntry<'subcategories'>) => {
-					if (s && s.slug == subcategory) subCategoryData.push(s);
-				});
-			});
-			resource['subCategoryData'] = subCategoryData;
-		}
 	});
-}
 ---
 
 <div class="ResourceContainer">
+	<h1>{r.length}</h1>
 	{page && <Pagination currentPage={page.currentPage} lastPage={page.lastPage} next={page.url.next} prev={page.url.prev} boxHeader={false} />}
 
 	{
@@ -108,9 +57,9 @@ if (resources) {
 						<div class="ResourceName">
 							<h4 class="ResourceTitle" transition:name={`${resource.slug} title`}>
 								{resource.slug && (
-									<a class="ResourceLink" href={`/r/${resource.slug}`} title={`Vizitează resursa intitulată: ${resource.data.title}`}>
-										{resource.data.title}
-										{resourceTypeIcon[resource.type.toLowerCase()]}
+									<a class="ResourceLink" href={`/r/${resource.slug}`} title={`Vizitează resursa intitulată: ${resource.title}`}>
+										{resource.title}
+										{/*resourceTypeIcon[resource.type.toLowerCase()]*/}
 									</a>
 								)}
 								<button class="ResourceStatus" type="button" title="Marchează resursa ca fiind neparcursă">
@@ -135,7 +84,7 @@ if (resources) {
 										</span>
 										<span class="InfoItemText">Rating-ul link-ului</span>
 									</div>
-									<strong class="InfoItemValue">{resource.data.rating || 'n/a'} (10)</strong>
+									<strong class="InfoItemValue">{/*resource.rating || 'n/a'*/} (10)</strong>
 								</li>
 								<li class="InfoItem" transition:name={`${resource.slug} views`}>
 									<div class="InfoItemLabel">
@@ -154,7 +103,7 @@ if (resources) {
 									</div>
 									<strong class="InfoItemValue">7895</strong>
 								</li>
-								{resource.data.requiredTime && (
+								{resource.required_time && (
 									<li class="InfoItem" transition:name={`${resource.slug} time`}>
 										<div class="InfoItemLabel">
 											<span class="Icon IconTime">
@@ -165,21 +114,21 @@ if (resources) {
 											</span>
 											<span class="InfoItemText">Timp necesar</span>
 										</div>
-										<strong class="InfoItemValue">{/*resource.requiredTime || '? '*/}h</strong>
+										<strong class="InfoItemValue">{resource.required_time || '? '}h</strong>
 									</li>
 								)}
 							</ul>
 						</div>
 						<div class="ResourceMainContent">
-							<ResourceLocationList res={resource} />
-							{resource.data.description && (
+							<ResourceLocationList resource={resource} />
+							{resource.description && (
 								<p class="ResourceP" transition:name={`${resource.slug} description`}>
-									{/*resource.description && resource.description.length > 160 ? resource.description?.substring(0, 160) : resource.description*/}
+									{resource.description && resource.description.length > 160 ? resource.description?.substring(0, 160) : resource.description}
 								</p>
 							)}
-							{resource.data.tags && <ResourceTagList taglist={resource.tagData} resslug={resource.slug} />}
+							{/*resource.tags && <ResourceTagList taglist={resource.tags} resslug={resource.slug} />*/}
 						</div>
-						<ResourceActionList res={resource} />
+						<ResourceActionList resource={resource} />
 					</li>
 				))}
 			</ol>

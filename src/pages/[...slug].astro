@@ -1,10 +1,10 @@
 ---
-import { DEFAULT_DESCRIPTION, DEFAULT_MENULABEL, DEFAULT_TITLE, DEFAULT_URL, PAGE_SIZE, resourceTypeIcon } from '@config';
+import { DEFAULT_DESCRIPTION, DEFAULT_MENULABEL, DEFAULT_TITLE, DEFAULT_URL, PAGE_SIZE /*, resourceTypeIcon*/ } from '@config';
 import { Taxonomy, db, eq } from 'astro:db';
 import CommentList from '@components/CommentList.astro';
 import Layout from '@layouts/Layout.astro';
 import ResourceFilter from '@components/ResourceFilter.astro';
-// import ResourceList from '@components/ResourceList.astro';
+import ResourceList from '@components/ResourceList.astro';
 import ResourceTOC from '@components/ResourceTOC.astro';
 import { taxonomiesFlat } from '@utils/getSortedItems';
 
@@ -13,8 +13,8 @@ export async function getStaticPaths() {
 	const c = taxonomiesFlat.flatMap(({ lang, slug, props }) => {
 		return {
 			params: {
-				lang,
-				slug,
+				lang: lang || undefined,
+				slug: slug,
 			},
 			props: {
 				...props,
@@ -47,7 +47,7 @@ if (thisPage.modified_at) {
 	updateDate = '';
 }
 
-const pageTemplate = thisPage.taxonomy_type_id === 1 ? 'Section' : thisPage.taxonomy_type_id === 2 ? 'Category' : 'Subcategory';
+const pageTemplate = thisPage.taxonomy_type_id === 1 ? 'Section' : thisPage.taxonomy_type_id === 2 ? 'Category' : 'Subcategory' + 'Page';
 const pageUrl = (lang === 'en' ? lang + '/' + slug : slug) || DEFAULT_URL;
 const pageTitle = (lang === 'en' ? thisPage.title_en : thisPage.title) || DEFAULT_TITLE;
 const pageMenu = (lang === 'en' ? thisPage.menu_en : thisPage.menu) || DEFAULT_MENULABEL;
@@ -97,7 +97,7 @@ switch (thisPage.taxonomy_type_id) {
 			title: section?.title || DEFAULT_TITLE,
 			label: section?.menu || DEFAULT_MENULABEL,
 		});
-		taxonomyId = thisPage.id || 0;
+		taxonomyId = thisPage?.id || 0;
 		break;
 }
 ---
@@ -128,120 +128,14 @@ switch (thisPage.taxonomy_type_id) {
 					<p>Sort order: {thisPage.sort_order}</p>
 					<p>formattedDate: {formattedDate}</p>
 					{updateDate && <p>updateDate: {updateDate}</p>}
-					<p>Page: <pre>{JSON.stringify(thisPage,null,4)}</pre></p>
 				</div>
 			</details>
 		</div>
 	</div>
 	<main class="Main">
 		<ResourceFilter tid={taxonomyId} />
-		<div class="ResourceContainer">
-			<ol class="ResourceList">
-				{
-					resources.map((item) => (
-						<li class="ResourceItem">
-							<div class="ResourceName">
-								<h4 class="ResourceTitle" transition:name={`${item.slug} title`}>
-									{item.slug && (
-										<a class="ResourceLink" href={`/r/${item.slug}`} title={`Vizitează resursa intitulată: ${item.title}`}>
-											{item.title}
-											{resourceTypeIcon[item.type.toLowerCase()]}
-										</a>
-									)}
-									<button class="ResourceStatus" type="button" title="Marchează resursa ca fiind neparcursă">
-										✅
-									</button>
-								</h4>
-							</div>
-							<div class="ResourceAside ResourceInfo">
-								<h5 class="WidgetTitle">Informații utile:</h5>
-								<ul class="InfoList">
-									<li class="InfoItem" transition:name={`${item.slug} rating`}>
-										<div class="InfoItemLabel">
-											<span class="Icon IconRating">
-												<span class="SROnly">⭐</span>
-												<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-													<path
-														stroke-linecap="round"
-														stroke-linejoin="round"
-														d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"
-													/>
-												</svg>
-											</span>
-											<span class="InfoItemText">Rating-ul link-ului</span>
-										</div>
-										<strong class="InfoItemValue">{false || 'n/a'} (10)</strong>
-									</li>
-									<li class="InfoItem" transition:name={`${item.slug} views`}>
-										<div class="InfoItemLabel">
-											<span class="Icon IconViews">
-												<span class="SROnly">👁️</span>
-												<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-													<path
-														stroke-linecap="round"
-														stroke-linejoin="round"
-														d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
-													/>
-													<path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-												</svg>
-											</span>
-											<span class="InfoItemText">Vizualizări</span>
-										</div>
-										<strong class="InfoItemValue">7895</strong>
-									</li>
-									{item.required_time && (
-										<li class="InfoItem" transition:name={`${item.slug} time`}>
-											<div class="InfoItemLabel">
-												<span class="Icon IconTime">
-													<span class="SROnly">⏰</span>
-													<svg
-														xmlns="http://www.w3.org/2000/svg"
-														fill="none"
-														viewBox="0 0 24 24"
-														stroke-width="1.5"
-														stroke="currentColor"
-														class="w-6 h-6"
-													>
-														<path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-													</svg>
-												</span>
-												<span class="InfoItemText">Timp necesar</span>
-											</div>
-											<strong class="InfoItemValue">{item.required_time}h</strong>
-										</li>
-									)}
-								</ul>
-							</div>
-							<div class="ResourceMain">
-								{/*
-									<ResourceLocationList res={item} />
-								*/}
-								<div class="ResourceMainContent">
-									{item.description && (
-										<p class="ResourceP" transition:name={`${item.slug} description`}>
-											{item.description}
-											<pre>{JSON.stringify(item, null, 4)}</pre>
-										</p>
-									)}
-								</div>
-								{/*item.tags && <ResourceTagList taglist={item.tagData} resslug={item.slug} />*/}
-							</div>
-							{/*
-								<ResourceActionList res={resource} />
-							*/}
-						</li>
-					))
-				}
-			</ol>
-		</div>
+		<ResourceList resources={resources} />
 		<ResourceTOC />
-		{
-			/*
-	<ResourceFilter section={section} />
-	<ResourceList resources={thisPage.data} page={thisPage} pageTitle={pageTitle} />
-	<ResourceTOC section={section} />
-		*/
-		}
 		<CommentList />
 	</main>
 </Layout>

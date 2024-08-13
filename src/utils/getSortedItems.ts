@@ -10,6 +10,9 @@ const allSubcategories = await db.select().from(Taxonomy).where(eq(Taxonomy.taxo
 const allResources = await db.select().from(Resource);
 const resourceTypes = await db.select().from(ResourceType);
 
+export type ResourceItem = typeof Resource.$inferSelect;
+export type TaxonomyItem = typeof Taxonomy.$inferSelect;
+
 /**
  * Completes the slug of a taxonomy item by prepending the parent slugs.
  * @param {number} id - The ID of the taxonomy item.
@@ -24,18 +27,18 @@ const resourceTypes = await db.select().from(ResourceType);
  * @throws {Error} If the parent of the taxonomy item with the specified ID is not a taxonomy item.
  * @throws {Error} If the parent of the taxonomy item with the specified ID is not a direct parent.
  */
-function completeSlug(id: number, slug: string): string {
-	const item = allTaxonomies.find((taxonomy) => taxonomy.id === id);
+export function completeSlug(id: number, slug: string): string {
+	const item = allTaxonomies.find((taxonomy) => taxonomy?.id === id);
 	if (!item) {
 		return slug;
 	}
 	if (item.parent_id) {
-		const parent = allTaxonomies.find((taxonomy) => taxonomy.id === item.parent_id);
+		const parent = allTaxonomies.find((taxonomy) => taxonomy?.id === item.parent_id);
 		if (!parent) {
 			return slug;
 		}
 		slug = parent.slug + '/' + slug;
-		return completeSlug(parent.id, slug);
+		return completeSlug(parent?.id, slug);
 	} else {
 		return slug;
 	}
@@ -78,7 +81,7 @@ export const taxonomiesFlat = allTaxonomies
 			.map((resource) => {
 				return {
 					...resource,
-					type: resourceTypes.find((type) => type.id === resource.resource_type_id)?.title || 'generic',
+					type: resourceTypes.find((type) => type?.id === resource.resource_type_id)?.title || 'generic',
 				};
 			});
 		if (taxonomy.parent_id) {
@@ -87,19 +90,19 @@ export const taxonomiesFlat = allTaxonomies
 				.map((resource) => {
 					return {
 						...resource,
-						type: resourceTypes.find((type) => type.id === resource.resource_type_id)?.title || 'generic',
+						type: resourceTypes.find((type) => type?.id === resource.resource_type_id)?.title || 'generic',
 					};
 				});
 			resources = resources.concat(parentResources);
 			if (taxonomy.taxonomy_type_id === 3) {
-				const grandParentQuery = allTaxonomies.filter((grandparent) => grandparent.id === taxonomy.parent_id);
+				const grandParentQuery = allTaxonomies.filter((grandparent) => grandparent?.id === taxonomy.parent_id);
 				const grandParent = grandParentQuery.map((item) => item)[0];
 				const grandparentResources = allResources
 					.filter((resource) => resource.taxonomy_id === grandParent?.id)
 					.map((resource) => {
 						return {
 							...resource,
-							type: resourceTypes.find((type) => type.id === resource.resource_type_id)?.title || 'generic',
+							type: resourceTypes.find((type) => type?.id === resource.resource_type_id)?.title || 'generic',
 						};
 					});
 				resources = resources.concat(grandparentResources);

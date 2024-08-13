@@ -1,7 +1,7 @@
 ---
-import { type CollectionEntry, getCollection } from 'astro:content';
+import { getCollection } from 'astro:content';
 import Layout from '@layouts/Layout.astro';
-import ResourceList from '@components/ResourceList.astro';
+//import ResourceList from '@components/ResourceList.astro';
 
 export async function getStaticPaths() {
 	const tags = (await getCollection('tags')).sort((a, b) => new Date(a.data.title).valueOf() - new Date(b.data.title).valueOf()); // ordering by sortOrder asc
@@ -15,11 +15,11 @@ const { slug } = Astro.params;
 const { tag } = Astro.props;
 const { Content } = await tag.render();
 
-const resources = (
+/*const resources = (
 	await getCollection('resources', ({ data }) => {
 		return data.tags.find((t) => t.slug == tag.slug);
 	})
-).sort((a, b) => new Date(a.data.modDate as string).valueOf() - new Date(b.data.modDate as string).valueOf()) satisfies CollectionEntry<'resources'>[];
+).sort((a, b) => new Date(a.data.modDate as string).valueOf() - new Date(b.data.modDate as string).valueOf()) satisfies CollectionEntry<'resources'>[];*/
 
 const pageTitle = `Tag: ${tag.data.title}`;
 const pageDescription = tag.data.description;
@@ -47,6 +47,10 @@ const breadcrumbArray = [
 		@TODO: desenează layout în Figma pentru pagina asta @TODO: Completează conținutul paginii curente
 		{slug}
 		<Content />
+		{
+			/*
 		<ResourceList resources={resources} pageTitle={`Tag: ${tag.data.title}`} />
+		*/
+		}
 	</main>
 </Layout>

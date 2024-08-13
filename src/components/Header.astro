@@ -130,10 +130,14 @@ const categories = allCategoriesQuery.map((category) => category);
 				// https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#the_value_of_this_within_the_handler
 				this.setAttribute('aria-expanded', 'true');
 				this.setAttribute('aria-label', 'Închide meniul principal');
+				/* @ts-ignore */
+				posthog && posthog.capture('Menu', { property: 'open' });
 			} else {
 				delete document.body.dataset.menuOpen;
 				this.setAttribute('aria-expanded', 'false');
 				this.setAttribute('aria-label', 'Deschide meniul principal');
+				/* @ts-ignore */
+				posthog && posthog.capture('Menu', { property: 'close' });
 			}
 			return false;
 		});

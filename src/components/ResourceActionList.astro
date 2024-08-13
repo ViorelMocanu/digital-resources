@@ -7,15 +7,9 @@
  * <ResourceActionList res={resource} />
  * ```
  * This example renders a list of resource actions using the `res` prop.
- * @property {ExtendedResource} res - An object representing an extended resource.
+
  * @returns {astro.AstroNode} The rendered list of resource actions.
  */
-
-import { type ExtendedResource } from '@config';
-
-export interface Props {
-	res: ExtendedResource;
-}
 
 /**
  * Handles the click event for the like button.
@@ -44,13 +38,13 @@ function hitLike() {
 }
 */
 
-const { res } = Astro.props satisfies Props;
+const { resource } = Astro.props;
 ---
 
 <aside class="ResourceAside ResourceActions">
 	<h5 class="WidgetTitle">Acțiuni disponibile:</h5>
 	<ul class="InfoList">
-		<li class="InfoItem" transition:name={`${res?.slug} action share`}>
+		<li class="InfoItem" transition:name={`${resource?.slug} action share`}>
 			<button class="InfoLink" type="button" title="Share-uiește resursa: Resilient Web Design cu prietenii tăi">
 				<span class="Icon IconShare">
 					<span class="SROnly">🚀</span>
@@ -67,7 +61,7 @@ const { res } = Astro.props satisfies Props;
 				</span>
 			</button>
 		</li>
-		<li class="InfoItem" transition:name={`${res?.slug} action like`}>
+		<li class="InfoItem" transition:name={`${resource?.slug} action like`}>
 			<button class="InfoLink" type="button" title="Adaugă în lista ta de resurse favorite resursa: Resilient Web Design">
 				<span class="Icon IconLike">
 					<span class="SROnly">❤️</span>
@@ -84,7 +78,7 @@ const { res } = Astro.props satisfies Props;
 				</span>
 			</button>
 		</li>
-		<li class="InfoItem" transition:name={`${res?.slug} action report`}>
+		<li class="InfoItem" transition:name={`${resource?.slug} action report`}>
 			<button class="InfoLink" type="button" title="Semnalează o problemă cu resursa: Resilient Web Design - link greșit, site hack-uit, proprietăți greșite">
 				<span class="Icon IconReport">
 					<span class="SROnly">⚠️</span>
@@ -103,3 +97,13 @@ const { res } = Astro.props satisfies Props;
 		</li>
 	</ul>
 </aside>
+
+<script>
+	// assign click actions to all buttons in this component
+	const buttons = document.querySelectorAll('.InfoLink');
+	buttons.forEach((button) => {
+		button.addEventListener('click', () => {
+			console.log('Button clicked', this);
+		});
+	});
+</script>
