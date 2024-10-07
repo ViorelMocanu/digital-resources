@@ -11,10 +11,11 @@
  * @returns {astro.AstroNode} The header component.
  */
 
-import { type BreadcrumbItem } from '../config';
-import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Avatar from '@components/Avatar.astro';
+import { type BreadcrumbItem } from '@config';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
 import { getCollection } from 'astro:content';
-import { highlightUrl } from '../utils/urlHelpers';
+import { highlightUrl } from '@utils/urlHelpers';
 export interface Props {
 	breadcrumbArray?: BreadcrumbItem[] | undefined;
 	activeMenu?: string | undefined;
@@ -43,19 +44,21 @@ const activePage = activeMenu || Astro.url.pathname.substring(1);
 		<a class="Logo" href="/" title="Mergi la prima pagină a proiectului Resurse.dev">
 			<span class="LinkText">resurse.dev</span>
 		</a>
-		<a class:list={highlightUrl('login', 'HeaderLink Login', 'Active')} href="/login" title="Mergi la prima pagină a proiectului Resurse.dev">
-			<span class="Icon IconUser">
-				<span class="SROnly">👤</span>
-				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
-					></path>
-				</svg>
-			</span>
-			<span class="LinkText">Login</span>
-		</a>
+		<Avatar server:defer>
+			<a slot="fallback" class:list={highlightUrl('login', 'HeaderLink Login', 'Active')} href="/login" title="Intră în contul tău pe Resurse.dev">
+				<span class="Icon IconUser">
+					<span class="SROnly">👤</span>
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
+						></path>
+					</svg>
+				</span>
+				<span class="LinkText">Login</span>
+			</a>
+		</Avatar>
 		<nav class="MainMenu" id="menu" aria-labelledby="menuTrigger">
 			<ul class="MainMenuList">
 				{
@@ -113,10 +116,14 @@ const activePage = activeMenu || Astro.url.pathname.substring(1);
 				// https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#the_value_of_this_within_the_handler
 				this.setAttribute('aria-expanded', 'true');
 				this.setAttribute('aria-label', 'Închide meniul principal');
+				/* @ts-ignore */
+				posthog && posthog.capture('Menu', { property: 'open' });
 			} else {
 				delete document.body.dataset.menuOpen;
 				this.setAttribute('aria-expanded', 'false');
 				this.setAttribute('aria-label', 'Deschide meniul principal');
+				/* @ts-ignore */
+				posthog && posthog.capture('Menu', { property: 'close' });
 			}
 			return false;
 		});

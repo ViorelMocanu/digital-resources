@@ -11,8 +11,8 @@
  */
 
 import { type CollectionEntry, getCollection } from 'astro:content';
-import { type ExtendedCategory } from '../config';
-import { highlightUrl } from '../utils/urlHelpers';
+import { type ExtendedCategory } from '@config';
+import { highlightUrl } from '@utils/urlHelpers';
 
 export interface Props {
 	section: CollectionEntry<'sections'>;

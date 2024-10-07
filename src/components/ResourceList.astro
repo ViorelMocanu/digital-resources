@@ -17,13 +17,13 @@
  */
 
 import { type CollectionEntry, getCollection } from 'astro:content';
-import { type ExtendedResource, resourceTypeIcon } from '../config';
-import HelpfulLinks from '../components/HelpfulLinks.astro';
-import Message from './Message.astro';
-import Pagination from './Pagination.astro';
-import ResourceActionList from '../components/ResourceActionList.astro';
-import ResourceLocationList from '../components/ResourceLocationList.astro';
-import ResourceTagList from '../components/ResourceTagList.astro';
+import { type ExtendedResource, resourceTypeIcon } from '@config';
+import HelpfulLinks from '@components/HelpfulLinks.astro';
+import Message from '@components/Message.astro';
+import Pagination from '@components/Pagination.astro';
+import ResourceActionList from '@components/ResourceActionList.astro';
+import ResourceLocationList from '@components/ResourceLocationList.astro';
+import ResourceTagList from '@components/ResourceTagList.astro';
 
 export interface Props {
 	resources: CollectionEntry<'resources'>[];
@@ -107,7 +107,7 @@ if (resources) {
 						<div class="ResourceName">
 							<h4 class="ResourceTitle" transition:name={`${resource.slug} title`}>
 								{resource.slug && (
-									<a class="ResourceLink" href={`/resurse/${resource.slug}`} title={`Vizitează resursa intitulată: ${resource.data.title}`}>
+									<a class="ResourceLink" href={`/r/${resource.slug}`} title={`Vizitează resursa intitulată: ${resource.data.title}`}>
 										{resource.data.title}
 										{resourceTypeIcon[resource.type.toLowerCase()]}
 									</a>
@@ -187,6 +187,16 @@ if (resources) {
 				<HelpfulLinks />
 			</Message>
 		)
+	}
+
+	{
+		/*
+		error && (
+			<Message title="Am întâmpinat o problemă cu baza de date." type="error">
+				<HelpfulLinks />
+			</Message>
+		)
+		*/
 	}
 
 	{page && <Pagination currentPage={page.currentPage} lastPage={page.lastPage} next={page.url.next} prev={page.url.prev} boxHeader={true} pageTitle={pageTitle} />}

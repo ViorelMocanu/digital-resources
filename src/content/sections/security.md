@@ -3,7 +3,7 @@ title: 'Resurse de Networking & Cyber Security'
 menu: 'NetSec'
 slug: security
 sortOrder: 4
-imageUrl: './security.svg'
+imageUrl: '/src/content/sections/security.svg'
 imageAlt: 'Resurse care țin de rețelistică și securitate cibernetică.'
 description: "@TODO: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
 categories:

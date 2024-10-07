@@ -1,6 +1,8 @@
 # Resurse digitale: **Resurse.dev**
 
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/ViorelMocanu/digital-resources/static.yml)](https://github.com/ViorelMocanu/digital-resources/actions) [![GitHub Pages Deploy Status](https://github.com/ViorelMocanu/digital-resources/actions/workflows/static.yml/badge.svg)](https://github.com/ViorelMocanu/digital-resources/deployments) [![Uptime Robot status](https://img.shields.io/uptimerobot/status/m795450488-8340b637195100fd9eb8309b)](https://resurse.dev) [![GitHub contributors](https://img.shields.io/github/contributors/ViorelMocanu/digital-resources.svg)](https://github.com/ViorelMocanu/digital-resources/graphs/contributors) [![GitHub Sponsors](https://img.shields.io/github/sponsors/ViorelMocanu)](https://github.com/sponsors/ViorelMocanu/) [![ISC license](https://img.shields.io/badge/License-ISC-blue.svg?style=flat)](https://github.com/ViorelMocanu/digital-resources/blob/main/LICENSE) [![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fresurse.dev)](https://validator.w3.org/nu/?doc=https%3A%2F%2Fresurse.dev%2F&showsource=yes&showoutline=yes) ![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/ViorelMocanu/digital-resources)
+[![GitHub Workflow Status][GitHub Workflow Shield]][GitHub Workflow Link] [![GitHub Pages Deploy Status][GitHub Pages Deploy Shield]][GitHub Pages Deploy Link] [![Uptime Robot status][Uptime Robot Shield]][Uptime Robot Link] [![GitHub contributors][GitHub contributors Shield]][GitHub contributors Link] [![GitHub Sponsors][GitHub Sponsors Shield]][GitHub Sponsors Link] [![ISC license][ISC license Shield]][ISC license Link] [![W3C Validation][W3C Validation Shield]][W3C Validation Link] [![Libraries.io dependency status for GitHub repo][Dependency status Badge]][Dependency Status Link] [![Project Stage Badge: Development][Project Stage Badge: Development]][Project Stage Link]
+
+[//]: <> (Implement https://shields.io/badges/netlify once you deploy there)
 
 Salutare!
 
@@ -210,3 +212,21 @@ Merci! ❤️
 [noile componente]: https://docs.astro.build/en/guides/images/
 [canalul de YouTube]: https://www.youtube.com/@ViorelMocanu
 [grupul de Facebook]: https://www.facebook.com/groups/carierait
+[Dependency Status Badge]: https://img.shields.io/librariesio/github/ViorelMocanu/digital-resources
+[Dependency status Link]: https://github.com/ViorelMocanu/digital-resources/pulls
+[GitHub Workflow Shield]: https://img.shields.io/github/actions/workflow/status/ViorelMocanu/digital-resources/static.yml
+[GitHub Workflow Link]: https://github.com/ViorelMocanu/digital-resources/actions
+[GitHub Pages Deploy Shield]: https://github.com/ViorelMocanu/digital-resources/actions/workflows/static.yml/badge.svg
+[GitHub Pages Deploy Link]: https://github.com/ViorelMocanu/digital-resources/deployments
+[Uptime Robot Shield]: https://img.shields.io/uptimerobot/status/m795450488-8340b637195100fd9eb8309b
+[Uptime Robot Link]: https://resurse.dev
+[GitHub contributors Shield]: https://img.shields.io/github/contributors/ViorelMocanu/digital-resources.svg
+[GitHub contributors Link]: https://github.com/ViorelMocanu/digital-resources/graphs/contributors
+[GitHub Sponsors Shield]: https://img.shields.io/github/sponsors/ViorelMocanu
+[GitHub Sponsors Link]: https://github.com/sponsors/ViorelMocanu/
+[ISC license Shield]: https://img.shields.io/badge/License-ISC-blue.svg?style=flat
+[ISC license Link]: https://github.com/ViorelMocanu/digital-resources/blob/main/LICENSE
+[W3C Validation Shield]: https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fresurse.dev
+[W3C Validation Link]: https://validator.w3.org/nu/?doc=https%3A%2F%2Fresurse.dev%2F&showsource=yes&showoutline=yes
+[Project Stage Link]: https://github.com/users/ViorelMocanu/projects/2/views/2
+[Project Stage Badge: Development]: https://img.shields.io/badge/Project%20Stage-Development-yellowgreen.svg

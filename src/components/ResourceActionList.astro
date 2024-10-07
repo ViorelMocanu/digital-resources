@@ -11,7 +11,46 @@
  * @returns {astro.AstroNode} The rendered list of resource actions.
  */
 
-import { type ExtendedResource } from '../config';
+import { type ExtendedResource } from '@config';
+
+/**
+ * Renders a list of resource actions based on the provided props.
+ * @component
+ * @example
+ * ```astro
+ * <ResourceActionList res={resource} />
+ * ```
+ * This example renders a list of resource actions using the `res` prop.
+
+ * @returns {astro.AstroNode} The rendered list of resource actions.
+ */
+
+/**
+ * Handles the click event for the like button.
+ */
+/*
+function hitLike() {
+	console.log('Like button clicked');
+	fetch(`/api/like/${res.slug}`, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify({ like: true }),
+	})
+		.then((response) => response.json())
+		.then((data) => {
+			console.log('Success:', data);
+			if (!!numLikes) {
+				numLikes.innerText = data.likes;
+			}
+		})
+		.catch((error) => {
+			console.error('Error:', error);
+			alert("Couldn't like the resource. Please try again later.");
+		});
+}
+*/
 
 export interface Props {
 	res: ExtendedResource;
@@ -76,3 +115,13 @@ const { res } = Astro.props satisfies Props;
 		</li>
 	</ul>
 </aside>
+
+<script>
+	// assign click actions to all buttons in this component
+	const buttons = document.querySelectorAll('.InfoLink');
+	buttons.forEach((button) => {
+		button.addEventListener('click', () => {
+			console.log('Button clicked', this);
+		});
+	});
+</script>
