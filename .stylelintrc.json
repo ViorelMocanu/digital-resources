@@ -1,0 +1,33 @@
+{
+	"extends": "stylelint-config-standard-scss",
+	"rules": {
+		"color-hex-length": "short",
+		"property-no-vendor-prefix": [
+			true,
+			{
+				"ignoreProperties": ["appearance", "text-size-adjust"]
+			}
+		],
+		"declaration-block-single-line-max-declarations": 20,
+		"at-rule-empty-line-before": [
+			"always",
+			{
+				"except": ["first-nested", "inside-block"],
+				"ignore": ["after-comment"]
+			}
+		],
+		"comment-empty-line-before": null,
+		"declaration-empty-line-before": "never",
+		"rule-empty-line-before": null,
+		"selector-class-pattern": [
+			"^(.*)$",
+			{
+				"message": "Selector should be written in any format (selector-class-pattern)"
+			}
+		],
+		"declaration-block-no-redundant-longhand-properties": null,
+		"no-descending-specificity": null,
+		"scss/at-extend-no-missing-placeholder": null,
+		"scss/double-slash-comment-empty-line-before": null
+	}
+}

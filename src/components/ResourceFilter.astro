@@ -312,6 +312,8 @@ const sectionCategories = !!section?.data?.categories;
 				const alreadyOpen = document.querySelector('.FilterOptions[open]');
 				// Dacă se găsesc astfel de butoane și ele sunt diferite de cel pe care am dat click acum, trebuie scos atributul `open` de pe ele ca să nu se suprapună.
 				if (alreadyOpen !== null && alreadyOpen != filterOptions[i]) alreadyOpen.removeAttribute('open');
+				/* @ts-ignore */
+				posthog && posthog.capture('Filter', { property: filterOptions[i] });
 				return true;
 			});
 		}
@@ -324,6 +326,8 @@ const sectionCategories = !!section?.data?.categories;
 			body.classList.toggle('ActiveSubnav');
 			const alreadyOpen = document.querySelector('.FilterOptions[open]');
 			alreadyOpen?.removeAttribute('open');
+			/* @ts-ignore */
+			posthog && posthog.capture('Trigger', { property: 'close' });
 			return false;
 		});
 
@@ -334,6 +338,8 @@ const sectionCategories = !!section?.data?.categories;
 			body.classList.remove('ActiveSubnav');
 			const alreadyOpen = document.querySelector('.FilterOptions[open]');
 			alreadyOpen?.removeAttribute('open');
+			/* @ts-ignore */
+			posthog && posthog.capture('Filter', { property: 'close' });
 			return false;
 		});
 	};

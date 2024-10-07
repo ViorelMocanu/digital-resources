@@ -21,11 +21,11 @@ continuation_indent_size = 2
 trim_trailing_whitespace = false
 
 # Set default charset
-[*.{ts,js,mjs,astro,scss,css,json,md,svg}] # Matches multiple files with brace expansion notation
+[*.{ts,tsx,js,jsx,mjs,cjs,astro,scss,css,json,md,svg,yml,yaml}] # Matches multiple files with brace expansion notation
 charset = utf-8
 
 # Denotes whether the left part of the curly bracket should be on the next line or not
-[*.{ts,js,mjs,astro,json}]
+[*.{ts,tsx,js,jsx,mjs,cjs,astro,json}]
 curly_bracket_next_line = false
 spaces_around_operators = true
 spaces_around_brackets = inside

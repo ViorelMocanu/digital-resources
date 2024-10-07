@@ -1,13 +1,13 @@
 ---
 import { type CollectionEntry, getCollection, getEntry } from 'astro:content';
 import type { InferGetStaticPropsType } from 'astro';
-import Layout from '../../layouts/Layout.astro';
-import { PAGE_SIZE } from '../../config';
-import ResourceFilter from '../../components/ResourceFilter.astro';
-import ResourceList from '../../components/ResourceList.astro';
-import ResourceTOC from '../../components/ResourceTOC.astro';
-import ResponsiveImage from '../../components/ResponsiveImage.astro';
-import getSortedItems from '../../utils/getSortedItems';
+import Layout from '@layouts/Layout.astro';
+import { PAGE_SIZE } from '@config';
+import ResourceFilter from '@components/ResourceFilter.astro';
+import ResourceList from '@components/ResourceList.astro';
+import ResourceTOC from '@components/ResourceTOC.astro';
+// import ResponsiveImage from '@components/ResponsiveImage.astro';
+import getSortedItems from '@utils/getSortedItems';
 
 export async function getStaticPaths({ paginate }: any) {
 	const allSections = (await getCollection('sections')).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
@@ -54,6 +54,7 @@ const breadcrumbArray = [
 			section.data.imageUrl && (
 				<div class="HeroVisual">
 					{/* @TODO breakpoint must be edited here */}
+					{/*
 					<ResponsiveImage
 						breakpoint={1100}
 						classList={['HeroImage']}
@@ -63,6 +64,7 @@ const breadcrumbArray = [
 						alt={section.data.imageAlt || 'Without alt'}
 						lazyLoading={false}
 					/>
+					*/}
 				</div>
 			)
 		}

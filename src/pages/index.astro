@@ -1,8 +1,11 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import { Tweet, Vimeo, YouTube } from 'astro-embed';
 import { Content as Readme } from '../../README.md';
-//import ResponsiveImage from '../components/ResponsiveImage.astro';
-//import testImage from '../img/ViorelMocanu - Splash YouTube v2 1920x1080 109.jpg';
+import Layout from '@layouts/Layout.astro';
+import { SocialShare } from 'astro-social-share';
+//import ResourceTOC from '@components/ResourceTOC.astro';
+//import ResponsiveImage from '@components/ResponsiveImage.astro';
+//import testImage from '@img/ViorelMocanu - Splash YouTube v2 1920x1080 109.jpg';
 
 const pageTitle = 'Resurse.dev @TODO';
 const pageDescription = '@TODO: scrie descrierea';
@@ -14,6 +17,12 @@ const pageDescription = '@TODO: scrie descrierea';
 		<div class="MarkdownContent">
 			<Readme />
 			<a href="/resurse">Resurse</a>
+			<div style="background:white;padding:1rem;">
+				<SocialShare description={pageDescription} title={pageTitle} />
+			</div>
+			<Tweet id="https://twitter.com/ViorelMocanu/status/1490009403717668867" />
+			<Vimeo id="https://vimeo.com/824922485" />
+			<YouTube id="0vFIq5y9hgg" />
 			<!--ResponsiveImage image={testImage} alt="Test 1234" width={2560} height={1440} lazyLoading={true} classList={['TestClassName', 'test2']} breakpoint={1100} /-->
 		</div>
 	</main>

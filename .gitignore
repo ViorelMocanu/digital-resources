@@ -15,6 +15,7 @@ node_modules/
 
 # generated types
 .astro/
+!.astro/types.d.ts
 
 # Optional npm cache directory
 .npm
@@ -49,8 +50,18 @@ Thumbs.db
 .netlify
 .vercel
 .vercel/*
+.netlify
 .turbo
 lambda
+
+# Yarn collateral
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
 
 # Service worker
 sw.*
