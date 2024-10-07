@@ -304,18 +304,18 @@ export default async function seed(): Promise<void> {
 			const t = r.title.toLowerCase();
 			const u = r.url.toLowerCase();
 			if (
-				u.startsWith('https://youtube.com') ||
-				u.startsWith('http://youtube.com') ||
-				u.startsWith('https://www.youtube.com') ||
-				u.startsWith('http://www.youtube.com') ||
-				u.startsWith('https://youtu.be') ||
-				u.startsWith('https://vimeo.com')
+				u.startsWith('https://youtube.com/') ||
+				u.startsWith('http://youtube.com/') ||
+				u.startsWith('https://www.youtube.com/') ||
+				u.startsWith('http://www.youtube.com/') ||
+				u.startsWith('https://youtu.be/') ||
+				u.startsWith('https://vimeo.com/')
 			)
 				resourceType = 4;
-			else if (u.indexOf('udemy.com') > -1 || u.indexOf('course') > -1) resourceType = 3;
-			else if (u.indexOf('amazon.com') > -1 || u.indexOf('pdf') > -1 || u.indexOf('book') > -1) resourceType = 2;
-			else if (u.indexOf('github.com') > -1 || u.indexOf('gitlab.com') > -1) resourceType = 5;
-			else if (u.indexOf('medium.com') > -1 || u.indexOf('dev.to') > -1 || u.indexOf('blog') > -1 || t.indexOf('blog') > -1 || u.indexOf('.pdf') > -1) resourceType = 6;
+			else if (u.indexOf('udemy.com/') > -1 || u.indexOf('course') > -1) resourceType = 3;
+			else if (u.indexOf('amazon.com/') > -1 || u.indexOf('pdf') > -1 || u.indexOf('book') > -1) resourceType = 2;
+			else if (u.indexOf('github.com/') > -1 || u.indexOf('gitlab.com/') > -1) resourceType = 5;
+			else if (u.indexOf('medium.com/') > -1 || u.indexOf('dev.to/') > -1 || u.indexOf('blog') > -1 || t.indexOf('blog') > -1 || u.indexOf('.pdf') > -1) resourceType = 6;
 			r.resource_type_id = !!row.resource_type_id ? row.resource_type_id : resourceType;
 			resource_data.push(r);
 		})

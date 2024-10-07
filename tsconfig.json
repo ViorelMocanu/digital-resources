@@ -12,6 +12,7 @@
 		// Enable stricter transpilation for better output.
 		"isolatedModules": true,
 		// Astro will directly run your TypeScript code, no transpilation needed.
+		"experimentalDecorators": true,
 		"noEmit": true,
 		"noFallthroughCasesInSwitch": true,
 		"noImplicitAny": true,
@@ -19,17 +20,17 @@
 		"noImplicitThis": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
-		"baseUrl": ".",
+		"baseUrl": "src",
 		"paths": {
-			"@components/*": ["src/components/*"],
-			"@config": ["src/config"],
-			"@content/*": ["src/content/*"],
-			"@img/*": ["src/img/*"],
-			"@layouts/*": ["src/layouts/*"],
-			"@lib/*": ["src/lib/*"],
-			"@utils/*": ["src/utils/*"],
-			"@style": ["src/style/style.scss"],
-			"@data/*": ["src/data/*"]
+			"@components/*": ["components/*"],
+			"@config": ["config"],
+			"@content/*": ["content/*"],
+			"@img/*": ["img/*"],
+			"@layouts/*": ["layouts/*"],
+			"@lib/*": ["lib/*"],
+			"@utils/*": ["utils/*"],
+			"@style": ["style/style.scss"],
+			"@data/*": ["data/*"]
 		},
 		"types": [
 			"astro/client",

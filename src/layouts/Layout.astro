@@ -40,6 +40,8 @@ import {
 	SITE_DESCRIPTION,
 	SITE_NAME,
 	SITE_TITLE,
+	SITE_TYPE,
+	TWITTER_CARD,
 	TWITTER_CREATOR,
 	TWITTER_SITE,
 } from '@config';
@@ -86,8 +88,9 @@ const {
 		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
 		<meta property="og:site_name" content={SITE_NAME} />
-		<meta property="og:type" content="website" />
+		<meta property="og:type" content={SITE_TYPE} />
 		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
 		<meta property="og:url" content={canonical} />
 		<meta property="og:locale" content={LANGUAGE_EXTENDED} />
 		<meta property="og:image" content={ogImage} />
@@ -99,7 +102,7 @@ const {
 		<meta property="fb:app_id" content={FACEBOOK_APP_ID} />
 		<meta property="twitter:site" content={TWITTER_SITE} />
 		<meta property="twitter:creator" content={TWITTER_CREATOR} />
-		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:card" content={TWITTER_CARD} />
 		<meta property="article:published_time" content={modDate} />
 		<meta property="article:modified_time" content={modDate} />
 
