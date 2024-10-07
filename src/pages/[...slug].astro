@@ -1,0 +1,141 @@
+---
+import { DEFAULT_DESCRIPTION, DEFAULT_MENULABEL, DEFAULT_TITLE, DEFAULT_URL, PAGE_SIZE /*, resourceTypeIcon*/ } from '@config';
+import { Taxonomy, db, eq } from 'astro:db';
+import CommentList from '@components/CommentList.astro';
+import Layout from '@layouts/Layout.astro';
+import ResourceFilter from '@components/ResourceFilter.astro';
+import ResourceList from '@components/ResourceList.astro';
+import ResourceTOC from '@components/ResourceTOC.astro';
+import { taxonomiesFlat } from '@utils/getSortedItems';
+
+// @TODO: paginate this according to the number of resources on each taxonomy
+export async function getStaticPaths() {
+	const c = taxonomiesFlat.flatMap(({ lang, slug, props }) => {
+		return {
+			params: {
+				lang: lang || undefined,
+				slug: slug,
+			},
+			props: {
+				...props,
+			},
+			pageSize: PAGE_SIZE,
+		};
+	});
+
+	return c;
+}
+
+const { lang, slug } = Astro.params;
+const thisPage = Astro.props;
+
+const resources = thisPage.resources;
+
+const formattedDate = thisPage.created_at.toLocaleDateString(lang, {
+	year: 'numeric',
+	month: 'long',
+	day: 'numeric',
+});
+let updateDate: string;
+if (thisPage.modified_at) {
+	updateDate = thisPage.modified_at.toLocaleDateString(lang, {
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric',
+	});
+} else {
+	updateDate = '';
+}
+
+const pageTemplate = thisPage.taxonomy_type_id === 1 ? 'Section' : thisPage.taxonomy_type_id === 2 ? 'Category' : 'Subcategory' + 'Page';
+const pageUrl = (lang === 'en' ? lang + '/' + slug : slug) || DEFAULT_URL;
+const pageTitle = (lang === 'en' ? thisPage.title_en : thisPage.title) || DEFAULT_TITLE;
+const pageMenu = (lang === 'en' ? thisPage.menu_en : thisPage.menu) || DEFAULT_MENULABEL;
+const pageDescription = (lang === 'en' ? thisPage.description_en : thisPage.description) || DEFAULT_DESCRIPTION;
+
+let breadcrumbArray = [
+	{
+		href: `/${pageUrl}`,
+		title: pageTitle,
+		label: pageMenu,
+	},
+];
+const categoryQuery = await db
+	.select()
+	.from(Taxonomy)
+	.where(eq(Taxonomy.id, thisPage.parent_id || 0))
+	.limit(1);
+const category = categoryQuery.map((item) => item)[0];
+const sectionQuery = await db
+	.select()
+	.from(Taxonomy)
+	.where(eq(Taxonomy.id, category?.parent_id || 0))
+	.limit(1);
+const section = sectionQuery.map((item) => item)[0];
+
+let taxonomyId = thisPage.id;
+switch (thisPage.taxonomy_type_id) {
+	case 1:
+		//taxonomyId = section?.id || 0;
+		break;
+	case 2:
+		breadcrumbArray.unshift({
+			href: `/${category?.slug}`,
+			title: category?.title || DEFAULT_TITLE,
+			label: category?.menu || DEFAULT_MENULABEL,
+		});
+		taxonomyId = category?.id || 0;
+		break;
+	case 3:
+		breadcrumbArray.unshift({
+			href: `/${section?.slug}/${category?.slug}`,
+			title: category?.title || DEFAULT_TITLE,
+			label: category?.menu || DEFAULT_MENULABEL,
+		});
+		breadcrumbArray.unshift({
+			href: `/${section?.slug}`,
+			title: section?.title || DEFAULT_TITLE,
+			label: section?.menu || DEFAULT_MENULABEL,
+		});
+		taxonomyId = thisPage?.id || 0;
+		break;
+}
+---
+
+<Layout title={pageTitle} description={pageDescription} template={pageTemplate} activeMenu={pageUrl} breadcrumbArray={breadcrumbArray}>
+	<div class="Hero" id="hero">
+		{
+			thisPage.image && (
+				<div class="HeroVisual">
+					<img class="HeroImage" src={thisPage.image} width="287" height="120" alt={thisPage.image_alt} />
+				</div>
+			)
+		}
+		<div class="HeroText">
+			<h1 class="HeroTitle">{pageTitle}</h1>
+			<details class="HeroDetails">
+				<summary class="HeroPreview">
+					<p class="HeroP">{pageDescription}</p>
+					<p class="HeroP">
+						<span class="HeroExpand Link" title={`Afișează întreg textul descriptiv pentru resursele de ${pageTitle}`}>Citește mai mult &raquo;</span>
+					</p>
+				</summary>
+				<div class="HeroContent">
+					<p>Lang: {lang}</p>
+					<p>Slug: {slug}</p>
+					<p>Parent: {thisPage.parent_id}</p>
+					<p>Type: {thisPage.type}</p>
+					<p>Sort order: {thisPage.sort_order}</p>
+					<p>formattedDate: {formattedDate}</p>
+					{updateDate && <p>updateDate: {updateDate}</p>}
+				</div>
+			</details>
+		</div>
+	</div>
+	<main class="Main">
+		<ResourceFilter tid={taxonomyId} />
+		<ResourceList resources={resources} />
+		<ResourceTOC />
+		<CommentList />
+	</main>
+</Layout>

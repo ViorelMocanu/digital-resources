@@ -26,7 +26,7 @@
  * @returns {astro.AstroNode} The rendered HTML layout with metadata and components.
  */
 
-import '../style/style.scss';
+import '@style';
 import {
 	ACCENT_COLOR,
 	type BreadcrumbItem,
@@ -40,12 +40,14 @@ import {
 	SITE_DESCRIPTION,
 	SITE_NAME,
 	SITE_TITLE,
+	SITE_TYPE,
+	TWITTER_CARD,
 	TWITTER_CREATOR,
 	TWITTER_SITE,
-} from '../config';
-import Analytics from '../components/Analytics.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
+} from '@config';
+import Analytics from '@components/Analytics.astro';
+import Footer from '@components/Footer.astro';
+import Header from '@components/Header.astro';
 import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
@@ -86,8 +88,9 @@ const {
 		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
 		<meta property="og:site_name" content={SITE_NAME} />
-		<meta property="og:type" content="website" />
+		<meta property="og:type" content={SITE_TYPE} />
 		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
 		<meta property="og:url" content={canonical} />
 		<meta property="og:locale" content={LANGUAGE_EXTENDED} />
 		<meta property="og:image" content={ogImage} />
@@ -99,10 +102,9 @@ const {
 		<meta property="fb:app_id" content={FACEBOOK_APP_ID} />
 		<meta property="twitter:site" content={TWITTER_SITE} />
 		<meta property="twitter:creator" content={TWITTER_CREATOR} />
-		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:card" content={TWITTER_CARD} />
 		<meta property="article:published_time" content={modDate} />
 		<meta property="article:modified_time" content={modDate} />
-		<meta name="impact-site-verification" value="6d7af49e-5fdb-46ce-aa6a-36c5a5c2d6af" />
 
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#00214d" />

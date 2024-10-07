@@ -11,7 +11,7 @@
  */
 
 import { type CollectionEntry } from 'astro:content';
-import { highlightUrl } from '../utils/urlHelpers';
+import { highlightUrl } from '@utils/urlHelpers';
 
 export interface Props {
 	taglist: Pick<CollectionEntry<'tags'>, 'slug' | 'collection'>[];
@@ -28,7 +28,7 @@ const activePage = Astro.url.pathname.substring(1);
 			<li class:list={highlightUrl(`taguri/${tag.slug}`, 'ResourceTag', 'Active', activePage)}>
 				<a
 					class:list={['ResourceTagLink', `${tag.data ? tag.data.type : tag.type}-${tag.slug}`]}
-					href={`/taguri/${tag.slug}`}
+					href={`/t/${tag.slug}`}
 					title={`Vezi toate resursele care sunt clasificate cu eticheta: ${tag.data ? tag.data.title : tag.title}`}
 					rel="tag"
 				>

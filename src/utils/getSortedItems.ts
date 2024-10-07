@@ -1,5 +1,127 @@
 import { type CollectionEntry, type DataCollectionKey, getCollection } from 'astro:content';
-import type { CollectionKeyEnum, Order, Type } from '../config';
+import type { CollectionKeyEnum, Order, Type } from '@config';
+import { Resource, ResourceType, Taxonomy, TaxonomyType, db, eq } from 'astro:db';
+
+const allTaxonomies = await db.select().from(Taxonomy);
+const taxonomyTypes = await db.select().from(TaxonomyType);
+const allSections = await db.select().from(Taxonomy).where(eq(Taxonomy.taxonomy_type_id, 1));
+const allCategories = await db.select().from(Taxonomy).where(eq(Taxonomy.taxonomy_type_id, 2));
+const allSubcategories = await db.select().from(Taxonomy).where(eq(Taxonomy.taxonomy_type_id, 3));
+const allResources = await db.select().from(Resource);
+const resourceTypes = await db.select().from(ResourceType);
+
+export type ResourceItem = typeof Resource.$inferSelect;
+export type TaxonomyItem = typeof Taxonomy.$inferSelect;
+
+/**
+ * Completes the slug of a taxonomy item by prepending the parent slugs.
+ * @param {number} id - The ID of the taxonomy item.
+ * @param {string} slug - The slug of the taxonomy item.
+ * @returns {string} The completed slug of the taxonomy item.
+ * @example
+ * const id = 3;
+ * const slug = 'child';
+ * console.log(completeSlug(id, slug)); // Output: 'parent/child'
+ * @throws {Error} If the taxonomy item with the specified ID does not exist.
+ * @throws {Error} If the parent of the taxonomy item with the specified ID does not exist.
+ * @throws {Error} If the parent of the taxonomy item with the specified ID is not a taxonomy item.
+ * @throws {Error} If the parent of the taxonomy item with the specified ID is not a direct parent.
+ */
+export function completeSlug(id: number, slug: string): string {
+	const item = allTaxonomies.find((taxonomy) => taxonomy?.id === id);
+	if (!item) {
+		return slug;
+	}
+	if (item.parent_id) {
+		const parent = allTaxonomies.find((taxonomy) => taxonomy?.id === item.parent_id);
+		if (!parent) {
+			return slug;
+		}
+		slug = parent.slug + '/' + slug;
+		return completeSlug(parent?.id, slug);
+	} else {
+		return slug;
+	}
+}
+
+export const taxonomiesTree = allSections.map((section) => {
+	let resources = allResources.filter((resource) => resource.taxonomy_id === section.id);
+	const onlyCategories = allCategories.filter((category) => category.parent_id === section.id);
+	const categories = onlyCategories.map((category) => {
+		let categoryResources = allResources.filter((resource) => resource.taxonomy_id === category.id);
+		resources = resources.concat(categoryResources);
+		const onlySubcategories = allSubcategories.filter((subcategory) => subcategory.parent_id === category.id);
+		const subcategories = onlySubcategories.map((subcategory) => {
+			let subcategoryResources = allResources.filter((resource) => resource.taxonomy_id === subcategory.id);
+			categoryResources = categoryResources.concat(subcategoryResources);
+			resources = resources.concat(subcategoryResources);
+			return {
+				...subcategory,
+				resources: subcategoryResources,
+			};
+		});
+		return {
+			...category,
+			resources: categoryResources,
+			subcategories,
+		};
+	});
+
+	return {
+		section,
+		resources,
+		categories,
+	};
+});
+
+export const taxonomiesFlat = allTaxonomies
+	.map((taxonomy) => {
+		let resources = allResources
+			.filter((resource) => resource.taxonomy_id === taxonomy.id)
+			.map((resource) => {
+				return {
+					...resource,
+					type: resourceTypes.find((type) => type?.id === resource.resource_type_id)?.title || 'generic',
+				};
+			});
+		if (taxonomy.parent_id) {
+			const parentResources = allResources
+				.filter((resource) => resource.taxonomy_id === taxonomy.parent_id)
+				.map((resource) => {
+					return {
+						...resource,
+						type: resourceTypes.find((type) => type?.id === resource.resource_type_id)?.title || 'generic',
+					};
+				});
+			resources = resources.concat(parentResources);
+			if (taxonomy.taxonomy_type_id === 3) {
+				const grandParentQuery = allTaxonomies.filter((grandparent) => grandparent?.id === taxonomy.parent_id);
+				const grandParent = grandParentQuery.map((item) => item)[0];
+				const grandparentResources = allResources
+					.filter((resource) => resource.taxonomy_id === grandParent?.id)
+					.map((resource) => {
+						return {
+							...resource,
+							type: resourceTypes.find((type) => type?.id === resource.resource_type_id)?.title || 'generic',
+						};
+					});
+				resources = resources.concat(grandparentResources);
+			}
+		}
+		return {
+			lang: undefined,
+			slug: completeSlug(taxonomy.id, taxonomy.slug),
+			props: {
+				...taxonomy,
+				resources,
+				type: taxonomyTypes.find((type) => type.id === taxonomy.taxonomy_type_id)?.title || 'Unknown',
+			},
+		};
+	})
+	.sort((a, b) => new Date(b.props.sort_order).valueOf() - new Date(a.props.sort_order).valueOf());
+
+console.log('taxonomiesTree', taxonomiesTree, 'taxonomiesFlat', taxonomiesFlat);
+// @TODO: refactor this to use a single object from getSortedItems
 
 /**
  * Compares two strings based on the specified order and returns a numerical value indicating their relative order.

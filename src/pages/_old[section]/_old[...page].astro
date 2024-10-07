@@ -1,0 +1,89 @@
+---
+import { type CollectionEntry, getCollection, getEntry } from 'astro:content';
+import type { InferGetStaticPropsType } from 'astro';
+import Layout from '@layouts/Layout.astro';
+import { PAGE_SIZE } from '@config';
+import ResourceFilter from '@components/ResourceFilter.astro';
+import ResourceList from '@components/ResourceList.astro';
+import ResourceTOC from '@components/ResourceTOC.astro';
+import ResponsiveImage from '@components/ResponsiveImage.astro';
+import getSortedItems from '@utils/getSortedItems';
+
+export async function getStaticPaths({ paginate }: any) {
+	const allSections = (await getCollection('sections')).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
+	const allSectionsArray = allSections.flatMap((section: CollectionEntry<'sections'>) => section.slug);
+
+	const allResources = await getSortedItems({
+		collectionKey: 'resources',
+		sortKey: 'modDate',
+		type: 'date',
+		order: 'asc',
+	});
+	const finalPagination = allSectionsArray.flatMap((section) => {
+		const selectedResources = allResources.filter((res) => res.data.section.slug == section);
+		return paginate(selectedResources, {
+			params: { section, category: undefined, subcategory: undefined },
+			pageSize: PAGE_SIZE,
+		});
+	});
+
+	return finalPagination;
+}
+export type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const { page } = Astro.props satisfies Props;
+const params = Astro.params;
+
+const currentSection = params.section as string;
+const section = (await getEntry('sections', currentSection))!; // @TODO fix this;
+const { Content } = await section.render();
+
+const pageTitle = section.data.title;
+const pageDescription = section.data.description;
+const breadcrumbArray = [
+	{
+		href: `/${section.slug}`,
+		title: section.data.title,
+		label: section.data.menu,
+	},
+];
+---
+
+<Layout title={pageTitle} description={pageDescription} template="SectionPage" activeMenu={section.slug} breadcrumbArray={breadcrumbArray}>
+	<div class="Hero" id="hero">
+		{
+			section.data.imageUrl && (
+				<div class="HeroVisual">
+					{/* @TODO breakpoint must be edited here */}
+					<ResponsiveImage
+						breakpoint={1100}
+						classList={['HeroImage']}
+						image={section.data.imageUrl}
+						width={287}
+						height={120}
+						alt={section.data.imageAlt || 'Without alt'}
+						lazyLoading={false}
+					/>
+				</div>
+			)
+		}
+		<div class="HeroText">
+			<h1 class="HeroTitle">{section.data.title}</h1>
+			<details class="HeroDetails">
+				<summary class="HeroPreview">
+					<p class="HeroP">{section.data.description}</p>
+					<p class="HeroP">
+						<span class="HeroExpand Link" title={`Afișează întreg textul descriptiv pentru resursele de ${section.data.menu}`}>Citește mai mult &raquo;</span>
+					</p>
+				</summary>
+				<div class="HeroContent">
+					<Content />
+				</div>
+			</details>
+		</div>
+	</div>
+	<main class="Main">
+		<ResourceFilter section={section} />
+		<ResourceList resources={page.data} page={page} pageTitle={section.data.title} />
+		<ResourceTOC section={section} />
+	</main>
+</Layout>

@@ -12,6 +12,7 @@
 		// Enable stricter transpilation for better output.
 		"isolatedModules": true,
 		// Astro will directly run your TypeScript code, no transpilation needed.
+		"experimentalDecorators": true,
 		"noEmit": true,
 		"noFallthroughCasesInSwitch": true,
 		"noImplicitAny": true,
@@ -19,17 +20,30 @@
 		"noImplicitThis": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
+		"baseUrl": "src",
+		"paths": {
+			"@components/*": ["components/*"],
+			"@config": ["config"],
+			"@content/*": ["content/*"],
+			"@img/*": ["img/*"],
+			"@layouts/*": ["layouts/*"],
+			"@lib/*": ["lib/*"],
+			"@utils/*": ["utils/*"],
+			"@style": ["style/style.scss"],
+			"@data/*": ["data/*"]
+		},
 		"types": [
 			"astro/client",
 			"vitest/globals",
 			"vite/client"
 			// "vite-plugin-pwa/info"
 		],
+		"verbatimModuleSyntax": true,
 		"sourceMap": true,
 		"strictNullChecks": true,
 		"strictFunctionTypes": true,
 		"allowJs": true,
 		"checkJs": true
 	},
-	"exclude": ["node_modules", "**/node_modules/*", "dist", "coverage", "static", "eslint.config.js"]
+	"exclude": ["node_modules", "**/node_modules/*", "dist", "coverage", "static", "eslint.config.js", "data/**"]
 }
