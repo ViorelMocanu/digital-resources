@@ -57,8 +57,8 @@ importers:
         specifier: ^6.1.13
         version: 6.1.13
       posthog-js:
-        specifier: ^1.173.0
-        version: 1.173.0
+        specifier: ^1.174.2
+        version: 1.174.2
       sass:
         specifier: ^1.80.1
         version: 1.80.1
@@ -3864,8 +3864,8 @@ packages:
     resolution: {integrity: sha512-9ZhXKM/rw350N1ovuWHbGxnGh/SNJ4cnxHiM0rxE4VN41wsg8P8zWn9hv/buK00RP4WvlOyr/RBDiptyxVbkZQ==}
     engines: {node: '>=0.10.0'}
 
-  posthog-js@1.173.0:
-    resolution: {integrity: sha512-Qow8ZLPXB6ejR7Vu679CbBYwhSj4RKd0m896ggme1SDjBIu0dWJgWLpx34hKrtZ7EStW7r4qf5+xmktgAwa3Jg==}
+  posthog-js@1.174.2:
+    resolution: {integrity: sha512-UgS7eRcDVvVz2XSJ09NMX8zBcdpFnPayfiWDNF3xEbJTsIu1GipkkYNrVlsWlq8U1PIrviNm6i0Dyq8daaxssw==}
 
   preact@10.24.3:
     resolution: {integrity: sha512-Z2dPnBnMUfyQfSQ+GBdsGa16hz35YmLmtTLhM169uW944hYL6xzTYkJjC07j+Wosz733pMWx0fgON3JNw1jJQA==}
@@ -9583,7 +9583,7 @@ snapshots:
     dependencies:
       xtend: 4.0.2
 
-  posthog-js@1.173.0:
+  posthog-js@1.174.2:
     dependencies:
       core-js: 3.38.1
       fflate: 0.4.8
