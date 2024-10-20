@@ -47,6 +47,7 @@ import {
 } from '@config';
 import Analytics from '@components/Analytics.astro';
 import Footer from '@components/Footer.astro';
+import { Head } from 'astro-capo';
 import Header from '@components/Header.astro';
 import { ViewTransitions } from 'astro:transitions';
 
@@ -77,10 +78,13 @@ const {
 
 <!doctype html>
 <html lang={LANGUAGE}>
-	<head>
+	<Head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>{title}</title>
+
+		<link rel="prefetch" href="/font/atkinson-hyperlegible-regular.woff2" as="font" type="font/woff2" crossorigin />
+		<link rel="prefetch" href="/font/atkinson-hyperlegible-bold.woff2" as="font" type="font/woff2" crossorigin />
 
 		<!-- SEO -->
 		<link rel="canonical" href={canonical} />
@@ -118,11 +122,9 @@ const {
 
 		<link rel="author" href="https://resurse.dev/humans.txt" />
 		<link rel="sitemap" href="/sitemap-index.xml" />
-		<link rel="prefetch" href="/font/atkinson-hyperlegible-regular.woff2" as="font" type="font/woff2" crossorigin />
-		<link rel="prefetch" href="/font/atkinson-hyperlegible-bold.woff2" as="font" type="font/woff2" crossorigin />
 
 		<ViewTransitions fallback="none" />
-	</head>
+	</Head>
 	<body class:list={[template]}>
 		<a id="skip" href="#hero" title="Mergi direct la conținutul acestei pagini">Mergi la conținut</a>
 		<div class="Framework">
