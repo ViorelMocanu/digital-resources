@@ -62,7 +62,7 @@
 		"astro": "^4.16.7",
 		"astro-capo": "^0.0.1",
 		"astro-compress": "^2.3.3",
-		"astro-embed": "^0.7.4",
+		"astro-embed": "^0.9.0",
 		"astro-simpleanalytics-plugin": "^0.3.17",
 		"astro-social-share": "^2.0.2",
 		"astro-webmanifest": "^1.0.0",
