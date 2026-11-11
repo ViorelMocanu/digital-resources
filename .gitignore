@@ -86,3 +86,6 @@ coverage
 
 # Sentry Config File
 .env.sentry-build-plugin
+
+# Agent scratch files
+scratchpad/

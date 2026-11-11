@@ -1,4 +1,4 @@
-import { ENV, LANGUAGE_EXTENDED, SITE_DESCRIPTION, SITE_NAME, ACCENT_COLOR, URL, DEBUG } from './src/config';
+import { ENV, URL, DEBUG } from './src/config';
 import { defineConfig } from 'astro/config';
 //import { astroCSPHashGenerator } from './src/utils/csp-hash';
 import { fileURLToPath } from 'url';
@@ -11,7 +11,6 @@ import partytown from '@astrojs/partytown';
 //import sentry from "@sentry/astro";
 import sitemap from '@astrojs/sitemap';
 import vercel from '@astrojs/vercel/serverless';
-import webmanifest from 'astro-webmanifest';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 //const { VITE_SENTRY_AUTH_TOKEN } = loadEnv(import.meta.env.PUBLIC_SENTRY_AUTH_TOKEN ?? process.env.PUBLIC_SENTRY_AUTH_TOKEN, process.cwd(), "");
@@ -76,28 +75,6 @@ export default defineConfig({
 		},
 	},
 	integrations: [
-		webmanifest({
-			name: SITE_NAME,
-			short_name: SITE_NAME,
-			lang: LANGUAGE_EXTENDED,
-			dir: 'ltr',
-			icon: 'public/favicon.svg',
-			description: SITE_DESCRIPTION,
-			start_url: '/',
-			theme_color: ACCENT_COLOR,
-			background_color: ACCENT_COLOR,
-			display: 'standalone',
-			config: {
-				outfile: 'site.webmanifest',
-				createFavicon: true,
-				insertFaviconLinks: true, // default - true
-				insertThemeColorMeta: false, // default - true
-				insertManifestLink: true, // default - true
-				crossOrigin: 'anonymous',
-				insertAppleTouchLinks: true,
-				iconPurpose: ['badge', 'maskable', 'monochrome'],
-			},
-		}),
 		partytown({
 			config: {
 				debug: true,

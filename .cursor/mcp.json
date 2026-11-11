@@ -1,0 +1,10 @@
+{
+	"mcpServers": {
+		"posthog-digital-resources": {
+			"url": "https://mcp.posthog.com/mcp?readonly=true",
+			"headers": {
+				"Authorization": "Bearer ${env:DIGITAL_RESOURCES_POSTHOG_MCP_KEY}"
+			}
+		}
+	}
+}

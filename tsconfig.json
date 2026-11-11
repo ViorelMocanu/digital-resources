@@ -45,5 +45,5 @@
 		"allowJs": true,
 		"checkJs": true
 	},
-	"exclude": ["node_modules", "**/node_modules/*", "dist", "coverage", "static", "eslint.config.js", "data/**"]
+	"exclude": ["node_modules", "**/node_modules/*", "dist", "coverage", "static", "eslint.config.js", "data/**", "scratchpad"]
 }

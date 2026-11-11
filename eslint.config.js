@@ -19,6 +19,7 @@ const ignoreArray = [
 	'dev-dist/**',
 	'dist/**',
 	'node_modules/**',
+	'scratchpad/**',
 	'static/**',
 	'src/env.d.ts',
 ];

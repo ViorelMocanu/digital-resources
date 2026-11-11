@@ -86,3 +86,6 @@ src/components/Analytics.astro
 
 # My precious single-line styles
 src/styles
+
+# Agent scratch files
+scratchpad/

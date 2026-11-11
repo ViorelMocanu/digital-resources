@@ -1,0 +1,23 @@
+{
+	"name": "resurse.dev",
+	"short_name": "resurse.dev",
+	"description": "Învață mai ușor urmărind resurse gratuite din domeniile: Front End Development, Back End Development, Design și UX, Marketing Online, Cyber Security și altele.",
+	"lang": "ro-RO",
+	"dir": "ltr",
+	"start_url": "/",
+	"theme_color": "#2f8ded",
+	"background_color": "#2f8ded",
+	"display": "standalone",
+	"icons": [
+		{
+			"src": "/android-chrome-192x192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "/android-chrome-512x512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	]
+}

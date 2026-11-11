@@ -1,0 +1,10 @@
+[mcp_servers.posthog-digital-resources]
+url = "https://mcp.posthog.com/mcp?readonly=true"
+bearer_token_env_var = "DIGITAL_RESOURCES_POSTHOG_MCP_KEY"
+startup_timeout_sec = 30
+# The server is read-only, so its tools run without a prompt; headless codex exec needs this.
+default_tools_approval_mode = "approve"
+
+# Keeps the PostHog key out of the shell commands Codex runs; its MCP client still reads it.
+[shell_environment_policy.filters]
+"DIGITAL_RESOURCES_POSTHOG_MCP_KEY" = "exclude"
