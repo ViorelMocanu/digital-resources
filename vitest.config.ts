@@ -4,7 +4,8 @@ import { getViteConfig } from 'astro/config';
 
 export default getViteConfig({
 	test: {
-		exclude: [...configDefaults.exclude, 'packages/template/*'],
+		// tmp/ is agent scratch space: a stale copy of a test there must never run in place of the real one.
+		exclude: [...configDefaults.exclude, 'packages/template/*', 'tmp/**', '.vercel/**'],
 		globals: true,
 	},
 });

@@ -88,4 +88,4 @@ src/components/Analytics.astro
 src/styles
 
 # Agent scratch files
-scratchpad/
+tmp/

@@ -88,4 +88,4 @@ coverage
 .env.sentry-build-plugin
 
 # Agent scratch files
-scratchpad/
+tmp/

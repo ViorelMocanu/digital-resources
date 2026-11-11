@@ -19,7 +19,7 @@ const ignoreArray = [
 	'dev-dist/**',
 	'dist/**',
 	'node_modules/**',
-	'scratchpad/**',
+	'tmp/**',
 	'static/**',
 	'src/env.d.ts',
 ];
@@ -185,6 +185,17 @@ export default [
 			'template-curly-spacing': 'warn',
 			'wrap-regex': 'warn',
 			'jsdoc/require-description': 'warn',
+		},
+	},
+	{
+		// Harness scripts are TypeScript run by Node: the types live in the signatures, not in JSDoc, their regular
+		// expressions are written unwrapped, and a command-line script prints its result.
+		files: ['scripts/**/*.ts'],
+		rules: {
+			'jsdoc/require-param-type': 'off',
+			'jsdoc/require-returns-type': 'off',
+			'wrap-regex': 'off',
+			'no-console': 'off',
 		},
 	},
 	{

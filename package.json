@@ -46,8 +46,11 @@
 		"test:e2e": "playwright test",
 		"test": "pnpm test:unit && pnpm test:e2e",
 		"typecheck": "pnpm astro check && pnpm tsc --project tsconfig.json",
-		"verify": "pnpm lint && pnpm typecheck && pnpm test:unit && pnpm format",
-		"verify:fix": "pnpm lint:fix && pnpm typecheck && pnpm test:unit && pnpm format:fix",
+		"verify": "pnpm lint && pnpm typecheck && pnpm test:unit && pnpm harness:sync:check && pnpm format",
+		"verify:fix": "pnpm lint:fix && pnpm typecheck && pnpm test:unit && pnpm harness:sync && pnpm format:fix",
+		"harness:sync": "node scripts/sync-harness.ts",
+		"harness:sync:check": "node scripts/sync-harness.ts --check",
+		"harness:sync:diff": "node scripts/sync-harness.ts --diff",
 		"upd": "pnpm update --latest --recursive --interactive"
 	},
 	"dependencies": {
@@ -75,6 +78,7 @@
 		"@astrojs/mdx": "^3.1.8",
 		"@commitlint/cli": "^19.5.0",
 		"@commitlint/config-conventional": "^19.5.0",
+		"@fission-ai/openspec": "1.16.1",
 		"@typescript-eslint/eslint-plugin": "^8.10.0",
 		"@typescript-eslint/parser": "^8.10.0",
 		"@vitest/coverage-v8": "^2.1.3",

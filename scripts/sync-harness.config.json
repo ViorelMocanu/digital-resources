@@ -1,0 +1,41 @@
+{
+	"canonical": ".agents",
+	"generatedHeader": "<!-- GENERATED from .agents/ — do not edit directly. Run: pnpm harness:sync -->",
+	"include": {
+		"skills": [],
+		"workflows": []
+	},
+	"transforms": {
+		"commandSyntax": {
+			"find": "/opsx-",
+			"replace": "/opsx:"
+		}
+	},
+	"platforms": {
+		"claude": {
+			"skills": {
+				"target": ".claude/skills",
+				"unit": "folder",
+				"format": "{name}/SKILL.md",
+				"transforms": ["commandSyntax"]
+			},
+			"commands": {
+				"source": "workflows",
+				"target": ".claude/commands/opsx",
+				"unit": "file",
+				"format": "{name}.md",
+				"match": "^opsx-",
+				"stripPrefix": "opsx-",
+				"transforms": ["commandSyntax"]
+			}
+		}
+	},
+	"retired": [],
+	"invocation": {
+		"default": "mixed",
+		"skills": {}
+	},
+	"vendored": [],
+	"skip": ["__pycache__", ".pytest_cache", ".venv", "node_modules", ".DS_Store", "Thumbs.db"],
+	"manual": []
+}

@@ -1,0 +1,219 @@
+{
+	"permissions": {
+		"deny": [
+			"Read(.env)",
+			"Edit(.env)",
+			"Read(.env.local)",
+			"Edit(.env.local)",
+			"Read(.env.*.local)",
+			"Edit(.env.*.local)",
+			"Read(.env.development)",
+			"Edit(.env.development)",
+			"Read(.env.production)",
+			"Edit(.env.production)",
+			"Read(.env.test)",
+			"Edit(.env.test)"
+		]
+	},
+	"hooks": {
+		"PreToolUse": [
+			{
+				"matcher": "Bash",
+				"hooks": [
+					{
+						"type": "command",
+						"if": "Bash(*git*)",
+						"command": "node",
+						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/guard.ts", "claude"],
+						"timeout": 5
+					},
+					{
+						"type": "command",
+						"if": "Bash(*openspec*)",
+						"command": "node",
+						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/guard.ts", "claude"],
+						"timeout": 5
+					},
+					{
+						"type": "command",
+						"if": "Bash(*.env*)",
+						"command": "node",
+						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/guard.ts", "claude"],
+						"timeout": 5
+					},
+					{
+						"type": "command",
+						"if": "Bash(*pnpm*)",
+						"command": "node",
+						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/guard.ts", "claude"],
+						"timeout": 5
+					},
+					{
+						"type": "command",
+						"if": "Bash(*npx*)",
+						"command": "node",
+						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/guard.ts", "claude"],
+						"timeout": 5
+					},
+					{
+						"type": "command",
+						"if": "Bash(*pwsh*)",
+						"command": "node",
+						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/guard.ts", "claude"],
+						"timeout": 5
+					},
+					{
+						"type": "command",
+						"if": "Bash(*powershell*)",
+						"command": "node",
+						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/guard.ts", "claude"],
+						"timeout": 5
+					},
+					{
+						"type": "command",
+						"if": "Bash(*bash*)",
+						"command": "node",
+						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/guard.ts", "claude"],
+						"timeout": 5
+					}
+				]
+			},
+			{
+				"matcher": "PowerShell",
+				"hooks": [
+					{
+						"type": "command",
+						"if": "PowerShell(*git*)",
+						"command": "node",
+						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/guard.ts", "claude"],
+						"timeout": 5
+					},
+					{
+						"type": "command",
+						"if": "PowerShell(*openspec*)",
+						"command": "node",
+						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/guard.ts", "claude"],
+						"timeout": 5
+					},
+					{
+						"type": "command",
+						"if": "PowerShell(*.env*)",
+						"command": "node",
+						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/guard.ts", "claude"],
+						"timeout": 5
+					},
+					{
+						"type": "command",
+						"if": "PowerShell(*pnpm*)",
+						"command": "node",
+						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/guard.ts", "claude"],
+						"timeout": 5
+					},
+					{
+						"type": "command",
+						"if": "PowerShell(*npx*)",
+						"command": "node",
+						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/guard.ts", "claude"],
+						"timeout": 5
+					},
+					{
+						"type": "command",
+						"if": "PowerShell(*pwsh*)",
+						"command": "node",
+						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/guard.ts", "claude"],
+						"timeout": 5
+					},
+					{
+						"type": "command",
+						"if": "PowerShell(*powershell*)",
+						"command": "node",
+						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/guard.ts", "claude"],
+						"timeout": 5
+					},
+					{
+						"type": "command",
+						"if": "PowerShell(*bash*)",
+						"command": "node",
+						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/guard.ts", "claude"],
+						"timeout": 5
+					}
+				]
+			},
+			{
+				"matcher": "Monitor",
+				"hooks": [
+					{
+						"type": "command",
+						"command": "node",
+						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/guard.ts", "claude"],
+						"timeout": 5
+					}
+				]
+			}
+		],
+		"PostToolUse": [
+			{
+				"matcher": "*",
+				"hooks": [
+					{
+						"type": "command",
+						"command": "node",
+						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/state-snapshot.mjs", "pressure"],
+						"timeout": 10
+					}
+				]
+			}
+		],
+		"UserPromptSubmit": [
+			{
+				"hooks": [
+					{
+						"type": "command",
+						"command": "node",
+						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/state-snapshot.mjs", "pressure"],
+						"timeout": 10
+					}
+				]
+			}
+		],
+		"PreCompact": [
+			{
+				"matcher": "manual|auto",
+				"hooks": [
+					{
+						"type": "command",
+						"command": "node",
+						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/state-snapshot.mjs", "pre-compact"],
+						"timeout": 60
+					}
+				]
+			}
+		],
+		"PostCompact": [
+			{
+				"matcher": "manual|auto",
+				"hooks": [
+					{
+						"type": "command",
+						"command": "node",
+						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/state-snapshot.mjs", "post-compact"],
+						"timeout": 60
+					}
+				]
+			}
+		],
+		"SessionStart": [
+			{
+				"matcher": "compact",
+				"hooks": [
+					{
+						"type": "command",
+						"command": "node",
+						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/state-snapshot.mjs", "session-start"],
+						"timeout": 10
+					}
+				]
+			}
+		]
+	}
+}
