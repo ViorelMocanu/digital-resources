@@ -4,15 +4,14 @@
  * gitignored tmp/ folder, never in the system temp folder and never in a tracked folder.
  */
 import { afterAll, describe, expect, it } from 'vitest';
-import { existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
+import { makeScratchDir, removeScratchDir } from '../lib/scratch-git.ts';
 import { spawnSync } from 'node:child_process';
 
 const HOOK = resolve(import.meta.dirname, 'state-snapshot.mjs');
-const SCRATCH_ROOT = resolve(import.meta.dirname, '..', '..', 'tmp');
-mkdirSync(SCRATCH_ROOT, { recursive: true });
-const sandbox = mkdtempSync(join(SCRATCH_ROOT, 'state-hook-test-'));
-afterAll(() => rmSync(sandbox, { recursive: true, force: true }));
+const sandbox = makeScratchDir('state-hook-test-');
+afterAll(() => removeScratchDir(sandbox));
 
 interface Session {
 	project: string;

@@ -16,10 +16,8 @@
  *
  * Numbers: T3 Code "Auto-compact after" is 450,000 tokens for the Claude providers. DEFAULT_POINT is 440,000
  * (compaction fires a little before the setting) and HEADROOM is 90,000, because the owner asked for an early first
- * warning: it comes at 350,000,
- * and the next ones at 390,000 and 430,000 (REWARN_TOKENS is 40,000). Once automatic compactions have been recorded,
- * their median
- * replaces DEFAULT_POINT.
+ * warning: it comes at 350,000, and the next ones at 390,000 and 430,000 (REWARN_TOKENS is 40,000). Once automatic
+ * compactions have been recorded, their median replaces DEFAULT_POINT.
  *
  * Public repository: this repository is public, and the chat may hold things that must not be published. The
  * hook therefore writes only to the gitignored tmp/compact-summaries/ and never to docs/state/. The tracked
@@ -42,12 +40,12 @@
  *                  .pressure-<session_id> keeps the size at the last warning; after every further REWARN_TOKENS
  *                  it warns again, unless the snapshot is current (then it only moves the marker). Below the line
  *                  the marker is removed and the next cycle starts. Subagent calls (agent_id) are skipped.
- *   pre-compact    PreCompact, matcher "manual|auto". Records the trigger in .last-trigger-<session_id>, writes
+ *   pre-compact    PreCompact, manual and automatic. Records the trigger in .last-trigger-<session_id>, writes
  *                  the capture (<stamp>-capture-<session>.md) and its name in .capture-<session_id>, and on "auto" records
  *                  { tokens, session, at } in .auto-compact-points.json (newest KEEP_POINTS). It prints nothing
  *                  on stdout, because Claude Code would use that text as instructions for the summary.
  *                  `/compact no-state` skips the capture.
- *   post-compact   PostCompact, matcher "manual|auto". Saves a non-empty compact_summary to
+ *   post-compact   PostCompact, manual and automatic. Saves a non-empty compact_summary to
  *                  <stamp>-<trigger>-<session>.md, keeping the newest KEEP_SUMMARIES files, and on "auto" adds the size
  *                  after compaction to the newest record of the same session.
  *   session-start  SessionStart, matcher "compact". Prints a reminder that Claude Code puts into the agent's
@@ -92,8 +90,8 @@ const input = parseInput(readStdin());
 const foreign = Boolean(process.env.GROK_HOOK_EVENT);
 const trigger = typeof input.trigger === 'string' ? input.trigger : 'unknown';
 const root = process.env.CLAUDE_PROJECT_DIR ?? input.cwd ?? process.cwd();
-const stateDir = join(root, ...STATE_DIR.split('/'));
-const scratchDir = join(root, ...SCRATCH_DIR.split('/'));
+const stateDir = join(root, STATE_DIR);
+const scratchDir = join(root, SCRATCH_DIR);
 const sessionKey = String(input.session_id ?? 'unknown').replace(/[^\w-]/g, '_');
 // Parallel sessions can compact in the same minute, so every file name carries the start of the session id.
 const sessionTag = sessionKey.slice(0, 8);

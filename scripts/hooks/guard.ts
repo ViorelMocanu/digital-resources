@@ -5,9 +5,11 @@
  * One process per hook call: `node scripts/hooks/guard.ts <host>` reads the host's payload on stdin (`hook-io.ts`),
  * reads a shell command with both dialects (`shell-parse.ts`) and applies every rule to every command either reading
  * found:
- * - git: `push`; `reset --hard`; `clean` unless a pure dry run; `branch -D` or a forced delete; `checkout` with a
- *   force flag or a folder pathspec; `restore` of a folder into the worktree. The missing pathspecs of a call are
- *   resolved with one read-only `git cat-file --batch-check`, so a deleted folder blocks and a deleted `LICENSE` passes.
+ * - git: under the `read-only` policy, this checkout's default, every call that is not a read. Under either policy,
+ *   and with their own rule names: `push`; `reset --hard`; `clean` unless a pure dry run; `branch -D` or a forced
+ *   delete; `checkout` with a force flag or a folder pathspec; `restore` of a folder into the worktree. The missing
+ *   pathspecs of a call are resolved with one read-only `git cat-file --batch-check`, so a deleted folder blocks and a
+ *   deleted `LICENSE` passes.
  * - OpenSpec: `openspec update` and `init` aimed at this checkout outside `<root>/tmp/`, through every launcher. The
  *   owner's override is `RESURSE_GUARD_ALLOW=openspec` in the guard's own environment, never in the command text;
  *   each use is logged to `<root>/tmp/agent-state/guard-overrides.log`.
@@ -79,13 +81,17 @@ export interface GitProbe {
 	batch?: (dir: string, specs: readonly string[]) => (string | null)[];
 }
 
-/** What the guard reads from the outside world; injectable for tests. */
 /**
  * Which git calls the guard blocks: `read-only` blocks every call that is not a read, because this checkout's owner
- * makes every git write; `destructive-only` blocks only the publishing and work-losing forms.
+ * makes every git write; `destructive-only` blocks only the publishing and work-losing forms, and is what the
+ * rule tables in the tests of those forms run under.
  */
 export type GitPolicy = 'read-only' | 'destructive-only';
 
+/** The git policy of this checkout. */
+const DEFAULT_GIT_POLICY: GitPolicy = 'read-only';
+
+/** What the guard reads from the outside world; injectable for tests. */
 export interface GuardDeps {
 	/** The git policy of this checkout. */
 	gitPolicy: GitPolicy;
@@ -199,7 +205,7 @@ export function makeGitProbe(env: Env): GitProbe {
  */
 export function defaultGuardDeps(env: Env = process.env): GuardDeps {
 	return {
-		gitPolicy: 'read-only',
+		gitPolicy: DEFAULT_GIT_POLICY,
 		stat: statKind,
 		exists: existsSync,
 		gitProbe: makeGitProbe(env),
@@ -754,35 +760,45 @@ const GIT_READ_ONLY = new Set([
 ]);
 
 /**
+ * The options whose value must not be read as a positional or as another option, for the subcommands
+ * {@link gitOnlyReads} judges by their arguments: the short letters, then the long names. Options whose value is
+ * optional (`--merged`, `--contains`) stay out, so a write option after them is still seen.
+ */
+const GIT_READ_VALUED: Readonly<Record<string, readonly [string, readonly string[]]>> = {
+	branch: ['', ['format', 'sort']],
+	tag: ['', ['format', 'sort']],
+	config: ['f', ['file', 'blob', 'type', 'default']],
+	clean: ['e', ['exclude']],
+	apply: ['pC', ['directory', 'exclude', 'include', 'whitespace']],
+};
+
+/**
  * Whether a git subcommand with these arguments only reads. Subcommands outside {@link GIT_READ_ONLY} pass in their
  * listing forms alone (`branch --list`, `stash list`, `config --get`, `clean -n`, `apply --check`); a subcommand this
- * function does not know counts as a write.
+ * function does not know counts as a write. Options are read as git reads them ({@link readGitArgs}), so an
+ * abbreviated write option (`--del`) counts.
  * @param sub The subcommand, lowercased.
  * @param args The words after it.
  * @returns True when the call changes nothing.
  */
 function gitOnlyReads(sub: string, args: readonly Word[]): boolean {
 	if (GIT_READ_ONLY.has(sub)) return true;
-	const values = args.map((word) => word.value);
-	const options = values.filter((value) => value.startsWith('-'));
-	const positional = values.filter((value) => !value.startsWith('-'));
-	const first = positional[0] ?? '';
-	const long = (names: readonly string[]): boolean => options.some((option) => names.includes(option.split('=')[0] ?? ''));
-	const short = (letters: string): boolean => options.some((option) => /^-[a-zA-Z]+$/.test(option) && [...letters].some((letter) => option.includes(letter)));
+	const [shortValued, longValued] = GIT_READ_VALUED[sub] ?? ['', []];
+	const read = readGitArgs(args, shortValued, longValued);
+	const positional = [...read.positionals, ...read.pathspecs];
+	const first = positional[0]?.value ?? '';
+	const long = (...names: string[]): boolean => names.some((name) => hasLong(read.longs, name));
+	const short = (letters: string): boolean => [...letters].some((letter) => read.shorts.has(letter));
 	switch (sub) {
 		case 'branch': {
 			const writes =
-				long(['--delete', '--move', '--copy', '--force', '--set-upstream-to', '--unset-upstream', '--edit-description', '--track', '--no-track', '--create-reflog']) ||
-				short('dDmMcCfut');
-			const lists = long(['--list', '--contains', '--no-contains', '--merged', '--no-merged', '--points-at']) || short('l');
+				long('delete', 'move', 'copy', 'force', 'set-upstream-to', 'unset-upstream', 'edit-description', 'track', 'no-track', 'create-reflog') || short('dDmMcCfut');
+			const lists = long('list', 'contains', 'no-contains', 'merged', 'no-merged', 'points-at') || short('l');
 			return !writes && (positional.length === 0 || lists);
 		}
 		case 'tag': {
-			const writes = long(['--delete', '--annotate', '--sign', '--force', '--message', '--file', '--local-user', '--edit']) || short('dasfmFue');
-			const lists =
-				long(['--list', '--contains', '--no-contains', '--merged', '--no-merged', '--points-at', '--verify']) ||
-				short('lv') ||
-				options.some((option) => /^-n\d*$/.test(option));
+			const writes = long('delete', 'annotate', 'sign', 'force', 'message', 'file', 'local-user', 'edit') || short('dasfmFue');
+			const lists = long('list', 'contains', 'no-contains', 'merged', 'no-merged', 'points-at', 'verify') || short('lvn');
 			return !writes && (positional.length === 0 || lists);
 		}
 		case 'stash':
@@ -790,8 +806,8 @@ function gitOnlyReads(sub: string, args: readonly Word[]): boolean {
 		case 'remote':
 			return first === '' || first === 'show' || first === 'get-url';
 		case 'config': {
-			const writes = long(['--add', '--unset', '--unset-all', '--replace-all', '--rename-section', '--remove-section', '--edit']) || short('e');
-			const reads = long(['--get', '--get-all', '--get-regexp', '--get-urlmatch', '--list']) || short('l') || first === 'get' || first === 'list';
+			const writes = long('add', 'unset', 'unset-all', 'replace-all', 'rename-section', 'remove-section', 'edit') || short('e');
+			const reads = long('get', 'get-all', 'get-regexp', 'get-urlmatch', 'list') || short('l') || first === 'get' || first === 'list';
 			const sets = ['set', 'unset', 'rename-section', 'remove-section', 'edit'].includes(first) || (!reads && positional.length > 1);
 			return !writes && !sets;
 		}
@@ -805,13 +821,13 @@ function gitOnlyReads(sub: string, args: readonly Word[]): boolean {
 		case 'reflog':
 			return !['expire', 'delete', 'drop'].includes(first);
 		case 'symbolic-ref':
-			return positional.length <= 1 && !long(['--delete']) && !short('dm');
+			return positional.length <= 1 && !long('delete') && !short('dm');
 		case 'lfs':
 			return ['ls-files', 'status', 'env', 'version'].includes(first);
 		case 'clean':
-			return long(['--dry-run']) || short('n');
+			return long('dry-run') || short('n');
 		case 'apply':
-			return long(['--check', '--stat', '--numstat', '--summary']) && !long(['--apply', '--index', '--cached']);
+			return long('check', 'stat', 'numstat', 'summary') && !long('apply', 'index', 'cached');
 		default:
 			return false;
 	}
@@ -1016,12 +1032,15 @@ const SUSPICIOUS: readonly { rule: string; kind: 'git' | 'openspec'; pattern: Re
 	{ rule: 'openspec update or init', kind: 'openspec', pattern: /\bopenspec\b[\s\S]*?\b(?:update|init)\b/i },
 ];
 
-/** Under the `read-only` git policy, the write subcommands looked for in text that could not be read safely. */
-const SUSPICIOUS_WRITE = {
-	rule: 'git write',
-	kind: 'git',
-	pattern: /\b(?:add|am|apply|cherry-pick|clone|commit|fetch|gc|init|merge|mv|pull|rebase|reset|restore|revert|rm|stash|switch|checkout|update-index|update-ref|worktree)\b/i,
-} as const;
+/** The same shapes under the `read-only` git policy, which also looks for the write subcommands. */
+const SUSPICIOUS_READ_ONLY: typeof SUSPICIOUS = [
+	...SUSPICIOUS,
+	{
+		rule: 'git write',
+		kind: 'git',
+		pattern: /\b(?:add|am|apply|cherry-pick|clone|commit|fetch|gc|init|merge|mv|pull|rebase|reset|restore|revert|rm|stash|switch|checkout|update-index|update-ref|worktree)\b/i,
+	},
+];
 
 /** An env file name in raw text. */
 const ENV_MENTION = /(?:^|[\s"'`=:/\\<>|;&(),{}[\]])(\.(?:env|dev\.vars)(?:\.[\w.-]*)?)(?=$|[\s"'`/\\<>|;&(),{}[\]*])/gi;
@@ -1039,7 +1058,7 @@ const ENV_MENTION = /(?:^|[\s"'`=:/\\<>|;&(),{}[\]])(\.(?:env|dev\.vars)(?:\.[\w
  */
 export function suspicion(text: string, env: Env, orderFree = false, gitPolicy: GitPolicy = 'destructive-only'): Block | null {
 	const gitAt = text.search(GIT_WORD);
-	for (const { rule, kind, pattern } of gitPolicy === 'read-only' ? [...SUSPICIOUS, SUSPICIOUS_WRITE] : SUSPICIOUS) {
+	for (const { rule, kind, pattern } of gitPolicy === 'read-only' ? SUSPICIOUS_READ_ONLY : SUSPICIOUS) {
 		const git = kind === 'git';
 		if (git && gitAt === -1) continue;
 		if (kind === 'openspec' && env.RESURSE_GUARD_ALLOW === OVERRIDE_VALUE) continue;
@@ -1525,7 +1544,7 @@ export function guardHandlers(overrides: Partial<GuardDeps> = {}): HookHandlers 
 	return {
 		judge: (context) => judgeCall(context, { ...defaultGuardDeps(context.env), ...overrides }),
 		suspicion: (text, context) => {
-			const block = suspicion(text, context.env, true, overrides.gitPolicy ?? defaultGuardDeps(context.env).gitPolicy);
+			const block = suspicion(text, context.env, true, overrides.gitPolicy ?? DEFAULT_GIT_POLICY);
 			return block === null ? null : blockMessage(block, context.root, context.platform);
 		},
 	};

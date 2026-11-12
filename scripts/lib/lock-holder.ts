@@ -10,9 +10,9 @@
  * Uses only `node:` built-ins and the shared modules; no side effects on import.
  */
 
+import { asciiLine, parsePayload } from '../hooks/hook-io.ts';
 import { closeSync, existsSync, openSync, readSync } from 'node:fs';
 import { normaliseRoot, scratchPath } from './checkout-root.ts';
-import { asciiLine } from '../hooks/hook-io.ts';
 import { resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
 
@@ -65,17 +65,13 @@ export function lockAddress(root: string, platform: NodeJS.Platform): string {
  * @returns The holder, or null when the text is not a valid handshake.
  */
 export function parseHandshake(text: string): Holder | null {
-	try {
-		const value = JSON.parse(text.split('\n')[0] ?? '') as Record<string, unknown> | null;
-		if (value === null || typeof value !== 'object' || Array.isArray(value)) return null;
-		const { pid, label, command, started, token } = value;
-		if (typeof pid !== 'number' || !Number.isInteger(pid) || pid <= 0) return null;
-		if (typeof label !== 'string' || typeof command !== 'string' || typeof started !== 'string') return null;
-		if (typeof token !== 'string' || !/^[0-9a-f]{16}$/.test(token)) return null;
-		return { pid, label, command, started, token };
-	} catch {
-		return null;
-	}
+	const value = parsePayload(text.split('\n')[0] ?? '');
+	if (value === null) return null;
+	const { pid, label, command, started, token } = value;
+	if (typeof pid !== 'number' || !Number.isInteger(pid) || pid <= 0) return null;
+	if (typeof label !== 'string' || typeof command !== 'string' || typeof started !== 'string') return null;
+	if (typeof token !== 'string' || !/^[0-9a-f]{16}$/.test(token)) return null;
+	return { pid, label, command, started, token };
 }
 
 /**

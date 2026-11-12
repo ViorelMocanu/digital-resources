@@ -2,7 +2,7 @@ import { dirname, extname, isAbsolute, join, posix, relative, resolve, sep } fro
 import { existsSync, lstatSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, readlinkSync, realpathSync, renameSync, rmSync, rmdirSync, writeFileSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { Buffer } from 'node:buffer';
-import { normaliseRoot, withoutRepoVariables } from './lib/checkout-root.ts';
+import { normaliseRoot, scratchPath, withoutRepoVariables } from './lib/checkout-root.ts';
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -1639,8 +1639,9 @@ function stagedCheck(rootDir: string, options: CliOptions): { config: SyncConfig
 		env,
 		committed.map((entry) => entry.sha)
 	);
-	mkdirSync(join(root, 'tmp'), { recursive: true });
-	const exportDir = mkdtempSync(join(root, 'tmp', 'harness-staged-'));
+	const scratch = scratchPath(root, process.platform);
+	mkdirSync(scratch, { recursive: true });
+	const exportDir = mkdtempSync(join(scratch, 'harness-staged-'));
 	try {
 		for (const entry of committed) {
 			const absolute = join(exportDir, entry.path);

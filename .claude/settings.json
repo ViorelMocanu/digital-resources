@@ -18,129 +18,7 @@
 	"hooks": {
 		"PreToolUse": [
 			{
-				"matcher": "Bash",
-				"hooks": [
-					{
-						"type": "command",
-						"if": "Bash(*git*)",
-						"command": "node",
-						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/guard.ts", "claude"],
-						"timeout": 5
-					},
-					{
-						"type": "command",
-						"if": "Bash(*openspec*)",
-						"command": "node",
-						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/guard.ts", "claude"],
-						"timeout": 5
-					},
-					{
-						"type": "command",
-						"if": "Bash(*.env*)",
-						"command": "node",
-						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/guard.ts", "claude"],
-						"timeout": 5
-					},
-					{
-						"type": "command",
-						"if": "Bash(*pnpm*)",
-						"command": "node",
-						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/guard.ts", "claude"],
-						"timeout": 5
-					},
-					{
-						"type": "command",
-						"if": "Bash(*npx*)",
-						"command": "node",
-						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/guard.ts", "claude"],
-						"timeout": 5
-					},
-					{
-						"type": "command",
-						"if": "Bash(*pwsh*)",
-						"command": "node",
-						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/guard.ts", "claude"],
-						"timeout": 5
-					},
-					{
-						"type": "command",
-						"if": "Bash(*powershell*)",
-						"command": "node",
-						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/guard.ts", "claude"],
-						"timeout": 5
-					},
-					{
-						"type": "command",
-						"if": "Bash(*bash*)",
-						"command": "node",
-						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/guard.ts", "claude"],
-						"timeout": 5
-					}
-				]
-			},
-			{
-				"matcher": "PowerShell",
-				"hooks": [
-					{
-						"type": "command",
-						"if": "PowerShell(*git*)",
-						"command": "node",
-						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/guard.ts", "claude"],
-						"timeout": 5
-					},
-					{
-						"type": "command",
-						"if": "PowerShell(*openspec*)",
-						"command": "node",
-						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/guard.ts", "claude"],
-						"timeout": 5
-					},
-					{
-						"type": "command",
-						"if": "PowerShell(*.env*)",
-						"command": "node",
-						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/guard.ts", "claude"],
-						"timeout": 5
-					},
-					{
-						"type": "command",
-						"if": "PowerShell(*pnpm*)",
-						"command": "node",
-						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/guard.ts", "claude"],
-						"timeout": 5
-					},
-					{
-						"type": "command",
-						"if": "PowerShell(*npx*)",
-						"command": "node",
-						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/guard.ts", "claude"],
-						"timeout": 5
-					},
-					{
-						"type": "command",
-						"if": "PowerShell(*pwsh*)",
-						"command": "node",
-						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/guard.ts", "claude"],
-						"timeout": 5
-					},
-					{
-						"type": "command",
-						"if": "PowerShell(*powershell*)",
-						"command": "node",
-						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/guard.ts", "claude"],
-						"timeout": 5
-					},
-					{
-						"type": "command",
-						"if": "PowerShell(*bash*)",
-						"command": "node",
-						"args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/guard.ts", "claude"],
-						"timeout": 5
-					}
-				]
-			},
-			{
-				"matcher": "Monitor",
+				"matcher": "Bash|PowerShell|Monitor",
 				"hooks": [
 					{
 						"type": "command",
@@ -153,7 +31,6 @@
 		],
 		"PostToolUse": [
 			{
-				"matcher": "*",
 				"hooks": [
 					{
 						"type": "command",
@@ -178,7 +55,6 @@
 		],
 		"PreCompact": [
 			{
-				"matcher": "manual|auto",
 				"hooks": [
 					{
 						"type": "command",
@@ -191,7 +67,6 @@
 		],
 		"PostCompact": [
 			{
-				"matcher": "manual|auto",
 				"hooks": [
 					{
 						"type": "command",

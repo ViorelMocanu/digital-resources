@@ -2,10 +2,9 @@
  * Checkout roots and the repo's own scratch folder (OpenSpec change harness-guardrails, design D1 "Shared code" and
  * "Scratch paths come from the checkout root").
  *
- * One home for `normaliseRoot` (moved from `scripts/e2e-port.ts`, unchanged) and for the walk up to the checkout
- * root, so the E2E port, the worktree setup, the harness sync, the checkout lock and the hooks cannot find or
- * normalise a root differently. A hook imports this module instead of `e2e-port.ts`, so it does not load `node:net`
- * or `node:crypto`. It also places the path words of a command (`placeWord`, with Git Bash's `/g/x` drive form) and
+ * One home for `normaliseRoot` and for the walk up to the checkout root, so the harness sync, the checkout lock and
+ * the hooks cannot find or normalise a root differently. A hook that imports this module loads neither `node:net`
+ * nor `node:crypto`. It also places the path words of a command (`placeWord`, with Git Bash's `/g/x` drive form) and
  * strips the variables that would point git at another repository (`withoutRepoVariables`).
  *
  * In change C, `tmp/` always means `<root>/tmp/`: never the drive root's `tmp`, the OS temp folder or a `tmp` next

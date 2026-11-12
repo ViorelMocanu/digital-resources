@@ -8,7 +8,7 @@ Claude Code specifics only. Every rule is in `AGENTS.md`, which the first line o
 
 `.claude/settings.json` wires two scripts from `scripts/hooks/`. Each script's opening comment describes its behaviour in full; [`docs/agent/guardrails.md`](docs/agent/guardrails.md) is the short version.
 
--   **`guard.ts`** runs before a Bash or PowerShell call that names `git`, `openspec`, `.env`, `pnpm`, `npx`, `pwsh`, `powershell` or `bash`. It blocks every git command that is not read-only, `openspec update` and `init`, and commands that read an env file. When it blocks, do not look for another route (a script, an alias, another shell): finish what you can and give the owner the exact command.
+-   **`guard.ts`** runs before every Bash, PowerShell and Monitor call. It blocks every git command that is not read-only, `openspec update` and `init`, and commands that read an env file. When it blocks, do not look for another route (a script, an alias, another shell): finish what you can and give the owner the exact command.
 -   **`state-snapshot.mjs`** never blocks anything.
     -   At 350,000 tokens, and again every 40,000, it adds a message asking for a state file. Write the file before any other tool call.
     -   Before every compaction it saves a word-for-word capture of the session to `tmp/compact-summaries/`. That file is private: use it for exact wording, and never copy it whole into a tracked file.

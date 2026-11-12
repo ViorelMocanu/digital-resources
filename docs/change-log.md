@@ -12,9 +12,8 @@ The project's milestones, newest first. It answers "what happened, and what did 
 ## Simplify runs
 
 | Date | Base commit | End commit | Covered |
-| ---- | ----------- | ---------- | ------- |
-
-No run has been recorded in this repository yet.
+| --- | --- | --- | --- |
+| 2026-11-11 | `cce652e` | `07e2491` plus the uncommitted fixes of this run | The build fix (`f7f92d8`) and the first harness part (`07e2491`). The next run starts at the commit that holds these fixes. |
 
 ## Milestones
 

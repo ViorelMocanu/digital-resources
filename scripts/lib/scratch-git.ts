@@ -14,6 +14,7 @@ import { existsSync, mkdirSync, mkdtempSync, realpathSync, rmSync, writeFileSync
 import { join, resolve } from 'node:path';
 import { PROJECT_DIR_VARIABLES } from '../hooks/hook-io.ts';
 import { TOKEN_VARIABLE } from './lock-holder.ts';
+import { normaliseRoot } from './checkout-root.ts';
 import { spawnSync } from 'node:child_process';
 
 /** The repo's own `tmp/` folder. */
@@ -108,8 +109,7 @@ export function scratchGit(cwd: string, env: NodeJS.ProcessEnv, args: readonly s
  * @returns The comparable form.
  */
 export function comparable(path: string): string {
-	const slash = realpathSync.native(resolve(path)).replace(/\\/g, '/');
-	return process.platform === 'win32' ? slash.toLowerCase() : slash;
+	return normaliseRoot(realpathSync.native(resolve(path)), process.platform);
 }
 
 /**

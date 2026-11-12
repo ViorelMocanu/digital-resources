@@ -25,7 +25,7 @@ import { pathToFileURL } from 'node:url';
 // The command guard (OpenSpec change harness-guardrails, design D3-D5, D7, D8; spec harness--guards). The rule
 // tables run against an injected file system and git probe on `win32` paths, so they pass on the Linux CI runner
 // too. Folder detection also runs against a real throwaway repo, and the per-host cases spawn the real entry point
-// with JSON on stdin, as `scripts/e2e-port.test.ts` does. Scratch folders live under the repo's `tmp/`.
+// with JSON on stdin. Scratch folders live under the repo's `tmp/`.
 
 const GUARD = resolve(import.meta.dirname, 'guard.ts');
 const ROOT = 'G:\\repo';
@@ -142,6 +142,14 @@ describe("the read-only git policy, this checkout's default", () => {
 		'pwsh -Command "git commit -m x"',
 		'git -C tmp/x commit -m x',
 		'git -c alias.ci="commit -m x" ci',
+		// Write options in the abbreviated forms git accepts, and a branch name after `--`.
+		'git symbolic-ref --del HEAD',
+		'git config --remove-sec foo',
+		'git config --unset-al a.b',
+		'git tag --del v1.0.0',
+		'git branch --del feature',
+		'git branch -- feature',
+		'git apply --exclude --check fix.patch',
 	])('blocks %s', (command) => {
 		const block = strict(command);
 		expect(block?.kind).toBe('git');
@@ -160,6 +168,8 @@ describe("the read-only git policy, this checkout's default", () => {
 		'git branch',
 		"git branch --list 'feat*'",
 		'git branch --contains HEAD',
+		'git branch --sort committerdate',
+		'git config --file other.cfg core.hooksPath',
 		'git tag',
 		"git tag -l 'v*'",
 		'git stash list',

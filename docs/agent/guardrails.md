@@ -6,7 +6,7 @@ The hooks and deny rules that stop the commands the owner keeps for themselves. 
 
 ## The command guard
 
-`node scripts/hooks/guard.ts claude` runs before a Bash or PowerShell call whose text names `git`, `openspec`, `.env`, `pnpm`, `npx`, `pwsh`, `powershell` or `bash`, and before every Monitor call.
+`node scripts/hooks/guard.ts claude` runs before every Bash, PowerShell and Monitor call. A command it has no rule for passes without a message.
 
 | Rule | Blocks | Allows |
 | --- | --- | --- |
