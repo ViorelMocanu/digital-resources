@@ -15,6 +15,7 @@ The project's milestones, newest first. It answers "what happened, and what did 
 | --- | --- | --- | --- |
 | 2026-11-11 | `cce652e` | `07e2491` plus the uncommitted fixes of this run | The build fix (`f7f92d8`) and the first harness part (`07e2491`). The next run starts at the commit that holds these fixes. |
 | 2026-11-12 | `b6bb524` (holds the fixes of the run above) | `9637f04` plus the uncommitted fix of this run | The static output switch and the disabled deep scan (`9637f04`). The next run starts at the commit that holds this fix. |
+| 2026-11-13 | `080cb3c` (holds the fix of the run above) | `f72a0b4` plus the uncommitted fix of this run | Harness part one's OpenSpec content and Phase 1 (`f72a0b4`), with four foreground reviewers. One fix: `openspec/config.yaml` no longer repeats `AGENTS.md`. The next run starts at the commit that holds this fix. |
 
 ## Milestones
 

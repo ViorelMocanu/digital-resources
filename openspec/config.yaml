@@ -4,20 +4,14 @@
 schema: spec-driven
 
 context: |
-    resurse.dev is a Romanian catalogue of free learning resources for digital skills. It is a static Astro site on
-    Vercel, built from Markdown and data files in this repository. It has no accounts and stores nothing about
-    visitors. The repository is public, and so is everything written into it.
+    resurse.dev is a static Astro site on Vercel, in a public repository. AGENTS.md at the repository root describes
+    the project and holds every rule; it wins over anything printed here.
 
     The site is being upgraded from an old stack in phases, one change per phase. A phase leaves every page looking
     exactly as before unless its proposal names the difference. The comparison is the built HTML and full-page
     screenshots of every page at 390 and 1440 pixels against the previous build.
 
-    One owner. Agents build; the owner decides and runs every git write. Tools: pnpm only (never npm, npx or
-    pnpm dlx), TypeScript strict, vitest for unit tests, eslint, stylelint, markdownlint, prettier, commitlint.
-    Installs use a frozen lockfile with install scripts off, and the build must work that way.
-
-    Checks: pnpm verify (lint, types, unit tests, harness mirrors, format), pnpm build, and
-    pnpm exec openspec validate <change> --strict.
+    Checks: pnpm verify, pnpm build, and pnpm exec openspec validate <change> --strict.
 
 rules:
     proposal:
@@ -44,8 +38,6 @@ operations:
         guidance:
             - Read AGENTS.md and the newest state file first.
             - Tick a task only after its check has passed, and paste the receipt into the report.
-            - Stop after three failed attempts at one task and report.
-            - Keep scratch files in tmp/.
     archive:
         guidance:
             - Archive only when the owner asked for it; archiving moves the change folder.
