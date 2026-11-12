@@ -1,19 +1,13 @@
 import { ENV, URL, DEBUG } from './src/config';
 import { defineConfig } from 'astro/config';
-//import { astroCSPHashGenerator } from './src/utils/csp-hash';
 import { fileURLToPath } from 'url';
-//import { loadEnv } from 'vite';
-//import compress from 'astro-compress';
 import embeds from 'astro-embed/integration';
 import mdx from '@astrojs/mdx';
 import path from 'path';
-import partytown from '@astrojs/partytown';
-//import sentry from "@sentry/astro";
 import sitemap from '@astrojs/sitemap';
 import vercel from '@astrojs/vercel/static';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-//const { VITE_SENTRY_AUTH_TOKEN } = loadEnv(import.meta.env.PUBLIC_SENTRY_AUTH_TOKEN ?? process.env.PUBLIC_SENTRY_AUTH_TOKEN, process.cwd(), "");
 
 // https://astro.build/config
 export default defineConfig({
@@ -35,11 +29,6 @@ export default defineConfig({
 	compressHTML: ENV !== 'local' && ENV !== 'development' ? true : false,
 	redirects: {
 		// '/old': '/new',
-	},
-	image: {
-		remotePatterns: [{
-			protocol: 'https'
-		}]
 	},
 	vite: {
 		logLevel: DEBUG ? 'info' : 'silent',
@@ -71,12 +60,6 @@ export default defineConfig({
 		},
 	},
 	integrations: [
-		partytown({
-			config: {
-				debug: true,
-				forward: ['dataLayer.push'],
-			},
-		}),
 		sitemap({
 			customPages: ['https://resurse.dev/external-page2'],
 			filter: (page) =>
@@ -98,29 +81,6 @@ export default defineConfig({
 		}),
 		embeds(),
 		mdx(),
-		/*compress({
-			CSS: true,
-			HTML: true,
-			Image: false,
-			JavaScript: true,
-			SVG: true,
-			Logger: 1,
-		}),
-		*/
-		//astroCSPHashGenerator,
-		//add in vercel.json script-src: 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-lqmxBU0DSNZSjDq7cbo8xTfsaMru8pCfYf7WgXwuD9E=' 'sha256-ipVu24fJB4N9VK6cLL0TmioKXqjvYwd6zJ/Sn+5suLg='
-		/*
-		sentry({
-			dsn: "https://344f761c5efeb4b9ea6b08942c01f5b6@o4506599007911936.ingest.sentry.io/4506661195808768",
-			// @ts-ignore
-			sourceMapsUploadOptions: {
-				project: "resurse-dev",
-				// @ts-ignore
-				authToken: VITE_SENTRY_AUTH_TOKEN,
-				telemetry: false,
-			},
-		}),
-		*/
 		/*
 		serialize(item) {
 			if (item.url.endsWith('resurse.dev/')) {

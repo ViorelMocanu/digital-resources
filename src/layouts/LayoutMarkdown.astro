@@ -37,6 +37,7 @@ import {
 	LANGUAGE_EXTENDED,
 	OG_IMAGE,
 	OG_IMAGE_ALT,
+	ROBOTS,
 	SITE_DESCRIPTION,
 	SITE_NAME,
 	SITE_TITLE,
@@ -99,7 +100,7 @@ const theBreadcrumbArray = content?.breadcrumbArray ? content.breadcrumbArray : 
 		<!-- SEO -->
 		<link rel="canonical" href={canonical} />
 		<meta name="description" content={theDescription} />
-		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+		<meta name="robots" content={ROBOTS} />
 
 		<meta property="og:site_name" content={SITE_NAME} />
 		<meta property="og:type" content={SITE_TYPE} />
@@ -143,7 +144,6 @@ const theBreadcrumbArray = content?.breadcrumbArray ? content.breadcrumbArray : 
 	<body class:list={[theTemplate]}>
 		<a id="skip" href="#hero" title="Mergi direct la conținutul acestei pagini">Mergi la conținut</a>
 		<div class="Framework">
-			<p class="TemporaryMessage">Template: <strong>{theTemplate}</strong> built at <em>{buildDate}</em>.</p>
 			<Header breadcrumbArray={theBreadcrumbArray} activeMenu={theActiveMenu} />
 			<main class="Main">
 				<div class="MarkdownContent">

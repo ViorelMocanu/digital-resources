@@ -1,0 +1,52 @@
+# OpenSpec configuration for resurse.dev.
+# AGENTS.md says when a change needs OpenSpec and when it does not.
+
+schema: spec-driven
+
+context: |
+    resurse.dev is a Romanian catalogue of free learning resources for digital skills. It is a static Astro site on
+    Vercel, built from Markdown and data files in this repository. It has no accounts and stores nothing about
+    visitors. The repository is public, and so is everything written into it.
+
+    The site is being upgraded from an old stack in phases, one change per phase. A phase leaves every page looking
+    exactly as before unless its proposal names the difference. The comparison is the built HTML and full-page
+    screenshots of every page at 390 and 1440 pixels against the previous build.
+
+    One owner. Agents build; the owner decides and runs every git write. Tools: pnpm only (never npm, npx or
+    pnpm dlx), TypeScript strict, vitest for unit tests, eslint, stylelint, markdownlint, prettier, commitlint.
+    Installs use a frozen lockfile with install scripts off, and the build must work that way.
+
+    Checks: pnpm verify (lint, types, unit tests, harness mirrors, format), pnpm build, and
+    pnpm exec openspec validate <change> --strict.
+
+rules:
+    proposal:
+        - Write in plain English, short sentences, no emojis.
+        - State what a visitor will see change. If nothing changes, say that the pages must stay identical.
+        - List every dependency that is added, removed or upgraded, with its version.
+        - Name what is out of scope, and what waits for the owner (a deletion, a dashboard setting, an account).
+        - Never name another repository, a person, a secret or a local path.
+    specs:
+        - A requirement describes behaviour a visitor, the build or a check can observe, never an implementation.
+        - Every requirement has at least one scenario that a command or a test can decide.
+        - A change that alters no behaviour (tooling, documents, a refactor) sets skip_specs in its .openspec.yaml.
+    design:
+        - Write a design only when the change has a real choice between approaches; say which was rejected and why.
+        - Cover the effect on page weight, accessibility, SEO and security headers when the change touches pages.
+    tasks:
+        - Each task is small enough to check on its own and names the command that proves it.
+        - The first group records the baseline; the last group runs pnpm verify, pnpm build and the page comparison.
+        - A bug fix lists its regression test before the fix.
+        - No task is a git command. No task deletes or moves a file unless the proposal records the owner's consent.
+
+operations:
+    apply:
+        guidance:
+            - Read AGENTS.md and the newest state file first.
+            - Tick a task only after its check has passed, and paste the receipt into the report.
+            - Stop after three failed attempts at one task and report.
+            - Keep scratch files in tmp/.
+    archive:
+        guidance:
+            - Archive only when the owner asked for it; archiving moves the change folder.
+            - Before archiving, every task is ticked and pnpm verify passes.

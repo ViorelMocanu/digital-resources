@@ -29,6 +29,9 @@ export const SITE_TITLE = 'Centralizator de resurse digitale gratuite pentru în
 export const SITE_DESCRIPTION =
 	'Învață mai ușor urmărind resurse gratuite din domeniile: Front End Development, Back End Development, Design și UX, Marketing Online, Cyber Security și altele.';
 export const SITE_NAME = 'resurse.dev';
+// Search engines are kept out while the site is unfinished. Set INDEXABLE to true at launch.
+export const INDEXABLE: boolean = false;
+export const ROBOTS = INDEXABLE ? 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' : 'noindex, nofollow';
 export const SITE_TYPE = 'website'; // @see https://ogp.me/#types
 export const CONTACT_EMAIL = 'contact@resurse.dev';
 export const LANGUAGE = 'ro'; //					🛑 @TODO: multi-language support with i18n

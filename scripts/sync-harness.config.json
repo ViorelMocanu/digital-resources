@@ -2,8 +2,34 @@
 	"canonical": ".agents",
 	"generatedHeader": "<!-- GENERATED from .agents/ — do not edit directly. Run: pnpm harness:sync -->",
 	"include": {
-		"skills": [],
-		"workflows": []
+		"skills": [
+			"openspec-apply-change",
+			"openspec-archive-change",
+			"openspec-bulk-archive-change",
+			"openspec-continue-change",
+			"openspec-explore",
+			"openspec-ff-change",
+			"openspec-new-change",
+			"openspec-onboard",
+			"openspec-propose",
+			"openspec-sync-specs",
+			"openspec-update-change",
+			"openspec-verify-change"
+		],
+		"workflows": [
+			"opsx-apply",
+			"opsx-archive",
+			"opsx-bulk-archive",
+			"opsx-continue",
+			"opsx-explore",
+			"opsx-ff",
+			"opsx-new",
+			"opsx-onboard",
+			"opsx-propose",
+			"opsx-sync",
+			"opsx-update",
+			"opsx-verify"
+		]
 	},
 	"transforms": {
 		"commandSyntax": {

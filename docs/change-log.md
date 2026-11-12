@@ -18,6 +18,29 @@ The project's milestones, newest first. It answers "what happened, and what did 
 
 ## Milestones
 
+### 2026-11-12: harness part one and Phase 1 finished
+
+**Delivered**
+
+-   The first harness part is complete: twelve OpenSpec skills and workflows in `.agents/` with their Claude Code copies, `openspec/config.yaml`, and the changes `harness-h1a` and `phase-1-prune-static`, both valid under `openspec validate --strict`.
+-   Phase 1 is complete: nine unused packages removed, the image host wildcard removed, every page marked `noindex, nofollow` through one switch in `src/config.ts`, the debug line and the placeholder view count removed, the two test resources deleted with the owner's consent.
+-   The site is static and live since `9637f04`; the open image endpoint answers 404.
+-   `pnpm verify` passes for the first time: 815 unit tests, 24 generated files fresh, format clean.
+
+**What went well**
+
+-   The phase was checked in two steps. After the package removal alone, all 116 screenshots matched the baseline, so every later difference could be traced to a named change: 32 pages stayed identical, 24 pages that show resources changed, 2 pages were removed.
+-   A spec scenario caught its own mistake: "no page contains the text partytown" failed on a page that only mentions the package in prose, and was rewritten to test for the shipped files.
+
+**What to do differently**
+
+-   The static switch went in before its change folder existed. An urgent fix still gets its change written in the same session, as happened here, not later.
+-   The stock OpenSpec text was ported with a scratch script. If the port is needed again at the next OpenSpec upgrade, the script moves into `scripts/` with a test.
+
+**Next**
+
+Phase 2, the core upgrade (Astro 7.4, Node 24, TypeScript 6, vitest 5), written as an OpenSpec change before any code.
+
 ### 2026-11-11: plan approved, build fixed, first harness part started
 
 **Delivered**

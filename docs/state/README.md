@@ -119,5 +119,7 @@ What could be wrong, what was not checked, and what was left out on purpose.
 
 | File | Trigger | What it holds |
 | --- | --- | --- |
+| [2026-11-12-2227-phase-1-prune-static.md](2026-11-12-2227-phase-1-prune-static.md) | pause-point | Harness part one and Phase 1 finished and checked, uncommitted; receipts, three small open decisions, Phase 2 next |
+| [2026-11-12-1933-harness-h1a.md](2026-11-12-1933-harness-h1a.md) | manual-compact | Static output live, two simplify runs done; OpenSpec content and the rest of Phase 1 open; the list of open decisions |
 | [2026-11-11-1527-harness-h1a.md](2026-11-11-1527-harness-h1a.md) | pause-point | Harness part one checked and handed back: hooks, contract, documents, sync engine, OpenSpec CLI; OpenSpec content and changes open |
 | [2026-11-11-1521-harness-h1a.md](2026-11-11-1521-harness-h1a.md) | pause-point | Harness part H1a half built: guard, state hook and settings done; documents, OpenSpec and final checks open |

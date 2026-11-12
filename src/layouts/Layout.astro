@@ -31,12 +31,12 @@ import {
 	ACCENT_COLOR,
 	type BreadcrumbItem,
 	CONTACT_EMAIL,
-	ENV,
 	FACEBOOK_APP_ID,
 	LANGUAGE,
 	LANGUAGE_EXTENDED,
 	OG_IMAGE,
 	OG_IMAGE_ALT,
+	ROBOTS,
 	SITE_DESCRIPTION,
 	SITE_NAME,
 	SITE_TITLE,
@@ -89,7 +89,7 @@ const {
 		<!-- SEO -->
 		<link rel="canonical" href={canonical} />
 		<meta name="description" content={description} />
-		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+		<meta name="robots" content={ROBOTS} />
 
 		<meta property="og:site_name" content={SITE_NAME} />
 		<meta property="og:type" content={SITE_TYPE} />
@@ -134,7 +134,6 @@ const {
 			<Header breadcrumbArray={breadcrumbArray} activeMenu={activeMenu} />
 			<slot />
 			<Footer activeMenu={activeMenu} />
-			<p class="TemporaryMessage">Template: <strong>{template}</strong> built at <em>{buildDate}</em> on ENV = <strong>{ENV}</strong>.</p>
 		</div>
 		<Analytics />
 	</body>
