@@ -10,7 +10,7 @@ import path from 'path';
 import partytown from '@astrojs/partytown';
 //import sentry from "@sentry/astro";
 import sitemap from '@astrojs/sitemap';
-import vercel from '@astrojs/vercel/serverless';
+import vercel from '@astrojs/vercel/static';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 //const { VITE_SENTRY_AUTH_TOKEN } = loadEnv(import.meta.env.PUBLIC_SENTRY_AUTH_TOKEN ?? process.env.PUBLIC_SENTRY_AUTH_TOKEN, process.cwd(), "");
@@ -19,10 +19,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export default defineConfig({
 	site: URL || 'https://resurse.dev',
 	// trailingSlash: 'always',
-	output: 'hybrid',
-	experimental: {
-		serverIslands: true,
-	},
+	// Every page is built ahead of time, so the deployment has no server function and no Node.js runtime to pin.
+	output: 'static',
 	// https://docs.astro.build/en/guides/prefetch/
 	prefetch: {
 		defaultStrategy: 'hover',
@@ -33,8 +31,6 @@ export default defineConfig({
 		webAnalytics: {
 			enabled: true,
 		},
-		maxDuration: 8,
-		edgeMiddleware: true,
 	}),
 	compressHTML: ENV !== 'local' && ENV !== 'development' ? true : false,
 	redirects: {

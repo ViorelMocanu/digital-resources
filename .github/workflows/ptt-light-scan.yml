@@ -44,7 +44,9 @@ jobs:
   test_deep_scan:
     runs-on: ubuntu-latest
     name: Run a manual deep scan. You will need a suitable API key
-    if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    # Disabled: the deep scan needs a paid API key and failed on every push. To bring it back, restore the condition
+    # (github.event_name == 'push' || github.event_name == 'workflow_dispatch') and set the PTT_API_KEY secret.
+    if: false
     steps:
       - name: Checkout
         uses: actions/checkout@v4
