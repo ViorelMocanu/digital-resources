@@ -14,6 +14,7 @@ The project's milestones, newest first. It answers "what happened, and what did 
 | Date | Base commit | End commit | Covered |
 | --- | --- | --- | --- |
 | 2026-11-11 | `cce652e` | `07e2491` plus the uncommitted fixes of this run | The build fix (`f7f92d8`) and the first harness part (`07e2491`). The next run starts at the commit that holds these fixes. |
+| 2026-11-12 | `b6bb524` (holds the fixes of the run above) | `9637f04` plus the uncommitted fix of this run | The static output switch and the disabled deep scan (`9637f04`). The next run starts at the commit that holds this fix. |
 
 ## Milestones
 
