@@ -1,5 +1,5 @@
 ---
-import { type CollectionEntry, getCollection, getEntry } from 'astro:content';
+import { type CollectionEntry, getCollection, getEntry, render } from 'astro:content';
 import type { InferGetStaticPropsType } from 'astro';
 import Layout from '@layouts/Layout.astro';
 import { PAGE_SIZE } from '@config';
@@ -8,10 +8,11 @@ import ResourceList from '@components/ResourceList.astro';
 import ResourceTOC from '@components/ResourceTOC.astro';
 // import ResponsiveImage from '@components/ResponsiveImage.astro';
 import getSortedItems from '@utils/getSortedItems';
+import { requireMinWidth } from '@utils/imageRules';
 
 export async function getStaticPaths({ paginate }: any) {
 	const allSections = (await getCollection('sections')).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
-	const allSectionsArray = allSections.flatMap((section: CollectionEntry<'sections'>) => section.slug);
+	const allSectionsArray = allSections.flatMap((section: CollectionEntry<'sections'>) => section.id);
 
 	const allResources = await getSortedItems({
 		collectionKey: 'resources',
@@ -19,8 +20,8 @@ export async function getStaticPaths({ paginate }: any) {
 		type: 'date',
 		order: 'asc',
 	});
-	const finalPagination = allSectionsArray.flatMap((section) => {
-		const selectedResources = allResources.filter((res) => res.data.section.slug == section);
+	const finalPagination: { props: any; params: any }[] = allSectionsArray.flatMap((section) => {
+		const selectedResources = allResources.filter((res) => res.data.section.id == section);
 		return paginate(selectedResources, {
 			params: { section, category: undefined, subcategory: undefined },
 			pageSize: PAGE_SIZE,
@@ -35,20 +36,21 @@ const params = Astro.params;
 
 const currentSection = params.section as string;
 const section = (await getEntry('sections', currentSection))!; // @TODO fix this;
-const { Content } = await section.render();
+const { Content } = await render(section);
+if (section.data.imageUrl) requireMinWidth(section.data.imageUrl, 100, 'Imaginea trebuie să aibă minim 100px lățime!', 'sections/' + section.id);
 
 const pageTitle = section.data.title;
 const pageDescription = section.data.description;
 const breadcrumbArray = [
 	{
-		href: `/${section.slug}`,
+		href: `/${section.id}`,
 		title: section.data.title,
 		label: section.data.menu,
 	},
 ];
 ---
 
-<Layout title={pageTitle} description={pageDescription} template="SectionPage" activeMenu={section.slug} breadcrumbArray={breadcrumbArray}>
+<Layout title={pageTitle} description={pageDescription} template="SectionPage" activeMenu={section.id} breadcrumbArray={breadcrumbArray}>
 	<div class="Hero" id="hero">
 		{
 			section.data.imageUrl && (

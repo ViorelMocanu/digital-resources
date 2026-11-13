@@ -31,7 +31,7 @@ import { type ExtendedResource } from '@config';
 /*
 function hitLike() {
 	console.log('Like button clicked');
-	fetch(`/api/like/${res.slug}`, {
+	fetch(`/api/like/${res.id}`, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
@@ -62,7 +62,7 @@ const { res } = Astro.props satisfies Props;
 <aside class="ResourceAside ResourceActions">
 	<h5 class="WidgetTitle">Acțiuni disponibile:</h5>
 	<ul class="InfoList">
-		<li class="InfoItem" transition:name={`${res?.slug} action share`}>
+		<li class="InfoItem" transition:name={`${res?.id} action share`}>
 			<button class="InfoLink" type="button" title="Share-uiește resursa: Resilient Web Design cu prietenii tăi">
 				<span class="Icon IconShare">
 					<span class="SROnly">🚀</span>
@@ -79,7 +79,7 @@ const { res } = Astro.props satisfies Props;
 				</span>
 			</button>
 		</li>
-		<li class="InfoItem" transition:name={`${res?.slug} action like`}>
+		<li class="InfoItem" transition:name={`${res?.id} action like`}>
 			<button class="InfoLink" type="button" title="Adaugă în lista ta de resurse favorite resursa: Resilient Web Design">
 				<span class="Icon IconLike">
 					<span class="SROnly">❤️</span>
@@ -96,7 +96,7 @@ const { res } = Astro.props satisfies Props;
 				</span>
 			</button>
 		</li>
-		<li class="InfoItem" transition:name={`${res?.slug} action report`}>
+		<li class="InfoItem" transition:name={`${res?.id} action report`}>
 			<button class="InfoLink" type="button" title="Semnalează o problemă cu resursa: Resilient Web Design - link greșit, site hack-uit, proprietăți greșite">
 				<span class="Icon IconReport">
 					<span class="SROnly">⚠️</span>

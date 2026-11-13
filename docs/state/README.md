@@ -119,6 +119,11 @@ What could be wrong, what was not checked, and what was left out on purpose.
 
 | File | Trigger | What it holds |
 | --- | --- | --- |
+| [2026-11-13-0418-phase-4-e2e-suite.md](2026-11-13-0418-phase-4-e2e-suite.md) | pause-point | The night's work finished and checked, uncommitted: Phases 2 and 3 and the end-to-end suite; receipts, seventeen open decisions, stopped for the owner |
+| [2026-11-13-0314-phase-3-tooling.md](2026-11-13-0314-phase-3-tooling.md) | pause-point | Phases 2 and 3 finished and checked, uncommitted; the audit is empty and the pages are unchanged; thirteen open decisions. Written after the row below: the three earlier names of this night ran ahead of the clock |
+| [2026-11-13-0345-phase-2-core-upgrade.md](2026-11-13-0345-phase-2-core-upgrade.md) | pause-point | Phase 2 finished and checked on Astro 7, uncommitted; receipts, the agent's decisions, nine open decisions, Phase 3 next |
+| [2026-11-13-0320-phase-2-core-upgrade.md](2026-11-13-0320-phase-2-core-upgrade.md) | pause-point | Phase 2 built; the navigation regression understood, its fix being reworked as a pnpm patch of the head sorter; exact next steps |
+| [2026-11-13-0255-phase-2-core-upgrade.md](2026-11-13-0255-phase-2-core-upgrade.md) | pause-point | Phase 2 mostly built on Astro 7 and checked; one regression open (the client router script is missing); decisions the agent made alone |
 | [2026-11-12-2227-phase-1-prune-static.md](2026-11-12-2227-phase-1-prune-static.md) | pause-point | Harness part one and Phase 1 finished and checked, uncommitted; receipts, three small open decisions, Phase 2 next |
 | [2026-11-12-1933-harness-h1a.md](2026-11-12-1933-harness-h1a.md) | manual-compact | Static output live, two simplify runs done; OpenSpec content and the rest of Phase 1 open; the list of open decisions |
 | [2026-11-11-1527-harness-h1a.md](2026-11-11-1527-harness-h1a.md) | pause-point | Harness part one checked and handed back: hooks, contract, documents, sync engine, OpenSpec CLI; OpenSpec content and changes open |

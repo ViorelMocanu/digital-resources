@@ -2,10 +2,10 @@ import { ENV, URL, DEBUG } from './src/config';
 import { defineConfig } from 'astro/config';
 import { fileURLToPath } from 'url';
 import embeds from 'astro-embed/integration';
-import mdx from '@astrojs/mdx';
 import path from 'path';
 import sitemap from '@astrojs/sitemap';
-import vercel from '@astrojs/vercel/static';
+import { unified } from '@astrojs/markdown-remark';
+import vercel from '@astrojs/vercel';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -42,11 +42,14 @@ export default defineConfig({
 		},
 	},
 	markdown: {
+		// The remark and rehype pipeline the site has always used. Astro's newer default processor may write the same Markdown as different HTML.
+		processor: unified({
+			remarkRehype: {
+				footnoteLabel: 'Note de subsol',
+				footnoteBackLabel: 'Înapoi la conținut',
+			},
+		}),
 		syntaxHighlight: 'shiki',
-		remarkRehype: {
-			footnoteLabel: 'Note de subsol',
-			footnoteBackLabel: 'Înapoi la conținut',
-		},
 		shikiConfig: {
 			// Choose from Shiki's built-in themes (or add your own)
 			// https://github.com/shikijs/shiki/blob/main/docs/themes.md
@@ -80,7 +83,6 @@ export default defineConfig({
 			},
 		}),
 		embeds(),
-		mdx(),
 		/*
 		serialize(item) {
 			if (item.url.endsWith('resurse.dev/')) {

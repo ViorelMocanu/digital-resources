@@ -46,10 +46,10 @@ import {
 	TWITTER_SITE,
 } from '@config';
 import Analytics from '@components/Analytics.astro';
+import { ClientRouter } from 'astro:transitions';
 import Footer from '@components/Footer.astro';
 import { Head } from 'astro-capo';
 import Header from '@components/Header.astro';
-import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
 	title: string;
@@ -126,7 +126,7 @@ const {
 		<link rel="author" href="https://resurse.dev/humans.txt" />
 		<link rel="sitemap" href="/sitemap-index.xml" />
 
-		<ViewTransitions fallback="none" />
+		<ClientRouter fallback="none" />
 	</Head>
 	<body class:list={[template]}>
 		<a id="skip" href="#hero" title="Mergi direct la conținutul acestei pagini">Mergi la conținut</a>

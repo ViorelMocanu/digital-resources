@@ -26,15 +26,15 @@ let categoryList: ExtendedCategory[] = [];
 if (sectionCategories) {
 	const allCategories = await getCollection('categories');
 	const allSubcategories = await getCollection('subcategories');
-	sectionCategories.forEach((cat: { slug: string; collection: string }) => {
+	sectionCategories.forEach((cat: { id: string; collection: string }) => {
 		const category = allCategories.find((el) => {
-			return el.slug == cat.slug;
+			return el.id == cat.id;
 		});
 		let subCategoryData =
 			category?.data.subcategories
-				?.map((subcat: { slug: string }): CollectionEntry<'subcategories'> | undefined => {
+				?.map((subcat: { id: string }): CollectionEntry<'subcategories'> | undefined => {
 					const subcategory = allSubcategories.find((el) => {
-						return el.slug == subcat.slug;
+						return el.id == subcat.id;
 					});
 					if (subcategory) {
 						return subcategory;
@@ -60,17 +60,17 @@ if (sectionCategories) {
 				</h2>
 				<ol class="ListNav">
 					{categoryList.map((category) => (
-						<li class:list={highlightUrl(`/${section.slug}/${category.slug}`, 'ListNavItem', 'ActiveListNav', activePage)}>
-							<a class="ListNavLink" href={`/${section.slug}/${category.slug}`} title={`Vezi resursele din categoria ${category.data.title}`}>
+						<li class:list={highlightUrl(`/${section.id}/${category.id}`, 'ListNavItem', 'ActiveListNav', activePage)}>
+							<a class="ListNavLink" href={`/${section.id}/${category.id}`} title={`Vezi resursele din categoria ${category.data.title}`}>
 								{category.data.title}
 							</a>
 							{category.data.subcategories && category.subCategoryData && (
 								<ol class="ListSubNav">
 									{category.subCategoryData.map((subcategory: CollectionEntry<'subcategories'>) => (
-										<li class:list={highlightUrl(`/${section.slug}/${category.slug}/${subcategory.slug}`, 'ListSubNavItem', 'ActiveListNav', activePage)}>
+										<li class:list={highlightUrl(`/${section.id}/${category.id}/${subcategory.id}`, 'ListSubNavItem', 'ActiveListNav', activePage)}>
 											<a
 												class="ListSubNavLink"
-												href={`/${section.slug}/${category.slug}/${subcategory.slug}`}
+												href={`/${section.id}/${category.id}/${subcategory.id}`}
 												title={`Vezi resursele din subcategoria ${subcategory.data.title}`}
 											>
 												{subcategory.data.title}

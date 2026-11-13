@@ -1,6 +1,7 @@
 // Place any global data in this file.
 // You can import this data from anywhere in your site by using the `import` keyword.
 import type { CollectionEntry, CollectionKey } from 'astro:content';
+import { envFlag } from './utils/envFlag';
 
 // My .env file imports
 const PUBLIC_APP_ENV = import.meta.env.PUBLIC_APP_ENV;
@@ -23,7 +24,7 @@ const PUBLIC_APP_URL = u;
 
 // My static config variables
 export const ENV = PUBLIC_APP_ENV || import.meta.env.VERCEL_ENV;
-export const DEBUG = PUBLIC_APP_DEBUG;
+export const DEBUG = envFlag(PUBLIC_APP_DEBUG);
 export const URL = PUBLIC_APP_URL;
 export const SITE_TITLE = 'Centralizator de resurse digitale gratuite pentru învățare';
 export const SITE_DESCRIPTION =

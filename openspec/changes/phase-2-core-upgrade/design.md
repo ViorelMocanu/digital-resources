@@ -35,6 +35,26 @@ Three major versions lie between the installed Astro and the current one. Each b
 -   **Chosen:** `moduleResolution: bundler` and paths relative to `tsconfig.json`, which is what Astro's own presets use.
 -   **Rejected:** TypeScript 7, released on 2026-11-12. `@astrojs/check` does not accept it, and it is younger than seven days.
 
+### Image width rules outside the schema
+
+-   **Chosen:** a small function, `requireMinWidth`, called in the two routes that build a page for the entry. It throws with the rule's message, so the build fails as it did.
+-   **Rejected:** dropping the rules. They are content rules the owner wrote; a migration does not get to loosen them.
+-   **Rejected:** keeping `image().refine()`. In the Content Layer the schema runs before the image is read, so the check fails for every entry.
+-   **Cost of the choice:** the rule fires when a page is built for the entry, not when the collection loads. Every section and every resource has a page, so none escapes.
+
+### A patch for the head sorter
+
+-   **Chosen:** a pnpm patch of `astro-capo` 0.0.1, one line: the head's content goes through `chunkToString`, which puts the component scripts back where they were declared. It fixes the cause where it is, and it is visible as `patches/astro-capo@0.0.1.patch`.
+-   **Rejected:** a wrapper component that renders the head with `Astro.slots.render` and hands it over with `set:html`. It worked, but `set:html` is a lint error in this repository, and an exemption is the owner's to give.
+-   **Rejected:** a plain `<head>`. It works, but the order of the head tags would change on every page that uses the layout.
+-   **Rejected:** a copy of the sorting code in this repository. `astro-capo` does not export it, and a copy would be ours to maintain.
+-   **Found by:** a browser run over navigation, the back button and the mobile menu, compared with the build before. No screenshot shows it.
+
+### One Astro in the tree
+
+-   **Chosen:** a scoped pnpm override, so the analytics plugin uses the site's Astro. The plugin is one component file.
+-   **Rejected:** upgrading the plugin. Each of its versions lists another exact Astro, so a second copy would stay, and its markup could change.
+
 ## Effect on the pages
 
 -   **Page weight:** expected to stay within a few percent. Measured in the comparison, per page, and reported.

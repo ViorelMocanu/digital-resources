@@ -38,7 +38,7 @@ The text a visitor or a search engine reads SHALL be unchanged.
 #### Scenario: Visible text
 
 -   **WHEN** the text of the `body` of every built page, with tags removed and white space collapsed, is compared with the build before the phase
--   **THEN** it is equal on every page
+-   **THEN** it is equal on every page, apart from a difference the proposal names
 
 #### Scenario: Head
 

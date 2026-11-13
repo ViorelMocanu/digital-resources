@@ -1,4 +1,2 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
-pnpm verify:fix
+# Every fast check (lint, types, unit tests, generated copies, format). It reports; it never rewrites a file.
+pnpm verify

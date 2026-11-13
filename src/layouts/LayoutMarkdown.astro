@@ -47,10 +47,10 @@ import {
 	TWITTER_SITE,
 } from '@config';
 import Analytics from '@components/Analytics.astro';
+import { ClientRouter } from 'astro:transitions';
 import Footer from '@components/Footer.astro';
 import Header from '@components/Header.astro';
 import MarkdownTOC from '@components/MarkdownTOC.astro';
-import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
 	file?: string;
@@ -139,7 +139,7 @@ const theBreadcrumbArray = content?.breadcrumbArray ? content.breadcrumbArray : 
 		<link rel="preload" href="/font/atkinson-hyperlegible-regular.woff2" as="font" type="font/woff2" crossorigin />
 		<link rel="preload" href="/font/atkinson-hyperlegible-bold.woff2" as="font" type="font/woff2" crossorigin />
 
-		<ViewTransitions fallback="none" />
+		<ClientRouter fallback="none" />
 	</head>
 	<body class:list={[theTemplate]}>
 		<a id="skip" href="#hero" title="Mergi direct la conținutul acestei pagini">Mergi la conținut</a>

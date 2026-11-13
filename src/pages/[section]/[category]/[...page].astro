@@ -1,5 +1,5 @@
 ---
-import { type CollectionEntry, getCollection, getEntry } from 'astro:content';
+import { type CollectionEntry, getCollection, getEntry, render } from 'astro:content';
 import type { InferGetStaticPropsType } from 'astro';
 import Layout from '@layouts/Layout.astro';
 import { PAGE_SIZE } from '@config';
@@ -9,21 +9,21 @@ import ResourceTOC from '@components/ResourceTOC.astro';
 
 export async function getStaticPaths({ paginate }: any) {
 	const allSections = (await getCollection('sections')).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
-	const allSectionsArray = allSections.flatMap((section: CollectionEntry<'sections'>) => section.slug);
+	const allSectionsArray = allSections.flatMap((section: CollectionEntry<'sections'>) => section.id);
 	const allCategories = (await getCollection('categories')).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
-	const allCategoriesArray = allCategories.flatMap((category: CollectionEntry<'categories'>) => category.slug);
+	const allCategoriesArray = allCategories.flatMap((category: CollectionEntry<'categories'>) => category.id);
 	const allResources = (await getCollection('resources')).sort((a, b) => new Date(a.data.modDate as string).valueOf() - new Date(b.data.modDate as string).valueOf());
 
-	let finalPagination = new Array();
+	let finalPagination: { props: any; params: any }[] = new Array(); // @TODO fix typescript
 	allSectionsArray.forEach((section) => {
-		const currentSection = allSections.find((sec: CollectionEntry<'sections'>) => sec.slug == section);
+		const currentSection = allSections.find((sec: CollectionEntry<'sections'>) => sec.id == section);
 		if (currentSection == null || currentSection.data.categories == null) {
 			// nu se poate sa nu existe o sectiune definita
 			// console.warn('false', 'currentSection', currentSection?.id);
 		} else {
 			// există secțiunea
 			// căutăm categorii atașate secțiunii
-			const sectionCategories = currentSection.data.categories.flatMap((cat: { slug: string; collection: string }) => cat.slug);
+			const sectionCategories = currentSection.data.categories.flatMap((cat: { id: string; collection: string }) => cat.id);
 			const selectedCategories = allCategoriesArray.filter((cat: string) => {
 				return sectionCategories.includes(cat);
 			});
@@ -36,8 +36,8 @@ export async function getStaticPaths({ paginate }: any) {
 				selectedCategories.forEach((category) => {
 					const selectedResources = allResources.filter((res: CollectionEntry<'resources'>) => {
 						if (res.data.categories) {
-							const resourceCategories = res.data.categories.flatMap((cat: { slug: string; collection: string }) => cat.slug);
-							return res.data.section.slug == section && resourceCategories.includes(category);
+							const resourceCategories = res.data.categories.flatMap((cat: { id: string; collection: string }) => cat.id);
+							return res.data.section.id == section && resourceCategories.includes(category);
 						} else {
 							return false;
 						}
@@ -99,25 +99,25 @@ const currentSection = params.section as any; // @TODO fix this;
 const section = (await getEntry('sections', currentSection))!; // @TODO fix this;
 const currentCategory = params.category as any;
 const category = (await getEntry('categories', currentCategory))!; // @TODO fix this;
-const { Content } = await category.render();
+const { Content } = await render(category);
 
 const pageTitle = category.data.title;
 const pageDescription = category.data.description;
 const breadcrumbArray = [
 	{
-		href: `/${section.slug}`,
+		href: `/${section.id}`,
 		title: section.data.title,
 		label: section.data.menu,
 	},
 	{
-		href: `/${section.slug}/${category.slug}`,
+		href: `/${section.id}/${category.id}`,
 		title: category.data.title,
 		label: category.data.menu,
 	},
 ];
 ---
 
-<Layout title={pageTitle} description={pageDescription} template="CategoryPage" activeMenu={section.slug} breadcrumbArray={breadcrumbArray}>
+<Layout title={pageTitle} description={pageDescription} template="CategoryPage" activeMenu={section.id} breadcrumbArray={breadcrumbArray}>
 	<div class="Hero" id="hero">
 		{
 			category.data.image && (

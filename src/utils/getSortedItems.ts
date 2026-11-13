@@ -1,4 +1,4 @@
-import { type CollectionEntry, type DataCollectionKey, getCollection } from 'astro:content';
+import { type CollectionEntry, getCollection } from 'astro:content';
 import type { CollectionKeyEnum, Order, Type } from '@config';
 
 /**
@@ -136,13 +136,9 @@ export default async function getSortedItems<T extends CollectionKeyEnum>({ coll
 		throw new Error(`Invalid sortKey value: ${sortKey}`);
 	}
 
-	return unsorted.sort((a, b) => {
-		const {
-			data: { [sortKey as DataCollectionKey]: sortValueFromA },
-		} = a;
-		const {
-			data: { [sortKey as DataCollectionKey]: sortValueFromB },
-		} = b;
-		return sortFunctions[type](sortValueFromA, sortValueFromB, order);
-	});
+	// The key is only known when the function runs, so the compiler cannot tell which kind of value it names.
+	// `type` says which comparison fits; the checks above have already refused a key the entries do not have.
+	const compare = sortFunctions[type] as (a: unknown, b: unknown, order: Order) => number;
+	const valueOf = (entry: CollectionEntry<T>) => (entry.data as Record<string, unknown>)[sortKey];
+	return unsorted.sort((a, b) => compare(valueOf(a), valueOf(b), order));
 }

@@ -1,6 +1,6 @@
 ---
 import { type BreadcrumbItem, type ExtendedResource, resourceTypeIcon } from '@config';
-import { type CollectionEntry, getCollection, getEntries, getEntry } from 'astro:content';
+import { type CollectionEntry, getCollection, getEntries, getEntry, render } from 'astro:content';
 import type { InferGetStaticPropsType } from 'astro';
 import Layout from '@layouts/Layout.astro';
 import ResourceActionList from '@components/ResourceActionList.astro';
@@ -8,12 +8,13 @@ import ResourceLocationList from '@components/ResourceLocationList.astro';
 import ResourceTagList from '@components/ResourceTagList.astro';
 // import ResponsiveImage from '@components/ResponsiveImage.astro';
 import { getFormattedDate } from '@utils/resourceMeta';
+import { requireMinWidth } from '@utils/imageRules';
 
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
 	const blogEntries = await getCollection('resources');
 	return blogEntries.map((entry) => ({
-		params: { slug: entry.slug },
+		params: { slug: entry.id },
 		props: { entry },
 	}));
 }
@@ -22,26 +23,27 @@ export type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 // 2. For your template, you can get the entry directly from the prop
 const { entry } = Astro.props satisfies Props;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
+if (entry.data.image?.imageLocalUrl) requireMinWidth(entry.data.image.imageLocalUrl, 1000, 'Imaginea trebuie să aibă minim 1000px lățime!', 'resources/' + entry.id);
 
 let resourceTags = new Array();
 let resourceType = 'generic';
 if (entry.data.tags) {
 	const allTags = await getCollection('tags');
 	entry.data.tags.forEach((tag) => {
-		const currentTag = allTags.find((t: CollectionEntry<'tags'>) => t.slug == tag.slug);
-		resourceTags.push({ title: currentTag?.data.title, slug: tag.slug, type: currentTag?.data.type });
+		const currentTag = allTags.find((t: CollectionEntry<'tags'>) => t.id == tag.id);
+		resourceTags.push({ title: currentTag?.data.title, id: tag.id, type: currentTag?.data.type });
 		if (currentTag?.data.type == 'Tip') resourceType = currentTag.data.title;
 	});
 }
 
 let breadcrumbArray: BreadcrumbItem[] = [];
 
-const sectionSlug = entry.data.section.slug;
+const sectionSlug = entry.data.section.id;
 const section = (await getEntry('sections', sectionSlug))!; // @TODO fix this !
 if (section) {
 	breadcrumbArray.push({
-		href: `/${section.slug}`,
+		href: `/${section.id}`,
 		title: section.data.title,
 		label: section.data.menu,
 	});
@@ -51,7 +53,7 @@ const resourceCategories = (await getEntries(entry.data.categories as any))!;
 const firstResourceCategory = resourceCategories[0];
 if (firstResourceCategory) {
 	breadcrumbArray.push({
-		href: `/${section.slug}/${firstResourceCategory.slug}`,
+		href: `/${section.id}/${firstResourceCategory.id}`,
 		title: firstResourceCategory.data.title,
 		label: (firstResourceCategory.data as any).menu, // @TODO fix this any
 	});
@@ -64,7 +66,7 @@ if (entry.data.subcategories) {
 	firstResourceSubcategory = resourceSubCategories[0];
 	if (firstResourceCategory && firstResourceSubcategory) {
 		breadcrumbArray.push({
-			href: `/${section.slug}/${firstResourceCategory.slug}/${firstResourceSubcategory.slug}`,
+			href: `/${section.id}/${firstResourceCategory.id}/${firstResourceSubcategory.id}`,
 			title: firstResourceSubcategory.data.title,
 			label: firstResourceSubcategory.data.menu,
 		});
@@ -118,7 +120,7 @@ breadcrumbArray.push({
 			{
 				entry.data.url && (
 					<a class="HeroResourceLink" href={entry.data.url} title={`Vizitează resursa: ${entry.data.title}`} target="_blank" rel="external noopener noreferrer">
-						<h1 class="HeroTitle" transition:name={`${entry.slug} title`}>
+						<h1 class="HeroTitle" transition:name={`${entry.id} title`}>
 							{entry.data.title}
 							{resourceTypeIcon[resourceType ? resourceType.toLowerCase() : (entry.data.type.toLowerCase() satisfies keyof typeof resourceTypeIcon)]}
 						</h1>
@@ -313,7 +315,7 @@ breadcrumbArray.push({
 						</li>
 					)
 				}
-				<li class="InfoItem" transition:name={`${entry.slug} rating`}>
+				<li class="InfoItem" transition:name={`${entry.id} rating`}>
 					<div class="InfoItemLabel">
 						<span class="Icon IconRating">
 							<span class="SROnly">⭐</span>
@@ -331,7 +333,7 @@ breadcrumbArray.push({
 				</li>
 				{
 					entry.data.requiredTime && (
-						<li class="InfoItem" transition:name={`${entry.slug} time`}>
+						<li class="InfoItem" transition:name={`${entry.id} time`}>
 							<div class="InfoItemLabel">
 								<span class="Icon IconTime">
 									<span class="SROnly">⏰</span>
@@ -385,7 +387,7 @@ breadcrumbArray.push({
 					</span>
 					<span class="InfoItemText">Descrierea resursei:</span>
 				</div>
-				<p class="InfoItemValue" transition:name={`${entry.slug} description`}>{entry.data.description}</p>
+				<p class="InfoItemValue" transition:name={`${entry.id} description`}>{entry.data.description}</p>
 			</div>
 
 			<div class="InfoItem InfoItemStandalone InfoItemTags">
@@ -403,7 +405,7 @@ breadcrumbArray.push({
 					</span>
 					<span class="InfoItemText">Etichete pentru resursă:</span>
 				</div>
-				{entry.data.tags && <ResourceTagList taglist={resourceTags} resslug={entry.slug} />}
+				{entry.data.tags && <ResourceTagList taglist={resourceTags} resslug={entry.id} />}
 			</div>
 
 			<ResourceActionList res={entry as unknown as ExtendedResource} />

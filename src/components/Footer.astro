@@ -68,8 +68,8 @@ const allSections = await getSortedItems({
 	<ul class="FooterList">
 		{
 			allSections.map((section) => (
-				<li class:list={highlightUrl(section.slug, 'FooterItem', 'Active', activePage)}>
-					<a class="FooterLink" href={`/${section.slug}`} title={`Vezi exclusiv lista de ${section.data.title}`}>
+				<li class:list={highlightUrl(section.id, 'FooterItem', 'Active', activePage)}>
+					<a class="FooterLink" href={`/${section.id}`} title={`Vezi exclusiv lista de ${section.data.title}`}>
 						{section.data.menu}
 					</a>
 				</li>

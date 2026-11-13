@@ -1,5 +1,5 @@
 ---
-import { type CollectionEntry, getCollection, getEntry } from 'astro:content';
+import { type CollectionEntry, getCollection, getEntry, render } from 'astro:content';
 import type { InferGetStaticPropsType } from 'astro';
 import Layout from '@layouts/Layout.astro';
 import { PAGE_SIZE } from '@config';
@@ -9,23 +9,23 @@ import ResourceTOC from '@components/ResourceTOC.astro';
 
 export async function getStaticPaths({ paginate }: any) {
 	const allSections = (await getCollection('sections')).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
-	const allSectionsArray = allSections.flatMap((section: { slug: string; collection: string }) => section.slug);
+	const allSectionsArray = allSections.flatMap((section: { id: string; collection: string }) => section.id);
 	const allCategories = (await getCollection('categories')).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
-	const allCategoriesArray = allCategories.flatMap((category: { slug: string; collection: string }) => category.slug);
+	const allCategoriesArray = allCategories.flatMap((category: { id: string; collection: string }) => category.id);
 	const allSubCategories = (await getCollection('subcategories')).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
-	const allSubCategoriesArray = allSubCategories.flatMap((subcategory: { slug: string; collection: string }) => subcategory.slug);
+	const allSubCategoriesArray = allSubCategories.flatMap((subcategory: { id: string; collection: string }) => subcategory.id);
 	const allResources = (await getCollection('resources')).sort((a, b) => new Date(a.data.modDate as string).valueOf() - new Date(b.data.modDate as string).valueOf());
 
 	let finalPagination: { props: any; params: any }[] = new Array(); // @TODO fix typescript
 	allSectionsArray.forEach((section) => {
-		const currentSection = allSections.find((sec: CollectionEntry<'sections'>) => sec.slug == section);
+		const currentSection = allSections.find((sec: CollectionEntry<'sections'>) => sec.id == section);
 		if (currentSection == null || currentSection.data.categories == null) {
 			// nu se poate sa nu existe o sectiune definita
 			// console.warn('false', 'currentSection', currentSection?.id);
 		} else {
 			// există secțiunea
 			// căutăm categorii atașate secțiunii
-			const sectionCategories = currentSection.data.categories.flatMap((cat: { slug: string; collection: string }) => cat.slug);
+			const sectionCategories = currentSection.data.categories.flatMap((cat: { id: string; collection: string }) => cat.id);
 			const selectedCategories = allCategoriesArray.filter((cat: string) => sectionCategories.includes(cat));
 			if (selectedCategories.length < 1) {
 				// secțiunea nu are categorii
@@ -35,13 +35,13 @@ export async function getStaticPaths({ paginate }: any) {
 				// există cel puțin o categorie pe care o putem adăuga în lista paginilor
 				selectedCategories.forEach((category) => {
 					// căutăm subcategorii atașate categoriei
-					const currentCategory = allCategories.find((cat: CollectionEntry<'categories'>) => cat.slug == category);
+					const currentCategory = allCategories.find((cat: CollectionEntry<'categories'>) => cat.id == category);
 					if (!currentCategory || currentCategory.data.subcategories == null) {
 						// nu avem subcategorii în categoria curentă
 						// console.warn('false', 'currentCategory', currentCategory?.id);
 					} else {
 						// există cel puțin o subcategorie pe care o putem adăuga în lista paginilor
-						const sectionSubCategories = currentCategory.data.subcategories.flatMap((subcat: { slug: string; collection: string }) => subcat.slug);
+						const sectionSubCategories = currentCategory.data.subcategories.flatMap((subcat: { id: string; collection: string }) => subcat.id);
 						const selectedSubCategories = allSubCategoriesArray.filter((subcat: string) => sectionSubCategories.includes(subcat));
 						if (selectedSubCategories.length < 1) {
 							// categoria nu are subcategorii
@@ -52,10 +52,10 @@ export async function getStaticPaths({ paginate }: any) {
 							selectedSubCategories.forEach((subcategory) => {
 								const selectedResources = allResources.filter((res: CollectionEntry<'resources'>) => {
 									if (!res.data.categories) return false;
-									const resourceCategories = res.data.categories.flatMap((cat: { slug: string; collection: string }) => cat.slug);
+									const resourceCategories = res.data.categories.flatMap((cat: { id: string; collection: string }) => cat.id);
 									if (!res.data.subcategories) return false;
-									const resourceSubCategories = res.data.subcategories.flatMap((subcat: { slug: string; collection: string }) => subcat.slug);
-									return res.data.section.slug == section && resourceCategories.includes(category) && resourceSubCategories.includes(subcategory);
+									const resourceSubCategories = res.data.subcategories.flatMap((subcat: { id: string; collection: string }) => subcat.id);
+									return res.data.section.id == section && resourceCategories.includes(category) && resourceSubCategories.includes(subcategory);
 								});
 								if (selectedResources.length < 1) {
 									// nu avem resurse atașate categoriei în general
@@ -119,30 +119,30 @@ const currentCategory = params.category as any; // @TODO fix this;
 const category = (await getEntry('categories', currentCategory))!; // @TODO fix this;
 const currentSubCategory = params.subcategory as any; // @TODO fix this;
 const subcategory = (await getEntry('subcategories', currentSubCategory))!; // @TODO fix this;
-const { Content } = await category.render();
+const { Content } = await render(category);
 
 const pageTitle = subcategory.data.title;
 const pageDescription = subcategory.data.description;
 const breadcrumbArray = [
 	{
-		href: `/${section.slug}`,
+		href: `/${section.id}`,
 		title: section.data.title,
 		label: section.data.menu,
 	},
 	{
-		href: `/${section.slug}/${category.slug}`,
+		href: `/${section.id}/${category.id}`,
 		title: category.data.title,
 		label: category.data.menu,
 	},
 	{
-		href: `/${section.slug}/${category.slug}/${subcategory.slug}`,
+		href: `/${section.id}/${category.id}/${subcategory.id}`,
 		title: subcategory.data.title,
 		label: subcategory.data.menu,
 	},
 ];
 ---
 
-<Layout title={pageTitle} description={pageDescription} template="SubcategoryPage" activeMenu={section.slug} breadcrumbArray={breadcrumbArray}>
+<Layout title={pageTitle} description={pageDescription} template="SubcategoryPage" activeMenu={section.id} breadcrumbArray={breadcrumbArray}>
 	<div class="Hero" id="hero">
 		{
 			subcategory.data.image && (

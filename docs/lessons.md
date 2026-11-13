@@ -85,3 +85,12 @@ Mistakes this project has already made, so that no agent makes them again. Read 
 -   **Do instead:** write a script with the file tool, then run it; keep here-documents for plain text without backslashes.
 -   **Check:** rule only. If it happens again: the worker brief gains the rule.
 -   **Status:** rule
+
+### L-008: an upgrade that kept every screenshot and lost page navigation
+
+-   **Date and area:** 2026-11-13, site, Astro 7 upgrade
+-   **What happened:** after the upgrade all 112 screenshots, the text and the head tags of every page matched the baseline, yet every link caused a full page load. `astro-capo` turns the head into text before sorting it, and since Astro 5 that step drops component scripts, so the client router's script never reached the page.
+-   **Why it matters:** a comparison of what pages look like says nothing about what they do. The regression would have shipped as "nothing changed".
+-   **Do instead:** compare behaviour as well as appearance after any upgrade: navigation, the back button and the mobile menu in a real browser, against the build before.
+-   **Check:** `astro-capo` is patched (`patches/astro-capo@0.0.1.patch`), and `test/layoutHead.test.ts` fails if the patch is dropped or not applied. Since 2026-11-13 the navigation test of the end-to-end suite (`e2e/navigation.spec.ts`, run with `pnpm test:e2e` after a build) fails when a link causes a full page load; it was run against a copy of the site without the router script and failed.
+-   **Status:** check

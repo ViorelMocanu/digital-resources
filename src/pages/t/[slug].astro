@@ -1,23 +1,23 @@
 ---
-import { type CollectionEntry, getCollection } from 'astro:content';
+import { type CollectionEntry, getCollection, render } from 'astro:content';
 import Layout from '@layouts/Layout.astro';
 import ResourceList from '@components/ResourceList.astro';
 
 export async function getStaticPaths() {
 	const tags = (await getCollection('tags')).sort((a, b) => new Date(a.data.title).valueOf() - new Date(b.data.title).valueOf()); // ordering by sortOrder asc
 	return tags.map((tag) => ({
-		params: { slug: tag.slug },
+		params: { slug: tag.id },
 		props: { tag },
 	}));
 }
 
 const { slug } = Astro.params;
 const { tag } = Astro.props;
-const { Content } = await tag.render();
+const { Content } = await render(tag);
 
 const resources = (
 	await getCollection('resources', ({ data }) => {
-		return data.tags.find((t) => t.slug == tag.slug);
+		return data.tags.find((t) => t.id == tag.id);
 	})
 ).sort((a, b) => new Date(a.data.modDate as string).valueOf() - new Date(b.data.modDate as string).valueOf()) satisfies CollectionEntry<'resources'>[];
 

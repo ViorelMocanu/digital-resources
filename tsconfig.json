@@ -5,8 +5,8 @@
 		// Enable top-level await, and other modern ESM features.
 		"target": "ESNext",
 		"module": "ESNext",
-		// Enable node-style module resolution, for things like npm package imports.
-		"moduleResolution": "node",
+		// Resolve imports the way the bundler does, including the "exports" field of packages.
+		"moduleResolution": "bundler",
 		// Enable JSON imports.
 		"resolveJsonModule": true,
 		// Enable stricter transpilation for better output.
@@ -20,17 +20,16 @@
 		"noImplicitThis": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
-		"baseUrl": "src",
 		"paths": {
-			"@components/*": ["components/*"],
-			"@config": ["config"],
-			"@content/*": ["content/*"],
-			"@img/*": ["img/*"],
-			"@layouts/*": ["layouts/*"],
-			"@lib/*": ["lib/*"],
-			"@utils/*": ["utils/*"],
-			"@style": ["style/style.scss"],
-			"@data/*": ["data/*"]
+			"@components/*": ["./src/components/*"],
+			"@config": ["./src/config"],
+			"@content/*": ["./src/content/*"],
+			"@img/*": ["./src/img/*"],
+			"@layouts/*": ["./src/layouts/*"],
+			"@lib/*": ["./src/lib/*"],
+			"@utils/*": ["./src/utils/*"],
+			"@style": ["./src/style/style.scss"],
+			"@data/*": ["./src/data/*"]
 		},
 		"types": [
 			"astro/client",

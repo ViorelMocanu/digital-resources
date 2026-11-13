@@ -1,4 +1,2 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
-pnpm commitlint --edit --config=commitlint.config.cjs --verbose
+# Conventional Commits, as configured in commitlint.config.cjs.
+pnpm exec commitlint --edit "$1"

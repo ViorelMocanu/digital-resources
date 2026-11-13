@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
-source "$(dirname $0)/functions.sh"
-notify_about_actions_required HEAD@{1} HEAD@{0}
+# Says when the merge changed the lockfile, so the install is not forgotten.
+. "$(dirname "$0")/functions.sh"
+notify_about_actions_required 'HEAD@{1}' 'HEAD@{0}' || true
 
 exit 0

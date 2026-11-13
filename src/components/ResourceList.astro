@@ -50,9 +50,9 @@ if (resources) {
 	r.forEach((resource: ExtendedResource) => {
 		if (resource.data.tags !== null) {
 			let tagData: CollectionEntry<'tags'>[] = [];
-			resource.data.tags.forEach((tag: { slug: string; collection: string }) => {
+			resource.data.tags.forEach((tag: { id: string; collection: string }) => {
 				const currentTag = allTags.find((el) => {
-					return el.slug == tag.slug;
+					return el.id == tag.id;
 				});
 				if (currentTag && typeof currentTag.data !== 'undefined') {
 					tagData.push(currentTag);
@@ -65,18 +65,18 @@ if (resources) {
 		}
 
 		if (resource.data.section !== null) {
-			const sectionSlug = resource.data.section.slug;
+			const sectionSlug = resource.data.section.id;
 			allSections.forEach((s: CollectionEntry<'sections'>) => {
-				if (s.slug == sectionSlug) resource.sectionData = s;
+				if (s.id == sectionSlug) resource.sectionData = s;
 			});
 		}
 
 		if (resource.data.categories !== null && typeof resource.data.categories !== 'undefined' && resource.data.categories.length > 0) {
 			let categoryData: CollectionEntry<'categories'>[] = [];
-			const currentCategories = resource.data.categories.flatMap((cat: { slug: string; collection: string }) => cat.slug);
+			const currentCategories = resource.data.categories.flatMap((cat: { id: string; collection: string }) => cat.id);
 			currentCategories.forEach((category: string) => {
 				allCategories.forEach((c: CollectionEntry<'categories'>) => {
-					if (c && c.slug == category) categoryData.push(c);
+					if (c && c.id == category) categoryData.push(c);
 				});
 			});
 			resource['categoryData'] = categoryData;
@@ -84,10 +84,10 @@ if (resources) {
 
 		if (resource.data.subcategories !== null && typeof resource.data.subcategories !== 'undefined' && resource.data.subcategories.length > 0) {
 			let subCategoryData: CollectionEntry<'subcategories'>[] = [];
-			const currentSubCategories = resource.data.subcategories.flatMap((subcat: { slug: string; collection: string }) => subcat.slug);
+			const currentSubCategories = resource.data.subcategories.flatMap((subcat: { id: string; collection: string }) => subcat.id);
 			currentSubCategories.forEach((subcategory: string) => {
 				allSubCategories.forEach((s: CollectionEntry<'subcategories'>) => {
-					if (s && s.slug == subcategory) subCategoryData.push(s);
+					if (s && s.id == subcategory) subCategoryData.push(s);
 				});
 			});
 			resource['subCategoryData'] = subCategoryData;
@@ -105,9 +105,9 @@ if (resources) {
 				{r.map((resource) => (
 					<li class="ResourceItem">
 						<div class="ResourceName">
-							<h4 class="ResourceTitle" transition:name={`${resource.slug} title`}>
-								{resource.slug && (
-									<a class="ResourceLink" href={`/r/${resource.slug}`} title={`Vizitează resursa intitulată: ${resource.data.title}`}>
+							<h4 class="ResourceTitle" transition:name={`${resource.id} title`}>
+								{resource.id && (
+									<a class="ResourceLink" href={`/r/${resource.id}`} title={`Vizitează resursa intitulată: ${resource.data.title}`}>
 										{resource.data.title}
 										{resourceTypeIcon[resource.type.toLowerCase()]}
 									</a>
@@ -120,7 +120,7 @@ if (resources) {
 						<div class="ResourceAside ResourceInfo">
 							<h5 class="WidgetTitle">Informații utile:</h5>
 							<ul class="InfoList">
-								<li class="InfoItem" transition:name={`${resource.slug} rating`}>
+								<li class="InfoItem" transition:name={`${resource.id} rating`}>
 									<div class="InfoItemLabel">
 										<span class="Icon IconRating">
 											<span class="SROnly">⭐</span>
@@ -137,7 +137,7 @@ if (resources) {
 									<strong class="InfoItemValue">{resource.data.rating || 'n/a'} (10)</strong>
 								</li>
 								{resource.data.requiredTime && (
-									<li class="InfoItem" transition:name={`${resource.slug} time`}>
+									<li class="InfoItem" transition:name={`${resource.id} time`}>
 										<div class="InfoItemLabel">
 											<span class="Icon IconTime">
 												<span class="SROnly">⏰</span>
@@ -155,11 +155,11 @@ if (resources) {
 						<div class="ResourceMainContent">
 							<ResourceLocationList res={resource} />
 							{resource.data.description && (
-								<p class="ResourceP" transition:name={`${resource.slug} description`}>
+								<p class="ResourceP" transition:name={`${resource.id} description`}>
 									{resource.data.description}
 								</p>
 							)}
-							{resource.data.tags && <ResourceTagList taglist={resource.tagData} resslug={resource.slug} />}
+							{resource.data.tags && <ResourceTagList taglist={resource.tagData} resslug={resource.id} />}
 						</div>
 						<ResourceActionList res={resource} />
 					</li>
