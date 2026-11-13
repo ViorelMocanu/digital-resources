@@ -40,6 +40,9 @@ It includes the source in `.agents/` and every generated copy. `pnpm harness:syn
 
 1. Start from a clean tree.
 2. Raise the version of `@fission-ai/openspec` in `package.json`, once the release is at least seven days old, and install.
-3. Run `pnpm exec openspec update` in your own terminal.
-4. Review the diff. Port anything worth keeping from the stock skills into `.agents/` by hand.
-5. Run `pnpm harness:sync`, then `pnpm harness:sync:check`. An orphan line is a file OpenSpec added that `.agents/` does not have: adopt it into `.agents/` or prune it.
+3. Run `pnpm openspec:port`. It rewrites the `openspec-*` skills and `opsx-*` workflows in `.agents/` from the installed package, with the project rules on top (`scripts/openspec-port.ts`). It does not run `openspec update`, so no tool folder is touched.
+4. Run `pnpm exec prettier --write ".agents/**/*.md"`, then review the diff: it is exactly what the new version changed in the stock text.
+5. If the package added a skill or a workflow, add its name to `include` in `scripts/sync-harness.config.json`.
+6. Run `pnpm harness:sync`, then `pnpm verify`. An orphan line is a generated file whose source is gone: prune it when you have checked that.
+
+Telemetry: `.claude/settings.json` sets `OPENSPEC_TELEMETRY=0` for Claude Code sessions. In your own terminal, `pnpm exec openspec config set telemetry.enabled false` switches it off for your user account.

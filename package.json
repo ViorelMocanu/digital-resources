@@ -51,6 +51,7 @@
 		"harness:sync": "node scripts/sync-harness.ts",
 		"harness:sync:check": "node scripts/sync-harness.ts --check",
 		"harness:sync:diff": "node scripts/sync-harness.ts --diff",
+		"openspec:port": "node scripts/openspec-port.ts",
 		"upd": "pnpm update --latest --recursive --interactive"
 	},
 	"dependencies": {

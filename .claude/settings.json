@@ -1,4 +1,7 @@
 {
+	"env": {
+		"OPENSPEC_TELEMETRY": "0"
+	},
 	"permissions": {
 		"deny": [
 			"Read(.env)",
