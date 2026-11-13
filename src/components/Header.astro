@@ -14,18 +14,16 @@
 import Avatar from '@components/Avatar.astro';
 import { type BreadcrumbItem } from '@config';
 import Breadcrumbs from '@components/Breadcrumbs.astro';
-import { getCollection } from 'astro:content';
+import { collections } from '@utils/collections';
 import { highlightUrl } from '@utils/urlHelpers';
 export interface Props {
 	breadcrumbArray?: BreadcrumbItem[] | undefined;
 	activeMenu?: string | undefined;
 }
 
-const allSections = (
-	await getCollection('sections', ({ data }) => {
-		return data.sortOrder >= 0; // negative sort orders removes sections altogether
-	})
-).sort((a, b) => a.data.sortOrder - b.data.sortOrder); // ordering by sortOrder asc
+const allSections = (await collections.all('sections'))
+	.filter(({ data }) => data.sortOrder >= 0) // negative sort orders removes sections altogether
+	.sort((a, b) => a.data.sortOrder - b.data.sortOrder); // ordering by sortOrder asc
 
 const { breadcrumbArray = [], activeMenu } = Astro.props satisfies Props;
 const activePage = activeMenu || Astro.url.pathname.substring(1);

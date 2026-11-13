@@ -1,5 +1,6 @@
-import { type CollectionEntry, getCollection } from 'astro:content';
 import type { CollectionKeyEnum, Order, Type } from '@config';
+import { type CollectionEntry } from 'astro:content';
+import { collections } from './collections';
 
 /**
  * Compares two strings based on the specified order and returns a numerical value indicating their relative order.
@@ -128,7 +129,8 @@ export default async function getSortedItems<T extends CollectionKeyEnum>({ coll
 	if (!sortFunctions.hasOwnProperty(type)) {
 		throw new Error(`Invalid type value: ${type}`);
 	}
-	const unsorted = await getCollection<T>(collectionKey);
+	// A copy: the collection is shared by every page of a build, and the sort below works in place.
+	const unsorted = [...(await collections.all<T>(collectionKey))];
 	if (typeof unsorted === 'undefined' || !unsorted[0]) {
 		throw new Error("Invalid input. Most likely, 'collectionKey' does not exist.");
 	}

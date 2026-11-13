@@ -5,6 +5,7 @@
 // `openspec init` or `openspec update`, and it writes only under .agents/.
 //
 // Usage: pnpm openspec:port, then format and sync (docs/agent/harness-sync.md, "Upgrading OpenSpec").
+import { FRONTMATTER, dropFrontmatterKeys } from './sync-harness.ts';
 import { dirname, join, resolve } from 'node:path';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
@@ -21,8 +22,6 @@ export const PROJECT_RULES = [
 	'-   Where a step names a tool your host does not have (a question dialog, a todo list), ask in the chat and keep a plain checklist.',
 ].join('\n');
 
-const FRONTMATTER_END = '\n---\n';
-
 /**
  * Turns one stock skill into this project's version: the `allowed-tools` key is dropped (OpenSpec commands keep the
  * normal permission prompt), the rules block goes on top, and commands are written `/opsx-<verb>`, the canonical
@@ -32,18 +31,10 @@ const FRONTMATTER_END = '\n---\n';
  * @returns The text to write to `.agents/skills/<name>/SKILL.md`, before formatting.
  */
 export function portSkill(stock: string, name: string): string {
-	const end = stock.indexOf(FRONTMATTER_END, 4);
-	if (!stock.startsWith('---\n') || end < 0) throw new Error(`${name}: the stock skill has no frontmatter`);
-	const front = stock
-		.slice(0, end + FRONTMATTER_END.length)
-		.split('\n')
-		.filter((line) => !line.startsWith('allowed-tools:'))
-		.join('\n');
-	const body = stock
-		.slice(end + FRONTMATTER_END.length)
-		.replace(/^\n+/, '')
-		.replaceAll('/opsx:', '/opsx-');
-	return `${front}\n${PROJECT_RULES}\n\n${body}`;
+	const front = FRONTMATTER.exec(stock)?.[0];
+	if (!front) throw new Error(`${name}: the stock skill has no frontmatter`);
+	const body = stock.slice(front.length).replace(/^\n+/, '').replaceAll('/opsx:', '/opsx-');
+	return `${dropFrontmatterKeys(front, ['allowed-tools'])}\n${PROJECT_RULES}\n\n${body}`;
 }
 
 export interface StockCommand {

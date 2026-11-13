@@ -151,7 +151,7 @@ const INVOCATION_CLASSES: InvocationClass[] = ['human', 'agent', 'mixed'];
 const IGNORE_FILES = ['.markdownlintignore', '.prettierignore'];
 
 // A leading YAML frontmatter block; an unclosed block does not match.
-const FRONTMATTER = /^---\r?\n[\s\S]*?\r?\n---(?:\r?\n|$)/;
+export const FRONTMATTER = /^---\r?\n[\s\S]*?\r?\n---(?:\r?\n|$)/;
 
 // ─── Core Functions ──────────────────────────────────────────────────────────
 
@@ -234,7 +234,7 @@ function hasGeneratedHeader(content: string, header: string): boolean {
  * @param keys The keys to remove.
  * @returns The text without those keys; unchanged when there is no frontmatter.
  */
-function dropFrontmatterKeys(content: string, keys: string[]): string {
+export function dropFrontmatterKeys(content: string, keys: string[]): string {
 	const text = content.replace(/^\uFEFF/, '');
 	const match = keys.length > 0 ? FRONTMATTER.exec(text) : null;
 	if (!match) {

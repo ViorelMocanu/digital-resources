@@ -20,6 +20,30 @@ The project's milestones, newest first. It answers "what happened, and what did 
 
 ## Milestones
 
+### 2026-11-13: the approved findings of the fourth simplify run are built
+
+**Delivered**
+
+-   Four of the five findings the owner approved, as `openspec/changes/phase-4-e2e-followups/`, all tasks ticked. The fifth, the navigation test as a gate, goes into the CI workflow by the owner's decision.
+-   The browser suite runs 88 tests in about 37 seconds (190 tests and about 70 seconds before): each page is loaded once at the desktop size with its head checks as a step, the narrow project loads one page of each kind, and no trace is recorded.
+-   `src/utils/collections.ts` fetches each collection once per build for the header, the footer and the resource lists. All 106 built files equal the build before.
+-   `scripts/lib/pnpm-overrides.ts` and its test fail `pnpm verify` when an override has nothing left to override. The `minimatch` override names its four parents. `pnpm audit` still reports nothing.
+-   The port script uses the harness sync's frontmatter parser.
+
+**What went well**
+
+-   The overrides check was wrong at first (a package without the dependency counted as asking for any version), and its hand-written cases said so before it ran on the repository.
+-   Each reduction of the suite was followed by a broken copy of the site: without the router script, with an image without a text alternative, and with a page without its robots tag. All three still fail.
+
+**What to do differently**
+
+-   A first survey of the installed packages started one process per package and ran for five minutes. A survey of many files is one script, written with the file tool.
+-   pnpm's store keeps packages of earlier installs and shortens long folder names. What is installed is read from the lockfile; the store is only where the manifests are.
+
+**Next**
+
+The rest of Phase 4: the CI workflow (with the navigation test as its gate), committed screenshots and the dependency bot.
+
 ### 2026-11-13: the end-to-end suite exists (Phase 4, first part)
 
 **Delivered**

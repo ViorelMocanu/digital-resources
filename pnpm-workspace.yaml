@@ -29,9 +29,12 @@ overrides:
     # micromark-extension-math (under markdownlint) caps katex below the fixed 0.18.2. The linter reads the math
     # syntax and never renders it.
     'micromark-extension-math>katex': '^0.18.2'
-    # eslint 10.14.0 and its config reader ask for minimatch 10; the fix is in 11.0.1. Checked after the change:
-    # eslint lints the same 77 files with the same result.
-    'minimatch@^10': '^11.0.1'
+    # Four development tools ask for minimatch 10; the fix is in 11.0.1. Each is named, so the override reaches no
+    # other package. Checked after the change: eslint lints the same 77 files with the same result.
+    'eslint>minimatch': '^11.0.1'
+    '@eslint/config-array>minimatch': '^11.0.1'
+    '@typescript-eslint/typescript-estree>minimatch': '^11.0.1'
+    'markdownlint-cli>minimatch': '^11.0.1'
 
 packageExtensions:
     # This package (under @astrojs/check) ships @emnapi/core 1.11.3 but leaves the matching runtime to a peer that

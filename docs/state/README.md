@@ -119,6 +119,7 @@ What could be wrong, what was not checked, and what was left out on purpose.
 
 | File | Trigger | What it holds |
 | --- | --- | --- |
+| [2026-11-13-1728-phase-4-e2e-followups.md](2026-11-13-1728-phase-4-e2e-followups.md) | pause-point | The approved findings of the fourth simplify run built and checked, uncommitted: a faster suite, collections fetched once, overrides that expire; the rest of Phase 4 next |
 | [2026-11-13-0418-phase-4-e2e-suite.md](2026-11-13-0418-phase-4-e2e-suite.md) | pause-point | The night's work finished and checked, uncommitted: Phases 2 and 3 and the end-to-end suite; receipts, seventeen open decisions, stopped for the owner |
 | [2026-11-13-0314-phase-3-tooling.md](2026-11-13-0314-phase-3-tooling.md) | pause-point | Phases 2 and 3 finished and checked, uncommitted; the audit is empty and the pages are unchanged; thirteen open decisions. Written after the row below: the three earlier names of this night ran ahead of the clock |
 | [2026-11-13-0345-phase-2-core-upgrade.md](2026-11-13-0345-phase-2-core-upgrade.md) | pause-point | Phase 2 finished and checked on Astro 7, uncommitted; receipts, the agent's decisions, nine open decisions, Phase 3 next |

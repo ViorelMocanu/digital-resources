@@ -16,14 +16,15 @@
  * @returns {astro.AstroNode} The rendered resource list component.
  */
 
-import { type CollectionEntry, getCollection } from 'astro:content';
 import { type ExtendedResource, resourceTypeIcon } from '@config';
+import { type CollectionEntry } from 'astro:content';
 import HelpfulLinks from '@components/HelpfulLinks.astro';
 import Message from '@components/Message.astro';
 import Pagination from '@components/Pagination.astro';
 import ResourceActionList from '@components/ResourceActionList.astro';
 import ResourceLocationList from '@components/ResourceLocationList.astro';
 import ResourceTagList from '@components/ResourceTagList.astro';
+import { collections } from '@utils/collections';
 
 export interface Props {
 	resources: CollectionEntry<'resources'>[];
@@ -41,19 +42,19 @@ export interface Props {
 const { resources, page, pageTitle } = Astro.props satisfies Props;
 
 let r = resources as unknown as ExtendedResource[];
-const allTags = await getCollection('tags');
-const allSections = await getCollection('sections');
-const allCategories = await getCollection('categories');
-const allSubCategories = await getCollection('subcategories');
+const [tagsById, sectionsById, categoriesById, subCategoriesById] = await Promise.all([
+	collections.byId('tags'),
+	collections.byId('sections'),
+	collections.byId('categories'),
+	collections.byId('subcategories'),
+]);
 
 if (resources) {
 	r.forEach((resource: ExtendedResource) => {
 		if (resource.data.tags !== null) {
 			let tagData: CollectionEntry<'tags'>[] = [];
 			resource.data.tags.forEach((tag: { id: string; collection: string }) => {
-				const currentTag = allTags.find((el) => {
-					return el.id == tag.id;
-				});
+				const currentTag = tagsById.get(tag.id);
 				if (currentTag && typeof currentTag.data !== 'undefined') {
 					tagData.push(currentTag);
 					if (currentTag.data.type === 'Tip') {
@@ -65,32 +66,16 @@ if (resources) {
 		}
 
 		if (resource.data.section !== null) {
-			const sectionSlug = resource.data.section.id;
-			allSections.forEach((s: CollectionEntry<'sections'>) => {
-				if (s.id == sectionSlug) resource.sectionData = s;
-			});
+			const section = sectionsById.get(resource.data.section.id);
+			if (section) resource.sectionData = section;
 		}
 
 		if (resource.data.categories !== null && typeof resource.data.categories !== 'undefined' && resource.data.categories.length > 0) {
-			let categoryData: CollectionEntry<'categories'>[] = [];
-			const currentCategories = resource.data.categories.flatMap((cat: { id: string; collection: string }) => cat.id);
-			currentCategories.forEach((category: string) => {
-				allCategories.forEach((c: CollectionEntry<'categories'>) => {
-					if (c && c.id == category) categoryData.push(c);
-				});
-			});
-			resource['categoryData'] = categoryData;
+			resource['categoryData'] = resource.data.categories.flatMap((cat: { id: string; collection: string }) => categoriesById.get(cat.id) ?? []);
 		}
 
 		if (resource.data.subcategories !== null && typeof resource.data.subcategories !== 'undefined' && resource.data.subcategories.length > 0) {
-			let subCategoryData: CollectionEntry<'subcategories'>[] = [];
-			const currentSubCategories = resource.data.subcategories.flatMap((subcat: { id: string; collection: string }) => subcat.id);
-			currentSubCategories.forEach((subcategory: string) => {
-				allSubCategories.forEach((s: CollectionEntry<'subcategories'>) => {
-					if (s && s.id == subcategory) subCategoryData.push(s);
-				});
-			});
-			resource['subCategoryData'] = subCategoryData;
+			resource['subCategoryData'] = resource.data.subcategories.flatMap((subcat: { id: string; collection: string }) => subCategoriesById.get(subcat.id) ?? []);
 		}
 	});
 }

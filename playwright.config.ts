@@ -10,14 +10,14 @@ export default defineConfig<SiteOptions>({
 	globalSetup: './e2e/global-setup.ts',
 	// One browser at a time. With several browsers running at once on the machine this suite was written on, page
 	// loads stopped for 30 seconds at a time, in every worker together, and the cause was not found. One worker
-	// runs the 190 tests in about a minute and a half.
+	// runs the suite in well under a minute.
 	workers: 1,
 	forbidOnly: Boolean(process.env['CI']),
 	reporter: [['list']],
 	use: {
 		...devices['Desktop Chrome'],
 		baseURL: ORIGIN,
-		trace: 'retain-on-failure',
+		// No trace is recorded. To see why a test failed, run it again with `--trace on`.
 	},
 	projects: [
 		{
@@ -25,10 +25,10 @@ export default defineConfig<SiteOptions>({
 			use: { viewport: { width: 1440, height: 900 } },
 		},
 		{
-			// The narrow layout has its own menu. The head of a page does not depend on the width, so it is checked once.
+			// The narrow layout has its own menu. It skips the tests tagged as needing only one width.
 			name: 'mobile',
 			use: { viewport: { width: 390, height: 844 }, narrow: true },
-			testIgnore: /head\.spec\.ts/,
+			grepInvert: /@desktop-only/,
 		},
 	],
 });
