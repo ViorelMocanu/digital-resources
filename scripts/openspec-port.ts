@@ -6,9 +6,9 @@
 //
 // Usage: pnpm openspec:port, then format and sync (docs/agent/harness-sync.md, "Upgrading OpenSpec").
 import { dirname, join, resolve } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
+import { pathToFileURL } from 'node:url';
 
 /** The block every ported skill carries between its frontmatter and the stock text. */
 export const PROJECT_RULES = [
@@ -110,13 +110,14 @@ export async function port(root: string): Promise<PortResult> {
 	for (const command of generation.getCommandContents()) {
 		const skill = skillOf.get(command.id);
 		if (!skill) throw new Error(`${command.id}: the package has a command with no skill`);
-		writeFileSync(join(root, '.agents/workflows', `opsx-${command.id}.md`), workflowText(command, skill));
-		workflows.push(`opsx-${command.id}`);
+		const name = `opsx-${command.id}`;
+		writeFileSync(join(root, '.agents/workflows', `${name}.md`), workflowText(command, skill));
+		workflows.push(name);
 	}
 	return { version, skills: [...skillOf.values()], workflows };
 }
 
-if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (import.meta.main) {
 	const result = await port(resolve(import.meta.dirname, '..'));
 	console.log(`Ported OpenSpec ${result.version}: ${result.skills.length} skills, ${result.workflows.length} workflows.`);
 }

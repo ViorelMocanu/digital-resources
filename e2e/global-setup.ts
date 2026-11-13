@@ -1,7 +1,5 @@
 import { PORT, SITE_ROOT } from './server.ts';
-import { createStaticServer } from '../scripts/serve-static.ts';
-import { existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { assertBuiltSite, createStaticServer } from '../scripts/serve-static.ts';
 
 /**
  * Serve the built site for the whole run. The server lives inside the test runner, so it stops with it and
@@ -9,10 +7,9 @@ import { join } from 'node:path';
  * @returns The function that stops the server.
  */
 export default async function globalSetup(): Promise<() => Promise<void>> {
-	const root = SITE_ROOT;
-	if (!existsSync(join(root, 'index.html'))) throw new Error(`No built site in ${root}. Run "pnpm build" first.`);
+	assertBuiltSite(SITE_ROOT);
 
-	const server = createStaticServer(root);
+	const server = createStaticServer(SITE_ROOT);
 	await new Promise<void>((done, failed) => {
 		server.once('error', failed);
 		server.listen(PORT, '127.0.0.1', done);

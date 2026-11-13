@@ -6,8 +6,9 @@ GREEN='\033[0;32m'
 RED='\033[0;31m'
 MAGENTA='\033[0;35m'
 
+# A notice only: it returns 0 whatever it finds, so it never fails the hook that calls it.
 notify_about_actions_required() {
-	changed_files="$(git diff-tree -r --name-status --no-commit-id $1 $2)"
+	changed_files="$(git diff-tree -r --name-status --no-commit-id $1 $2)" || return 0
 	is_changed() {
 		echo "$changed_files" | grep -Eq "$1"
 	}
@@ -26,5 +27,5 @@ notify_about_actions_required() {
 		action="$@"
 		echo -e "${YELLOW}${filename}${NC} changed. Please run ${CYAN}${action}${NC}"
 	}
-	is_changed pnpm-lock.yaml && print_notification "pnpm-lock.yaml" "pnpm install"
+	if is_changed pnpm-lock.yaml; then print_notification "pnpm-lock.yaml" "pnpm install"; fi
 }

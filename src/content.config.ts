@@ -12,6 +12,9 @@ import { z } from 'astro/zod';
  */
 const markdownIn = (folder: string) => glob({ pattern: '**/[^_]*.md', base: `./src/content/${folder}` });
 
+/** The short description every collection but the resources carries: it is also the page's meta description. */
+const shortDescription = z.string().max(165, 'Descrierea scurtă trebuie să fie de maxim 165 caractere');
+
 const resourceCollection = defineCollection({
 	loader: markdownIn('resources'),
 	schema: ({ image }) =>
@@ -57,7 +60,7 @@ const tagCollection = defineCollection({
 				imageAlt: z.string().optional(),
 			})
 			.nullish(),
-		description: z.string().max(165, 'Descrierea scurtă trebuie să fie de maxim 165 caractere'),
+		description: shortDescription,
 		publishDate: z.date().optional(),
 	}),
 });
@@ -72,7 +75,7 @@ const sectionCollection = defineCollection({
 			// The minimum width (100px) is checked where the section page is built: src/utils/imageRules.ts
 			imageUrl: image().optional(),
 			imageAlt: z.string().optional(),
-			description: z.string().max(165, 'Descrierea scurtă trebuie să fie de maxim 165 caractere'),
+			description: shortDescription,
 			categories: z.array(reference('categories')).nullish(),
 			publishDate: z.date(),
 		}),
@@ -90,7 +93,7 @@ const categoryCollection = defineCollection({
 				imageAlt: z.string().optional(),
 			})
 			.nullish(),
-		description: z.string().max(165, 'Descrierea scurtă trebuie să fie de maxim 165 caractere'),
+		description: shortDescription,
 		subcategories: z.array(reference('subcategories')).nullish(),
 		publishDate: z.date(),
 	}),
@@ -108,7 +111,7 @@ const subcategoriesCollection = defineCollection({
 				imageAlt: z.string().optional(),
 			})
 			.nullish(),
-		description: z.string().max(165, 'Descrierea scurtă trebuie să fie de maxim 165 caractere'),
+		description: shortDescription,
 	}),
 });
 

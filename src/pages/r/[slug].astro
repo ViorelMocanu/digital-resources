@@ -24,7 +24,7 @@ export type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 // 2. For your template, you can get the entry directly from the prop
 const { entry } = Astro.props satisfies Props;
 const { Content } = await render(entry);
-if (entry.data.image?.imageLocalUrl) requireMinWidth(entry.data.image.imageLocalUrl, 1000, 'Imaginea trebuie să aibă minim 1000px lățime!', 'resources/' + entry.id);
+if (entry.data.image?.imageLocalUrl) requireMinWidth(entry.data.image.imageLocalUrl, 1000, 'resources/' + entry.id);
 
 let resourceTags = new Array();
 let resourceType = 'generic';

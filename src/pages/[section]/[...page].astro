@@ -37,7 +37,7 @@ const params = Astro.params;
 const currentSection = params.section as string;
 const section = (await getEntry('sections', currentSection))!; // @TODO fix this;
 const { Content } = await render(section);
-if (section.data.imageUrl) requireMinWidth(section.data.imageUrl, 100, 'Imaginea trebuie să aibă minim 100px lățime!', 'sections/' + section.id);
+if (section.data.imageUrl) requireMinWidth(section.data.imageUrl, 100, 'sections/' + section.id);
 
 const pageTitle = section.data.title;
 const pageDescription = section.data.description;

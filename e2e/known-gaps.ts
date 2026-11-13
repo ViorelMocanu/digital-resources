@@ -7,35 +7,26 @@
 /** Pages without a main heading. `/README/` is a stray Markdown file published as a page. */
 export const PAGES_WITHOUT_H1: readonly string[] = ['/README/'];
 
-/** One page of each kind, for the accessibility test. */
-export const PAGE_KINDS: Readonly<Record<string, string>> = {
-	'home': '/',
-	'section': '/front-end/',
-	'category': '/front-end/html/',
-	'subcategory': '/front-end/html/semantica/',
-	'resource list': '/r/',
-	'resource': '/r/how-does-the-internet-work/',
-	'tag list': '/t/',
-	'tag': '/t/video/',
-	'text page': '/faq/',
-	'not found': '/404',
-};
+/** One kind of page, for the accessibility test. */
+export interface PageKind {
+	kind: string;
+	/** One page of this kind. */
+	path: string;
+	/** The axe rules the page breaks today, by rule id. */
+	findings: readonly string[];
+	/** What the narrow layout adds to `findings`. */
+	narrowOnly?: readonly string[];
+}
 
-/** The axe rules each kind of page breaks today, by rule id. */
-export const KNOWN_ACCESSIBILITY_FINDINGS: Readonly<Record<string, readonly string[]>> = {
-	'home': ['label', 'region', 'skip-link'],
-	'section': ['aria-allowed-role', 'heading-order', 'landmark-unique', 'region'],
-	'category': ['aria-allowed-role', 'landmark-unique', 'region'],
-	'subcategory': ['aria-allowed-role', 'landmark-unique', 'region'],
-	'resource list': ['aria-allowed-role', 'heading-order', 'landmark-unique', 'region'],
-	'resource': ['heading-order', 'region'],
-	'tag list': ['region'],
-	'tag': ['heading-order', 'region'],
-	'text page': ['region'],
-	'not found': ['region'],
-};
-
-/** What the narrow layout adds to the list above, by kind of page. */
-export const KNOWN_NARROW_ONLY_FINDINGS: Readonly<Record<string, readonly string[]>> = {
-	resource: ['color-contrast'],
-};
+export const PAGE_KINDS: readonly PageKind[] = [
+	{ kind: 'home', path: '/', findings: ['label', 'region', 'skip-link'] },
+	{ kind: 'section', path: '/front-end/', findings: ['aria-allowed-role', 'heading-order', 'landmark-unique', 'region'] },
+	{ kind: 'category', path: '/front-end/html/', findings: ['aria-allowed-role', 'landmark-unique', 'region'] },
+	{ kind: 'subcategory', path: '/front-end/html/semantica/', findings: ['aria-allowed-role', 'landmark-unique', 'region'] },
+	{ kind: 'resource list', path: '/r/', findings: ['aria-allowed-role', 'heading-order', 'landmark-unique', 'region'] },
+	{ kind: 'resource', path: '/r/how-does-the-internet-work/', findings: ['heading-order', 'region'], narrowOnly: ['color-contrast'] },
+	{ kind: 'tag list', path: '/t/', findings: ['region'] },
+	{ kind: 'tag', path: '/t/video/', findings: ['heading-order', 'region'] },
+	{ kind: 'text page', path: '/faq/', findings: ['region'] },
+	{ kind: 'not found', path: '/404', findings: ['region'] },
+];

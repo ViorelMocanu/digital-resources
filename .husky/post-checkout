@@ -1,5 +1,3 @@
 # Says when the lockfile changed between the two commits, so the install is not forgotten.
 . "$(dirname "$0")/functions.sh"
-notify_about_actions_required "$1" "$2" || true
-
-exit 0
+notify_about_actions_required "$1" "$2"

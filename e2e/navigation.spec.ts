@@ -22,11 +22,11 @@ async function sameDocument(page: Page): Promise<boolean> {
 }
 
 // The check of docs/lessons.md, L-008: after an upgrade every page looked right and every link reloaded the page.
-test('links move between pages without a full page load, and the back button works', async ({ page, errors, isMobile, viewport }) => {
+test('links move between pages without a full page load, and the back button works', async ({ page, errors, narrow }) => {
 	await page.goto('/');
 	await markDocument(page);
 
-	if (isMobile || (viewport?.width ?? 0) < 600) {
+	if (narrow) {
 		const trigger = page.locator('#menuTrigger');
 		await expect(trigger).toHaveAttribute('aria-expanded', 'false');
 		await trigger.click();

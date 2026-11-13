@@ -10,8 +10,22 @@
 
 import { type Server, createServer } from 'node:http';
 import { createReadStream, existsSync, statSync } from 'node:fs';
-import { extname, join, resolve, sep } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { extname, join, resolve } from 'node:path';
+import { isInside } from './lib/checkout-root.ts';
+
+/** The build output of this repository. */
+export const DEFAULT_ROOT = resolve(import.meta.dirname, '..', '.vercel', 'output', 'static');
+
+/** The port the site is served on unless another is asked for. */
+export const DEFAULT_PORT = 4173;
+
+/**
+ * Stop when a folder holds no built site.
+ * @param root The folder that should hold a build.
+ */
+export function assertBuiltSite(root: string): void {
+	if (!existsSync(join(root, 'index.html'))) throw new Error(`No built site in ${root}. Run "pnpm build" first.`);
+}
 
 /** The content type of each kind of file a build contains. */
 const TYPES: Readonly<Record<string, string>> = {
@@ -49,9 +63,9 @@ export function resolveFile(root: string, url: string): string | null {
 		return null;
 	}
 	const target = resolve(join(base, path));
-	if (target !== base && !target.startsWith(base + sep)) return null;
+	if (!isInside(target, base, process.platform)) return null;
 	const candidates = [target, join(target, 'index.html'), `${target}.html`];
-	return candidates.find((file) => existsSync(file) && statSync(file).isFile()) ?? null;
+	return candidates.find((file) => statSync(file, { throwIfNoEntry: false })?.isFile()) ?? null;
 }
 
 /**
@@ -84,13 +98,10 @@ function option(flag: string, fallback: string): string {
 	return (index >= 0 && process.argv[index + 1]) || fallback;
 }
 
-if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-	const root = resolve(option('--root', '.vercel/output/static'));
-	const port = Number(option('--port', '4173'));
-	if (!existsSync(join(root, 'index.html'))) {
-		console.error(`No built site in ${root}. Run "pnpm build" first.`);
-		process.exit(1);
-	}
+if (import.meta.main) {
+	const root = resolve(option('--root', DEFAULT_ROOT));
+	const port = Number(option('--port', String(DEFAULT_PORT)));
+	assertBuiltSite(root);
 	createStaticServer(root).listen(port, '127.0.0.1', () => {
 		console.log(`Serving ${root} at http://127.0.0.1:${port}`);
 	});
