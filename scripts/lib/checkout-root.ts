@@ -13,8 +13,8 @@
  * Uses only `node:` built-ins and has no side effects on import.
  */
 
-import { existsSync } from 'node:fs';
 import { posix, win32 } from 'node:path';
+import { existsSync } from 'node:fs';
 
 /** Environment variables, as in `process.env`. */
 export type Env = Record<string, string | undefined>;

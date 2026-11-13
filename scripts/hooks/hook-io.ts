@@ -13,8 +13,8 @@
  * Uses only `node:` built-ins and the shared `scripts/lib/` modules, and has no side effects on import.
  */
 
-import { appendFileSync, mkdirSync, statSync, writeSync } from 'node:fs';
 import { type Env, ceilingDirectories, findCheckoutRoot, pathFor, scratchPath } from '../lib/checkout-root.ts';
+import { appendFileSync, mkdirSync, statSync, writeSync } from 'node:fs';
 
 // ─── Hosts ───────────────────────────────────────────────────────────────────
 

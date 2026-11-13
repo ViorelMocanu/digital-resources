@@ -1,8 +1,8 @@
-import { ceilingDirectories, findCheckoutRoot, isInside, nativeDrive, normaliseRoot, placeWord, scratchPath, withoutRepoVariables } from './checkout-root.ts';
 import { afterEach, describe, expect, it } from 'vitest';
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { ceilingDirectories, findCheckoutRoot, isInside, nativeDrive, normaliseRoot, placeWord, scratchPath, withoutRepoVariables } from './checkout-root.ts';
 import { join, resolve } from 'node:path';
 import { makeScratchDir, removeScratchDir } from './scratch-git.ts';
+import { mkdirSync, writeFileSync } from 'node:fs';
 
 // Pure tests (OpenSpec change harness-guardrails, design D1 "Shared code" and "Scratch paths"): the walk takes an
 // injected existence check and platform, so the win32 cases run on the Linux CI runner too. One block walks a real

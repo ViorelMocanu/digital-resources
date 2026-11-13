@@ -1,8 +1,8 @@
 import { dirname, extname, isAbsolute, join, posix, relative, resolve, sep } from 'node:path';
 import { existsSync, lstatSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, readlinkSync, realpathSync, renameSync, rmSync, rmdirSync, writeFileSync } from 'node:fs';
-import { spawnSync } from 'node:child_process';
-import { Buffer } from 'node:buffer';
 import { normaliseRoot, scratchPath, withoutRepoVariables } from './lib/checkout-root.ts';
+import { Buffer } from 'node:buffer';
+import { spawnSync } from 'node:child_process';
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 

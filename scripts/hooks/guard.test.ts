@@ -12,14 +12,14 @@ import {
 	makeLockGate,
 	suspicion,
 } from './guard.ts';
+import { type ChildProcess, spawn, spawnSync } from 'node:child_process';
+import { HOOK_ENV, initScratchRepo, isolatedGitEnv, makeScratchDir, removeScratchDir, scratchGit, scrubbedEnv } from '../lib/scratch-git.ts';
 import { type Holder, TOKEN_VARIABLE, handshake } from '../checkout-lock.ts';
 import { type HookOutput, runHook } from './hook-io.ts';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join, resolve, win32 } from 'node:path';
-import { HOOK_ENV, initScratchRepo, isolatedGitEnv, makeScratchDir, removeScratchDir, scratchGit, scrubbedEnv } from '../lib/scratch-git.ts';
 import { Buffer } from 'node:buffer';
-import { type ChildProcess, spawn, spawnSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 
 // The command guard (OpenSpec change harness-guardrails, design D3-D5, D7, D8; spec harness--guards). The rule

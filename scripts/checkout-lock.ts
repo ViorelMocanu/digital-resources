@@ -30,11 +30,11 @@
 
 import { type Holder, MAX_HANDSHAKE_BYTES, PROBE_TIMEOUT_MS, TOKEN_VARIABLE, describeHolder, lockAddress, parseHandshake, readHolderSync } from './lib/lock-holder.ts';
 import { closeSync, existsSync, mkdirSync, openSync, rmSync, statSync } from 'node:fs';
-import { dirname, resolve } from 'node:path';
-import { killTree, ownGroup, treeKillPlan } from './lib/child-tree.ts';
 import { connect, createServer } from 'node:net';
-import { type Env } from './lib/checkout-root.ts';
+import { dirname, resolve } from 'node:path';
 import { errorCode, localIso } from './hooks/hook-io.ts';
+import { killTree, ownGroup, treeKillPlan } from './lib/child-tree.ts';
+import { type Env } from './lib/checkout-root.ts';
 import { randomBytes } from 'node:crypto';
 import { spawn } from 'node:child_process';
 
