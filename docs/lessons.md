@@ -104,3 +104,12 @@ Mistakes this project has already made, so that no agent makes them again. Read 
 - **Do instead:** after a formatter upgrade, run `pnpm verify` before reading anything, then read every change that is not in a Markdown file. Keep type annotations out of Astro templates (annotate in the component script), and write a character, not an entity, in a link label.
 - **Check:** `pnpm verify` (the type check and markdownlint) caught both this time. Rule only for the two habits. If it happens again: a lint rule for annotations in templates.
 - **Status:** rule
+
+### L-010: a check that passed with warnings, reported as clean
+
+- **Date and area:** 2026-11-14, tooling, harness part two
+- **What happened:** `pnpm verify` exited 0 while ESLint printed four warnings (import order in three files the agent had just written). The report gave the exit code and the test count and called the run clean; the owner found the warnings.
+- **Why it matters:** a warning that nobody fixes becomes noise, and the next real one hides in it. A report that says clean when the output says otherwise cannot be trusted.
+- **Do instead:** before writing a commit message, run `pnpm verify:fix`, then `pnpm verify`, and read the whole output: the exit code, and also every warning line. Fix each warning or name it in the report.
+- **Check:** rule only. If it happens again: ESLint runs with `--max-warnings=0` in `pnpm lint:js`, so a warning fails `pnpm verify`.
+- **Status:** rule

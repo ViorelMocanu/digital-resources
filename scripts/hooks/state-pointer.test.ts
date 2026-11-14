@@ -1,7 +1,7 @@
-import { findCheckout, newestSnapshot, pointerText, renderPointer } from './state-pointer.ts';
 import { describe, expect, it } from 'vitest';
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { findCheckout, newestSnapshot, pointerText, renderPointer } from './state-pointer.ts';
 import { makeScratchDir, removeScratchDir } from '../lib/scratch-git.ts';
+import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { spawnSync } from 'node:child_process';
 

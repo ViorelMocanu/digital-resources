@@ -13,8 +13,8 @@
  * Uses only `node:` built-ins; no side effects on import.
  */
 
-import { existsSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
+import { existsSync, readFileSync } from 'node:fs';
 
 /** The longest pointer, as the guard keeps its block messages: one short paragraph. */
 const MAX_POINTER_CHARS = 600;
