@@ -70,11 +70,11 @@ if (resources) {
 			if (section) resource.sectionData = section;
 		}
 
-		if (resource.data.categories !== null && typeof resource.data.categories !== 'undefined' && resource.data.categories.length > 0) {
+		if (resource.data.categories?.length) {
 			resource['categoryData'] = resource.data.categories.flatMap((cat: { id: string; collection: string }) => categoriesById.get(cat.id) ?? []);
 		}
 
-		if (resource.data.subcategories !== null && typeof resource.data.subcategories !== 'undefined' && resource.data.subcategories.length > 0) {
+		if (resource.data.subcategories?.length) {
 			resource['subCategoryData'] = resource.data.subcategories.flatMap((subcat: { id: string; collection: string }) => subCategoriesById.get(subcat.id) ?? []);
 		}
 	});

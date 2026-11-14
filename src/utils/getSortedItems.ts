@@ -131,7 +131,7 @@ export default async function getSortedItems<T extends CollectionKeyEnum>({ coll
 	}
 	// A copy: the collection is shared by every page of a build, and the sort below works in place.
 	const unsorted = [...(await collections.all<T>(collectionKey))];
-	if (typeof unsorted === 'undefined' || !unsorted[0]) {
+	if (!unsorted[0]) {
 		throw new Error("Invalid input. Most likely, 'collectionKey' does not exist.");
 	}
 	if (!unsorted[0].hasOwnProperty(sortKey) && !unsorted[0].data.hasOwnProperty(sortKey)) {

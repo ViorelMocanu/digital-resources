@@ -10,8 +10,9 @@
  * @returns {astro.AstroNode} The rendered navigation menu.
  */
 
-import { type CollectionEntry, getCollection } from 'astro:content';
+import { type CollectionEntry } from 'astro:content';
 import { type ExtendedCategory } from '@config';
+import { collections } from '@utils/collections';
 import { highlightUrl } from '@utils/urlHelpers';
 
 export interface Props {
@@ -24,24 +25,10 @@ const activePage = Astro.url.pathname;
 const sectionCategories = section.data.categories;
 let categoryList: ExtendedCategory[] = [];
 if (sectionCategories) {
-	const allCategories = await getCollection('categories');
-	const allSubcategories = await getCollection('subcategories');
+	const [categoriesById, subCategoriesById] = await Promise.all([collections.byId('categories'), collections.byId('subcategories')]);
 	sectionCategories.forEach((cat: { id: string; collection: string }) => {
-		const category = allCategories.find((el) => {
-			return el.id == cat.id;
-		});
-		let subCategoryData =
-			category?.data.subcategories
-				?.map((subcat: { id: string }): CollectionEntry<'subcategories'> | undefined => {
-					const subcategory = allSubcategories.find((el) => {
-						return el.id == subcat.id;
-					});
-					if (subcategory) {
-						return subcategory;
-					}
-					return undefined;
-				})
-				.filter(Boolean) || [];
+		const category = categoriesById.get(cat.id);
+		const subCategoryData = category?.data.subcategories?.flatMap((subcat: { id: string }) => subCategoriesById.get(subcat.id) ?? []) ?? [];
 
 		categoryList.push({
 			...category,

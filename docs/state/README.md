@@ -119,6 +119,7 @@ What could be wrong, what was not checked, and what was left out on purpose.
 
 | File | Trigger | What it holds |
 | --- | --- | --- |
+| [2026-11-14-1650-phase-4-pipeline.md](2026-11-14-1650-phase-4-pipeline.md) | pause-point | Phase 4 committed as `f934586`, not pushed; the fifth simplify run about to start, with its base and scope |
 | [2026-11-14-1616-phase-4-pipeline.md](2026-11-14-1616-phase-4-pipeline.md) | pause-point | The pipeline, Dependabot and the screenshot test written; the review round done and its fixes checked, uncommitted; the push is fine on two conditions; the Phase 5 list and the content phase |
 | [2026-11-14-1536-phase-4-rest.md](2026-11-14-1536-phase-4-rest.md) | manual-compact | The owner's answers to twenty pending decisions, nothing of them built yet; the order of the work; a content phase to append to the roadmap |
 | [2026-11-13-1728-phase-4-e2e-followups.md](2026-11-13-1728-phase-4-e2e-followups.md) | pause-point | The approved findings of the fourth simplify run built and checked, uncommitted: a faster suite, collections fetched once, overrides that expire; the rest of Phase 4 next |

@@ -21,7 +21,7 @@ export function builtPages(): string[] {
 
 /**
  * Addresses the hosting platform answers itself (its analytics and speed scripts). They are not files of the build,
- * so the local server cannot have them and their absence here says nothing about the site.
+ * so the local server cannot have them: like every other address outside the site, they are not requested at all.
  */
 const HOST_PROVIDED = '/_vercel/';
 
@@ -40,7 +40,7 @@ export const test = base.extend<SiteOptions & { errors: string[] }>({
 	narrow: [false, { option: true }],
 	page: async ({ page }, use) => {
 		await page.route(
-			(url) => url.origin !== ORIGIN,
+			(url) => url.origin !== ORIGIN || url.pathname.startsWith(HOST_PROVIDED),
 			(route) => route.abort()
 		);
 		await use(page);
@@ -50,8 +50,7 @@ export const test = base.extend<SiteOptions & { errors: string[] }>({
 		page.on('pageerror', (error) => errors.push(error.message));
 		page.on('response', (response) => {
 			const url = new URL(response.url());
-			const fromHost = url.pathname.startsWith(HOST_PROVIDED);
-			if (url.origin === ORIGIN && response.status() >= 400 && !fromHost) errors.push(`${response.status()} ${url.pathname}`);
+			if (url.origin === ORIGIN && response.status() >= 400) errors.push(`${response.status()} ${url.pathname}`);
 		});
 		await use(errors);
 	},

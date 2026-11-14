@@ -33,7 +33,7 @@ jobs:
         uses: pentesttoolscom/pentesttools-github-action@ece54ee3353e11194715688b9af3b708801fa3f6 # master on 2026-02-03
         id: ptt
         with:
-          target: ${{ steps.deployment.outputs.page_url || 'https://resurse.dev' }}
+          target: 'https://resurse.dev'
           format: text
           fail: medium
       - name: Check the light output

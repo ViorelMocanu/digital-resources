@@ -141,11 +141,9 @@ export function staleOverrides(overrides: Record<string, string>, manifests: rea
 			stale.push(`${selector}: no installed package is named ${first}`);
 		} else if (depending.length === 0) {
 			stale.push(`${selector}: ${first} no longer depends on ${second}`);
-		} else {
-			const caughtUp = depending.filter((manifest) => overlap(declared(manifest, second), forced));
-			if (caughtUp.length === depending.length && caughtUp[0]) {
-				stale.push(`${selector}: ${first}@${caughtUp[0].version} already asks for ${declared(caughtUp[0], second)}`);
-			}
+		} else if (depending.every((manifest) => overlap(declared(manifest, second), forced))) {
+			const [example] = depending;
+			if (example) stale.push(`${selector}: ${first}@${example.version} already asks for ${declared(example, second)}`);
 		}
 	}
 	return stale;
