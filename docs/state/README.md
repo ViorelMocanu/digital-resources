@@ -119,6 +119,7 @@ What could be wrong, what was not checked, and what was left out on purpose.
 
 | File | Trigger | What it holds |
 | --- | --- | --- |
+| [2026-11-14-1721-content-decisions.md](2026-11-14-1721-content-decisions.md) | pause-point | The owner's answers to the five content decisions (images are downloaded); the roadmap part by part; six commits wait for the push; the spreadsheet is in an unpushed commit |
 | [2026-11-14-1650-phase-4-pipeline.md](2026-11-14-1650-phase-4-pipeline.md) | pause-point | Phase 4 committed as `f934586`, not pushed; the fifth simplify run about to start, with its base and scope |
 | [2026-11-14-1616-phase-4-pipeline.md](2026-11-14-1616-phase-4-pipeline.md) | pause-point | The pipeline, Dependabot and the screenshot test written; the review round done and its fixes checked, uncommitted; the push is fine on two conditions; the Phase 5 list and the content phase |
 | [2026-11-14-1536-phase-4-rest.md](2026-11-14-1536-phase-4-rest.md) | manual-compact | The owner's answers to twenty pending decisions, nothing of them built yet; the order of the work; a content phase to append to the roadmap |
