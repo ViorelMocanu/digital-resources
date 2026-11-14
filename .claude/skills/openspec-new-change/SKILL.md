@@ -52,7 +52,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
     Use the default schema (omit `--schema`) unless the user explicitly requests a different workflow.
 
     **Use a different schema only if the user mentions:**
-
     - A specific schema name → use `--schema <name>`
     - "show workflows" or "what workflows" → run `openspec schemas --json` and let them choose
 

@@ -39,13 +39,11 @@ In both branches, never create the root as a side effect: do not run `openspec i
 1. **Select the change**
 
     If a name is provided, use it. Otherwise:
-
     - Infer from conversation context if the user mentioned a change
     - Auto-select if only one active change exists
     - If ambiguous, run `openspec list --json` to get available changes sorted by most recently modified, and ask the user to select one
 
     When prompting, present the top 3-4 most recently modified changes as options, showing:
-
     - Change name
     - Status (e.g., "0/5 tasks", "complete", "no tasks")
     - How recently it was modified (from `lastModified` field)
@@ -61,7 +59,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
     ```
 
     Parse the JSON to understand current state. The response includes:
-
     - `schemaName`: The workflow schema being used (e.g., "spec-driven")
     - `artifacts`: Array of artifacts with their status ("done", "skipped", "ready", "blocked")
     - `isPlanningComplete`: Boolean indicating if all planning artifacts are complete. Older CLI versions expose the same value as `isComplete`.
@@ -72,7 +69,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
     ***
 
     **Before anything else, finish a partly written artifact**:
-
     - An artifact whose output is a glob pattern (e.g. `specs/**/*.md`) reads `done` as soon as one matching file exists, so a run interrupted while writing its files leaves it `done` with some still missing
     - For each such `done` artifact, first get its instructions and read any completed dependencies needed to determine the expected files. Then compare those files with `artifactPaths.<id>.existingOutputPaths`. For spec-driven's `specs`, read the proposal and check for one `specs/<capability-path>/spec.md` per capability it lists; resolve each expected path against `changeRoot` before comparing path identity, and verify each one remains inside `changeRoot` after resolving symlinks, both in its parent directories and in the file itself if it already exists
     - Never write an expected path that fails that check; stop and tell the user. If any are missing, write only the missing files, each at its checked path - when the `instruction` field delegates creation to a skill or command, invoke it only if it can write each file to its checked path; otherwise stop and tell the user - and STOP - that counts as this invocation's ONE artifact. If you cannot tell whether a file was left out on purpose, ask the user
@@ -80,7 +76,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
     ***
 
     **If all planning artifacts are complete (`isPlanningComplete: true`, or legacy `isComplete: true`)**:
-
     - Congratulate the user
     - Show final status including the schema used
     - Suggest: "Planning is complete! You can now implement this change. Once implementation and any tracked work are complete, archive it."
@@ -89,7 +84,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
     ***
 
     **If artifacts are ready to create** (status shows artifacts with `status: "ready"`):
-
     - Pick the FIRST artifact with `status: "ready"` from the status output
     - Get its instructions:
         ```bash
@@ -118,7 +112,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
     ***
 
     **If no artifacts are ready (all blocked)**:
-
     - This shouldn't happen with a valid schema
     - Show status and suggest checking for issues
 

@@ -6,13 +6,14 @@ import { PAGE_SIZE } from '@config';
 import ResourceFilter from '@components/ResourceFilter.astro';
 import ResourceList from '@components/ResourceList.astro';
 import ResourceTOC from '@components/ResourceTOC.astro';
+import { sortEntries } from '@utils/getSortedItems';
 
 export async function getStaticPaths({ paginate }: any) {
 	const allSections = (await getCollection('sections')).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
 	const allSectionsArray = allSections.flatMap((section: CollectionEntry<'sections'>) => section.id);
 	const allCategories = (await getCollection('categories')).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
 	const allCategoriesArray = allCategories.flatMap((category: CollectionEntry<'categories'>) => category.id);
-	const allResources = (await getCollection('resources')).sort((a, b) => new Date(a.data.modDate as string).valueOf() - new Date(b.data.modDate as string).valueOf());
+	const allResources = sortEntries(await getCollection('resources'), { sortKey: 'modDate', type: 'date' });
 
 	let finalPagination: { props: any; params: any }[] = new Array(); // @TODO fix typescript
 	allSectionsArray.forEach((section) => {
@@ -119,13 +120,9 @@ const breadcrumbArray = [
 
 <Layout title={pageTitle} description={pageDescription} template="CategoryPage" activeMenu={section.id} breadcrumbArray={breadcrumbArray}>
 	<div class="Hero" id="hero">
-		{
-			category.data.image && (
-				<div class="HeroVisual">
-					<img class="HeroImage" src={category.data.image?.imageUrl} width="287" height="120" alt={category.data.image?.imageAlt} />
-				</div>
-			)
-		}
+		{category.data.image?.imageUrl && <div class="HeroVisual">
+			<img class="HeroImage" src={category.data.image.imageUrl.src} width="287" height="120" alt={category.data.image.imageAlt} />
+		</div>}
 		<div class="HeroText">
 			<h1 class="HeroTitle">{category.data.title}</h1>
 			<details class="HeroDetails">

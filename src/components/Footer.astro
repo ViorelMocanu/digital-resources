@@ -36,11 +36,8 @@ const allSections = await getSortedItems({
 	<div class="FooterMeta">
 		<a class="FooterHomepageLink" href="/" title="Mergi înapoi pe prima pagină a site-ului Resurse.dev">resurse.dev</a>
 		<p class="Copyright">
-			Copyright &copy; 2023{yearPrint}
-			<a href="https://www.viorelmocanu.ro/" title="Vezi site-ul personal al lui Viorel Mocanu">Viorel Mocanu</a> și <a
-				href="https://discord.com/invite/UpnAutz"
-				title="Vizitează comunitatea de Discord: Carieră în IT">comunitatea de Discord Carieră în IT</a
-			>.
+			Copyright &copy; 2023{yearPrint} <a href="https://www.viorelmocanu.ro/" title="Vezi site-ul personal al lui Viorel Mocanu">Viorel Mocanu</a> și
+			<a href="https://discord.com/invite/UpnAutz" title="Vizitează comunitatea de Discord: Carieră în IT">comunitatea de Discord Carieră în IT</a>.
 		</p>
 	</div>
 	<ul class="FooterList">
@@ -49,31 +46,27 @@ const allSections = await getSortedItems({
 				Proiectul de GitHub
 			</a>
 		</li>
-		<li class:list={highlightUrl('/termeni-si-conditii', 'FooterItem', 'Active', activePage)}>
+		<li class:list={highlightUrl('termeni-si-conditii', 'FooterItem', 'Active', activePage)}>
 			<a class="FooterLink" href="/termeni-si-conditii" title="@TODO">Termeni și condiții</a>
 		</li>
-		<li class:list={highlightUrl('/confidentialitate', 'FooterItem', 'Active', activePage)}>
+		<li class:list={highlightUrl('confidentialitate', 'FooterItem', 'Active', activePage)}>
 			<a class="FooterLink" href="/confidentialitate" title="@TODO">Politică de confidențialitate</a>
 		</li>
-		<li class:list={highlightUrl('/cookies', 'FooterItem', 'Active', activePage)}>
+		<li class:list={highlightUrl('cookies', 'FooterItem', 'Active', activePage)}>
 			<a class="FooterLink" href="/cookies" title="@TODO">Politică de cookies</a>
 		</li>
-		<li class:list={highlightUrl('/faq', 'FooterItem', 'Active', activePage)}>
+		<li class:list={highlightUrl('faq', 'FooterItem', 'Active', activePage)}>
 			<a class="FooterLink" href="/faq" title="@TODO">Întrebări frecvente</a>
 		</li>
-		<li class:list={highlightUrl('/contact', 'FooterItem', 'Active', activePage)}>
+		<li class:list={highlightUrl('contact', 'FooterItem', 'Active', activePage)}>
 			<a class="FooterLink" href="/contact" title="@TODO">Contact</a>
 		</li>
 	</ul>
 	<ul class="FooterList">
-		{
-			allSections.map((section) => (
-				<li class:list={highlightUrl(section.id, 'FooterItem', 'Active', activePage)}>
-					<a class="FooterLink" href={`/${section.id}`} title={`Vezi exclusiv lista de ${section.data.title}`}>
-						{section.data.menu}
-					</a>
-				</li>
-			))
-		}
+		{allSections.map((section) => <li class:list={highlightUrl(section.id, 'FooterItem', 'Active', activePage)}>
+			<a class="FooterLink" href={`/${section.id}`} title={`Vezi exclusiv lista de ${section.data.title}`}>
+				{section.data.menu}
+			</a>
+		</li>)}
 	</ul>
 </footer>

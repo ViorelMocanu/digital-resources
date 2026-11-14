@@ -54,9 +54,40 @@
 				"stripPrefix": "opsx-",
 				"transforms": ["commandSyntax"]
 			}
+		},
+		"codex": {
+			"aliases": {
+				"source": "workflows",
+				"target": ".agents/skills",
+				"unit": "file",
+				"format": "{name}/SKILL.md",
+				"match": "^opsx-",
+				"generator": "opsxAlias",
+				"transforms": []
+			}
+		},
+		"cursor": {
+			"commands": {
+				"source": "workflows",
+				"target": ".cursor/commands",
+				"unit": "file",
+				"format": "{name}.md",
+				"dropFrontmatterKeys": ["name", "id", "category"],
+				"transforms": []
+			}
+		},
+		"github": {
+			"prompts": {
+				"source": "workflows",
+				"target": ".github/prompts",
+				"unit": "file",
+				"format": "{name}.prompt.md",
+				"dropFrontmatterKeys": ["name", "id", "category"],
+				"transforms": []
+			}
 		}
 	},
-	"retired": [],
+	"retired": [".cursor/skills", ".github/skills", ".codex/skills", ".agent"],
 	"invocation": {
 		"default": "mixed",
 		"skills": {}

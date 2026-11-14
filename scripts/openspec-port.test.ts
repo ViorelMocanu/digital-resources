@@ -1,4 +1,4 @@
-import { PROJECT_RULES, portSkill, workflowText } from './openspec-port.ts';
+import { PROJECT_RULES, portSkill, portedFiles, workflowText } from './openspec-port.ts';
 import { describe, expect, it } from 'vitest';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join, resolve } from 'node:path';
@@ -58,3 +58,12 @@ describe('the ported files in .agents/', () => {
 		expect(existsSync(join(repoRoot, '.agents/skills', skill ?? '', 'SKILL.md'))).toBe(true);
 	});
 });
+
+// The port formats its own output, so a second run changes nothing and an upgrade diff shows only what the new
+// version changed (docs/agent/harness-sync.md, step 4). The expected text is the reviewed, committed file.
+it('the port output equals the committed files', async () => {
+	const { files } = await portedFiles(repoRoot);
+	expect(files.size).toBeGreaterThan(20);
+	const differing = [...files].filter(([path, text]) => read(join(repoRoot, path)) !== text).map(([path]) => path);
+	expect(differing).toEqual([]);
+}, 30_000);

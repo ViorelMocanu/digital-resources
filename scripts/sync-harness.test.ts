@@ -1189,7 +1189,7 @@ function aliasConfig(extra: Partial<SyncConfig> = {}): SyncConfig {
 describe('name filters', () => {
 	beforeEach(() => {
 		put('.agents/workflows/opsx-verify.md', workflowFile('opsx-verify'));
-		put('.agents/workflows/whisperx-transcribe.md', workflowFile('whisperx-transcribe'));
+		put('.agents/workflows/release-notes.md', workflowFile('release-notes'));
 	});
 
 	it('skips a workflow that does not match and strips the prefix from the file name', () => {
@@ -1200,7 +1200,7 @@ describe('name filters', () => {
 
 	it('keeps every workflow in a mapping without a filter', () => {
 		syncAll(makeConfig({ cursor: { commands: { source: 'workflows', target: '.cursor/commands', unit: 'file', format: '{name}.md', transforms: [] } } }), fixtureDir);
-		expect(listFiles('.cursor/commands')).toEqual(['opsx-verify.md', 'whisperx-transcribe.md']);
+		expect(listFiles('.cursor/commands')).toEqual(['opsx-verify.md', 'release-notes.md']);
 		expect(read('.cursor/commands/opsx-verify.md')).toContain('Run /opsx-apply first.');
 	});
 
@@ -1261,7 +1261,7 @@ describe('opsx alias generator', () => {
 	beforeEach(() => {
 		put('.agents/skills/tdd/SKILL.md', skillFile('tdd'));
 		put('.agents/workflows/opsx-verify.md', workflowFile('opsx-verify', 'Verify implementation matches change artifacts before archiving'));
-		put('.agents/workflows/whisperx-transcribe.md', workflowFile('whisperx-transcribe'));
+		put('.agents/workflows/release-notes.md', workflowFile('release-notes'));
 	});
 
 	it('writes SKILL.md with the frontmatter first, then the header, then a body that names the workflow', () => {
@@ -1612,15 +1612,23 @@ describe('canonical skill frontmatter', () => {
 // ─── The real config (design D5, D12) ────────────────────────────────────────
 
 describe('the repo config', () => {
-	it("has the Claude target set and the skip list; other vendors' targets arrive with the second harness part", () => {
+	// Harness part two (OpenSpec change harness-h1b): Codex gets the workflows as alias skills, Cursor as commands and
+	// Copilot as prompt files; the folders those tools no longer read are retired.
+	it('has the target set of every tool, the retired folders and the skip list', () => {
 		const config = loadConfig(repoRoot);
 		const targets = Object.entries(config.platforms).flatMap(([platform, mappings]) =>
 			Object.entries(mappings).map(
 				([key, mapping]) => `${platform}.${key} ${mapping.target} ${mapping.unit} ${mapping.transforms.join(',') || '-'}${mapping.generator ? ` ${mapping.generator}` : ''}`
 			)
 		);
-		expect(targets.sort()).toEqual(['claude.commands .claude/commands/opsx file commandSyntax', 'claude.skills .claude/skills folder commandSyntax']);
-		expect(config.retired).toEqual([]);
+		expect(targets.sort()).toEqual([
+			'claude.commands .claude/commands/opsx file commandSyntax',
+			'claude.skills .claude/skills folder commandSyntax',
+			'codex.aliases .agents/skills file - opsxAlias',
+			'cursor.commands .cursor/commands file -',
+			'github.prompts .github/prompts file -',
+		]);
+		expect(config.retired).toEqual(['.cursor/skills', '.github/skills', '.codex/skills', '.agent']);
 		expect(config.invocation).toEqual({ default: 'mixed', skills: {} });
 		expect(config.vendored).toEqual([]);
 		expect(config.skip).toEqual(['__pycache__', '.pytest_cache', '.venv', 'node_modules', '.DS_Store', 'Thumbs.db']);

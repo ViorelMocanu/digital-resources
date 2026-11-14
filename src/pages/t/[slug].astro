@@ -2,6 +2,7 @@
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 import Layout from '@layouts/Layout.astro';
 import ResourceList from '@components/ResourceList.astro';
+import { sortEntries } from '@utils/getSortedItems';
 
 export async function getStaticPaths() {
 	const tags = (await getCollection('tags')).sort((a, b) => new Date(a.data.title).valueOf() - new Date(b.data.title).valueOf()); // ordering by sortOrder asc
@@ -15,17 +16,18 @@ const { slug } = Astro.params;
 const { tag } = Astro.props;
 const { Content } = await render(tag);
 
-const resources = (
+const resources = sortEntries(
 	await getCollection('resources', ({ data }) => {
 		return data.tags.find((t) => t.id == tag.id);
-	})
-).sort((a, b) => new Date(a.data.modDate as string).valueOf() - new Date(b.data.modDate as string).valueOf()) satisfies CollectionEntry<'resources'>[];
+	}),
+	{ sortKey: 'modDate', type: 'date' }
+) satisfies CollectionEntry<'resources'>[];
 
 const pageTitle = `Tag: ${tag.data.title}`;
 const pageDescription = tag.data.description;
 const breadcrumbArray = [
 	{
-		href: '/taguri',
+		href: '/t',
 		title: 'Toate etichetele de pe Resurse.dev',
 		label: 'Tag-uri',
 	},

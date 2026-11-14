@@ -21,6 +21,30 @@ The project's milestones, newest first. It answers "what happened, and what did 
 
 ## Milestones
 
+### 2026-11-14: Phase 5 built, the faults that were due are fixed (harness part two finished)
+
+**Delivered**
+
+- Harness part two is finished apart from the owner's step of trusting the hooks in the other agents' tools (`openspec/changes/harness-h1b/`, task 4.5).
+- `openspec/changes/phase-5-due-fixes/` fixes the faults Phases 1 to 4 had listed. What a visitor sees: the 14 subcategory pages show their own text; no internal link is dead apart from `/login`; the current tag chip and footer link are marked; the book shows the book icon; the seven category images load; ratings read `10/10`. In the head: canonicals without the final slash, no build time posing as a publication date, ISO dates, a plain `<head>` without `astro-capo`, and `/README/` is gone.
+- For the real content of Phase 7: a build stops with a named message on a broken reference, an unresolved image or an out-of-range rating; optional fields no longer break it; every list has one stable order; pagination survives a segment that starts with a digit.
+- Tooling: `prettier-plugin-astro` 1.1.2 with `astroCompressHTML: 'html'`; the OpenSpec port formats its output; accessibility findings compared by rule and element; a stricter overrides check.
+- Checks: `pnpm verify` exit 0 with no warning (1,113 unit tests), `pnpm build` 55 pages, `pnpm test:e2e` 105 passed, and the build compared tag by tag with the baseline of task 1.1: every difference is one the proposal names.
+
+**What went well**
+
+- Every fix had its failing test first, and the tests that asserted the old behaviour were changed in separate, reasoned steps.
+- The formatter upgrade was checked by screenshots before it was trusted: 110 of 110 differed, against 0 for a build compared with itself. The cause was a setting, and a test now guards it (`docs/lessons.md`, L-009, now a check).
+
+**What to do differently**
+
+- A unit test that imports an `.astro` file passed in vitest and failed in `tsc`; only the full `pnpm typecheck` shows it. Run the whole check after adding a new kind of test, not only the test.
+- A test written minutes earlier changed with its code (`sortEntries` on an empty list): the requirement was wrong, not the test. Settle the empty case before writing the test.
+
+**Next**
+
+The owner's commit (with the untracked generated mirrors), the decisions on the decision page (the share image, the analytics script, `/login`, four deletions), then Phase 6 (the typed content model) and Phase 7 (the real content).
+
 ### 2026-11-14: the pipeline is written and the upgrade is reviewed (Phase 4, the rest)
 
 **Delivered**

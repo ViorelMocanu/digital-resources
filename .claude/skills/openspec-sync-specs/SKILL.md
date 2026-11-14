@@ -44,7 +44,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
 1. **Select the change**
 
     If a name is provided, use it. Otherwise:
-
     - Infer from conversation context if the user mentioned a change
     - Auto-select if only one active change exists
     - If ambiguous, run `openspec list --json` to get available changes and ask the user to select one
@@ -70,7 +69,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
     Sync every path in `existingOutputPaths` unless the caller narrowed the set. A caller narrows it by naming an explicit list of complete entries from `existingOutputPaths` — copy those absolute values verbatim. Archive does this inline, and a user can too (for example, by selecting the entry ending in `/specs/billing/invoices/spec.md`). Then sync only the named paths and leave the remaining delta specs untouched: bulk archive excludes a delta whose implementation it could not find, and syncing it anyway would write a main spec the caller deliberately withheld. Carry that narrowed selection through step 4; never widen it back to the full list. If a named path is not in `existingOutputPaths`, do not sync it — report it and stop, rather than dropping it silently. If the named list is empty, report that there is nothing to sync and stop without writing a main spec.
 
     Each delta spec file contains sections like:
-
     - `## ADDED Requirements` - New requirements to add
     - `## MODIFIED Requirements` - Changes to existing requirements
     - `## REMOVED Requirements` - Requirements to remove
@@ -81,7 +79,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
 4. **For each delta spec, apply changes to main specs**
 
     Before the first main-spec write, obtain one current specs-rule snapshot:
-
     - If archive invoked this workflow inline and supplied a valid snapshot from `openspec instructions specs --change "<name>" --json`, reuse it and do not fetch the same instructions again.
     - Otherwise run that command once now with the same selected-root flags.
     - If the direct lookup exits non-zero or returns invalid artifact-instruction JSON, report the error and stop before writing any main spec. Do not treat the failure as an absent rule set.
@@ -100,12 +97,10 @@ In both branches, never create the root as a side effect: do not run `openspec i
     c. **Apply changes intelligently**:
 
     **ADDED Requirements:**
-
     - If requirement doesn't exist in main spec → add it
     - If requirement already exists → update it to match (treat as implicit MODIFIED)
 
     **MODIFIED Requirements:**
-
     - Find the requirement in main spec
     - Apply the changes - this can be:
         - Adding new scenarios the main spec does not have yet
@@ -114,7 +109,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
     - Preserve scenarios/content not mentioned in the delta
 
     **REMOVED Requirements:**
-
     - Remove the entire requirement block from main spec
     - Retiring the capability. Delete the whole `spec.md` - and the directory once nothing else is left in it - only when ALL of these hold:
         1. removing the requirements _this run_ left no requirement blocks;
@@ -126,15 +120,12 @@ In both branches, never create the root as a side effect: do not run `openspec i
     - Deleting the file also deletes its `## Purpose`; any other section blocks retirement. Name Purpose when you report the retirement. Include a pasteable `git checkout` only when the spec lived in the caller's checkout; otherwise give checkout-scoped recovery guidance.
 
     **RENAMED Requirements:**
-
     - Find the FROM requirement, rename to TO
 
     **`## Purpose` in the delta:**
-
     - The main spec already has one and it is authoritative - leave it alone (this is what `openspec archive` does; it warns and moves on)
 
     d. **Create new main spec** if capability doesn't exist yet:
-
     - Only when the delta has ADDED requirements to put in it and no MODIFIED or RENAMED requirements blocked this capability in step b. Otherwise create nothing and leave the specs directory untouched. For a REMOVED-only delta, if the change's `.openspec.yaml` declares `retire_capabilities: true`, report it as already retired and continue without recreating the spec. Without that marker, report the sync as blocked: `openspec archive` rejects it with `Spec must have at least one requirement`. An empty delta has no operations to sync; report it as blocked too. Never write an empty `## Requirements` section.
     - Create `<planningHome.root>/openspec/specs/<capability-path>/spec.md`
     - Add Purpose section: copy the delta's `## Purpose` body verbatim when it has one (this is what `openspec archive` does); only write a brief TBD placeholder when it does not
@@ -148,7 +139,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
 6. **Show summary**
 
     After applying all changes, summarize:
-
     - Which capabilities were updated
     - What changes were made (requirements added/modified/removed/renamed)
     - Any new main spec left with a TBD Purpose placeholder, so it gets written now rather than lingering

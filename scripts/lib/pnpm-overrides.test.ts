@@ -17,9 +17,23 @@ describe('staleOverrides', () => {
 		expect(staleOverrides({ 'linter>matcher': '^11.0.1', 'tracer>globber': '^14.0.2' }, installed, {})).toEqual([]);
 	});
 
+	// Phase 5: a range that overlaps the fix still allows the vulnerable version below it (11.0.0 here), so the parent
+	// has not caught up. Until then this case expected the line to be reported.
+	it('keeps an override whose parent asks for a range that still allows a version below the fix', () => {
+		const widened: Manifest[] = [{ name: 'linter', version: '2.0.0', dependencies: { matcher: '^11.0.0' } }];
+		expect(staleOverrides({ 'linter>matcher': '^11.0.1' }, widened, {})).toEqual([]);
+	});
+
 	it('reports an override whose parent now asks for the fixed range itself', () => {
-		const caughtUp: Manifest[] = [{ name: 'linter', version: '2.0.0', dependencies: { matcher: '^11.0.0' } }];
-		expect(staleOverrides({ 'linter>matcher': '^11.0.1' }, caughtUp, {})).toEqual(['linter>matcher: linter@2.0.0 already asks for ^11.0.0']);
+		const caughtUp: Manifest[] = [{ name: 'linter', version: '2.0.0', dependencies: { matcher: '^11.0.1' } }];
+		expect(staleOverrides({ 'linter>matcher': '^11.0.1' }, caughtUp, {})).toEqual(['linter>matcher: linter@2.0.0 already asks for ^11.0.1']);
+	});
+
+	it('reports an override whose parent moved past the forced range', () => {
+		const moved: Manifest[] = [{ name: 'linter', version: '3.0.0', dependencies: { matcher: '^12.0.0' } }];
+		expect(staleOverrides({ 'linter>matcher': '^11.0.1' }, moved, {})).toEqual(['linter>matcher: linter@3.0.0 already asks for ^12.0.0']);
+		const pinned: Manifest[] = [{ name: 'markdownlint', version: '0.43.0', dependencies: { re2js: '2.8.8' } }];
+		expect(staleOverrides({ 'markdownlint>re2js': '2.8.7' }, pinned, {})).toEqual(['markdownlint>re2js: markdownlint@0.43.0 already asks for 2.8.8']);
 	});
 
 	it('reports an override whose parent is no longer installed', () => {

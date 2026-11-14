@@ -7,6 +7,7 @@
 // Usage: pnpm openspec:port, then format and sync (docs/agent/harness-sync.md, "Upgrading OpenSpec").
 import { FRONTMATTER, dropFrontmatterKeys } from './sync-harness.ts';
 import { dirname, join, resolve } from 'node:path';
+import { format, resolveConfig } from 'prettier';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import { pathToFileURL } from 'node:url';
@@ -78,34 +79,53 @@ export interface PortResult {
 }
 
 /**
- * Writes every skill and workflow of the installed OpenSpec package into `.agents/`.
+ * Builds every skill and workflow of the installed OpenSpec package as this repository keeps it, formatted with the
+ * repository's Prettier settings, without writing anything.
  * @param root The repository root: where `package.json` and `.agents/` are.
- * @returns The package version and the names written.
+ * @returns The package version, the names, and each file's text by its path relative to the root.
  */
-export async function port(root: string): Promise<PortResult> {
+export async function portedFiles(root: string): Promise<PortResult & { files: Map<string, string> }> {
 	const require = createRequire(join(root, 'package.json'));
 	const packageRoot = resolve(dirname(require.resolve('@fission-ai/openspec')), '..');
 	const { version } = JSON.parse(readFileSync(join(packageRoot, 'package.json'), 'utf8')) as { version: string };
 	const generation = (await import(pathToFileURL(join(packageRoot, 'dist/core/shared/skill-generation.js')).href)) as SkillGeneration;
 
+	const files = new Map<string, string>();
+	// Formatted here, so that a second port changes nothing and an upgrade shows only what the new version changed.
+	const add = async (path: string, text: string) => {
+		const filepath = join(root, path);
+		files.set(path, await format(text, { ...(await resolveConfig(filepath)), filepath }));
+	};
+
 	const skillOf = new Map<string, string>();
 	for (const { template, dirName, workflowId } of generation.getSkillTemplates()) {
-		const folder = join(root, '.agents/skills', dirName);
-		mkdirSync(folder, { recursive: true });
-		writeFileSync(join(folder, 'SKILL.md'), portSkill(generation.generateSkillContent(template, version), dirName));
+		await add(`.agents/skills/${dirName}/SKILL.md`, portSkill(generation.generateSkillContent(template, version), dirName));
 		skillOf.set(workflowId, dirName);
 	}
 
 	const workflows: string[] = [];
-	mkdirSync(join(root, '.agents/workflows'), { recursive: true });
 	for (const command of generation.getCommandContents()) {
 		const skill = skillOf.get(command.id);
 		if (!skill) throw new Error(`${command.id}: the package has a command with no skill`);
 		const name = `opsx-${command.id}`;
-		writeFileSync(join(root, '.agents/workflows', `${name}.md`), workflowText(command, skill));
+		await add(`.agents/workflows/${name}.md`, workflowText(command, skill));
 		workflows.push(name);
 	}
-	return { version, skills: [...skillOf.values()], workflows };
+	return { version, skills: [...skillOf.values()], workflows, files };
+}
+
+/**
+ * Writes every skill and workflow of the installed OpenSpec package into `.agents/`.
+ * @param root The repository root: where `package.json` and `.agents/` are.
+ * @returns The package version and the names written.
+ */
+export async function port(root: string): Promise<PortResult> {
+	const { files, ...result } = await portedFiles(root);
+	for (const [path, text] of files) {
+		mkdirSync(dirname(join(root, path)), { recursive: true });
+		writeFileSync(join(root, path), text);
+	}
+	return result;
 }
 
 if (import.meta.main) {

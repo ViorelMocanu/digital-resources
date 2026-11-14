@@ -37,9 +37,3 @@ packageExtensions:
     '@astrojs/astro2tsx@0.1.3':
         dependencies:
             '@emnapi/runtime': 1.11.3
-
-# astro-capo (last released in 2023) sorts the tags of the page head. On Astro 5 and later it dropped every component
-# script inside the head, the client router's among them, so each link caused a full page load. The patch is one
-# line. See docs/lessons.md, L-008.
-patchedDependencies:
-    astro-capo@0.0.1: patches/astro-capo@0.0.1.patch

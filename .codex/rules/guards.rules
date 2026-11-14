@@ -1,0 +1,71 @@
+# resurse.dev command rules for Codex (OpenSpec change harness-h1b; docs/agent/guardrails.md).
+#
+# A backstop for the guard in .codex/hooks.json. Codex loads these once the project .codex/ layer is trusted, while
+# the hooks also need per-hook trust in the native Codex TUI. A prefix rule sees only the literal argument list, so it
+# misses global options (git -C . push) and anything Codex cannot split; the guard reads those. The rules are
+# stricter than the guard in one place: they forbid every openspec update and init, even one aimed at tmp/, and
+# RESURSE_GUARD_ALLOW does not lift them. Each match example is also checked against the guard by
+# scripts/hooks/guard.test.ts. Check a command with:
+#   codex execpolicy check -r .codex/rules/guards.rules -- git push
+
+GIT_WRITE = "resurse guard: the owner makes every git write (AGENTS.md, Never 1). Use instead: give the owner the exact command; read-only git still works. See docs/agent/guardrails.md."
+
+prefix_rule(
+    pattern = ["git", ["add", "am", "checkout", "cherry-pick", "commit", "fetch", "merge", "mv", "pull", "push", "rebase", "reset", "restore", "revert", "rm", "switch"]],
+    decision = "forbidden",
+    justification = GIT_WRITE,
+    match = ["git push", "git push origin main", "git commit -m x", "git add .", "git checkout main", "git reset --hard", "git restore src", "git pull"],
+    not_match = ["git status", "git log --oneline", "git diff", "git -C . push"],
+)
+
+GIT_CLEAN_FORCE = ["-f", "--force", "-ff", "-fd", "-df", "-fx", "-xf", "-fX", "-Xf", "-fdx", "-fxd", "-dfx", "-dxf", "-xdf", "-xfd", "-ffd", "-ffdx"]
+
+prefix_rule(
+    pattern = ["git", "clean", GIT_CLEAN_FORCE],
+    decision = "forbidden",
+    justification = "resurse guard: git clean deletes untracked files. Use instead: git clean -n to list them, then ask the owner. See docs/agent/guardrails.md.",
+    match = ["git clean -f", "git clean -fdx", "git clean --force"],
+    not_match = ["git clean -n", "git clean --dry-run"],
+)
+
+OPENSPEC = "resurse guard: openspec update, init, feedback and install are the owner's commands (AGENTS.md, Never 9). Use instead: ask the owner to run it in their own terminal. See docs/agent/guardrails.md."
+
+OPENSPEC_OWNED = ["update", "init", "feedback", "install"]
+
+prefix_rule(
+    pattern = ["openspec", OPENSPEC_OWNED],
+    decision = "forbidden",
+    justification = OPENSPEC,
+    match = ["openspec update", "openspec init --tools claude", "openspec feedback x", "openspec install"],
+    not_match = ["openspec list", "openspec new change x", "openspec validate x --strict"],
+)
+
+OPENSPEC_PACKAGES = ["@fission-ai/openspec", "@fission-ai/openspec@latest"]
+
+prefix_rule(
+    pattern = [["npx", "bunx"], OPENSPEC_PACKAGES, OPENSPEC_OWNED],
+    decision = "forbidden",
+    justification = OPENSPEC,
+    match = ["npx @fission-ai/openspec update", "npx @fission-ai/openspec@latest install"],
+    not_match = ["npx @fission-ai/openspec list"],
+)
+
+prefix_rule(
+    pattern = [["pnpm", "npm", "yarn"], ["dlx", "exec"], OPENSPEC_PACKAGES + ["openspec"], OPENSPEC_OWNED],
+    decision = "forbidden",
+    justification = OPENSPEC,
+    match = ["pnpm dlx @fission-ai/openspec update", "pnpm exec openspec feedback x"],
+    not_match = ["pnpm exec openspec list"],
+)
+
+ENV_NAMES = [".env", ".env.local", ".env.development", ".env.production", ".env.test", ".env.development.local", ".env.production.local", ".env.test.local", ".dev.vars"]
+
+ENV_FILES = ENV_NAMES + ["./" + name for name in ENV_NAMES] + [".\\" + name for name in ENV_NAMES]
+
+prefix_rule(
+    pattern = [["cat", "type", "more", "less", "head", "tail", "bat", "Get-Content", "gc", "get-content"], ENV_FILES],
+    decision = "forbidden",
+    justification = "resurse guard: env files hold secrets that agents never read (AGENTS.md, Never 3). Use instead: .env.example lists the variable names. See docs/agent/guardrails.md.",
+    match = ["cat .env", "type .dev.vars", "Get-Content ./.env.local", "gc .env.production"],
+    not_match = ["cat .env.example", "cat README.md"],
+)

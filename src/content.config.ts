@@ -1,5 +1,7 @@
 import { defineCollection, reference } from 'astro:content';
+import { dateTextSchema } from './utils/resourceMeta';
 import { glob } from 'astro/loaders';
+import { ratingSchema } from './utils/rating';
 import { z } from 'astro/zod';
 
 // documentație: https://zod.dev/
@@ -22,7 +24,7 @@ const resourceCollection = defineCollection({
 			title: z.string(),
 			url: z.url('URL invalid'),
 			language: z.enum(['en', 'ro']),
-			modDate: z.string().optional(),
+			modDate: dateTextSchema.optional(),
 			addDate: z.string(),
 			description: z.string(),
 			authorName: z.string().optional(),
@@ -30,7 +32,7 @@ const resourceCollection = defineCollection({
 			section: reference('sections'),
 			categories: z.array(reference('categories')).nullish(),
 			subcategories: z.array(reference('subcategories')).nullish(),
-			rating: z.number().min(1, 'Rating-ul nu poate avea mai puțin de nota 1').max(100, 'Rating-ul nu poate avea mai mult de nota 10').optional(),
+			rating: ratingSchema,
 			price: z.number().min(0, 'Prețul nu poate fi negativ').optional(),
 			requiredTime: z.number().optional(),
 			type: z.enum(['text', 'video', 'curs', 'carte']),
@@ -83,20 +85,22 @@ const sectionCollection = defineCollection({
 
 const categoryCollection = defineCollection({
 	loader: markdownIn('categories'),
-	schema: z.object({
-		title: z.string(),
-		menu: z.string(),
-		sortOrder: z.number(),
-		image: z
-			.object({
-				imageUrl: z.string().optional(),
-				imageAlt: z.string().optional(),
-			})
-			.nullish(),
-		description: shortDescription,
-		subcategories: z.array(reference('subcategories')).nullish(),
-		publishDate: z.date(),
-	}),
+	schema: ({ image }) =>
+		z.object({
+			title: z.string(),
+			menu: z.string(),
+			sortOrder: z.number(),
+			image: z
+				.object({
+					// Through the image pipeline, as for sections: the page gets a built file, not a source path.
+					imageUrl: image().optional(),
+					imageAlt: z.string().optional(),
+				})
+				.nullish(),
+			description: shortDescription,
+			subcategories: z.array(reference('subcategories')).nullish(),
+			publishDate: z.date(),
+		}),
 });
 
 const subcategoriesCollection = defineCollection({

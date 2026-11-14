@@ -23,19 +23,15 @@ const activePage = Astro.url.pathname.substring(1);
 ---
 
 <ul class="ResourceTags" transition:name={`${resslug} tags`}>
-	{
-		taglist.map((tag: any) => (
-			<li class:list={highlightUrl(`taguri/${tag.id}`, 'ResourceTag', 'Active', activePage)}>
-				<a
-					class:list={['ResourceTagLink', `${tag.data ? tag.data.type : tag.type}-${tag.id}`]}
-					href={`/t/${tag.id}`}
-					title={`Vezi toate resursele care sunt clasificate cu eticheta: ${tag.data ? tag.data.title : tag.title}`}
-					rel="tag"
-				>
-					<span class="Icon IconTag">Tag:</span>
-					<span class="TagName">{tag.data ? tag.data.title : tag.title}</span>
-				</a>
-			</li>
-		))
-	}
+	{taglist.map((tag: any) => <li class:list={highlightUrl(`t/${tag.id}`, 'ResourceTag', 'Active', activePage)}>
+		<a
+			class:list={['ResourceTagLink', `${tag.data ? tag.data.type : tag.type}-${tag.id}`]}
+			href={`/t/${tag.id}`}
+			title={`Vezi toate resursele care sunt clasificate cu eticheta: ${tag.data ? tag.data.title : tag.title}`}
+			rel="tag"
+		>
+			<span class="Icon IconTag">Tag:</span>
+			<span class="TagName">{tag.data ? tag.data.title : tag.title}</span>
+		</a>
+	</li>)}
 </ul>

@@ -1,0 +1,3 @@
+# GENERATED from .agents/ — do not edit directly. Run: pnpm harness:sync
+policy:
+  allow_implicit_invocation: false

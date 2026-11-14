@@ -24,13 +24,9 @@ const breadcrumbArray = [
 	<main class="Main">
 		@TODO: desenează layout în Figma pentru pagina asta @TODO: Completează conținutul paginii curente
 		<ul>
-			{
-				allTags.map((tag: any) => (
-					<li>
-						<a href={`/t/${tag.id}`}>{tag.data.title}</a>
-					</li>
-				))
-			}
+			{allTags.map((tag: any) => <li>
+				<a href={`/t/${tag.id}`}>{tag.data.title}</a>
+			</li>)}
 		</ul>
 	</main>
 </Layout>

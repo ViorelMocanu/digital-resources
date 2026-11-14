@@ -62,7 +62,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
     ```
 
     Parse the JSON to get:
-
     - `applyRequires`: array of artifact IDs needed before implementation (e.g., `["tasks"]`)
     - `artifacts`: list of all artifacts, each with its `status` and its `requires` edges (the artifact IDs it directly depends on)
     - `planningHome`, `changeRoot`, `artifactPaths`, and `actionContext`: path and scope context. Use these instead of assuming repo-local paths.
@@ -74,7 +73,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
     Loop through artifacts in dependency order (artifacts with no pending dependencies first):
 
     a. **For each artifact that is `ready` (dependencies satisfied)**:
-
     - Get instructions:
         ```bash
         openspec instructions <artifact-id> --change "<name>" --json
@@ -99,7 +97,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
     - Show brief progress: "✓ Created <artifact-id>"
 
     b. **Continue until every artifact in the required set exists (not just `apply.requires`)**
-
     - After creating each artifact, re-run `openspec status --change "<name>" --json`
     - The required set is `applyRequires` plus every artifact reachable from those by following the `requires` edges in `status --json` - walk them transitively (spec-driven closes over proposal, specs, design, tasks). Leave artifacts outside that set alone
     - `status` is file-existence only, so an `applyRequires` artifact reading `done` does NOT mean its dependencies exist - writing `tasks.md` early marks `tasks` done while `specs` was never written. Use each artifact's `requires` edges, not its `status`, to build the required set: a `done` artifact still lists what it depends on
@@ -110,7 +107,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
     - Stop when every artifact in the required set is `done`, `skipped`, or was deliberately skipped
 
     c. **If an artifact requires user input** (critically unclear context):
-
     - Ask the user to clarify
     - Then continue with creation
 

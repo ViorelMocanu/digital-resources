@@ -1,6 +1,6 @@
 // Vitest unit test for highlightUrl function
+import { test, vi } from 'vitest';
 import { highlightUrl } from '../src/utils/urlHelpers';
-import { test } from 'vitest';
 
 test('highlightUrl()', () => {
 	const urlFragment = '/test';
@@ -26,39 +26,14 @@ describe('highlightUrl', () => {
 		expect(result).toEqual(['link']);
 	});
 
-	// Returns an array with the standard class name when the current URL is not provided and the window object is undefined
-	it('should return an array with the standard class name when the current URL is not provided and the window object is undefined', () => {
-		const urlFragment = 'example';
-		const standardClass = 'link';
-		const activeClass = 'active';
-		const currentUrl = undefined;
-
-		const result = highlightUrl(urlFragment, standardClass, activeClass, currentUrl);
-
-		expect(result).toEqual(['link']);
-	});
-
-	// Returns an array with the standard class name when the current URL is not provided and the window object does not have a location property
-	it('should return an array with the standard class name when the current URL is not provided and the window object does not have a location property', () => {
-		const urlFragment = 'example';
-		const standardClass = 'link';
-		const activeClass = 'active';
-		const currentUrl = undefined;
-
-		const result = highlightUrl(urlFragment, standardClass, activeClass, currentUrl);
-
-		expect(result).toEqual(['link']);
-	});
-
-	// Returns an array with the standard class name when the current URL is not provided and the window location does not start with the provided URL fragment
-	it('should return an array with the standard class name when the current URL is not provided and the window location does not start with the provided URL fragment', () => {
-		const urlFragment = 'example';
-		const standardClass = 'link';
-		const activeClass = 'active';
-		const currentUrl = undefined;
-
-		const result = highlightUrl(urlFragment, standardClass, activeClass, currentUrl);
-
-		expect(result).toEqual(['link']);
+	// The helper decides from its argument alone: every caller is a template rendered at build time, where there is
+	// no window. A browser window must not change the answer, even for an empty path (the home page gives one).
+	it('ignores a browser window when the current path is empty', () => {
+		vi.stubGlobal('window', { location: { href: 'https://resurse.dev/front-end/' } });
+		try {
+			expect(highlightUrl('https://resurse.dev/front-end', 'link', 'active', '')).toEqual(['link']);
+		} finally {
+			vi.unstubAllGlobals();
+		}
 	});
 });

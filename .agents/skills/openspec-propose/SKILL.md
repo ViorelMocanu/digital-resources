@@ -78,7 +78,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
     Use the configured default schema unless the user explicitly requests a different workflow.
 
     **Use a different schema only if the user:**
-
     - Explicitly requests a specific schema by name → use `--schema <schema-name>`
     - Asks to "show workflows" or asks "what workflows" exist → resolve the authoritative root by running `openspec context --json` from the current working directory. If the user explicitly selected a registered store, use `openspec context --json --store "<store-id>"`. Then run `openspec schemas --json` with its working directory set to the returned `root.path` and let them choose. This preserves roots selected by a local `store:` pointer or the global `defaultStore`; when a registered store was explicitly selected, append `--store "<store-id>"` to `openspec schemas --json` as well. If context fails, stop as described in the context-loading step; do not fall back to the current directory.
 
@@ -109,7 +108,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
     ```
 
     Parse the JSON to get:
-
     - `applyRequires`: array of artifact IDs needed before implementation (e.g., `["tasks"]`)
     - `artifacts`: list of all artifacts, each with its `status` and its `requires` edges (the artifact IDs it directly depends on)
     - `planningHome`, `changeRoot`, `artifactPaths`, and `actionContext`: path and scope context. Use these instead of assuming repo-local paths.
@@ -121,7 +119,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
     Loop through artifacts in dependency order (artifacts with no pending dependencies first):
 
     a. **For each artifact that is `ready` (dependencies satisfied)**:
-
     - Get instructions:
         ```bash
         openspec instructions <artifact-id> --change "<name>" --json
@@ -146,7 +143,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
     - Show brief progress: "Created <artifact-id>"
 
     b. **Continue until every artifact in the required set exists (not just `apply.requires`)**
-
     - After creating each artifact, re-run `openspec status --change "<name>" --json`
     - The required set is `applyRequires` plus every artifact reachable from those by following the `requires` edges in `status --json` - walk them transitively (spec-driven closes over proposal, specs, design, tasks). Leave artifacts outside that set alone
     - `status` is file-existence only, so an `applyRequires` artifact reading `done` does NOT mean its dependencies exist - writing `tasks.md` early marks `tasks` done while `specs` was never written. Use each artifact's `requires` edges, not its `status`, to build the required set: a `done` artifact still lists what it depends on
@@ -157,7 +153,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
     - Stop when every artifact in the required set is `done`, `skipped`, or was deliberately skipped
 
     c. **If an artifact requires user input** (unclear context):
-
     - Ask the user to clarify
     - Then continue with creation
 

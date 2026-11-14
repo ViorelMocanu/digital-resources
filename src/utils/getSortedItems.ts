@@ -95,52 +95,67 @@ const sortFunctions = {
 	number: sortNumbers,
 };
 
-type GetSortedItemsProps<T extends CollectionKeyEnum> = {
-	collectionKey: T;
+/**
+ * Orders two entries by their id, for `Array.prototype.sort`.
+ * @param {{ id: string }} a The first entry.
+ * @param {string} a.id Its id.
+ * @param {{ id: string }} b The second entry.
+ * @param {string} b.id Its id.
+ * @returns {1|-1|0} The order of the two ids.
+ */
+export const byId = (a: { id: string }, b: { id: string }): 1 | -1 | 0 => sortTexts(a.id, b.id, 'asc');
+
+/** How to sort: the data field, the kind of value it holds and the direction. */
+export type SortOptions = {
 	sortKey: string;
 	type: Type;
 	order?: Order;
 };
 
 /**
- * A function built to return any Astro Content Collection sorted by the provided sortKey parameter.
- * @async
- * @function getSortedItems
- * @param {GetSortedItemsProps} root0 Property object
- * @param {CollectionKeyEnum} root0.collectionKey Name of the collection from which you want to extract data
- * @param {string} root0.sortKey Attribute you want to sort by
- * @param {Type} [root0.type] What is the value of the attribute you want to sort by {text, number, date}
- * @param {Order} [root0.order] Order type {asc, desc}, default 'asc'
- * @returns {Promise<CollectionEntry<CollectionKeyEnum>[]>} A sorted list containing CollectionEntries of the correct type
+ * Sorts entries by one field of their data. Entries without the field come last, in both orders, and entries with
+ * the same value keep the order of their ids, so two builds always give the same list.
+ * @param {readonly E[]} entries The entries; the list is not changed.
+ * @param {SortOptions} options The field, the kind of value and the order ('asc' by default).
+ * @returns {E[]} A new, sorted list.
+ * @throws {Error} When the type is unknown, or no entry of a non-empty list has the field in its data.
  */
-export default async function getSortedItems<T extends CollectionKeyEnum>({ collectionKey, sortKey, type, order = 'asc' }: GetSortedItemsProps<T>): Promise<CollectionEntry<T>[]> {
-	if (typeof collectionKey !== 'string') {
-		throw new Error("Invalid input. Expected 'collectionKey' to be a string.");
-	}
-	if (typeof sortKey !== 'string' && typeof sortKey !== 'number') {
-		throw new Error("Invalid input. Expected 'sortKey' to be a string or number.");
-	}
-	if (typeof type !== 'string') {
-		throw new Error("Invalid input. Expected 'type' to be a string.");
-	}
-	if (typeof order !== 'undefined' && typeof order !== 'string') {
-		throw new Error("Invalid input. Expected 'order' to be a string.");
-	}
-	if (!sortFunctions.hasOwnProperty(type)) {
+export function sortEntries<E extends { id: string; data: object }>(entries: readonly E[], { sortKey, type, order = 'asc' }: SortOptions): E[] {
+	if (!Object.hasOwn(sortFunctions, type)) {
 		throw new Error(`Invalid type value: ${type}`);
 	}
-	// A copy: the collection is shared by every page of a build, and the sort below works in place.
-	const unsorted = [...(await collections.all<T>(collectionKey))];
-	if (!unsorted[0]) {
-		throw new Error("Invalid input. Most likely, 'collectionKey' does not exist.");
-	}
-	if (!unsorted[0].hasOwnProperty(sortKey) && !unsorted[0].data.hasOwnProperty(sortKey)) {
+	if (entries.length === 0) return [];
+	if (!entries.some((entry) => Object.hasOwn(entry.data, sortKey))) {
 		throw new Error(`Invalid sortKey value: ${sortKey}`);
 	}
 
 	// The key is only known when the function runs, so the compiler cannot tell which kind of value it names.
-	// `type` says which comparison fits; the checks above have already refused a key the entries do not have.
+	// `type` says which comparison fits.
 	const compare = sortFunctions[type] as (a: unknown, b: unknown, order: Order) => number;
-	const valueOf = (entry: CollectionEntry<T>) => (entry.data as Record<string, unknown>)[sortKey];
-	return unsorted.sort((a, b) => compare(valueOf(a), valueOf(b), order));
+	const valueOf = (entry: E) => (entry.data as Record<string, unknown>)[sortKey];
+	return [...entries].sort((a, b) => {
+		const [x, y] = [valueOf(a), valueOf(b)];
+		if ((x === undefined) !== (y === undefined)) return x === undefined ? 1 : -1;
+		const byValue = x === undefined ? 0 : compare(x, y, order);
+		return byValue !== 0 ? byValue : byId(a, b);
+	});
+}
+
+/**
+ * Returns a whole content collection sorted by one field of its data (see sortEntries).
+ * @async
+ * @function getSortedItems
+ * @param {SortOptions & { collectionKey: T }} root0 Property object
+ * @param {CollectionKeyEnum} root0.collectionKey Name of the collection from which you want to extract data
+ * @param {string} root0.sortKey Attribute you want to sort by
+ * @param {Type} root0.type What is the value of the attribute you want to sort by {text, number, date}
+ * @param {Order} [root0.order] Order type {asc, desc}, default 'asc'
+ * @returns {Promise<CollectionEntry<CollectionKeyEnum>[]>} A sorted list containing CollectionEntries of the correct type
+ */
+export default async function getSortedItems<T extends CollectionKeyEnum>({ collectionKey, ...options }: SortOptions & { collectionKey: T }): Promise<CollectionEntry<T>[]> {
+	const entries = await collections.all<T>(collectionKey);
+	if (entries.length === 0) {
+		throw new Error("Invalid input. Most likely, 'collectionKey' does not exist.");
+	}
+	return sortEntries(entries, options);
 }

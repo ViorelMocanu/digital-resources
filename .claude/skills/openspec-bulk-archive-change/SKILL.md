@@ -50,7 +50,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
 2. **Prompt for change selection**
 
     Ask the user to choose changes (multi-select):
-
     - Show each change name and task status from the list output
     - Include an option for "All changes"
     - Allow any number of selections (1+ works, 2+ is the typical use case)
@@ -72,12 +71,10 @@ In both branches, never create the root as a side effect: do not run `openspec i
     For each selected change, collect:
 
     a. **Artifact status** - Run `openspec status --change "<name>" --json`
-
     - Parse `schemaName`, `artifacts`, `planningHome`, `changeRoot`, `artifactPaths`, and `actionContext`
     - Note which artifacts are `done` vs other states
 
     b. **Task completion** - Find the `changes` entry from the list response whose `name` exactly matches this change
-
     - Require nonnegative integer `totalTasks` and `completedTasks`, with `completedTasks <= totalTasks`
     - Incomplete tasks = `totalTasks - completedTasks`
     - The CLI resolves the schema's tracked task files, including custom artifact names, output paths, and globs
@@ -86,14 +83,12 @@ In both branches, never create the root as a side effect: do not run `openspec i
     - If `totalTasks` is zero, note as "No tasks"
 
     c. **Delta specs** - Check `artifactPaths.specs.existingOutputPaths` from status JSON
-
     - List which capability specs exist
     - For each, extract requirement names (lines matching `### Requirement: <name>`)
     - Treat this list as the only delta-spec source. If the `specs` entry is missing or the list is empty, perform no spec sync or specs-instruction lookup for that change; do not infer deltas from unrelated artifacts.
     - Evaluate this independently for every change, including mixed-schema batches where some schemas have no `specs` artifact.
 
     d. **Archive target** - Compute each change's target name once and record it as that change's `<target-name>`
-
     - Use the change name as-is when it already starts with a `YYYY-MM-DD-` prefix; otherwise prepend the current date as `YYYY-MM-DD-<name>` (same rule as `openspec archive`)
     - Check whether `<planningHome.changesDir>/archive/<target-name>` already exists
     - If it exists, or another selected change resolves to the same target name, mark every such change `Blocked` with `Archive directory already exists`
@@ -118,18 +113,15 @@ In both branches, never create the root as a side effect: do not run `openspec i
     a. **Read the delta specs** from each conflicting change to understand what each claims to add/modify
 
     b. **Search the codebase** for implementation evidence:
-
     - Look for code implementing requirements from each delta spec
     - Check for related files, functions, or tests
 
     c. **Determine resolution**:
-
     - If only one change is actually implemented -> sync that one's specs
     - If both implemented -> apply in chronological order (older first, newer overwrites)
     - If neither implemented -> skip spec sync, warn user
 
     d. **Record resolution** for each conflict:
-
     - An inclusion or exclusion decision for every delta spec, keyed by change and `<capability-path>`
     - Which included delta specs to apply and in what order
     - Which delta specs to exclude from sync because their implementation is missing
@@ -140,12 +132,12 @@ In both branches, never create the root as a side effect: do not run `openspec i
     Display a table summarizing all changes:
 
     ```markdown
-    | Change            | Artifacts | Tasks | Specs   | Conflicts              | Status  |
-    | ----------------- | --------- | ----- | ------- | ---------------------- | ------- |
-    | schema-management | Done      | 5/5   | 2 delta | None                   | Ready   |
-    | project-config    | Done      | 3/3   | 1 delta | None                   | Ready   |
-    | add-oauth         | Done      | 4/4   | 1 delta | identity/user-auth (!) | Ready\* |
-    | add-verify-skill  | 1 left    | 2/5   | None    | None                   | Warn    |
+    | Change            | Artifacts | Tasks | Specs   | Conflicts              | Status |
+    | ----------------- | --------- | ----- | ------- | ---------------------- | ------ |
+    | schema-management | Done      | 5/5   | 2 delta | None                   | Ready  |
+    | project-config    | Done      | 3/3   | 1 delta | None                   | Ready  |
+    | add-oauth         | Done      | 4/4   | 1 delta | identity/user-auth (!) | Ready* |
+    | add-verify-skill  | 1 left    | 2/5   | None    | None                   | Warn   |
     ```
 
     For conflicts, show the resolution:
@@ -175,7 +167,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
     If there are incomplete changes, make clear they'll be archived with warnings.
 
     Route on the answer by intent, not by exact label — you wrote these labels, so match what the user picked rather than the wording above:
-
     - "Cancel" — stop, do not archive. Report that nothing was archived and skip the remaining steps.
     - The archive-everything option — proceed with every selected change that is not `Blocked`
     - The ready-only option — proceed with only the changes the step 6 table marks `Ready` or `Ready*`, and record the rest as Skipped in step 8d, except `Blocked` changes, which stay Failed with `Archive directory already exists`. If a `Ready*` change's conflict partner is skipped, re-derive that conflict's resolution using only the changes being archived.
@@ -186,7 +177,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
 8. **Execute archive for each confirmed change**
 
     Before processing, carry the recorded decisions from step 5 (after any step 7 re-derivation) into two per-delta sets:
-
     - `includedDeltas`: all non-conflicting delta specs from confirmed changes plus conflict deltas selected for sync
     - `excludedDeltas`: conflict deltas from confirmed changes excluded because their implementation is missing
     - A single change can have both included and excluded delta specs. Keep the decision per delta; do not collapse it into a per-change sync flag.
@@ -194,7 +184,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
     Process changes in the determined order (respecting conflict resolution):
 
     a. **Sync included delta specs**:
-
     - Run the `openspec-sync-specs` workflow inline (agent-driven intelligent merge) only for changes with entries in `includedDeltas`, passing only the included delta paths and explicitly instructing it to ignore that change's `excludedDeltas`. Wait for it to finish.
     - If the sync reports any stop or blocking condition, treat the sync as failed. Stop processing that change immediately. Before continuing to the next change, record this change's outcome as Failed in the batch results, including the sync blocking/error condition.
     - Do not perform the post-sync content comparison and do not move its `changeRoot`; leave the change intact.
@@ -205,7 +194,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
     - If a change has no included delta specs, do not run the sync workflow for it.
 
     b. **Verify included delta specs before moving changeRoot**:
-
     - Re-run the comparison only for delta specs in `includedDeltas` against main spec at `<planningHome.root>/openspec/specs/<capability-path>/spec.md` (use the store-aware `planningHome.root` from step 3 status JSON, not a hardcoded repo path).
     - Verify that main specs are updated:
         - ADDED requirements present
@@ -220,7 +208,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
     Target name: use the `<target-name>` recorded for this change in step 3d, unchanged. Never recompute it here: a batch that runs past midnight would check one date in step 3 and move to another.
 
     **Check if target already exists:**
-
     - Check again immediately before the move, even though step 3 already checked: the target can appear mid-batch
     - If yes: record this change as Failed with `Archive directory already exists`, leave `changeRoot` where it is, report any main specs step 8a already synced for it, and continue with the remaining changes
     - If no: move `changeRoot` to the archive directory
@@ -233,7 +220,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
     **Confirm the move did not nest:** `mv` exits 0 even when the target appeared after the check, moving the change _inside_ it. If `<planningHome.changesDir>/archive/<target-name>/<change-directory-name>` now exists (the last path segment of `changeRoot`), move that directory back to `changeRoot` and record this change as Failed with `Archive directory already exists`. Never report it as archived.
 
     d. **Track outcome** for each change:
-
     - Success: archived successfully
     - Failed: error during archive or spec verification (record error)
     - Skipped: user chose not to archive (if applicable)

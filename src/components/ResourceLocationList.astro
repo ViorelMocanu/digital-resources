@@ -32,74 +32,52 @@ export interface Props {
 const { res, section, categories, subcategories } = Astro.props satisfies Props;
 
 const resourceSection = res ? res.data.section : section;
-const shouldRenderCategoriesFromRes = res && res.data.categories && resourceSection;
+const shouldRenderCategoriesFromRes = res && res.categoryData.length > 0 && resourceSection;
 const shouldRenderCategoriesFromCat = categories && resourceSection;
-const shouldRenderSubcategoriesFromRes = res && res.data.subcategories;
+const shouldRenderSubcategoriesFromRes = res && res.subCategoryData.length > 0;
 const shouldRenderSubcategoriesFromCat = subcategories && categories && resourceSection;
 ---
 
 <ul class="ResourceLocationList" transition:name={`${res?.id} location`}>
-	{
-		resourceSection && (
-			<li class="ResourceLocationItem Classification">
-				{res && res.data.section && res.sectionData ? (
-					<a class="ClassificationLink" href={`/${resourceSection.id}`} title={`Vezi toate resursele din secțiunea ${res.sectionData.data.title}`}>
-						{res.sectionData.data.menu}
-					</a>
-				) : (
-					section && (
-						<a class="ClassificationLink" href={`/${resourceSection.id}`} title={`Vezi toate resursele din secțiunea ${section.data.title}`}>
-							{section.data.menu}
-						</a>
-					)
-				)}
-			</li>
-		)
-	}
+	{resourceSection && <li class="ResourceLocationItem Classification">
+		{res && res.data.section && res.sectionData ? (
+			<a class="ClassificationLink" href={`/${resourceSection.id}`} title={`Vezi toate resursele din secțiunea ${res.sectionData.data.title}`}>
+				{res.sectionData.data.menu}
+			</a>
+		) : (
+			section && <a class="ClassificationLink" href={`/${resourceSection.id}`} title={`Vezi toate resursele din secțiunea ${section.data.title}`}>
+				{section.data.menu}
+			</a>
+		)}
+	</li>}
 
-	{
-		shouldRenderCategoriesFromRes &&
-			res.categoryData.map((cat) => (
-				<li class="ResourceLocationItem Classification">
-					<a class="ClassificationLink" href={`/${resourceSection.id}/${cat.id}`} title={`Vezi toate resursele din categoria ${cat.data.title}`}>
-						{cat.data.menu}
-					</a>
-				</li>
-			))
-	}
-	{
-		shouldRenderCategoriesFromCat &&
-			categories.map((cat) => (
-				<li class="ResourceLocationItem Classification">
-					<a class="ClassificationLink" href={`/${resourceSection.id}/${cat.id}`} title={`Vezi toate resursele din categoria ${cat.data.title}`}>
-						{cat.data.menu}
-					</a>
-				</li>
-			))
-	}
+	{shouldRenderCategoriesFromRes &&
+		res.categoryData.map((cat) => <li class="ResourceLocationItem Classification">
+			<a class="ClassificationLink" href={`/${resourceSection.id}/${cat.id}`} title={`Vezi toate resursele din categoria ${cat.data.title}`}>
+				{cat.data.menu}
+			</a>
+		</li>)}
+	{shouldRenderCategoriesFromCat &&
+		categories.map((cat) => <li class="ResourceLocationItem Classification">
+			<a class="ClassificationLink" href={`/${resourceSection.id}/${cat.id}`} title={`Vezi toate resursele din categoria ${cat.data.title}`}>
+				{cat.data.menu}
+			</a>
+		</li>)}
 
-	{
-		shouldRenderSubcategoriesFromRes &&
-			res.categoryData.map((cat) =>
-				res.subCategoryData.map((subcat) => (
-					<li class="ResourceLocationItem Classification">
-						<a class="ClassificationLink" href={`/${res.data.section.id}/${cat.id}/${subcat.id}`} title={`Vezi toate resursele din subcategoria ${subcat.data.title}`}>
-							{subcat.data.menu}
-						</a>
-					</li>
-				))
-			)
-	}
-	{
-		shouldRenderSubcategoriesFromCat &&
-			categories.map((cat) =>
-				subcategories.map((subcat) => (
-					<li class="ResourceLocationItem Classification">
-						<a class="ClassificationLink" href={`/${resourceSection.id}/${cat.id}/${subcat.id}`} title={`Vezi toate resursele din subcategoria ${subcat.data.title}`}>
-							{subcat.data.menu}
-						</a>
-					</li>
-				))
-			)
-	}
+	{shouldRenderSubcategoriesFromRes &&
+		res.categoryData.map((cat) =>
+			res.subCategoryData.map((subcat) => <li class="ResourceLocationItem Classification">
+				<a class="ClassificationLink" href={`/${res.data.section.id}/${cat.id}/${subcat.id}`} title={`Vezi toate resursele din subcategoria ${subcat.data.title}`}>
+					{subcat.data.menu}
+				</a>
+			</li>)
+		)}
+	{shouldRenderSubcategoriesFromCat &&
+		categories.map((cat) =>
+			subcategories.map((subcat) => <li class="ResourceLocationItem Classification">
+				<a class="ClassificationLink" href={`/${resourceSection.id}/${cat.id}/${subcat.id}`} title={`Vezi toate resursele din subcategoria ${subcat.data.title}`}>
+					{subcat.data.menu}
+				</a>
+			</li>)
+		)}
 </ul>

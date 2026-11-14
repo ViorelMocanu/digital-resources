@@ -10,7 +10,7 @@ authorUrl: 'https://uxbooth.com/'
 section: 'front-end'
 categories:
     - 'introducere-in-front-end'
-rating: 100
+rating: 10
 price: 0
 requiredTime: 0.5
 type: 'text'

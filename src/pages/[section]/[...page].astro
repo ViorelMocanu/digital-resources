@@ -52,11 +52,9 @@ const breadcrumbArray = [
 
 <Layout title={pageTitle} description={pageDescription} template="SectionPage" activeMenu={section.id} breadcrumbArray={breadcrumbArray}>
 	<div class="Hero" id="hero">
-		{
-			section.data.imageUrl && (
-				<div class="HeroVisual">
-					{/* @TODO breakpoint must be edited here */}
-					{/*
+		{section.data.imageUrl && <div class="HeroVisual">
+			{/* @TODO breakpoint must be edited here */}
+			{/*
 					<ResponsiveImage
 						breakpoint={1100}
 						classList={['HeroImage']}
@@ -67,9 +65,7 @@ const breadcrumbArray = [
 						lazyLoading={false}
 					/>
 					*/}
-				</div>
-			)
-		}
+		</div>}
 		<div class="HeroText">
 			<h1 class="HeroTitle">{section.data.title}</h1>
 			<details class="HeroDetails">

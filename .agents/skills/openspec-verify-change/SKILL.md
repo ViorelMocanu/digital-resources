@@ -39,7 +39,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
 1. **Select the change**
 
     If a name is provided, use it. Otherwise:
-
     - Infer from conversation context if the user mentioned a change
     - Auto-select if only one active change exists
     - If ambiguous, run `openspec list --json` to get available changes and ask the user to select one
@@ -55,7 +54,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
     ```
 
     Parse the JSON to understand:
-
     - `schemaName`: The workflow being used (e.g., "spec-driven")
     - `planningHome`, `changeRoot`, `artifactPaths`, and `actionContext`: path and scope context
     - Which artifacts exist for this change
@@ -73,7 +71,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
 4. **Initialize verification report structure**
 
     Create a report structure with three dimensions:
-
     - **Completeness**: Track tasks and spec coverage
     - **Correctness**: Track requirement implementation and scenario coverage
     - **Coherence**: Track design adherence and pattern consistency
@@ -91,7 +88,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
 5. **Verify Completeness**
 
     **Task Completion**:
-
     - If `taskTrackingConfigured` is false, report **Task Completion** as not applicable. Do not treat empty `tasks` as missing evidence.
     - Otherwise, use the top-level `tasks` and `progress` fields. They already aggregate every readable concrete file matched by `apply.tracks`, regardless of the tracked artifact's ID; do not infer tracking from a `contextFiles` key.
     - If `unavailableTrackingFiles` is nonempty, mark **Task Completion** as not verified and include every unavailable path and reason. Continue using any readable task evidence, but do not infer completion from the partial `tasks` and `progress` fields.
@@ -102,7 +98,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
         - Recommendation: "Complete task: <description>" or "Mark as done if already implemented"
 
     **Spec Coverage**:
-
     - If status marks the spec artifact skipped by `skip_specs: true`, or the schema defines no spec artifact (no artifact whose `artifactPaths.<id>.outputPath` is under `specs/`), report the spec-dependent checks as not applicable.
     - Otherwise, `contextFiles` is keyed by artifact id, and artifact ids come from the active schema, so do not assume an id such as `specs`. The spec artifacts are those whose `artifactPaths.<id>.outputPath` is under `specs/`; read their files from `contextFiles.<id>`. If those spec files are absent or empty, mark **Spec Coverage**, **Requirement Implementation Mapping**, and **Scenario Coverage** as not verified; do not treat any of them as clean.
     - If delta specs exist in those spec files:
@@ -137,7 +132,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
     If the delta specs are readable and contain at least one REMOVED or RENAMED requirement but no ADDED or MODIFIED requirements (the change only removes or renames requirements), report **Requirement Implementation Mapping** and **Scenario Coverage** as **Not applicable**. The REMOVED and RENAMED checks under Spec Coverage are the evidence for such a change (each REMOVED and RENAMED entry with a usable baseline is checked there against its baseline behavior, and an entry already marked not verified there stays not verified), so do not mark these two checks as not verified. A delta spec with no parseable requirements at all is unusable evidence, not a removal-only change: mark these checks as not verified.
 
     **Requirement Implementation Mapping**:
-
     - For each ADDED or MODIFIED requirement from delta specs (REMOVED entries, and RENAMED entries without a MODIFIED block, were settled under Spec Coverage):
         - Search codebase for implementation evidence
         - If found, note file paths and line ranges
@@ -147,7 +141,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
             - Recommendation: "Review <file>:<lines> against requirement X"
 
     **Scenario Coverage**:
-
     - For each scenario under an ADDED or MODIFIED requirement in delta specs (marked with "#### Scenario:"):
         - Check if conditions are handled in code
         - Check if tests exist covering the scenario
@@ -159,7 +152,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
 7. **Verify Coherence**
 
     **Design Adherence**:
-
     - If the schema defines no design artifact (no artifact with id `design`, and none whose `artifactPaths.<id>.outputPath` is or ends in `design.md`), report **Design Adherence** as not applicable.
     - If the design artifact's `contextFiles.<id>` file exists:
         - Extract key decisions (look for sections like "Decision:", "Approach:", "Architecture:")
@@ -170,7 +162,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
     - Otherwise, if the design artifact's `contextFiles.<id>` file is absent or empty: mark **Design Adherence** as not verified. With other supporting artifacts, **Code Pattern Consistency** still runs; the task-only case remains limited to task completion.
 
     **Code Pattern Consistency**:
-
     - If implementation changes cannot be identified, mark **Code Pattern Consistency** as not verified and explain the missing evidence.
     - Otherwise, review new code for consistency with project patterns
     - Check file naming, directory structure, coding style
@@ -199,7 +190,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
     **Issues by Priority**:
 
     1. **CRITICAL** (Must fix before archive):
-
         - Incomplete tasks
         - Missing requirement implementations
         - Removed requirements still implemented
@@ -207,7 +197,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
         - Each with specific, actionable recommendation
 
     2. **WARNING** (Should fix):
-
         - Spec/design divergences
         - Missing scenario coverage
         - Each with specific recommendation
@@ -218,7 +207,6 @@ In both branches, never create the root as a side effect: do not run `openspec i
         - Each with specific recommendation
 
     **Final Assessment**:
-
     - If CRITICAL issues: "X critical issue(s) found. Fix before archiving." If any check was skipped, also name every skipped check and its reason.
     - If no CRITICAL issues, one or more warnings, and no checks were skipped: "No critical issues. Y warning(s) to consider. Ready for archive (with noted improvements)."
     - If only suggestions and no checks were skipped: "No critical issues or warnings. Z suggestion(s) to consider. Ready for archive (with noted improvements)."

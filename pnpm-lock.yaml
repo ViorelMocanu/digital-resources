@@ -17,11 +17,6 @@ overrides:
 
 packageExtensionsChecksum: sha256-QRbB427jafr2uug/EWFsqEu7c3tQtQOSJcLU8vaXoEA=
 
-patchedDependencies:
-  astro-capo@0.0.1:
-    hash: 5357bfc8a4511b5524eafc08f474634aa91050d3effa9b2d86fbbcb225cf2a27
-    path: patches/astro-capo@0.0.1.patch
-
 importers:
 
   .:
@@ -41,9 +36,6 @@ importers:
       astro:
         specifier: ^7.4.7
         version: 7.4.7(@astrojs/markdown-remark@7.3.6)(@types/node@24.19.2)(@vercel/functions@3.11.0)(jiti@2.7.0)(sass-embedded@1.107.1)(sass@1.107.1)(terser@5.34.1)(yaml@2.9.1)
-      astro-capo:
-        specifier: ^0.0.1
-        version: 0.0.1(patch_hash=5357bfc8a4511b5524eafc08f474634aa91050d3effa9b2d86fbbcb225cf2a27)(astro@7.4.7(@astrojs/markdown-remark@7.3.6)(@types/node@24.19.2)(@vercel/functions@3.11.0)(jiti@2.7.0)(sass-embedded@1.107.1)(sass@1.107.1)(terser@5.34.1)(yaml@2.9.1))
       astro-embed:
         specifier: ^0.14.0
         version: 0.14.0(astro@7.4.7(@astrojs/markdown-remark@7.3.6)(@types/node@24.19.2)(@vercel/functions@3.11.0)(jiti@2.7.0)(sass-embedded@1.107.1)(sass@1.107.1)(terser@5.34.1)(yaml@2.9.1))(typescript@6.0.3)
@@ -62,7 +54,7 @@ importers:
     devDependencies:
       '@astrojs/check':
         specifier: ^0.9.12
-        version: 0.9.12(prettier-plugin-astro@0.14.1)(prettier@3.9.10)(typescript@6.0.3)
+        version: 0.9.12(prettier-plugin-astro@1.1.2(prettier@3.9.10))(prettier@3.9.10)(typescript@6.0.3)
       '@axe-core/playwright':
         specifier: 4.14.0
         version: 4.14.0(playwright-core@1.65.0)
@@ -109,8 +101,8 @@ importers:
         specifier: 3.9.10
         version: 3.9.10
       prettier-plugin-astro:
-        specifier: 0.14.1
-        version: 0.14.1
+        specifier: 1.1.2
+        version: 1.1.2(prettier@3.9.10)
       semver:
         specifier: ^7.8.6
         version: 7.8.6
@@ -244,9 +236,6 @@ packages:
   '@astrojs/compiler-rs@0.5.2':
     resolution: {integrity: sha512-IvwYLB8t1M86rKO4oPdBi9GP4gzXcgrVlNgocjwos1jeeUuEIV8d9Crn1PvYD/5IKteWOxpIHomf7e8iYlkE+Q==}
     engines: {node: '>=22.12.0'}
-
-  '@astrojs/compiler@2.10.3':
-    resolution: {integrity: sha512-bL/O7YBxsFt55YHU021oL+xz+B/9HvGNId3F9xURN16aeqDK9juHGktdkCSXz+U4nqFACq6ZFvWomOzhV+zfPw==}
 
   '@astrojs/internal-helpers@0.13.1':
     resolution: {integrity: sha512-LgGLGzoC0wCT3mjDYrxz+hct/tws0enpWsLJW3bswHR3PKgusp/H9xRIT8rTdsyvLM0TcRhhvRL30J2oaZNcqA==}
@@ -1164,6 +1153,9 @@ packages:
     engines: {node: '>=20'}
     hasBin: true
 
+  '@prettier/parse-srcset@3.1.0':
+    resolution: {integrity: sha512-FIRv2rZotO9NP/r66taYqD1zICpPiBbrECqjKV/xqNotqDxF7fLzzUeK+1RSRx9Tenk0DajR/GcRmTJ2qtHaKQ==}
+
   '@rolldown/binding-android-arm-eabi@1.2.16':
     resolution: {integrity: sha512-ia3DwAs0OsMGS7+IConptSiyk9pEXkOx/AbJ2n/lAGxH3QkWQus1t8d7gnAT38FCU2sQu8lUbeR6AiZFv4JxaA==}
     engines: {node: ^20.19.0 || >=22.12.0}
@@ -1837,11 +1829,6 @@ packages:
     resolution: {integrity: sha512-ru98hrmIZcLvNIcQWtGHKlYE2C+5+8dp86vGnDiGpdmqcFcG/Tn7uNVGhF1CUkvxNRtE+YZhmWTD94lnxY++rA==}
     peerDependencies:
       astro: ^7.2.4
-
-  astro-capo@0.0.1:
-    resolution: {integrity: sha512-KyQD1mzgEQnbqrKpYdoIZMAYejkOcIJocdGuQBH9Yzr4KqGzIR8P2DDNbV/FQXaSyq900lCZwWJH45tBIQCG8w==}
-    peerDependencies:
-      astro: '>= 2.8'
 
   astro-embed@0.14.0:
     resolution: {integrity: sha512-VpOnmbeReZvjhK9SYEEsGKZOXBJtrSBMohkVnUwi2ue+qZ19jhM5I3p6SE1NYTi6NY2yoRKJb8J2OtjVDR3lMQ==}
@@ -3559,14 +3546,11 @@ packages:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
 
-  prettier-plugin-astro@0.14.1:
-    resolution: {integrity: sha512-RiBETaaP9veVstE4vUwSIcdATj6dKmXljouXc/DDNwBSPTp8FRkLGDSGFClKsAFeeg+13SB0Z1JZvbD76bigJw==}
-    engines: {node: ^14.15.0 || >=16.0.0}
-
-  prettier@3.3.3:
-    resolution: {integrity: sha512-i2tDNA0O5IrMO757lfrdQZCc2jPNDVntV0m/+4whiDfWaTKfMNgR7Qz0NAeGz/nRqF4m5/6CLzbP4/liHt12Ew==}
-    engines: {node: '>=14'}
-    hasBin: true
+  prettier-plugin-astro@1.1.2:
+    resolution: {integrity: sha512-vKyJW7Bb/QcIPUebEehbG+Tn+3yTIhoJ8ecm6NyJgcOj5T2xP+eF1IxY4zv809YyA69nV4ZFj+H9mdpC5cTaQA==}
+    engines: {node: '>=22.12.0'}
+    peerDependencies:
+      prettier: ^3.5.3
 
   prettier@3.9.10:
     resolution: {integrity: sha512-skGHTH1Yb9QvaTC4hWnRTzEYtCpApF0UMBPz+t/0ZPzP8ihefo/btKd+QA7pUE0fEwA1SbS/NmhyEcstdXOIdA==}
@@ -3864,8 +3848,9 @@ packages:
     engines: {node: '>=20.19.0'}
     hasBin: true
 
-  sass-formatter@0.7.9:
-    resolution: {integrity: sha512-CWZ8XiSim+fJVG0cFLStwDvft1VI7uvXdCNJYXhDvowiv+DsbD1nXLiQ4zrE5UBvj5DWZJ93cwN0NX5PMsr1Pw==}
+  sass-formatter@0.8.0:
+    resolution: {integrity: sha512-Nf4eMGE2O5vnJG7KPCRyksWS9gVKSYoUWtPeMXRRxwZSPVQhSGtL602xVYS65LvMkHmkvKa7xpauF0+/5pPwrg==}
+    hasBin: true
 
   sass@1.107.1:
     resolution: {integrity: sha512-aJ1/LvxOOb04YhmiBjzZn3jVwdHKol+OVhoMV6fFl02fF9T3i+5Mg9l/CnzqtM+NX5Jn5o3lAbs/ZJivTCLHfQ==}
@@ -4733,9 +4718,9 @@ snapshots:
       '@emnapi/runtime': 1.11.3
       '@napi-rs/wasm-runtime': 1.2.4(@emnapi/core@1.11.3)(@emnapi/runtime@1.11.3)
 
-  '@astrojs/check@0.9.12(prettier-plugin-astro@0.14.1)(prettier@3.9.10)(typescript@6.0.3)':
+  '@astrojs/check@0.9.12(prettier-plugin-astro@1.1.2(prettier@3.9.10))(prettier@3.9.10)(typescript@6.0.3)':
     dependencies:
-      '@astrojs/language-server': 2.17.3(prettier-plugin-astro@0.14.1)(prettier@3.9.10)(typescript@6.0.3)
+      '@astrojs/language-server': 2.17.3(prettier-plugin-astro@1.1.2(prettier@3.9.10))(prettier@3.9.10)(typescript@6.0.3)
       chokidar: 5.0.0
       kleur: 4.1.5
       typescript: 6.0.3
@@ -4795,8 +4780,6 @@ snapshots:
     dependencies:
       '@astrojs/compiler-binding': 0.5.2
 
-  '@astrojs/compiler@2.10.3': {}
-
   '@astrojs/internal-helpers@0.13.1':
     dependencies:
       '@types/hast': 3.0.5
@@ -4808,7 +4791,7 @@ snapshots:
       unified: 11.0.5
       yaml: 2.9.1
 
-  '@astrojs/language-server@2.17.3(prettier-plugin-astro@0.14.1)(prettier@3.9.10)(typescript@6.0.3)':
+  '@astrojs/language-server@2.17.3(prettier-plugin-astro@1.1.2(prettier@3.9.10))(prettier@3.9.10)(typescript@6.0.3)':
     dependencies:
       '@astrojs/astro2tsx': 0.1.3
       '@astrojs/yaml2ts': 0.2.4
@@ -4829,7 +4812,7 @@ snapshots:
       vscode-uri: 3.2.0
     optionalDependencies:
       prettier: 3.9.10
-      prettier-plugin-astro: 0.14.1
+      prettier-plugin-astro: 1.1.2(prettier@3.9.10)
     transitivePeerDependencies:
       - typescript
 
@@ -5773,6 +5756,8 @@ snapshots:
     dependencies:
       playwright: 1.65.0
 
+  '@prettier/parse-srcset@3.1.0': {}
+
   '@rolldown/binding-android-arm-eabi@1.2.16':
     optional: true
 
@@ -6347,11 +6332,6 @@ snapshots:
     dependencies:
       acorn: 8.19.0
       astro: 7.4.7(@astrojs/markdown-remark@7.3.6)(@types/node@24.19.2)(@vercel/functions@3.11.0)(jiti@2.7.0)(sass-embedded@1.107.1)(sass@1.107.1)(terser@5.34.1)(yaml@2.9.1)
-
-  astro-capo@0.0.1(patch_hash=5357bfc8a4511b5524eafc08f474634aa91050d3effa9b2d86fbbcb225cf2a27)(astro@7.4.7(@astrojs/markdown-remark@7.3.6)(@types/node@24.19.2)(@vercel/functions@3.11.0)(jiti@2.7.0)(sass-embedded@1.107.1)(sass@1.107.1)(terser@5.34.1)(yaml@2.9.1)):
-    dependencies:
-      astro: 7.4.7(@astrojs/markdown-remark@7.3.6)(@types/node@24.19.2)(@vercel/functions@3.11.0)(jiti@2.7.0)(sass-embedded@1.107.1)(sass@1.107.1)(terser@5.34.1)(yaml@2.9.1)
-      ultrahtml: 1.7.0
 
   astro-embed@0.14.0(astro@7.4.7(@astrojs/markdown-remark@7.3.6)(@types/node@24.19.2)(@vercel/functions@3.11.0)(jiti@2.7.0)(sass-embedded@1.107.1)(sass@1.107.1)(terser@5.34.1)(yaml@2.9.1))(typescript@6.0.3):
     dependencies:
@@ -8585,13 +8565,12 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier-plugin-astro@0.14.1:
+  prettier-plugin-astro@1.1.2(prettier@3.9.10):
     dependencies:
-      '@astrojs/compiler': 2.10.3
-      prettier: 3.3.3
-      sass-formatter: 0.7.9
-
-  prettier@3.3.3: {}
+      '@astrojs/compiler-rs': 0.5.2
+      '@prettier/parse-srcset': 3.1.0
+      prettier: 3.9.10
+      sass-formatter: 0.8.0
 
   prettier@3.9.10: {}
 
@@ -8941,7 +8920,7 @@ snapshots:
       sass-embedded-win32-arm64: 1.107.1
       sass-embedded-win32-x64: 1.107.1
 
-  sass-formatter@0.7.9:
+  sass-formatter@0.8.0:
     dependencies:
       suf-log: 2.5.3
 

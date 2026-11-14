@@ -12,7 +12,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // https://astro.build/config
 export default defineConfig({
 	site: URL || 'https://resurse.dev',
-	// trailingSlash: 'always',
+	// Addresses without the final slash, as every internal link writes them and as vercel.json serves them. The adapter
+	// writes the redirect from the slashed form into the build output.
+	trailingSlash: 'never',
 	// Every page is built ahead of time, so the deployment has no server function and no Node.js runtime to pin.
 	output: 'static',
 	// https://docs.astro.build/en/guides/prefetch/
@@ -32,9 +34,6 @@ export default defineConfig({
 	},
 	vite: {
 		logLevel: DEBUG ? 'info' : 'silent',
-		define: {
-			__DATE__: `'${new Date().toISOString()}'`,
-		},
 		resolve: {
 			alias: {
 				'~': path.resolve(__dirname, './src'),
@@ -64,16 +63,9 @@ export default defineConfig({
 	},
 	integrations: [
 		sitemap({
-			customPages: ['https://resurse.dev/external-page2'],
-			filter: (page) =>
-				page !== 'https://resurse.dev/secret-vip-lounge-1/' &&
-				page !== 'https://resurse.dev/secret-vip-lounge-2/' &&
-				page !== 'https://resurse.dev/secret-vip-lounge-3/' &&
-				page !== 'https://resurse.dev/secret-vip-lounge-4/',
 			entryLimit: 10000,
 			changefreq: 'weekly',
 			priority: 0.7,
-			//lastmod: new Date(GLOBAL_PUB_DATE),
 			i18n: {
 				defaultLocale: 'ro',
 				locales: {

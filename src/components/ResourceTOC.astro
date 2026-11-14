@@ -39,50 +39,38 @@ if (sectionCategories) {
 ---
 
 <nav class="ListNavigation" transition:name="ListNavigation">
-	{
-		sectionCategories ? (
-			<>
-				<h2 class="ListNavTitle" id="treeTitle">
-					Categorii de {section.data.title}:
-				</h2>
-				<ol class="ListNav">
-					{categoryList.map((category) => (
-						<li class:list={highlightUrl(`/${section.id}/${category.id}`, 'ListNavItem', 'ActiveListNav', activePage)}>
-							<a class="ListNavLink" href={`/${section.id}/${category.id}`} title={`Vezi resursele din categoria ${category.data.title}`}>
-								{category.data.title}
+	{sectionCategories ? (
+		<>
+			<h2 class="ListNavTitle" id="treeTitle">Categorii de {section.data.title}:</h2>
+			<ol class="ListNav">
+				{categoryList.map((category) => <li class:list={highlightUrl(`/${section.id}/${category.id}`, 'ListNavItem', 'ActiveListNav', activePage)}>
+					<a class="ListNavLink" href={`/${section.id}/${category.id}`} title={`Vezi resursele din categoria ${category.data.title}`}>
+						{category.data.title}
+					</a>
+					{category.data.subcategories && category.subCategoryData && <ol class="ListSubNav">
+						{category.subCategoryData.map((subcategory) => <li
+							class:list={highlightUrl(`/${section.id}/${category.id}/${subcategory.id}`, 'ListSubNavItem', 'ActiveListNav', activePage)}
+						>
+							<a class="ListSubNavLink" href={`/${section.id}/${category.id}/${subcategory.id}`} title={`Vezi resursele din subcategoria ${subcategory.data.title}`}>
+								{subcategory.data.title}
 							</a>
-							{category.data.subcategories && category.subCategoryData && (
-								<ol class="ListSubNav">
-									{category.subCategoryData.map((subcategory) => (
-										<li class:list={highlightUrl(`/${section.id}/${category.id}/${subcategory.id}`, 'ListSubNavItem', 'ActiveListNav', activePage)}>
-											<a
-												class="ListSubNavLink"
-												href={`/${section.id}/${category.id}/${subcategory.id}`}
-												title={`Vezi resursele din subcategoria ${subcategory.data.title}`}
-											>
-												{subcategory.data.title}
-											</a>
-										</li>
-									))}
-								</ol>
-							)}
-						</li>
-					))}
-					<li class="ListNavItem ListNavClose">
-						<button class="ListNavCloseButton" id="closeSubnav" title="Închide meniul de categorii">
-							<span class="Icon IconClose">
-								<span class="SROnly">❌</span>
-								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-									<path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-								</svg>
-							</span>
-							<span class="ButtonText">Închide</span>
-						</button>
-					</li>
-				</ol>
-			</>
-		) : (
-			<h2 class="ListNavTitle">Această secțiune nu are categorii.</h2>
-		)
-	}
+						</li>)}
+					</ol>}
+				</li>)}
+				<li class="ListNavItem ListNavClose">
+					<button class="ListNavCloseButton" id="closeSubnav" title="Închide meniul de categorii">
+						<span class="Icon IconClose">
+							<span class="SROnly">❌</span>
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+							</svg>
+						</span>
+						<span class="ButtonText">Închide</span>
+					</button>
+				</li>
+			</ol>
+		</>
+	) : (
+		<h2 class="ListNavTitle">Această secțiune nu are categorii.</h2>
+	)}
 </nav>

@@ -45,7 +45,6 @@ export const TWITTER_CREATOR = '@ViorelMocanu'; //	🛑 @TODO: twitter creator
 export const ACCENT_COLOR = '#2f8ded';
 export const OG_IMAGE = '../public/ogimage.jpg';
 export const OG_IMAGE_ALT = ''; //					🛑 @TODO: OG Image ALT
-export const GLOBAL_PUB_DATE = '2023-09-30T19:35:55+03:00';
 export const DEFAULT_URL = '/';
 export const DEFAULT_TITLE = 'Titlul nu a fost găsit';
 export const DEFAULT_DESCRIPTION = 'Descrierea nu a fost găsită.';
@@ -80,7 +79,6 @@ export type ExtendedCategory = CollectionEntry<'categories'> & {
 };
 
 export type ExtendedResource = Omit<CollectionEntry<'resources'>, 'render'> & {
-	type: string;
 	tagData: CollectionEntry<'tags'>[];
 	sectionData: CollectionEntry<'sections'> | undefined;
 	categoryData: CollectionEntry<'categories'>[];

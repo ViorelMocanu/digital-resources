@@ -8,12 +8,6 @@
 				"ignoreProperties": ["appearance", "text-size-adjust", "-webkit-text-size-adjust"]
 			}
 		],
-		"property-no-deprecated": [
-			true,
-			{
-				"ignoreProperties": ["clip"]
-			}
-		],
 		"declaration-block-single-line-max-declarations": 20,
 		"at-rule-empty-line-before": [
 			"always",

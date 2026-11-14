@@ -42,13 +42,11 @@ This workflow revises artifacts that already exist; `/opsx:continue` is what cre
 1. **Select the change**
 
     If a name is provided, use it. Otherwise:
-
     - Infer from conversation context if the user mentioned a change
     - Auto-select if only one active change exists
     - If ambiguous, run `openspec list --json` to get available changes sorted by most recently modified, and ask the user to select one
 
     When prompting, present the top 3-4 most recently modified changes as options, showing:
-
     - Change name
     - Status (e.g., "0/5 tasks", "complete", "no tasks")
     - How recently it was modified (from `lastModified` field)
@@ -64,7 +62,6 @@ This workflow revises artifacts that already exist; `/opsx:continue` is what cre
     ```
 
     Parse the JSON to understand current state. The response includes:
-
     - `schemaName`: The workflow schema being used (e.g., "spec-driven")
     - `artifacts`: Array of artifacts with their status ("done", "skipped", "ready", "blocked")
     - `isPlanningComplete`: Boolean indicating if all planning artifacts are complete. Older CLI versions expose the same value as `isComplete`.
@@ -75,12 +72,10 @@ This workflow revises artifacts that already exist; `/opsx:continue` is what cre
     The files to edit are `artifactPaths.<id>.existingOutputPaths` - the concrete files that exist on disk, already glob-expanded for glob artifacts (e.g. `specs/**/*.md`), plus any confirmed concrete path allowed under a partly populated glob artifact (step 4). Do NOT write to `resolvedOutputPath`: for a glob artifact it is still the glob pattern, not a real file.
 
 3. **Understand the request**
-
     - If the user asked for a specific revision ("the design now uses X"), that is the starting edit.
     - If they only said "update" / "make this coherent", treat it as a coherence review: read the existing artifacts and check them against each other for contradictions, gaps, and duplication.
 
 4. **Read and reconcile**
-
     - Read the artifact(s) the request touches and the change's other existing artifacts.
     - Draft the requested edit in the conversation, not in files. Work out exactly what it changes; step 5 owns every write. Then check every other existing artifact against the drafted edit - in ANY direction: an edit to a later artifact may require revising an earlier one, not only the other way around. Build order is a useful reading order, not a constraint on which artifacts may be revised.
     - Note everything that is now inconsistent, missing, or contradictory.
@@ -94,7 +89,6 @@ This workflow revises artifacts that already exist; `/opsx:continue` is what cre
     - If the change is already coherent, say so and propose no revisions.
 
 5. **Confirm and apply, one artifact at a time**
-
     - This step performs every artifact write in this workflow; no earlier step edits an artifact.
     - Show each proposed revision and why - including the requested edit drafted in step 4. Write only after the user confirms.
     - If the user rejects a revision, do not write it - leave that artifact unchanged.

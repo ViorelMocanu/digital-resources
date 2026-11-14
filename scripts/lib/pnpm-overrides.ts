@@ -5,7 +5,7 @@
 // beside this file runs the check on this repository, so `pnpm verify` fails on the day a line can go.
 import { basename, join } from 'node:path';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
-import { intersects, validRange } from 'semver';
+import { gte, intersects, minVersion, validRange } from 'semver';
 
 /** The part of a package's manifest the check reads. */
 export interface Manifest {
@@ -110,10 +110,24 @@ function overlap(a: string | undefined, b: string): boolean {
 }
 
 /**
+ * Tell whether a parent's range has caught up with an override: its lowest version is at or above the forced range's
+ * lowest. A range that only overlaps the forced one still allows the vulnerable versions below the fix. This assumes
+ * the vulnerable versions lie below the fix, as they do for every override this repository writes.
+ * @param asked The parent's range.
+ * @param forced The override's range.
+ * @returns True when the parent alone keeps out every version below the fix.
+ */
+function caughtUp(asked: string | undefined, forced: string): boolean {
+	if (asked === undefined || validRange(asked) === null || validRange(forced) === null) return false;
+	const [askedFloor, forcedFloor] = [minVersion(asked), minVersion(forced)];
+	return askedFloor !== null && forcedFloor !== null && gte(askedFloor, forcedFloor);
+}
+
+/**
  * Find the overrides that no longer change anything.
  *
- * `parent>name` is stale when the parent is gone, no longer depends on `name`, or asks for a range that already
- * allows the forced one; a range written after the parent is not looked at. `name@range` is stale when no installed
+ * `parent>name` is stale when the parent is gone, no longer depends on `name`, or asks for a range whose lowest
+ * version reaches the forced one's (see caughtUp); a range written after the parent is not looked at. `name@range` is stale when no installed
  * package asks for `name` in that range, and a bare `name` when none asks for it at all; these two forms cannot tell
  * when the resolver would have picked a fixed version without help, so they only expire with their dependants.
  * @param overrides The overrides, by selector.
@@ -141,7 +155,7 @@ export function staleOverrides(overrides: Record<string, string>, manifests: rea
 			stale.push(`${selector}: no installed package is named ${first}`);
 		} else if (depending.length === 0) {
 			stale.push(`${selector}: ${first} no longer depends on ${second}`);
-		} else if (depending.every((manifest) => overlap(declared(manifest, second), forced))) {
+		} else if (depending.every((manifest) => caughtUp(declared(manifest, second), forced))) {
 			const [example] = depending;
 			if (example) stale.push(`${selector}: ${first}@${example.version} already asks for ${declared(example, second)}`);
 		}

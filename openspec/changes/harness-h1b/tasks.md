@@ -21,8 +21,8 @@
 
 - [x] 4.1 Add `scripts/hooks/state-pointer.ts` with its tests
 - [x] 4.2 Add `.codex/hooks.json`, `.agents/hooks.json` and `.grok/hooks/guards.json`; check: `pnpm exec vitest run scripts/hooks/hook-config.test.ts`
-- [ ] 4.3 Add `.codex/rules/guards.rules` and a test that the guard blocks each of its examples
-- [ ] 4.4 Add the Cursor and Copilot targets to `scripts/sync-harness.config.json`; check: `pnpm harness:sync:check`
+- [x] 4.3 Add `.codex/rules/guards.rules` and a test that the guard blocks each of its examples (24, under the read-only git policy); Codex's own load-time check of the examples waits for a trusted Codex session
+- [x] 4.4 Add the Cursor and Copilot targets to `scripts/sync-harness.config.json`, the Codex `opsx-*` aliases and the retired folders; check: `pnpm harness:sync:check` reports all 72 generated files fresh, and `pnpm verify` passes with 0 warnings (1,059 tests passed, 1 skipped; 2026-11-14)
 - [ ] 4.5 The owner trusts the hooks in Codex and Antigravity; a live blocked `git push` in each
 
 ## 5. Documents
@@ -31,7 +31,7 @@
 
 ## 6. Final checks
 
-- [ ] 6.1 `pnpm verify` passes
-- [ ] 6.2 `pnpm build` passes through the wrapper, and the built pages are unchanged
-- [ ] 6.3 `pnpm test:e2e` passes through the wrapper
-- [ ] 6.4 The unit tests pass on Linux at the runner's path (local container)
+- [x] 6.1 `pnpm verify` passes: 1,035 tests passed, 1 skipped, 0 warnings after `pnpm verify:fix` (2026-11-14)
+- [x] 6.2 `pnpm build` passes through the wrapper (56 pages), and all 105 built files match the previous build once the build time in the two `article:*_time` tags is masked (that tag is a Phase 5 item)
+- [x] 6.3 `pnpm test:e2e` passes through the wrapper: 89 passed
+- [x] 6.4 The unit tests pass on Linux at the runner's path (local container): in `node:24-bookworm` as the non-root `node` user, with `CI` and `GITHUB_ACTIONS` set, the working tree at `/home/runner/work/digital-resources/digital-resources` (53 bytes), `pnpm install --frozen-lockfile --ignore-scripts` then `pnpm verify` exit 0: 1,050 passed, 10 skipped (the 3 case-insensitive file-system tests and the 7 cmd.exe cases; the POSIX stale-socket test ran), 0 warnings (2026-11-14)

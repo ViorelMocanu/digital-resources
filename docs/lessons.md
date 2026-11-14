@@ -93,7 +93,7 @@ Mistakes this project has already made, so that no agent makes them again. Read 
 - **What happened:** after the upgrade all 112 screenshots, the text and the head tags of every page matched the baseline, yet every link caused a full page load. `astro-capo` turns the head into text before sorting it, and since Astro 5 that step drops component scripts, so the client router's script never reached the page.
 - **Why it matters:** a comparison of what pages look like says nothing about what they do. The regression would have shipped as "nothing changed".
 - **Do instead:** compare behaviour as well as appearance after any upgrade: navigation, the back button and the mobile menu in a real browser, against the build before.
-- **Check:** `astro-capo` is patched (`patches/astro-capo@0.0.1.patch`), and `test/layoutHead.test.ts` fails if the patch is dropped or not applied. Since 2026-11-13 the navigation test of the end-to-end suite (`e2e/navigation.spec.ts`, run with `pnpm test:e2e` after a build) fails when a link causes a full page load; it was run against a copy of the site without the router script and failed.
+- **Check:** until 2026-11-14 `astro-capo` was patched and `test/layoutHead.test.ts` failed if the patch was dropped. Phase 5 removed `astro-capo` (the layout writes a plain `<head>`): `test/layoutHead.test.ts` now fails if the layout imports it again, and a step of `e2e/smoke.spec.ts` fails if a built page carries `data-capo` or does not carry exactly one client router script. Since 2026-11-13 the navigation test of the end-to-end suite (`e2e/navigation.spec.ts`, run with `pnpm test:e2e` after a build) fails when a link causes a full page load; it was run against a copy of the site without the router script and failed.
 - **Status:** check
 
 ### L-009: a formatter upgrade that changed what the code means
@@ -102,8 +102,9 @@ Mistakes this project has already made, so that no agent makes them again. Read 
 - **What happened:** the new Prettier was expected to change spacing only. It also dropped a type argument inside an Astro template (`CollectionEntry<'subcategories'>` became `CollectionEntry`), and it decoded an HTML entity in the label of a Markdown link definition while leaving the link that uses the label, which broke the link. The type check caught the first and markdownlint the second; a unit test caught a third effect, text that a script generates and a test compares.
 - **Why it matters:** a formatter is trusted to be safe, so its diff is the one nobody reads. Both faults are still in the tool: the same input is damaged again.
 - **Do instead:** after a formatter upgrade, run `pnpm verify` before reading anything, then read every change that is not in a Markdown file. Keep type annotations out of Astro templates (annotate in the component script), and write a character, not an entity, in a link label.
-- **Check:** `pnpm verify` (the type check and markdownlint) caught both this time. Rule only for the two habits. If it happens again: a lint rule for annotations in templates.
-- **Status:** rule
+- **Second time (2026-11-14, Phase 5):** `prettier-plugin-astro` 1.1.2 kept the type argument, but it formats for Astro 7's default `compressHTML: 'jsx'` while this site builds with `compressHTML: true`, so it moved link text in ways that showed a space inside the footer links and before a full stop on every page. The screenshots of the two builds caught it (110 of 110 differed). The fix is `"astroCompressHTML": "html"` in `.prettierrc`; the spaces it had already written were removed by hand.
+- **Check:** the first time, `pnpm verify` (the type check and markdownlint) caught both faults. Since the second, `scripts/formatter.test.ts` formats with the repository's settings and fails if a type argument in a template is dropped or if the visible text of a paragraph with links changes. The two habits stay rules; after any formatter change, compare the screenshots of every page with the build before it.
+- **Status:** check
 
 ### L-010: a check that passed with warnings, reported as clean
 

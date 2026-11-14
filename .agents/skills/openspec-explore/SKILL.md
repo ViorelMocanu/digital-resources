@@ -183,13 +183,11 @@ Capture the artifact(s) the user requested without asking them to invoke another
 If the user mentions a change or you detect one is relevant:
 
 1. **Resolve and read existing artifacts for context**
-
     - Run `openspec status --change "<name>" --json`.
     - Use `changeRoot`, `artifactPaths`, and `actionContext` from the status JSON.
     - Read existing files from `artifactPaths.<artifact>.existingOutputPaths`.
 
 2. **Reference them naturally in conversation**
-
     - "Your design mentions using Redis, but we just realized SQLite fits better..."
     - "The proposal scopes this to premium users, but we're now thinking everyone..."
 
@@ -209,7 +207,6 @@ If the user mentions a change or you detect one is relevant:
     | Assumption invalidated     | Relevant artifact                 |
 
     Example offers (default schema):
-
     - "That's a design decision. Capture it in design.md?"
     - "This is a new requirement. Add it to specs?"
     - "This changes scope. Update the proposal?"

@@ -511,6 +511,21 @@ describe('OpenSpec rule (D7)', () => {
 	});
 });
 
+// The Codex rules file is a backstop for this guard: every command it forbids by example, the guard must block too.
+describe('the Codex rules file (harness part two)', () => {
+	const rules = readFileSync(resolve(import.meta.dirname, '..', '..', '.codex', 'rules', 'guards.rules'), 'utf-8');
+	const examples = [...rules.matchAll(/^\s*match = \[(.*)\],$/gm)].flatMap((line) => [...(line[1] ?? '').matchAll(/"([^"]*)"/g)].map((quoted) => quoted[1] ?? ''));
+
+	it('has match examples', () => {
+		expect(examples.length).toBeGreaterThan(20);
+	});
+
+	// Under this checkout's own git policy (defaultGuardDeps), not the destructive-only one of the fake deps.
+	it.each(examples)('the guard blocks %s', (command) => {
+		expect(check(command, { deps: fakeDeps({ gitPolicy: 'read-only' }) }), command).not.toBeNull();
+	});
+});
+
 // The owner's decision of 2026-11-14 (harness part two): feedback sends text off the machine, install downloads a
 // binary the lockfile does not pin. Neither acts on a folder, so neither depends on where it is aimed.
 describe('OpenSpec feedback and install (harness part two)', () => {

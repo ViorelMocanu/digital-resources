@@ -7,7 +7,7 @@
 import { highlightUrl } from '@utils/urlHelpers';
 ---
 
-<a class:list={highlightUrl('login', 'HeaderLink Login', 'Active')} href="/login" title="Intră în contul tău pe Resurse.dev">
+<a class:list={highlightUrl('login', 'HeaderLink Login', 'Active', Astro.url.pathname.substring(1))} href="/login" title="Intră în contul tău pe Resurse.dev">
 	<span class="Icon IconUser">
 		<span class="SROnly">👤</span>
 		<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">

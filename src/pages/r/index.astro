@@ -3,9 +3,11 @@ import Layout from '@layouts/Layout.astro';
 import ResourceFilter from '@components/ResourceFilter.astro';
 import ResourceList from '@components/ResourceList.astro';
 
+import { byId } from '@utils/getSortedItems';
 import { getCollection } from 'astro:content';
 
-const resources = await getCollection('resources');
+// By id, so two builds give the same order.
+const resources = [...(await getCollection('resources'))].sort(byId);
 
 const pageTitle = 'Toate resursele de pe Resurse.dev';
 const pageDescription = '@TODO: scrie descrierea';

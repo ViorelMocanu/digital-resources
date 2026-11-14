@@ -36,18 +36,14 @@ const { breadcrumbArray } = Astro.props satisfies Props;
 			</a>
 			<meta itemprop="position" content="1" />
 		</li>
-		{
-			Array.isArray(breadcrumbArray) &&
-				breadcrumbArray.map((breadcrumbItem, i) => (
-					<li class="BreadcrumbItem" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-						<a class="BreadcrumbLink" itemprop="item" href={breadcrumbItem.href} title={`Mergi înapoi la pagina ${breadcrumbItem.title}`}>
-							<span class="LinkText" itemprop="name">
-								{breadcrumbItem.label}
-							</span>
-							<meta itemprop="position" content={(i + 2).toString()} />
-						</a>
-					</li>
-				))
-		}
+		{Array.isArray(breadcrumbArray) &&
+			breadcrumbArray.map((breadcrumbItem, i) => <li class="BreadcrumbItem" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+				<a class="BreadcrumbLink" itemprop="item" href={breadcrumbItem.href} title={`Mergi înapoi la pagina ${breadcrumbItem.title}`}>
+					<span class="LinkText" itemprop="name">
+						{breadcrumbItem.label}
+					</span>
+					<meta itemprop="position" content={(i + 2).toString()} />
+				</a>
+			</li>)}
 	</ol>
 </nav>
