@@ -12,12 +12,12 @@
  *   and worktree has its own lock; the root is this script's own checkout. A socket left by a killed holder is
  *   removed by one contender at a time, under an `O_EXCL` marker, and only while a fresh probe still finds it stale.
  * - Each connection gets one JSON line, `{pid, label, command, started, token}`. The holder gives its children the
- *   token in `RESURSE_CHECKOUT_LOCK`, so a nested run (Playwright's `pnpm build`, `verify:fix`'s `pnpm lint:fix`)
- *   runs inside its parent's lock, and a leftover token from a finished run is ignored.
- * - `--no-hold` (the owner's `preview:static`, Open Question 5) refuses while the lock is held and otherwise runs
- *   without holding it.
+ *   token in `RESURSE_CHECKOUT_LOCK`, so a nested run (`verify:fix`'s `pnpm lint:fix`, `pnpm harness:sync` and
+ *   `pnpm format:fix`) runs inside its parent's lock, and a leftover token from a finished run is ignored.
+ * - `--no-hold` refuses while the lock is held and otherwise runs without holding it, for a command that only reads
+ *   what a locked run writes. No package script uses it yet.
  * - `--probe [root]` prints the holder's JSON line, or nothing when the lock is free; the guard uses it on POSIX.
- * - In CI (`CI` truthy, or `GITHUB_ACTIONS`, `CF_PAGES` or `WORKERS_CI` set) it does nothing, silently. When the
+ * - In CI (`CI` truthy, or `GITHUB_ACTIONS` or `VERCEL` set) it does nothing, silently. When the
  *   platform refuses the primitive (`EACCES`, `EPERM`, `ENOTSUP`, or any listen error other than `EADDRINUSE`), it
  *   warns and runs unlocked (Open Question 4).
  * - Children get `NO_UPDATE_CHECK=1` (design D18). On SIGINT, SIGTERM or SIGHUP the child's whole tree is stopped.
@@ -137,7 +137,7 @@ export const BUSY_EXIT = 75;
 export const USAGE_EXIT = 2;
 
 /** Variables whose presence means CI, besides a truthy `CI` (design D16). */
-const CI_VARIABLES = ['GITHUB_ACTIONS', 'CF_PAGES', 'WORKERS_CI'];
+const CI_VARIABLES = ['GITHUB_ACTIONS', 'VERCEL'];
 
 /** The longest Unix socket path that every POSIX platform accepts (macOS: 104 bytes with the NUL). */
 const MAX_SOCKET_BYTES = 103;
@@ -157,8 +157,7 @@ const USAGE = 'node scripts/checkout-lock.ts [--no-hold] <label> "<command>" [ex
 // ─── CI and quoting ──────────────────────────────────────────────────────────
 
 /**
- * Whether the environment is CI: `CI` set to anything but empty, `0` or `false`, or `GITHUB_ACTIONS`, `CF_PAGES` or
- * `WORKERS_CI` set.
+ * Whether the environment is CI: `CI` set to anything but empty, `0` or `false`, or `GITHUB_ACTIONS` or `VERCEL` set.
  * @param env The environment.
  * @returns True in CI.
  */
@@ -220,7 +219,7 @@ export function handshake(holder: Holder): string {
 export function busyMessage(holder: Holder | null, now: Date): string[] {
 	return [
 		`ERROR checkout busy: ${describeHolder(holder, now)}.`,
-		'Builds, E2E runs and repo-wide fixers take turns in one checkout (docs/agent/t3-code.md).',
+		'Builds, browser tests, the skill sync and repo-wide fixers take turns in one checkout (docs/agent/guardrails.md).',
 		'Wait for it to finish and run your command again, or ask the owner for a worktree. Never stop a process you did not start.',
 	];
 }

@@ -11,7 +11,7 @@ The hooks and deny rules that stop the commands the owner keeps for themselves. 
 | Rule | Blocks | Allows |
 | --- | --- | --- |
 | git | Every call that is not a read: add, commit, push, pull, fetch, merge, rebase, reset, restore, checkout, switch, stash, clean, rm, mv, and branch, tag, remote or config changes. A subcommand the guard does not know counts as a write | `status`, `log`, `diff`, `show`, `blame`, `grep`, `ls-files`, `rev-parse` and similar; the listing forms of `branch`, `tag`, `stash`, `remote`, `config`, `worktree`; `clean -n`; `apply --check` |
-| OpenSpec | `openspec update` and `openspec init` aimed at this checkout, through every launcher | Every other subcommand; a target under `tmp/` |
+| OpenSpec | `openspec update` and `openspec init` aimed at this checkout; `openspec feedback` (its text leaves the machine) and `openspec install` (a binary outside the lockfile) wherever they run; through every launcher | Every other subcommand; `--help`; `update` or `init` aimed under `tmp/` |
 | Env | A command that names `.env` or a `.env.*` file other than `.env.example` as something to read, copy or move | `.env.example`; listing and testing commands; `node --env-file`; the pattern of a search |
 
 - The rules apply to each command of a line on its own, through wrappers such as `bash -c`, `pwsh -Command`, `cmd /c`, `env` and the package runners, and through `git -c alias.*`.
@@ -19,7 +19,17 @@ The hooks and deny rules that stop the commands the owner keeps for themselves. 
 - A block exits 2 with three lines: what was blocked, why, and what to do instead. Do not work around it; give the owner the exact command.
 - Anything the guard cannot parse at all is allowed (it fails open), so a change in a tool's hook format never blocks unrelated work.
 
-The git policy is set in `defaultGuardDeps` in `scripts/hooks/guard.ts` (`gitPolicy: "read-only"`). The script also carries a gate for a checkout lock (`scripts/checkout-lock.ts`); no package script uses that lock yet, so the gate never fires.
+The git policy is set in `defaultGuardDeps` in `scripts/hooks/guard.ts` (`gitPolicy: "read-only"`). The script also carries the gate of the checkout lock (below).
+
+## The checkout lock
+
+`build`, `test:e2e`, `verify:fix`, `lint:fix`, `format:fix`, `harness:sync` and `openspec:port` run through `node scripts/checkout-lock.ts`, so two of them never run at once in one checkout. A second run exits 75 at once and names the holder's label, pid and start time. A run started by a locked run (`verify:fix` calling `pnpm harness:sync`) runs inside its parent's lock. In CI and on Vercel the wrapper only runs the command. The read-only scripts (`verify`, `lint`, `format`, `typecheck`, the checks) never take the lock.
+
+While a run holds it, the guard also blocks the raw forms of the same work for other agents: pnpm commands that change `node_modules` or the lockfile, `astro build`, `playwright test`, a `serve` of the build output, `node scripts/serve-static.ts`, `sync-harness.ts` (not `--check` or `--diff`), `openspec-port.ts`, and repo-wide fixers.
+
+- Exit 75 means busy: wait and run the command again, or ask the owner for a worktree. Never stop a process you did not start.
+- `node scripts/checkout-lock.ts --probe` prints the holder, or nothing when the lock is free. Never set `RESURSE_CHECKOUT_LOCK` yourself and never copy a token from the probe.
+- Known gaps: a killed wrapper leaves its command running unlocked; `pnpm lint:js --fix` and the other single fixers run unlocked; the `.astro/` folder that `typecheck` writes is not locked; on Windows an extra argument with `"` or `%` is refused with exit 2.
 
 Comments in the hook scripts cite design and task numbers such as "design D3". They are the numbering of the design the scripts were first written under and have no further record in this repository; the comment text around each one says what it means.
 
@@ -40,15 +50,26 @@ Comments in the hook scripts cite design and task numbers such as "design D3". T
 
 ## Which tools have hooks
 
-Claude Code only, for now. Hooks for the other tools that can run here are part of the second harness part, after the tooling upgrade. Until then every other tool works on the written rules alone.
+Every hook file calls the same guard with the tool's name, so each tool gets the same rules in its own output format. Verified here by feeding each tool's documented payload to the hook command through the platform shell (`scripts/hooks/hook-config.test.ts`); no tool other than Claude Code has run them live yet.
+
+| Tool | Files | Guard | State | The owner's one-time step |
+| --- | --- | --- | --- | --- |
+| Claude Code | `.claude/settings.json` | Every shell call | `state-snapshot.mjs` (above) | None |
+| Codex | `.codex/hooks.json` | Shell and patch tools | Pointer at every session start, with a line after a compaction | Trust the project, then each hook in the native Codex TUI (`/hooks`); again after every edit of the file |
+| Antigravity | `.agents/hooks.json` | Shell and file tools | Pointer at session start | Accept the workspace trust prompt |
+| Grok | `.grok/hooks/guards.json`; it also runs the Claude hooks | Shell and file tools | None: its session-start output reaches nobody | Trust the folder |
+| Copilot CLI | Reads the Claude settings | Every shell call | None | None |
+| Cursor | None | None | None | Rules only |
+
+The pointer (`scripts/hooks/state-pointer.ts`) names `AGENTS.md`, the index in `docs/state/README.md` and its top row. Codex and Antigravity deny with exit 0 and JSON; an exit code other than 0 lets the call through in both, so a guard that crashes fails open there.
 
 ## The owner's switches
 
-| To do this                           | Do this                                                                                                         |
-| ------------------------------------ | --------------------------------------------------------------------------------------------------------------- |
-| Run a blocked command                | Type it in your own terminal: no hook runs there                                                                |
-| Let an agent run an OpenSpec rewrite | Start the tool with `RESURSE_GUARD_ALLOW=openspec` in its environment; each use is logged in `tmp/agent-state/` |
-| Turn every hook off                  | `"disableAllHooks": true` in `.claude/settings.local.json` (gitignored)                                         |
+| To do this                                  | Do this                                                                                                         |
+| ------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| Run a blocked command                       | Type it in your own terminal: no hook runs there                                                                |
+| Let an agent run a blocked OpenSpec command | Start the tool with `RESURSE_GUARD_ALLOW=openspec` in its environment; each use is logged in `tmp/agent-state/` |
+| Turn every hook off                         | `"disableAllHooks": true` in `.claude/settings.local.json` (gitignored)                                         |
 
 An agent that meets a block reports it; it does not flip a switch.
 

@@ -52,7 +52,7 @@ Stop and ask the owner before any of these.
 6. **Never say "done", "fixed" or "passes" without the command output** that shows it. "Should pass" is not evidence.
 7. **Never start a background native agent.** Background work goes through the T3 `delegate_task` tool. A worker never starts workers.
 8. **Never copy a name or a path from another repository** into a tracked file.
-9. **Never run `openspec update` or `openspec init`.** They rewrite the tool folders; they are the owner's commands ([OpenSpec](#openspec)).
+9. **Never run `openspec update`, `init`, `feedback` or `install`.** The first two rewrite the tool folders, `feedback` sends text off the machine, and `install` puts a binary outside the lockfile; all four are the owner's commands ([OpenSpec](#openspec)).
 10. **Never edit `pnpm-lock.yaml` or a generated file by hand.** Generated files carry a header that names their source.
 11. **Never use emojis** in any file or reply.
 
@@ -140,7 +140,7 @@ T3 Code compacts a session at about 450,000 tokens. What is not in a file by the
 - **Copy in what other agents cannot see:** plan files and memory notes outside the repository, decisions made only in chat, workers' reports.
 - **After a compaction,** open your reply with "Resuming:": the original request, the state file's path and the next step.
 
-The hooks run only in Claude Code for now. In any other tool the same rules hold without the safety net.
+The state hook runs only in Claude Code. Codex and Antigravity get a pointer to the newest snapshot when a session starts, and the command guard runs in Claude Code, Codex, Antigravity, Grok and Copilot once the owner has trusted the hooks ([`docs/agent/guardrails.md`](docs/agent/guardrails.md)). Where no hook runs, the same rules hold without the safety net.
 
 ## Git
 
@@ -173,6 +173,6 @@ Any loop has a budget. After three failed attempts at the same thing (a test tha
 
 Every code change that is more than a small fix goes through an OpenSpec change in `openspec/changes/<name>/`. A fix of a few lines, a typo, a formatting change or a dependency patch needs none.
 
-- Run the CLI as `pnpm exec openspec <command>`. `update` and `init` are the owner's commands; the guard blocks them.
+- Run the CLI as `pnpm exec openspec <command>`. `update`, `init`, `feedback` and `install` are the owner's commands; the guard blocks them.
 - Before work on a phase, read its proposal and requirements. Tick a task when it is verified.
 - A change in scope is written into the proposal first, with the owner's approval.

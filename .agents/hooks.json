@@ -1,0 +1,25 @@
+{
+	"resurse-guards": {
+		"PreToolUse": [
+			{
+				"matcher": "run_command|view_file|write_to_file|replace_file_content|multi_replace_file_content",
+				"hooks": [
+					{
+						"type": "command",
+						"command": "node -e \"const f=require('node:fs'),p=require('node:path'),u=require('node:url');let d=process.cwd();for(let i=0;i<64;i++){if(f.existsSync(p.join(d,'.git')))break;const n=p.dirname(d);if(n===d)process.exit(0);d=n}const s=p.join(d,'scripts','hooks','guard.ts');if(f.existsSync(s)===false)process.exit(0);import(u.pathToFileURL(s).href).then((m)=>m.guardMain(process.argv.slice(1))).catch(()=>process.exit(0))\" antigravity",
+						"timeout": 5
+					}
+				]
+			}
+		]
+	},
+	"resurse-state": {
+		"SessionStart": [
+			{
+				"type": "command",
+				"command": "node -e \"const f=require('node:fs'),p=require('node:path'),u=require('node:url');let d=process.cwd();for(let i=0;i<64;i++){if(f.existsSync(p.join(d,'.git')))break;const n=p.dirname(d);if(n===d)process.exit(0);d=n}const s=p.join(d,'scripts','hooks','state-pointer.ts');if(f.existsSync(s)===false)process.exit(0);import(u.pathToFileURL(s).href).then((m)=>m.pointerMain(process.argv.slice(1))).catch(()=>process.exit(0))\" antigravity",
+				"timeout": 10
+			}
+		]
+	}
+}

@@ -15,6 +15,7 @@ import {
 import { type ChildProcess, spawn, spawnSync } from 'node:child_process';
 import { HOOK_ENV, initScratchRepo, isolatedGitEnv, makeScratchDir, removeScratchDir, scratchGit, scrubbedEnv } from '../lib/scratch-git.ts';
 import { type Holder, TOKEN_VARIABLE, handshake } from '../checkout-lock.ts';
+import { lockAddress } from '../lib/lock-holder.ts';
 import { type HookOutput, runHook } from './hook-io.ts';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
@@ -434,6 +435,9 @@ describe('OpenSpec rule (D7)', () => {
 		'env RESURSE_GUARD_ALLOW=openspec openspec update',
 		'$env:RESURSE_GUARD_ALLOW = "openspec"; openspec init',
 		'OPENSPEC UPDATE',
+		// --language takes a value (openspec init --help, 1.16.1); read as the target, ../x let the real target through.
+		'openspec init --language ../x .',
+		'openspec init --language ro',
 	])('blocks %s', (command) => {
 		expect(check(command), command).not.toBeNull();
 	});
@@ -504,6 +508,69 @@ describe('OpenSpec rule (D7)', () => {
 
 	it.each(['1', 'OPENSPEC', 'openspec,git', ' openspec', 'git'])('overrides nothing with RESURSE_GUARD_ALLOW=%s', (value) => {
 		expect(check('openspec update', { env: { RESURSE_GUARD_ALLOW: value } })).not.toBeNull();
+	});
+});
+
+// The owner's decision of 2026-11-14 (harness part two): feedback sends text off the machine, install downloads a
+// binary the lockfile does not pin. Neither acts on a folder, so neither depends on where it is aimed.
+describe('OpenSpec feedback and install (harness part two)', () => {
+	it.each([
+		'openspec feedback "the validator is slow"',
+		'openspec feedback --body x title',
+		'openspec install',
+		'openspec install 1.17.0',
+		'OPENSPEC INSTALL',
+		'pnpm exec openspec feedback x',
+		'npx @fission-ai/openspec install',
+		'node node_modules/@fission-ai/openspec/bin/openspec.js feedback x',
+		'bash -c "openspec install"',
+		'echo hi; openspec feedback x',
+	])('blocks %s', (command) => {
+		expect(check(command), command).not.toBeNull();
+	});
+
+	it.each(['openspec feedback --help', 'openspec install -h', 'echo "openspec feedback x"', 'pnpm install --frozen-lockfile --ignore-scripts', 'openspec list'])(
+		'allows %s',
+		(command) => {
+			expect(check(command), command).toBeNull();
+		}
+	);
+
+	it('blocks them outside any checkout and under tmp/, where update and init pass', () => {
+		expect(check('openspec feedback x', { cwd: 'G:\\elsewhere', root: null })).not.toBeNull();
+		expect(check('openspec install', { cwd: `${ROOT}\\tmp\\x` })).not.toBeNull();
+		expect(check('openspec install', { cwd: null, root: null })).not.toBeNull();
+	});
+
+	it("lets the owner's override through and logs each use", () => {
+		const lines: string[] = [];
+		const deps = fakeDeps({
+			log: (file, line) => {
+				lines.push(`${file} ${line}`);
+				return true;
+			},
+		});
+		const env = { RESURSE_GUARD_ALLOW: 'openspec' };
+		expect(check('openspec feedback x', { env, deps })).toBeNull();
+		expect(check('openspec install', { env, deps })).toBeNull();
+		expect(lines).toHaveLength(2);
+		expect(lines[0]).toContain('openspec feedback');
+		expect(lines[1]).toContain('openspec install');
+	});
+
+	it('says why in its own words', () => {
+		const feedback = blockMessage(check('openspec feedback x') as Block, ROOT, 'win32').split('\n');
+		const install = blockMessage(check('openspec install') as Block, ROOT, 'win32').split('\n');
+		expect(feedback[0]).toContain('openspec feedback');
+		expect(feedback[1]).toMatch(/leaves this machine/);
+		expect(install[1]).toMatch(/lockfile/);
+		expect(feedback[2]).toMatch(/own terminal/);
+	});
+
+	it('is caught by the raw-text check when the line cannot be read', () => {
+		expect(suspicion("openspec feedback 'x", {})).not.toBeNull();
+		expect(suspicion("openspec install 'x", {})).not.toBeNull();
+		expect(suspicion("openspec install 'x", { RESURSE_GUARD_ALLOW: 'openspec' })).toBeNull();
 	});
 });
 
@@ -663,7 +730,7 @@ describe('block message (D5)', () => {
 // ─── The lock gate (D17) ─────────────────────────────────────────────────────
 
 /** Another thread's `pnpm build`, as its handshake names it. */
-const HOLDER: Holder = { pid: 4242, label: 'build', command: 'astro build && node scripts/flatten-locale-404.ts', started: '2026-10-25T19:57:00+02:00', token: '0123456789abcdef' };
+const HOLDER: Holder = { pid: 4242, label: 'build', command: 'astro build', started: '2026-10-25T19:57:00+02:00', token: '0123456789abcdef' };
 
 /**
  * A scope in the fake checkout whose lock {@link HOLDER} holds; every other checkout is free.
@@ -719,12 +786,17 @@ describe('lock gate (D17)', () => {
 		'pnpm exec playwright test',
 		'npx playwright test -g home',
 		'pnpm exec playwright test --list',
-		'pnpm exec serve dist/client -l 4901',
 		'npx serve dist',
-		'npx serve@14.2.6 ./dist/client',
-		'npx serve -l 4901 dist\\client',
+		'npx serve -l 4901 dist\\x',
+		'pnpm exec serve .vercel/output/static -l 4901',
+		'npx serve@14.2.6 ./.vercel/output/static',
+		'npx serve .vercel\\output\\static',
+		'node scripts/serve-static.ts',
+		'node scripts/serve-static.ts .vercel/output/static 4174',
 		'pnpm exec node scripts/sync-harness.ts',
 		'node scripts/sync-harness.ts --prune',
+		'node scripts/openspec-port.ts',
+		'node ./scripts/openspec-port.ts tmp/x',
 	])('blocks the raw bypass %s', (command) => {
 		expect(check(command, heldScope())?.kind, command).toBe('lock');
 	});
@@ -1240,6 +1312,18 @@ describe('the guard entry point, per host (D5, D6)', () => {
 	});
 });
 
+/** The scratch prefix of the real-holder suite below. On POSIX its lock socket lives under the scratch root. */
+const LOCK_SCRATCH_PREFIX = 'gl-';
+
+describe('the real-holder scratch root on the CI runner', () => {
+	it('fits a Unix socket address: at most 103 bytes, the limit in scripts/checkout-lock.ts', () => {
+		// The GitHub runner checks this repository out at this path, and mkdtemp adds six characters. Over the limit,
+		// the stand-in holder is refused (ENAMETOOLONG) and the whole suite below fails on Linux only.
+		const root = `/home/runner/work/digital-resources/digital-resources/tmp/${LOCK_SCRATCH_PREFIX}XXXXXX/repo`;
+		expect(Buffer.byteLength(lockAddress(root, 'linux'))).toBeLessThanOrEqual(103);
+	});
+});
+
 describe('the lock gate on a real holder (D17)', { timeout: 60_000 }, () => {
 	let scratch = '';
 	let root = '';
@@ -1249,7 +1333,7 @@ describe('the lock gate on a real holder (D17)', { timeout: 60_000 }, () => {
 	const fake: Holder = { ...HOLDER, pid: 31337, started: new Date(Date.now() - 3 * 60_000 - 5000).toISOString().replace(/\.\d+Z$/, '+00:00') };
 
 	beforeAll(async () => {
-		scratch = makeScratchDir('guard-lock-');
+		scratch = makeScratchDir(LOCK_SCRATCH_PREFIX);
 		root = join(scratch, 'repo');
 		other = join(scratch, 'other');
 		mkdirSync(join(root, '.git'), { recursive: true });

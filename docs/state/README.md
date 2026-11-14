@@ -113,12 +113,14 @@ What could be wrong, what was not checked, and what was left out on purpose.
 
 ## What the hook does
 
-`scripts/hooks/state-snapshot.mjs` (Claude Code only) warns when the context is within 90,000 tokens of the compaction point, saves a private word-for-word capture to `tmp/compact-summaries/` before every compaction, and after a compaction says which snapshot covers the session or asks for one. It never blocks anything and never writes into this folder: a snapshot is always written by an agent, which applies the rules above. The script's opening comment is the full description.
+`scripts/hooks/state-snapshot.mjs` (Claude Code only; Codex and Antigravity get only a pointer to the index, from `scripts/hooks/state-pointer.ts`) warns when the context is within 90,000 tokens of the compaction point, saves a private word-for-word capture to `tmp/compact-summaries/` before every compaction, and after a compaction says which snapshot covers the session or asks for one. It never blocks anything and never writes into this folder: a snapshot is always written by an agent, which applies the rules above. The script's opening comment is the full description.
 
 ## Index (newest first)
 
 | File | Trigger | What it holds |
 | --- | --- | --- |
+| [2026-11-14-1916-harness-h1b.md](2026-11-14-1916-harness-h1b.md) | pause-point | Harness part two mostly built, `pnpm verify` green: three tasks and the build, browser and Linux checks left; then Phase 5 from its read-only map |
+| [2026-11-14-1911-harness-h1b.md](2026-11-14-1911-harness-h1b.md) | pause-point | The spreadsheet stays (owner's B); harness part two half built and checked file by file: guard blocks two more OpenSpec commands, a CI-only lock test fault fixed, scripts wrapped by the lock, Codex hooks, a state pointer |
 | [2026-11-14-1721-content-decisions.md](2026-11-14-1721-content-decisions.md) | pause-point | The owner's answers to the five content decisions (images are downloaded); the roadmap part by part; six commits wait for the push; the spreadsheet is in an unpushed commit |
 | [2026-11-14-1650-phase-4-pipeline.md](2026-11-14-1650-phase-4-pipeline.md) | pause-point | Phase 4 committed as `f934586`, not pushed; the fifth simplify run about to start, with its base and scope |
 | [2026-11-14-1616-phase-4-pipeline.md](2026-11-14-1616-phase-4-pipeline.md) | pause-point | The pipeline, Dependabot and the screenshot test written; the review round done and its fixes checked, uncommitted; the push is fine on two conditions; the Phase 5 list and the content phase |

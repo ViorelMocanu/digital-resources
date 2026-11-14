@@ -1,0 +1,29 @@
+{
+	"description": "resurse.dev command guard and state pointer (OpenSpec change harness-h1b; docs/agent/guardrails.md). Codex runs project hooks only after the owner trusts the project and then each hook in the native Codex TUI (/hooks), again after every edit to this file. The launchers find the checkout from the session folder and exit 0 when their script is missing.",
+	"hooks": {
+		"PreToolUse": [
+			{
+				"matcher": "^(Bash|apply_patch|Edit|Write)$",
+				"hooks": [
+					{
+						"type": "command",
+						"command": "node -e \"const f=require('node:fs'),p=require('node:path'),u=require('node:url');let d=process.cwd();for(let i=0;i<64;i++){if(f.existsSync(p.join(d,'.git')))break;const n=p.dirname(d);if(n===d)process.exit(0);d=n}const s=p.join(d,'scripts','hooks','guard.ts');if(f.existsSync(s)===false)process.exit(0);import(u.pathToFileURL(s).href).then((m)=>m.guardMain(process.argv.slice(1))).catch(()=>process.exit(0))\" codex",
+						"statusMessage": "resurse guard",
+						"timeout": 5
+					}
+				]
+			}
+		],
+		"SessionStart": [
+			{
+				"hooks": [
+					{
+						"type": "command",
+						"command": "node -e \"const f=require('node:fs'),p=require('node:path'),u=require('node:url');let d=process.cwd();for(let i=0;i<64;i++){if(f.existsSync(p.join(d,'.git')))break;const n=p.dirname(d);if(n===d)process.exit(0);d=n}const s=p.join(d,'scripts','hooks','state-pointer.ts');if(f.existsSync(s)===false)process.exit(0);import(u.pathToFileURL(s).href).then((m)=>m.pointerMain(process.argv.slice(1))).catch(()=>process.exit(0))\" codex",
+						"timeout": 10
+					}
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,16 @@
+{
+	"hooks": {
+		"PreToolUse": [
+			{
+				"matcher": "Bash|Read|Write|Edit",
+				"hooks": [
+					{
+						"type": "command",
+						"command": "node \"${GROK_WORKSPACE_ROOT}/scripts/hooks/guard.ts\" grok",
+						"timeout": 5
+					}
+				]
+			}
+		]
+	}
+}

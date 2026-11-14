@@ -10,15 +10,17 @@
  *   delete; `checkout` with a force flag or a folder pathspec; `restore` of a folder into the worktree. The missing
  *   pathspecs of a call are resolved with one read-only `git cat-file --batch-check`, so a deleted folder blocks and a
  *   deleted `LICENSE` passes.
- * - OpenSpec: `openspec update` and `init` aimed at this checkout outside `<root>/tmp/`, through every launcher. The
- *   owner's override is `RESURSE_GUARD_ALLOW=openspec` in the guard's own environment, never in the command text;
- *   each use is logged to `<root>/tmp/agent-state/guard-overrides.log`.
+ * - OpenSpec: `openspec update` and `init` aimed at this checkout outside `<root>/tmp/`, and `openspec feedback` and
+ *   `install` wherever they run, through every launcher. The owner's override is `RESURSE_GUARD_ALLOW=openspec` in the
+ *   guard's own environment, never in the command text; each use is logged to
+ *   `<root>/tmp/agent-state/guard-overrides.log`.
  * - Env files: a command word, argument or redirect that names `.env`, a `.env.*` other than `.env.example`,
  *   `.dev.vars` or a `.dev.vars.*`, except listing commands, `git check-ignore`/`ls-files`/`status`, Node's
  *   `--env-file` and the pattern of a search. File tools are scanned for such a path in every string value.
  * - The lock gate (D17): while another process holds this checkout's lock (`scripts/checkout-lock.ts`), the pnpm
- *   commands that change `node_modules` or the lockfile, the raw `astro build`, `playwright test`, `serve dist…` and
- *   `node scripts/sync-harness.ts`, and repo-wide fixers (no path, `.`, a folder or a glob). The checkout is the one
+ *   commands that change `node_modules` or the lockfile, the raw `astro build`, `playwright test`, a `serve` of the
+ *   build output, `node scripts/serve-static.ts`, `sync-harness.ts` (not `--check` or `--diff`) and `openspec-port.ts`,
+ *   and repo-wide fixers (no path, `.`, a folder or a glob). The checkout is the one
  *   the command runs in: the payload's folder, a literal `cd` earlier in the call, or pnpm's `-C`. The holder is read
  *   only for a command on that list, and any error in reading it allows.
  *
@@ -926,11 +928,43 @@ function destructiveGitRule(command: SimpleCommand, scope: GuardScope, depth: nu
 
 // ─── OpenSpec (D7) ───────────────────────────────────────────────────────────
 
-/** `openspec update` and `init` options that take a value (verified, `openspec init --help`, 1.3.1). */
-const OPENSPEC_VALUED = new Set(['--tools', '--profile']);
+/** `openspec update` and `init` options that take a value (verified, `openspec init --help` and `update --help`, 1.16.1). */
+const OPENSPEC_VALUED = new Set(['--tools', '--language', '--profile']);
 
 /** The value that turns the owner's override on, in the guard's own environment. */
 const OVERRIDE_VALUE = 'openspec';
+
+/** The OpenSpec subcommands that rewrite a folder: blocked when aimed inside this checkout and outside its tmp/. */
+const OPENSPEC_REWRITES: ReadonlySet<string> = new Set(['update', 'init']);
+
+/**
+ * The OpenSpec subcommands blocked wherever they run, with the reason each gives (the owner's decision of
+ * 2026-11-14): neither acts on a folder, so the place it is aimed at changes nothing.
+ */
+const OPENSPEC_ANYWHERE: ReadonlyMap<string, string> = new Map([
+	['feedback', 'its text leaves this machine for the OpenSpec maintainers (AGENTS.md, Ask first 4).'],
+	['install', 'it downloads and installs a binary that the lockfile does not pin (AGENTS.md, Always 2).'],
+]);
+
+/**
+ * The owner's override for an OpenSpec block: when it is set in the guard's own environment, the use is logged once
+ * per guard run and the command passes.
+ * @param use The command as the log line names it.
+ * @param logRoot The checkout whose `tmp/agent-state/` holds the log, or null for no log line.
+ * @param scope The guard scope.
+ * @returns True when the override lets the command through.
+ */
+function openspecOverride(use: string, logRoot: string | null, scope: GuardScope): boolean {
+	if (scope.env.RESURSE_GUARD_ALLOW !== OVERRIDE_VALUE) return false;
+	if (logRoot !== null && scope.overridesLogged?.has(use) !== true) {
+		scope.overridesLogged?.add(use);
+		scope.deps.log(
+			agentStateFile(logRoot, scope.platform, 'guard-overrides.log'),
+			clip(asciiLine(`${localIso(scope.now())} ${scope.host} override allowed ${use}`), MAX_LOG_LINE_CHARS)
+		);
+	}
+	return true;
+}
 
 /**
  * The arguments of an OpenSpec invocation: after `openspec` (any launcher, after D2's unwrapping), or after a
@@ -955,8 +989,8 @@ function openspecArgs(command: SimpleCommand, platform: NodeJS.Platform): Word[]
 
 /**
  * The OpenSpec rule for one command (design D7): `update` and `init` are blocked when their target is inside the
- * checkout and outside its `tmp/`, or cannot be placed at all, unless the owner's override is set in the guard's own
- * environment.
+ * checkout and outside its `tmp/`, or cannot be placed at all; `feedback` and `install` are blocked wherever they
+ * run. The owner's override in the guard's own environment lets all four through.
  * @param command The command.
  * @param scope The guard scope.
  * @returns The block, or null.
@@ -966,8 +1000,15 @@ function openspecRule(command: SimpleCommand, scope: GuardScope): Block | null {
 	if (args === null) return null;
 	const subIndex = args.findIndex((word) => !word.value.startsWith('-'));
 	const sub = args[subIndex]?.value.toLowerCase();
-	if (sub !== 'update' && sub !== 'init') return null;
+	if (sub === undefined) return null;
+	const anywhere = OPENSPEC_ANYWHERE.get(sub);
+	if (anywhere === undefined && !OPENSPEC_REWRITES.has(sub)) return null;
 	if (args.some((word) => word.value === '-h' || word.value === '--help')) return null;
+	if (anywhere !== undefined) {
+		const logRoot = hookRoot(scope.cwd, scope.env, scope.platform, scope.deps.exists) ?? scope.root;
+		if (openspecOverride(`openspec ${sub}`, logRoot, scope)) return null;
+		return { kind: 'openspec', rule: `openspec ${sub}`, match: shown(command.words), why: anywhere };
+	}
 	const rest = args.slice(subIndex + 1);
 	let target: Word | undefined;
 	for (let index = 0; index < rest.length; index++) {
@@ -993,18 +1034,7 @@ function openspecRule(command: SimpleCommand, scope: GuardScope): Block | null {
 		if (checkout === null) return null;
 		if (!isInside(targetPath, checkout, platform) || isInside(targetPath, scratchPath(checkout, platform), platform)) return null;
 	}
-	if (scope.env.RESURSE_GUARD_ALLOW === OVERRIDE_VALUE) {
-		const logRoot = checkout ?? scope.root;
-		const use = `openspec ${sub} ${targetPath ?? '(unplaced target)'}`;
-		if (logRoot !== null && scope.overridesLogged?.has(use) !== true) {
-			scope.overridesLogged?.add(use);
-			scope.deps.log(
-				agentStateFile(logRoot, platform, 'guard-overrides.log'),
-				clip(asciiLine(`${localIso(scope.now())} ${scope.host} override allowed ${use}`), MAX_LOG_LINE_CHARS)
-			);
-		}
-		return null;
-	}
+	if (openspecOverride(`openspec ${sub} ${targetPath ?? '(unplaced target)'}`, checkout ?? scope.root, scope)) return null;
 	return { kind: 'openspec', rule: `openspec ${sub}`, match: shown(command.words) };
 }
 
@@ -1029,7 +1059,7 @@ const SUSPICIOUS: readonly { rule: string; kind: 'git' | 'openspec'; pattern: Re
 		pattern:
 			/\b(?:checkout|restore)\b[^\n;|&]*?(?:\s(?:\.{1,2}[\\/]?|:[/(!^]\S*)(?=$|[\s"'`;|&)])|\s-[A-Za-z]*f\b|\s--force\b|--pathspec-from-file|[*?]|[\\/](?=$|[\s"'`;|&)]))/i,
 	},
-	{ rule: 'openspec update or init', kind: 'openspec', pattern: /\bopenspec\b[\s\S]*?\b(?:update|init)\b/i },
+	{ rule: 'openspec update, init, feedback or install', kind: 'openspec', pattern: /\bopenspec\b[\s\S]*?\b(?:update|init|feedback|install)\b/i },
 ];
 
 /** The same shapes under the `read-only` git policy, which also looks for the write subcommands. */
@@ -1047,8 +1077,8 @@ const ENV_MENTION = /(?:^|[\s"'`=:/\\<>|;&(),{}[\]])(\.(?:env|dev\.vars)(?:\.[\w
 
 /**
  * The raw-text suspicion check (design D4), for text that no reading completes or that holds a dynamic command:
- * a `git` word followed later by a blocked subcommand, `openspec` with `update` or `init` (unless the owner's
- * override is set), or a denied env name outside Node's `--env-file`.
+ * a `git` word followed later by a blocked subcommand, `openspec` with `update`, `init`, `feedback` or `install`
+ * (unless the owner's override is set), or a denied env name outside Node's `--env-file`.
  * @param text The command text.
  * @param env The guard's own environment.
  * @param orderFree Look for the subcommand anywhere, not only after the `git` word: for a git call whose subcommand
@@ -1328,6 +1358,16 @@ function pnpmRoot(args: readonly Word[], scope: GuardScope): string | null {
 	return hookRoot(placeWord(dir.value, scope.cwd ?? scope.root, scope.platform), scope.env, scope.platform, scope.deps.exists);
 }
 
+/** A path into the build output: Astro's `dist/` or the static files the Vercel adapter writes, which the browser tests serve. */
+const BUILD_OUTPUT = /^(?:\.[\\/])?(?:dist|\.vercel[\\/]output)(?:[\\/]|$)/i;
+
+/**
+ * The repository scripts the gate judges, by base name: the static server serves the folder a build rewrites and
+ * binds the browser tests' port; the sync engine and the OpenSpec port write the skill trees each other read. The
+ * sync engine's `--check` and `--diff` only read.
+ */
+const GATED_SCRIPTS: ReadonlySet<string> = new Set(['serve-static', 'sync-harness', 'openspec-port']);
+
 /**
  * Whether the lock gate judges a command (design D17), after the parser unwrapped its runners (`pnpm exec`, `pnpm
  * dlx`, `npx`, `pnpm <bin>`), and for which checkout. A `--help` or `-h` anywhere passes.
@@ -1348,11 +1388,13 @@ function gatedCommand(command: SimpleCommand, scope: GuardScope): Gated | null {
 	}
 	if (name === 'astro') return positionals(args, ASTRO_VALUED)[0]?.value === 'build' ? { rule: 'astro build', root: scope.root } : null;
 	if (name === 'playwright') return positionals(args, new Set())[0]?.value === 'test' ? { rule: 'playwright test', root: scope.root } : null;
-	if (name === 'serve') return args.some((word) => /^(?:\.[\\/])?dist(?:[\\/]|$)/i.test(word.value)) ? { rule: 'serve dist', root: scope.root } : null;
+	if (name === 'serve') return args.some((word) => BUILD_OUTPUT.test(word.value)) ? { rule: 'serve the build output', root: scope.root } : null;
 	if (name === 'node' || name === 'nodejs') {
-		const script = positionals(args, NODE_VALUED)[0];
-		if (script === undefined || !/^sync-harness\.[cm]?[jt]s$/i.test(script.value.split(/[\\/]/).at(-1) ?? '')) return null;
-		return args.some((word) => word.value === '--check' || word.value === '--diff') ? null : { rule: 'node scripts/sync-harness.ts', root: scope.root };
+		const script = (positionals(args, NODE_VALUED)[0]?.value.split(/[\\/]/).at(-1) ?? '').toLowerCase();
+		const base = script.replace(/\.[cm]?[jt]s$/, '');
+		if (base === script || !GATED_SCRIPTS.has(base)) return null;
+		if (base === 'sync-harness' && args.some((word) => word.value === '--check' || word.value === '--diff')) return null;
+		return { rule: `node scripts/${base}.ts`, root: scope.root };
 	}
 	const fixer = FIXERS.get(name);
 	return fixer !== undefined && repoWideFix(fixer, args, scope) ? { rule: `${name} fixing a folder`, root: scope.root } : null;
@@ -1503,7 +1545,7 @@ export function blockMessage(block: Block, root: string | null, platform: NodeJS
 	const task = root === null ? '<root>/tmp/<task>/' : `${scratchPath(root, platform, '<task>')}${platform === 'win32' ? '\\' : '/'}`;
 	const instead: Record<RuleSet, string> = {
 		git: `give the owner the exact command to run; read-only git still works; a destructive step in a throwaway repo goes in a script under ${task}.`,
-		openspec: 'ask the owner to run it in their own terminal, following the upgrade procedure in docs/agent/harness-sync.md.',
+		openspec: 'ask the owner to run it in their own terminal; for update and init, the upgrade procedure is in docs/agent/harness-sync.md.',
 		env: 'read .env.example for the key names.',
 		lock: 'wait for it to finish and run your command again, or ask the owner for a worktree; never stop a process you did not start.',
 	};
