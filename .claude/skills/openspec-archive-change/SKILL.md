@@ -12,11 +12,11 @@ metadata:
 
 **Project rules. They override anything below.**
 
--   Wherever this text shows `openspec <command>`, run `pnpm exec openspec <command>`.
--   Never run `openspec init` or `openspec update`: they are the owner's commands. This repository already has its `openspec/` folder, so the setup questions below do not apply.
--   `AGENTS.md` wins over this skill. No git writes. Archiving moves a change folder, so archive only when the owner asked for it. A task is ticked when its check has passed, never in a batch.
--   Never run `openspec feedback` or `openspec install`: both reach outside this machine.
--   Where a step names a tool your host does not have (a question dialog, a todo list), ask in the chat and keep a plain checklist.
+- Wherever this text shows `openspec <command>`, run `pnpm exec openspec <command>`.
+- Never run `openspec init` or `openspec update`: they are the owner's commands. This repository already has its `openspec/` folder, so the setup questions below do not apply.
+- `AGENTS.md` wins over this skill. No git writes. Archiving moves a change folder, so archive only when the owner asked for it. A task is ticked when its check has passed, never in a batch.
+- Never run `openspec feedback` or `openspec install`: both reach outside this machine.
+- Where a step names a tool your host does not have (a question dialog, a todo list), ask in the chat and keep a plain checklist.
 
 Archive a completed change in the experimental workflow.
 
@@ -28,8 +28,8 @@ One `"root": null` is not about setup: when a `status` error message starts with
 
 Otherwise, with no root, what happens next depends on how this workflow was reached:
 
--   **Auto-selected**: you chose this workflow yourself, without the user naming OpenSpec, naming this skill, or running its slash command. Stop using OpenSpec and answer the request normally, as you would with no OpenSpec installed. Do not ask them to set anything up and do not mention OpenSpec setup.
--   **Explicit OpenSpec request**: the user named OpenSpec, named this skill, or ran its slash command. Stop before writing and ask how to proceed: set this project up (`openspec init`), target a store they already have (`--store <id>`), or continue without OpenSpec for this request. Wait for their answer.
+- **Auto-selected**: you chose this workflow yourself, without the user naming OpenSpec, naming this skill, or running its slash command. Stop using OpenSpec and answer the request normally, as you would with no OpenSpec installed. Do not ask them to set anything up and do not mention OpenSpec setup.
+- **Explicit OpenSpec request**: the user named OpenSpec, named this skill, or ran its slash command. Stop before writing and ask how to proceed: set this project up (`openspec init`), target a store they already have (`--store <id>`), or continue without OpenSpec for this request. Wait for their answer.
 
 In both branches, never create the root as a side effect: do not run `openspec init` until the user asks for it, do not hand-create `openspec/` files, and do not let a command create it.
 
@@ -187,16 +187,16 @@ In both branches, never create the root as a side effect: do not run `openspec i
 
 **Guardrails**
 
--   Announce the selected change; prompt for selection when it is ambiguous
--   Use artifact graph (openspec status --json) for completion checking
--   Don't block archive on warnings - just inform and confirm
--   Preserve .openspec.yaml when moving to archive (it moves with the directory)
--   Show clear summary of what happened
--   If sync is requested, run the `openspec-sync-specs` workflow inline (agent-driven)
--   Never archive while a spec sync is still in flight — run the sync inline and verify the main specs before moving `changeRoot`
--   If delta specs exist, always run the sync assessment and show the combined summary before prompting
--   Apply relevant runtime context and report conflicts; operation guidance remains advisory
--   Consider every guidance entry and explain any inapplicable or conflicting advice
--   Existing CLI checks, resolved paths, prompts, and command contracts are unchanged
--   Artifact rules constrain only the specs being written and are never operation guidance
--   Never copy runtime context, operation guidance, or artifact-rule text verbatim into output files
+- Announce the selected change; prompt for selection when it is ambiguous
+- Use artifact graph (openspec status --json) for completion checking
+- Don't block archive on warnings - just inform and confirm
+- Preserve .openspec.yaml when moving to archive (it moves with the directory)
+- Show clear summary of what happened
+- If sync is requested, run the `openspec-sync-specs` workflow inline (agent-driven)
+- Never archive while a spec sync is still in flight — run the sync inline and verify the main specs before moving `changeRoot`
+- If delta specs exist, always run the sync assessment and show the combined summary before prompting
+- Apply relevant runtime context and report conflicts; operation guidance remains advisory
+- Consider every guidance entry and explain any inapplicable or conflicting advice
+- Existing CLI checks, resolved paths, prompts, and command contracts are unchanged
+- Artifact rules constrain only the specs being written and are never operation guidance
+- Never copy runtime context, operation guidance, or artifact-rule text verbatim into output files

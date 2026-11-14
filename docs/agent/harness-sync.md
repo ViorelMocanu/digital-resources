@@ -25,10 +25,10 @@ An orphan is a generated file whose source is gone. The check reports it; `pnpm 
 
 ## The OpenSpec skills
 
--   The twelve `openspec-*` skills hold the stock text of the installed OpenSpec version (the `generatedBy` line in each says which), with a block of project rules on top. The block wins over the stock text.
--   Each `opsx-*` workflow is one sentence that hands over to its skill, so the instructions exist once.
--   The stock key `allowed-tools` is left out on purpose: OpenSpec commands go through the normal permission prompt and the guard.
--   The generated copies are excluded from the format check (`.prettierignore`); the sources in `.agents/` are formatted.
+- The twelve `openspec-*` skills hold the stock text of the installed OpenSpec version (the `generatedBy` line in each says which), with a block of project rules on top. The block wins over the stock text.
+- Each `opsx-*` workflow is one sentence that hands over to its skill, so the instructions exist once.
+- The stock key `allowed-tools` is left out on purpose: OpenSpec commands go through the normal permission prompt and the guard.
+- The generated copies are excluded from the format check (`.prettierignore`); the sources in `.agents/` are formatted.
 
 ## A commit that changes a skill
 

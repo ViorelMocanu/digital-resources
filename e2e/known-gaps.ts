@@ -7,6 +7,22 @@
 /** Pages without a main heading. `/README/` is a stray Markdown file published as a page. */
 export const PAGES_WITHOUT_H1: readonly string[] = ['/README/'];
 
+/**
+ * Files a page asks for that the build does not hold, as the smoke test records them. The seven category pages name
+ * their image by its path in the source tree, so the image is broken on the live site too.
+ */
+export const MISSING_FILES: Readonly<Record<string, readonly string[]>> = Object.fromEntries(
+	[
+		'/back-end/introducere-in-back-end/',
+		'/front-end/css/',
+		'/front-end/experienta-utilizatorului/',
+		'/front-end/html/',
+		'/front-end/introducere-in-front-end/',
+		'/front-end/mobile-first-responsive-design/',
+		'/front-end/unelte-utile-de-front-end/',
+	].map((path) => [path, ['404 /src/content/sections/front-end.svg']])
+);
+
 /** One kind of page, for the accessibility test. */
 export interface PageKind {
 	kind: string;
@@ -30,3 +46,13 @@ export const PAGE_KINDS: readonly PageKind[] = [
 	{ kind: 'text page', path: '/faq/', findings: ['region'] },
 	{ kind: 'not found', path: '/404', findings: ['region'] },
 ];
+
+/**
+ * The test details that decide at which sizes a page is loaded: the page of each kind at both sizes, every other
+ * page at the desktop size only (the narrow project leaves out the tests tagged `@desktop-only`).
+ * @param path The page address.
+ * @returns The details to pass to `test`.
+ */
+export function sizesFor(path: string): { tag?: string } {
+	return PAGE_KINDS.some((kind) => kind.path === path) ? {} : { tag: '@desktop-only' };
+}

@@ -12,11 +12,11 @@ metadata:
 
 **Project rules. They override anything below.**
 
--   Wherever this text shows `openspec <command>`, run `pnpm exec openspec <command>`.
--   Never run `openspec init` or `openspec update`: they are the owner's commands. This repository already has its `openspec/` folder, so the setup questions below do not apply.
--   `AGENTS.md` wins over this skill. No git writes. Archiving moves a change folder, so archive only when the owner asked for it. A task is ticked when its check has passed, never in a batch.
--   Never run `openspec feedback` or `openspec install`: both reach outside this machine.
--   Where a step names a tool your host does not have (a question dialog, a todo list), ask in the chat and keep a plain checklist.
+- Wherever this text shows `openspec <command>`, run `pnpm exec openspec <command>`.
+- Never run `openspec init` or `openspec update`: they are the owner's commands. This repository already has its `openspec/` folder, so the setup questions below do not apply.
+- `AGENTS.md` wins over this skill. No git writes. Archiving moves a change folder, so archive only when the owner asked for it. A task is ticked when its check has passed, never in a batch.
+- Never run `openspec feedback` or `openspec install`: both reach outside this machine.
+- Where a step names a tool your host does not have (a question dialog, a todo list), ask in the chat and keep a plain checklist.
 
 Verify that an implementation matches the change artifacts (specs, tasks, design).
 
@@ -28,8 +28,8 @@ One `"root": null` is not about setup: when a `status` error message starts with
 
 Otherwise, with no root, what happens next depends on how this workflow was reached:
 
--   **Auto-selected**: you chose this workflow yourself, without the user naming OpenSpec, naming this skill, or running its slash command. Stop using OpenSpec and answer the request normally, as you would with no OpenSpec installed. Do not ask them to set anything up and do not mention OpenSpec setup.
--   **Explicit OpenSpec request**: the user named OpenSpec, named this skill, or ran its slash command. Stop before writing and ask how to proceed: set this project up (`openspec init`), target a store they already have (`--store <id>`), or continue without OpenSpec for this request. Wait for their answer.
+- **Auto-selected**: you chose this workflow yourself, without the user naming OpenSpec, naming this skill, or running its slash command. Stop using OpenSpec and answer the request normally, as you would with no OpenSpec installed. Do not ask them to set anything up and do not mention OpenSpec setup.
+- **Explicit OpenSpec request**: the user named OpenSpec, named this skill, or ran its slash command. Stop before writing and ask how to proceed: set this project up (`openspec init`), target a store they already have (`--store <id>`), or continue without OpenSpec for this request. Wait for their answer.
 
 In both branches, never create the root as a side effect: do not run `openspec init` until the user asks for it, do not hand-create `openspec/` files, and do not let a command create it.
 
@@ -229,18 +229,18 @@ In both branches, never create the root as a side effect: do not run `openspec i
 
 **Verification Heuristics**
 
--   **Completeness**: Focus on objective checklist items (checkboxes, requirements list)
--   **Correctness**: Use keyword search, file path analysis, reasonable inference - don't require perfect certainty
--   **Coherence**: Look for glaring inconsistencies, don't nitpick style
--   **False Positives**: When uncertain, prefer SUGGESTION over WARNING, WARNING over CRITICAL
--   **Actionability**: Every issue must have a specific recommendation with file/line references where applicable
+- **Completeness**: Focus on objective checklist items (checkboxes, requirements list)
+- **Correctness**: Use keyword search, file path analysis, reasonable inference - don't require perfect certainty
+- **Coherence**: Look for glaring inconsistencies, don't nitpick style
+- **False Positives**: When uncertain, prefer SUGGESTION over WARNING, WARNING over CRITICAL
+- **Actionability**: Every issue must have a specific recommendation with file/line references where applicable
 
 **Output Format**
 
 Use clear markdown with:
 
--   Table for summary scorecard
--   Grouped lists for issues (CRITICAL/WARNING/SUGGESTION)
--   Code references in format: `file.ts:123`
--   Specific, actionable recommendations
--   No vague suggestions like "consider reviewing"
+- Table for summary scorecard
+- Grouped lists for issues (CRITICAL/WARNING/SUGGESTION)
+- Code references in format: `file.ts:123`
+- Specific, actionable recommendations
+- No vague suggestions like "consider reviewing"

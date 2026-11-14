@@ -18,14 +18,14 @@ supersedes: 2026-11-12-1933-harness-h1a
 
 **Check receipts**, all at `080cb3c` plus the working tree in section 12:
 
--   `pnpm verify`: exit 0. Lint 0 errors (16 warnings, all older); `astro check` 0 errors; 10 test files, 815 tests passed; "All 24 generated files are fresh"; format clean.
--   `pnpm build`: exit 0, 56 pages, no `functions` folder.
--   `pnpm install --frozen-lockfile --ignore-scripts`: exit 0 on the new lockfile.
--   `pnpm exec openspec validate harness-h1a --strict` and `... phase-1-prune-static --strict`: both valid.
--   Screenshots after the package removal only: 116 of 116 identical to `tmp/baseline/shots`.
--   Screenshots after all of Phase 1: 64 identical (32 pages), 48 different (24 pages that show resources: listings, resource pages, tag pages, search), 4 missing (the two deleted test pages at two widths).
--   Built HTML after the package removal only: 57 of 58 pages identical once the Partytown snippet is masked; the last differs by one line break.
--   Spec scenarios on the built output: 0 routes to `_render` or `_image`; 0 files with `~partytown`; 56 of 56 pages carry `noindex, nofollow`; 0 pages with `TemporaryMessage`; 0 pages with `7895`; no `/r/test` page; 56 addresses in the sitemap, none a test page.
+- `pnpm verify`: exit 0. Lint 0 errors (16 warnings, all older); `astro check` 0 errors; 10 test files, 815 tests passed; "All 24 generated files are fresh"; format clean.
+- `pnpm build`: exit 0, 56 pages, no `functions` folder.
+- `pnpm install --frozen-lockfile --ignore-scripts`: exit 0 on the new lockfile.
+- `pnpm exec openspec validate harness-h1a --strict` and `... phase-1-prune-static --strict`: both valid.
+- Screenshots after the package removal only: 116 of 116 identical to `tmp/baseline/shots`.
+- Screenshots after all of Phase 1: 64 identical (32 pages), 48 different (24 pages that show resources: listings, resource pages, tag pages, search), 4 missing (the two deleted test pages at two widths).
+- Built HTML after the package removal only: 57 of 58 pages identical once the Partytown snippet is masked; the last differs by one line break.
+- Spec scenarios on the built output: 0 routes to `_render` or `_image`; 0 files with `~partytown`; 56 of 56 pages carry `noindex, nofollow`; 0 pages with `TemporaryMessage`; 0 pages with `7895`; no `/r/test` page; 56 addresses in the sitemap, none a test page.
 
 **Next actions, in order:**
 
@@ -47,17 +47,17 @@ By the owner, 2026-11-12: N1 A, N2 B, N3 A, N4 A, and A for G1 to G7, S1 and S2 
 
 By the agent, for the owner to overrule:
 
--   Each `opsx-*` workflow hands over to its skill instead of repeating the text, so about 180 KB of instructions exist once, not twice.
--   The stock key `allowed-tools` is left out of the skills, so OpenSpec commands keep the normal permission prompt.
--   The skills forbid `openspec feedback` and `openspec install`, which reach outside the machine. OpenSpec commands in this session ran with its telemetry switched off through the environment (`OPENSPEC_TELEMETRY=0`).
--   `noindex` is one switch, `INDEXABLE` in `src/config.ts`.
--   `astro-embed`, `astro-social-share` and `@astrojs/mdx` stay until a later phase: the home page still renders the first two.
+- Each `opsx-*` workflow hands over to its skill instead of repeating the text, so about 180 KB of instructions exist once, not twice.
+- The stock key `allowed-tools` is left out of the skills, so OpenSpec commands keep the normal permission prompt.
+- The skills forbid `openspec feedback` and `openspec install`, which reach outside the machine. OpenSpec commands in this session ran with its telemetry switched off through the environment (`OPENSPEC_TELEMETRY=0`).
+- `noindex` is one switch, `INDEXABLE` in `src/config.ts`.
+- `astro-embed`, `astro-social-share` and `@astrojs/mdx` stay until a later phase: the home page still renders the first two.
 
 ## 4. Open decisions
 
--   Whether OpenSpec telemetry should be switched off for every session, for example in the Claude Code settings. Recommendation: A, yes. It is a settings change, so it waits for the owner.
--   The resource rating shows a fixed "(10)" after the value (`ResourceList.astro`, `r/[slug].astro`). Whether that is the scale or a placeholder vote count is unknown. Recommendation: A, the owner says which; if a placeholder, it goes in Phase 5.
--   The Back End section now lists no resource, because its only entry was a test. Recommendation: A, leave it until the catalogue data arrives in Phase 6.
+- Whether OpenSpec telemetry should be switched off for every session, for example in the Claude Code settings. Recommendation: A, yes. It is a settings change, so it waits for the owner.
+- The resource rating shows a fixed "(10)" after the value (`ResourceList.astro`, `r/[slug].astro`). Whether that is the scale or a placeholder vote count is unknown. Recommendation: A, the owner says which; if a placeholder, it goes in Phase 5.
+- The Back End section now lists no resource, because its only entry was a test. Recommendation: A, leave it until the catalogue data arrives in Phase 6.
 
 ## 5. Plan
 
@@ -65,11 +65,11 @@ By the agent, for the owner to overrule:
 
 ## 6. Facts established
 
--   Verified: every receipt in section 1.
--   Verified (`git diff -- pnpm-lock.yaml`): the package removal added no new version to the lockfile; the 19 added lines are moved entries.
--   Verified: both imports of removed packages in `src/pages/rss.xml.ts` and `src/utils/csp-hash.ts` sit inside comments, so the files stay and still compile.
--   Verified (2026-11-12, before this work): 222 open alerts, 9 critical; the live image endpoint answers 404.
--   Verified: `git status` shows the previous snapshot and its index row as staged. The agent staged nothing.
+- Verified: every receipt in section 1.
+- Verified (`git diff -- pnpm-lock.yaml`): the package removal added no new version to the lockfile; the 19 added lines are moved entries.
+- Verified: both imports of removed packages in `src/pages/rss.xml.ts` and `src/utils/csp-hash.ts` sit inside comments, so the files stay and still compile.
+- Verified (2026-11-12, before this work): 222 open alerts, 9 critical; the live image endpoint answers 404.
+- Verified: `git status` shows the previous snapshot and its index row as staged. The agent staged nothing.
 
 ## 7. Subagent and external research results
 
@@ -81,18 +81,18 @@ Unchanged: build and test first; options side by side with the recommended one a
 
 ## 9. Pending owner actions
 
--   Review and commit.
--   Set `INDEXABLE` to `true` at launch.
--   Phase 2: set the Vercel project's Node version to 24.x.
+- Review and commit.
+- Set `INDEXABLE` to `true` at launch.
+- Phase 2: set the Vercel project's Node version to 24.x.
 
 ## 10. Caveats and unverified claims
 
--   Unverified: how many alerts close. The count is read after the push.
--   Unverified: the Vercel deployment of this tree. The local build output has no function, as before.
--   The stock skill text was produced by calling the OpenSpec package's own template functions from a scratch script, not by `openspec init` or `update`. The script lives in `tmp/work/` and is not tracked.
--   The stock text still describes `openspec init` and store selection; the rules block on top of each skill overrides it.
--   The 24 changed pages were compared by screenshot count and two were looked at by eye, not all 24.
--   `README.md` and `src/pages/README.md` still name two removed packages in an old to-do list.
+- Unverified: how many alerts close. The count is read after the push.
+- Unverified: the Vercel deployment of this tree. The local build output has no function, as before.
+- The stock skill text was produced by calling the OpenSpec package's own template functions from a scratch script, not by `openspec init` or `update`. The script lives in `tmp/work/` and is not tracked.
+- The stock text still describes `openspec init` and store selection; the rules block on top of each skill overrides it.
+- The 24 changed pages were compared by screenshot count and two were looked at by eye, not all 24.
+- `README.md` and `src/pages/README.md` still name two removed packages in an old to-do list.
 
 ## 11. Suggested skills for the next session
 
@@ -100,7 +100,7 @@ Unchanged: build and test first; options side by side with the recommended one a
 
 ## 12. Files written or changed in this session
 
--   Changed: `.prettierignore`, `astro.config.mjs`, `docs/agent/posthog.md` (format only), `docs/agent/harness-sync.md`, `docs/change-log.md`, `docs/state/README.md`, `package.json`, `pnpm-lock.yaml`, `scripts/sync-harness.config.json`, `src/config.ts`, `src/layouts/Layout.astro`, `src/layouts/LayoutMarkdown.astro`, `src/components/ResourceList.astro`, `src/pages/r/[slug].astro`, `src/style/style.scss`.
--   New: `.agents/skills/openspec-*` (12), `.agents/workflows/opsx-*.md` (12), `.claude/skills/` and `.claude/commands/opsx/` (24 generated files), `openspec/config.yaml`, `openspec/changes/harness-h1a/`, `openspec/changes/phase-1-prune-static/`, `test/webmanifest.test.ts`, `docs/state/2026-11-12-1933-harness-h1a.md`, this file.
--   Deleted, with the owner's consent: `src/content/resources/test.md`, `src/content/resources/test2.md`.
--   Local only: `tmp/phase1/`, `tmp/openspec-stock/`, `tmp/work/openspec-port.mjs`, `tmp/work/openspec-stock.mjs`, `tmp/work/compare-html-strip.cjs`.
+- Changed: `.prettierignore`, `astro.config.mjs`, `docs/agent/posthog.md` (format only), `docs/agent/harness-sync.md`, `docs/change-log.md`, `docs/state/README.md`, `package.json`, `pnpm-lock.yaml`, `scripts/sync-harness.config.json`, `src/config.ts`, `src/layouts/Layout.astro`, `src/layouts/LayoutMarkdown.astro`, `src/components/ResourceList.astro`, `src/pages/r/[slug].astro`, `src/style/style.scss`.
+- New: `.agents/skills/openspec-*` (12), `.agents/workflows/opsx-*.md` (12), `.claude/skills/` and `.claude/commands/opsx/` (24 generated files), `openspec/config.yaml`, `openspec/changes/harness-h1a/`, `openspec/changes/phase-1-prune-static/`, `test/webmanifest.test.ts`, `docs/state/2026-11-12-1933-harness-h1a.md`, this file.
+- Deleted, with the owner's consent: `src/content/resources/test.md`, `src/content/resources/test2.md`.
+- Local only: `tmp/phase1/`, `tmp/openspec-stock/`, `tmp/work/openspec-port.mjs`, `tmp/work/openspec-stock.mjs`, `tmp/work/compare-html-strip.cjs`.

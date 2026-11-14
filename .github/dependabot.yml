@@ -1,32 +1,38 @@
-# To get started with Dependabot version updates, you'll need to specify which
-# package ecosystems to update and where the package manifests are located.
-# Please see the documentation for all configuration options:
-# https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+# Dependabot version updates. Options: https://docs.github.com/en/code-security/dependabot/working-with-dependabot/dependabot-options-reference
+#
+# Every proposal waits until the release is seven days old, the same wait pnpm keeps on this machine
+# (minimumReleaseAge in pnpm-workspace.yaml), so a bad or hijacked release has time to be noticed and withdrawn.
+# The wait does not apply to security updates: GitHub proposes those at once, on its own.
+#
+# Only the dependencies named in package.json are proposed; what they bring along moves with them.
 
 version: 2
 updates:
-
-  - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: 'npm'
+    directory: '/'
     schedule:
-      interval: "weekly"
-      # Check for updates on Saturdays
-      day: "saturday"
-    allow:
-      # Allow both direct and indirect updates for all packages
-      - dependency-type: "all"
+      interval: 'weekly'
+      day: 'saturday'
+    cooldown:
+      default-days: 7
+    groups:
+      # One pull request a week for everything that stays inside its major version; a major comes on its own.
+      minor-and-patch:
+        patterns: ['*']
+        update-types: ['minor', 'patch']
+    open-pull-requests-limit: 5
     assignees:
-      - "ViorelMocanu"
+      - 'ViorelMocanu'
 
-  - package-ecosystem: "github-actions"
-    # Workflow files stored in the default location of `.github/workflows`. (You don't need to specify `/.github/workflows` for `directory`. You can use `directory: "/"`.)
-    directory: "/"
+  - package-ecosystem: 'github-actions'
+    directory: '/'
     schedule:
-      interval: "weekly"
-      # Check for updates on Saturdays
-      day: "saturday"
-    allow:
-      # Allow both direct and indirect updates for all packages
-      - dependency-type: "all"
+      interval: 'weekly'
+      day: 'saturday'
+    cooldown:
+      default-days: 7
+    groups:
+      actions:
+        patterns: ['*']
     assignees:
-      - "ViorelMocanu"
+      - 'ViorelMocanu'

@@ -62,6 +62,39 @@ describe('readOverrides', () => {
 		].join('\n');
 		expect(readOverrides(text)).toEqual({ 'a>b': '^1.0.0', 'c@<2': '^2.0.0' });
 	});
+
+	it('keeps reading after a comment that starts in the first column', () => {
+		const text = ['overrides:', "    'a>b': '^1.0.0'", '# a note at the margin', "    'c>d': '^2.0.0'", ''].join('\n');
+		expect(readOverrides(text)).toEqual({ 'a>b': '^1.0.0', 'c>d': '^2.0.0' });
+	});
+
+	it('refuses a line of the block it cannot read, so no override goes unchecked', () => {
+		expect(() => readOverrides(['overrides:', '    a>b: ^1.0.0', ''].join('\n'))).toThrow('cannot read the override line: a>b: ^1.0.0');
+		expect(() => readOverrides(['overrides:', '    "a>b": "^1.0.0"', ''].join('\n'))).toThrow('cannot read the override line: "a>b": "^1.0.0"');
+		expect(() => readOverrides(['overrides:', "    'a>b': '^1.0.0' # why", ''].join('\n'))).toThrow("cannot read the override line: 'a>b': '^1.0.0' # why");
+	});
+});
+
+describe('staleOverrides, selector forms', () => {
+	it('reads a parent written with a version range by its name', () => {
+		expect(staleOverrides({ 'linter@1>matcher': '^11.0.1' }, installed, {})).toEqual([]);
+		expect(staleOverrides({ 'gone@1>matcher': '^11.0.1' }, installed, {})).toEqual(['gone@1>matcher: no installed package is named gone']);
+	});
+
+	it('reads a scoped parent, whose name starts with an at sign', () => {
+		const scoped: Manifest[] = [{ name: '@scope/linter', version: '1.0.0', dependencies: { matcher: '^10.2.0' } }];
+		expect(staleOverrides({ '@scope/linter>matcher': '^11.0.1' }, scoped, {})).toEqual([]);
+		expect(staleOverrides({ '@scope/linter@1>matcher': '^11.0.1' }, scoped, {})).toEqual([]);
+	});
+
+	it('reports a bare name that no installed package asks for', () => {
+		expect(staleOverrides({ matcher: '^11.0.1' }, installed, {})).toEqual([]);
+		expect(staleOverrides({ vanished: '^1.0.0' }, installed, {})).toEqual(['vanished: no installed package asks for vanished']);
+	});
+
+	it('refuses a $name value the root package has no range for', () => {
+		expect(() => staleOverrides({ 'plugin>framework': '$framework' }, installed, {})).toThrow('plugin>framework: the root package has no range for framework');
+	});
 });
 
 describe('this repository', () => {

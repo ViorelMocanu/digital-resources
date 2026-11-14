@@ -66,7 +66,7 @@ if (sectionCategories) {
 							</a>
 							{category.data.subcategories && category.subCategoryData && (
 								<ol class="ListSubNav">
-									{category.subCategoryData.map((subcategory: CollectionEntry<'subcategories'>) => (
+									{category.subCategoryData.map((subcategory) => (
 										<li class:list={highlightUrl(`/${section.id}/${category.id}/${subcategory.id}`, 'ListSubNavItem', 'ActiveListNav', activePage)}>
 											<a
 												class="ListSubNavLink"

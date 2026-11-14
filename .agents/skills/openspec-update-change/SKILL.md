@@ -11,11 +11,11 @@ metadata:
 
 **Project rules. They override anything below.**
 
--   Wherever this text shows `openspec <command>`, run `pnpm exec openspec <command>`.
--   Never run `openspec init` or `openspec update`: they are the owner's commands. This repository already has its `openspec/` folder, so the setup questions below do not apply.
--   `AGENTS.md` wins over this skill. No git writes. Archiving moves a change folder, so archive only when the owner asked for it. A task is ticked when its check has passed, never in a batch.
--   Never run `openspec feedback` or `openspec install`: both reach outside this machine.
--   Where a step names a tool your host does not have (a question dialog, a todo list), ask in the chat and keep a plain checklist.
+- Wherever this text shows `openspec <command>`, run `pnpm exec openspec <command>`.
+- Never run `openspec init` or `openspec update`: they are the owner's commands. This repository already has its `openspec/` folder, so the setup questions below do not apply.
+- `AGENTS.md` wins over this skill. No git writes. Archiving moves a change folder, so archive only when the owner asked for it. A task is ticked when its check has passed, never in a batch.
+- Never run `openspec feedback` or `openspec install`: both reach outside this machine.
+- Where a step names a tool your host does not have (a question dialog, a todo list), ask in the chat and keep a plain checklist.
 
 Revise a change's existing planning artifacts and keep them coherent. Never edit code.
 
@@ -27,8 +27,8 @@ One `"root": null` is not about setup: when a `status` error message starts with
 
 Otherwise, with no root, what happens next depends on how this workflow was reached:
 
--   **Auto-selected**: you chose this workflow yourself, without the user naming OpenSpec, naming this skill, or running its slash command. Stop using OpenSpec and answer the request normally, as you would with no OpenSpec installed. Do not ask them to set anything up and do not mention OpenSpec setup.
--   **Explicit OpenSpec request**: the user named OpenSpec, named this skill, or ran its slash command. Stop before writing and ask how to proceed: set this project up (`openspec init`), target a store they already have (`--store <id>`), or continue without OpenSpec for this request. Wait for their answer.
+- **Auto-selected**: you chose this workflow yourself, without the user naming OpenSpec, naming this skill, or running its slash command. Stop using OpenSpec and answer the request normally, as you would with no OpenSpec installed. Do not ask them to set anything up and do not mention OpenSpec setup.
+- **Explicit OpenSpec request**: the user named OpenSpec, named this skill, or ran its slash command. Stop before writing and ask how to proceed: set this project up (`openspec init`), target a store they already have (`--store <id>`), or continue without OpenSpec for this request. Wait for their answer.
 
 In both branches, never create the root as a side effect: do not run `openspec init` until the user asks for it, do not hand-create `openspec/` files, and do not let a command create it.
 
@@ -111,16 +111,16 @@ This workflow revises artifacts that already exist; `/opsx-continue` is what cre
 
 After each invocation, show:
 
--   Which artifacts were revised (and which proposed revisions were rejected)
--   Any file created under a glob artifact that was already partially populated
--   Anything deferred to `/opsx-continue` (artifacts with no files yet and status `ready` or `blocked`, never `skipped` artifacts)
--   Where the change stands and the recommended next command
+- Which artifacts were revised (and which proposed revisions were rejected)
+- Any file created under a glob artifact that was already partially populated
+- Anything deferred to `/opsx-continue` (artifacts with no files yet and status `ready` or `blocked`, never `skipped` artifacts)
+- Where the change stands and the recommended next command
 
 **Guardrails**
 
--   Planning artifacts only - NEVER edit implementation code. If the revised plan implies code changes, stop and point to `/opsx-apply`.
--   Use the artifact ids and paths reported by `openspec status`; never branch on hardcoded artifact names.
--   Edit only the concrete files in `existingOutputPaths`, plus any confirmed concrete path allowed under a partly populated glob artifact (step 4); never write to a glob `resolvedOutputPath`.
--   Do not advance the build frontier: if an artifact has empty `existingOutputPaths` and status `ready` or `blocked`, that is `/opsx-continue`'s job. Leave `skipped` artifacts untouched. The only new-file scope is a confirmed concrete path under a glob artifact whose `existingOutputPaths` is non-empty.
--   Confirm every edit with the user before writing.
--   If the request changes the change's _intent_ rather than refining it, recommend starting fresh with `/opsx-new` (the "Update vs. Start Fresh" heuristic).
+- Planning artifacts only - NEVER edit implementation code. If the revised plan implies code changes, stop and point to `/opsx-apply`.
+- Use the artifact ids and paths reported by `openspec status`; never branch on hardcoded artifact names.
+- Edit only the concrete files in `existingOutputPaths`, plus any confirmed concrete path allowed under a partly populated glob artifact (step 4); never write to a glob `resolvedOutputPath`.
+- Do not advance the build frontier: if an artifact has empty `existingOutputPaths` and status `ready` or `blocked`, that is `/opsx-continue`'s job. Leave `skipped` artifacts untouched. The only new-file scope is a confirmed concrete path under a glob artifact whose `existingOutputPaths` is non-empty.
+- Confirm every edit with the user before writing.
+- If the request changes the change's _intent_ rather than refining it, recommend starting fresh with `/opsx-new` (the "Update vs. Start Fresh" heuristic).

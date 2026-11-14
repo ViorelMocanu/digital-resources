@@ -134,12 +134,18 @@ export default [
 		},
 	},
 	{
-		// Harness scripts and end-to-end tests are TypeScript run by Node: the types live in the signatures, not in
-		// JSDoc, their regular expressions are written unwrapped, and a command-line script prints its result.
-		files: ['scripts/**/*.ts', 'e2e/**/*.ts', 'playwright.config.ts'],
+		// In TypeScript the types live in the signatures, where the compiler checks them; a second copy in JSDoc is not checked.
+		files: ['**/*.ts'],
 		rules: {
 			'jsdoc/require-param-type': 'off',
 			'jsdoc/require-returns-type': 'off',
+		},
+	},
+	{
+		// Harness scripts and end-to-end tests are run by Node: their regular expressions are written unwrapped, and a
+		// command-line script prints its result.
+		files: ['scripts/**/*.ts', 'e2e/**/*.ts', 'playwright.config.ts'],
+		rules: {
 			'wrap-regex': 'off',
 			'no-console': 'off',
 		},

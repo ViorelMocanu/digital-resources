@@ -11,11 +11,11 @@ metadata:
 
 **Project rules. They override anything below.**
 
--   Wherever this text shows `openspec <command>`, run `pnpm exec openspec <command>`.
--   Never run `openspec init` or `openspec update`: they are the owner's commands. This repository already has its `openspec/` folder, so the setup questions below do not apply.
--   `AGENTS.md` wins over this skill. No git writes. Archiving moves a change folder, so archive only when the owner asked for it. A task is ticked when its check has passed, never in a batch.
--   Never run `openspec feedback` or `openspec install`: both reach outside this machine.
--   Where a step names a tool your host does not have (a question dialog, a todo list), ask in the chat and keep a plain checklist.
+- Wherever this text shows `openspec <command>`, run `pnpm exec openspec <command>`.
+- Never run `openspec init` or `openspec update`: they are the owner's commands. This repository already has its `openspec/` folder, so the setup questions below do not apply.
+- `AGENTS.md` wins over this skill. No git writes. Archiving moves a change folder, so archive only when the owner asked for it. A task is ticked when its check has passed, never in a batch.
+- Never run `openspec feedback` or `openspec install`: both reach outside this machine.
+- Where a step names a tool your host does not have (a question dialog, a todo list), ask in the chat and keep a plain checklist.
 
 Archive multiple completed changes in a single operation.
 
@@ -29,8 +29,8 @@ One `"root": null` is not about setup: when a `status` error message starts with
 
 Otherwise, with no root, what happens next depends on how this workflow was reached:
 
--   **Auto-selected**: you chose this workflow yourself, without the user naming OpenSpec, naming this skill, or running its slash command. Stop using OpenSpec and answer the request normally, as you would with no OpenSpec installed. Do not ask them to set anything up and do not mention OpenSpec setup.
--   **Explicit OpenSpec request**: the user named OpenSpec, named this skill, or ran its slash command. Stop before writing and ask how to proceed: set this project up (`openspec init`), target a store they already have (`--store <id>`), or continue without OpenSpec for this request. Wait for their answer.
+- **Auto-selected**: you chose this workflow yourself, without the user naming OpenSpec, naming this skill, or running its slash command. Stop using OpenSpec and answer the request normally, as you would with no OpenSpec installed. Do not ask them to set anything up and do not mention OpenSpec setup.
+- **Explicit OpenSpec request**: the user named OpenSpec, named this skill, or ran its slash command. Stop before writing and ask how to proceed: set this project up (`openspec init`), target a store they already have (`--store <id>`), or continue without OpenSpec for this request. Wait for their answer.
 
 In both branches, never create the root as a side effect: do not run `openspec init` until the user asks for it, do not hand-create `openspec/` files, and do not let a command create it.
 
@@ -247,19 +247,19 @@ In both branches, never create the root as a side effect: do not run `openspec i
 
     Archived 3 changes:
 
-    -   schema-management-cli -> archive/2026-01-19-schema-management-cli/
-    -   project-config -> archive/2026-01-19-project-config/
-    -   add-oauth -> archive/2026-01-19-add-oauth/
+    - schema-management-cli -> archive/2026-01-19-schema-management-cli/
+    - project-config -> archive/2026-01-19-project-config/
+    - add-oauth -> archive/2026-01-19-add-oauth/
 
     Skipped 1 change:
 
-    -   add-verify-skill (user chose not to archive incomplete)
+    - add-verify-skill (user chose not to archive incomplete)
 
     Spec sync summary:
 
-    -   4 delta specs synced to main specs
-    -   1 delta spec sync skipped (add-jwt, identity/user-auth: implementation not found)
-    -   1 conflict resolved (identity/user-auth: synced add-oauth, skipped add-jwt)
+    - 4 delta specs synced to main specs
+    - 1 delta spec sync skipped (add-jwt, identity/user-auth: implementation not found)
+    - 1 conflict resolved (identity/user-auth: synced add-oauth, skipped add-jwt)
     ```
 
     If any failures:
@@ -311,13 +311,13 @@ then add-graphql specs (chronological order, newer takes precedence).
 
 Archived N changes:
 
--   <change-1> -> archive/<target-name-1>/
--   <change-2> -> archive/<target-name-2>/
+- <change-1> -> archive/<target-name-1>/
+- <change-2> -> archive/<target-name-2>/
 
 Spec sync summary:
 
--   N delta specs synced to main specs
--   No conflicts (or: M conflicts resolved)
+- N delta specs synced to main specs
+- No conflicts (or: M conflicts resolved)
 ```
 
 **Output On Partial Success**
@@ -327,15 +327,15 @@ Spec sync summary:
 
 Archived N changes:
 
--   <change-1> -> archive/<target-name-1>/
+- <change-1> -> archive/<target-name-1>/
 
 Skipped M changes:
 
--   <change-2> (user chose not to archive incomplete)
+- <change-2> (user chose not to archive incomplete)
 
 Failed K changes:
 
--   <change-3>: Archive directory already exists
+- <change-3>: Archive directory already exists
 ```
 
 **Output When No Changes**
@@ -348,30 +348,30 @@ No active changes found. Create a new change to get started.
 
 **Guardrails**
 
--   Allow any number of changes (1+ is fine, 2+ is the typical use case)
--   Always prompt for selection, never auto-select
--   Detect spec conflicts early and resolve by checking codebase
--   When both changes are implemented, apply specs in chronological order
--   Skip spec sync only when implementation is missing (warn user)
--   Show clear per-change status before confirming
--   Use single confirmation for entire batch
--   Never archive after the user cancels the confirmation — a cancelled batch archives nothing
--   Track and report all outcomes (success/skip/fail)
--   Preserve .openspec.yaml when moving to archive
--   Archive directory target uses the current date, computed once in step 3d and reused at the move: YYYY-MM-DD-<name>; a name that already starts with a `YYYY-MM-DD-` prefix is used as-is (never stack a second date)
--   If archive target exists, fail that change but continue with others
--   Check every archive target in step 3, before the first main-spec write; a change whose target exists is never synced or moved
--   If sync is requested, run the `openspec-sync-specs` workflow inline (agent-driven) for each change with included delta specs
--   Carry the per-delta `includedDeltas` and `excludedDeltas` decisions into execution; sync and verify only included deltas
--   Report every excluded delta as `sync skipped` without treating the archive itself as skipped
--   Never archive a change while a spec sync is still in flight — run the sync inline and verify main specs at `<planningHome.root>/openspec/specs/<capability-path>/spec.md` before moving `changeRoot`
--   Fetch archive inputs once per selected root before spec inspection or moves
--   Fetch all required specs-rule snapshots before the batch's first main-spec write or move
--   A failed archive-inputs lookup never blocks the batch; it proceeds with no context or guidance
--   A failed specs instruction lookup stops the whole batch atomically
--   Changes without concrete `artifactPaths.specs.existingOutputPaths` continue without spec sync
--   Apply relevant runtime context across the batch and report conflicts
--   Operation guidance remains advisory; consider every entry and explain rejected advice
--   Keep runtime inputs, conflict analysis, CLI-derived values, and artifact rules separate
--   Artifact rules constrain only written specs
--   Never copy runtime input or artifact-rule text verbatim into output files
+- Allow any number of changes (1+ is fine, 2+ is the typical use case)
+- Always prompt for selection, never auto-select
+- Detect spec conflicts early and resolve by checking codebase
+- When both changes are implemented, apply specs in chronological order
+- Skip spec sync only when implementation is missing (warn user)
+- Show clear per-change status before confirming
+- Use single confirmation for entire batch
+- Never archive after the user cancels the confirmation — a cancelled batch archives nothing
+- Track and report all outcomes (success/skip/fail)
+- Preserve .openspec.yaml when moving to archive
+- Archive directory target uses the current date, computed once in step 3d and reused at the move: YYYY-MM-DD-<name>; a name that already starts with a `YYYY-MM-DD-` prefix is used as-is (never stack a second date)
+- If archive target exists, fail that change but continue with others
+- Check every archive target in step 3, before the first main-spec write; a change whose target exists is never synced or moved
+- If sync is requested, run the `openspec-sync-specs` workflow inline (agent-driven) for each change with included delta specs
+- Carry the per-delta `includedDeltas` and `excludedDeltas` decisions into execution; sync and verify only included deltas
+- Report every excluded delta as `sync skipped` without treating the archive itself as skipped
+- Never archive a change while a spec sync is still in flight — run the sync inline and verify main specs at `<planningHome.root>/openspec/specs/<capability-path>/spec.md` before moving `changeRoot`
+- Fetch archive inputs once per selected root before spec inspection or moves
+- Fetch all required specs-rule snapshots before the batch's first main-spec write or move
+- A failed archive-inputs lookup never blocks the batch; it proceeds with no context or guidance
+- A failed specs instruction lookup stops the whole batch atomically
+- Changes without concrete `artifactPaths.specs.existingOutputPaths` continue without spec sync
+- Apply relevant runtime context across the batch and report conflicts
+- Operation guidance remains advisory; consider every entry and explain rejected advice
+- Keep runtime inputs, conflict analysis, CLI-derived values, and artifact rules separate
+- Artifact rules constrain only written specs
+- Never copy runtime input or artifact-rule text verbatim into output files

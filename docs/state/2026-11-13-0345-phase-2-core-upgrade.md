@@ -18,15 +18,15 @@ supersedes: 2026-11-13-0320-phase-2-core-upgrade
 
 **Check receipts**, all at `957dbbf` plus the working tree in section 12:
 
--   `pnpm verify`: exit 0. Lint 0 errors (16 warnings, the same as before the phase); `astro check` 0 errors; 14 test files, 862 tests passed; "All 24 generated files are fresh"; format clean.
--   `pnpm install --frozen-lockfile --ignore-scripts`: exit 0, and the build after it works (the pnpm patch is applied by the locked install).
--   `pnpm build`: exit 0, 56 pages; `.vercel/output` has no `functions` folder (it has an empty `server` folder); `config.json` has no route to `_render` or `_image`.
--   `node tmp/work/compare-site.cjs tmp/phase2/before/site.json tmp/phase2/after-6.json`: 56 and 56 pages, 57 and 57 sitemap addresses, 0 head tag differences, 0 link differences, 0 image differences, 1 text difference (the hidden "Play" on the home page). Head tag order equal on all 56 pages.
--   `node tmp/work/compare-pixels.cjs tmp/phase2/shots-before tmp/phase2/shots-after`: 112 of 112 identical.
--   `node tmp/work/nav-check.cjs .vercel/output/static`: identical to `tmp/phase2/nav-before.json` (same-document navigation at both widths, no page error).
--   `pnpm audit --prod --audit-level critical`: exit 0. `pnpm audit --prod`: 3 (1 high, 2 moderate: `rollup`, `glob`, `minimatch` under `@vercel/nft`). `pnpm audit`: 68, none critical.
--   `pnpm exec openspec validate phase-2-core-upgrade --strict`: valid.
--   `pnpm why astro`: one version, 7.4.7.
+- `pnpm verify`: exit 0. Lint 0 errors (16 warnings, the same as before the phase); `astro check` 0 errors; 14 test files, 862 tests passed; "All 24 generated files are fresh"; format clean.
+- `pnpm install --frozen-lockfile --ignore-scripts`: exit 0, and the build after it works (the pnpm patch is applied by the locked install).
+- `pnpm build`: exit 0, 56 pages; `.vercel/output` has no `functions` folder (it has an empty `server` folder); `config.json` has no route to `_render` or `_image`.
+- `node tmp/work/compare-site.cjs tmp/phase2/before/site.json tmp/phase2/after-6.json`: 56 and 56 pages, 57 and 57 sitemap addresses, 0 head tag differences, 0 link differences, 0 image differences, 1 text difference (the hidden "Play" on the home page). Head tag order equal on all 56 pages.
+- `node tmp/work/compare-pixels.cjs tmp/phase2/shots-before tmp/phase2/shots-after`: 112 of 112 identical.
+- `node tmp/work/nav-check.cjs .vercel/output/static`: identical to `tmp/phase2/nav-before.json` (same-document navigation at both widths, no page error).
+- `pnpm audit --prod --audit-level critical`: exit 0. `pnpm audit --prod`: 3 (1 high, 2 moderate: `rollup`, `glob`, `minimatch` under `@vercel/nft`). `pnpm audit`: 68, none critical.
+- `pnpm exec openspec validate phase-2-core-upgrade --strict`: valid.
+- `pnpm why astro`: one version, 7.4.7.
 
 **Next actions, in order:**
 
@@ -46,16 +46,16 @@ Read docs/state/2026-11-13-0345-phase-2-core-upgrade.md in the digital-resources
 
 By the agent, each for the owner to overrule. The first eleven are described in full in `docs/state/2026-11-13-0255-phase-2-core-upgrade.md`, section 3; in short:
 
--   The collection config was not moved: new `src/content.config.ts`, old file emptied to a note.
--   New `pnpm-workspace.yaml`: seven-day release age, one exception (`@fission-ai/openspec@1.16.1`), an override so the analytics plugin uses the site's Astro, a package extension for `@astrojs/astro2tsx@0.1.3`, and the patch below.
--   The analytics plugin and `@vercel/speed-insights` were not upgraded.
--   The two image width rules moved from the schema to `src/utils/imageRules.ts`.
--   The Markdown pipeline stays the old one (`unified`); `compressHTML` keeps its explicit value.
--   TypeScript 6 with bundler resolution; loose props in two paginated routes, as the third already had.
--   `prettier` stays at 3.3.3 until Phase 3; four vulnerable transitive packages were updated inside their ranges.
--   **The head sorter is fixed by a pnpm patch** (`patches/astro-capo@0.0.1.patch`, one line), not by a wrapper component: a wrapper needed `set:html`, which is a lint error here. The wrapper file the agent had created (`src/components/SortedHead.astro`, never committed) was removed again by the agent.
--   The text scenario of the `page-stability` spec allows "a difference the proposal names".
--   `vitest.config.ts` excludes `dist/**` (Vitest 4 and later no longer do by default).
+- The collection config was not moved: new `src/content.config.ts`, old file emptied to a note.
+- New `pnpm-workspace.yaml`: seven-day release age, one exception (`@fission-ai/openspec@1.16.1`), an override so the analytics plugin uses the site's Astro, a package extension for `@astrojs/astro2tsx@0.1.3`, and the patch below.
+- The analytics plugin and `@vercel/speed-insights` were not upgraded.
+- The two image width rules moved from the schema to `src/utils/imageRules.ts`.
+- The Markdown pipeline stays the old one (`unified`); `compressHTML` keeps its explicit value.
+- TypeScript 6 with bundler resolution; loose props in two paginated routes, as the third already had.
+- `prettier` stays at 3.3.3 until Phase 3; four vulnerable transitive packages were updated inside their ranges.
+- **The head sorter is fixed by a pnpm patch** (`patches/astro-capo@0.0.1.patch`, one line), not by a wrapper component: a wrapper needed `set:html`, which is a lint error here. The wrapper file the agent had created (`src/components/SortedHead.astro`, never committed) was removed again by the agent.
+- The text scenario of the `page-stability` spec allows "a difference the proposal names".
+- `vitest.config.ts` excludes `dist/**` (Vitest 4 and later no longer do by default).
 
 ## 4. Open decisions
 
@@ -77,12 +77,12 @@ By the agent, each for the owner to overrule. The first eleven are described in 
 
 Verified in this run: every receipt in section 1, and:
 
--   Installed: `astro` 7.4.7, `@astrojs/vercel` 11.0.20, `@astrojs/sitemap` 3.7.4, `@astrojs/markdown-remark` 7.3.6, `@astrojs/check` 0.9.12, `sharp` 0.35.5, `astro-embed` 0.14.0, `sass-embedded` 1.107.1, `typescript` 6.0.3, `vitest` 5.1.0. Removed: `@astrojs/mdx`, `vite` (direct), `sass`.
--   Page weight: HTML 3,160,253 to 3,422,109 bytes over 56 pages (plus 8 percent), because component scripts are no longer bundled into one file; linked CSS slightly smaller.
--   `pnpm coverage` works on the new runner (79.92 percent of statements).
--   Before this phase GitHub showed 191 open alerts, 8 critical.
--   The old lint packages still read the upgraded project; nothing from Phase 3 had to move forward.
--   Build warnings that remain and are not new problems: the `/rss.xml` route warning (old); the `markdown.remarkPlugins` deprecation, raised by the `astro-embed` integration; a failed fetch of the demo tweet (HTTP 403), which the old version hid.
+- Installed: `astro` 7.4.7, `@astrojs/vercel` 11.0.20, `@astrojs/sitemap` 3.7.4, `@astrojs/markdown-remark` 7.3.6, `@astrojs/check` 0.9.12, `sharp` 0.35.5, `astro-embed` 0.14.0, `sass-embedded` 1.107.1, `typescript` 6.0.3, `vitest` 5.1.0. Removed: `@astrojs/mdx`, `vite` (direct), `sass`.
+- Page weight: HTML 3,160,253 to 3,422,109 bytes over 56 pages (plus 8 percent), because component scripts are no longer bundled into one file; linked CSS slightly smaller.
+- `pnpm coverage` works on the new runner (79.92 percent of statements).
+- Before this phase GitHub showed 191 open alerts, 8 critical.
+- The old lint packages still read the upgraded project; nothing from Phase 3 had to move forward.
+- Build warnings that remain and are not new problems: the `/rss.xml` route warning (old); the `markdown.remarkPlugins` deprecation, raised by the `astro-embed` integration; a failed fetch of the demo tweet (HTTP 403), which the old version hid.
 
 ## 7. Subagent and external research results
 
@@ -98,12 +98,12 @@ Review and commit; Vercel Node 24.x before the push; the nine open decisions.
 
 ## 10. Caveats and unverified claims
 
--   Unverified: the Vercel deployment of this tree (Node setting, pnpm patch on their builder), and the alert count after a push.
--   The screenshot and navigation tools block every third-party request, so embeds and analytics are not exercised.
--   `node_modules/.pnpm` still holds folders of removed versions; the lockfile has one `astro` and one `vite`.
--   `@astrojs/check` reports an unmet peer for TypeScript 6 from two packages under it; `astro check` runs and passes.
--   The navigation check lives in `tmp/` (it borrows a browser from outside the repository), so it is not part of `pnpm verify`; `test/layoutHead.test.ts` covers the patch only.
--   The private capture of this session in `tmp/compact-summaries/` was not copied here.
+- Unverified: the Vercel deployment of this tree (Node setting, pnpm patch on their builder), and the alert count after a push.
+- The screenshot and navigation tools block every third-party request, so embeds and analytics are not exercised.
+- `node_modules/.pnpm` still holds folders of removed versions; the lockfile has one `astro` and one `vite`.
+- `@astrojs/check` reports an unmet peer for TypeScript 6 from two packages under it; `astro check` runs and passes.
+- The navigation check lives in `tmp/` (it borrows a browser from outside the repository), so it is not part of `pnpm verify`; `test/layoutHead.test.ts` covers the patch only.
+- The private capture of this session in `tmp/compact-summaries/` was not copied here.
 
 ## 11. Suggested skills for the next session
 
@@ -111,7 +111,7 @@ Review and commit; Vercel Node 24.x before the push; the nine open decisions.
 
 ## 12. Files written or changed in this session
 
--   Changed: `package.json`, `pnpm-lock.yaml`, `astro.config.mjs`, `tsconfig.json`, `vitest.config.ts`, `src/config.ts`, `src/env.d.ts`, `src/content/config.ts` (emptied to a note), `src/utils/getSortedItems.ts`, both layouts, seven components (`Footer`, `Header`, `ResourceActionList`, `ResourceList`, `ResourceLocationList`, `ResourceTagList`, `ResourceTOC`), `src/pages/r/[slug].astro`, `src/pages/t/[slug].astro`, `src/pages/t/index.astro`, the three paginated routes under `src/pages/[section]/`, `docs/lessons.md`, `docs/change-log.md`, `docs/state/README.md`, and the change folder `openspec/changes/phase-2-core-upgrade/`.
--   New: `.nvmrc`, `pnpm-workspace.yaml`, `patches/astro-capo@0.0.1.patch`, `src/content.config.ts`, `src/utils/imageRules.ts`, `src/utils/envFlag.ts`, `test/imageRules.test.ts`, `test/envFlag.test.ts`, `test/layoutHead.test.ts`, three state files of 2026-11-13 (0255, 0320, this one).
--   Created and removed again by the agent: `src/components/SortedHead.astro`.
--   Local only: `tmp/phase2/`, `tmp/patch-astro-capo/`, `tmp/work/extract-site.cjs`, `compare-site.cjs`, `compare-pixels.cjs`, `nav-check.cjs`, `p2-slug-to-id.cjs`, `p2-render.cjs`, `commitmsg-phase2.txt`, logs in `tmp/work/logs/p2-*.log`.
+- Changed: `package.json`, `pnpm-lock.yaml`, `astro.config.mjs`, `tsconfig.json`, `vitest.config.ts`, `src/config.ts`, `src/env.d.ts`, `src/content/config.ts` (emptied to a note), `src/utils/getSortedItems.ts`, both layouts, seven components (`Footer`, `Header`, `ResourceActionList`, `ResourceList`, `ResourceLocationList`, `ResourceTagList`, `ResourceTOC`), `src/pages/r/[slug].astro`, `src/pages/t/[slug].astro`, `src/pages/t/index.astro`, the three paginated routes under `src/pages/[section]/`, `docs/lessons.md`, `docs/change-log.md`, `docs/state/README.md`, and the change folder `openspec/changes/phase-2-core-upgrade/`.
+- New: `.nvmrc`, `pnpm-workspace.yaml`, `patches/astro-capo@0.0.1.patch`, `src/content.config.ts`, `src/utils/imageRules.ts`, `src/utils/envFlag.ts`, `test/imageRules.test.ts`, `test/envFlag.test.ts`, `test/layoutHead.test.ts`, three state files of 2026-11-13 (0255, 0320, this one).
+- Created and removed again by the agent: `src/components/SortedHead.astro`.
+- Local only: `tmp/phase2/`, `tmp/patch-astro-capo/`, `tmp/work/extract-site.cjs`, `compare-site.cjs`, `compare-pixels.cjs`, `nav-check.cjs`, `p2-slug-to-id.cjs`, `p2-render.cjs`, `commitmsg-phase2.txt`, logs in `tmp/work/logs/p2-*.log`.

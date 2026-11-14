@@ -1,20 +1,24 @@
-import { PAGES_WITHOUT_H1, PAGE_KINDS } from './known-gaps.ts';
+import { MISSING_FILES, PAGES_WITHOUT_H1, PAGE_KINDS, sizesFor } from './known-gaps.ts';
 import { builtPages, expect, test } from './site.ts';
 
-const onePerKind = new Set(PAGE_KINDS.map((kind) => kind.path));
+const pages = builtPages();
 
-for (const path of builtPages()) {
+// The narrow project and the accessibility test load only these pages, so one that left the build must not leave quietly.
+test('the page of every kind is a built page', { tag: '@desktop-only' }, () => {
+	expect(PAGE_KINDS.map((kind) => kind.path).filter((path) => !pages.includes(path))).toEqual([]);
+});
+
+for (const path of pages) {
 	// Every page is loaded at the desktop size. The narrow project loads one page of each kind: what this test
 	// checks does not depend on the width, apart from a script error that only a narrow layout could raise.
-	const details = onePerKind.has(path) ? {} : { tag: '@desktop-only' };
-
-	test(`${path} loads with a title, a main heading, its head tags and no script error`, details, async ({ page, errors, narrow }) => {
+	test(`${path} loads with a title, a main heading, its head tags and no script error`, sizesFor(path), async ({ page, errors, narrow }) => {
 		const response = await page.goto(path);
 		expect(response?.status()).toBe(200);
 		expect((await page.title()).trim()).not.toBe('');
 		await expect(page.locator('main')).toHaveCount(1);
 		await expect(page.locator('h1')).toHaveCount(PAGES_WITHOUT_H1.includes(path) ? 0 : 1);
-		expect(errors).toEqual([]);
+		// No script error and no missing file, beyond the files listed as missing today.
+		expect(errors).toEqual(MISSING_FILES[path] ?? []);
 
 		// The head of a page does not depend on the width, so it is checked once.
 		if (narrow) return;

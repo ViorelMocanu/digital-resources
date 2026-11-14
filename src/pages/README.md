@@ -19,7 +19,7 @@ Salutare!
 
 Bine-ai venit în proiectul de _resurse digitale_, prin care transformăm link-urile din [Google Doc-ul făcut de mine acum mai mult timp] într-un website funcțional care să ajute oamenii să parcurgă resursele de învățare mai eficient.
 
-Vezi toată seria de video-uri 🔴LIVE de pe YouTube în care am generat codul pentru acest proiect în [playlist-ul Resurse.dev de aici &rarr;].
+Vezi toată seria de video-uri 🔴LIVE de pe YouTube în care am generat codul pentru acest proiect în [playlist-ul Resurse.dev de aici →].
 
 Proiectul e abia la început, și dacă vrei să te implici, orice contribuție de-a ta este binevenită! Citește [regulile] și [ghidul despre cum să contribui] și ajută-ne să facem proiectul ăsta _cel mai bun loc din care să alegi ce resurse să folosești pentru învățare_! Contribuitorii majori vor fi menționați în [`humans.txt`].
 
@@ -37,31 +37,31 @@ This project began in a 🇷🇴 Romanian community, so please excuse the almost
 
 Ne-am mai inspirat de aici ca să facem proiectul curent:
 
--   [Tutorial oficial al Astro 3.0]
--   Componente: <https://github.com/markteekman/accessible-astro-starter> + <https://www.accessible-astro.dev/accessible-components/> + <https://github.com/markteekman/accessible-astro-components> + <https://github.com/shaunchander/astro-pwa-starter>
--   [Integrări] din care vrem să testăm:
-    -   [ ] `@astrojs/mdx`
-    -   [x] `@astrojs/sitemap`
-    -   [ ] `astro-compress` vs `astro-compressor` vs `astro-html-minifier`
-    -   [ ] `astro-seo`
-    -   [ ] `astro-seo-meta`
-    -   [ ] `astro-seo-schema`
-    -   [ ] `astro-robots-txt`
-    -   [ ] `vite-plugin-pwa` + `astro-webmanifest`
-    -   [x] `@astrojs/partytown`
-    -   [ ] `astro-i18next`
-    -   [x] `typescript` + `@typescript-eslint/eslint-plugin` + `@typescript-eslint/parser`
-    -   [x] `eslint` + `eslint-plugin-astro` + `eslint-plugin-jsx-a11y`
-    -   [x] `sass`
-    -   [ ] `svgo`
-    -   [ ] `@astro-community/astro-embed-youtube` + `@astro-community/astro-embed-twitter`
-    -   [ ] `astro-purgecss`
-    -   [ ] `@astrojs/vercel` vs `@astrojs/netlify` vs `@astrojs/cloudflare` vs `@astrojs/deno` pentru deploy
-    -   [ ] `astro-icon` (optional) testat?
-    -   [ ] `@sendgrid` (optional) pentru email?
-    -   [ ] `accessible-astro-components` (optional) ca să „furăm” cod de aici?
-    -   [ ] `@astrojs/tailwind` + `tailwindcss` (optional)
-    -   [x] `prettier` + `prettier-plugin-astro` + `prettier-plugin-tailwindcss` (optional)
+- [Tutorial oficial al Astro 3.0]
+- Componente: <https://github.com/markteekman/accessible-astro-starter> + <https://www.accessible-astro.dev/accessible-components/> + <https://github.com/markteekman/accessible-astro-components> + <https://github.com/shaunchander/astro-pwa-starter>
+- [Integrări] din care vrem să testăm:
+    - [ ] `@astrojs/mdx`
+    - [x] `@astrojs/sitemap`
+    - [ ] `astro-compress` vs `astro-compressor` vs `astro-html-minifier`
+    - [ ] `astro-seo`
+    - [ ] `astro-seo-meta`
+    - [ ] `astro-seo-schema`
+    - [ ] `astro-robots-txt`
+    - [ ] `vite-plugin-pwa` + `astro-webmanifest`
+    - [x] `@astrojs/partytown`
+    - [ ] `astro-i18next`
+    - [x] `typescript` + `@typescript-eslint/eslint-plugin` + `@typescript-eslint/parser`
+    - [x] `eslint` + `eslint-plugin-astro` + `eslint-plugin-jsx-a11y`
+    - [x] `sass`
+    - [ ] `svgo`
+    - [ ] `@astro-community/astro-embed-youtube` + `@astro-community/astro-embed-twitter`
+    - [ ] `astro-purgecss`
+    - [ ] `@astrojs/vercel` vs `@astrojs/netlify` vs `@astrojs/cloudflare` vs `@astrojs/deno` pentru deploy
+    - [ ] `astro-icon` (optional) testat?
+    - [ ] `@sendgrid` (optional) pentru email?
+    - [ ] `accessible-astro-components` (optional) ca să „furăm” cod de aici?
+    - [ ] `@astrojs/tailwind` + `tailwindcss` (optional)
+    - [x] `prettier` + `prettier-plugin-astro` + `prettier-plugin-tailwindcss` (optional)
 
 ---
 
@@ -201,7 +201,7 @@ Merci! ❤️
 [Viorel Mocanu], [Consultant digital] și [creator de conținut].
 
 [Google Doc-ul făcut de mine acum mai mult timp]: https://bit.ly/vio-digital
-[playlist-ul Resurse.dev de aici &rarr;]: https://youtube.com/playlist?list=PLfTqvIG4roBphVLnYuDTkfweQ2GmmcHOq
+[playlist-ul Resurse.dev de aici →]: https://youtube.com/playlist?list=PLfTqvIG4roBphVLnYuDTkfweQ2GmmcHOq
 [regulile]: https://github.com/ViorelMocanu/digital-resources/blob/main/CODE_OF_CONDUCT.md
 [ghidul despre cum să contribui]: https://github.com/ViorelMocanu/digital-resources/blob/main/CONTRIBUTING.md
 [`humans.txt`]: https://github.com/ViorelMocanu/digital-resources/blob/main/humans.txt

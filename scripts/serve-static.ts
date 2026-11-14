@@ -62,6 +62,8 @@ export function resolveFile(root: string, url: string): string | null {
 	} catch {
 		return null;
 	}
+	// No file name holds a null byte, and the file system calls throw on one.
+	if (path.includes('\0')) return null;
 	const target = resolve(join(base, path));
 	if (!isInside(target, base, process.platform)) return null;
 	const candidates = [target, join(target, 'index.html'), `${target}.html`];

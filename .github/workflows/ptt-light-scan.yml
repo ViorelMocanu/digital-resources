@@ -13,16 +13,13 @@ on:
           description: The URL to scan
           required: true
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+# The scan reads the public site from outside; the workflow needs nothing from the repository beyond reading it.
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+# One scan at a time; a scan in progress is left to finish.
 concurrency:
-  group: 'pages'
+  group: 'pentest-scan'
   cancel-in-progress: false
 
 jobs:
@@ -31,9 +28,9 @@ jobs:
     name: Run a light scan, no API key needed
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Actual PTT light test
-        uses: pentesttoolscom/pentesttools-github-action@master
+        uses: pentesttoolscom/pentesttools-github-action@ece54ee3353e11194715688b9af3b708801fa3f6 # master on 2026-02-03
         id: ptt
         with:
           target: ${{ steps.deployment.outputs.page_url || 'https://resurse.dev' }}
@@ -49,9 +46,9 @@ jobs:
     if: false
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Actual PTT deep test
-        uses: pentesttoolscom/pentesttools-github-action@master
+        uses: pentesttoolscom/pentesttools-github-action@ece54ee3353e11194715688b9af3b708801fa3f6 # master on 2026-02-03
         id: ptt
         with:
           target: ${{ inputs.url || 'https://resurse.dev' }}

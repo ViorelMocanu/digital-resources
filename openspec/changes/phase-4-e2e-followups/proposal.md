@@ -21,9 +21,9 @@ A visitor sees no change: the built pages stay byte for byte the same.
 
 Found during the work:
 
--   `e2e/head.spec.ts` is emptied to a note and waits for the owner's deletion.
--   The collections are kept only in a build. While developing, every use fetches again, so an edited file still shows up at once.
--   The overrides check found its own first mistake: a package that does not depend on the overridden one counted as asking for any version. The hand-written cases caught it before the check was trusted.
+- `e2e/head.spec.ts` is emptied to a note and waits for the owner's deletion.
+- The collections are kept only in a build. While developing, every use fetches again, so an edited file still shows up at once.
+- The overrides check found its own first mistake: a package that does not depend on the overridden one counted as asking for any version. The hand-written cases caught it before the check was trusted.
 
 ## Not in this change
 
@@ -32,11 +32,11 @@ Found during the work:
 
 ## How it is checked
 
--   `pnpm verify`, `pnpm build`, and the byte comparison of the build against the build before the change.
--   `pnpm test:e2e`, and the same broken copy of the site as before: the navigation, accessibility and smoke tests must still fail on it.
--   `pnpm audit` after the lockfile moves.
+- `pnpm verify`, `pnpm build`, and the byte comparison of the build against the build before the change.
+- `pnpm test:e2e`, and the same broken copy of the site as before: the navigation, accessibility and smoke tests must still fail on it.
+- `pnpm audit` after the lockfile moves.
 
 ## Impact
 
--   `scripts/sync-harness.ts`, `scripts/openspec-port.ts`, `e2e/`, `playwright.config.ts`, `src/utils/collections.ts` and its test, `src/utils/getSortedItems.ts`, two components, `scripts/lib/pnpm-overrides.ts` and its test, `package.json`, `pnpm-workspace.yaml`, `pnpm-lock.yaml`.
--   The pages: none.
+- `scripts/sync-harness.ts`, `scripts/openspec-port.ts`, `e2e/`, `playwright.config.ts`, `src/utils/collections.ts` and its test, `src/utils/getSortedItems.ts`, two components, `scripts/lib/pnpm-overrides.ts` and its test, `package.json`, `pnpm-workspace.yaml`, `pnpm-lock.yaml`.
+- The pages: none.

@@ -11,11 +11,11 @@ metadata:
 
 **Project rules. They override anything below.**
 
--   Wherever this text shows `openspec <command>`, run `pnpm exec openspec <command>`.
--   Never run `openspec init` or `openspec update`: they are the owner's commands. This repository already has its `openspec/` folder, so the setup questions below do not apply.
--   `AGENTS.md` wins over this skill. No git writes. Archiving moves a change folder, so archive only when the owner asked for it. A task is ticked when its check has passed, never in a batch.
--   Never run `openspec feedback` or `openspec install`: both reach outside this machine.
--   Where a step names a tool your host does not have (a question dialog, a todo list), ask in the chat and keep a plain checklist.
+- Wherever this text shows `openspec <command>`, run `pnpm exec openspec <command>`.
+- Never run `openspec init` or `openspec update`: they are the owner's commands. This repository already has its `openspec/` folder, so the setup questions below do not apply.
+- `AGENTS.md` wins over this skill. No git writes. Archiving moves a change folder, so archive only when the owner asked for it. A task is ticked when its check has passed, never in a batch.
+- Never run `openspec feedback` or `openspec install`: both reach outside this machine.
+- Where a step names a tool your host does not have (a question dialog, a todo list), ask in the chat and keep a plain checklist.
 
 Guide the user through their first complete OpenSpec workflow cycle. This is a teaching experience—you'll do real work in their codebase while explaining each step.
 
@@ -27,8 +27,8 @@ One `"root": null` is not about setup: when a `status` error message starts with
 
 Otherwise, with no root, what happens next depends on how this workflow was reached:
 
--   **Auto-selected**: you chose this workflow yourself, without the user naming OpenSpec, naming this skill, or running its slash command. Stop using OpenSpec and answer the request normally, as you would with no OpenSpec installed. Do not ask them to set anything up and do not mention OpenSpec setup.
--   **Explicit OpenSpec request**: the user named OpenSpec, named this skill, or ran its slash command. Stop before writing and ask how to proceed: set this project up (`openspec init`), target a store they already have (`--store <id>`), or continue without OpenSpec for this request. Wait for their answer.
+- **Auto-selected**: you chose this workflow yourself, without the user naming OpenSpec, naming this skill, or running its slash command. Stop using OpenSpec and answer the request normally, as you would with no OpenSpec installed. Do not ask them to set anything up and do not mention OpenSpec setup.
+- **Explicit OpenSpec request**: the user named OpenSpec, named this skill, or ran its slash command. Stop before writing and ask how to proceed: set this project up (`openspec init`), target a store they already have (`--store <id>`), or continue without OpenSpec for this request. Wait for their answer.
 
 In both branches, never create the root as a side effect: do not run `openspec init` until the user asks for it, do not hand-create `openspec/` files, and do not let a command create it.
 
@@ -164,9 +164,9 @@ Before we create a change, let me quickly show you **explore mode**—it's how y
 
 Spend 1-2 minutes investigating the relevant code:
 
--   Read the file(s) involved
--   Draw a quick ASCII diagram if it helps
--   Note any considerations
+- Read the file(s) involved
+- Draw a quick ASCII diagram if it helps
+- Note any considerations
 
 ```
 ## Quick Exploration
@@ -587,10 +587,10 @@ Exit gracefully.
 
 ## Guardrails
 
--   **Follow the EXPLAIN → DO → SHOW → PAUSE pattern** at key transitions (after explore, after proposal draft, after tasks, after archive)
--   **Keep narration light** during implementation—teach without lecturing
--   **Don't skip phases** even if the change is small—the goal is teaching the workflow
--   **Pause for acknowledgment** at marked points, but don't over-pause
--   **Handle exits gracefully**—never pressure the user to continue
--   **Use real codebase tasks**—don't simulate or use fake examples
--   **Adjust scope gently**—guide toward smaller tasks but respect user choice
+- **Follow the EXPLAIN → DO → SHOW → PAUSE pattern** at key transitions (after explore, after proposal draft, after tasks, after archive)
+- **Keep narration light** during implementation—teach without lecturing
+- **Don't skip phases** even if the change is small—the goal is teaching the workflow
+- **Pause for acknowledgment** at marked points, but don't over-pause
+- **Handle exits gracefully**—never pressure the user to continue
+- **Use real codebase tasks**—don't simulate or use fake examples
+- **Adjust scope gently**—guide toward smaller tasks but respect user choice

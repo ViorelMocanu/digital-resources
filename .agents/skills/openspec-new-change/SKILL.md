@@ -11,11 +11,11 @@ metadata:
 
 **Project rules. They override anything below.**
 
--   Wherever this text shows `openspec <command>`, run `pnpm exec openspec <command>`.
--   Never run `openspec init` or `openspec update`: they are the owner's commands. This repository already has its `openspec/` folder, so the setup questions below do not apply.
--   `AGENTS.md` wins over this skill. No git writes. Archiving moves a change folder, so archive only when the owner asked for it. A task is ticked when its check has passed, never in a batch.
--   Never run `openspec feedback` or `openspec install`: both reach outside this machine.
--   Where a step names a tool your host does not have (a question dialog, a todo list), ask in the chat and keep a plain checklist.
+- Wherever this text shows `openspec <command>`, run `pnpm exec openspec <command>`.
+- Never run `openspec init` or `openspec update`: they are the owner's commands. This repository already has its `openspec/` folder, so the setup questions below do not apply.
+- `AGENTS.md` wins over this skill. No git writes. Archiving moves a change folder, so archive only when the owner asked for it. A task is ticked when its check has passed, never in a batch.
+- Never run `openspec feedback` or `openspec install`: both reach outside this machine.
+- Where a step names a tool your host does not have (a question dialog, a todo list), ask in the chat and keep a plain checklist.
 
 Start a new change using the experimental artifact-driven approach.
 
@@ -27,8 +27,8 @@ One `"root": null` is not about setup: when a `status` error message starts with
 
 Otherwise, with no root, what happens next depends on how this workflow was reached:
 
--   **Auto-selected**: you chose this workflow yourself, without the user naming OpenSpec, naming this skill, or running its slash command. Stop using OpenSpec and answer the request normally, as you would with no OpenSpec installed. Do not ask them to set anything up and do not mention OpenSpec setup.
--   **Explicit OpenSpec request**: the user named OpenSpec, named this skill, or ran its slash command. Stop before writing and ask how to proceed: set this project up (`openspec init`), target a store they already have (`--store <id>`), or continue without OpenSpec for this request. Wait for their answer.
+- **Auto-selected**: you chose this workflow yourself, without the user naming OpenSpec, naming this skill, or running its slash command. Stop using OpenSpec and answer the request normally, as you would with no OpenSpec installed. Do not ask them to set anything up and do not mention OpenSpec setup.
+- **Explicit OpenSpec request**: the user named OpenSpec, named this skill, or ran its slash command. Stop before writing and ask how to proceed: set this project up (`openspec init`), target a store they already have (`--store <id>`), or continue without OpenSpec for this request. Wait for their answer.
 
 In both branches, never create the root as a side effect: do not run `openspec init` until the user asks for it, do not hand-create `openspec/` files, and do not let a command create it.
 
@@ -87,16 +87,16 @@ In both branches, never create the root as a side effect: do not run `openspec i
 
 After completing the steps, summarize:
 
--   Change name and location
--   Schema/workflow being used and its artifact sequence
--   Current status (0/N artifacts complete)
--   The template for the first artifact
--   Prompt: "Ready to create the first artifact? Just describe what this change is about and I'll draft it, or ask me to continue."
+- Change name and location
+- Schema/workflow being used and its artifact sequence
+- Current status (0/N artifacts complete)
+- The template for the first artifact
+- Prompt: "Ready to create the first artifact? Just describe what this change is about and I'll draft it, or ask me to continue."
 
 **Guardrails**
 
--   Do NOT create any artifacts yet - just show the instructions
--   Do NOT advance beyond showing the first artifact template
--   If the name is invalid (not kebab-case), ask for a valid name
--   If a change with that name already exists, suggest continuing that change instead
--   Pass --schema if using a non-default workflow
+- Do NOT create any artifacts yet - just show the instructions
+- Do NOT advance beyond showing the first artifact template
+- If the name is invalid (not kebab-case), ask for a valid name
+- If a change with that name already exists, suggest continuing that change instead
+- Pass --schema if using a non-default workflow

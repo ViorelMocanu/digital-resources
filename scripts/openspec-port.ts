@@ -15,11 +15,11 @@ import { pathToFileURL } from 'node:url';
 export const PROJECT_RULES = [
 	'**Project rules. They override anything below.**',
 	'',
-	'-   Wherever this text shows `openspec <command>`, run `pnpm exec openspec <command>`.',
-	"-   Never run `openspec init` or `openspec update`: they are the owner's commands. This repository already has its `openspec/` folder, so the setup questions below do not apply.",
-	'-   `AGENTS.md` wins over this skill. No git writes. Archiving moves a change folder, so archive only when the owner asked for it. A task is ticked when its check has passed, never in a batch.',
-	'-   Never run `openspec feedback` or `openspec install`: both reach outside this machine.',
-	'-   Where a step names a tool your host does not have (a question dialog, a todo list), ask in the chat and keep a plain checklist.',
+	'- Wherever this text shows `openspec <command>`, run `pnpm exec openspec <command>`.',
+	"- Never run `openspec init` or `openspec update`: they are the owner's commands. This repository already has its `openspec/` folder, so the setup questions below do not apply.",
+	'- `AGENTS.md` wins over this skill. No git writes. Archiving moves a change folder, so archive only when the owner asked for it. A task is ticked when its check has passed, never in a batch.',
+	'- Never run `openspec feedback` or `openspec install`: both reach outside this machine.',
+	'- Where a step names a tool your host does not have (a question dialog, a todo list), ask in the chat and keep a plain checklist.',
 ].join('\n');
 
 /**

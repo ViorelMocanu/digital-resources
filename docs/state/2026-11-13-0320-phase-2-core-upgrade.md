@@ -49,10 +49,10 @@ Unchanged: "i need you to work autonomously for tonight and only stop when you a
 
 Those of the previous snapshot, plus, by the agent:
 
--   **The head sorter is fixed by a pnpm patch, not by a wrapper component.** Options: a wrapper with `set:html` (public API, but trips a lint error that only the owner may exempt); a wrapper through Astro's internal runtime (new internal-API use in this repository); a plain `<head>` (no hack, but the head order changes on 55 pages and the sorting the owner chose is lost); a one-line patch of the package (fixes the cause where it is, adds no new API use, and is visible as a patch file). The patch was chosen.
--   **The text scenario of `page-stability` now allows "a difference the proposal names"**, for the hidden "Play" label.
--   **`vitest.config.ts`:** the dead `packages/template/*` exclude is gone and `dist/**` is added, because Vitest 4 and later no longer exclude `dist` by default.
--   **`docs/lessons.md` has L-008:** an upgrade that kept every screenshot and lost page navigation.
+- **The head sorter is fixed by a pnpm patch, not by a wrapper component.** Options: a wrapper with `set:html` (public API, but trips a lint error that only the owner may exempt); a wrapper through Astro's internal runtime (new internal-API use in this repository); a plain `<head>` (no hack, but the head order changes on 55 pages and the sorting the owner chose is lost); a one-line patch of the package (fixes the cause where it is, adds no new API use, and is visible as a patch file). The patch was chosen.
+- **The text scenario of `page-stability` now allows "a difference the proposal names"**, for the hidden "Play" label.
+- **`vitest.config.ts`:** the dead `packages/template/*` exclude is gone and `dist/**` is added, because Vitest 4 and later no longer exclude `dist` by default.
+- **`docs/lessons.md` has L-008:** an upgrade that kept every screenshot and lost page navigation.
 
 ## 4. Open decisions
 
@@ -68,11 +68,11 @@ Unchanged: `tmp/upgrade-plan/plan.md`; Phase 2 in progress, Phase 3 tooling next
 
 Those of the previous snapshot, plus, all verified in this run:
 
--   With the first fix in place: navigation results identical to the baseline; 112 of 112 screenshots identical; head tags equal and in equal order on the page checked (`/front-end/`); text equal apart from the hidden "Play" on the home page; HTML total 3,422,109 bytes against 3,160,253 before.
--   `pnpm coverage` runs on Vitest 5.1.0: 863 tests passed, 79.92 percent of statements.
--   The Vitest migration guides for versions 3, 4 and 5 were read (through a foreground `web-fetch` call). What applies here: `dist` is no longer excluded by default (handled); unawaited `rejects` assertions now fail (the suite passes); coverage reports only files a test loaded unless `coverage.include` is set (left as it is; a Phase 4 matter).
--   The last full `pnpm verify` that passed (exit 0, 859 tests, 16 lint warnings as before) was before the first fix; with the first fix it fails on the one lint error named above and has one new warning in `test/layoutHead.test.ts`.
--   `pnpm exec openspec validate phase-2-core-upgrade --strict`: valid after the proposal and design were amended.
+- With the first fix in place: navigation results identical to the baseline; 112 of 112 screenshots identical; head tags equal and in equal order on the page checked (`/front-end/`); text equal apart from the hidden "Play" on the home page; HTML total 3,422,109 bytes against 3,160,253 before.
+- `pnpm coverage` runs on Vitest 5.1.0: 863 tests passed, 79.92 percent of statements.
+- The Vitest migration guides for versions 3, 4 and 5 were read (through a foreground `web-fetch` call). What applies here: `dist` is no longer excluded by default (handled); unawaited `rejects` assertions now fail (the suite passes); coverage reports only files a test loaded unless `coverage.include` is set (left as it is; a Phase 4 matter).
+- The last full `pnpm verify` that passed (exit 0, 859 tests, 16 lint warnings as before) was before the first fix; with the first fix it fails on the one lint error named above and has one new warning in `test/layoutHead.test.ts`.
+- `pnpm exec openspec validate phase-2-core-upgrade --strict`: valid after the proposal and design were amended.
 
 ## 7. Subagent and external research results
 
@@ -88,10 +88,10 @@ Unchanged: review and commit; Vercel Node 24.x before the push; the open decisio
 
 ## 10. Caveats and unverified claims
 
--   The second fix is not applied yet; until it is, `pnpm verify` fails on one lint error.
--   Unverified: that `pnpm patch-commit` works with install scripts off, and that the patched package survives `pnpm install --frozen-lockfile --ignore-scripts` on a clean checkout.
--   The proposal, `design.md` and L-008 currently describe `SortedHead.astro`; they must be rewritten for the patch.
--   Everything listed as unverified in the previous snapshot still is.
+- The second fix is not applied yet; until it is, `pnpm verify` fails on one lint error.
+- Unverified: that `pnpm patch-commit` works with install scripts off, and that the patched package survives `pnpm install --frozen-lockfile --ignore-scripts` on a clean checkout.
+- The proposal, `design.md` and L-008 currently describe `SortedHead.astro`; they must be rewritten for the patch.
+- Everything listed as unverified in the previous snapshot still is.
 
 ## 11. Suggested skills for the next session
 
@@ -101,6 +101,6 @@ Unchanged: review and commit; Vercel Node 24.x before the push; the open decisio
 
 Those of the previous snapshot, plus:
 
--   Changed since: `src/layouts/Layout.astro` (uses `SortedHead`), `vitest.config.ts`, `docs/lessons.md`, `docs/state/README.md`, `openspec/changes/phase-2-core-upgrade/proposal.md`, `design.md` and `specs/page-stability/spec.md`.
--   New since: `src/components/SortedHead.astro` (to be removed again), `test/layoutHead.test.ts` (to be rewritten), `docs/state/2026-11-13-0255-phase-2-core-upgrade.md`, this file.
--   Local only: `tmp/patch-astro-capo/` (the open patch), `tmp/phase2/nav-before.json` and `nav-after.json`, `tmp/work/nav-check.cjs`.
+- Changed since: `src/layouts/Layout.astro` (uses `SortedHead`), `vitest.config.ts`, `docs/lessons.md`, `docs/state/README.md`, `openspec/changes/phase-2-core-upgrade/proposal.md`, `design.md` and `specs/page-stability/spec.md`.
+- New since: `src/components/SortedHead.astro` (to be removed again), `test/layoutHead.test.ts` (to be rewritten), `docs/state/2026-11-13-0255-phase-2-core-upgrade.md`, this file.
+- Local only: `tmp/patch-astro-capo/` (the open patch), `tmp/phase2/nav-before.json` and `nav-after.json`, `tmp/work/nav-check.cjs`.

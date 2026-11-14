@@ -1,5 +1,3 @@
-import { z } from 'zod';
-
 /**
  * Formats a given date into the 'YYYY-MM-DD' format.
  * @function getFormattedDate
@@ -9,7 +7,6 @@ import { z } from 'zod';
 export function getFormattedDate(date: Date | string): string {
 	if (!date) return 'Missing date';
 	if (typeof date !== 'string' && !(date instanceof Date)) return 'Malformed date object';
-	if (typeof date === 'string' && !z.date().safeParse(date)) return 'Malformed date string';
 	const d = typeof date === 'string' ? new Date(date) : date;
 	if (isNaN(d.getTime())) return 'Time not specified';
 

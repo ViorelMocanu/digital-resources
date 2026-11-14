@@ -86,14 +86,16 @@ Run the check for the file you touched while you work. Run `pnpm verify` before 
 | Types           | `pnpm typecheck`          | none: the check is project-wide                 |
 | Unit tests      | `pnpm test:unit`          | `pnpm exec vitest run <test file>`              |
 | Build           | `pnpm build`              |                                                 |
+| Browser tests   | `pnpm test:e2e`           | `pnpm exec playwright test <spec file>`         |
 | Harness mirrors | `pnpm harness:sync:check` | `pnpm harness:sync` rewrites them               |
 | All fast checks | `pnpm verify`             |                                                 |
 | Commit message  |                           | `pnpm exec commitlint --edit <file>`            |
 | OpenSpec        |                           | `pnpm exec openspec validate <change> --strict` |
 
--   Install with `pnpm install --frozen-lockfile --ignore-scripts`. The build must work without any package's install script.
--   The shell in Claude Code is Git Bash; PowerShell is also available. Quote every glob.
--   Add `--reporter=dot` to vitest and `--quiet` to eslint, so a failure is not lost in passing lines.
+- Install with `pnpm install --frozen-lockfile --ignore-scripts`. The build must work without any package's install script.
+- The shell in Claude Code is Git Bash; PowerShell is also available. Quote every glob.
+- Add `--reporter=dot` to vitest and `--quiet` to eslint, so a failure is not lost in passing lines.
+- The browser tests read the built site: run `pnpm build` first. They take about 40 seconds with one worker; start them in the background and wait, never inside a time limit.
 
 ## Definition of done
 
@@ -115,10 +117,10 @@ Work is done when all of these hold, and the report shows them.
 | A bounded module with its tests                      | Strong   |
 | Mechanical formatting, bulk edits with an exact rule | Economic |
 
--   A worker stays on the parent thread's provider. Take the exact model ID from the T3 `orchestrator_capabilities` tool; never from a file and never from memory.
--   Security, dependency and review work never goes to the economic tier.
--   Move a task up a tier only after a concrete failed attempt. After two failures on one task, change the tier or the approach.
--   Another vendor is used only for the optional review seat, read-only, and only when the owner says so each time.
+- A worker stays on the parent thread's provider. Take the exact model ID from the T3 `orchestrator_capabilities` tool; never from a file and never from memory.
+- Security, dependency and review work never goes to the economic tier.
+- Move a task up a tier only after a concrete failed attempt. After two failures on one task, change the tier or the approach.
+- Another vendor is used only for the optional review seat, read-only, and only when the owner says so each time.
 
 ## Delegation
 
@@ -132,11 +134,11 @@ Work is done when all of these hold, and the report shows them.
 
 T3 Code compacts a session at about 450,000 tokens. What is not in a file by then is lost.
 
--   **The hook warns at 350,000 tokens and again every 40,000.** When it warns, write the state file before any other tool call.
--   **Write a state file** before a manual compaction, in the first turn after an automatic one that no file covered, on a handoff request, on the hook's warning, and after major work before handing back.
--   **Follow `docs/state/README.md`:** the name, the 12 sections, the index row, the resume prompt, and the content rules for a public repository.
--   **Copy in what other agents cannot see:** plan files and memory notes outside the repository, decisions made only in chat, workers' reports.
--   **After a compaction,** open your reply with "Resuming:": the original request, the state file's path and the next step.
+- **The hook warns at 350,000 tokens and again every 40,000.** When it warns, write the state file before any other tool call.
+- **Write a state file** before a manual compaction, in the first turn after an automatic one that no file covered, on a handoff request, on the hook's warning, and after major work before handing back.
+- **Follow `docs/state/README.md`:** the name, the 12 sections, the index row, the resume prompt, and the content rules for a public repository.
+- **Copy in what other agents cannot see:** plan files and memory notes outside the repository, decisions made only in chat, workers' reports.
+- **After a compaction,** open your reply with "Resuming:": the original request, the state file's path and the next step.
 
 The hooks run only in Claude Code for now. In any other tool the same rules hold without the safety net.
 
@@ -146,18 +148,18 @@ The owner makes every commit and every push. Agents run read-only git: `status`,
 
 Every report ends with a commit message suggestion and a reminder to run `/simplify` before committing.
 
--   Conventional Commits with the default types: `build`, `chore`, `ci`, `docs`, `feat`, `fix`, `perf`, `refactor`, `revert`, `style`, `test`.
--   Header at most 100 characters, lower-case subject, no full stop.
--   No double quotes and no backticks: the owner pastes the message into PowerShell.
--   No AI attribution line of any kind.
--   Check it before you suggest it: write it to a file in `tmp/` and run `pnpm exec commitlint --edit <file>`. Only a message that passes goes to the owner.
--   The message covers everything changed since the last commit, not only your part.
+- Conventional Commits with the default types: `build`, `chore`, `ci`, `docs`, `feat`, `fix`, `perf`, `refactor`, `revert`, `style`, `test`.
+- Header at most 100 characters, lower-case subject, no full stop.
+- No double quotes and no backticks: the owner pastes the message into PowerShell.
+- No AI attribution line of any kind.
+- Check it before you suggest it: write it to a file in `tmp/` and run `pnpm exec commitlint --edit <file>`. Only a message that passes goes to the owner.
+- The message covers everything changed since the last commit, not only your part.
 
 ## Tests
 
--   A failing test means the code is wrong until proven otherwise. Fix the code. If the test itself is wrong, say why in the report and change it in a separate step.
--   Expected values are written by hand from the requirement, never produced by calling the code under test.
--   Never keep a test file in `tmp/` on purpose; the test runner ignores that folder.
+- A failing test means the code is wrong until proven otherwise. Fix the code. If the test itself is wrong, say why in the report and change it in a separate step.
+- Expected values are written by hand from the requirement, never produced by calling the code under test.
+- Never keep a test file in `tmp/` on purpose; the test runner ignores that folder.
 
 ## Three attempts
 
@@ -171,6 +173,6 @@ Any loop has a budget. After three failed attempts at the same thing (a test tha
 
 Every code change that is more than a small fix goes through an OpenSpec change in `openspec/changes/<name>/`. A fix of a few lines, a typo, a formatting change or a dependency patch needs none.
 
--   Run the CLI as `pnpm exec openspec <command>`. `update` and `init` are the owner's commands; the guard blocks them.
--   Before work on a phase, read its proposal and requirements. Tick a task when it is verified.
--   A change in scope is written into the proposal first, with the owner's approval.
+- Run the CLI as `pnpm exec openspec <command>`. `update` and `init` are the owner's commands; the guard blocks them.
+- Before work on a phase, read its proposal and requirements. Tick a task when it is verified.
+- A change in scope is written into the proposal first, with the owner's approval.

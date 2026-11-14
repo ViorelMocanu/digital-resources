@@ -18,14 +18,14 @@ supersedes: 2026-11-13-0418-phase-4-e2e-suite
 
 **Check receipts**, all at `24d034b` plus the working tree in section 12:
 
--   `pnpm install --frozen-lockfile --ignore-scripts`: exit 0.
--   `pnpm verify`: exit 0. Lint reports no problem; 17 test files, 885 tests passed; "All 24 generated files are fresh"; format clean.
--   `pnpm build`: exit 0, 56 pages.
--   `node tmp/work/p3-html-diff.cjs tmp/phase3/before/static .vercel/output/static`: 106 files, 106 the same.
--   `pnpm test:e2e`: exit 0, "88 passed" in about 37 seconds.
--   Against `tmp/phase4/broken`: the navigation and accessibility specs fail (4 failed, 18 passed). Against `tmp/phase4/nohead` (the FAQ page without its robots tag): the smoke spec fails (1 failed, 65 passed).
--   `pnpm audit`: "No known vulnerabilities found".
--   `pnpm exec openspec validate phase-4-e2e-followups --strict`: valid.
+- `pnpm install --frozen-lockfile --ignore-scripts`: exit 0.
+- `pnpm verify`: exit 0. Lint reports no problem; 17 test files, 885 tests passed; "All 24 generated files are fresh"; format clean.
+- `pnpm build`: exit 0, 56 pages.
+- `node tmp/work/p3-html-diff.cjs tmp/phase3/before/static .vercel/output/static`: 106 files, 106 the same.
+- `pnpm test:e2e`: exit 0, "88 passed" in about 37 seconds.
+- Against `tmp/phase4/broken`: the navigation and accessibility specs fail (4 failed, 18 passed). Against `tmp/phase4/nohead` (the FAQ page without its robots tag): the smoke spec fails (1 failed, 65 passed).
+- `pnpm audit`: "No known vulnerabilities found".
+- `pnpm exec openspec validate phase-4-e2e-followups --strict`: valid.
 
 **Next actions, in order:**
 
@@ -42,12 +42,12 @@ Read docs/state/2026-11-13-1728-phase-4-e2e-followups.md in the digital-resource
 
 ## 3. Decisions made
 
--   2026-11-13, the owner: the five findings above are approved. The JSDoc type rules for TypeScript files were not picked and stay as they are.
--   2026-11-13, the owner: the navigation test gates in the CI workflow (A), not in the pre-push hook (B).
--   2026-11-13, the agent: `semver` and `@types/semver` added as development dependencies for the overrides check. Options: a hoisted, undeclared import (breaks when hoisting changes), or a hand-written range comparison (error-prone).
--   2026-11-13, the agent: the collections are kept only in a build, not while developing, so an edited content file still shows at once.
--   2026-11-13, the agent: the narrow project skips tests by a tag (`@desktop-only`), so no test shows as skipped.
--   2026-11-13, the agent: the `minimatch` override names four parents, not two: the installed manifests show four packages asking for version 10.
+- 2026-11-13, the owner: the five findings above are approved. The JSDoc type rules for TypeScript files were not picked and stay as they are.
+- 2026-11-13, the owner: the navigation test gates in the CI workflow (A), not in the pre-push hook (B).
+- 2026-11-13, the agent: `semver` and `@types/semver` added as development dependencies for the overrides check. Options: a hoisted, undeclared import (breaks when hoisting changes), or a hand-written range comparison (error-prone).
+- 2026-11-13, the agent: the collections are kept only in a build, not while developing, so an edited content file still shows at once.
+- 2026-11-13, the agent: the narrow project skips tests by a tag (`@desktop-only`), so no test shows as skipped.
+- 2026-11-13, the agent: the `minimatch` override names four parents, not two: the installed manifests show four packages asking for version 10.
 
 ## 4. Open decisions
 
@@ -64,10 +64,10 @@ Read docs/state/2026-11-13-1728-phase-4-e2e-followups.md in the digital-resource
 
 Verified in this run: every receipt in section 1, and:
 
--   The suite: 67 desktop tests (56 smoke with head checks, 10 accessibility, 1 navigation) and 21 narrow ones (10 smoke, 10 accessibility, 1 navigation).
--   Four installed packages of the lockfile ask for minimatch 10: `eslint` 10.14.0, `@eslint/config-array` 0.23.5, `@typescript-eslint/typescript-estree` 8.72.1, `markdownlint-cli` 0.50.0. After the change the lockfile holds minimatch 11.0.5 and 3.1.5.
--   `node_modules/.pnpm` holds packages of earlier installs (an older eslint and vite among them) and shortens long folder names to a hash.
--   The Vercel project's Node version is 24.x (historical, 2026-11-13, the owner's screenshot).
+- The suite: 67 desktop tests (56 smoke with head checks, 10 accessibility, 1 navigation) and 21 narrow ones (10 smoke, 10 accessibility, 1 navigation).
+- Four installed packages of the lockfile ask for minimatch 10: `eslint` 10.14.0, `@eslint/config-array` 0.23.5, `@typescript-eslint/typescript-estree` 8.72.1, `markdownlint-cli` 0.50.0. After the change the lockfile holds minimatch 11.0.5 and 3.1.5.
+- `node_modules/.pnpm` holds packages of earlier installs (an older eslint and vite among them) and shortens long folder names to a hash.
+- The Vercel project's Node version is 24.x (historical, 2026-11-13, the owner's screenshot).
 
 ## 7. Subagent and external research results
 
@@ -83,12 +83,12 @@ Review and commit; `pnpm exec husky` once to activate the hooks; the decisions o
 
 ## 10. Caveats and unverified claims
 
--   Unverified: the Vercel deployment of this tree, and how the suite behaves on another machine or in a pipeline.
--   The narrow project no longer loads 46 of the 56 pages, and no trace is kept of a failure.
--   The overrides check reads `node_modules`, so it needs an install; an override written `name@range` expires only with its dependants.
--   The collections module was not seen failing before it was written: it is new code, not a fix. Its effect on build time was not measured.
--   The git hooks were run by hand, never by git.
--   The private capture of this session in `tmp/compact-summaries/` was not copied here.
+- Unverified: the Vercel deployment of this tree, and how the suite behaves on another machine or in a pipeline.
+- The narrow project no longer loads 46 of the 56 pages, and no trace is kept of a failure.
+- The overrides check reads `node_modules`, so it needs an install; an override written `name@range` expires only with its dependants.
+- The collections module was not seen failing before it was written: it is new code, not a fix. Its effect on build time was not measured.
+- The git hooks were run by hand, never by git.
+- The private capture of this session in `tmp/compact-summaries/` was not copied here.
 
 ## 11. Suggested skills for the next session
 
@@ -98,7 +98,7 @@ Review and commit; `pnpm exec husky` once to activate the hooks; the decisions o
 
 Uncommitted, for this change:
 
--   New: `openspec/changes/phase-4-e2e-followups/`, `src/utils/collections.ts`, `test/collections.test.ts`, `scripts/lib/pnpm-overrides.ts`, `scripts/lib/pnpm-overrides.test.ts`, this file.
--   Changed: `e2e/smoke.spec.ts`, `e2e/head.spec.ts` (emptied to a note), `playwright.config.ts`, `scripts/openspec-port.ts`, `scripts/sync-harness.ts`, `src/components/Header.astro`, `src/components/ResourceList.astro`, `src/utils/getSortedItems.ts`, `package.json`, `pnpm-lock.yaml`, `pnpm-workspace.yaml`, `docs/change-log.md`, `docs/state/README.md`.
+- New: `openspec/changes/phase-4-e2e-followups/`, `src/utils/collections.ts`, `test/collections.test.ts`, `scripts/lib/pnpm-overrides.ts`, `scripts/lib/pnpm-overrides.test.ts`, this file.
+- Changed: `e2e/smoke.spec.ts`, `e2e/head.spec.ts` (emptied to a note), `playwright.config.ts`, `scripts/openspec-port.ts`, `scripts/sync-harness.ts`, `src/components/Header.astro`, `src/components/ResourceList.astro`, `src/utils/getSortedItems.ts`, `package.json`, `pnpm-lock.yaml`, `pnpm-workspace.yaml`, `docs/change-log.md`, `docs/state/README.md`.
 
 Local only: `tmp/phase4/nohead/`, `tmp/work/s5-*.cjs`, `tmp/work/s5-lock-before.yaml`, `tmp/work/logs/s5-*.log`, `tmp/work/commitmsg-followups.txt`.

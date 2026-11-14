@@ -2,13 +2,13 @@
 
 [![GitHub Workflow Status][GitHub Workflow Shield]][GitHub Workflow Link] [![GitHub Pages Deploy Status][GitHub Pages Deploy Shield]][GitHub Pages Deploy Link] [![Uptime Robot status][Uptime Robot Shield]][Uptime Robot Link] [![GitHub contributors][GitHub contributors Shield]][GitHub contributors Link] [![GitHub Sponsors][GitHub Sponsors Shield]][GitHub Sponsors Link] [![ISC license][ISC license Shield]][ISC license Link] [![W3C Validation][W3C Validation Shield]][W3C Validation Link] [![Libraries.io dependency status for GitHub repo][Dependency status Badge]][Dependency Status Link] [![Project Stage Badge: Development][Project Stage Badge: Development]][Project Stage Link]
 
-[//]: <> (Implement https://shields.io/badges/netlify once you deploy there)
+[//]: <> 'Implement https://shields.io/badges/netlify once you deploy there'
 
 Salutare!
 
 Bine-ai venit în proiectul de _resurse digitale_, prin care transformăm link-urile din [Google Doc-ul făcut de mine acum mai mult timp] într-un website funcțional care să ajute oamenii să parcurgă resursele de învățare mai eficient.
 
-Vezi toată seria de video-uri 🔴LIVE de pe YouTube în care am generat codul pentru acest proiect în [playlist-ul Resurse.dev de aici &rarr;].
+Vezi toată seria de video-uri 🔴LIVE de pe YouTube în care am generat codul pentru acest proiect în [playlist-ul Resurse.dev de aici →].
 
 Proiectul e abia la început, și dacă vrei să te implici, orice contribuție de-a ta este binevenită! Citește [regulile] și [ghidul despre cum să contribui] și ajută-ne să facem proiectul ăsta _cel mai bun loc din care să alegi ce resurse să folosești pentru învățare_! Contribuitorii majori vor fi menționați în [`humans.txt`].
 
@@ -26,31 +26,33 @@ This project began in a 🇷🇴 Romanian community, so please excuse the almost
 
 Ne-am mai inspirat de aici ca să facem proiectul curent:
 
--   [Tutorial oficial al Astro 3.0]
--   Componente: <https://github.com/markteekman/accessible-astro-starter> + <https://www.accessible-astro.dev/accessible-components/> + <https://github.com/markteekman/accessible-astro-components> + <https://github.com/shaunchander/astro-pwa-starter>
--   [Integrări] din care vrem să testăm:
-    -   [ ] `@astrojs/mdx`
-    -   [x] `@astrojs/sitemap`
-    -   [ ] `astro-compress` vs `astro-compressor` vs `astro-html-minifier`
-    -   [ ] `astro-seo`
-    -   [ ] `astro-seo-meta`
-    -   [ ] `astro-seo-schema`
-    -   [ ] `astro-robots-txt`
-    -   [ ] `vite-plugin-pwa` + `astro-webmanifest`
-    -   [x] `@astrojs/partytown`
-    -   [ ] `astro-i18next`
-    -   [x] `typescript` + `@typescript-eslint/eslint-plugin` + `@typescript-eslint/parser`
-    -   [x] `eslint` + `eslint-plugin-astro` + `eslint-plugin-jsx-a11y`
-    -   [x] `sass`
-    -   [ ] `svgo`
-    -   [ ] `@astro-community/astro-embed-youtube` + `@astro-community/astro-embed-twitter`
-    -   [ ] `astro-purgecss`
-    -   [ ] `@astrojs/vercel` vs `@astrojs/netlify` vs `@astrojs/cloudflare` vs `@astrojs/deno` pentru deploy
-    -   [ ] `astro-icon` (optional) testat?
-    -   [ ] `@sendgrid` (optional) pentru email?
-    -   [ ] `accessible-astro-components` (optional) ca să „furăm” cod de aici?
-    -   [ ] `@astrojs/tailwind` + `tailwindcss` (optional)
-    -   [x] `prettier` + `prettier-plugin-astro` + `prettier-plugin-tailwindcss` (optional)
+- [Tutorial oficial al Astro 3.0]
+- Componente: <https://github.com/markteekman/accessible-astro-starter> + <https://www.accessible-astro.dev/accessible-components/> + <https://github.com/markteekman/accessible-astro-components> + <https://github.com/shaunchander/astro-pwa-starter>
+- [Integrări] din care vrem să testăm:
+    - [ ] `@astrojs/mdx`
+    - [x] `@astrojs/sitemap`
+    - [ ] `astro-compress` vs `astro-compressor` vs `astro-html-minifier`
+    - [ ] `astro-seo`
+    - [ ] `astro-seo-meta`
+    - [ ] `astro-seo-schema`
+    - [ ] `astro-robots-txt`
+    - [ ] `vite-plugin-pwa` + `astro-webmanifest`
+    - [ ] `@astrojs/partytown` (testat și scos: nu îl folosea niciun script)
+    - [ ] `astro-i18next`
+    - [x] `typescript` + `typescript-eslint`
+    - [x] `eslint` + `eslint-plugin-astro` + `eslint-plugin-jsx-a11y` + `eslint-plugin-jsdoc`
+    - [x] `stylelint` + `markdownlint-cli`
+    - [x] `vitest` + `@playwright/test` + `@axe-core/playwright`
+    - [x] `sass-embedded`
+    - [ ] `svgo`
+    - [ ] `@astro-community/astro-embed-youtube` + `@astro-community/astro-embed-twitter`
+    - [ ] `astro-purgecss`
+    - [ ] `@astrojs/vercel` vs `@astrojs/netlify` vs `@astrojs/cloudflare` vs `@astrojs/deno` pentru deploy
+    - [ ] `astro-icon` (optional) testat?
+    - [ ] `@sendgrid` (optional) pentru email?
+    - [ ] `accessible-astro-components` (optional) ca să „furăm” cod de aici?
+    - [ ] `@astrojs/tailwind` + `tailwindcss` (optional)
+    - [x] `prettier` + `prettier-plugin-astro` + `prettier-plugin-tailwindcss` (optional)
 
 ---
 
@@ -64,7 +66,7 @@ git clone https://github.com/ViorelMocanu/digital-resources.git
 
 **BONUS:** dacă ești pe <del>Winblows</del> <ins>Windows</ins>, asigură-te că faci pașii următori într-o consolă cu drepturi de Administrator. Fie deschide VSCode sau IDE-ul tău preferat cu consolă atașată cu _`click dreapta > Run as Administrator`_ fie rulează `cmd.exe` sau `powershell.exe` cu drepturi de Admin.
 
-Asigură-te că ai ultima versiune de Node instalată de pe [site-ul oficial Node.js]. Ideal e să ai minim versiunea `18.18.0`. Poți verifica versiunea instalată cu comanda:
+Asigură-te că ai ultima versiune de Node instalată de pe [site-ul oficial Node.js]. Ai nevoie de minim versiunea `24.16`. Poți verifica versiunea instalată cu comanda:
 
 ```bash
 node -v
@@ -84,7 +86,7 @@ Pentru POSIX / Mac / Linux / \*nix cu librăria `curl` disponibilă:
 curl -fsSL https://get.pnpm.io/install.sh | sh -
 ```
 
-Ideal e să ai minim versiunea de PNPM `8.8.0`. Poți verifica versiunea instalată cu comanda:
+Ai nevoie de minim versiunea de PNPM `10`. Poți verifica versiunea instalată cu comanda:
 
 ```bash
 pnpm -v
@@ -104,7 +106,7 @@ pnpm dev
 
 Deschide browser-ul la adresa: <http://localhost:4321> ca să vezi proiectul rulând la tine local.
 
-Dacă faci schimbări în arhitectura informațională din `./content` în special în `./content/config.ts` asigură-te că se re-construiește referința de **TypeScript** pentru conținut rulând:
+Dacă faci schimbări în arhitectura informațională din `./content` în special în `./src/content.config.ts` asigură-te că se re-construiește referința de **TypeScript** pentru conținut rulând:
 
 ```bash
 pnpm astro sync
@@ -125,7 +127,7 @@ Toate comenzile sunt rulate din root-ul proiectului, dintr-un terminal:
 | `pnpm install`         | Instalează dependințele                                                                    |
 | `pnpm dev`             | Pornește serverul local de Astro la `localhost:4321`                                       |
 | `pnpm start`           | Pornește serverul local de Astro la `localhost:4321`                                       |
-| `pnpm build`           | Construiește site-ul de producție la `./dist/`                                             |
+| `pnpm build`           | Construiește site-ul de producție la `./.vercel/output/static/`                            |
 | `pnpm preview`         | Fă un preview al site-ului local înainte de deploy                                         |
 | `pnpm astro ...`       | Rulează comenzi CLI cum ar fi `astro add`, `astro check`                                   |
 | `pnpm astro -- --help` | Afișează comenzile disponibile în Astro CLI                                                |
@@ -136,6 +138,9 @@ Toate comenzile sunt rulate din root-ul proiectului, dintr-un terminal:
 | `pnpm lint:fix`        | Validează și **corectează** fișierele JavaScript, TypeScript și Markdown locale            |
 | `pnpm lint`            | Validează fișierele JavaScript, TypeScript, Astro și Markdown cu `ESLint` / `MarkdownLint` |
 | `pnpm typecheck`       | Validează type-urile de TypeScript folosind TSC și `tsconfig.json`                         |
+| `pnpm test:unit`       | Rulează testele unitare cu `Vitest`                                                        |
+| `pnpm test:e2e`        | Rulează testele de browser cu `Playwright` pe site-ul construit (întâi `pnpm build`)       |
+| `pnpm verify`          | Rulează toate verificările rapide: lint, type-uri, teste unitare și format                 |
 
 ## 🛑 Semnalează un bug sau contribuie
 
@@ -190,7 +195,7 @@ Merci! ❤️
 [Viorel Mocanu], [Consultant digital] și [creator de conținut].
 
 [Google Doc-ul făcut de mine acum mai mult timp]: https://bit.ly/vio-digital
-[playlist-ul Resurse.dev de aici &rarr;]: https://youtube.com/playlist?list=PLfTqvIG4roBphVLnYuDTkfweQ2GmmcHOq
+[playlist-ul Resurse.dev de aici →]: https://youtube.com/playlist?list=PLfTqvIG4roBphVLnYuDTkfweQ2GmmcHOq
 [regulile]: https://github.com/ViorelMocanu/digital-resources/blob/main/CODE_OF_CONDUCT.md
 [ghidul despre cum să contribui]: https://github.com/ViorelMocanu/digital-resources/blob/main/CONTRIBUTING.md
 [`humans.txt`]: https://github.com/ViorelMocanu/digital-resources/blob/main/humans.txt

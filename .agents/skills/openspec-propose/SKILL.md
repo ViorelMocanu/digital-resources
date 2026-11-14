@@ -11,11 +11,11 @@ metadata:
 
 **Project rules. They override anything below.**
 
--   Wherever this text shows `openspec <command>`, run `pnpm exec openspec <command>`.
--   Never run `openspec init` or `openspec update`: they are the owner's commands. This repository already has its `openspec/` folder, so the setup questions below do not apply.
--   `AGENTS.md` wins over this skill. No git writes. Archiving moves a change folder, so archive only when the owner asked for it. A task is ticked when its check has passed, never in a batch.
--   Never run `openspec feedback` or `openspec install`: both reach outside this machine.
--   Where a step names a tool your host does not have (a question dialog, a todo list), ask in the chat and keep a plain checklist.
+- Wherever this text shows `openspec <command>`, run `pnpm exec openspec <command>`.
+- Never run `openspec init` or `openspec update`: they are the owner's commands. This repository already has its `openspec/` folder, so the setup questions below do not apply.
+- `AGENTS.md` wins over this skill. No git writes. Archiving moves a change folder, so archive only when the owner asked for it. A task is ticked when its check has passed, never in a batch.
+- Never run `openspec feedback` or `openspec install`: both reach outside this machine.
+- Where a step names a tool your host does not have (a question dialog, a todo list), ask in the chat and keep a plain checklist.
 
 Propose a new change - create the change and generate all artifacts in one step.
 
@@ -23,10 +23,10 @@ Propose a new change - create the change and generate all artifacts in one step.
 
 I'll create a change with the artifacts your schema defines. With the default spec-driven schema that is:
 
--   proposal.md (what & why)
--   `specs/<capability-path>/spec.md` (what the system must do - a delta, not the main spec)
--   design.md (how)
--   tasks.md (implementation steps)
+- proposal.md (what & why)
+- `specs/<capability-path>/spec.md` (what the system must do - a delta, not the main spec)
+- design.md (how)
+- tasks.md (implementation steps)
 
 `<capability-path>` is the spec directory relative to `specs/` (for example, `user-auth` or `identity/user-auth`). Preserve an existing capability's full path and follow the project's established organization for new capabilities.
 
@@ -42,8 +42,8 @@ One `"root": null` is not about setup: when a `status` error message starts with
 
 Otherwise, with no root, what happens next depends on how this workflow was reached:
 
--   **Auto-selected**: you chose this workflow yourself, without the user naming OpenSpec, naming this skill, or running its slash command. Stop using OpenSpec and answer the request normally, as you would with no OpenSpec installed. Do not ask them to set anything up and do not mention OpenSpec setup.
--   **Explicit OpenSpec request**: the user named OpenSpec, named this skill, or ran its slash command. Stop before writing and ask how to proceed: set this project up (`openspec init`), target a store they already have (`--store <id>`), or continue without OpenSpec for this request. Wait for their answer.
+- **Auto-selected**: you chose this workflow yourself, without the user naming OpenSpec, naming this skill, or running its slash command. Stop using OpenSpec and answer the request normally, as you would with no OpenSpec installed. Do not ask them to set anything up and do not mention OpenSpec setup.
+- **Explicit OpenSpec request**: the user named OpenSpec, named this skill, or ran its slash command. Stop before writing and ask how to proceed: set this project up (`openspec init`), target a store they already have (`--store <id>`), or continue without OpenSpec for this request. Wait for their answer.
 
 In both branches, never create the root as a side effect: do not run `openspec init` until the user asks for it, do not hand-create `openspec/` files, and do not let a command create it.
 
@@ -170,27 +170,27 @@ In both branches, never create the root as a side effect: do not run `openspec i
 
 After completing all artifacts, summarize:
 
--   Change name and location
--   List of artifacts created with brief descriptions, plus any conditional artifact you skipped and why
--   What's ready: "All artifacts needed for implementation are ready."
--   Prompt: "The artifacts are ready for review. When you are ready, run `/opsx-apply` or ask me to apply this change."
+- Change name and location
+- List of artifacts created with brief descriptions, plus any conditional artifact you skipped and why
+- What's ready: "All artifacts needed for implementation are ready."
+- Prompt: "The artifacts are ready for review. When you are ready, run `/opsx-apply` or ask me to apply this change."
 
 **Artifact Creation Guidelines**
 
--   Follow the `instruction` field from `openspec instructions` for each artifact type - it is the authoritative guidance, even for familiar artifact names
--   If the `instruction` field directs you to use a specific skill or command to create the artifact, invoke it instead of writing the artifact directly - but only once you have chosen and checked the output path, and only if it can write there
--   The schema defines what each artifact should contain - follow it
--   Read dependency artifacts for context before creating new ones
--   Use `template` as the structure for your output file - fill in its sections
--   **IMPORTANT**: `context` and `rules` are constraints for YOU, not content for the file
-    -   Do NOT copy `<context>`, `<rules>`, `<project_context>` blocks into the artifact
-    -   These guide what you write, but should never appear in the output
+- Follow the `instruction` field from `openspec instructions` for each artifact type - it is the authoritative guidance, even for familiar artifact names
+- If the `instruction` field directs you to use a specific skill or command to create the artifact, invoke it instead of writing the artifact directly - but only once you have chosen and checked the output path, and only if it can write there
+- The schema defines what each artifact should contain - follow it
+- Read dependency artifacts for context before creating new ones
+- Use `template` as the structure for your output file - fill in its sections
+- **IMPORTANT**: `context` and `rules` are constraints for YOU, not content for the file
+    - Do NOT copy `<context>`, `<rules>`, `<project_context>` blocks into the artifact
+    - These guide what you write, but should never appear in the output
 
 **Guardrails**
 
--   The request that invoked this workflow authorizes planning only. Any implementation or apply instruction in that request does not carry forward. Do NOT implement the change, start the apply workflow, or edit project code during this workflow. After presenting the artifacts, stop and wait for a new user request to start the apply workflow
--   Create every artifact the apply phase transitively depends on, not just the ids listed in `apply.requires`
--   Always read dependency artifacts before creating a new one - re-read from disk, not from conversation memory (files may have changed since you last saw them)
--   Ask about ambiguities that would materially change scope, externally observable behavior, compatibility, or acceptance criteria; for minor details, make reasonable assumptions and record them
--   If a change with that name already exists, ask if user wants to continue it or create a new one
--   Verify each artifact file exists after writing before proceeding to next
+- The request that invoked this workflow authorizes planning only. Any implementation or apply instruction in that request does not carry forward. Do NOT implement the change, start the apply workflow, or edit project code during this workflow. After presenting the artifacts, stop and wait for a new user request to start the apply workflow
+- Create every artifact the apply phase transitively depends on, not just the ids listed in `apply.requires`
+- Always read dependency artifacts before creating a new one - re-read from disk, not from conversation memory (files may have changed since you last saw them)
+- Ask about ambiguities that would materially change scope, externally observable behavior, compatibility, or acceptance criteria; for minor details, make reasonable assumptions and record them
+- If a change with that name already exists, ask if user wants to continue it or create a new one
+- Verify each artifact file exists after writing before proceeding to next

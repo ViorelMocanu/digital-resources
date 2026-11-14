@@ -19,6 +19,12 @@ export function builtPages(): string[] {
 		.sort();
 }
 
+/**
+ * Addresses the hosting platform answers itself (its analytics and speed scripts). They are not files of the build,
+ * so the local server cannot have them and their absence here says nothing about the site.
+ */
+const HOST_PROVIDED = '/_vercel/';
+
 /** What a project of `playwright.config.ts` says about itself. */
 export interface SiteOptions {
 	/** True when the project's width shows the narrow layout, the one with the menu button. */
@@ -27,7 +33,8 @@ export interface SiteOptions {
 
 /**
  * `page` is cut off from everything but the local server, so a test needs no network and loads no third party.
- * `errors` collects the uncaught script errors of the page.
+ * `errors` collects what went wrong while the page loaded: uncaught script errors, and files of the site itself
+ * that the server could not give (a style sheet, a script or an image that is missing from the build).
  */
 export const test = base.extend<SiteOptions & { errors: string[] }>({
 	narrow: [false, { option: true }],
@@ -41,6 +48,11 @@ export const test = base.extend<SiteOptions & { errors: string[] }>({
 	errors: async ({ page }, use) => {
 		const errors: string[] = [];
 		page.on('pageerror', (error) => errors.push(error.message));
+		page.on('response', (response) => {
+			const url = new URL(response.url());
+			const fromHost = url.pathname.startsWith(HOST_PROVIDED);
+			if (url.origin === ORIGIN && response.status() >= 400 && !fromHost) errors.push(`${response.status()} ${url.pathname}`);
+		});
 		await use(errors);
 	},
 });

@@ -56,6 +56,11 @@ describe('resolveFile', () => {
 		expect(resolveFile(root, '/despre/../../secret.txt')).toBeNull();
 	});
 
+	it('returns nothing for a path with a null byte, which no file name can hold', () => {
+		expect(resolveFile(root, '/%00')).toBeNull();
+		expect(resolveFile(root, '/despre%00/')).toBeNull();
+	});
+
 	it('returns nothing for a path that cannot be decoded', () => {
 		expect(resolveFile(root, '/%E0%A4%A')).toBeNull();
 	});

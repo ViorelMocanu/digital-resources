@@ -12,11 +12,11 @@ metadata:
 
 **Project rules. They override anything below.**
 
--   Wherever this text shows `openspec <command>`, run `pnpm exec openspec <command>`.
--   Never run `openspec init` or `openspec update`: they are the owner's commands. This repository already has its `openspec/` folder, so the setup questions below do not apply.
--   `AGENTS.md` wins over this skill. No git writes. Archiving moves a change folder, so archive only when the owner asked for it. A task is ticked when its check has passed, never in a batch.
--   Never run `openspec feedback` or `openspec install`: both reach outside this machine.
--   Where a step names a tool your host does not have (a question dialog, a todo list), ask in the chat and keep a plain checklist.
+- Wherever this text shows `openspec <command>`, run `pnpm exec openspec <command>`.
+- Never run `openspec init` or `openspec update`: they are the owner's commands. This repository already has its `openspec/` folder, so the setup questions below do not apply.
+- `AGENTS.md` wins over this skill. No git writes. Archiving moves a change folder, so archive only when the owner asked for it. A task is ticked when its check has passed, never in a batch.
+- Never run `openspec feedback` or `openspec install`: both reach outside this machine.
+- Where a step names a tool your host does not have (a question dialog, a todo list), ask in the chat and keep a plain checklist.
 
 Sync delta specs from a change to main specs.
 
@@ -30,8 +30,8 @@ One `"root": null` is not about setup: when a `status` error message starts with
 
 Otherwise, with no root, what happens next depends on how this workflow was reached:
 
--   **Auto-selected**: you chose this workflow yourself, without the user naming OpenSpec, naming this skill, or running its slash command. Stop using OpenSpec and answer the request normally, as you would with no OpenSpec installed. Do not ask them to set anything up and do not mention OpenSpec setup.
--   **Explicit OpenSpec request**: the user named OpenSpec, named this skill, or ran its slash command. Stop before writing and ask how to proceed: set this project up (`openspec init`), target a store they already have (`--store <id>`), or continue without OpenSpec for this request. Wait for their answer.
+- **Auto-selected**: you chose this workflow yourself, without the user naming OpenSpec, naming this skill, or running its slash command. Stop using OpenSpec and answer the request normally, as you would with no OpenSpec installed. Do not ask them to set anything up and do not mention OpenSpec setup.
+- **Explicit OpenSpec request**: the user named OpenSpec, named this skill, or ran its slash command. Stop before writing and ask how to proceed: set this project up (`openspec init`), target a store they already have (`--store <id>`), or continue without OpenSpec for this request. Wait for their answer.
 
 In both branches, never create the root as a side effect: do not run `openspec init` until the user asks for it, do not hand-create `openspec/` files, and do not let a command create it.
 
@@ -171,8 +171,8 @@ The system SHALL do something new.
 
 #### Scenario: Basic case
 
--   **WHEN** user does X
--   **THEN** system does Y
+- **WHEN** user does X
+- **THEN** system does Y
 
 ## MODIFIED Requirements
 
@@ -182,13 +182,13 @@ The system SHALL keep doing the existing thing, now also handling A.
 
 #### Scenario: Scenario the main spec already has
 
--   **WHEN** user does X
--   **THEN** system does Y
+- **WHEN** user does X
+- **THEN** system does Y
 
 #### Scenario: New scenario to add
 
--   **WHEN** user does A
--   **THEN** system does B
+- **WHEN** user does A
+- **THEN** system does B
 
 ## REMOVED Requirements
 
@@ -196,8 +196,8 @@ The system SHALL keep doing the existing thing, now also handling A.
 
 ## RENAMED Requirements
 
--   FROM: `### Requirement: Old Name`
--   TO: `### Requirement: New Name`
+- FROM: `### Requirement: Old Name`
+- TO: `### Requirement: New Name`
 ```
 
 **Main Spec Format Reference**
@@ -219,17 +219,17 @@ The system SHALL do something new.
 
 #### Scenario: Basic case
 
--   **WHEN** user does X
--   **THEN** system does Y
+- **WHEN** user does X
+- **THEN** system does Y
 ```
 
 **Key Principle: Intelligent Merging**
 
 Unlike programmatic merging, you merge rather than overwrite:
 
--   A MODIFIED block carries the whole requirement - body plus every scenario that survives the change. `openspec validate` and `openspec archive` both reject one that drops a scenario the main spec still has.
--   Keep anything the delta does not mention, in the main spec's existing order
--   Use your judgment to merge changes sensibly
+- A MODIFIED block carries the whole requirement - body plus every scenario that survives the change. `openspec validate` and `openspec archive` both reject one that drops a scenario the main spec still has.
+- Keep anything the delta does not mention, in the main spec's existing order
+- Use your judgment to merge changes sensibly
 
 **Output On Success**
 
@@ -240,27 +240,27 @@ Updated main specs:
 
 **<capability-1>**:
 
--   Added requirement: "New Feature"
--   Modified requirement: "Existing Feature" (added 1 scenario)
+- Added requirement: "New Feature"
+- Modified requirement: "Existing Feature" (added 1 scenario)
 
 **<capability-2>**:
 
--   Created new spec file
--   Added requirement: "Another Feature"
+- Created new spec file
+- Added requirement: "Another Feature"
 
 Main specs are now updated. The change remains active - archive when implementation is complete.
 ```
 
 **Guardrails**
 
--   Read both delta and main specs before making changes
--   Preserve existing content not mentioned in delta
--   Never copy a delta file into a main spec as-is - merge its content so the main spec keeps the Main Spec Format Reference structure, with no delta operation headers
--   If something is unclear, ask for clarification
--   Show what you're changing as you go
--   The operation should be idempotent - running twice should give same result
--   Use only `artifactPaths.specs.existingOutputPaths`; never infer delta specs from unrelated artifacts
--   Honor a caller-supplied subset of `existingOutputPaths`; never widen it back to the full list
--   Fetch specs instructions once for direct sync, or reuse the archive-supplied snapshot inline
--   Stop before every main-spec write on a non-zero or invalid JSON specs-instruction response
--   Artifact rules constrain only the specs being written and are never copied into output files
+- Read both delta and main specs before making changes
+- Preserve existing content not mentioned in delta
+- Never copy a delta file into a main spec as-is - merge its content so the main spec keeps the Main Spec Format Reference structure, with no delta operation headers
+- If something is unclear, ask for clarification
+- Show what you're changing as you go
+- The operation should be idempotent - running twice should give same result
+- Use only `artifactPaths.specs.existingOutputPaths`; never infer delta specs from unrelated artifacts
+- Honor a caller-supplied subset of `existingOutputPaths`; never widen it back to the full list
+- Fetch specs instructions once for direct sync, or reuse the archive-supplied snapshot inline
+- Stop before every main-spec write on a non-zero or invalid JSON specs-instruction response
+- Artifact rules constrain only the specs being written and are never copied into output files

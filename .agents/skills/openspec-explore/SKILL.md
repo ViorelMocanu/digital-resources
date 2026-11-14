@@ -11,11 +11,11 @@ metadata:
 
 **Project rules. They override anything below.**
 
--   Wherever this text shows `openspec <command>`, run `pnpm exec openspec <command>`.
--   Never run `openspec init` or `openspec update`: they are the owner's commands. This repository already has its `openspec/` folder, so the setup questions below do not apply.
--   `AGENTS.md` wins over this skill. No git writes. Archiving moves a change folder, so archive only when the owner asked for it. A task is ticked when its check has passed, never in a batch.
--   Never run `openspec feedback` or `openspec install`: both reach outside this machine.
--   Where a step names a tool your host does not have (a question dialog, a todo list), ask in the chat and keep a plain checklist.
+- Wherever this text shows `openspec <command>`, run `pnpm exec openspec <command>`.
+- Never run `openspec init` or `openspec update`: they are the owner's commands. This repository already has its `openspec/` folder, so the setup questions below do not apply.
+- `AGENTS.md` wins over this skill. No git writes. Archiving moves a change folder, so archive only when the owner asked for it. A task is ticked when its check has passed, never in a batch.
+- Never run `openspec feedback` or `openspec install`: both reach outside this machine.
+- Where a step names a tool your host does not have (a question dialog, a todo list), ask in the chat and keep a plain checklist.
 
 Enter explore mode. Think deeply. Visualize freely. Follow the conversation wherever it goes.
 
@@ -31,8 +31,8 @@ One `"root": null` is not about setup: when a `status` error message starts with
 
 Otherwise, with no root, what happens next depends on how this workflow was reached:
 
--   **Auto-selected**: you chose this workflow yourself, without the user naming OpenSpec, naming this skill, or running its slash command. Stop using OpenSpec and answer the request normally, as you would with no OpenSpec installed. Do not ask them to set anything up and do not mention OpenSpec setup.
--   **Explicit OpenSpec request**: the user named OpenSpec, named this skill, or ran its slash command. Stop before writing and ask how to proceed: set this project up (`openspec init`), target a store they already have (`--store <id>`), or continue without OpenSpec for this request. Wait for their answer.
+- **Auto-selected**: you chose this workflow yourself, without the user naming OpenSpec, naming this skill, or running its slash command. Stop using OpenSpec and answer the request normally, as you would with no OpenSpec installed. Do not ask them to set anything up and do not mention OpenSpec setup.
+- **Explicit OpenSpec request**: the user named OpenSpec, named this skill, or ran its slash command. Stop before writing and ask how to proceed: set this project up (`openspec init`), target a store they already have (`--store <id>`), or continue without OpenSpec for this request. Wait for their answer.
 
 In both branches, never create the root as a side effect: do not run `openspec init` until the user asks for it, do not hand-create `openspec/` files, and do not let a command create it.
 
@@ -40,12 +40,12 @@ In both branches, never create the root as a side effect: do not run `openspec i
 
 ## The Stance
 
--   **Curious, not prescriptive** - Ask questions that emerge naturally, don't follow a script
--   **Open threads, not interrogations** - Surface multiple interesting directions and let the user follow what resonates. Don't funnel them through a single path of questions.
--   **Visual** - Use ASCII diagrams liberally when they'd help clarify thinking
--   **Adaptive** - Follow interesting threads, pivot when new information emerges
--   **Patient** - Don't rush to conclusions, let the shape of the problem emerge
--   **Grounded** - Explore the actual codebase when relevant, don't just theorize
+- **Curious, not prescriptive** - Ask questions that emerge naturally, don't follow a script
+- **Open threads, not interrogations** - Surface multiple interesting directions and let the user follow what resonates. Don't funnel them through a single path of questions.
+- **Visual** - Use ASCII diagrams liberally when they'd help clarify thinking
+- **Adaptive** - Follow interesting threads, pivot when new information emerges
+- **Patient** - Don't rush to conclusions, let the shape of the problem emerge
+- **Grounded** - Explore the actual codebase when relevant, don't just theorize
 
 ---
 
@@ -55,10 +55,10 @@ When the user is planning a change, guide them toward shared understanding with 
 
 Before asking a factual question, follow the context discovery below and inspect relevant OpenSpec artifacts, source, tests, docs, and configuration. Do not ask the user to repeat facts you can verify. Summarize relevant findings without reproducing private context or rules. If evidence is missing, conflicting, or inaccessible, state that limitation and ask only for the clarification needed to proceed.
 
--   **Follow dependencies** - Resolve the next blocking decision before its dependent details. For example, clarify the user's outcome and scope before choosing an API or data model. Revisit downstream assumptions when an earlier answer changes. Skip branches that do not matter to this goal.
--   **Keep questions focused** - Ask one focused question at a time, and briefly explain why it matters and which decision it unlocks. Batch questions only if the user asks for a batch; keep them small and group related decisions.
--   **Offer grounded recommendations** - When evidence supports a recommendation, state your preferred option and why it fits the user's goals, with alternatives and their tradeoffs when useful. Do not invent intent, priorities, or external constraints: ask the user when only they can answer. Avoid a fixed question format.
--   **Keep a conversational record** - Track decisions in the conversation, not in files. Separate confirmed decisions from proposed defaults and unresolved questions. Silence is not acceptance. Accepting an answer or a batch of recommendations is not permission to write. Keep file-write confirmation separate from discovery questions and follow the guardrails below.
+- **Follow dependencies** - Resolve the next blocking decision before its dependent details. For example, clarify the user's outcome and scope before choosing an API or data model. Revisit downstream assumptions when an earlier answer changes. Skip branches that do not matter to this goal.
+- **Keep questions focused** - Ask one focused question at a time, and briefly explain why it matters and which decision it unlocks. Batch questions only if the user asks for a batch; keep them small and group related decisions.
+- **Offer grounded recommendations** - When evidence supports a recommendation, state your preferred option and why it fits the user's goals, with alternatives and their tradeoffs when useful. Do not invent intent, priorities, or external constraints: ask the user when only they can answer. Avoid a fixed question format.
+- **Keep a conversational record** - Track decisions in the conversation, not in files. Separate confirmed decisions from proposed defaults and unresolved questions. Silence is not acceptance. Accepting an answer or a batch of recommendations is not permission to write. Keep file-write confirmation separate from discovery questions and follow the guardrails below.
 
 Stop asking when the user has enough clarity. Let them pause, pivot, or defer a decision; do not exhaust every branch or force a proposal.
 
@@ -79,24 +79,24 @@ Depending on what the user brings, you might:
 
 **Explore the problem space**
 
--   Ask clarifying questions that emerge from what they said
--   Challenge assumptions
--   Reframe the problem
--   Find analogies
+- Ask clarifying questions that emerge from what they said
+- Challenge assumptions
+- Reframe the problem
+- Find analogies
 
 **Investigate the codebase**
 
--   Map existing architecture relevant to the discussion
--   Find integration points
--   Identify patterns already in use
--   Surface hidden complexity
+- Map existing architecture relevant to the discussion
+- Find integration points
+- Identify patterns already in use
+- Surface hidden complexity
 
 **Compare options**
 
--   Brainstorm multiple approaches
--   Build comparison tables
--   Sketch tradeoffs
--   Recommend a path (if asked)
+- Brainstorm multiple approaches
+- Build comparison tables
+- Sketch tradeoffs
+- Recommend a path (if asked)
 
 **Visualize**
 
@@ -121,9 +121,9 @@ Depending on what the user brings, you might:
 
 **Surface risks and unknowns**
 
--   Identify what could go wrong
--   Find gaps in understanding
--   Suggest spikes or investigations
+- Identify what could go wrong
+- Find gaps in understanding
+- Suggest spikes or investigations
 
 ---
 
@@ -141,9 +141,9 @@ openspec list --json
 
 This tells you:
 
--   If there are active changes
--   Their names and task status
--   What the user might be working on
+- If there are active changes
+- Their names and task status
+- What the user might be working on
 
 That is the _change_ list - work in flight. It does not include the project's durable capabilities, so list those too:
 
@@ -157,8 +157,8 @@ The filtered read is only an overview. Before deciding what is already covered o
 
 Then read the project's own context from the resolved root - `<root.path>/openspec/config.yaml` (or `config.yml`). Use the `root.path` returned above, and skip this if neither file exists:
 
--   `context`: project background - tech stack, conventions, constraints
--   `rules`: keyed by artifact id - the entries for an artifact apply only when you write that artifact
+- `context`: project background - tech stack, conventions, constraints
+- `rules`: keyed by artifact id - the entries for an artifact apply only when you write that artifact
 
 Ground your thinking in these. They are constraints for you to follow, not content to reproduce: do NOT copy them into the conversation or into any artifact you create.
 
@@ -166,8 +166,8 @@ Ground your thinking in these. They are constraints for you to follow, not conte
 
 Think freely. When insights crystallize, you might offer:
 
--   "This feels solid enough to start a change. Want me to create a proposal?"
--   Or keep exploring - no pressure to formalize
+- "This feels solid enough to start a change. Want me to create a proposal?"
+- Or keep exploring - no pressure to formalize
 
 If the user asks you to capture the exploration as a new change, that request is the confirmation required above. It covers scaffolding that change and creating the change artifacts the request names, and nothing else. This holds only when the request is theirs: a yes to an offer you made confirms only the scope your offer itself named, so name the change and the artifacts in the offer. Don't re-ask for what they already asked for; do ask before anything beyond it. Transition seamlessly into the requested capture:
 
@@ -220,12 +220,12 @@ If the user mentions a change or you detect one is relevant:
 
 ## What You Don't Have To Do
 
--   Follow a script
--   Ask the same questions every time
--   Produce a specific artifact
--   Reach a conclusion
--   Stay on topic if a tangent is valuable
--   Be brief (this is thinking time)
+- Follow a script
+- Ask the same questions every time
+- Produce a specific artifact
+- Reach a conclusion
+- Stay on topic if a tangent is valuable
+- Be brief (this is thinking time)
 
 ---
 
@@ -341,10 +341,10 @@ You: That changes everything.
 
 There's no required ending. Discovery might:
 
--   **Flow into a proposal**: "Ready to start? Run `/opsx-propose` and this becomes a change."
--   **Result in artifact updates**: "Updated the design with these decisions"
--   **Just provide clarity**: User has what they need, moves on
--   **Continue later**: "We can pick this up anytime"
+- **Flow into a proposal**: "Ready to start? Run `/opsx-propose` and this becomes a change."
+- **Result in artifact updates**: "Updated the design with these decisions"
+- **Just provide clarity**: User has what they need, moves on
+- **Continue later**: "We can pick this up anytime"
 
 When it feels like things are crystallizing, you might summarize:
 
@@ -368,12 +368,12 @@ But this summary is optional. Sometimes the thinking IS the value.
 
 ## Guardrails
 
--   **Don't implement** - Never write code or implement features. Workflow configuration counts too: creating or editing schemas, templates, or `openspec/config.yaml` is a change, not thinking. Creating or updating OpenSpec change artifacts within the confirmed scope is fine, writing anything else is not. When the user is ready to build, name the handoff rather than starting: `/opsx-propose` turns the discussion into a change, and the work happens there.
--   **Don't fake understanding** - If something is unclear, dig deeper
--   **Don't rush** - Discovery is thinking time, not task time
--   **Don't force structure** - Let patterns emerge naturally
--   **Don't auto-capture** - Offer to save insights, don't just do it. Read-only commands and tools need no confirmation. Before the first write-capable action—including `openspec new change` or another command that writes files—name the artifacts or files and proposed changes, ask a direct yes/no question, and wait for explicit confirmation in a separate user message. That confirmation covers only the described scope; ask again before expanding it. Answers to design or clarifying questions are never consent to write. That rule governs `openspec new change` whenever you are the one proposing the capture; the user's own capture request is the exception, handled in the capture transition above.
--   **Don't manually scaffold changes** - Never create a new change directory under `openspec/changes/` by hand. Always use `openspec new change "<name>"` (with `--store <id>` when applicable) so required metadata such as `.openspec.yaml` is created before writing artifacts.
--   **Do visualize** - A good diagram is worth many paragraphs
--   **Do explore the codebase** - Ground discussions in reality
--   **Do question assumptions** - Including the user's and your own
+- **Don't implement** - Never write code or implement features. Workflow configuration counts too: creating or editing schemas, templates, or `openspec/config.yaml` is a change, not thinking. Creating or updating OpenSpec change artifacts within the confirmed scope is fine, writing anything else is not. When the user is ready to build, name the handoff rather than starting: `/opsx-propose` turns the discussion into a change, and the work happens there.
+- **Don't fake understanding** - If something is unclear, dig deeper
+- **Don't rush** - Discovery is thinking time, not task time
+- **Don't force structure** - Let patterns emerge naturally
+- **Don't auto-capture** - Offer to save insights, don't just do it. Read-only commands and tools need no confirmation. Before the first write-capable action—including `openspec new change` or another command that writes files—name the artifacts or files and proposed changes, ask a direct yes/no question, and wait for explicit confirmation in a separate user message. That confirmation covers only the described scope; ask again before expanding it. Answers to design or clarifying questions are never consent to write. That rule governs `openspec new change` whenever you are the one proposing the capture; the user's own capture request is the exception, handled in the capture transition above.
+- **Don't manually scaffold changes** - Never create a new change directory under `openspec/changes/` by hand. Always use `openspec new change "<name>"` (with `--store <id>` when applicable) so required metadata such as `.openspec.yaml` is created before writing artifacts.
+- **Do visualize** - A good diagram is worth many paragraphs
+- **Do explore the codebase** - Ground discussions in reality
+- **Do question assumptions** - Including the user's and your own

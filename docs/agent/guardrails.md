@@ -14,10 +14,10 @@ The hooks and deny rules that stop the commands the owner keeps for themselves. 
 | OpenSpec | `openspec update` and `openspec init` aimed at this checkout, through every launcher | Every other subcommand; a target under `tmp/` |
 | Env | A command that names `.env` or a `.env.*` file other than `.env.example` as something to read, copy or move | `.env.example`; listing and testing commands; `node --env-file`; the pattern of a search |
 
--   The rules apply to each command of a line on its own, through wrappers such as `bash -c`, `pwsh -Command`, `cmd /c`, `env` and the package runners, and through `git -c alias.*`.
--   A line the guard cannot read safely (unbalanced quotes, a command built at run time) gets a raw-text check instead: a git write word, an OpenSpec rewrite or an env file name anywhere in it blocks. Split such a line into plain commands.
--   A block exits 2 with three lines: what was blocked, why, and what to do instead. Do not work around it; give the owner the exact command.
--   Anything the guard cannot parse at all is allowed (it fails open), so a change in a tool's hook format never blocks unrelated work.
+- The rules apply to each command of a line on its own, through wrappers such as `bash -c`, `pwsh -Command`, `cmd /c`, `env` and the package runners, and through `git -c alias.*`.
+- A line the guard cannot read safely (unbalanced quotes, a command built at run time) gets a raw-text check instead: a git write word, an OpenSpec rewrite or an env file name anywhere in it blocks. Split such a line into plain commands.
+- A block exits 2 with three lines: what was blocked, why, and what to do instead. Do not work around it; give the owner the exact command.
+- Anything the guard cannot parse at all is allowed (it fails open), so a change in a tool's hook format never blocks unrelated work.
 
 The git policy is set in `defaultGuardDeps` in `scripts/hooks/guard.ts` (`gitPolicy: "read-only"`). The script also carries a gate for a checkout lock (`scripts/checkout-lock.ts`); no package script uses that lock yet, so the gate never fires.
 

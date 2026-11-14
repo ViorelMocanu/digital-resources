@@ -4,11 +4,11 @@ Every delegated task starts from this template: a T3 `delegate_task`, a foregrou
 
 Rules for the one who writes the brief:
 
--   One bounded task per worker. Give it the paths it owns and only the context it needs.
--   Write the done-condition before the work starts, as a list someone else could check.
--   Never give two live workers the same path.
--   Hand over your question, not your answer. A reviewer who is told the expected verdict returns it.
--   A worker's report is not proof. Re-run the checks you rely on.
+- One bounded task per worker. Give it the paths it owns and only the context it needs.
+- Write the done-condition before the work starts, as a list someone else could check.
+- Never give two live workers the same path.
+- Hand over your question, not your answer. A reviewer who is told the expected verdict returns it.
+- A worker's report is not proof. Re-run the checks you rely on.
 
 ## Template
 
@@ -26,6 +26,7 @@ You are a bounded worker in the digital-resources repository. Do the work yourse
 5. Scratch files go in tmp/ at the repository root (gitignored), never in the root itself or the system temp folder.
 6. No emojis in any file. Never name another repository or its paths in a tracked file.
 7. Read AGENTS.md first. Its Never list applies to you.
+8. Write and extend files with the file tools, never through a shell here-document or an inline script: the shell changes or refuses text with quotes, backticks and backslashes.
 
 ## Goal
 

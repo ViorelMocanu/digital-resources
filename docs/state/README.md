@@ -21,21 +21,21 @@ A snapshot at each natural pause of a long session is recommended. Frequent snap
 
 `docs/state/YYYY-MM-DD-HHMM-<task-slug>.md`, in the owner's local time, taken from the system clock.
 
--   Reuse one slug for every snapshot of the same task; an OpenSpec change name is a good slug.
--   Several files a day are normal.
--   **Worker progress files** are the one exception. A delegated worker keeps a single file, `YYYY-MM-DD-<worker-slug>.md` with no time, writes it at the start, updates it in place while it runs, and leaves it as it is once it has reported.
+- Reuse one slug for every snapshot of the same task; an OpenSpec change name is a good slug.
+- Several files a day are normal.
+- **Worker progress files** are the one exception. A delegated worker keeps a single file, `YYYY-MM-DD-<worker-slug>.md` with no time, writes it at the start, updates it in place while it runs, and leaves it as it is once it has reported.
 
 ## Rules
 
--   **Append-only.** Never edit or delete an older snapshot. A correction is a new file that names the old one in `supersedes:`. Fixing a broken link is the only permitted edit.
--   **Self-contained.** A snapshot never says "see the previous file" for something the next agent needs. Copy in what lives outside the repository or only in the chat: plan files, memory notes, decisions, workers' reports, research results. Link to files in the repository instead of copying them.
--   **All twelve sections, in order.** A section with nothing to say holds "None", so the reader knows nothing was left out.
--   **Decisions carry their origin:** the date, who decided (the owner, or an agent with the owner's approval), the options, and why.
--   **Every fact is labelled** verified (and how), historical (date and source) or unverified.
--   **Check receipts name what they ran against:** the command, the result, the commit and the tree state. Example: `pnpm verify: pass, at f7f92d8 + 12 changed files`.
--   **This repository is public.** No secrets, tokens or `.env` values. No personal details about the owner or anyone else, even if they came up in the chat. No access links, local network addresses or pairing codes. No names or paths from other repositories. When in doubt, leave it out and say that something was left out.
--   **Update the index** below in the same turn, newest first.
--   Format with `pnpm exec prettier --write <file>`.
+- **Append-only.** Never edit or delete an older snapshot. A correction is a new file that names the old one in `supersedes:`. Fixing a broken link is the only permitted edit.
+- **Self-contained.** A snapshot never says "see the previous file" for something the next agent needs. Copy in what lives outside the repository or only in the chat: plan files, memory notes, decisions, workers' reports, research results. Link to files in the repository instead of copying them.
+- **All twelve sections, in order.** A section with nothing to say holds "None", so the reader knows nothing was left out.
+- **Decisions carry their origin:** the date, who decided (the owner, or an agent with the owner's approval), the options, and why.
+- **Every fact is labelled** verified (and how), historical (date and source) or unverified.
+- **Check receipts name what they ran against:** the command, the result, the commit and the tree state. Example: `pnpm verify: pass, at f7f92d8 + 12 changed files`.
+- **This repository is public.** No secrets, tokens or `.env` values. No personal details about the owner or anyone else, even if they came up in the chat. No access links, local network addresses or pairing codes. No names or paths from other repositories. When in doubt, leave it out and say that something was left out.
+- **Update the index** below in the same turn, newest first.
+- Format with `pnpm exec prettier --write <file>`.
 
 ## Reading state at the start of a session
 
@@ -45,9 +45,9 @@ Open the top row of the index, or the newest row with your task's slug. Read the
 
 Section 1 ends with a fenced `text` block that can be pasted as the first message of a new session or thread, for any vendor. It must work with no other context, so it names:
 
--   the snapshot to read (and any file that must be read with it),
--   the role the new agent takes and the exact next action,
--   the limits that must survive the handoff (no git writes, the scope, what waits for the owner).
+- the snapshot to read (and any file that must be read with it),
+- the role the new agent takes and the exact next action,
+- the limits that must survive the handoff (no git writes, the scope, what waits for the owner).
 
 ## Template
 
@@ -119,6 +119,8 @@ What could be wrong, what was not checked, and what was left out on purpose.
 
 | File | Trigger | What it holds |
 | --- | --- | --- |
+| [2026-11-14-1616-phase-4-pipeline.md](2026-11-14-1616-phase-4-pipeline.md) | pause-point | The pipeline, Dependabot and the screenshot test written; the review round done and its fixes checked, uncommitted; the push is fine on two conditions; the Phase 5 list and the content phase |
+| [2026-11-14-1536-phase-4-rest.md](2026-11-14-1536-phase-4-rest.md) | manual-compact | The owner's answers to twenty pending decisions, nothing of them built yet; the order of the work; a content phase to append to the roadmap |
 | [2026-11-13-1728-phase-4-e2e-followups.md](2026-11-13-1728-phase-4-e2e-followups.md) | pause-point | The approved findings of the fourth simplify run built and checked, uncommitted: a faster suite, collections fetched once, overrides that expire; the rest of Phase 4 next |
 | [2026-11-13-0418-phase-4-e2e-suite.md](2026-11-13-0418-phase-4-e2e-suite.md) | pause-point | The night's work finished and checked, uncommitted: Phases 2 and 3 and the end-to-end suite; receipts, seventeen open decisions, stopped for the owner |
 | [2026-11-13-0314-phase-3-tooling.md](2026-11-13-0314-phase-3-tooling.md) | pause-point | Phases 2 and 3 finished and checked, uncommitted; the audit is empty and the pages are unchanged; thirteen open decisions. Written after the row below: the three earlier names of this night ran ahead of the clock |

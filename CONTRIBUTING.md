@@ -100,10 +100,10 @@ git push --force-with-lease 325-add-japanese-translations
 
 A PR can only be merged into main by a maintainer if:
 
--   It is passing CI.
--   It has been approved by at least one maintainer. If it was a maintainer who opened the PR, another maintainer approval is needed.
--   It has no requested changes.
--   It is up to date with current main.
+- It is passing CI.
+- It has been approved by at least one maintainer. If it was a maintainer who opened the PR, another maintainer approval is needed.
+- It has no requested changes.
+- It is up to date with current main.
 
 Any maintainer is allowed to merge a PR if all of these conditions are met.
 
@@ -111,10 +111,10 @@ Any maintainer is allowed to merge a PR if all of these conditions are met.
 
 Maintainers need to do the following to push out a release:
 
--   Switch to the main branch and make sure it's up to date.
--   Submit GitHub release notes from the changelog.
--   Push the result and create a PR.
--   Review and merge the PR. The generated changelog in the PR should include all user visible changes you intend to ship.
+- Switch to the main branch and make sure it's up to date.
+- Submit GitHub release notes from the changelog.
+- Push the result and create a PR.
+- Review and merge the PR. The generated changelog in the PR should include all user visible changes you intend to ship.
 
 Resurse.dev is a volunteer effort. We encourage you to pitch in and join the team!
 

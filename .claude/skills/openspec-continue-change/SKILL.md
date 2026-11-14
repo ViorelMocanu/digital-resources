@@ -12,11 +12,11 @@ metadata:
 
 **Project rules. They override anything below.**
 
--   Wherever this text shows `openspec <command>`, run `pnpm exec openspec <command>`.
--   Never run `openspec init` or `openspec update`: they are the owner's commands. This repository already has its `openspec/` folder, so the setup questions below do not apply.
--   `AGENTS.md` wins over this skill. No git writes. Archiving moves a change folder, so archive only when the owner asked for it. A task is ticked when its check has passed, never in a batch.
--   Never run `openspec feedback` or `openspec install`: both reach outside this machine.
--   Where a step names a tool your host does not have (a question dialog, a todo list), ask in the chat and keep a plain checklist.
+- Wherever this text shows `openspec <command>`, run `pnpm exec openspec <command>`.
+- Never run `openspec init` or `openspec update`: they are the owner's commands. This repository already has its `openspec/` folder, so the setup questions below do not apply.
+- `AGENTS.md` wins over this skill. No git writes. Archiving moves a change folder, so archive only when the owner asked for it. A task is ticked when its check has passed, never in a batch.
+- Never run `openspec feedback` or `openspec install`: both reach outside this machine.
+- Where a step names a tool your host does not have (a question dialog, a todo list), ask in the chat and keep a plain checklist.
 
 Continue working on a change by creating the next artifact.
 
@@ -28,8 +28,8 @@ One `"root": null` is not about setup: when a `status` error message starts with
 
 Otherwise, with no root, what happens next depends on how this workflow was reached:
 
--   **Auto-selected**: you chose this workflow yourself, without the user naming OpenSpec, naming this skill, or running its slash command. Stop using OpenSpec and answer the request normally, as you would with no OpenSpec installed. Do not ask them to set anything up and do not mention OpenSpec setup.
--   **Explicit OpenSpec request**: the user named OpenSpec, named this skill, or ran its slash command. Stop before writing and ask how to proceed: set this project up (`openspec init`), target a store they already have (`--store <id>`), or continue without OpenSpec for this request. Wait for their answer.
+- **Auto-selected**: you chose this workflow yourself, without the user naming OpenSpec, naming this skill, or running its slash command. Stop using OpenSpec and answer the request normally, as you would with no OpenSpec installed. Do not ask them to set anything up and do not mention OpenSpec setup.
+- **Explicit OpenSpec request**: the user named OpenSpec, named this skill, or ran its slash command. Stop before writing and ask how to proceed: set this project up (`openspec init`), target a store they already have (`--store <id>`), or continue without OpenSpec for this request. Wait for their answer.
 
 In both branches, never create the root as a side effect: do not run `openspec init` until the user asks for it, do not hand-create `openspec/` files, and do not let a command create it.
 
@@ -132,11 +132,11 @@ In both branches, never create the root as a side effect: do not run `openspec i
 
 After each invocation, show:
 
--   Which artifact was created
--   Schema workflow being used
--   Current progress (N/M complete)
--   What artifacts are now unlocked
--   Prompt: "Want to continue? Just ask me to continue or tell me what to do next."
+- Which artifact was created
+- Schema workflow being used
+- Current progress (N/M complete)
+- What artifacts are now unlocked
+- Prompt: "Want to continue? Just ask me to continue or tell me what to do next."
 
 **Artifact Creation Guidelines**
 
@@ -146,12 +146,12 @@ If the `instruction` field directs you to use a specific skill or command to cre
 
 **Guardrails**
 
--   Create ONE artifact per invocation
--   Always read dependency artifacts before creating a new one - re-read from disk, not from conversation memory (files may have changed since you last saw them)
--   Never skip artifacts or create out of order
--   If context is unclear, ask the user before creating
--   Verify the artifact file exists after writing before marking progress
--   Use the schema's artifact sequence, don't assume specific artifact names
--   **IMPORTANT**: `context` and `rules` are constraints for YOU, not content for the file
-    -   Do NOT copy `<context>`, `<rules>`, `<project_context>` blocks into the artifact
-    -   These guide what you write, but should never appear in the output
+- Create ONE artifact per invocation
+- Always read dependency artifacts before creating a new one - re-read from disk, not from conversation memory (files may have changed since you last saw them)
+- Never skip artifacts or create out of order
+- If context is unclear, ask the user before creating
+- Verify the artifact file exists after writing before marking progress
+- Use the schema's artifact sequence, don't assume specific artifact names
+- **IMPORTANT**: `context` and `rules` are constraints for YOU, not content for the file
+    - Do NOT copy `<context>`, `<rules>`, `<project_context>` blocks into the artifact
+    - These guide what you write, but should never appear in the output

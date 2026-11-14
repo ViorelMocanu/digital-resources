@@ -4,12 +4,6 @@
 # to be noticed and withdrawn. This applies when a version is chosen; a locked install is not affected.
 minimumReleaseAge: 10080
 
-# Exceptions to the rule above. Each names one exact version and why.
-minimumReleaseAgeExclude:
-    # Pinned on 2026-11-11, when it was three days old, as the version the agent harness was written against.
-    # The line can go once the pin moves to a later version.
-    - '@fission-ai/openspec@1.16.1'
-
 overrides:
     # The plugin lists one exact, old Astro as its own dependency, which installed a second, vulnerable copy of Astro
     # and of everything under it. The plugin is one component file; it works with the site's Astro.

@@ -18,7 +18,8 @@ export interface Manifest {
 
 /**
  * Read the `overrides` block of a pnpm-workspace.yaml. It reads the form this repository writes: one quoted
- * selector and one quoted value per line.
+ * selector and one quoted value per line, with comments on lines of their own. Any other line of the block is
+ * refused, so an override written another way cannot go unchecked.
  * @param text The file text.
  * @returns The overrides, by selector.
  */
@@ -26,11 +27,27 @@ export function readOverrides(text: string): Record<string, string> {
 	const overrides: Record<string, string> = {};
 	let inside = false;
 	for (const line of text.split(/\r?\n/)) {
-		if (/^\S/.test(line)) inside = line.startsWith('overrides:');
-		const pair = inside ? /^\s+'([^']+)':\s*'([^']+)'\s*$/.exec(line) : null;
-		if (pair?.[1] && pair[2]) overrides[pair[1]] = pair[2];
+		if (line.trim() === '' || line.trimStart().startsWith('#')) continue;
+		if (/^\S/.test(line)) {
+			inside = line.startsWith('overrides:');
+			continue;
+		}
+		if (!inside) continue;
+		const pair = /^\s+'([^']+)':\s*'([^']+)'\s*$/.exec(line);
+		if (!pair?.[1] || !pair[2]) throw new Error(`cannot read the override line: ${line.trim()}`);
+		overrides[pair[1]] = pair[2];
 	}
 	return overrides;
+}
+
+/**
+ * Split `name@range` into its two parts. The at sign that opens a scoped name is part of the name.
+ * @param text A package name with an optional range.
+ * @returns The name, and the range when there is one.
+ */
+function splitRange(text: string): [name: string, range: string | undefined] {
+	const at = text.lastIndexOf('@');
+	return at > 0 ? [text.slice(0, at), text.slice(at + 1)] : [text, undefined];
 }
 
 /**
@@ -96,9 +113,9 @@ function overlap(a: string | undefined, b: string): boolean {
  * Find the overrides that no longer change anything.
  *
  * `parent>name` is stale when the parent is gone, no longer depends on `name`, or asks for a range that already
- * allows the forced one. `name@range` is stale when no installed package asks for `name` in that range; this form
- * cannot tell when the resolver would have picked a fixed version without help, so it only expires with its
- * dependants.
+ * allows the forced one; a range written after the parent is not looked at. `name@range` is stale when no installed
+ * package asks for `name` in that range, and a bare `name` when none asks for it at all; these two forms cannot tell
+ * when the resolver would have picked a fixed version without help, so they only expire with their dependants.
  * @param overrides The overrides, by selector.
  * @param manifests The installed packages.
  * @param rootRanges The root package's own ranges, for values written `$name`.
@@ -107,16 +124,14 @@ function overlap(a: string | undefined, b: string): boolean {
 export function staleOverrides(overrides: Record<string, string>, manifests: readonly Manifest[], rootRanges: Record<string, string>): string[] {
 	const stale: string[] = [];
 	for (const [selector, value] of Object.entries(overrides)) {
-		const forced = value.startsWith('$') ? (rootRanges[value.slice(1)] ?? value) : value;
-		const [first = '', second] = selector.split('>');
+		const forced = value.startsWith('$') ? rootRanges[value.slice(1)] : value;
+		if (forced === undefined) throw new Error(`${selector}: the root package has no range for ${value.slice(1)}`);
+		const [left = '', second] = selector.split('>');
+		const [first, selected] = splitRange(left);
 
 		if (second === undefined) {
-			const at = first.lastIndexOf('@');
-			if (at <= 0) continue;
-			const name = first.slice(0, at);
-			const selected = first.slice(at + 1);
-			const asked = manifests.some((manifest) => overlap(declared(manifest, name), selected));
-			if (!asked) stale.push(`${selector}: no installed package asks for ${name} in the range ${selected}`);
+			const asked = manifests.some((manifest) => (selected === undefined ? declared(manifest, first) !== undefined : overlap(declared(manifest, first), selected)));
+			if (!asked) stale.push(`${selector}: no installed package asks for ${first}${selected === undefined ? '' : ` in the range ${selected}`}`);
 			continue;
 		}
 

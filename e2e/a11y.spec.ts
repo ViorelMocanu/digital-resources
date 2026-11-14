@@ -4,7 +4,9 @@ import { PAGE_KINDS } from './known-gaps.ts';
 
 for (const { kind, path, findings, narrowOnly = [] } of PAGE_KINDS) {
 	test(`${kind} (${path}) breaks no accessibility rule beyond the known ones`, async ({ page, narrow }) => {
-		await page.goto(path);
+		// A missing page would be answered with the not-found page, whose findings could equal the listed ones.
+		const response = await page.goto(path);
+		expect(response?.status()).toBe(200);
 		const results = await new AxeBuilder({ page }).analyze();
 		const found = [...new Set(results.violations.map((violation) => violation.id))].sort();
 		const known = [...findings, ...(narrow ? narrowOnly : [])].sort();
