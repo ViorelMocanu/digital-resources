@@ -1,0 +1,29 @@
+---
+/**
+ * The page the header's account link leads to. The site has no accounts yet (the owner's answer D1 B of 2026-11-15):
+ * the page says so and sends the visitor to the resources. The text is a draft for the owner.
+ */
+import Layout from '@layouts/Layout.astro';
+
+const pageTitle = 'Intră în cont';
+const pageDescription = 'Conturile pe resurse.dev nu sunt încă disponibile. Toate resursele sunt deschise tuturor, fără cont.';
+const breadcrumbArray = [
+	{
+		href: Astro.url,
+		title: pageTitle,
+		label: 'Login',
+	},
+];
+---
+
+<Layout title={pageTitle} description={pageDescription} template="LoginPage" breadcrumbArray={breadcrumbArray}>
+	<div class="Hero" id="hero">
+		<div class="HeroText">
+			<h1 class="HeroTitle">Contul tău pe resurse.dev</h1>
+		</div>
+	</div>
+	<main class="Main">
+		<p>Conturile nu sunt încă disponibile. Până atunci, toate resursele de pe site sunt deschise tuturor, fără cont și fără înregistrare.</p>
+		<p><a href="/r" title="Vezi toate resursele de pe resurse.dev">Vezi toate resursele</a></p>
+	</main>
+</Layout>

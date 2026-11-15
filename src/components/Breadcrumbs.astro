@@ -16,6 +16,14 @@ export interface Props {
 }
 
 const { breadcrumbArray } = Astro.props satisfies Props;
+
+/**
+ * A breadcrumb link as a path of the site, as every other link is written. The pages pass their own `Astro.url` for
+ * the last item, a full address.
+ * @param href The item's address.
+ * @returns The path.
+ */
+const pathOf = (href: string | URL): string => (href instanceof URL ? href.pathname : href);
 ---
 
 <nav class="Breadcrumbs">
@@ -38,7 +46,7 @@ const { breadcrumbArray } = Astro.props satisfies Props;
 		</li>
 		{Array.isArray(breadcrumbArray) &&
 			breadcrumbArray.map((breadcrumbItem, i) => <li class="BreadcrumbItem" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-				<a class="BreadcrumbLink" itemprop="item" href={breadcrumbItem.href} title={`Mergi înapoi la pagina ${breadcrumbItem.title}`}>
+				<a class="BreadcrumbLink" itemprop="item" href={pathOf(breadcrumbItem.href)} title={`Mergi înapoi la pagina ${breadcrumbItem.title}`}>
 					<span class="LinkText" itemprop="name">
 						{breadcrumbItem.label}
 					</span>

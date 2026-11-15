@@ -1,9 +1,10 @@
-import { builtPages, expect, test } from './site.ts';
-import { sizesFor } from './known-gaps.ts';
+import { expect, test } from './site.ts';
+import { PAGE_KINDS } from './known-gaps.ts';
 
-// Compares every page with its committed reference screenshot. The references are taken in the CI workflow, on one
-// fixed system, and compared only there: text is drawn differently on every system. Locally this file is left out
-// (see `testIgnore` in playwright.config.ts).
+// Compares one page of each kind, at both sizes, with its committed reference screenshot (the owner's answer of
+// 2026-11-15: 20 images; the build comparison covers every page). The references are taken in the CI workflow, on
+// one fixed system, and compared only there: text is drawn differently on every system. Locally this file is left
+// out (see `testIgnore` in playwright.config.ts).
 
 /**
  * The file name of a page's screenshot: `/` is `home`, `/front-end/html/` is `front-end--html`.
@@ -14,8 +15,8 @@ function shotName(path: string): string {
 	return path.replace(/^\/|\/$/g, '').replaceAll('/', '--') || 'home';
 }
 
-for (const path of builtPages()) {
-	test(`${path} looks like its reference screenshot`, sizesFor(path), async ({ page }) => {
+for (const { kind, path } of PAGE_KINDS) {
+	test(`${path} (${kind}) looks like its reference screenshot`, async ({ page }) => {
 		await page.goto(path);
 		await expect(page).toHaveScreenshot(`${shotName(path)}.png`, { fullPage: true });
 	});

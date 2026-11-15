@@ -21,6 +21,27 @@ The project's milestones, newest first. It answers "what happened, and what did 
 
 ## Milestones
 
+### 2026-11-15: the owner's answers to Phase 5 built, with a share card for every page
+
+**Delivered**
+
+- `openspec/changes/phase-5b-owner-answers/`: a `/login` placeholder page; a 1200 x 630 share card for every page, drawn at build time from the built page (`satori` 0.63.2 and `sharp`); share tags platforms read; dates printed as the day in Bucharest; lint warnings fail the checks; screenshot references for one page of each kind; the Phase 5 findings in `vercel.json`, the breadcrumbs and the sitemap fixed; four unused files archived in `tmp/archive/`. The findings not fixed are placed in Phases 6 and 7.
+- Checks: `pnpm verify` exit 0 with no warning (1,131 unit tests), `pnpm build` 56 pages and 56 cards, `pnpm test:e2e` 110 passed, the build compared with `6545861`.
+
+**What went well**
+
+- `--max-warnings=0` caught four warnings in this change's own new files the same day it was added (L-010 is now a check).
+- Looking at the first cards before trusting the size test found a layout fault (the padding pushed the chip and the footer off the card).
+
+**What to do differently**
+
+- The first card design put its data source in an endpoint; reading the routes showed it would repeat them. Read how pages are routed before choosing where generated files come from.
+- State files written at the hook's request got estimated times in their names; the clock read 25 minutes earlier. Write the time as unknown rather than guess it.
+
+**Next**
+
+The owner's walkthroughs (the Vercel variable before the push, the first CI run, hook trust), decisions N1 to N4 and D6, then Phase 6 through `/opsx-explore`.
+
 ### 2026-11-14: Phase 5 built, the faults that were due are fixed (harness part two finished)
 
 **Delivered**

@@ -7,8 +7,14 @@ import { z } from 'astro/zod';
 export const dateTextSchema = z.string().refine((text) => !Number.isNaN(Date.parse(text)), 'Data nu poate fi citită');
 
 /**
- * Formats a given date into the 'YYYY-MM-DD' format, as the day in UTC, so the build machine's time zone cannot
- * change it.
+ * The day in Bucharest (EET, UTC+2, in winter; EEST, UTC+3, in summer). The era is asked for so that a year before
+ * year 1 can be told apart: Intl writes it as a positive year with the era 'BC'.
+ */
+const BUCHAREST_DAY = new Intl.DateTimeFormat('en-US', { timeZone: 'Europe/Bucharest', era: 'short', year: 'numeric', month: '2-digit', day: '2-digit' });
+
+/**
+ * Formats a given date into the 'YYYY-MM-DD' format, as the day in Bucharest, so the build machine's time zone
+ * cannot change it.
  * @function getFormattedDate
  * @param {Date | string} date - The date to be formatted. Can be a Date object or a string.
  * @returns {string} The formatted date string. If the date cannot be read, returns 'Time not specified'.
@@ -19,11 +25,11 @@ export function getFormattedDate(date: Date | string): string {
 	const d = typeof date === 'string' ? new Date(date) : date;
 	if (isNaN(d.getTime())) return 'Time not specified';
 
-	const year = d.getUTCFullYear();
-	const month = String(d.getUTCMonth() + 1).padStart(2, '0');
-	const day = String(d.getUTCDate()).padStart(2, '0');
+	const parts = Object.fromEntries(BUCHAREST_DAY.formatToParts(d).map((part) => [part.type, part.value]));
+	// 1 BC is year 0 in ISO 8601, so the year before year 1 prints as 0, and 2 BC as -1.
+	const year = parts['era'] === 'BC' ? 1 - Number(parts['year']) : Number(parts['year']);
 
-	return `${year}-${month}-${day}`;
+	return `${year}-${parts['month']}-${parts['day']}`;
 }
 
 /**

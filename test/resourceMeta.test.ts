@@ -41,8 +41,8 @@ describe('toIsoDateTime', () => {
 });
 
 test('getFormattedDate()', () => {
-	// Midnight UTC: dates print as the day in UTC, and new Date(2022, 1, 1) would be local midnight, the day before
-	// in UTC east of Greenwich.
+	// Midnight UTC is 02:00 in Bucharest, the same day. new Date(2022, 1, 1) would be the build machine's local
+	// midnight, a moment that depends on where the test runs.
 	const date = new Date(Date.UTC(2022, 1, 1));
 	const dateString = '2022-02-01';
 

@@ -5,6 +5,7 @@ import embeds from 'astro-embed/integration';
 import path from 'path';
 import sitemap from '@astrojs/sitemap';
 import { unified } from '@astrojs/markdown-remark';
+import shareCards from './src/integrations/shareCards.ts';
 import vercel from '@astrojs/vercel';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -66,15 +67,13 @@ export default defineConfig({
 			entryLimit: 10000,
 			changefreq: 'weekly',
 			priority: 0.7,
-			i18n: {
-				defaultLocale: 'ro',
-				locales: {
-					ro: 'ro-RO',
-					en: 'en-US',
-				},
-			},
+			// /login is a placeholder until the site has accounts: nothing on it for a search engine to find.
+			// (URL is the site address imported above, not the global, so the address is matched as text.)
+			filter: (page) => !/^https?:\/\/[^/]+\/login\/?$/.test(page),
 		}),
 		embeds(),
+		// The share card of every page, drawn from the built pages (src/integrations/shareCards.ts).
+		shareCards(),
 		/*
 		serialize(item) {
 			if (item.url.endsWith('resurse.dev/')) {

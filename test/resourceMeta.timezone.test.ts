@@ -17,9 +17,18 @@ describe.each(['UTC', 'America/New_York', 'Asia/Tokyo'])('getFormattedDate in %s
 		expect(getFormattedDate(new Date('2022-01-01T00:00:00.000Z'))).toBe('2022-01-01');
 	});
 
-	// The owner's choice, open: the site prints dates in UTC.
-	it('prints the UTC day of a late-evening instant', () => {
+	// The owner's choice of 2026-11-15: the site prints the day as it is in Bucharest (Europe/Bucharest: EET, UTC+2,
+	// in winter and EEST, UTC+3, in summer), whatever the build machine's zone.
+	it('prints the Bucharest day of a late-evening instant in winter, at UTC+2', () => {
 		process.env['TZ'] = zone;
-		expect(getFormattedDate('2022-01-01T23:30:00Z')).toBe('2022-01-01');
+		expect(getFormattedDate('2022-01-01T21:59:00Z')).toBe('2022-01-01');
+		expect(getFormattedDate('2022-01-01T22:00:00Z')).toBe('2022-01-02');
+		expect(getFormattedDate('2022-01-01T23:30:00Z')).toBe('2022-01-02');
+	});
+
+	it('prints the Bucharest day of a late-evening instant in summer, at UTC+3', () => {
+		process.env['TZ'] = zone;
+		expect(getFormattedDate('2022-07-01T20:59:00Z')).toBe('2022-07-01');
+		expect(getFormattedDate('2022-07-01T21:00:00Z')).toBe('2022-07-02');
 	});
 });

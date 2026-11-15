@@ -50,8 +50,8 @@ Every fix lists its failing test first. A test that asserted the old, faulty beh
 
 ## 7. Owner items (not built)
 
-- [ ] 7.1 The share image, the Vercel analytics script, `/login` and the subcategory images are decided by the owner
-- [ ] 7.2 The owner consents to deleting `src/layouts/LayoutMarkdown.astro`, `src/components/MarkdownTOC.astro`, `patches/astro-capo@0.0.1.patch` and `src/vite-env.d.ts`, or keeps them
+- [x] 7.1 The share image, the Vercel analytics script, `/login` and the subcategory images are decided by the owner. Decided 2026-11-15: share cards generated for every page, the analytics script stays, a `/login` placeholder page, subcategory images through the same pipeline when one exists; built in `openspec/changes/phase-5b-owner-answers/`
+- [x] 7.2 The owner consents to deleting `src/layouts/LayoutMarkdown.astro`, `src/components/MarkdownTOC.astro`, `patches/astro-capo@0.0.1.patch` and `src/vite-env.d.ts`, or keeps them. Decided 2026-11-15: archived, not deleted, in `tmp/archive/2026-11-15-phase-5/` (task 4.1 of `phase-5b-owner-answers`)
 
 ## 8. Final checks
 

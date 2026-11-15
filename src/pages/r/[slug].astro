@@ -4,6 +4,7 @@ import { type CollectionEntry, getCollection, getEntries, getEntry, render } fro
 import { formatRating, getFormattedDate, toIsoDateTime } from '@utils/resourceMeta';
 import type { InferGetStaticPropsType } from 'astro';
 import Layout from '@layouts/Layout.astro';
+import { RESOURCE_TYPE_CHIPS } from '@utils/shareCard';
 import ResourceActionList from '@components/ResourceActionList.astro';
 import ResourceLocationList from '@components/ResourceLocationList.astro';
 import ResourceTagList from '@components/ResourceTagList.astro';
@@ -97,6 +98,7 @@ breadcrumbArray.push({
 	template="ResourcePage"
 	activeMenu={sectionSlug}
 	breadcrumbArray={breadcrumbArray}
+	cardFacts={[RESOURCE_TYPE_CHIPS[entry.data.type], ...(entry.data.rating === undefined ? [] : [{ text: formatRating(entry.data.rating) }])]}
 >
 	<div class="Hero" id="hero">
 		{entry.data.image && entry.data.image.imageUrl && entry.data.url && <a class="HeroVisual" href={entry.data.url} title={`Vizitează resursa: ${entry.data.title}`}>

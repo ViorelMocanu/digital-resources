@@ -36,7 +36,7 @@
 		"astro": "astro",
 		"format": "prettier --check \"./**/*.{html,css,js,cjs,ts,astro,md,json,yaml}\" --plugin=prettier-plugin-astro",
 		"format:fix": "node scripts/checkout-lock.ts format:fix \"prettier --write \\\"./**/*.{html,css,js,cjs,ts,astro,md,json,yaml}\\\" --plugin=prettier-plugin-astro\"",
-		"lint:js": "eslint \"**/*.js\" \"**/*.ts\" \"**/*.astro\"",
+		"lint:js": "eslint --max-warnings=0 \"**/*.js\" \"**/*.ts\" \"**/*.astro\"",
 		"lint:md": "markdownlint \"./src/**/*.md\"",
 		"lint:css": "stylelint \"src/style/*.scss\"",
 		"lint:fix": "node scripts/checkout-lock.ts lint:fix \"pnpm lint:js --fix && pnpm lint:md --fix && pnpm lint:css --fix\"",
@@ -65,6 +65,7 @@
 		"astro-simpleanalytics-plugin": "^0.3.17",
 		"astro-social-share": "^2.0.2",
 		"sass-embedded": "^1.107.1",
+		"satori": "0.63.2",
 		"sharp": "^0.35.5"
 	},
 	"devDependencies": {

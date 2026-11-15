@@ -63,19 +63,24 @@ jobs:
         run: pnpm test:e2e
 
       # The references are taken on this runner and nowhere else, so a difference is a difference in the site.
-      # With no references in the repository, or when asked, the step takes them and compares nothing.
+      # When asked, or before any reference was ever committed, the step takes them and compares nothing. The taken
+      # set carries REFERENCES.txt; once that file is committed, a run that finds it without images fails.
       - name: Screenshots against the committed references
         id: shots
         env:
           E2E_SHOTS: '1'
           UPDATE: ${{ inputs.update_screenshots }}
         run: |
-          if [ "$UPDATE" = "true" ] || ! ls e2e/__screenshots__/*/*.png > /dev/null 2>&1; then
-            echo "::warning::No comparison was made: reference screenshots were taken. Download the artifact reference-screenshots from this run, put its folders in e2e/__screenshots__/ and commit them."
-            pnpm exec playwright test shots --update-snapshots
-            echo "taken=true" >> "$GITHUB_OUTPUT"
-          else
+          if [ "$UPDATE" != "true" ] && ls e2e/__screenshots__/*/*.png > /dev/null 2>&1; then
             pnpm exec playwright test shots
+          elif [ "$UPDATE" != "true" ] && [ -f e2e/__screenshots__/REFERENCES.txt ]; then
+            echo "::error::The reference screenshots were committed (e2e/__screenshots__/REFERENCES.txt) but none is left. Restore them, or run this workflow by hand with update_screenshots to take new ones."
+            exit 1
+          else
+            echo "::warning::No comparison was made: reference screenshots were taken. Download the artifact reference-screenshots from this run, put its contents in e2e/__screenshots__/ and commit them."
+            pnpm exec playwright test shots --update-snapshots
+            echo "Taken by the CI workflow on ubuntu-24.04. While this file is committed, a run without the images fails." > e2e/__screenshots__/REFERENCES.txt
+            echo "taken=true" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Keep the new reference screenshots

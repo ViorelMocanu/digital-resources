@@ -112,5 +112,5 @@ Mistakes this project has already made, so that no agent makes them again. Read 
 - **What happened:** `pnpm verify` exited 0 while ESLint printed four warnings (import order in three files the agent had just written). The report gave the exit code and the test count and called the run clean; the owner found the warnings.
 - **Why it matters:** a warning that nobody fixes becomes noise, and the next real one hides in it. A report that says clean when the output says otherwise cannot be trusted.
 - **Do instead:** before writing a commit message, run `pnpm verify:fix`, then `pnpm verify`, and read the whole output: the exit code, and also every warning line. Fix each warning or name it in the report.
-- **Check:** rule only. If it happens again: ESLint runs with `--max-warnings=0` in `pnpm lint:js`, so a warning fails `pnpm verify`.
-- **Status:** rule
+- **Check:** since 2026-11-15 (the owner's answer D5) ESLint runs with `--max-warnings=0` in `pnpm lint:js`, so a warning fails `pnpm lint`, `pnpm verify` and the CI workflow. Checked on a file with one `no-console` warning: exit 0 without the flag, exit 1 with it. With `--quiet` the warning lines are hidden but the run still fails (exit 1, "ESLint found too many warnings"): run without `--quiet` to see which warning it was.
+- **Status:** check

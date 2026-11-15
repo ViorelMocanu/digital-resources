@@ -11,10 +11,10 @@ export const PAGES_WITHOUT_H1: readonly string[] = [];
 export const MISSING_FILES: Readonly<Record<string, readonly string[]>> = {};
 
 /**
- * Addresses of the site that built pages link to and the build does not hold. Every page links `/login`, and the site
- * has no accounts: whether the link goes waits for the owner.
+ * Addresses of the site that built pages link to and the build does not hold. Empty since 2026-11-15: `/login` is a
+ * placeholder page (the owner's answer D1 B), so any dead link fails the test.
  */
-export const DEAD_LINKS: readonly string[] = ['/login'];
+export const DEAD_LINKS: readonly string[] = [];
 
 /**
  * What axe found, one line per rule and element, so two faults of one rule count twice and a fixed element cannot

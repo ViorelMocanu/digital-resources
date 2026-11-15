@@ -7,7 +7,6 @@
  * <Layout
  *   title={title}
  *   description={description}
- *   ogImage={ogImage}
  *   modDate={modDate}
  *   canonical={canonical}
  *   template={template}
@@ -17,9 +16,9 @@
  * ```
  * @property {string} title - A string representing the title of the page
  * @property {string} description - A string representing the description of the page
- * @property {string} ogImage - An optional string representing the URL of the Open Graph image
  * @property {string} modDate - An optional string representing the modification date of the page
- * @property {string} canonical - An optional string representing the canonical URL of the page
+ * @property {string | false} canonical - The canonical URL of the page; `false` for a page that has no address of its
+ *   own (the not-found page). Defaults to the page's own address.
  * @property {string} template - A string representing the template used for the page
  * @property {string} [activeMenu] - An optional string representing the active menu item
  * @property {BreadcrumbItem[]} breadcrumbArray - An array of objects representing the breadcrumb navigation
@@ -30,12 +29,8 @@ import '@style';
 import {
 	ACCENT_COLOR,
 	type BreadcrumbItem,
-	CONTACT_EMAIL,
-	FACEBOOK_APP_ID,
 	LANGUAGE,
 	LANGUAGE_EXTENDED,
-	OG_IMAGE,
-	OG_IMAGE_ALT,
 	ROBOTS,
 	SITE_DESCRIPTION,
 	SITE_NAME,
@@ -45,6 +40,7 @@ import {
 	TWITTER_CREATOR,
 	TWITTER_SITE,
 } from '@config';
+import { cardKind, shareCardAlt, shareCardPath } from '@utils/shareCard';
 import Analytics from '@components/Analytics.astro';
 import { ClientRouter } from 'astro:transitions';
 import Footer from '@components/Footer.astro';
@@ -53,25 +49,33 @@ import Header from '@components/Header.astro';
 interface Props {
 	title: string;
 	description: string;
-	ogImage?: string;
 	modDate?: string | undefined;
-	canonical?: string;
+	canonical?: string | URL | false;
 	template: string;
 	activeMenu?: string | undefined;
 	breadcrumbArray?: BreadcrumbItem[];
+	/** Short facts the share card shows in chips: a resource's type and rating. */
+	cardFacts?: readonly { text: string; color?: string }[];
 }
 
 const {
 	title = SITE_TITLE,
 	description = SITE_DESCRIPTION,
-	ogImage = OG_IMAGE,
 	// ISO 8601. A page without a date of its own prints no publication date.
 	modDate,
 	canonical = Astro.url,
 	template,
 	activeMenu,
 	breadcrumbArray,
+	cardFacts = [],
 } = Astro.props satisfies Props;
+
+// Every page has its own share card. The build draws it from this page's title and the resurse:card tag below
+// (src/integrations/shareCards.ts): the kind of page, the trail of the breadcrumb without the page itself, the facts.
+const ogImage = new URL(shareCardPath(Astro.url.pathname), Astro.site);
+const card = JSON.stringify({ kind: cardKind(template), trail: (breadcrumbArray ?? []).slice(0, -1).map((item) => item.label), facts: cardFacts });
+// The article:* dates belong to the article type of Open Graph, so a page with a date of its own is an article.
+const ogType = modDate ? 'article' : SITE_TYPE;
 ---
 
 <!doctype html>
@@ -85,25 +89,25 @@ const {
 		<link rel="prefetch" href="/font/atkinson-hyperlegible-bold.woff2" as="font" type="font/woff2" crossorigin />
 
 		<!-- SEO -->
-		<link rel="canonical" href={canonical} />
+		{canonical && <link rel="canonical" href={canonical} />}
 		<meta name="description" content={description} />
 		<meta name="robots" content={ROBOTS} />
 
 		<meta property="og:site_name" content={SITE_NAME} />
-		<meta property="og:type" content={SITE_TYPE} />
+		<meta property="og:type" content={ogType} />
 		<meta property="og:title" content={title} />
-		<meta property="og:url" content={canonical} />
+		<meta property="og:description" content={description} />
+		{canonical && <meta property="og:url" content={canonical} />}
 		<meta property="og:locale" content={LANGUAGE_EXTENDED} />
 		<meta property="og:image" content={ogImage} />
+		<meta property="og:image:type" content="image/jpeg" />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
-		<meta property="og:image:alt" content={OG_IMAGE_ALT} />
-		<meta property="og:email" content={CONTACT_EMAIL} />
-		<meta property="article:publisher" content={SITE_NAME} />
-		<meta property="fb:app_id" content={FACEBOOK_APP_ID} />
-		<meta property="twitter:site" content={TWITTER_SITE} />
-		<meta property="twitter:creator" content={TWITTER_CREATOR} />
-		<meta property="twitter:card" content={TWITTER_CARD} />
+		<meta property="og:image:alt" content={shareCardAlt(title)} />
+		<meta name="twitter:card" content={TWITTER_CARD} />
+		<meta name="twitter:site" content={TWITTER_SITE} />
+		<meta name="twitter:creator" content={TWITTER_CREATOR} />
+		<meta name="resurse:card" content={card} />
 		{modDate && <meta property="article:published_time" content={modDate} />}
 		{modDate && <meta property="article:modified_time" content={modDate} />}
 

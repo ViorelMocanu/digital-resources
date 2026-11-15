@@ -1,5 +1,9 @@
 import { MISSING_FILES, PAGES_WITHOUT_H1, PAGE_KINDS, sizesFor } from './known-gaps.ts';
 import { builtPages, expect, test } from './site.ts';
+import { SITE_ROOT } from './server.ts';
+import { join } from 'node:path';
+import sharp from 'sharp';
+import { statSync } from 'node:fs';
 
 const pages = builtPages();
 
@@ -37,7 +41,19 @@ for (const path of pages) {
 		await test.step('the head has a language, its own canonical address and the pre-launch robots tag', async () => {
 			await expect(page.locator('html')).toHaveAttribute('lang', 'ro');
 
+			// Until launch every page asks search engines to stay away (the INDEXABLE switch in src/config.ts).
+			const robots = page.locator('meta[name="robots"]');
+			await expect(robots).toHaveCount(1);
+			await expect(robots).toHaveAttribute('content', 'noindex, nofollow');
+
 			const canonical = page.locator('link[rel="canonical"]');
+			// The not-found page is served at every missing address, so it names no address of its own (the owner's
+			// answer of 2026-11-15 on the Phase 5 findings). Until then it named /404.
+			if (path === '/404') {
+				await expect(canonical).toHaveCount(0);
+				await expect(page.locator('meta[property="og:url"]')).toHaveCount(0);
+				return;
+			}
 			await expect(canonical).toHaveCount(1);
 			// The canonical address names the page as every internal link does, without the final slash; the home page
 			// stays `/`. (Until Phase 5 it ended with a slash that the host's trailingSlash rule strips.)
@@ -45,11 +61,33 @@ for (const path of pages) {
 			const href = (await canonical.getAttribute('href')) ?? '';
 			expect(new URL(href).pathname).toBe(expected);
 			await expect(page.locator('meta[property="og:url"]')).toHaveAttribute('content', href);
+		});
 
-			// Until launch every page asks search engines to stay away (the INDEXABLE switch in src/config.ts).
-			const robots = page.locator('meta[name="robots"]');
-			await expect(robots).toHaveCount(1);
-			await expect(robots).toHaveAttribute('content', 'noindex, nofollow');
+		await test.step('the share tags name the page card: a JPEG of 1200 x 630 under 600 KB, with its alt text', async () => {
+			const meta = (property: string) => page.locator(`meta[property="${property}"]`);
+			const title = (await meta('og:title').getAttribute('content')) ?? '';
+			const image = (await meta('og:image').getAttribute('content')) ?? '';
+			// Every page has its own card, named after its address: `/` is `home`, `/front-end/html/` is `front-end/html`.
+			expect(image).toBe(`https://resurse.dev/og/${path.replace(/^\/|\/$/g, '') || 'home'}.jpg`);
+			const file = join(SITE_ROOT, new URL(image).pathname);
+			const { format, width, height } = await sharp(file).metadata();
+			expect({ format, width, height }).toEqual({ format: 'jpeg', width: 1200, height: 630 });
+			// WhatsApp, the strictest of the platforms that publish a limit, shows no image over 600 KB.
+			expect(statSync(file).size).toBeLessThan(600 * 1024);
+			await expect(meta('og:image:type')).toHaveAttribute('content', 'image/jpeg');
+			await expect(meta('og:image:width')).toHaveAttribute('content', '1200');
+			await expect(meta('og:image:height')).toHaveAttribute('content', '630');
+			expect((await meta('og:image:alt').getAttribute('content')) ?? '').toContain(title);
+			// WhatsApp and LinkedIn need the description as an Open Graph tag too.
+			const description = (await page.locator('meta[name="description"]').getAttribute('content')) ?? '';
+			await expect(meta('og:description')).toHaveAttribute('content', description);
+			// X reads its tags by name; the fallback to property is not documented any more.
+			await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute('content', 'summary_large_image');
+			await expect(page.locator('meta[property^="twitter:"]')).toHaveCount(0);
+			// Dropped from Open Graph in 2011; an empty app id; a publisher that must be a Facebook page address.
+			for (const gone of ['og:email', 'fb:app_id', 'article:publisher']) await expect(meta(gone)).toHaveCount(0);
+			// The article:* dates belong to the article type, so a page with a date of its own is an article.
+			await expect(meta('og:type')).toHaveAttribute('content', DATED_PAGES[path] === undefined ? 'website' : 'article');
 		});
 
 		await test.step('the head is printed as written, with the client router script once', async () => {

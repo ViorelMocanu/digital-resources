@@ -37,6 +37,10 @@ test.describe('the sitemap', { tag: '@desktop-only' }, () => {
 	test('names every page but the home page without a final slash, as the links do', () => {
 		expect(addresses.filter((address) => new URL(address).pathname !== '/' && address.endsWith('/'))).toEqual([]);
 	});
+
+	test('leaves out /login, a placeholder with nothing to find', () => {
+		expect(addresses.filter((address) => new URL(address).pathname === '/login')).toEqual([]);
+	});
 });
 
 test('the stray /README/ page is not built', { tag: '@desktop-only' }, () => {

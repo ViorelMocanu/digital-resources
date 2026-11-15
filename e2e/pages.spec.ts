@@ -40,6 +40,26 @@ test('no built page writes a rating over 10 as "(10)"', { tag: '@desktop-only' }
 	expect(pages).toEqual([]);
 });
 
+test('every breadcrumb link is a path of the site, as the other links are', { tag: '@desktop-only' }, () => {
+	const absolute = builtPages().filter((page) => /<a class="BreadcrumbLink"[^>]*?\shref="https?:/.test(htmlOf(page)));
+	expect(absolute).toEqual([]);
+});
+
+test('every redirect of vercel.json leads to a built page or to an address outside the site', { tag: '@desktop-only' }, () => {
+	const { redirects = [] } = JSON.parse(readFileSync('vercel.json', 'utf8')) as { redirects?: { source: string; destination: string }[] };
+	expect(redirects.filter(({ destination }) => destination.startsWith('/') && !inBuild(destination))).toEqual([]);
+});
+
+test.describe('the owner answers of 2026-11-15', { tag: '@desktop-only' }, () => {
+	test('/login says accounts are not ready yet and marks its header link', async ({ page }) => {
+		// Hand-copied from the draft text of src/pages/login.astro (answer D1 B).
+		await page.goto('/login');
+		await expect(page.locator('h1')).toHaveText('Contul tău pe resurse.dev');
+		await expect(page.locator('main')).toContainText('Conturile nu sunt încă disponibile.');
+		await expect(page.locator('a.Login.Active')).toHaveCount(1);
+	});
+});
+
 test.describe('the pages of Phase 5', { tag: '@desktop-only' }, () => {
 	test('a resource page writes its rating over the scale', async ({ page }) => {
 		// src/content/resources/how-does-the-web-work.md is rated 10.

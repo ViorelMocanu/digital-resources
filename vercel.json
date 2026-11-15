@@ -24,14 +24,6 @@
 					"value": "accelerometer=(), ambient-light-sensor=(), autoplay=(), battery=(), camera=(), cross-origin-isolated=(), display-capture=(), document-domain=(), encrypted-media=(), execution-while-not-rendered=(), execution-while-out-of-viewport=(), fullscreen=(self), geolocation=(), gyroscope=(), keyboard-map=(), magnetometer=(), microphone=(), midi=(), navigation-override=(), payment=(), picture-in-picture=(self), publickey-credentials-get=(), screen-wake-lock=(), sync-xhr=(self), usb=(), web-share=(self), xr-spatial-tracking=(), clipboard-read=(self), clipboard-write=(self), gamepad=(), speaker-selection=(self), conversion-measurement=(self), focus-without-user-activation=(), hid=(self), idle-detection=(), interest-cohort=(), serial=(), sync-script=()"
 				},
 				{
-					"key": "Access-Control-Allow-Origin",
-					"value": "https://resurse.dev, https://*.resurse.dev, https://*.simpleanalyticscdn.com, https://vercel.live, https://*.vercel-insights.com, https://*.vercel-scripts.com, https://*.sentry.com, https://*.sentry-cdn.com"
-				},
-				{
-					"key": "Access-Control-Allow-Methods",
-					"value": "GET, POST, OPTIONS"
-				},
-				{
 					"key": "Strict-Transport-Security",
 					"value": "max-age=63072000; includeSubDomains; preload"
 				},
@@ -67,11 +59,6 @@
 		}
 	],
 	"redirects": [
-		{
-			"source": "/old-url-path/",
-			"destination": "/new-url-path",
-			"permanent": true
-		},
 		{
 			"source": "/view-source",
 			"destination": "https://github.com/ViorelMocanu/digital-resources"
