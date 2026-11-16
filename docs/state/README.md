@@ -119,6 +119,7 @@ What could be wrong, what was not checked, and what was left out on purpose.
 
 | File | Trigger | What it holds |
 | --- | --- | --- |
+| [2026-11-16-1901-phase-5b-owner-answers.md](2026-11-16-1901-phase-5b-owner-answers.md) | manual-compact | The decision page redesigned for a plain browser and checked; the owner working through the walkthroughs one by one, on walkthrough a (the Vercel variable) |
 | [2026-11-15-1900-phase-5b-owner-answers.md](2026-11-15-1900-phase-5b-owner-answers.md) | pause-point | The owner's answers built and checked, the OpenSpec change valid, the decision page shown; blocked on the owner's walkthroughs, decisions and commit (time estimated) |
 | [2026-11-15-1845-phase-5b-owner-answers.md](2026-11-15-1845-phase-5b-owner-answers.md) | pause-point | The answers built and checked (verify, build with 56 share cards, 110 browser tests, comparison with the build at 6545861); the decision page being written; the OpenSpec change and the change log remain (newer than the 1855 file, whose name is wrong) |
 | [2026-11-15-1855-phase-5b-owner-answers.md](2026-11-15-1855-phase-5b-owner-answers.md) | pause-point | The owner's answers to the Phase 5 page half built: /login, archive, lint warnings fail, Bucharest dates, screenshot references per kind, Phase 5 findings, share-card renderer; the layout tag and the build step for the cards still to do (written at 18:30; the name's time is wrong) |
