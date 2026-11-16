@@ -60,11 +60,11 @@
 		"@astrojs/sitemap": "^3.7.4",
 		"@astrojs/vercel": "^11.0.20",
 		"@vercel/speed-insights": "^1.0.12",
-		"astro": "^7.4.7",
+		"astro": "^7.4.8",
 		"astro-embed": "^0.14.0",
-		"astro-simpleanalytics-plugin": "^0.3.17",
-		"astro-social-share": "^2.0.2",
-		"sass-embedded": "^1.107.1",
+		"astro-simpleanalytics-plugin": "^0.4.0",
+		"astro-social-share": "^2.2.0",
+		"sass-embedded": "^1.108.1",
 		"satori": "0.63.2",
 		"sharp": "^0.35.5"
 	},
@@ -80,7 +80,7 @@
 		"astro-eslint-parser": "^3.2.0",
 		"eslint": "^10.14.0",
 		"eslint-plugin-astro": "^3.2.1",
-		"eslint-plugin-jsdoc": "^65.4.4",
+		"eslint-plugin-jsdoc": "^65.4.5",
 		"eslint-plugin-jsx-a11y": "^6.10.2",
 		"husky": "^9.1.7",
 		"markdownlint-cli": "^0.50.0",
@@ -90,7 +90,7 @@
 		"stylelint": "^17.16.0",
 		"stylelint-config-standard-scss": "^17.0.0",
 		"typescript": "^6.0.3",
-		"typescript-eslint": "^8.72.1",
+		"typescript-eslint": "^8.72.2",
 		"vitest": "^5.1.0"
 	}
 }
