@@ -18,7 +18,7 @@ The site SHALL build with Astro 7, on Node 24 or newer. The manifest SHALL state
 #### Scenario: Declared runtime
 
 - **WHEN** `package.json` is read
-- **THEN** `engines.node` is `>=24.16`
+- **THEN** `engines.node` is `^24.16.0` (changed from `>=24.16` on 2026-11-16 in `phase-5b-owner-answers`, so Vercel builds on Node 24)
 - **AND** `packageManager` names one exact pnpm version
 - **AND** `.nvmrc` holds `24`
 

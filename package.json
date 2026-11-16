@@ -12,7 +12,7 @@
 	},
 	"homepage": "https://resurse.dev",
 	"engines": {
-		"node": ">=24.16",
+		"node": "^24.16.0",
 		"pnpm": ">=10"
 	},
 	"packageManager": "pnpm@10.33.2",

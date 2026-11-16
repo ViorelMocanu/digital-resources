@@ -32,3 +32,7 @@ Every fix lists its failing test first.
 - [x] 6.2 `pnpm build` and `pnpm test:e2e`. Check: build exit 0, 56 pages, 56 cards; browser tests exit 0, 110 passed (2026-11-15)
 - [x] 6.3 The build compared with the copy from 1.1. Check: `node tmp/work/final-diff.mjs tmp/compare/p5b-before .vercel/output/static`: the head tags of 2.3 on 55 pages, the card tag, the breadcrumb paths (2.4), `og:type` on 5 pages, `/login` added; and on 7 category pages the hero file is named `security.<hash>.svg` instead of `marketing.<hash>.svg`: the two source files are byte-identical, so the bundler keeps one copy and its name follows the build order (2026-11-15)
 - [x] 6.4 `pnpm exec openspec validate phase-5b-owner-answers --strict` passes. Check: "Change 'phase-5b-owner-answers' is valid" (2026-11-15)
+
+## 7. After the walkthroughs began
+
+- [x] 7.1 Node pin A (owner, 2026-11-16). Test first: `test/nodeVersion.test.ts` (`engines.node` is `^24.16.0` and names the `.nvmrc` major); then `package.json` and the Phase 2 spec line. Check: the two tests failed first (received `>=24.16`), then passed; `pnpm verify:fix` and `pnpm verify` exit 0 (1,133 passed, 1 skipped, 30 files; 0 warnings); `pnpm build` exit 0, 56 pages; `pnpm install --frozen-lockfile --ignore-scripts` exit 0, with an Unsupported engine warning on this machine's Node 26.12.1; both changes valid with `openspec validate --strict` (2026-11-16)

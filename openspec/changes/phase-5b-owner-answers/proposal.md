@@ -21,6 +21,7 @@ What the build and the checks do:
 - `vercel.json`: the placeholder redirect `/old-url-path/` and the `Access-Control-Allow-Origin` header that listed eight origins (browsers refuse a list) go, with its `Access-Control-Allow-Methods`.
 - The sitemap integration's unused `i18n` block goes; the sitemap is byte-identical apart from leaving out `/login`.
 - The stop-sign emoji markers leave the comments of `src/config.ts`.
+- `engines.node` is `^24.16.0` instead of `>=24.16` (owner, 2026-11-16, option A of the Node pin page). Vercel turns an open range into the newest Node it offers (26), while the CI tests run on Node 24 (`.nvmrc`). A caret range keeps Vercel on Node 24, which still ships the Corepack that `ENABLE_EXPERIMENTAL_COREPACK` needs, and keeps the 24.16 minimum. The Phase 2 spec line follows.
 
 Files archived with the owner's consent (moved to `tmp/archive/2026-11-15-phase-5/`, gitignored, with a README; git history keeps them): `src/layouts/LayoutMarkdown.astro`, `src/components/MarkdownTOC.astro`, `patches/astro-capo@0.0.1.patch`, `src/vite-env.d.ts`.
 
@@ -30,15 +31,16 @@ Files archived with the owner's consent (moved to `tmp/archive/2026-11-15-phase-
 
 ## Placed in later phases
 
-| Finding                                                                                               | Phase | Why there                                                  |
-| ----------------------------------------------------------------------------------------------------- | ----- | ---------------------------------------------------------- |
-| The `@TODO` text on tag pages, stub pages and the home page title                                     | 6     | Real copy for the stub pages is Phase 6 scope              |
-| "Data adăugării" prints `modDate`                                                                     | 6     | Needs a date-added field in the content model              |
-| The commented-out section images                                                                      | 6     | Content model                                              |
-| The stale hosts of the Content-Security-Policy                                                        | 6     | A rewrite must be tested on a Vercel preview before launch |
-| PostHog: eight silenced type checks in the vendor snippet, default persistence (a cookie and storage) | 6     | An analytics decision (decision page, N3)                  |
-| Preview images stored in the repository as WebP (owner, section 4 A)                                  | 7     | Part of the content import                                 |
-| A resource's own preview image on its card; a content-hash card cache                                 | 7     | Need the downloaded images and the 2,300 pages             |
+| Finding | Phase | Why there |
+| --- | --- | --- |
+| The `@TODO` text on tag pages, stub pages and the home page title | 6 | Real copy for the stub pages is Phase 6 scope |
+| "Data adăugării" prints `modDate` | 6 | Needs a date-added field in the content model |
+| The commented-out section images | 6 | Content model |
+| The stale hosts of the Content-Security-Policy | 6 | A rewrite must be tested on a Vercel preview before launch |
+| PostHog: eight silenced type checks in the vendor snippet, default persistence (a cookie and storage) | 6 | An analytics decision (decision page, N3) |
+| Preview images stored in the repository as WebP (owner, section 4 A) | 7 | Part of the content import |
+| A resource's own preview image on its card; a content-hash card cache | 7 | Need the downloaded images and the 2,300 pages |
+| Astro 7's build warning that `markdown.remarkPlugins`, `rehypePlugins` and `remarkRehype` are deprecated (found 2026-11-16) | 6 | The Markdown setup changes with the content model |
 
 ## Waiting for the owner
 
