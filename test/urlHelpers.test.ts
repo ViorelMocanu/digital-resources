@@ -26,6 +26,12 @@ describe('highlightUrl', () => {
 		expect(result).toEqual(['link']);
 	});
 
+	// The callers write paths both ways: the footer and the tags as 'faq', the table of contents as '/front-end/html'.
+	it('matches a path with or without a leading slash, on either side', () => {
+		expect(highlightUrl('/faq', 'a', 'b', 'faq')).toEqual(['a', 'b']);
+		expect(highlightUrl('faq', 'a', 'b', '/faq/')).toEqual(['a', 'b']);
+	});
+
 	// The helper decides from its argument alone: every caller is a template rendered at build time, where there is
 	// no window. A browser window must not change the answer, even for an empty path (the home page gives one).
 	it('ignores a browser window when the current path is empty', () => {

@@ -119,6 +119,7 @@ What could be wrong, what was not checked, and what was left out on purpose.
 
 | File | Trigger | What it holds |
 | --- | --- | --- |
+| [2026-11-16-1935-phase-5b-owner-answers.md](2026-11-16-1935-phase-5b-owner-answers.md) | pause-point | Node pinned to `^24.16.0` (owner's A, committed `f1871bf`); the sixth simplify run (base `515b802`) running as a workflow; next re-run its checks and record its row |
 | [2026-11-16-1901-phase-5b-owner-answers.md](2026-11-16-1901-phase-5b-owner-answers.md) | manual-compact | The decision page redesigned for a plain browser and checked; the owner working through the walkthroughs one by one, on walkthrough a (the Vercel variable) |
 | [2026-11-15-1900-phase-5b-owner-answers.md](2026-11-15-1900-phase-5b-owner-answers.md) | pause-point | The owner's answers built and checked, the OpenSpec change valid, the decision page shown; blocked on the owner's walkthroughs, decisions and commit (time estimated) |
 | [2026-11-15-1845-phase-5b-owner-answers.md](2026-11-15-1845-phase-5b-owner-answers.md) | pause-point | The answers built and checked (verify, build with 56 share cards, 110 browser tests, comparison with the build at 6545861); the decision page being written; the OpenSpec change and the change log remain (newer than the 1855 file, whose name is wrong) |

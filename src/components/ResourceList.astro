@@ -7,18 +7,20 @@
  * <ResourceList resources={theResources} page={thePage} pageTitle="The page title" />
  * ```
  * @property {CollectionEntry<"resources">[]} resources - The list of resources.
- * @property {Object} [page] - The optional page object.
+ * @property {ListPage} [page] - The optional list page, passed on to both pagination bars.
  * @property {number} page.currentPage - The current page number.
  * @property {number} page.lastPage - The last page number.
- * @property {Object} page.url - The URL object.
- * @property {string} page.url.[next] - The URL for the next page.
- * @property {string} page.url.[prev] - The URL for the previous page.
+ * @property {string} page.url.current - The address of this page.
+ * @property {string} [page.url.first] - The address of the list's first page, from page 2 on.
+ * @property {string} [page.url.next] - The URL for the next page.
+ * @property {string} [page.url.prev] - The URL for the previous page.
  * @returns {astro.AstroNode} The rendered resource list component.
  */
 
 import { type ExtendedResource, resourceTypeIcon } from '@config';
 import { type CollectionEntry } from 'astro:content';
 import HelpfulLinks from '@components/HelpfulLinks.astro';
+import { type ListPage } from '@utils/pagination';
 import Message from '@components/Message.astro';
 import Pagination from '@components/Pagination.astro';
 import ResourceActionList from '@components/ResourceActionList.astro';
@@ -29,17 +31,7 @@ import { formatRating } from '@utils/resourceMeta';
 
 export interface Props {
 	resources: CollectionEntry<'resources'>[];
-	page?: {
-		currentPage: number;
-		lastPage: number;
-		url: {
-			// Astro gives `first` from page 2 on; `current` is the first page itself on page 1.
-			current: string;
-			first?: string | undefined;
-			next?: string;
-			prev?: string;
-		};
-	};
+	page?: ListPage;
 	pageTitle?: string | undefined;
 }
 
@@ -55,16 +47,7 @@ const [tagsById, sectionsById, categoriesById, subCategoriesById] = await Promis
 
 if (resources) {
 	r.forEach((resource: ExtendedResource) => {
-		if (resource.data.tags !== null) {
-			let tagData: CollectionEntry<'tags'>[] = [];
-			resource.data.tags.forEach((tag: { id: string; collection: string }) => {
-				const currentTag = tagsById.get(tag.id);
-				if (currentTag && typeof currentTag.data !== 'undefined') {
-					tagData.push(currentTag);
-				}
-			});
-			resource['tagData'] = tagData;
-		}
+		if (resource.data.tags !== null) resource['tagData'] = resource.data.tags.flatMap((tag: { id: string; collection: string }) => tagsById.get(tag.id) ?? []);
 
 		if (resource.data.section !== null) {
 			const section = sectionsById.get(resource.data.section.id);
@@ -79,16 +62,7 @@ if (resources) {
 ---
 
 <div class="ResourceContainer">
-	{page && (
-		<Pagination
-			currentPage={page.currentPage}
-			lastPage={page.lastPage}
-			firstUrl={page.url.first ?? page.url.current}
-			next={page.url.next}
-			prev={page.url.prev}
-			boxHeader={false}
-		/>
-	)}
+	{page && <Pagination page={page} boxHeader={false} />}
 
 	{resources && resources.length > 0 ? (
 		<ol class="ResourceList">
@@ -159,15 +133,5 @@ if (resources) {
 		)
 		*/}
 
-	{page && (
-		<Pagination
-			currentPage={page.currentPage}
-			lastPage={page.lastPage}
-			firstUrl={page.url.first ?? page.url.current}
-			next={page.url.next}
-			prev={page.url.prev}
-			boxHeader={true}
-			pageTitle={pageTitle}
-		/>
-	)}
+	{page && <Pagination page={page} boxHeader={true} pageTitle={pageTitle} />}
 </div>

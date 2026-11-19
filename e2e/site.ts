@@ -1,5 +1,6 @@
 /**
- * What the end-to-end tests share: the list of built pages, and a page that cannot reach the network.
+ * What the end-to-end tests share: the list of built pages, the address form the links use, and a page that cannot
+ * reach the network.
  */
 
 import { ORIGIN, SITE_ROOT } from './server.ts';
@@ -17,6 +18,15 @@ export function builtPages(): string[] {
 		.filter((file) => file.endsWith('.html'))
 		.map((file) => `/${file.replaceAll('\\', '/')}`.replace(/index\.html$/, '').replace(/\.html$/, ''))
 		.sort();
+}
+
+/**
+ * A page's path without its final slash; the home page stays `/`.
+ * @param path A path of the site.
+ * @returns The path as the internal links write it.
+ */
+export function withoutSlash(path: string): string {
+	return path === '/' ? path : path.replace(/\/$/, '');
 }
 
 /**

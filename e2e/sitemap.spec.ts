@@ -1,4 +1,4 @@
-import { builtPages, expect, test } from './site.ts';
+import { builtPages, expect, test, withoutSlash } from './site.ts';
 import { SITE_ROOT } from './server.ts';
 import { join } from 'node:path';
 import { readFileSync } from 'node:fs';
@@ -10,15 +10,6 @@ import { readFileSync } from 'node:fs';
  */
 function locsOf(file: string): string[] {
 	return [...readFileSync(join(SITE_ROOT, file), 'utf8').matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1] ?? '');
-}
-
-/**
- * A page's path without its final slash; the home page stays `/`.
- * @param path A path of the site.
- * @returns The path as the internal links write it.
- */
-function withoutSlash(path: string): string {
-	return path === '/' ? path : path.replace(/\/$/, '');
 }
 
 test.describe('the sitemap', { tag: '@desktop-only' }, () => {

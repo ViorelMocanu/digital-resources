@@ -4,32 +4,39 @@
  * @component
  * @example
  * ```astro
- * <Pagination currentPage={2} lastPage={5} firstUrl="/page" next="/page/3" prev="/page" boxHeader={true} pageTitle="Blog" />
+ * <Pagination page={page} boxHeader={true} pageTitle="Blog" />
  * ```
- * @property {number} currentPage - The current page number.
- * @property {string} firstUrl - The address of the list's first page; every numbered link is built from it.
- * @property {number} lastPage - The last page number.
- * @property {string} [next] - The URL for the next page.
- * @property {string} [prev] - The URL for the previous page.
+ * @property {ListPage} page - The list page: its number, the last page number and its addresses.
+ * @property {number} page.currentPage - The current page number.
+ * @property {number} page.lastPage - The last page number.
+ * @property {string} page.url.current - The address of this page; on page 1 it is the list's first page.
+ * @property {string} [page.url.first] - The address of the list's first page, from page 2 on; every numbered link is built from it.
+ * @property {string} [page.url.next] - The URL for the next page.
+ * @property {string} [page.url.prev] - The URL for the previous page.
  * @property {boolean} [boxHeader] - Flag for displaying a box header. Default is true.
  * @property {string} [pageTitle] - The page title.
  * @returns {astro.AstroNode} The rendered pagination navigation bar component.
  */
 
-import { pageUrl } from '@utils/pagination';
+import { type ListPage, pageUrl } from '@utils/pagination';
 
 export interface Props {
-	currentPage: number;
-	lastPage: number;
-	firstUrl: string;
-	next?: string | undefined;
-	prev?: string | undefined;
+	page: ListPage;
 	boxHeader?: boolean;
 	pageTitle?: string | undefined;
 }
 
-const { currentPage, lastPage, firstUrl, next, prev, boxHeader = true, pageTitle } = Astro.props satisfies Props;
+const { page, boxHeader = true, pageTitle } = Astro.props satisfies Props;
+const { currentPage, lastPage } = page;
+const { next, prev } = page.url;
+const firstUrl = page.url.first ?? page.url.current;
 const paginationList = Array.from({ length: Number(lastPage) }, (_, i) => i + 1);
+const groups =
+	lastPage <= 15
+		? []
+		: currentPage < 4 || currentPage > lastPage - 3
+			? [paginationList.slice(0, 4), paginationList.slice(-4)]
+			: [paginationList.slice(0, 2), paginationList.slice(currentPage - 2, currentPage + 1), paginationList.slice(-2)];
 ---
 
 <nav class="Pagination">
@@ -45,50 +52,18 @@ const paginationList = Array.from({ length: Number(lastPage) }, (_, i) => i + 1)
 				<span class="PaginationUnavailable">Ești pe prima pagină</span>
 			)}
 		</li>
-		{lastPage > 15 && (currentPage < 4 || currentPage > lastPage - 3) && (
+		{groups.map((group, g) => (
 			<>
-				{paginationList.slice(0, 4).map((num) => <li class:list={num == currentPage ? ['PaginationItem', 'PaginationCurrent'] : ['PaginationItem']}>
-					<a class="PaginationLink" href={pageUrl(firstUrl, num)} title={`Mergi la pagina ${num} din ${lastPage}`}>
-						{num}
-					</a>
-				</li>)}
-				<li class="PaginationItem PaginationEllipsis">
+				{g > 0 && <li class="PaginationItem PaginationEllipsis">
 					<span class="SpacerSymbol">...</span>
-				</li>
-				{paginationList.slice(-4).map((num) => <li class:list={num == currentPage ? ['PaginationItem', 'PaginationCurrent'] : ['PaginationItem']}>
+				</li>}
+				{group.map((num) => <li class:list={['PaginationItem', num === currentPage && 'PaginationCurrent']}>
 					<a class="PaginationLink" href={pageUrl(firstUrl, num)} title={`Mergi la pagina ${num} din ${lastPage}`}>
 						{num}
 					</a>
 				</li>)}
 			</>
-		)}
-		{lastPage > 15 && currentPage >= 4 && currentPage <= lastPage - 3 && (
-			<>
-				{paginationList.slice(0, 2).map((num) => <li class:list={['PaginationItem']}>
-					<a class="PaginationLink" href={pageUrl(firstUrl, num)} title={`Mergi la pagina ${num} din ${lastPage}`}>
-						{num}
-					</a>
-				</li>)}
-				<li class="PaginationItem PaginationEllipsis">
-					<span class="SpacerSymbol">...</span>
-				</li>
-				{paginationList.slice(currentPage - 2, currentPage + 1).map((num) => <li
-					class:list={num == currentPage ? ['PaginationItem', 'PaginationCurrent'] : ['PaginationItem']}
-				>
-					<a class="PaginationLink" href={pageUrl(firstUrl, num)} title={`Mergi la pagina ${num} din ${lastPage}`}>
-						{num}
-					</a>
-				</li>)}
-				<li class="PaginationItem PaginationEllipsis">
-					<span class="SpacerSymbol">...</span>
-				</li>
-				{paginationList.slice(-2).map((num) => <li class:list={['PaginationItem']}>
-					<a class="PaginationLink" href={pageUrl(firstUrl, num)} title={`Mergi la pagina ${num} din ${lastPage}`}>
-						{num}
-					</a>
-				</li>)}
-			</>
-		)}
+		))}
 		<li class="PaginationItem PaginationNext">
 			{currentPage < lastPage ? (
 				<a class="PaginationLink" href={next} title="Mergi la pagina următoare"> Următoarea<span class="HideLowRes"> Pagină</span> &raquo; </a>

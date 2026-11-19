@@ -20,6 +20,9 @@ import { spawnSync } from 'node:child_process';
 /** The repo's own `tmp/` folder. */
 const TMP = resolve(import.meta.dirname, '..', '..', 'tmp');
 
+/** Where the GitHub runner checks this repository out. A test that sizes a Unix socket path under a scratch folder builds it from this. */
+export const RUNNER_ROOT = '/home/runner/work/digital-resources/digital-resources';
+
 /** The author and committer of every scratch commit, with signing off. */
 const IDENTITY = ['-c', 'user.name=Scratch Test', '-c', 'user.email=scratch-test@example.invalid', '-c', 'commit.gpgsign=false'];
 

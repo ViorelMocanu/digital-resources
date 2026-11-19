@@ -1,5 +1,5 @@
 import { MISSING_FILES, PAGES_WITHOUT_H1, PAGE_KINDS, sizesFor } from './known-gaps.ts';
-import { builtPages, expect, test } from './site.ts';
+import { builtPages, expect, test, withoutSlash } from './site.ts';
 import { SITE_ROOT } from './server.ts';
 import { join } from 'node:path';
 import sharp from 'sharp';
@@ -57,7 +57,7 @@ for (const path of pages) {
 			await expect(canonical).toHaveCount(1);
 			// The canonical address names the page as every internal link does, without the final slash; the home page
 			// stays `/`. (Until Phase 5 it ended with a slash that the host's trailingSlash rule strips.)
-			const expected = path === '/' ? path : path.replace(/\/$/, '');
+			const expected = withoutSlash(path);
 			const href = (await canonical.getAttribute('href')) ?? '';
 			expect(new URL(href).pathname).toBe(expected);
 			await expect(page.locator('meta[property="og:url"]')).toHaveAttribute('content', href);

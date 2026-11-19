@@ -1,5 +1,5 @@
 // Relative, not '@config': the build step that draws the cards is loaded with astro.config.mjs, before the aliases.
-import { SITE_NAME } from '../config';
+import { ACCENT_COLOR, SITE_NAME } from '../config';
 import { join } from 'node:path';
 import { readFileSync } from 'node:fs';
 import satori from 'satori';
@@ -27,8 +27,8 @@ interface CardNode {
 const WIDTH = 1200;
 const HEIGHT = 630;
 const FONT = 'Atkinson Hyperlegible';
-// The site's dark theme (src/style/style.scss): --dark-150, --dark-200, --light-600, --medium-500, --accent-400.
-const COLOR = { background: '#0a0a0a', chip: '#222', muted: '#bdbdbd', faint: '#888', accent: '#2f8ded', text: '#fff' };
+// The site's dark theme (src/style/style.scss): --dark-150, --dark-200, --light-600, --medium-500; the accent is ACCENT_COLOR (--accent-400).
+const COLOR = { background: '#0a0a0a', chip: '#222', muted: '#bdbdbd', faint: '#888', accent: ACCENT_COLOR, text: '#fff' };
 /** A title longer than this is cut at a word, so the card never runs out of room. */
 const TITLE_LIMIT = 110;
 

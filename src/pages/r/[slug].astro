@@ -10,6 +10,7 @@ import ResourceLocationList from '@components/ResourceLocationList.astro';
 import ResourceTagList from '@components/ResourceTagList.astro';
 // import ResponsiveImage from '@components/ResponsiveImage.astro';
 import { assertContentIntegrity } from '@utils/contentIntegrity';
+import { collections } from '@utils/collections';
 import { requireMinWidth } from '@utils/imageRules';
 
 // 1. Generate a new path for every collection entry
@@ -29,14 +30,11 @@ const { entry } = Astro.props satisfies Props;
 const { Content } = await render(entry);
 if (entry.data.image?.imageLocalUrl) requireMinWidth(entry.data.image.imageLocalUrl, 1000, 'resources/' + entry.id);
 
-let resourceTags = new Array();
-if (entry.data.tags) {
-	const allTags = await getCollection('tags');
-	entry.data.tags.forEach((tag) => {
-		const currentTag = allTags.find((t: CollectionEntry<'tags'>) => t.id == tag.id);
-		resourceTags.push({ title: currentTag?.data.title, id: tag.id, type: currentTag?.data.type });
-	});
-}
+const tagsById = await collections.byId('tags');
+const resourceTags = entry.data.tags.map((tag) => {
+	const tagData = tagsById.get(tag.id)?.data;
+	return { ...tag, title: tagData?.title, type: tagData?.type };
+});
 
 let breadcrumbArray: BreadcrumbItem[] = [];
 

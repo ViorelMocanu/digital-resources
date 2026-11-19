@@ -32,9 +32,8 @@ export interface Props {
 const { res, section, categories, subcategories } = Astro.props satisfies Props;
 
 const resourceSection = res ? res.data.section : section;
-const shouldRenderCategoriesFromRes = res && res.categoryData.length > 0 && resourceSection;
+const shouldRenderCategoriesFromRes = res && resourceSection;
 const shouldRenderCategoriesFromCat = categories && resourceSection;
-const shouldRenderSubcategoriesFromRes = res && res.subCategoryData.length > 0;
 const shouldRenderSubcategoriesFromCat = subcategories && categories && resourceSection;
 ---
 
@@ -64,7 +63,7 @@ const shouldRenderSubcategoriesFromCat = subcategories && categories && resource
 			</a>
 		</li>)}
 
-	{shouldRenderSubcategoriesFromRes &&
+	{res &&
 		res.categoryData.map((cat) =>
 			res.subCategoryData.map((subcat) => <li class="ResourceLocationItem Classification">
 				<a class="ClassificationLink" href={`/${res.data.section.id}/${cat.id}/${subcat.id}`} title={`Vezi toate resursele din subcategoria ${subcat.data.title}`}>

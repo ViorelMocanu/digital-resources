@@ -19,7 +19,7 @@ export interface Props {
 }
 
 const { taglist, resslug } = Astro.props satisfies Props;
-const activePage = Astro.url.pathname.substring(1);
+const activePage = Astro.url.pathname;
 ---
 
 <ul class="ResourceTags" transition:name={`${resslug} tags`}>

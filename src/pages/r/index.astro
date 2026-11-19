@@ -7,7 +7,7 @@ import { byId } from '@utils/getSortedItems';
 import { getCollection } from 'astro:content';
 
 // By id, so two builds give the same order.
-const resources = [...(await getCollection('resources'))].sort(byId);
+const resources = (await getCollection('resources')).sort(byId);
 
 const pageTitle = 'Toate resursele de pe Resurse.dev';
 const pageDescription = '@TODO: scrie descrierea';

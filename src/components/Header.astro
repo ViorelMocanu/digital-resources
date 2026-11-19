@@ -26,7 +26,7 @@ const allSections = (await collections.all('sections'))
 	.sort((a, b) => a.data.sortOrder - b.data.sortOrder); // ordering by sortOrder asc
 
 const { breadcrumbArray = [], activeMenu } = Astro.props satisfies Props;
-const activePage = activeMenu || Astro.url.pathname.substring(1);
+const activePage = activeMenu || Astro.url.pathname;
 ---
 
 <header class="Header" transition:name="Header">

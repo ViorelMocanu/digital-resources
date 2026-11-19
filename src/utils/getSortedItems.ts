@@ -1,6 +1,7 @@
 import type { CollectionKeyEnum, Order, Type } from '@config';
 import { type CollectionEntry } from 'astro:content';
 import { collections } from './collections';
+import { isValidDate } from './resourceMeta';
 
 /**
  * Compares two strings based on the specified order and returns a numerical value indicating their relative order.
@@ -19,20 +20,6 @@ function sortTexts(a: string, b: string, order: Order): 1 | -1 | 0 {
 		default:
 			throw new Error("Invalid order value. Expected 'asc' or 'desc'.");
 	}
-}
-
-/**
- * Checks if a given string is a valid date.
- * @example
- * const date1 = '2022-01-01';
- * const date2 = 'invalid date';
- * console.log(isValidDate(date1)); // true
- * console.log(isValidDate(date2)); // false
- * @param {string} dateString - The string to be checked if it represents a valid date.
- * @returns {boolean} A boolean indicating whether the input string represents a valid date (`true`) or not (`false`).
- */
-function isValidDate(dateString: string): boolean {
-	return !isNaN(Date.parse(dateString));
 }
 
 /**

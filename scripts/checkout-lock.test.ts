@@ -19,9 +19,9 @@ import {
 	readHolderSync,
 } from './checkout-lock.ts';
 import { type ChildProcess, spawn, spawnSync } from 'node:child_process';
+import { RUNNER_ROOT, findSh, isAlive, makeScratchDir, removeScratchDir, scrubbedEnv, waitFor } from './lib/scratch-git.ts';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { existsSync, mkdirSync, readFileSync, rmSync, utimesSync, writeFileSync } from 'node:fs';
-import { findSh, isAlive, makeScratchDir, removeScratchDir, scrubbedEnv, waitFor } from './lib/scratch-git.ts';
 import { join, resolve } from 'node:path';
 import { Buffer } from 'node:buffer';
 import { EventEmitter } from 'node:events';
@@ -40,9 +40,6 @@ const isWindows = process.platform === 'win32';
 
 /** A holder as the handshake carries it. */
 const HOLDER: Holder = { pid: 12345, label: 'build', command: 'astro build', started: '2026-10-25T14:02:10+03:00', token: '0123456789abcdef' };
-
-/** Where the GitHub runner checks this repository out; every socket of this file lives under its `tmp/`. */
-const RUNNER_ROOT = '/home/runner/work/digital-resources/digital-resources';
 
 // ─── Names ───────────────────────────────────────────────────────────────────
 

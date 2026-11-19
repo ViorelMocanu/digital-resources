@@ -1,19 +1,16 @@
-import { builtPages, expect, test } from './site.ts';
-import { readFileSync, statSync } from 'node:fs';
+import { builtPages, expect, test, withoutSlash } from './site.ts';
 import { DEAD_LINKS } from './known-gaps.ts';
 import { SITE_ROOT } from './server.ts';
-import { join } from 'node:path';
+import { readFileSync } from 'node:fs';
+import { resolveFile } from '../scripts/serve-static.ts';
 
 /**
- * Whether the build holds a page or a file for an address, with or without its final slash.
- * @param address A path of the site, without query or fragment.
- * @returns True when the host would answer it from the build.
+ * Whether the build holds a page or a file for an address, as the e2e server (and the host) would answer it.
+ * @param address A path of the site, without fragment.
+ * @returns True when the server would answer it from the build.
  */
 function inBuild(address: string): boolean {
-	const path = address.replace(/\/$/, '');
-	return [join(SITE_ROOT, path, 'index.html'), join(SITE_ROOT, `${path}.html`), join(SITE_ROOT, path)].some(
-		(file) => statSync(file, { throwIfNoEntry: false })?.isFile() === true
-	);
+	return resolveFile(SITE_ROOT, address) !== null;
 }
 
 /**
@@ -22,17 +19,15 @@ function inBuild(address: string): boolean {
  * @returns The file's text.
  */
 function htmlOf(page: string): string {
-	return readFileSync(page === '/404' ? join(SITE_ROOT, '404.html') : join(SITE_ROOT, page, 'index.html'), 'utf8');
+	const file = resolveFile(SITE_ROOT, page);
+	if (file === null) throw new Error(`No built file for ${page}`);
+	return readFileSync(file, 'utf8');
 }
 
 test('every link to the site leads to a built page or file, apart from the known dead links', { tag: '@desktop-only' }, () => {
-	const dead = new Set<string>();
-	for (const page of builtPages()) {
-		for (const [, href = ''] of htmlOf(page).matchAll(/<a\b[^>]*?\shref="(\/(?!\/)[^"#?]*)/g)) {
-			if (!inBuild(href)) dead.add(href);
-		}
-	}
-	expect([...dead].sort()).toEqual([...DEAD_LINKS].sort());
+	const hrefs = new Set(builtPages().flatMap((page) => [...htmlOf(page).matchAll(/<a\b[^>]*?\shref="(\/(?!\/)[^"#?]*)/g)].map(([, href = '']) => href)));
+	const dead = [...hrefs].filter((href) => !inBuild(href)).sort();
+	expect(dead).toEqual([...DEAD_LINKS].sort());
 });
 
 test('no built page writes a rating over 10 as "(10)"', { tag: '@desktop-only' }, () => {
@@ -93,7 +88,7 @@ test.describe('the pages of Phase 5', { tag: '@desktop-only' }, () => {
 			await page.goto(path);
 			const active = page.locator('footer li.FooterItem.Active');
 			await expect(active).toHaveCount(1);
-			await expect(active.locator('a')).toHaveAttribute('href', path.replace(/\/$/, ''));
+			await expect(active.locator('a')).toHaveAttribute('href', withoutSlash(path));
 		});
 	}
 

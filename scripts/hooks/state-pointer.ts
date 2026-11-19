@@ -10,17 +10,14 @@
  * injected step as JSON. Grok shows a SessionStart hook's output to nobody, and Claude Code has its own state hook
  * (`state-snapshot.mjs`), so both get nothing here.
  *
- * Uses only `node:` built-ins; no side effects on import.
+ * Uses only `node:` built-ins and the shared hook modules (`hook-io.ts`, and `scripts/lib/checkout-root.ts` for the
+ * walk up to the checkout); no side effects on import.
  */
 
-import { dirname, join } from 'node:path';
+import { MAX_MESSAGE_CHARS, asObject } from './hook-io.ts';
 import { existsSync, readFileSync } from 'node:fs';
-
-/** The longest pointer, as the guard keeps its block messages: one short paragraph. */
-const MAX_POINTER_CHARS = 600;
-
-/** How far up the walk to the checkout goes. */
-const MAX_DEPTH = 64;
+import { findCheckoutRoot } from '../lib/checkout-root.ts';
+import { join } from 'node:path';
 
 /** The index heading in docs/state/README.md. */
 const INDEX_HEADING = '## Index (newest first)';
@@ -41,7 +38,7 @@ export function newestSnapshot(readme: string): string | null {
  * The pointer text.
  * @param newest The newest snapshot's file name, or null.
  * @param compacted Whether the session was just compacted.
- * @returns At most {@link MAX_POINTER_CHARS} characters.
+ * @returns At most {@link MAX_MESSAGE_CHARS} characters, the limit the guard keeps for its block messages.
  */
 export function pointerText(newest: string | null, compacted: boolean): string {
 	const now = newest === null ? '' : ` (now docs/state/${newest})`;
@@ -50,7 +47,7 @@ export function pointerText(newest: string | null, compacted: boolean): string {
 	];
 	if (compacted)
 		lines.push('This session was just compacted: if no snapshot covers the latest work, write one now with trigger: auto-compact, and open your reply with "Resuming:".');
-	return lines.join(' ').slice(0, MAX_POINTER_CHARS);
+	return lines.join(' ').slice(0, MAX_MESSAGE_CHARS);
 }
 
 /**
@@ -71,14 +68,7 @@ export function renderPointer(vendor: string, text: string): { stdout: string } 
  * @returns The checkout root, or null.
  */
 export function findCheckout(start: string): string | null {
-	let dir = start;
-	for (let depth = 0; depth < MAX_DEPTH; depth++) {
-		if (existsSync(join(dir, '.git'))) return dir;
-		const parent = dirname(dir);
-		if (parent === dir) return null;
-		dir = parent;
-	}
-	return null;
+	return findCheckoutRoot(start);
 }
 
 /**
@@ -87,8 +77,7 @@ export function findCheckout(start: string): string | null {
  */
 function readPayload(): Record<string, unknown> {
 	try {
-		const parsed: unknown = JSON.parse(readFileSync(0, 'utf-8'));
-		return typeof parsed === 'object' && parsed !== null && !Array.isArray(parsed) ? (parsed as Record<string, unknown>) : {};
+		return asObject(JSON.parse(readFileSync(0, 'utf-8')));
 	} catch {
 		return {};
 	}

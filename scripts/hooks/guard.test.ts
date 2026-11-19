@@ -13,7 +13,7 @@ import {
 	suspicion,
 } from './guard.ts';
 import { type ChildProcess, spawn, spawnSync } from 'node:child_process';
-import { HOOK_ENV, initScratchRepo, isolatedGitEnv, makeScratchDir, removeScratchDir, scratchGit, scrubbedEnv } from '../lib/scratch-git.ts';
+import { HOOK_ENV, RUNNER_ROOT, initScratchRepo, isolatedGitEnv, makeScratchDir, removeScratchDir, scratchGit, scrubbedEnv } from '../lib/scratch-git.ts';
 import { type Holder, TOKEN_VARIABLE, handshake } from '../checkout-lock.ts';
 import { type HookOutput, runHook } from './hook-io.ts';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
@@ -1332,9 +1332,9 @@ const LOCK_SCRATCH_PREFIX = 'gl-';
 
 describe('the real-holder scratch root on the CI runner', () => {
 	it('fits a Unix socket address: at most 103 bytes, the limit in scripts/checkout-lock.ts', () => {
-		// The GitHub runner checks this repository out at this path, and mkdtemp adds six characters. Over the limit,
+		// The GitHub runner checks this repository out at RUNNER_ROOT, and mkdtemp adds six characters. Over the limit,
 		// the stand-in holder is refused (ENAMETOOLONG) and the whole suite below fails on Linux only.
-		const root = `/home/runner/work/digital-resources/digital-resources/tmp/${LOCK_SCRATCH_PREFIX}XXXXXX/repo`;
+		const root = `${RUNNER_ROOT}/tmp/${LOCK_SCRATCH_PREFIX}XXXXXX/repo`;
 		expect(Buffer.byteLength(lockAddress(root, 'linux'))).toBeLessThanOrEqual(103);
 	});
 });

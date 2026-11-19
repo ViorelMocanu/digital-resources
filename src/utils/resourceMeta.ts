@@ -1,10 +1,24 @@
 import { z } from 'astro/zod';
 
 /**
+ * Checks if a given string is a valid date.
+ * @example
+ * const date1 = '2022-01-01';
+ * const date2 = 'invalid date';
+ * console.log(isValidDate(date1)); // true
+ * console.log(isValidDate(date2)); // false
+ * @param {string} dateString - The string to be checked if it represents a valid date.
+ * @returns {boolean} A boolean indicating whether the input string represents a valid date (`true`) or not (`false`).
+ */
+export function isValidDate(dateString: string): boolean {
+	return !Number.isNaN(Date.parse(dateString));
+}
+
+/**
  * A date written as text in a content file ('15 October 2023 19:48 UTC' or ISO 8601). The schema refuses text a
  * JavaScript date cannot read, so the build names the file instead of failing later in a sort.
  */
-export const dateTextSchema = z.string().refine((text) => !Number.isNaN(Date.parse(text)), 'Data nu poate fi citită');
+export const dateTextSchema = z.string().refine(isValidDate, 'Data nu poate fi citită');
 
 /**
  * The day in Bucharest (EET, UTC+2, in winter; EEST, UTC+3, in summer). The era is asked for so that a year before

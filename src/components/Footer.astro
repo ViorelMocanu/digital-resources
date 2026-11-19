@@ -19,7 +19,7 @@ export interface Props {
 }
 
 const { activeMenu } = Astro.props satisfies Props;
-const activePage = activeMenu || Astro.url.pathname.substring(1);
+const activePage = activeMenu || Astro.url.pathname;
 const currentYear = new Date().getFullYear();
 const yearPrint = currentYear > 2023 ? ` - ${currentYear} ` : ' ';
 const allSections = await getSortedItems({
