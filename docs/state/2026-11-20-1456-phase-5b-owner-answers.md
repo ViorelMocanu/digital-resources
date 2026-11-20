@@ -5,8 +5,8 @@ trigger: pause-point
 task: the owner's 1A (Greetings on issues only) and 2A (a second audit check in CI) built, reviewed and recorded as tasks 7.5 and 7.6
 agent: Claude Code, Claude Opus 5.5, via T3 Code
 branch: main
-head: c690acd
-working_tree: .github/workflows/greetings.yml, .github/workflows/ci.yml, package.json, scripts/audit-bulk.ts and scripts/audit-bulk.test.ts (new), openspec/changes/phase-5b-owner-answers/proposal.md and tasks.md, this file and its index row
+head: 795d992
+working_tree: e2e/__screenshots__/ (new, 21 files), openspec/changes/phase-5b-owner-answers/tasks.md, this file
 supersedes: 2026-11-20-1335-phase-5b-owner-answers
 ---
 
@@ -30,7 +30,9 @@ Review workflow `wf_25ff8d0b-103` (4 lenses, a skeptic per finding) returned. Fi
 
 **Update, same session:** items 1 to 4 are applied (5 new-behaviour tests failed first, then 19 passed); the probe pair and the reviewer's stale-install probe give the expected exits; `pnpm verify` exit 0 (1,157 passed, 1 skipped, 32 files). Recorded as tasks 7.5 and 7.6, and in the proposal.
 
-**Next action:** nothing is running. Wait for walkthrough b (the first CI run on `main` that holds this work: both audit steps, the build, the browser tests and the reference screenshots) and the owner's other walkthroughs and decisions. The next `/simplify` base is `e52747e`.
+**Update, after the owner's commit `795d992` (local; `origin/main` is still `c690acd`):** walkthrough b's download is done. The `reference-screenshots` artifact of run 44737303686 is in `e2e/__screenshots__/` (task 7.7). Pull request 394 (9 minor and patch updates) passes the new check on its own lockfile: "No known advisory in 584 versions of 552 production packages."
+
+**Next action:** nothing is running. The first CI run on `main` that holds `795d992` and the screenshots shows both audit steps and the first screenshot comparison; then walkthrough c (the ruleset, by 2026-11-27), d to h, and the decisions page. The next `/simplify` base is `e52747e`.
 
 ```text
 Read docs/state/2026-11-20-1456-phase-5b-owner-answers.md in the digital-resources repository, then AGENTS.md and openspec/changes/phase-5b-owner-answers/tasks.md. You are the controller of Phase 5b. Tasks 7.4 to 7.6 (the security alerts, Greetings on issues only, the second audit check) are built, checked and recorded. Act on what the owner reports: walkthrough b (the first CI run on main with this work; download the reference-screenshots artifact into e2e/__screenshots__/ and check its layout read-only), c (the ruleset), d to h, and the decisions on tmp/decisions/phase-5b.html. Then Phase 6 with /opsx-explore. Limits: no git writes, no deletes or moves, no env files, no deploys, never edit pnpm-lock.yaml by hand, no silenced checks, tests keep hand-written expected values. End with a commit message checked with pnpm exec commitlint --edit and the /simplify reminder (base e52747e).
@@ -78,7 +80,7 @@ Unchanged from the 1335 file, plus: do not merge Dependabot pull request 391 (su
 
 ## 10. Caveats and unverified claims
 
-The bulk check and the new Greetings have not run on GitHub. Linux behaviour of `pnpm list` for packages of other platforms is inferred from pnpm's source, not run.
+The bulk check, the new Greetings and the screenshot comparison have not run on GitHub. Pull request 394 raises `astro-simpleanalytics-plugin` from 0.3.17 to 0.5.0, a minor step that semver treats as major below 1.0; its own CI passed, but its build was not compared with `main`. Linux behaviour of `pnpm list` for packages of other platforms is inferred from pnpm's source, not run.
 
 ## 11. Suggested skills for the next session
 
@@ -86,4 +88,4 @@ The bulk check and the new Greetings have not run on GitHub. Linux behaviour of 
 
 ## 12. Files written or changed in this session
 
-The 1335 file's list, plus `.github/workflows/greetings.yml`, `.github/workflows/ci.yml`, `package.json`, `scripts/audit-bulk.ts`, `scripts/audit-bulk.test.ts`, this file. Local: `tmp/review-bulk/`, `tmp/work/pnpm-list-prod.json`.
+The 1335 file's list, plus `.github/workflows/greetings.yml`, `.github/workflows/ci.yml`, `package.json`, `scripts/audit-bulk.ts`, `scripts/audit-bulk.test.ts`, this file; after `795d992`, `e2e/__screenshots__/` (20 images and `REFERENCES.txt`). Local: `tmp/review-bulk/`, `tmp/work/pnpm-list-prod.json`, `tmp/work/ref-shots-44737303686/` (the download), `tmp/work/pr394-lock/`.

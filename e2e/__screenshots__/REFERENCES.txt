@@ -1,0 +1,1 @@
+Taken by the CI workflow on ubuntu-24.04. While this file is committed, a run without the images fails.
