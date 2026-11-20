@@ -28,6 +28,8 @@ Files archived with the owner's consent (moved to `tmp/archive/2026-11-15-phase-
 ## Dependencies
 
 - Added: `satori` 0.63.2, exact (published 2026-10-20; 19 new packages in the lockfile; none has an install script). It draws the cards; `sharp` 0.35.5, already a dependency, turns them into JPEG.
+- Overridden: `satori>fflate` to 0.7.5 in `pnpm-workspace.yaml` (owner, 2026-11-19, option 1A of the before-push page). satori pins fflate 0.7.3, which has a moderate advisory (GHSA-px8p-9vwx-vf98, an endless loop in `unzipSync`), so `pnpm audit --prod` failed every CI run and the build and browser tests never ran there. satori calls only `inflateSync`; 0.7.5 is the fix on the same line. Remove the override when satori asks for 0.7.5 or later itself.
+- Not changed: the local Unsupported engine warning (owner, 2026-11-19, option 2A). It appears only on a machine whose Node is outside `^24.16.0` and changes no exit code; CI runs Node 24 and does not print it.
 
 ## Placed in later phases
 

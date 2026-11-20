@@ -29,6 +29,10 @@ overrides:
     '@eslint/config-array>minimatch': '^11.0.1'
     '@typescript-eslint/typescript-estree>minimatch': '^11.0.1'
     'markdownlint-cli>minimatch': '^11.0.1'
+    # satori (the share-card renderer) pins fflate 0.7.3 exactly, and every fflate 0.7 below 0.7.5 has an open
+    # advisory (an endless loop in unzipSync). satori calls only inflateSync, so the site never reached the flaw;
+    # the override keeps the audit honest. 0.7.5 is the fix on the same line. Remove when satori asks for it itself.
+    'satori>fflate': '0.7.5'
 
 packageExtensions:
     # This package (under @astrojs/check) ships @emnapi/core 1.11.3 but leaves the matching runtime to a peer that

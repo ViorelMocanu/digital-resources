@@ -119,6 +119,7 @@ What could be wrong, what was not checked, and what was left out on purpose.
 
 | File | Trigger | What it holds |
 | --- | --- | --- |
+| [2026-11-19-2017-phase-5b-owner-answers.md](2026-11-19-2017-phase-5b-owner-answers.md) | pause-point | The owner's all A built: fflate under satori overridden to 0.7.5 (audit clean, build unchanged, 110 browser tests), the engine warning left; walkthroughs a to h and decisions N1 to N4, D6 remain |
 | [2026-11-19-1930-phase-5b-owner-answers.md](2026-11-19-1930-phase-5b-owner-answers.md) | pause-point | The engine warning is local and cosmetic; CI fails at the audit (fflate under satori); an override tried in a copy clears it with a byte-identical site; the before-push page waits for the owner |
 | [2026-11-19-1910-phase-5b-owner-answers.md](2026-11-19-1910-phase-5b-owner-answers.md) | manual-compact | The sixth simplify run committed as `e52747e`, the Node pin pushed; the owner asks whether the local Unsupported engine warning needs a fix before the next push |
 | [2026-11-16-1935-phase-5b-owner-answers.md](2026-11-16-1935-phase-5b-owner-answers.md) | pause-point | Node pinned to `^24.16.0` (owner's A, committed `f1871bf`); the sixth simplify run (base `515b802`) running as a workflow; next re-run its checks and record its row |
