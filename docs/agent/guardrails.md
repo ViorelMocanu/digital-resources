@@ -50,7 +50,7 @@ Comments in the hook scripts cite design and task numbers such as "design D3". T
 
 ## Which tools have hooks
 
-Every hook file calls the same guard with the tool's name, so each tool gets the same rules in its own output format. Verified here by feeding each tool's documented payload to the hook command through the platform shell (`scripts/hooks/hook-config.test.ts`); no tool other than Claude Code has run them live yet.
+Every hook file calls the same guard with the tool's name, so each tool gets the same rules in its own output format. Verified here by feeding each tool's documented payload to the hook command through the platform shell (`scripts/hooks/hook-config.test.ts`). Run live, besides Claude Code: Antigravity IDE 2.7.0 on 2026-11-20 (the pointer arrived, `git push --dry-run` was denied, `git status` ran); Codex on 2026-11-20 (the pointer arrived, the guard blocked a probe command, and its rules forbid `git push` offline; the live `git push` probe is still to do). Grok has not run them yet.
 
 | Tool | Files | Guard | State | The owner's one-time step |
 | --- | --- | --- | --- | --- |

@@ -45,6 +45,7 @@ Files archived with the owner's consent (moved to `tmp/archive/2026-11-15-phase-
 | The commented-out section images | 6 | Content model |
 | The stale hosts of the Content-Security-Policy | 6 | A rewrite must be tested on a Vercel preview before launch |
 | Vercel's Ignored Build Step builds production only (`exit 1` when `VERCEL_ENV` is production, `exit 0` otherwise), so no preview is ever built (found in the build log of 2026-11-16) | 6 | The CSP test above needs a preview; the setting is the owner's |
+| The home page's demo Vimeo embed asks `vimeo.com/api/v2/video/<id>.json` for its poster during the build, so the build needs the network; without it the poster is missing and the build logs an error (Codex's sandbox skipped the build for it, 2026-11-20) | 6 | The home page's content is Phase 6 scope; a fixed `poster` would end the request |
 | PostHog: eight silenced type checks in the vendor snippet, default persistence (a cookie and storage) | 6 | An analytics decision (decision page, N3) |
 | Preview images stored in the repository as WebP (owner, section 4 A) | 7 | Part of the content import |
 | A resource's own preview image on its card; a content-hash card cache | 7 | Need the downloaded images and the 2,300 pages |

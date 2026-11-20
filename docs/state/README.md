@@ -119,6 +119,7 @@ What could be wrong, what was not checked, and what was left out on purpose.
 
 | File | Trigger | What it holds |
 | --- | --- | --- |
+| [2026-11-20-2115-phase-5b-owner-answers.md](2026-11-20-2115-phase-5b-owner-answers.md) | pause-point | Walkthroughs c to e recorded (the ruleset verified, Antigravity passed, Codex short of its live push probe); research on the Grok 403 and the Antigravity file-tool names; a decision page for both is next |
 | [2026-11-20-1954-phase-5b-owner-answers.md](2026-11-20-1954-phase-5b-owner-answers.md) | pause-point | The owner's push followed (every check green, the screenshots compared); the warnings of the push output fixed: hints fail the typecheck, the astro-embed integration and the demo tweet removed; the engine warning explained |
 | [2026-11-20-1456-phase-5b-owner-answers.md](2026-11-20-1456-phase-5b-owner-answers.md) | pause-point | The owner's 1A and 2A built (Greetings on issues only; a second audit check against the bulk advisory endpoint, in CI); four review findings to apply, then the checks and the OpenSpec records |
 | [2026-11-20-1335-phase-5b-owner-answers.md](2026-11-20-1335-phase-5b-owner-answers.md) | pause-point | The open security alerts fixed: path-to-regexp under routing-utils overridden (hidden from pnpm 10's audit by an alias), four CodeQL alerts in the scripts; walkthrough a passed; the after-audit page asks about Greetings and a second audit check |

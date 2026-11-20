@@ -23,7 +23,7 @@
 - [x] 4.2 Add `.codex/hooks.json`, `.agents/hooks.json` and `.grok/hooks/guards.json`; check: `pnpm exec vitest run scripts/hooks/hook-config.test.ts`
 - [x] 4.3 Add `.codex/rules/guards.rules` and a test that the guard blocks each of its examples (24, under the read-only git policy); Codex's own load-time check of the examples waits for a trusted Codex session
 - [x] 4.4 Add the Cursor and Copilot targets to `scripts/sync-harness.config.json`, the Codex `opsx-*` aliases and the retired folders; check: `pnpm harness:sync:check` reports all 72 generated files fresh, and `pnpm verify` passes with 0 warnings (1,059 tests passed, 1 skipped; 2026-11-14)
-- [ ] 4.5 The owner trusts the hooks in Codex and Antigravity; a live blocked `git push` in each
+- [ ] 4.5 The owner trusts the hooks in Codex and Antigravity; a live blocked `git push` in each. Progress (2026-11-20): Antigravity IDE 2.7.0 with Node 24.22.2 passed: the SessionStart pointer arrived, `git push --dry-run` was denied with no review prompt ("resurse guard blocked: git push"), `git status` ran with no guard message. Codex (the desktop app's hook review, with `codex` 0.169.0-alpha.11.1 on the PATH): both project hooks trusted, the pointer arrived, the live guard blocked a probe command, and `codex execpolicy check` returned forbidden for `git push --dry-run` and no match for `git status`; the live `git push --dry-run` probe in Codex is still to do
 
 ## 5. Documents
 
