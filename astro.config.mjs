@@ -1,7 +1,6 @@
 import { ENV, URL, DEBUG } from './src/config';
 import { defineConfig } from 'astro/config';
 import { fileURLToPath } from 'url';
-import embeds from 'astro-embed/integration';
 import path from 'path';
 import sitemap from '@astrojs/sitemap';
 import { unified } from '@astrojs/markdown-remark';
@@ -71,7 +70,9 @@ export default defineConfig({
 			// (URL is the site address imported above, not the global, so the address is matched as text.)
 			filter: (page) => !/^https?:\/\/[^/]+\/login\/?$/.test(page),
 		}),
-		embeds(),
+		// No astro-embed integration: its Markdown plugin turns a bare link into a component that only MDX can draw, and
+		// this site has no MDX. It also set the Markdown plugin keys Astro 7 deprecates (test/astroConfig.test.ts). The
+		// home page imports the embed components directly.
 		// The share card of every page, drawn from the built pages (src/integrations/shareCards.ts).
 		shareCards(),
 		/*

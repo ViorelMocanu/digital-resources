@@ -9,8 +9,8 @@ import { z } from 'astro/zod';
 /**
  * Loads every Markdown file of one collection folder. The id of an entry is its `slug` frontmatter field when it
  * has one, else its file name without the extension: the value `entry.slug` had before the Content Layer.
- * @param {string} folder The collection's folder name under `src/content/`.
- * @returns {ReturnType<typeof glob>} The loader for `defineCollection`.
+ * @param folder The collection's folder name under `src/content/`.
+ * @returns The loader for `defineCollection`.
  */
 const markdownIn = (folder: string) => glob({ pattern: '**/[^_]*.md', base: `./src/content/${folder}` });
 

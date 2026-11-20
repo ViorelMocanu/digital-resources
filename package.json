@@ -47,7 +47,7 @@
 		"test:unit": "vitest run",
 		"test:e2e": "node scripts/checkout-lock.ts test:e2e \"playwright test\"",
 		"test": "pnpm test:unit && pnpm test:e2e",
-		"typecheck": "pnpm astro check && pnpm tsc --project tsconfig.json",
+		"typecheck": "pnpm astro check --minimumFailingSeverity hint && pnpm tsc --project tsconfig.json",
 		"verify": "pnpm lint && pnpm typecheck && pnpm test:unit && pnpm harness:sync:check && pnpm format",
 		"verify:fix": "node scripts/checkout-lock.ts verify:fix \"pnpm lint:fix && pnpm typecheck && pnpm test:unit && pnpm harness:sync && pnpm format:fix\"",
 		"harness:sync": "node scripts/checkout-lock.ts harness:sync \"node scripts/sync-harness.ts\"",

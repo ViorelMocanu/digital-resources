@@ -1,5 +1,7 @@
 ---
-import { Tweet, Vimeo, YouTube } from 'astro-embed';
+// No Tweet embed: X's oEmbed endpoint answers the build with HTTP 403, so the demo tweet drew nothing and logged an
+// error in every build.
+import { Vimeo, YouTube } from 'astro-embed';
 import Layout from '@layouts/Layout.astro';
 import { Content as Readme } from '../../README.md';
 import { SocialShare } from 'astro-social-share';
@@ -20,7 +22,6 @@ const pageDescription = '@TODO: scrie descrierea';
 			<div style="background: white; padding: 1rem">
 				<SocialShare description={pageDescription} title={pageTitle} />
 			</div>
-			<Tweet id="https://twitter.com/ViorelMocanu/status/1490009403717668867" />
 			<Vimeo id="https://vimeo.com/824922485" />
 			<YouTube id="0vFIq5y9hgg" />
 			<!--ResponsiveImage image={testImage} alt="Test 1234" width={2560} height={1440} lazyLoading={true} classList={['TestClassName', 'test2']} breakpoint={1100} /-->

@@ -10,7 +10,7 @@ const sections = [{ id: 'front-end', collection: 'sections' }];
 
 /**
  * A loader that answers from the two lists above and counts its calls.
- * @returns {ReturnType<typeof vi.fn>} The loader, as a mock.
+ * @returns The loader, as a mock.
  */
 function fakeLoad() {
 	return vi.fn(async (key: CollectionKey) => (key === 'tags' ? tags : sections) as unknown as CollectionEntry<CollectionKey>[]);
