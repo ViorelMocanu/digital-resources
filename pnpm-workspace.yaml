@@ -33,6 +33,12 @@ overrides:
     # advisory (an endless loop in unzipSync). satori calls only inflateSync, so the site never reached the flaw;
     # the override keeps the audit honest. 0.7.5 is the fix on the same line. Remove when satori asks for it itself.
     'satori>fflate': '0.7.5'
+    # routing-utils (under the Vercel adapter) pins path-to-regexp 6.1.0 exactly, and every 6.x below 6.3.0 has an
+    # open advisory (backtracking regular expressions). It already carries 6.3.0 under an alias and compares the two;
+    # the one pattern the site sends it, the /_astro/ header, compiles the same in both. pnpm 10's audit never sees
+    # 6.1.0, because the alias has the same real name: test/lockfileAdvisories.test.ts guards it. Remove when
+    # routing-utils asks for 6.3.0 or later itself.
+    '@vercel/routing-utils>path-to-regexp': '6.3.0'
 
 packageExtensions:
     # This package (under @astrojs/check) ships @emnapi/core 1.11.3 but leaves the matching runtime to a peer that

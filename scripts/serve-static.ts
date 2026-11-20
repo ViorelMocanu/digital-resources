@@ -10,8 +10,7 @@
 
 import { type Server, createServer } from 'node:http';
 import { createReadStream, existsSync, statSync } from 'node:fs';
-import { extname, join, resolve } from 'node:path';
-import { isInside } from './lib/checkout-root.ts';
+import { extname, join, relative, resolve, sep } from 'node:path';
 
 /** The build output of this repository. */
 export const DEFAULT_ROOT = resolve(import.meta.dirname, '..', '.vercel', 'output', 'static');
@@ -65,7 +64,11 @@ export function resolveFile(root: string, url: string): string | null {
 	// No file name holds a null byte, and the file system calls throw on one.
 	if (path.includes('\0')) return null;
 	const target = resolve(join(base, path));
-	if (!isInside(target, base, process.platform)) return null;
+	// The way from the served folder leaves it only through a leading `..` segment. `relative` ignores letter case on
+	// Windows, as the file system does. CodeQL accepts this shape as a containment check; it cannot see one through
+	// isInside, which normalises both paths before it compares them.
+	const way = relative(base, target);
+	if (way.startsWith('..' + sep) || way === '..') return null;
 	const candidates = [target, join(target, 'index.html'), `${target}.html`];
 	return candidates.find((file) => statSync(file, { throwIfNoEntry: false })?.isFile()) ?? null;
 }

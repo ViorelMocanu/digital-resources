@@ -387,7 +387,7 @@ function aliasSkill(config: SyncConfig, name: string, content: string): string {
  * @returns The `agents/openai.yaml` text, with two-space indentation.
  */
 function aliasPolicy(config: SyncConfig): string {
-	const header = config.generatedHeader.replace(/^<!--\s*/, '').replace(/\s*-->$/, '');
+	const header = config.generatedHeader.replace(/^<!--\s*/, '').replace(/\s*--!?>$/, '');
 	return `# ${header}\npolicy:\n  allow_implicit_invocation: false\n`;
 }
 

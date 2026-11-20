@@ -1292,6 +1292,11 @@ describe('opsx alias generator', () => {
 		expect(read('.agents/skills/opsx-verify/agents/openai.yaml')).toBe('# GENERATED\npolicy:\n  allow_implicit_invocation: false\n');
 	});
 
+	it('takes the comment markers off a header that ends in --!>, which HTML also reads as the end of a comment', () => {
+		syncAll(aliasConfig({ generatedHeader: '<!-- GENERATED --!>' }), fixtureDir);
+		expect(read('.agents/skills/opsx-verify/agents/openai.yaml')).toBe('# GENERATED\npolicy:\n  allow_implicit_invocation: false\n');
+	});
+
 	it('gives a workflow outside the filter no alias', () => {
 		syncAll(aliasConfig(), fixtureDir);
 		expect(listFiles('.agents/skills')).toEqual(['opsx-verify/SKILL.md', 'opsx-verify/agents/openai.yaml', 'tdd/SKILL.md']);

@@ -22,6 +22,7 @@ beforeAll(async () => {
 	writeFileSync(join(root, 'despre', 'index.html'), '<h1>Despre</h1>');
 	writeFileSync(join(root, '_astro', 'style.css'), 'body { margin: 0; }');
 	writeFileSync(join(root, 'with space.txt'), 'spaced');
+	writeFileSync(join(root, '..notes.txt'), 'dotted');
 	server = createStaticServer(root);
 	await new Promise<void>((done) => server.listen(0, '127.0.0.1', done));
 	origin = `http://127.0.0.1:${(server.address() as AddressInfo).port}`;
@@ -54,6 +55,10 @@ describe('resolveFile', () => {
 		expect(resolveFile(root, '/../secret.txt')).toBeNull();
 		expect(resolveFile(root, '/%2e%2e/secret.txt')).toBeNull();
 		expect(resolveFile(root, '/despre/../../secret.txt')).toBeNull();
+	});
+
+	it('serves a file whose name starts with two dots, which does not leave the served folder', () => {
+		expect(resolveFile(root, '/..notes.txt')).toBe(join(root, '..notes.txt'));
 	});
 
 	it('returns nothing for a path with a null byte, which no file name can hold', () => {
