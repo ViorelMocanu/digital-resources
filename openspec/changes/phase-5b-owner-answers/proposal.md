@@ -22,6 +22,8 @@ What the build and the checks do:
 - The sitemap integration's unused `i18n` block goes; the sitemap is byte-identical apart from leaving out `/login`.
 - The stop-sign emoji markers leave the comments of `src/config.ts`.
 - Four CodeQL alerts in the scripts (owner, 2026-11-20): the static server for the browser tests checks containment with `path.relative`, a shape CodeQL recognises; the formatter test helper removes tags until nothing changes; the harness sync also strips a comment that ends in `--!>`. Only the last changes an output, and only for a header no config uses.
+- A second audit check in CI (owner, 2026-11-20, option 2A): `pnpm audit:bulk` sends every production version in `pnpm-lock.yaml` to the registry's bulk advisory endpoint, so a renamed copy that pnpm 10's audit drops is still checked. It runs after `pnpm audit --prod` and needs the network, like that step; `pnpm verify` does not run it.
+- Greetings (owner, 2026-11-20, option 1A): the workflow thanks the opener of a first issue only. GitHub blocks `pull_request_target` in public repositories from 2026-12-02, and that trigger was the only way to greet a pull request from a fork.
 - `engines.node` is `^24.16.0` instead of `>=24.16` (owner, 2026-11-16, option A of the Node pin page). Vercel turns an open range into the newest Node it offers (26), while the CI tests run on Node 24 (`.nvmrc`). A caret range keeps Vercel on Node 24, which still ships the Corepack that `ENABLE_EXPERIMENTAL_COREPACK` needs, and keeps the 24.16 minimum. The Phase 2 spec line follows.
 
 Files archived with the owner's consent (moved to `tmp/archive/2026-11-15-phase-5/`, gitignored, with a README; git history keeps them): `src/layouts/LayoutMarkdown.astro`, `src/components/MarkdownTOC.astro`, `patches/astro-capo@0.0.1.patch`, `src/vite-env.d.ts`.
@@ -49,7 +51,7 @@ Files archived with the owner's consent (moved to `tmp/archive/2026-11-15-phase-
 
 ## Waiting for the owner
 
-The `/login` text, the card design, the PostHog choice, the card cache (decision page N1 to N4); the Greetings workflow, which GitHub blocks from 2026-12-02, and a second audit check in CI for the alias blind spot (decision page `after-audit`); the walkthroughs: the Vercel variable before the push, the first CI run and its references, CI as a required check, trusting the hooks in Codex, Antigravity and Grok, the OpenSpec dry run, the security software trial.
+The `/login` text, the card design, the PostHog choice, the card cache (decision page N1 to N4); the walkthroughs: the Vercel variable before the push, the first CI run and its references, CI as a required check, trusting the hooks in Codex, Antigravity and Grok, the OpenSpec dry run, the security software trial.
 
 ## Impact
 

@@ -1,16 +1,21 @@
 name: Greetings
 
-on: [pull_request_target, issues]
+# Thanks a person for their first issue. Only an opened issue starts it: from 2 December 2026 GitHub blocks
+# pull_request_target in public repositories unless an Actions policy allows it, so pull requests are not greeted.
+on:
+    issues:
+        types: [opened]
 
 jobs:
     greeting:
         runs-on: ubuntu-latest
         permissions:
             issues: write
-            pull-requests: write
+            # When the opener already has an earlier issue, the action lists the pull requests before it skips.
+            pull-requests: read
         steps:
-            - uses: actions/first-interaction@3c71ce730280171fd1cfb57c00c774f8998586f7 # v1
+            - uses: actions/first-interaction@1c4688942c71f71d4f5502a26ea67c331730fa4d # v3.1.0
               with:
-                  repo-token: ${{ secrets.GITHUB_TOKEN }}
-                  issue-message: 'Viorel thanks you for contributing your first issue! :)'
-                  pr-message: 'Viorel thanks you for contributing your first Pull Request! :)'
+                  issue_message: 'Viorel thanks you for contributing your first issue! :)'
+                  # The action asks for both messages on every run, though only issues start this workflow.
+                  pr_message: 'Viorel thanks you for contributing your first Pull Request! :)'

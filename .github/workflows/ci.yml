@@ -53,6 +53,12 @@ jobs:
       - name: Known vulnerabilities in what the site ships
         run: pnpm audit --prod
 
+      # pnpm 10's audit keys the tree it sends by real package name, so a second version of a package installed under
+      # another name never reaches the registry. This step sends every production version in pnpm-lock.yaml to the
+      # bulk advisory endpoint instead (scripts/audit-bulk.ts).
+      - name: Known vulnerabilities in every version the site ships, renamed copies included
+        run: pnpm audit:bulk
+
       - name: Build
         run: pnpm build
 
