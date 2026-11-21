@@ -540,6 +540,9 @@ const CONTENT_KEYS = new Set([
 	'text',
 ]);
 
+/** The argument names whose value is text only when it is a plain string: a search's `Query`. A path nested under one is still a path. */
+const TEXT_KEYS = new Set(['query']);
+
 /** One string value of a tool input. */
 interface ToolString {
 	value: string;
@@ -559,7 +562,10 @@ function collectStrings(value: unknown, out: ToolString[], depth: number, conten
 	if (typeof value === 'string') out.push({ value, content });
 	else if (Array.isArray(value)) for (const item of value) collectStrings(item, out, depth + 1, content);
 	else if (typeof value === 'object' && value !== null) {
-		for (const [key, item] of Object.entries(value)) collectStrings(item, out, depth + 1, content || CONTENT_KEYS.has(key.toLowerCase().replace(/[_-]/g, '')));
+		for (const [key, item] of Object.entries(value)) {
+			const name = key.toLowerCase().replace(/[_-]/g, '');
+			collectStrings(item, out, depth + 1, content || CONTENT_KEYS.has(name) || (typeof item === 'string' && TEXT_KEYS.has(name)));
+		}
 	}
 }
 

@@ -50,18 +50,18 @@ Comments in the hook scripts cite design and task numbers such as "design D3". T
 
 ## Which tools have hooks
 
-Every hook file calls the same guard with the tool's name, so each tool gets the same rules in its own output format. Verified here by feeding each tool's documented payload to the hook command through the platform shell (`scripts/hooks/hook-config.test.ts`). Run live, besides Claude Code: Antigravity IDE 2.7.0 on 2026-11-20 (the pointer arrived, `git push --dry-run` was denied, `git status` ran); Codex on 2026-11-20 (the pointer arrived, the guard blocked a probe command, and its rules forbid `git push` offline; the live `git push` probe is still to do). Grok has not run them yet.
+Every hook file calls the same guard with the tool's name, so each tool gets the same rules in its own output format. Verified here by feeding each tool's documented payload to the hook command through the platform shell (`scripts/hooks/hook-config.test.ts`). Run live, besides Claude Code, on 2026-11-20: Antigravity IDE 2.7.0 and Codex (in each, the pointer arrived, `git push --dry-run` was denied and `git status` ran; Codex's rules also forbid `git push` offline). Grok has not run them yet: Grok Build refuses an account whose privacy setting is Legacy.
 
 | Tool | Files | Guard | State | The owner's one-time step |
 | --- | --- | --- | --- | --- |
 | Claude Code | `.claude/settings.json` | Every shell call | `state-snapshot.mjs` (above) | None |
 | Codex | `.codex/hooks.json` | Shell and patch tools | Pointer at every session start, with a line after a compaction | Trust the project, then each hook in the native Codex TUI (`/hooks`); again after every edit of the file |
-| Antigravity | `.agents/hooks.json` | Shell and file tools | Pointer at session start | Accept the workspace trust prompt |
+| Antigravity | `.agents/hooks.json` | Shell, file and search tools: `run_command`, any tool with `file` in its name, `grep_search`, `search_directory` | Pointer at session start | Accept the workspace trust prompt |
 | Grok | `.grok/hooks/guards.json`; it also runs the Claude hooks | Shell and file tools | None: its session-start output reaches nobody | Trust the folder |
 | Copilot CLI | Reads the Claude settings | Every shell call | None | None |
 | Cursor | None | None | None | Rules only |
 
-The pointer (`scripts/hooks/state-pointer.ts`) names `AGENTS.md`, the index in `docs/state/README.md` and its top row. Codex and Antigravity deny with exit 0 and JSON; an exit code other than 0 lets the call through in both, so a guard that crashes fails open there.
+For a tool that is not a shell, the guard reads every single-line argument as a path, except the text ones (old and new text, content, a search's query), and denies a call that names an env file; a search for the words `.env.local` runs, a search whose path or file filter names `.env.local` does not. The pointer (`scripts/hooks/state-pointer.ts`) names `AGENTS.md`, the index in `docs/state/README.md` and its top row. Codex and Antigravity deny with exit 0 and JSON; an exit code other than 0 lets the call through in both, so a guard that crashes fails open there.
 
 ## The owner's switches
 

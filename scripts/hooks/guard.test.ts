@@ -687,6 +687,17 @@ describe('env rule (D8)', () => {
 		expect(checkFileTool({ path: '.env', old_string: 'A=1', new_string: 'A=2' })).not.toBeNull();
 		expect(checkFileTool({ TargetFile: 'config/.dev.vars', CodeContent: 'A=1' })).not.toBeNull();
 	});
+
+	it("reads a search's query as text and its path and file filter as paths (owner decision Q1 A, 2026-11-20)", () => {
+		expect(checkFileTool({ SearchPath: 'src', Query: '.env.local', Includes: ['*.ts'] })).toBeNull();
+		expect(checkFileTool({ SearchPath: 'tmp/.env.probe', Query: 'PROBE' })).not.toBeNull();
+		expect(checkFileTool({ SearchPath: 'src', Query: 'KEY', Includes: ['.env*'] })).not.toBeNull();
+	});
+
+	it('reads a path nested under a query as a path (review finding, 2026-11-20)', () => {
+		expect(checkFileTool({ SearchPath: 'src', Query: { path: '.env.local' } })).not.toBeNull();
+		expect(checkFileTool({ query: ['config/.dev.vars'] })).not.toBeNull();
+	});
 });
 
 describe('suspicion (D4)', () => {

@@ -2,7 +2,7 @@
 	"resurse-guards": {
 		"PreToolUse": [
 			{
-				"matcher": "run_command|view_file|write_to_file|replace_file_content|multi_replace_file_content",
+				"matcher": "run_command|.*file.*|grep_search|search_directory",
 				"hooks": [
 					{
 						"type": "command",
