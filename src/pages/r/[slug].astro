@@ -99,10 +99,26 @@ breadcrumbArray.push({
 	cardFacts={[RESOURCE_TYPE_CHIPS[entry.data.type], ...(entry.data.rating === undefined ? [] : [{ text: formatRating(entry.data.rating) }])]}
 >
 	<div class="Hero" id="hero">
-		{entry.data.image && entry.data.image.imageUrl && entry.data.url && <a class="HeroVisual" href={entry.data.url} title={`Vizitează resursa: ${entry.data.title}`}>
+		{entry.data.image && entry.data.image.imageUrl && entry.data.url && <a
+			class="HeroVisual"
+			href={entry.data.url}
+			data-posthog-resource-link
+			data-resource-id={entry.id}
+			data-resource-type={entry.data.type}
+			data-source="hero_image"
+			title={`Vizitează resursa: ${entry.data.title}`}
+		>
 			<img src={entry.data.image.imageUrl} alt={entry.data.image.imageAlt} width={1200} height={600} class:list={['HeroImage', 'ExternalImage']} />
 		</a>}
-		{entry.data.image && entry.data.image.imageLocalUrl && entry.data.url && <a class="HeroVisual" href={entry.data.url} title={`Vizitează resursa: ${entry.data.title}`}>
+		{entry.data.image && entry.data.image.imageLocalUrl && entry.data.url && <a
+			class="HeroVisual"
+			href={entry.data.url}
+			data-posthog-resource-link
+			data-resource-id={entry.id}
+			data-resource-type={entry.data.type}
+			data-source="hero_image"
+			title={`Vizitează resursa: ${entry.data.title}`}
+		>
 			{/*
 					<ResponsiveImage
 						image={entry.data.image.imageLocalUrl}
@@ -119,6 +135,10 @@ breadcrumbArray.push({
 			{entry.data.url && <a
 				class="HeroResourceLink"
 				href={entry.data.url}
+				data-posthog-resource-link
+				data-resource-id={entry.id}
+				data-resource-type={entry.data.type}
+				data-source="resource_title"
 				title={`Vizitează resursa: ${entry.data.title}`}
 				target="_blank"
 				rel="external noopener noreferrer"
@@ -385,3 +405,23 @@ breadcrumbArray.push({
 		<div class="MainActions">@TODO: add main actions</div>
 	</main>
 </Layout>
+
+<script>
+	document.addEventListener('click', (event) => {
+		const resourceLink = (event.target as Element).closest<HTMLAnchorElement>('[data-posthog-resource-link]');
+		if (!resourceLink) return;
+
+		/* @ts-ignore */
+		window.posthog?.capture('resource_outbound_opened', {
+			resource_id: resourceLink.dataset.resourceId,
+			resource_type: resourceLink.dataset.resourceType,
+			source: resourceLink.dataset.source,
+		});
+		/* @ts-ignore */
+		window.posthog?.logger?.info('resource outbound opened', {
+			resource_id: resourceLink.dataset.resourceId,
+			resource_type: resourceLink.dataset.resourceType,
+			source: resourceLink.dataset.source,
+		});
+	});
+</script>

@@ -309,9 +309,14 @@ const sectionCategories = !!section?.data?.categories;
 				const alreadyOpen = document.querySelector('.FilterOptions[open]');
 				// Dacă se găsesc astfel de butoane și ele sunt diferite de cel pe care am dat click acum, trebuie scos atributul `open` de pe ele ca să nu se suprapună.
 				if (alreadyOpen !== null && alreadyOpen != filterOptions[i]) alreadyOpen.removeAttribute('open');
-				/* @ts-ignore */
-				posthog && posthog.capture('Filter', { property: filterOptions[i] });
 				return true;
+			});
+			filterOptions[i]?.addEventListener('toggle', function () {
+				/* @ts-ignore */
+				window.posthog?.capture('resource_filter_toggled', {
+					panel_type: i === 0 ? 'filter' : 'sort',
+					action: filterOptions[i]?.hasAttribute('open') ? 'opened' : 'closed',
+				});
 			});
 		}
 
@@ -324,7 +329,9 @@ const sectionCategories = !!section?.data?.categories;
 			const alreadyOpen = document.querySelector('.FilterOptions[open]');
 			alreadyOpen?.removeAttribute('open');
 			/* @ts-ignore */
-			posthog && posthog.capture('Trigger', { property: 'close' });
+			window.posthog?.capture('resource_category_menu_toggled', {
+				action: body.classList.contains('ActiveSubnav') ? 'opened' : 'closed',
+			});
 			return false;
 		});
 
@@ -336,7 +343,7 @@ const sectionCategories = !!section?.data?.categories;
 			const alreadyOpen = document.querySelector('.FilterOptions[open]');
 			alreadyOpen?.removeAttribute('open');
 			/* @ts-ignore */
-			posthog && posthog.capture('Filter', { property: 'close' });
+			window.posthog?.capture('resource_category_menu_toggled', { action: 'closed' });
 			return false;
 		});
 	};

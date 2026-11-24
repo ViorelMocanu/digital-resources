@@ -69,7 +69,12 @@ if (resources) {
 			{r.map((resource) => <li class="ResourceItem">
 				<div class="ResourceName">
 					<h4 class="ResourceTitle" transition:name={`${resource.id} title`}>
-						{resource.id && <a class="ResourceLink" href={`/r/${resource.id}`} title={`Vizitează resursa intitulată: ${resource.data.title}`}>
+						{resource.id && <a
+							class="ResourceLink"
+							href={`/r/${resource.id}`}
+							data-resource-id={resource.id}
+							title={`Vizitează resursa intitulată: ${resource.data.title}`}
+						>
 							{resource.data.title}
 							{resourceTypeIcon[resource.data.type]}
 						</a>}
@@ -135,3 +140,15 @@ if (resources) {
 
 	{page && <Pagination page={page} boxHeader={true} pageTitle={pageTitle} />}
 </div>
+
+<script>
+	document.addEventListener('click', (event) => {
+		const resourceLink = (event.target as Element).closest<HTMLAnchorElement>('.ResourceLink');
+		if (!resourceLink) return;
+
+		/* @ts-ignore */
+		window.posthog?.capture('resource_list_item_opened', {
+			resource_id: resourceLink.dataset.resourceId,
+		});
+	});
+</script>

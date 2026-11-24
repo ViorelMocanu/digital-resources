@@ -65,6 +65,7 @@
 		"astro-embed": "^0.14.0",
 		"astro-simpleanalytics-plugin": "^0.3.17",
 		"astro-social-share": "^2.0.2",
+		"posthog-js": "^1.450.0",
 		"sass-embedded": "^1.107.1",
 		"satori": "0.63.2",
 		"sharp": "^0.35.5"

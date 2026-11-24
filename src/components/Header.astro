@@ -97,15 +97,27 @@ const activePage = activeMenu || Astro.url.pathname;
 				this.setAttribute('aria-expanded', 'true');
 				this.setAttribute('aria-label', 'Închide meniul principal');
 				/* @ts-ignore */
-				posthog && posthog.capture('Menu', { property: 'open' });
+				window.posthog?.capture('navigation_menu_toggled', { action: 'opened' });
+				/* @ts-ignore */
+				window.posthog?.logger?.info('navigation menu toggled', { action: 'opened' });
 			} else {
 				delete document.body.dataset.menuOpen;
 				this.setAttribute('aria-expanded', 'false');
 				this.setAttribute('aria-label', 'Deschide meniul principal');
 				/* @ts-ignore */
-				posthog && posthog.capture('Menu', { property: 'close' });
+				window.posthog?.capture('navigation_menu_toggled', { action: 'closed' });
+				/* @ts-ignore */
+				window.posthog?.logger?.info('navigation menu toggled', { action: 'closed' });
 			}
 			return false;
+		});
+		const searchForm = document.querySelector<HTMLFormElement>('.SearchForm');
+		searchForm?.addEventListener('submit', () => {
+			// Deliberately exclude the visitor's search text because it can contain PII.
+			/* @ts-ignore */
+			window.posthog?.capture('site_search_submitted', { source: 'primary_navigation' });
+			/* @ts-ignore */
+			window.posthog?.logger?.info('site search submitted', { source: 'primary_navigation' });
 		});
 	};
 	window.menuListeners();
