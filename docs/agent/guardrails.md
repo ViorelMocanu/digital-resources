@@ -2,7 +2,7 @@
 
 The hooks and deny rules that stop the commands the owner keeps for themselves. Each script's opening comment is the full description; this page is the short version and the place the block messages point to.
 
-**A guardrail, not a sandbox.** The guard reads the command text an agent sends to its shell tool. A script that runs git itself, a command built at run time, or an agent that edits a settings file gets past it. The rules in [`AGENTS.md`](../../AGENTS.md) apply in full; the hooks are a floor under them. A command the owner types in their own terminal never reaches a hook.
+**A guardrail, not a sandbox.** The guard reads the command text an agent sends to its shell tool. A script that runs git itself, a command built at run time, an agent that edits a settings file, a tool that runs code without a shell (Antigravity's `run_workflow`, an MCP server's code tool) or an agent that drives the screen gets past it. The rules in [`AGENTS.md`](../../AGENTS.md) apply in full; the hooks are a floor under them. A command the owner types in their own terminal never reaches a hook.
 
 ## The command guard
 
@@ -50,18 +50,18 @@ Comments in the hook scripts cite design and task numbers such as "design D3". T
 
 ## Which tools have hooks
 
-Every hook file calls the same guard with the tool's name, so each tool gets the same rules in its own output format. Verified here by feeding each tool's documented payload to the hook command through the platform shell (`scripts/hooks/hook-config.test.ts`). Run live, besides Claude Code, on 2026-11-20: Antigravity IDE 2.7.0 and Codex (in each, the pointer arrived, `git push --dry-run` was denied and `git status` ran; Codex's rules also forbid `git push` offline). Grok has not run them yet: Grok Build refuses an account whose privacy setting is Legacy.
+Every hook file calls the same guard with the tool's name, so each tool gets the same rules in its own output format. Verified here by feeding each tool's documented payload to the hook command through the platform shell (`scripts/hooks/hook-config.test.ts`). Run live, besides Claude Code: Antigravity IDE 2.7.0 and Codex on 2026-11-20 (in each, the pointer arrived, `git push --dry-run` was denied and `git status` ran; Codex's rules also forbid `git push` offline), and Grok 1.0.92 on 2026-11-24 (`git commit --dry-run` and a `read_file` of an env file were denied, `git status` ran). On 2026-11-24 Antigravity's wider matcher denied a `read_file` of an env file; its agent listed no search tool.
 
 | Tool | Files | Guard | State | The owner's one-time step |
 | --- | --- | --- | --- | --- |
 | Claude Code | `.claude/settings.json` | Every shell call | `state-snapshot.mjs` (above) | None |
 | Codex | `.codex/hooks.json` | Shell and patch tools | Pointer at every session start, with a line after a compaction | Trust the project, then each hook in the native Codex TUI (`/hooks`); again after every edit of the file |
-| Antigravity | `.agents/hooks.json` | Shell, file and search tools: `run_command`, any tool with `file` in its name, `grep_search`, `search_directory` | Pointer at session start | Accept the workspace trust prompt |
-| Grok | `.grok/hooks/guards.json`; it also runs the Claude hooks | Shell and file tools | None: its session-start output reaches nobody | Trust the folder |
+| Antigravity | `.agents/hooks.json` | Shell, file and search tools: `run_command`, any tool with `file` in its name, `grep_search`, `search_directory`. Not `manage_task`, `run_workflow` or `call_mcp_tool` | Pointer at session start | Accept the workspace trust prompt |
+| Grok | `.grok/hooks/guards.json`; it also runs the Claude hooks, whose guard entry allows everything there | Shell and file tools: `run_terminal_command`, `read_file`, `write`, `search_replace`. Not `grep`, `list_dir` or `monitor` | None: its session-start output reaches nobody | Trust the folder |
 | Copilot CLI | Reads the Claude settings | Every shell call | None | None |
 | Cursor | None | None | None | Rules only |
 
-For a tool that is not a shell, the guard reads every single-line argument as a path, except the text ones (old and new text, content, a search's query), and denies a call that names an env file; a search for the words `.env.local` runs, a search whose path or file filter names `.env.local` does not. The pointer (`scripts/hooks/state-pointer.ts`) names `AGENTS.md`, the index in `docs/state/README.md` and its top row. Codex and Antigravity deny with exit 0 and JSON; an exit code other than 0 lets the call through in both, so a guard that crashes fails open there.
+For a tool that is not a shell, the guard reads every single-line argument as a path, except the text ones (old and new text, content, a search's query, and `Target` and `Replacement` in Antigravity's `edit_file`), and denies a call that names an env file; a search for the words `.env.local` runs, a search whose path or file filter names `.env.local` does not. The pointer (`scripts/hooks/state-pointer.ts`) names `AGENTS.md`, the index in `docs/state/README.md` and its top row. Codex and Antigravity deny with exit 0 and JSON; an exit code other than 0 lets the call through in both, so a guard that crashes fails open there.
 
 ## The owner's switches
 

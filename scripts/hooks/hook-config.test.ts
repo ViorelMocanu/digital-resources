@@ -136,14 +136,22 @@ describe('the guard launchers, run as the tools run them', () => {
 	it('Antigravity: a search for the text of an env file name runs', () => {
 		expect(run(guardOf('.agents/hooks.json'), antigravity('grep_search', { SearchPath: join(repoRoot, 'src'), Query: '.env.local' }))).toEqual({ status: 0, stdout: '' });
 	});
+
+	// IDE 2.7.0 runs agy 1.5.15, whose edit_file takes Path, Target, Replacement and Edits[{Target, Replacement}] (its
+	// tool schema, read 2026-11-24); Target and Replacement are the old and new text.
+	it('Antigravity: an edit_file that writes the text of an env file name into .gitignore runs', () => {
+		const edit = antigravity('edit_file', { Path: join(repoRoot, '.gitignore'), Target: 'node_modules/', Replacement: '.env.local' });
+		expect(run(guardOf('.agents/hooks.json'), edit)).toEqual({ status: 0, stdout: '' });
+	});
 });
 
 // Antigravity's tool names, read 2026-11-20: its hooks page names run_command, view_file, write_to_file,
-// replace_file_content, multi_replace_file_content and grep_search; read_file and write_file are its permission rule
-// names, kept in case a hook ever receives them; its SDK says create_file, edit_file, find_file and search_directory.
-// find_file only lists names, but `.*file.*` sends it to the guard too, which denies a pattern naming an env file.
-// Whether Antigravity anchors the matcher is not documented, so each name is tried both ways (owner decision Q1 A,
-// 2026-11-20).
+// replace_file_content, multi_replace_file_content and grep_search; its permission rules name read_file and write_file;
+// its SDK says create_file, edit_file, find_file and search_directory. Live on 2026-11-24, the IDE 2.7.0 agent listed
+// read_file, write_file, edit_file and run_command, and the hook denied its read_file of an env file; it also listed
+// send_message, define_subagent and schedule, which carry prompt text and stay out. find_file only lists names, but
+// `.*file.*` sends it to the guard too, which denies a pattern naming an env file. Whether Antigravity anchors the
+// matcher is not documented, so each name is tried both ways (owner decision Q1 A, 2026-11-20).
 const GUARDED_TOOLS = [
 	'run_command',
 	'view_file',
@@ -158,7 +166,7 @@ const GUARDED_TOOLS = [
 	'grep_search',
 	'search_directory',
 ];
-const UNGUARDED_TOOLS = ['search_web', 'ask_question', 'generate_image', 'read_url_content', 'invoke_subagent'];
+const UNGUARDED_TOOLS = ['search_web', 'ask_question', 'generate_image', 'read_url_content', 'invoke_subagent', 'send_message', 'define_subagent', 'schedule'];
 
 describe('the Antigravity matcher', () => {
 	const file = JSON.parse(readFileSync(join(repoRoot, '.agents', 'hooks.json'), 'utf-8')) as { 'resurse-guards': { PreToolUse: { matcher: string }[] } };

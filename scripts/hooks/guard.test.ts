@@ -698,6 +698,17 @@ describe('env rule (D8)', () => {
 		expect(checkFileTool({ SearchPath: 'src', Query: { path: '.env.local' } })).not.toBeNull();
 		expect(checkFileTool({ query: ['config/.dev.vars'] })).not.toBeNull();
 	});
+
+	it("reads the old and new text of Antigravity's edit_file as text, and only for that tool (review finding, 2026-11-24)", () => {
+		expect(checkFileTool({ Path: 'G:\\repo\\.gitignore', Target: 'node_modules/', Replacement: '.env.local' }, 'edit_file')).toBeNull();
+		expect(checkFileTool({ Path: '.gitignore', Target: '.env', Replacement: '' }, 'edit_file')).toBeNull();
+		expect(checkFileTool({ Path: '.gitignore', Edits: [{ Target: '# env', Replacement: '.env.local' }] }, 'edit_file')).toBeNull();
+		expect(checkFileTool({ Path: 'config/.env.local', Target: 'A=1', Replacement: 'A=2' }, 'edit_file')).not.toBeNull();
+		expect(checkFileTool({ Path: '.gitignore', Target: { path: '.env.local' } }, 'edit_file')).not.toBeNull();
+		expect(checkFileTool({ Source: 'notes.txt', Target: '.env' }, 'move_file')).not.toBeNull();
+		expect(checkFileTool({ Source: 'notes.txt', Target: '.env' })).not.toBeNull();
+		expect(checkFileTool({ Target: '.env' }, 'constructor')).not.toBeNull();
+	});
 });
 
 describe('suspicion (D4)', () => {

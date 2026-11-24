@@ -33,4 +33,4 @@ None.
 - No dependency is added, removed or upgraded.
 - `pnpm build` and `pnpm test:e2e` now run through `node scripts/checkout-lock.ts`. On Vercel and GitHub the wrapper only runs the command.
 - Out of scope: hooks for Cursor and Copilot beyond what reads the Claude settings already; a rule that blocks lockfile-changing pnpm commands outside the lock gate; Claude Code's own session-start pointer.
-- Waits for the owner: trusting the hooks once in Codex (project trust, then `/hooks`, again after each edit of `.codex/hooks.json`) and in Antigravity; a live probe of Antigravity's wider matcher; every commit.
+- Waits for the owner: every commit, and trusting the Codex hooks again after each edit of `.codex/hooks.json`. Done live: the trust steps in Codex and Antigravity (2026-11-20) and the probe of Antigravity's wider matcher (2026-11-24, task 4.7).

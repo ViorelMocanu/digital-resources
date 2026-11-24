@@ -52,7 +52,7 @@ Files archived with the owner's consent (moved to `tmp/archive/2026-11-15-phase-
 
 ## Waiting for the owner
 
-The `/login` text, the card design, the PostHog choice, the card cache (decision page N1 to N4); the walkthroughs: the Vercel variable before the push, the first CI run and its references, CI as a required check, trusting the hooks in Codex, Antigravity and Grok, the OpenSpec dry run, the security software trial.
+The `/login` text, the card design, the PostHog choice, the card cache (decision page N1 to N4); the walkthroughs left: the OpenSpec dry run and the security software trial. Done: the Vercel variable before the push, the first CI run and its references, CI as a required check, and the hooks in Codex and Antigravity (2026-11-20) and Grok (2026-11-24).
 
 ## Impact
 

@@ -541,7 +541,13 @@ const CONTENT_KEYS = new Set([
 ]);
 
 /** The argument names whose value is text only when it is a plain string: a search's `Query`. A path nested under one is still a path. */
-const TEXT_KEYS = new Set(['query']);
+const TEXT_KEYS: ReadonlySet<string> = new Set(['query']);
+
+/**
+ * More such names for one tool only, by its name in lower case: Antigravity's `edit_file` takes the old and new text as
+ * `Target` and `Replacement` (agy 1.5.15). In another tool a `Target` can be the file written, so it stays a path there.
+ */
+const TOOL_TEXT_KEYS: ReadonlyMap<string, ReadonlySet<string>> = new Map([['edit_file', new Set([...TEXT_KEYS, 'target', 'replacement'])]]);
 
 /** One string value of a tool input. */
 interface ToolString {
@@ -556,15 +562,16 @@ interface ToolString {
  * @param out The strings found so far.
  * @param depth The nesting depth.
  * @param content Whether the value sits under a content name.
+ * @param text The names whose plain string value is text: {@link TEXT_KEYS}, or the tool's set in {@link TOOL_TEXT_KEYS}.
  */
-function collectStrings(value: unknown, out: ToolString[], depth: number, content = false): void {
+function collectStrings(value: unknown, out: ToolString[], depth: number, content = false, text: ReadonlySet<string> = TEXT_KEYS): void {
 	if (out.length >= 1000 || depth > 8) return;
 	if (typeof value === 'string') out.push({ value, content });
-	else if (Array.isArray(value)) for (const item of value) collectStrings(item, out, depth + 1, content);
+	else if (Array.isArray(value)) for (const item of value) collectStrings(item, out, depth + 1, content, text);
 	else if (typeof value === 'object' && value !== null) {
 		for (const [key, item] of Object.entries(value)) {
 			const name = key.toLowerCase().replace(/[_-]/g, '');
-			collectStrings(item, out, depth + 1, content || CONTENT_KEYS.has(name) || (typeof item === 'string' && TEXT_KEYS.has(name)));
+			collectStrings(item, out, depth + 1, content || CONTENT_KEYS.has(name) || (typeof item === 'string' && text.has(name)), text);
 		}
 	}
 }
@@ -575,11 +582,12 @@ function collectStrings(value: unknown, out: ToolString[], depth: number, conten
  * patch headers. A single line of replacement text that names an env file (`.env.*` added to `.gitignore`) is not a
  * read of it.
  * @param input The tool's input.
+ * @param toolName The tool's name, which can add text names ({@link TOOL_TEXT_KEYS}).
  * @returns The block, or null.
  */
-export function checkFileTool(input: Record<string, unknown>): Block | null {
+export function checkFileTool(input: Record<string, unknown>, toolName = ''): Block | null {
 	const strings: ToolString[] = [];
-	collectStrings(input, strings, 0);
+	collectStrings(input, strings, 0, false, TOOL_TEXT_KEYS.get(toolName.toLowerCase()) ?? TEXT_KEYS);
 	for (const { value, content } of strings) {
 		const hit = value.includes('\n') ? patchHit(value) : content ? null : envHit(value);
 		if (hit !== null) return envBlock(hit);
@@ -1578,7 +1586,7 @@ export function judgeCall(context: HookContext, deps: GuardDeps): Decision {
 		if (call.command === null) return call.toolName.toLowerCase() === 'monitor' ? { allow: true } : { allow: true, note: 'payload has no command; allowed' };
 		block = checkShell(call.command, { platform: context.platform, env: context.env, cwd: context.cwd, root: context.root, host: context.host, now: context.now, deps });
 	} else {
-		block = checkFileTool(call.input);
+		block = checkFileTool(call.input, call.toolName);
 	}
 	return block === null ? { allow: true } : { allow: false, message: blockMessage(block, context.root, context.platform) };
 }
